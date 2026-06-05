@@ -106,6 +106,6 @@ New to eSIM? Read these in order — each builds on the last.
 
 *Sources: GSMA SGP.22 v2.2.2 · SGP.32 v1.3 · SGP.31 v1.3*
 
-[View on GitHub](https://github.com/AlexsCodingAgent/esim-knowledge) · eUICC.tech *(domain to be linked)*
+[View on GitHub](https://github.com/AlexsCodingAgent/esim-knowledge) · eUICC.tech *(domain to be linked)* · [🧒 Kid-Friendly Versions](docs/articles/kids/)
 
 </div>
