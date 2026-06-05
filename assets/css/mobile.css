@@ -1,0 +1,39 @@
+/* ── Mobile-responsive tables ── */
+.markdown-body table,
+section table,
+.wrapper table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 640px) {
+  table {
+    font-size: 0.8em;
+  }
+  table th,
+  table td {
+    padding: 4px 8px;
+    white-space: nowrap;
+  }
+}
+
+/* ── Better blockquote callouts ── */
+blockquote {
+  border-left: 3px solid #6a9fb5;
+  background: rgba(106, 159, 181, 0.08);
+  padding: 12px 16px;
+  border-radius: 6px;
+}
+
+/* ── Horizontal rules ── */
+hr {
+  border-color: #30363d;
+  margin: 32px 0;
+}
+
+/* ── Center-aligned divs ── */
+div[align="center"] {
+  margin: 24px 0;
+}
