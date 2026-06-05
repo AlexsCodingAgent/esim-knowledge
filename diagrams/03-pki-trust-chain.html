@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>eSIM PKI Trust Chain</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:'JetBrains Mono',monospace;background:#020617;min-height:100vh;padding:2rem;color:white}.container{max-width:1000px;margin:0 auto}.header{margin-bottom:2rem}.header-row{display:flex;align-items:center;gap:1rem;margin-bottom:.5rem}.pulse-dot{width:12px;height:12px;background:#fb7185;border-radius:50%;animation:pulse 2s infinite}@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}h1{font-size:1.5rem;font-weight:700}.subtitle{color:#94a3b8;font-size:.875rem;margin-left:1.75rem}.diagram-container{background:rgba(15,23,42,.5);border-radius:1rem;border:1px solid #1e293b;padding:1.5rem;overflow-x:auto}svg{width:100%;min-width:900px;display:block}.footer{text-align:center;margin-top:1.5rem;color:#475569;font-size:.75rem}</style></head>
+<body><div class="container">
+<div class="header"><div class="header-row"><div class="pulse-dot"></div><h1>eSIM PKI Trust Chain</h1></div><p class="subtitle">GSMA SGP.22 — Certificate Hierarchy, Mutual Authentication, and Session Keys</p></div>
+<div class="diagram-container">
+<svg viewBox="0 0 1000 620">
+<defs>
+<marker id="arrow-rose" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#fb7185"/></marker>
+<marker id="arrow-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#34d399"/></marker>
+<marker id="arrow-amber" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#fbbf24"/></marker>
+<marker id="arrow-cyan" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#22d3ee"/></marker>
+<pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/></pattern>
+</defs>
+<rect width="100%" height="100%" fill="url(#grid)"/>
+
+<!-- GSMA CI (Root) -->
+<rect x="380" y="40" width="240" height="60" rx="8" fill="rgba(136,19,55,0.45)" stroke="#fb7185" stroke-width="2"/>
+<text x="500" y="68" fill="white" font-size="13" font-weight="600" text-anchor="middle">GSMA Certificate Issuer (CI)</text>
+<text x="500" y="86" fill="#fb7185" font-size="8" text-anchor="middle">Root CA — SK.CI.ECDSA / PK.CI.ECDSA</text>
+
+<!-- EUM Cert -->
+<rect x="100" y="160" width="220" height="55" rx="6" fill="rgba(120,53,15,0.35)" stroke="#fbbf24" stroke-width="1.5"/>
+<text x="210" y="185" fill="white" font-size="11" font-weight="600" text-anchor="middle">CERT.EUM.ECDSA</text>
+<text x="210" y="203" fill="#94a3b8" font-size="8" text-anchor="middle">EUM Certificate (SAS-UP)</text>
+
+<!-- CI → EUM -->
+<line x1="400" y1="100" x2="230" y2="158" stroke="#fb7185" stroke-width="1.5" marker-end="url(#arrow-rose)"/>
+<text x="310" y="135" fill="#fb7185" font-size="8">signs</text>
+
+<!-- SM-DP+ certs -->
+<rect x="420" y="160" width="240" height="55" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+<text x="540" y="185" fill="white" font-size="11" font-weight="600" text-anchor="middle">CERT.DPauth.ECDSA</text>
+<text x="540" y="203" fill="#94a3b8" font-size="8" text-anchor="middle">SM-DP+ Auth (SAS-SM)</text>
+
+<rect x="420" y="230" width="240" height="40" rx="6" fill="rgba(6,78,59,0.25)" stroke="#34d399" stroke-width="1" stroke-dasharray="4,2"/>
+<text x="540" y="248" fill="#64748b" font-size="10" text-anchor="middle">CERT.DPpb.ECDSA (Profile Binding)</text>
+<text x="540" y="262" fill="#475569" font-size="8" text-anchor="middle">CERT.DP.TLS (Transport)</text>
+
+<!-- CI → SM-DP+ -->
+<line x1="480" y1="100" x2="520" y2="158" stroke="#fb7185" stroke-width="1.5" marker-end="url(#arrow-rose)"/>
+<text x="510" y="135" fill="#fb7185" font-size="8">signs</text>
+
+<!-- SM-DS certs -->
+<rect x="720" y="160" width="220" height="55" rx="6" fill="rgba(120,53,15,0.35)" stroke="#fbbf24" stroke-width="1.5"/>
+<text x="830" y="185" fill="white" font-size="11" font-weight="600" text-anchor="middle">CERT.DSauth.ECDSA</text>
+<text x="830" y="203" fill="#94a3b8" font-size="8" text-anchor="middle">SM-DS Auth (SAS-SM)</text>
+
+<!-- CI → SM-DS -->
+<line x1="560" y1="100" x2="780" y2="158" stroke="#fb7185" stroke-width="1.5" marker-end="url(#arrow-rose)"/>
+
+<!-- eUICC Cert -->
+<rect x="100" y="280" width="220" height="55" rx="6" fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="1.5"/>
+<text x="210" y="305" fill="white" font-size="11" font-weight="600" text-anchor="middle">CERT.EUICC.ECDSA</text>
+<text x="210" y="323" fill="#94a3b8" font-size="8" text-anchor="middle">eUICC Certificate (per chip)</text>
+
+<!-- EUM → eUICC -->
+<line x1="210" y1="215" x2="210" y2="278" stroke="#fbbf24" stroke-width="1.5" marker-end="url(#arrow-amber)"/>
+<text x="225" y="245" fill="#fbbf24" font-size="8">signs</text>
+
+<!-- Mutual Authentication Box -->
+<rect x="100" y="380" width="840" height="120" rx="10" fill="rgba(34,211,238,0.05)" stroke="#22d3ee" stroke-width="1.5" stroke-dasharray="8,4"/>
+<text x="120" y="400" fill="#22d3ee" font-size="10" font-weight="600">Mutual Authentication Flow (ECDSA P-256 + SHA-256)</text>
+
+<!-- Auth steps -->
+<rect x="130" y="415" width="180" height="35" rx="6" fill="rgba(6,78,59,0.3)" stroke="#34d399" stroke-width="1"/>
+<text x="220" y="437" fill="white" font-size="9" text-anchor="middle">1. SM-DP+ signs challenge</text>
+<text x="275" y="432" fill="#22d3ee" font-size="12">→</text>
+<rect x="295" y="415" width="250" height="35" rx="6" fill="rgba(76,29,149,0.3)" stroke="#a78bfa" stroke-width="1"/>
+<text x="420" y="437" fill="white" font-size="9" text-anchor="middle">2. eUICC verifies with PK.CI.ECDSA</text>
+<text x="505" y="432" fill="#22d3ee" font-size="12">→</text>
+<rect x="525" y="415" width="250" height="35" rx="6" fill="rgba(76,29,149,0.3)" stroke="#a78bfa" stroke-width="1"/>
+<text x="650" y="437" fill="white" font-size="9" text-anchor="middle">3. eUICC signs with SK.EUICC.ECDSA</text>
+<text x="735" y="432" fill="#22d3ee" font-size="12">→</text>
+<rect x="755" y="415" width="170" height="35" rx="6" fill="rgba(6,78,59,0.3)" stroke="#34d399" stroke-width="1"/>
+<text x="840" y="437" fill="white" font-size="9" text-anchor="middle">4. SM-DP+ verifies</text>
+
+<text x="120" y="485" fill="#94a3b8" font-size="8">Session keys (S-ENC, S-MAC) derived via ECDH key agreement — Perfect Forward Secrecy • LPA is pass-through, cryptographically untrusted</text>
+
+<!-- eIM certs (SGP.32) -->
+<rect x="100" y="535" width="840" height="65" rx="10" fill="rgba(251,146,60,0.05)" stroke="#fb923c" stroke-width="1" stroke-dasharray="6,3"/>
+<text x="120" y="553" fill="#fb923c" font-size="10" font-weight="600">SGP.32 IoT Extension</text>
+<rect x="130" y="563" width="240" height="28" rx="4" fill="rgba(251,146,60,0.2)" stroke="#fb923c" stroke-width="0.8"/>
+<text x="250" y="581" fill="white" font-size="9" text-anchor="middle">CERT.EIM.ECDSA (eIM Signing)</text>
+<rect x="400" y="563" width="240" height="28" rx="4" fill="rgba(251,146,60,0.2)" stroke="#fb923c" stroke-width="0.8"/>
+<text x="520" y="581" fill="white" font-size="9" text-anchor="middle">CERT.EIM.TLS (eIM Transport)</text>
+<rect x="670" y="563" width="250" height="28" rx="4" fill="rgba(251,146,60,0.2)" stroke="#fb923c" stroke-width="0.8"/>
+<text x="795" y="581" fill="white" font-size="9" text-anchor="middle">eIM TLS cert NOT signed by GSMA CI</text>
+
+<p class="footer">Based on GSMA SGP.22 v2.2.2 §2.6 & SGP.32 v1.3 §2.6</p>
+</div></body></html>
