@@ -1,0 +1,153 @@
+/* ══════════════════════════════════════════════
+   Navy Dark Theme — overrides jekyll-theme-midnight
+   ══════════════════════════════════════════════ */
+
+/* ── Body & Background ── */
+body {
+  background: #0a1628 !important;
+  background: linear-gradient(#0d1b2a, #0a1628) fixed !important;
+  color: #c8d6e5 !important;
+}
+
+/* ── Header / Navigation ── */
+#header {
+  background: #060f1a;
+  border-bottom: 1px solid #1b3a5c;
+}
+
+#header nav ul li a {
+  color: #5dade2;
+}
+
+#header nav ul li a:hover {
+  color: #85c1e9;
+}
+
+/* ── Title Area ── */
+#title h1 {
+  color: #e8eef5;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+#title p {
+  color: #85c1e9;
+}
+
+#title .credits {
+  color: #6b7d94;
+}
+
+#title .credits a {
+  color: #5dade2;
+}
+
+/* ── Headings ── */
+h1, h2, h3, h4, h5, h6 {
+  color: #e8eef5 !important;
+}
+
+section h1, section h2 {
+  border-bottom-color: #1b3a5c !important;
+}
+
+/* ── Links ── */
+a {
+  color: #5dade2 !important;
+}
+
+a:hover {
+  color: #85c1e9 !important;
+}
+
+/* ── Blockquotes (callouts) ── */
+blockquote {
+  border-left: 3px solid #4a90d9 !important;
+  background: rgba(93, 173, 226, 0.06) !important;
+  color: #b8cfe0 !important;
+  padding: 12px 18px;
+  border-radius: 6px;
+}
+
+blockquote strong {
+  color: #85c1e9;
+}
+
+/* ── Code ── */
+code {
+  background: rgba(93, 173, 226, 0.12) !important;
+  color: #85c1e9 !important;
+  border-radius: 4px;
+  padding: 0.2em 0.5em;
+}
+
+pre {
+  background: #060f1a !important;
+  border: 1px solid #1b3a5c !important;
+  border-radius: 8px;
+}
+
+pre code {
+  background: transparent !important;
+  color: #c8d6e5 !important;
+}
+
+/* ── Tables ── */
+table {
+  border-collapse: collapse;
+}
+
+th {
+  background: #0d1b2a !important;
+  color: #85c1e9 !important;
+  border-color: #1b3a5c !important;
+}
+
+td {
+  border-color: #1b3a5c !important;
+  color: #c8d6e5 !important;
+}
+
+tr:nth-child(even) td {
+  background: rgba(93, 173, 226, 0.04);
+}
+
+/* ── Horizontal Rules ── */
+hr {
+  background: #1b3a5c !important;
+  border-color: #1b3a5c !important;
+  height: 1px;
+}
+
+/* ── Mobile Responsive Tables ── */
+section table,
+.wrapper table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 640px) {
+  table {
+    font-size: 0.8em;
+  }
+  table th,
+  table td {
+    padding: 4px 8px;
+    white-space: nowrap;
+  }
+}
+
+/* ── Emphasis elements ── */
+strong {
+  color: #e8eef5;
+}
+
+em {
+  color: #85c1e9;
+}
+
+/* ── Footer area ── */
+footer, .credits {
+  color: #5a6d80;
+}
