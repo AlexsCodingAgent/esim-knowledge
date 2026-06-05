@@ -5,7 +5,20 @@ date: 2026-05-29
 
 # How a Profile Gets Delivered: The eSIM Download Process
 
+> **💡 Why this matters:** The profile download is the core transaction in the eSIM ecosystem — it's where the security model proves itself. Understanding the three-phase flow (initiation, mutual authentication, install) is essential for debugging, implementing, or integrating with any RSP component.
+
+> **Key takeaways:**
+> - Profile delivery has three phases: ordering via `ES2+`, mutual authentication via `ES9+`/`ES10b`, and encrypted installation via `ES8+`
+> - Mutual authentication requires the server to prove its identity **first** — the eUICC reveals nothing before verifying the SM-DP+
+> - The profile package goes through four transformation stages: UPP → PPP → BPP → SBPP
+> - Every `ES8+` function call uses SCP03t encryption with Perfect Forward Secrecy session keys
+> - The LPA is a completely passive transport — all security is end-to-end between SM-DP+ and eUICC
+
+---
+
 Downloading an eSIM profile involves a carefully choreographed three-phase dance between the end user, the operator, the SM-DP+, the SM-DS, the LPA, and the eUICC. Here's exactly how it works, protocol step by protocol step.
+
+---
 
 ## Phase 1: Initiation — Making the Order
 
@@ -36,11 +49,13 @@ The Activation Code the user receives is deceptively simple — it's an `LPA:1$`
 
 **Ordering modes:**
 
-| Mode | ES2+ Flow | Use Case |
+| Mode | `ES2+` Flow | Use Case |
 |------|-----------|----------|
-| **Default** | DownloadOrder → ConfirmOrder | Standard postpaid subscription |
-| **Activation Code** | ConfirmOrder only (with MatchingID) | Prepaid / QR code purchase |
-| **SM-DS** | ConfirmOrder + SM-DS address | Push delivery via discovery server |
+| **Default** | `DownloadOrder` → `ConfirmOrder` | Standard postpaid subscription |
+| **Activation Code** | `ConfirmOrder` only (with MatchingID) | Prepaid / QR code purchase |
+| **SM-DS** | `ConfirmOrder` + SM-DS address | Push delivery via discovery server |
+
+---
 
 ## Phase 2: Mutual Authentication — Who Are You?
 
@@ -101,9 +116,11 @@ At this point, the SM-DP+ knows it's talking to a genuine eUICC, and the eUICC k
 - The LPA is a **pass-through** — all cryptographic verification happens on the eUICC itself
 - The TransactionID binds the entire session across multiple function calls
 
+---
+
 ## Phase 3: Profile Download and Installation
 
-With mutual authentication complete, the real work begins. The profile is delivered through a series of ES8+ function calls tunnelled through the LPA.
+With mutual authentication complete, the real work begins. The profile is delivered through a series of `ES8+` function calls tunnelled through the LPA.
 
 ### Step 1: Secure Channel Establishment
 
@@ -111,12 +128,12 @@ With mutual authentication complete, the real work begins. The profile is delive
 SM-DP+ → eUICC (via LPA): ES8+.InitialiseSecureChannel
     Performs ECDH key agreement → generates session keys:
         S-ENC (encryption), S-MAC (integrity), initial MAC chaining value
-    
+
     These session keys provide Perfect Forward Secrecy —
     compromising the SM-DP+'s long-term key cannot expose past downloads.
 ```
 
-The InitialiseSecureChannel block is sent in the clear — integrity and authenticity are ensured by the signatures from the mutual authentication phase.
+The `InitialiseSecureChannel` block is sent in the clear — integrity and authenticity are ensured by the signatures from the mutual authentication phase.
 
 ### Step 2: ISD-P Creation
 
@@ -152,12 +169,13 @@ SM-DP+ → eUICC (via LPA): ES8+.ReplaceSessionKeys
 
 ```
 SM-DP+ → eUICC (via LPA): ES8+.LoadProfileElements (repeated)
-    Streams the profile payload in SCP03t (GlobalPlatform Secure Channel Protocol 03 with transport-friendly encoding)-encrypted segments:
+    Streams the profile payload in SCP03t (GlobalPlatform Secure Channel
+    Protocol 03 with transport-friendly encoding)-encrypted segments:
         - File system
         - Network Access Applications (NAAs)
         - Applets and supplementary security domains
         - Cryptographic keys
-    
+
     The Profile Package Interpreter decodes each Profile Element TLV
     If any element fails, the installation rolls back with a specific error
 ```
@@ -165,6 +183,8 @@ SM-DP+ → eUICC (via LPA): ES8+.LoadProfileElements (repeated)
 ### Step 6: Completion
 
 The ISD-P is sealed, and the Profile transitions to the **Disabled** state. It's now installed on the eUICC but not yet active — the user must explicitly Enable it (or it may auto-enable if it's the only profile).
+
+---
 
 ## Profile Package Stages
 
@@ -179,6 +199,8 @@ The profile data transforms through four stages on its journey from the operator
 
 The BPP is cryptographically bound to one specific eUICC through the key agreement. Even if intercepted, it cannot be installed on any other chip.
 
+---
+
 ## Error Handling
 
 Key examples include:
@@ -192,7 +214,17 @@ Key examples include:
 | `installFailedDueToDataMismatch(13)` | Data integrity check failed |
 | `pprNotAllowed(15)` | Blocked by Profile Policy Rules |
 
-Each error is returned to the SM-DP+ via the ES8+ channel, allowing the SM-DP+ to report installation status back to the operator via ES2+ notifications.
+Each error is returned to the SM-DP+ via the `ES8+` channel, allowing the SM-DP+ to report installation status back to the operator via `ES2+` notifications.
+
+---
+
+## 📋 Summary
+
+- Profile delivery is a three-phase protocol: ordering (`ES2+`), mutual authentication (`ES9+`/`ES10b`), and encrypted installation (`ES8+`)
+- Server-authenticates-first ordering ensures the eUICC never exposes itself to an unverified SM-DP+
+- The profile goes through four packaging stages (UPP → PPP → BPP → SBPP), with the BPP cryptographically bound to one specific chip
+- All `ES8+` communication uses SCP03t with Perfect Forward Secrecy session keys — the LPA sees nothing
+- Fourteen distinct error codes cover every failure mode from ICCID collision to policy rule violations
 
 ---
 

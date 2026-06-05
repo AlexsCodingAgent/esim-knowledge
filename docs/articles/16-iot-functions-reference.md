@@ -5,13 +5,26 @@ date: 2026-06-07
 
 # IoT eSIM Functions Reference: ESipa, ES9+', ES11', ESep
 
-This article catalogues the key functions defined by SGP.32's four IoT-specific interfaces — the API-level reference for anyone implementing an eIM, IPA, or IoT eSIM integration.
+> **💡 Why this matters:** This is the API-level reference for SGP.32's four IoT-specific interfaces — the catalogue you reach for when implementing an `eIM`, `IPA`, or IoT eSIM integration. Every function, its parameters, and its transport binding are listed here so you don't have to grep through 231 pages of specification.
 
-## ESipa — eIM to IPA
+> **Key takeaways:**
+> - `ESipa` is the workhorse: `TransferEimPackage`, `ProvideEimPackageResult`, `IpaEuiccDataRequest`/`Response`, `ProfileDownloadTrigger`, `HandleNotification`, plus Indirect Download relay functions
+> - `ES9+'` mirrors consumer `ES9+` for server-side profile download orchestration by the `eIM`
+> - `ES11'` mirrors consumer `ES11` for server-side SM-DS polling by the `eIM`
+> - `ESep` is logical only — its functions (`EuiccPackageRequest`, `EuiccPackageResult`, `EuiccMemoryReset`, `ExecuteFallbackMechanism`) are embedded within eUICC Packages over `ESipa`
+> - Eight new ES10b extensions (`LoadEuiccPackage`, `AddInitialEimConfiguration`, `ProfileRollback`, etc.) support IoT-specific eUICC operations
+
+This article catalogues the key functions defined by SGP.32's four IoT-specific interfaces — the API-level reference for anyone implementing an `eIM`, `IPA`, or IoT eSIM integration.
+
+---
+
+## `ESipa` — eIM to IPA
 
 The primary IoT interface, carrying eIM Packages, data requests, and notifications.
 
-### TransferEimPackage / ProvideEimPackageResult
+---
+
+### `TransferEimPackage` / `ProvideEimPackageResult`
 
 The bidirectional package exchange. Two modes:
 
@@ -34,9 +47,11 @@ IPA → eIM:  ProvideEimPackageResult {
 eIM → IPA:  Acknowledgements { sequenceNumbers }
 ```
 
-### IpaEuiccDataRequest / IpaEuiccDataResponse
+---
 
-The heartbeat exchange — IPA pushes eUICC state to the eIM.
+### `IpaEuiccDataRequest` / `IpaEuiccDataResponse`
+
+The heartbeat exchange — `IPA` pushes eUICC state to the `eIM`.
 
 ```
 eIM → IPA:  IpaEuiccDataRequest {
@@ -61,9 +76,11 @@ IPA → eIM:  IpaEuiccDataResponse {
             }
 ```
 
-### ProfileDownloadTrigger
+---
 
-Pushes a profile download request to the IPA.
+### `ProfileDownloadTrigger`
+
+Pushes a profile download request to the `IPA`.
 
 ```
 eIM → IPA:  ProfileDownloadTriggerRequest {
@@ -80,7 +97,9 @@ IPA → eIM:  ProfileDownloadTriggerResult {
             }
 ```
 
-### HandleNotification
+---
+
+### `HandleNotification`
 
 Forwards notifications to receivers.
 
@@ -91,9 +110,11 @@ IPA → eIM:  ESipa.HandleNotification {
             }
 ```
 
-### InitiateAuthentication / AuthenticateClient (Indirect Download)
+---
 
-When the eIM proxies profile download authentication:
+### `InitiateAuthentication` / `AuthenticateClient` (Indirect Download)
+
+When the `eIM` proxies profile download authentication:
 
 ```
 IPA → eIM:  ESipa.InitiateAuthentication {
@@ -110,7 +131,9 @@ eIM → SM-DP+: ES9+'.AuthenticateClient (forwarded)
 SM-DP+ → eIM → IPA: ESipa.AuthenticateClient response
 ```
 
-### GetBoundProfilePackage (Indirect Download)
+---
+
+### `GetBoundProfilePackage` (Indirect Download)
 
 ```
 IPA → eIM:  ESipa.GetBoundProfilePackage { transactionId, ... }
@@ -119,37 +142,45 @@ SM-DP+ → eIM → IPA: BoundProfilePackage
 IPA → eUICC: ES10b.LoadBoundProfilePackage (segments)
 ```
 
-## ES9+' — SM-DP+ to eIM
+---
 
-Server-side mirror of consumer ES9+, used exclusively in Indirect profile download.
+## `ES9+'` — SM-DP+ to eIM
+
+Server-side mirror of consumer `ES9+`, used exclusively in Indirect profile download.
 
 | Function | Equivalent to | Purpose |
 |----------|--------------|---------|
-| `InitiateAuthentication` | ES9+.InitiateAuthentication | Starts mutual auth with eUICC (via eIM relay) |
-| `AuthenticateClient` | ES9+.AuthenticateClient | Completes mutual auth |
-| `GetBoundProfilePackage` | ES9+.GetBoundProfilePackage | Downloads BPP for IPA delivery |
-| `HandleNotification` | ES9+.HandleNotification | Receives installation results |
-| `CancelSession` | ES9+.CancelSession | Aborts an in-progress indirect download |
+| `InitiateAuthentication` | `ES9+.InitiateAuthentication` | Starts mutual auth with eUICC (via eIM relay) |
+| `AuthenticateClient` | `ES9+.AuthenticateClient` | Completes mutual auth |
+| `GetBoundProfilePackage` | `ES9+.GetBoundProfilePackage` | Downloads BPP for IPA delivery |
+| `HandleNotification` | `ES9+.HandleNotification` | Receives installation results |
+| `CancelSession` | `ES9+.CancelSession` | Aborts an in-progress indirect download |
 
-These are HTTP/JSON functions (like consumer ES9+), called by the eIM rather than the IPA.
+These are HTTP/JSON functions (like consumer `ES9+`), called by the `eIM` rather than the `IPA`.
 
-## ES11' — SM-DS to eIM
+---
 
-Server-side mirror of ES11, used when the eIM polls the SM-DS on behalf of the IPA.
+## `ES11'` — SM-DS to eIM
+
+Server-side mirror of `ES11`, used when the `eIM` polls the SM-DS on behalf of the `IPA`.
 
 | Function | Purpose |
 |----------|---------|
-| `InitiateAuthentication` | eIM relays SM-DS auth challenge to eUICC via IPA |
-| `AuthenticateClient` | eIM relays eUICC auth response to SM-DS |
-| `RetrieveEventRecords` | eIM downloads Event Records for forwarding to IPA |
+| `InitiateAuthentication` | `eIM` relays SM-DS auth challenge to eUICC via `IPA` |
+| `AuthenticateClient` | `eIM` relays eUICC auth response to SM-DS |
+| `RetrieveEventRecords` | `eIM` downloads Event Records for forwarding to `IPA` |
 
-Same HTTP/JSON binding as ES11, just with the eIM as the HTTP client instead of the IPA.
+Same HTTP/JSON binding as `ES11`, just with the `eIM` as the HTTP client instead of the `IPA`.
 
-## ESep — eIM to eUICC (Logical)
+---
 
-Not a separate wire protocol — ESep functions are embedded within eUICC Packages carried over ESipa.
+## `ESep` — eIM to eUICC (Logical)
 
-### EuiccPackageRequest
+Not a separate wire protocol — `ESep` functions are embedded within eUICC Packages carried over `ESipa`.
+
+---
+
+### `EuiccPackageRequest`
 
 ```
 Signed by eIM (eimSignEpReq using SK.EIM.ECDSA)
@@ -161,7 +192,9 @@ Contains:
     executeFallbackMechanism:
 ```
 
-### EuiccPackageResult
+---
+
+### `EuiccPackageResult`
 
 ```
 Signed by eUICC (euiccSignEPR using SK.EUICC.ECDSA)
@@ -171,7 +204,9 @@ Contains:
     ecoResultList:  Per-eCO results (ok, associationToken, or error)
 ```
 
-### EuiccMemoryReset
+---
+
+### `EuiccMemoryReset`
 
 ```
 Factory-resets the entire eUICC (equivalent to consumer Memory Reset)
@@ -179,16 +214,20 @@ Clears all operational/test profiles, resets eIM configuration
 Provisioning Profiles survive Memory Reset
 ```
 
-### ExecuteFallbackMechanism
+---
+
+### `ExecuteFallbackMechanism`
 
 ```
 eIM → eUICC: Explicitly trigger fallback mechanism
 eUICC: Disables current profile, enables Fallback Profile
 ```
 
-This is the server-side equivalent of the autonomous fallback trigger — used when the eIM detects a connectivity issue and wants to proactively switch the device to its recovery profile.
+This is the server-side equivalent of the autonomous fallback trigger — used when the `eIM` detects a connectivity issue and wants to proactively switch the device to its recovery profile.
 
-## ES10x — IPA to eUICC (SGP.32 Extensions)
+---
+
+## `ES10x` — IPA to eUICC (SGP.32 Extensions)
 
 SGP.32 extends SGP.22's ES10 functions with IoT-specific additions:
 
@@ -203,15 +242,26 @@ SGP.32 extends SGP.22's ES10 functions with IoT-specific additions:
 | `ConfigureImmediateEnable` | ES10b | Pre-authorises immediate enabling for future downloads |
 | `ExecuteFallbackMechanism` | ES10b | Triggered by eUICC Package or autonomously |
 
+---
+
 ## Protocol Binding Summary
 
 | Interface | Transport | Serialisation | Security |
 |-----------|-----------|---------------|----------|
-| ESipa | HTTP/TCP, CoAP/UDP, MQTT, Proprietary | ASN.1 (default) or compact ASN.1 | eIM-signed (eUICC Package) + TLS/DTLS |
-| ES9+' | HTTP/TCP | JSON | CI-authenticated TLS |
-| ES11' | HTTP/TCP | JSON | CI-authenticated TLS |
-| ESep | Tunnelled through ESipa | ASN.1 within eUICC Package | eIM ECDSA signature + eUICC ECDSA signature |
-| ES10x (IoT ext) | ISO 7816 APDUs | ASN.1 TLV | SCP03t (for BPP) / eIM signature (for Packages) |
+| `ESipa` | HTTP/TCP, CoAP/UDP, MQTT, Proprietary | ASN.1 (default) or compact ASN.1 | eIM-signed (eUICC Package) + TLS/DTLS |
+| `ES9+'` | HTTP/TCP | JSON | CI-authenticated TLS |
+| `ES11'` | HTTP/TCP | JSON | CI-authenticated TLS |
+| `ESep` | Tunnelled through `ESipa` | ASN.1 within eUICC Package | eIM ECDSA signature + eUICC ECDSA signature |
+| `ES10x` (IoT ext) | ISO 7816 APDUs | ASN.1 TLV | SCP03t (for BPP) / eIM signature (for Packages) |
+
+---
+
+## 📋 Summary
+
+- `ESipa` carries everything: eIM Packages, data requests, profile download triggers, notifications, and Indirect Download relay
+- `ES9+'` and `ES11'` mirror consumer `ES9+`/`ES11` for server-side orchestration by the `eIM`
+- `ESep` is purely logical — its functions live inside eUICC Packages signed by both `eIM` and eUICC
+- Eight new `ES10b` functions extend the IPA-to-eUICC interface for IoT-specific operations
 
 ---
 

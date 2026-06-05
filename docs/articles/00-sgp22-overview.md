@@ -1,8 +1,19 @@
 # eSIM Remote SIM Provisioning (RSP) — How It Works
 
+> **💡 Why this matters:** SGP.22 is the protocol behind every eSIM download, carrier switch, and multi-profile device on the planet. Understanding it gives you the foundation for everything from consumer eSIM UX to industrial IoT provisioning.
+
+> **Key takeaways:**
+> - RSP lets you securely download operator credentials over the internet into a chip manufactured months earlier by a different company
+> - The system has five players (eUICC, SM-DP+, SM-DS, LPA, Operator) and thirteen interfaces between them
+> - A profile is delivered in three phases: initiation, mutual authentication, and encrypted download
+> - Security relies on a GSMA-rooted PKI with chip-level isolation and forward secrecy
+> - The LPA is an untrusted pass-through — all cryptographic verification happens on the eUICC itself
+
+---
+
 ## What is RSP?
 
-Remote SIM Provisioning (RSP) is the technology that lets you download a mobile plan directly to your device without inserting a physical SIM card. The GSMA specification **SGP.22** defines exactly how this works for consumer devices — phones, tablets, wearables, and laptops.
+**Remote SIM Provisioning** (RSP) is the technology that lets you download a mobile plan directly to your device without inserting a physical SIM card. The GSMA specification **SGP.22** defines exactly how this works for consumer devices — phones, tablets, wearables, and laptops.
 
 At its core, SGP.22 solves one problem: **how do you securely deliver a mobile operator's credentials over the internet into a chip that was manufactured months earlier by someone else?**
 
@@ -31,16 +42,16 @@ SGP.22 defines a system with five key players and thirteen interfaces between th
 
 | Interface | Between | What It Does |
 |-----------|---------|-------------|
-| **ES2+** | Operator → SM-DP+ | Profile ordering and lifecycle |
-| **ES8+** | SM-DP+ → eUICC | Secure end-to-end channel for profile installation |
-| **ES9+** | SM-DP+ → LPA (LPD) | Secure transport for the bound profile package |
-| **ES10a** | LPA (LDS) → eUICC | Profile discovery queries |
-| **ES10b** | LPA (LPD) → eUICC | Profile transfer and authentication |
-| **ES10c** | LPA (LUI) → eUICC | Local profile management (enable, disable, delete) |
-| **ES11** | LPA (LDS) → SM-DS | Event retrieval |
-| **ES12** | SM-DP+ → SM-DS | Event registration and deletion |
-| **ES6** | Operator → eUICC | Post-install OTA management |
-| **ES15** | SM-DS → SM-DS | Cascading between discovery servers |
+| `ES2+` | Operator → SM-DP+ | Profile ordering and lifecycle |
+| `ES8+` | SM-DP+ → eUICC | Secure end-to-end channel for profile installation |
+| `ES9+` | SM-DP+ → LPA (LPD) | Secure transport for the bound profile package |
+| `ES10a` | LPA (LDS) → eUICC | Profile discovery queries |
+| `ES10b` | LPA (LPD) → eUICC | Profile transfer and authentication |
+| `ES10c` | LPA (LUI) → eUICC | Local profile management (enable, disable, delete) |
+| `ES11` | LPA (LDS) → SM-DS | Event retrieval |
+| `ES12` | SM-DP+ → SM-DS | Event registration and deletion |
+| `ES6` | Operator → eUICC | Post-install OTA management |
+| `ES15` | SM-DS → SM-DS | Cascading between discovery servers |
 
 ---
 
@@ -50,7 +61,7 @@ The eUICC is not just storage — it's an active secure platform with a defined 
 
 ### ECASD (eUICC Controlling Authority Security Domain)
 
-The root of trust. Installed at the factory by the eUICC manufacturer (EUM), it holds:
+The root of trust. Installed at the factory by the **EUM** (eUICC Manufacturer), it holds:
 - The eUICC's unique private key and certificate
 - The GSMA Certificate Issuer's public keys (to verify SM-DP+ and SM-DS certificates)
 - The EUM's certificate (proving the chip is genuine)
@@ -59,7 +70,7 @@ The ECASD is never deleted and cannot be modified after manufacturing.
 
 ### ISD-R (Issuer Security Domain — Root)
 
-The profile manager. One per eUICC. It creates ISD-Ps (profile containers), manages their lifecycle, and provides services to the LPA. The ISD-R is the gatekeeper — nothing happens to a profile without it.
+The profile manager. One per eUICC. It creates **ISD-Ps** (profile containers), manages their lifecycle, and provides services to the LPA. The `ISD-R` is the gatekeeper — nothing happens to a profile without it.
 
 ### ISD-P (Issuer Security Domain — Profile)
 
@@ -90,7 +101,7 @@ A Profile can be in one of two states: **Enabled** (selectable by the device, eq
 
 The full process has three major phases.
 
-### Phase 1 — Initiation (ES2+)
+### Phase 1 — Initiation (`ES2+`)
 
 1. You sign up with an operator and provide your EID (eUICC Identifier — a 32-digit number unique to your chip)
 2. The operator calls `ES2+.DownloadOrder` on the SM-DP+ to reserve an ICCID
@@ -98,20 +109,20 @@ The full process has three major phases.
 4. If using SM-DS delivery, the SM-DP+ registers an Event on the SM-DS
 5. You receive an **Activation Code** (a QR code or manual code containing the SM-DP+ address and a Matching ID)
 
-### Phase 2 — Mutual Authentication (ES9+/ES10b)
+### Phase 2 — Mutual Authentication (`ES9+`/`ES10b`)
 
 This is where the security happens. The device and the SM-DP+ prove to each other that they are who they claim to be.
 
 1. **LPA requests an eUICC Challenge** — a random number generated by the chip
-2. **LPA calls ES9+.InitiateAuthentication** — sends the challenge, the eUICC's info, and the SM-DP+ address to the server
+2. **LPA calls `ES9+.InitiateAuthentication`** — sends the challenge, the eUICC's info, and the SM-DP+ address to the server
 3. **SM-DP+ responds** with a signed message containing its own challenge, its certificate, and a Transaction ID
-4. **LPA passes this to the eUICC** via `ES10b.AuthenticateServer` — the chip verifies the SM-DP+'s certificate chain (CERT.DPauth.ECDSA → CI → root) and the signature
-5. **eUICC signs the server's challenge** with its own private key and returns its certificate chain (CERT.EUICC.ECDSA → CERT.EUM.ECDSA → CI)
+4. **LPA passes this to the eUICC** via `ES10b.AuthenticateServer` — the chip verifies the SM-DP+'s certificate chain (`CERT.DPauth.ECDSA` → CI → root) and the signature
+5. **eUICC signs the server's challenge** with its own private key and returns its certificate chain (`CERT.EUICC.ECDSA` → `CERT.EUM.ECDSA` → CI)
 6. **LPA sends this back** via `ES9+.AuthenticateClient` — the SM-DP+ verifies the eUICC is genuine
 
 At this point, both sides are authenticated. The SM-DP+ knows it's talking to a genuine eUICC, and the eUICC knows it's talking to an authorised SM-DP+.
 
-### Phase 3 — Profile Download and Installation (ES8+/ES9+)
+### Phase 3 — Profile Download and Installation (`ES8+`/`ES9+`)
 
 1. The SM-DP+ generates a one-time symmetric key pair specifically for this transaction
 2. The SM-DP+ calls `ES8+.InitialiseSecureChannel` — establishes an end-to-end encrypted channel directly between the SM-DP+ and the eUICC's ISD-P (the LPA cannot see inside)
@@ -141,9 +152,9 @@ GSMA CI (root)
 **Key security properties:**
 
 - **Isolation** — Profiles are in separate ISD-Ps with GlobalPlatform-level isolation. No profile can access another's keys or data.
-- **Forward secrecy** — ES8+ provides Perfect Forward Secrecy via ephemeral session keys. Compromising the SM-DP+'s long-term key doesn't expose past profile downloads.
+- **Forward secrecy** — `ES8+` provides **Perfect Forward Secrecy** via ephemeral session keys. Compromising the SM-DP+'s long-term key doesn't expose past profile downloads.
 - **Binding** — Profiles are cryptographically bound to a specific eUICC. The SM-DP+ encrypts the profile with a key derived from the eUICC's unique public key.
-- **Certificate revocation** — CRLs (Certificate Revocation Lists) can be loaded onto the eUICC to blacklist compromised certificates.
+- **Certificate revocation** — **CRLs** (Certificate Revocation Lists) can be loaded onto the eUICC to blacklist compromised certificates.
 
 ---
 
@@ -164,7 +175,7 @@ The spec also defines **Profile Policy Rules** — for example, a rule can preve
 
 ## Activation Codes in Practice
 
-When you scan an eSIM QR code, you're reading an **Activation Code** — an LPA:1 format string:
+When you scan an eSIM QR code, you're reading an **Activation Code** — an `LPA:1` format string:
 
 ```
 LPA:1$SMDP_ADDRESS$MATCHING_ID
@@ -174,11 +185,13 @@ That's it. The device extracts the SM-DP+ URL and the Matching ID, then begins t
 
 ---
 
-## Why This Matters
+## 📋 Summary
 
-SGP.22 is what makes eSIM work. Every time you switch carriers without visiting a shop, every time your Apple Watch shares your phone's number, every time a factory-provisioned IoT device connects to a network — SGP.22 is the protocol making it happen.
-
-The specification is vast (268 pages in v2.2.2) and extends into ASN.1 definitions, CRL formats, JSON/HTTP binding rules, GlobalPlatform privilege tables, and test profiles. But the core model is elegant: a tamper-resistant chip, a trusted profile factory, a discovery service, and a local assistant — all authenticated through a shared PKI, delivering encrypted operator credentials over the public internet.
+- **RSP** is the technology behind eSIM — it replaces physical SIM cards with a secure over-the-internet credential delivery protocol
+- Five actors (eUICC, SM-DP+, SM-DS, LPA, Operator) interact across thirteen standardised interfaces to order, discover, deliver, and manage profiles
+- Three delivery phases — initiation via `ES2+`, mutual authentication via `ES9+`/`ES10b`, and encrypted download via `ES8+` — ensure end-to-end security on untrusted transport
+- A GSMA-rooted PKI with hardware-level isolation and perfect forward secrecy makes the system resilient even against compromised intermediaries
+- The specification is vast (268 pages in v2.2.2), but the core model is elegant and consistent throughout
 
 ---
 

@@ -3,13 +3,37 @@ title: eSIM RSP Knowledge Base
 layout: default
 ---
 
-# eUICC.tech — GSMA eSIM RSP Deep Dives
+<div align="center">
 
-In-depth technical articles on GSMA eSIM Remote SIM Provisioning, built from primary source specifications SGP.22, SGP.31, and SGP.32.
+# 🔐 eUICC.tech
+
+### Deep Dives Into GSMA eSIM Remote SIM Provisioning
+
+*Built from primary source specifications SGP.22, SGP.31, and SGP.32*
+
+</div>
 
 ---
 
-## SGP.22 — Consumer eSIM RSP
+## 🚀 Start Here
+
+New to eSIM? Read these in order — each builds on the last.
+
+| # | Article | What You'll Learn |
+|---|---------|-------------------|
+| 1 | [Overview: The eSIM RSP Technical Specification](articles/00-sgp22-overview) | The big picture — what RSP is, who the players are, how the interfaces connect |
+| 2 | [The eSIM RSP Architecture: Players and Interfaces](articles/01-rsp-architecture) | Deep dive into all 5 entities and 13 interfaces, trust flows, deployment models |
+| 3 | [Inside the eUICC: The Secure Element That Powers Your eSIM](articles/02-inside-the-euicc) | ISD-R, ISD-P, ECASD, Profile Policy Enabler — the chip's internal architecture |
+| 4 | [How a Profile Gets Delivered: The eSIM Download Process](articles/03-profile-download) | The full 3-phase download: initiation, authentication, installation — step by step |
+| 5 | [eSIM Security: The PKI and Certificate Model](articles/04-esim-security-pki) | ECDSA, ECDH, certificate chains, revocation — how eSIM prevents man-in-the-middle |
+| 6 | [Managing Your eSIM: Local Profile Operations](articles/05-local-profile-management) | Enable, disable, delete, rename — what the LPA does after profiles are installed |
+| 7 | [The Developer's View: RSP Interfaces and Protocol Binding](articles/06-developer-interfaces) | ASN.1 structures, HTTPS/ES8+/ES9+ bindings, the developer-facing side |
+
+---
+
+## 📱 SGP.22 — Consumer eSIM RSP
+
+*Phones, tablets, wearables, laptops — the eSIM you use every day.*
 
 | Article | Date |
 |---------|------|
@@ -21,7 +45,11 @@ In-depth technical articles on GSMA eSIM Remote SIM Provisioning, built from pri
 | [Managing Your eSIM: Local Profile Operations](articles/05-local-profile-management) | 2026-06-03 |
 | [The Developer's View: RSP Interfaces and Protocol Binding](articles/06-developer-interfaces) | 2026-06-05 |
 
-## SGP.32 / SGP.31 — IoT eSIM RSP
+---
+
+## 🤖 SGP.32 / SGP.31 — IoT eSIM RSP
+
+*NB-IoT, LTE-M, sensors, trackers — eSIM for things that have no screen.*
 
 | Article | Date |
 |---------|------|
@@ -36,15 +64,48 @@ In-depth technical articles on GSMA eSIM Remote SIM Provisioning, built from pri
 | [SM-DS Operations in IoT eSIM](articles/15-iot-smsds-operations) | 2026-06-06 |
 | [IoT eSIM Functions Reference: ESipa, ES9+', ES11', ESep](articles/16-iot-functions-reference) | 2026-06-07 |
 
-## Architecture Diagrams
+---
 
-- [RSP Architecture Overview](diagrams/01-rsp-architecture.html)
-- [eUICC Internal Architecture](diagrams/02-euicc-internals.html)
-- [PKI Trust Chain](diagrams/03-pki-trust-chain.html)
-- [IoT Architecture — eIM + IPA](diagrams/04-iot-architecture.html)
-- [Profile Download Sequence](diagrams/05-profile-download-sequence.html)
-- [Profile Package Stages](diagrams/06-profile-package-stages.html)
+## 🎨 Architecture Diagrams
+
+*Dark-themed SVG diagrams — open in any browser.*
+
+| Diagram | What It Shows |
+|---------|---------------|
+| [RSP Architecture Overview](diagrams/01-rsp-architecture.html) | All 5 entities, 13 interfaces, trust relationships |
+| [eUICC Internal Architecture](diagrams/02-euicc-internals.html) | ISD-R, ISD-P, ECASD, security domains, profile isolation |
+| [PKI Trust Chain](diagrams/03-pki-trust-chain.html) | CI → EUM → eUICC certificate hierarchy |
+| [IoT Architecture — eIM + IPA](diagrams/04-iot-architecture.html) | The SGP.32 ecosystem: eIM, IPA, SM-DP+, new interfaces |
+| [Profile Download Sequence](diagrams/05-profile-download-sequence.html) | Full message flow: activation → auth → install |
+| [Profile Package Stages](diagrams/06-profile-package-stages.html) | How a profile moves from operator → SM-DP+ → eUICC |
 
 ---
 
-*Sources: GSMA SGP.22 v2.2.2, SGP.32 v1.3, SGP.31 v1.3*
+## 📚 Key Concepts
+
+| Concept | Quick Explanation |
+|---------|-------------------|
+| **eUICC** | The tamper-resistant chip that holds profiles — not just storage, a full Java Card OS |
+| **Profile** | One operator's credentials inside an eUICC — equivalent to one physical SIM |
+| **ISD-P** | Issuer Security Domain — Profile — the container for each profile inside the eUICC |
+| **ISD-R** | Issuer Security Domain — Root — the profile manager on the chip |
+| **ECASD** | eUICC Controlling Authority Security Domain — the root of trust, holds CI public keys |
+| **SM-DP+** | Subscription Manager Data Preparation — builds and encrypts profiles |
+| **SM-DS** | Subscription Manager Discovery Server — notifies devices of pending profiles |
+| **LPA** | Local Profile Assistant — the on-device software that orchestrates downloads |
+| **eIM** | eSIM IoT Remote Manager — the remote entity that manages IoT device profiles |
+| **IPA** | IoT Profile Assistant — the stripped‑down on‑device proxy for IoT devices |
+| **PSMO** | Profile State Management Operation — remote enable/disable/delete (IoT only) |
+| **ECDSA** | Elliptic Curve Digital Signature Algorithm — P‑256, used for mutual authentication |
+| **ECDH** | Elliptic Curve Diffie‑Hellman — ephemeral key exchange for Perfect Forward Secrecy |
+| **CRL** | Certificate Revocation List — how compromised certificates are invalidated |
+
+---
+
+<div align="center">
+
+*Sources: GSMA SGP.22 v2.2.2 · SGP.32 v1.3 · SGP.31 v1.3*
+
+[View on GitHub](https://github.com/AlexsCodingAgent/esim-knowledge) · [eUICC.tech](https://euicc.tech) *(domain to be linked)*
+
+</div>

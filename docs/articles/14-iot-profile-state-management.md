@@ -5,7 +5,18 @@ date: 2026-06-05
 
 # Profile State Management via the eIM: Remote Enable, Disable, Delete
 
-In consumer eSIM, you tap "Enable" in Settings. In IoT, a server sends a signed binary blob across the internet and the eUICC executes it without any human involvement. This article covers the full lifecycle of PSMO (Profile State Management Operations) as executed through the eIM Package protocol.
+> **💡 Why this matters:** In consumer eSIM, you tap "Enable" in Settings. In IoT, a server sends a signed binary blob across the internet and the eUICC executes it without any human involvement — then cryptographically proves it did so. This article covers the full lifecycle of PSMO (Profile State Management Operations), the mechanism that makes fleet-scale remote profile control possible.
+
+> **Key takeaways:**
+> - All PSMOs follow the same pattern: `eIM` signs → `IPA` delivers → eUICC verifies → executes → signs result → `IPA` returns
+> - Six PSMO types: Enable, Disable, Delete, Rollback, SetFallbackAttribute, UnsetFallbackAttribute
+> - Each PSMO validates preconditions (profile state, Policy Rules) before execution
+> - Rollback provides safety net when the `IPA` loses connectivity after executing a PSMO
+> - Immediate Profile Enabling allows first-boot provisioning in a single flow without extra eIM round trips
+
+In consumer eSIM, you tap "Enable" in Settings. In IoT, a server sends a signed binary blob across the internet and the eUICC executes it without any human involvement. This article covers the full lifecycle of **PSMO (Profile State Management Operations)** as executed through the eIM Package protocol.
+
+---
 
 ## The PSMO Model
 
@@ -30,6 +41,8 @@ eUICC generates signed EuiccPackageResult
     ↓
 IPA → eIM: Delivers result
 ```
+
+---
 
 ## Enable Profile
 
@@ -58,6 +71,8 @@ After eUICC Package execution (in 3.3.1 Generic flow):
 
 **Result codes:** `ok(0)`, `iccidOrAidNotFound(1)`, `profileNotInDisabledState(2)`, `disablingNotAllowed(3)`, `pprNotAllowed(4)`
 
+---
+
 ## Disable Profile
 
 Deactivating a profile without deleting it.
@@ -81,6 +96,8 @@ After execution:
 ```
 
 **Result codes:** `ok(0)`, `iccidOrAidNotFound(1)`, `profileNotInEnabledState(2)`, `pprNotAllowed(4)`
+
+---
 
 ## Delete Profile
 
@@ -109,6 +126,8 @@ After execution:
 
 **Result codes:** `ok(0)`, `iccidOrAidNotFound(1)`, `profileNotInDisabledState(2)`, `pprNotAllowed(4)`
 
+---
+
 ## Rollback Profile
 
 A safety mechanism for connectivity-loss scenarios.
@@ -132,11 +151,13 @@ IPA:
 
 Rollback is only valid if the PSMO execution recorded "Rollback Mechanism usage is allowed."
 
+---
+
 ## Fallback Attribute Management
 
 Two additional PSMOs manage the eUICC's autonomous safety net:
 
-### SetFallbackAttribute
+### `SetFallbackAttribute`
 
 Designates a profile as the fallback — the one the eUICC enables if connectivity is lost.
 
@@ -149,7 +170,9 @@ Restrictions:
 Error: fallbackProfileEnabled(3) if you try to set fallback on the currently enabled profile
 ```
 
-### UnsetFallbackAttribute
+---
+
+### `UnsetFallbackAttribute`
 
 Removes the fallback designation.
 
@@ -158,9 +181,11 @@ Error: noFallbackAttribute(2) if no fallback is set
 Error: fallbackProfileEnabled(3) if the fallback profile is currently enabled
 ```
 
+---
+
 ## Immediate Profile Enabling
 
-A special SGP.32 feature: after a profile download from the **default SM-DP+**, the IPA can request immediate enabling without going through a separate eIM Package PSMO cycle.
+A special SGP.32 feature: after a profile download from the **default SM-DP+**, the `IPA` can request immediate enabling without going through a separate eIM Package PSMO cycle.
 
 ```
 After profile installation:
@@ -176,13 +201,17 @@ Configuration:
 
 This is used for "first boot" provisioning — download the profile and activate it in one flow, without the latency of an additional eIM round trip.
 
+---
+
 ## Configuring Immediate Profile Enabling
 
-The eIM can pre-configure whether downloaded profiles should be immediately enabled:
+The `eIM` can pre-configure whether downloaded profiles should be immediately enabled:
 
-**By eIM:** `ES10b.ConfigureImmediateEnable(eIM-signed)` — the eIM sends this as a standalone configuration command outside the PSMO framework.
+**By eIM:** `ES10b.ConfigureImmediateEnable(eIM-signed)` — the `eIM` sends this as a standalone configuration command outside the PSMO framework.
 
-**By IPA:** The IPA can independently set this via `ES10b.ConfigureImmediateEnable(IPA-initiated)` during the profile download flow. The IPA typically does this when it knows the current profile is a provisioning profile that should be replaced immediately.
+**By IPA:** The `IPA` can independently set this via `ES10b.ConfigureImmediateEnable(IPA-initiated)` during the profile download flow. The `IPA` typically does this when it knows the current profile is a provisioning profile that should be replaced immediately.
+
+---
 
 ## Profile State Management Error Codes (Complete)
 
@@ -200,6 +229,15 @@ The eIM can pre-configure whether downloaded profiles should be immediately enab
 | `commandError` | 7 | UnsetFallback, eCOs |
 | `profileChangeOngoing` | 11 | GetProfilesInfo |
 | `undefinedError` | 127 | All |
+
+---
+
+## 📋 Summary
+
+- All PSMOs follow a uniform signed-package flow: `eIM` signs → eUICC verifies → executes → signs result
+- Six PSMO types cover enable, disable, delete, rollback, and fallback attribute management
+- Precondition checks (profile state, Policy Rules) gate every operation before the REFRESH cycle
+- Rollback and Immediate Profile Enabling provide safety and efficiency for the two most common IoT edge cases
 
 ---
 

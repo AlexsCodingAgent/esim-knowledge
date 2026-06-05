@@ -5,11 +5,24 @@ date: 2026-05-24
 
 # The eSIM RSP Architecture: Players and Interfaces
 
+> **💡 Why this matters:** Every eSIM interaction — scanning a QR code, switching carriers, provisioning a factory-fresh IoT device — flows through this architecture. Knowing the five players and thirteen interfaces is the map you need before diving into any protocol detail.
+
+> **Key takeaways:**
+> - SGP.22 defines five roles: eUICC, SM-DP+, SM-DS, LPA, and Operator (MNO)
+> - Thirteen standardised interfaces connect these players, each with a specific security model
+> - The LPA is **not cryptographically trusted** — it's a messenger between authenticated endpoints
+> - There are two deployment models: LPAd (LPA in device) and LPAe (LPA in eUICC)
+> - Trust flows strictly through the GSMA CI root, with clear separation between availability and confidentiality
+
+---
+
 ## What Makes eSIM Different
 
-A physical SIM card is straightforward — the operator programs a chip, you insert it, done. The GSMA's **Remote SIM Provisioning (RSP)** specification for consumer devices (SGP.22) replaces that physical step with a cryptographic protocol that delivers operator credentials over the internet into a chip that was manufactured months earlier, by a different company, in a different country.
+A physical SIM card is straightforward — the operator programs a chip, you insert it, done. The GSMA's **Remote SIM Provisioning** (RSP) specification for consumer devices (SGP.22) replaces that physical step with a cryptographic protocol that delivers operator credentials over the internet into a chip that was manufactured months earlier, by a different company, in a different country.
 
 The architecture defines five key roles and thirteen interfaces between them. Understanding who does what — and who trusts whom — is the foundation for understanding the entire system.
+
+---
 
 ## The Five Players
 
@@ -37,25 +50,29 @@ The LPA can run either in the Device (**LPAd**) or inside the eUICC itself (**LP
 
 ### Operator (MNO)
 
-The mobile network operator. Orders Profiles from the SM-DP+, manages them post-install via OTA (Over-The-Air) through the ES6 interface, and handles the business relationship with the end user.
+The mobile network operator. Orders Profiles from the SM-DP+, manages them post-install via OTA (Over-The-Air) through the `ES6` interface, and handles the business relationship with the end user.
+
+---
 
 ## The Thirteen Interfaces
 
 | Interface | Between | Purpose |
 |-----------|---------|---------|
-| **ES2+** | Operator → SM-DP+ | Profile ordering, confirmation, cancellation |
-| **ES6** | Operator → eUICC | Post-install OTA management of Operator services |
-| **ES8+** | SM-DP+ ↔ eUICC (via LPA) | Secure end-to-end channel for profile installation (Perfect Forward Secrecy) |
-| **ES9+** | SM-DP+ → LPA (LPD) | Secure transport for the Bound Profile Package |
-| **ES10a** | LPA (LDS) → eUICC | eUICC info retrieval, SM-DS/DP address config, and discovery queries |
-| **ES10b** | LPA (LPD) → eUICC | Profile transfer, authentication, challenge generation |
-| **ES10c** | LPA (LUI) → eUICC | Local profile management: enable, disable, delete, rename |
-| **ES11** | LPA (LDS) → SM-DS | Event retrieval for the respective eUICC |
-| **ES12** | SM-DP+ → SM-DS | Event registration and deletion |
-| **ES15** | SM-DS → SM-DS | Cascading between discovery servers |
-| **ESop** | Operator → End User | Business interface (out of scope for SGP.22) |
-| **ESeu** | End User → LUI | User-initiated local profile management (out of scope) |
-| **ESci** | CI → SM-DP+/SM-DS/EUM | Certificate issuance and CRL retrieval |
+| `ES2+` | Operator → SM-DP+ | Profile ordering, confirmation, cancellation |
+| `ES6` | Operator → eUICC | Post-install OTA management of Operator services |
+| `ES8+` | SM-DP+ ↔ eUICC (via LPA) | Secure end-to-end channel for profile installation (Perfect Forward Secrecy) |
+| `ES9+` | SM-DP+ → LPA (LPD) | Secure transport for the Bound Profile Package |
+| `ES10a` | LPA (LDS) → eUICC | eUICC info retrieval, SM-DS/DP address config, and discovery queries |
+| `ES10b` | LPA (LPD) → eUICC | Profile transfer, authentication, challenge generation |
+| `ES10c` | LPA (LUI) → eUICC | Local profile management: enable, disable, delete, rename |
+| `ES11` | LPA (LDS) → SM-DS | Event retrieval for the respective eUICC |
+| `ES12` | SM-DP+ → SM-DS | Event registration and deletion |
+| `ES15` | SM-DS → SM-DS | Cascading between discovery servers |
+| `ESop` | Operator → End User | Business interface (out of scope for SGP.22) |
+| `ESeu` | End User → LUI | User-initiated local profile management (out of scope) |
+| `ESci` | CI → SM-DP+/SM-DS/EUM | Certificate issuance and CRL retrieval |
+
+---
 
 ## Trust Flows
 
@@ -64,8 +81,10 @@ The architecture establishes clear trust boundaries:
 1. **The eUICC trusts the GSMA CI** (Certificate Issuer) — the root of the PKI. The CI's public keys are burned into the ECASD during manufacturing.
 2. **The SM-DP+ proves its identity** to the eUICC by presenting a certificate signed by the CI.
 3. **The eUICC proves its identity** to the SM-DP+ using its own certificate, signed by the EUM, whose certificate is also signed by the CI.
-4. **The LPA is not cryptographically trusted** — it merely transports messages between the SM-DP+ and the eUICC. The ES8+ channel provides end-to-end encryption that the LPA cannot decrypt.
+4. **The LPA is not cryptographically trusted** — it merely transports messages between the SM-DP+ and the eUICC. The `ES8+` channel provides end-to-end encryption that the LPA cannot decrypt.
 5. **The SM-DS is trusted for availability**, not confidentiality. It stores non-sensitive pointers, not profile data.
+
+---
 
 ## Two Deployment Models
 
@@ -76,6 +95,16 @@ SGP.22 supports two architectural models for where the LPA lives:
 **LPAe (LPA in eUICC):** The LPA runs inside the eUICC itself, using either CAT (Card Application Toolkit) or SCWS (Smart Card Web Server). This model is used in constrained devices where the host device has limited capability — think IoT sensors, automotive modules, or wearables.
 
 A device that supports a non-removable eUICC without an LPAe must provide an LPAd. An eUICC compliant with this specification must implement the LPA Services and may optionally implement the LPAe.
+
+---
+
+## 📋 Summary
+
+- The RSP ecosystem has exactly five roles — knowing who does what (and who trusts whom) unlocks every protocol interaction
+- All thirteen interfaces are standardised, with `ES8+` providing the cryptographically critical end-to-end secure channel
+- The LPA is explicitly untrusted by design — it's a transport layer, not a security boundary
+- Two deployment models (`LPAd` and `LPAe`) cover everything from smartphones to headless IoT devices
+- Trust always chains back to the GSMA CI root — no exceptions
 
 ---
 
