@@ -9,7 +9,7 @@ title: "eSIM Explained for Kids — eUICC.tech"
 
 [📖 **Read the Illustrated Storybook →**](storybook.html)
 
-[📚 **Browse All 17 Storybooks →**](storybooks.html)
+[📚 **Browse All 17 Storybooks →**](storybooks)
 
 ---
 
