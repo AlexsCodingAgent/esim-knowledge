@@ -24,23 +24,9 @@ This article explains how the Public Key Infrastructure (PKI) makes this possibl
 
 ## The Trust Chain
 
-Every entity in the RSP ecosystem ultimately trusts the **GSMA Certificate Issuer (CI)**. The CI is the root Certificate Authority — it signs the certificates of EUMs, SM-DP+ providers, and SM-DS providers.
+Every entity in the RSP ecosystem ultimately trusts the **GSMA Certificate Issuer (CI)**. The CI is the root Certificate Authority — it signs the certificates of EUMs, SM-DP+ providers, and SM-DS providers. The full trust chain is shown below:
 
-```
-                    GSMA Certificate Issuer (CI)
-                    │  Private Key: SK.CI.ECDSA
-                    │  Public Key: PK.CI.ECDSA (stored in every eUICC's ECASD)
-                    │
-        ┌───────────┼───────────┬──────────────────┐
-        │           │           │                  │
-        ▼           ▼           ▼                  ▼
-    EUM Cert    DP auth cert  DP TLS cert      DS auth cert
-    (CERT.EUM)  (CERT.DPauth) (CERT.DP.TLS)   (CERT.DSauth)
-        │
-        ▼
-    eUICC Cert
-    (CERT.EUICC)
-```
+<img src="../diagrams/03-pki-trust-chain.svg" alt="PKI trust chain: CI root → EUM → eUICC plus CI → DP/DS auth + TLS certificates, with mutual authentication flow" style="width:100%;max-width:800px;display:block;margin:20px auto;border-radius:8px;">
 
 **Key constraint:** Every certificate in the system must have its trust chain leading back to the same GSMA CI certificate. No cross-signing between CIs, no alternative trust roots.
 

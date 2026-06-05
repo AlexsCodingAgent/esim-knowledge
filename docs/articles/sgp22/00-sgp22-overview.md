@@ -138,16 +138,9 @@ The entire profile package is encrypted specifically for the target eUICC — it
 
 ## The Security Model
 
-SGP.22's security relies on a **Public Key Infrastructure** (PKI) rooted in the GSMA Certificate Issuer:
+The entire eSIM security model is rooted in the GSMA's RSP architecture, which defines five key players and thirteen interfaces across the ecosystem:
 
-```
-GSMA CI (root)
-├── CERT.EUM.ECDSA → CERT.EUICC.ECDSA    (chip authenticity)
-├── CERT.DPauth.ECDSA                    (SM-DP+ authenticity)
-├── CERT.DSauth.ECDSA                    (SM-DS authenticity)
-├── CERT.DPpb.ECDSA                      (profile binding key)
-└── CERT.DP.TLS / CERT.DS.TLS            (transport encryption)
-```
+<img src="../diagrams/01-rsp-architecture.svg" alt="RSP Architecture: five entities and thirteen interfaces" style="width:100%;max-width:800px;display:block;margin:20px auto;border-radius:8px;">
 
 **Key security properties:**
 

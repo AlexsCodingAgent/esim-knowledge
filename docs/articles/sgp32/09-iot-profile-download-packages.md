@@ -24,18 +24,7 @@ The `IPA` handles the download directly with the SM-DP+. Two triggers exist:
 
 ### Triggered by eIM with Activation Code
 
-```
-eIM → IPA:      Sends Activation Code (via ESipa)
-IPA:            Parses AC, identifies SM-DP+ address
-IPA ↔ SM-DP+:   Establishes secure connection (TLS or DTLS)
-eUICC ↔ SM-DP+: Mutual Authentication (relayed by IPA)
-SM-DP+:         Eligibility check → Bound Profile Package generation
-SM-DP+ → eUICC: Profile Download (ES8+ tunneled through IPA)
-eUICC:          Profile Installation
-eUICC → eIM:    Installation Report
-eUICC → SM-DP+: Installation Report
-SM-DP+ → Operator: Installation Report
-```
+<img src="../diagrams/06-profile-package-stages.svg" alt="Profile package stages and download flow" style="width:100%;max-width:800px;display:block;margin:20px auto;border-radius:8px;">
 
 The Activation Code is pushed from the operator's backend to the `eIM` — no QR code, no user. The `IPA`'s job is to identify the SM-DP+ from the AC and relay the `ES8+` messages.
 
@@ -46,24 +35,10 @@ The Activation Code is pushed from the operator's backend to the `eIM` — no QR
 Two options exist for who retrieves the Event Record:
 
 **Option A — IPA polls SM-DS:**
-```
-eIM → IPA:      Trigger connection to SM-DS (via ESipa)
-IPA → eUICC:    Request mutual auth info
-IPA ↔ SM-DS:    ES11 secure connection + mutual auth
-SM-DS → IPA:    Event Record
-IPA:            Extract SM-DP+ address from Event Record
-...             Continue with Direct Download to SM-DP+
-```
+<img src="../diagrams/06-profile-package-stages.svg" alt="Profile package stages and download flow" style="width:100%;max-width:800px;display:block;margin:20px auto;border-radius:8px;">
 
 **Option B — eIM polls SM-DS:**
-```
-eIM → IPA:      Request mutual auth info from eUICC (via ESipa)
-eIM ↔ SM-DS:    ES11' secure connection + mutual auth
-SM-DS → eIM:    Event Record
-eIM → IPA:      Forward Event Record (via ESipa)
-IPA:            Extract SM-DP+ address
-...             Continue with Direct Download to SM-DP+
-```
+<img src="../diagrams/06-profile-package-stages.svg" alt="Profile package stages and download flow" style="width:100%;max-width:800px;display:block;margin:20px auto;border-radius:8px;">
 
 Option B is designed for **Network Constrained Devices** — devices on LPWA networks where the airtime cost of polling the SM-DS directly would be prohibitive. The `eIM` does the heavy lifting on the server side, where bandwidth is free.
 
@@ -77,17 +52,7 @@ In Indirect mode, the `eIM` handles the entire SM-DP+ interaction. The `IPA` nev
 - The `eIM` acts as a security gateway, terminating TLS and re-encrypting
 - The device uses a non-IP protocol that only the `eIM` understands
 
-```
-eIM ↔ SM-DP+:   Mutual auth + Profile Download (ES9+')
-                The eIM downloads the Bound Profile Package
-
-eIM → IPA:      ProfileDownloadTriggerRequest (contains BPP)
-IPA → eUICC:    ES10b.LoadBoundProfilePackage (segments)
-
-eUICC:          Profile Installation
-
-eUICC → IPA → eIM: Installation Report
-```
+<img src="../diagrams/06-profile-package-stages.svg" alt="Profile package stages and download flow" style="width:100%;max-width:800px;display:block;margin:20px auto;border-radius:8px;">
 
 The `eIM` can also cancel an in-progress Indirect session using `CancelSession`, which propagates to both the SM-DP+ and the eUICC.
 
@@ -193,22 +158,7 @@ Both the eUICC Package and the IPA level have structured error codes:
 
 Between eIM operations, the `IPA` and `eIM` synchronise:
 
-```
-eIM → IPA:      IpaEuiccDataRequest
-                   "Give me pending notifications, eUICC info,
-                    default SM-DP+ address, and any queued
-                    eUICC Package Results"
-
-IPA → eUICC:    ES10a.GetEuiccConfiguredAddresses
-                ES10b.GetEUICCInfo
-                ES10b.ListNotification
-
-IPA → eIM:      IpaEuiccDataResponse
-                   notificationsList, defaultSmdpAddress,
-                   euiccPackageResultList, euiccInfo1/2,
-                   rootSmdsAddress, eumCertificate,
-                   euiccCertificate, ipaCapabilities
-```
+<img src="../diagrams/06-profile-package-stages.svg" alt="Profile package stages and download flow" style="width:100%;max-width:800px;display:block;margin:20px auto;border-radius:8px;">
 
 This is the heartbeat of the IoT eSIM system — the `IPA` periodically fetches state from the eUICC and delivers it to the `eIM`, along with any pending results from previous operations. The `eIM` uses this data to decide what to do next.
 

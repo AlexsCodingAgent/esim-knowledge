@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>eSIM PKI Trust Chain</title>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:'JetBrains Mono',monospace;background:#020617;min-height:100vh;padding:2rem;color:white}.container{max-width:1000px;margin:0 auto}.header{margin-bottom:2rem}.header-row{display:flex;align-items:center;gap:1rem;margin-bottom:.5rem}.pulse-dot{width:12px;height:12px;background:#fb7185;border-radius:50%;animation:pulse 2s infinite}@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}h1{font-size:1.5rem;font-weight:700}.subtitle{color:#94a3b8;font-size:.875rem;margin-left:1.75rem}.diagram-container{background:rgba(15,23,42,.5);border-radius:1rem;border:1px solid #1e293b;padding:1.5rem;overflow-x:auto}svg{width:100%;min-width:900px;display:block}.footer{text-align:center;margin-top:1.5rem;color:#475569;font-size:.75rem}</style></head>
-<body><div class="container">
-<div class="header"><div class="header-row"><div class="pulse-dot"></div><h1>eSIM PKI Trust Chain</h1></div><p class="subtitle">GSMA SGP.22 — Certificate Hierarchy, Mutual Authentication, and Session Keys</p></div>
-<div class="diagram-container">
-<svg viewBox="0 0 1000 620">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620">
 <defs>
 <marker id="arrow-rose" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#fb7185"/></marker>
 <marker id="arrow-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#34d399"/></marker>
@@ -91,5 +82,3 @@
 <text x="795" y="581" fill="white" font-size="9" text-anchor="middle">eIM TLS cert NOT signed by GSMA CI</text>
 
 </svg>
-<p class="footer">Based on GSMA SGP.22 v2.2.2 §2.6 & SGP.32 v1.3 §2.6</p>
-</div></body></html>

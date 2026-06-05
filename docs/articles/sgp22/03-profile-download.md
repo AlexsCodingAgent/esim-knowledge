@@ -22,28 +22,9 @@ Downloading an eSIM profile involves a carefully choreographed three-phase dance
 
 ## Phase 1: Initiation — Making the Order
 
-Before anything can be downloaded, the operator must prepare a Profile for a specific eUICC.
+Before anything can be downloaded, the operator must prepare a Profile for a specific eUICC. Here's the full download sequence from ordering through installation:
 
-```
-End User → Operator: Contract subscription
-    Sign up, provide EID (optional), device info
-
-Operator → SM-DP+: ES2+.DownloadOrder
-    Parameters: [EID], ProfileType or ICCID
-
-SM-DP+: Reserve ICCID
-
-SM-DP+ → Operator: Return ICCID
-
-Operator → SM-DP+: ES2+.ConfirmOrder
-    Parameters: ICCID, [EID], [MatchingID], [Confirmation Code],
-                [SM-DS Address], releaseFlag
-
-SM-DP+: [Register Event on SM-DS via ES12]
-        [Generate Activation Code]
-
-Operator → End User: Activation Code (QR code or LPA:1 string)
-```
+<img src="../diagrams/05-profile-download-sequence.svg" alt="Profile download sequence: initiation, mutual authentication, and encrypted installation across all three phases" style="width:100%;max-width:800px;display:block;margin:20px auto;border-radius:8px;">
 
 The Activation Code the user receives is deceptively simple — it's an `LPA:1$` format string containing just the SM-DP+ address and a Matching ID. Everything else happens automatically.
 
