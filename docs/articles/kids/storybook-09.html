@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Permission Slips for Field Trips — Storybook 9</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Georgia',serif;background:#0a1628;color:#c8d6e5;overflow-x:hidden}
+  .book{max-width:800px;margin:0 auto;min-height:100vh}
+  .page{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;page-break-after:always;scroll-snap-align:start}
+  .page-cover{background:linear-gradient(135deg,#0d1b2a 0%,#0a1628 50%,#0d1b2a 100%)}
+  h1{font-size:2.8rem;color:#e8eef5;text-align:center;margin-bottom:.5rem}
+  h2{font-size:1.6rem;color:#85c1e9;text-align:center;font-weight:400;margin-bottom:1.5rem}
+  h3{font-size:1.3rem;color:#5dade2;text-align:center;margin-bottom:1rem}
+  .story-text{font-size:1.2rem;line-height:1.8;text-align:center;max-width:550px;margin:0 auto}
+  .story-text em{color:#85c1e9;font-style:italic}
+  .story-text strong{color:#e8eef5}
+  .illustration{margin:1.5rem 0}
+  .illustration svg{max-width:100%;height:auto}
+  .page-num{color:#5a6d80;font-size:.85rem;margin-top:2rem}
+  .nav{position:fixed;bottom:1rem;right:1rem;z-index:100}
+  .nav a{display:inline-block;padding:.5rem 1rem;background:rgba(93,173,226,.15);color:#5dade2;text-decoration:none;border-radius:6px;margin-left:.5rem;font-size:.9rem}
+  .nav a:hover{background:rgba(93,173,226,.3)}
+  .sparkle{animation:twinkle 2s infinite}
+  @keyframes twinkle{0%,100%{opacity:.3}50%{opacity:1}}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  .floating{animation:float 3s ease-in-out infinite}
+  @keyframes slideIn{from{transform:translateX(-20px);opacity:0}to{transform:translateX(0);opacity:1}}
+  .slide-in{animation:slideIn .8s ease-out}
+  @media(max-width:600px){h1{font-size:2rem}h2{font-size:1.2rem}.story-text{font-size:1.05rem}}
+  html{scroll-behavior:smooth;scroll-snap-type:y mandatory}
+</style>
+</head>
+<body>
+
+<div class="book">
+
+<!-- PAGE 1: COVER -->
+<div class="page page-cover">
+  <div class="illustration floating">
+    <svg viewBox="0 0 400 300" width="350">
+      <defs><radialGradient id="glow"><stop offset="0%" stop-color="#5dade2" stop-opacity="0.3"/><stop offset="100%" stop-color="#0a1628" stop-opacity="0"/></radialGradient></defs>
+      <circle cx="200" cy="140" r="130" fill="url(#glow)"/>
+      <!-- Permission slip -->
+      <rect x="130" y="50" width="140" height="170" rx="4" fill="#e8eef5" stroke="#fbbf24" stroke-width="2"/>
+      <rect x="145" y="65" width="110" height="4" rx="1" fill="#0a1628"/>
+      <rect x="145" y="75" width="70" height="3" rx="1" fill="#0a1628"/>
+      <rect x="145" y="84" width="90" height="3" rx="1" fill="#0a1628"/>
+      <rect x="145" y="93" width="60" height="3" rx="1" fill="#0a1628"/>
+      <rect x="145" y="105" width="100" height="3" rx="1" fill="#0a1628"/>
+      <rect x="145" y="114" width="80" height="3" rx="1" fill="#0a1628"/>
+      <rect x="145" y="123" width="95" height="3" rx="1" fill="#0a1628"/>
+      <!-- Wax seal -->
+      <circle cx="200" cy="175" r="22" fill="#ac4142" class="sparkle"/>
+      <text x="200" y="180" fill="#e8eef5" font-size="10" text-anchor="middle">SEAL</text>
+      <!-- Stars -->
+      <circle cx="50" cy="40" r="2" fill="#85c1e9" class="sparkle"/>
+      <circle cx="350" cy="50" r="2" fill="#5dade2" class="sparkle"/>
+    </svg>
+  </div>
+  <h1>📦 Permission Slips</h1>
+  <h2>How Robot SIM Cards Get Their Profiles</h2>
+  <p class="story-text" style="color:#5a6d80">A story of field trips, delivery trucks, and wax seals</p>
+  <div class="page-num">📖 Page 1</div>
+</div>
+
+<!-- PAGE 2: DIRECT DOWNLOAD -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 220" width="350">
+      <!-- Device -->
+      <rect x="50" y="40" width="70" height="80" rx="8" fill="#4a90d9" stroke="#85c1e9" stroke-width="2"/>
+      <circle cx="72" cy="65" r="5" fill="#85c1e9"/>
+      <circle cx="98" cy="65" r="5" fill="#85c1e9"/>
+      <rect x="75" y="78" width="20" height="4" rx="2" fill="#85c1e9"/>
+      <!-- Factory -->
+      <rect x="280" y="40" width="70" height="80" rx="8" fill="#1b3a5c" stroke="#34d399" stroke-width="2"/>
+      <text x="315" y="72" fill="#34d399" font-size="9" text-anchor="middle" font-weight="bold">🏭</text>
+      <text x="315" y="88" fill="#34d399" font-size="7" text-anchor="middle">PROFILE</text>
+      <text x="315" y="100" fill="#34d399" font-size="7" text-anchor="middle">FACTORY</text>
+      <!-- Arrow device→factory -->
+      <path d="M120 80 L270 80" stroke="#fbbf24" stroke-width="2"/>
+      <polygon points="270,75 280,80 270,85" fill="#fbbf24"/>
+      <!-- Activation code -->
+      <text x="195" y="65" fill="#fbbf24" font-size="9" text-anchor="middle">Secret Code!</text>
+      <!-- eIM above -->
+      <g transform="translate(195,20)">
+        <ellipse cx="0" cy="0" rx="30" ry="15" fill="#1b3a5c" stroke="#5dade2" stroke-width="1"/>
+        <text x="0" y="4" fill="#5dade2" font-size="7" text-anchor="middle">eIM says:</text>
+      </g>
+      <text x="195" y="48" fill="#5dade2" font-size="8" text-anchor="middle">"Go get it!"</text>
+      <text x="200" y="140" fill="#85c1e9" font-size="10" text-anchor="middle">🏃 Direct Download — device fetches itself</text>
+      <text x="200" y="160" fill="#c8d6e5" font-size="9" text-anchor="middle">No QR codes, no cameras, no humans!</text>
+    </svg>
+  </div>
+  <h3>🏃 Direct Download — The Device Gets It</h3>
+  <p class="story-text">In <strong>Direct Download</strong>, the device translator (IPA) talks straight to the profile factory. The remote control centre just says "go get it!" and sends a secret activation code through the air. <em>No QR codes, no cameras, no humans!</em></p>
+  <div class="page-num">📖 Page 2</div>
+</div>
+
+<!-- PAGE 3: INDIRECT DOWNLOAD -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 220" width="350">
+      <!-- Factory -->
+      <rect x="280" y="20" width="60" height="50" rx="6" fill="#1b3a5c" stroke="#34d399" stroke-width="1.5"/>
+      <text x="310" y="50" fill="#34d399" font-size="9" text-anchor="middle" font-weight="bold">🏭 Factory</text>
+      <!-- eIM -->
+      <g transform="translate(195,30)">
+        <rect x="0" y="0" width="110" height="50" rx="6" fill="#1b3a5c" stroke="#5dade2" stroke-width="2"/>
+        <text x="55" y="30" fill="#5dade2" font-size="9" text-anchor="middle" font-weight="bold">🏢 eIM picks up</text>
+      </g>
+      <!-- Device -->
+      <rect x="60" y="20" width="60" height="50" rx="6" fill="#4a90d9" stroke="#85c1e9" stroke-width="1.5"/>
+      <text x="90" y="50" fill="#85c1e9" font-size="9" text-anchor="middle" font-weight="bold">🤖 Device</text>
+      <!-- Package flow: Factory→eIM→Device -->
+      <path d="M300 70 L250 70" stroke="#fbbf24" stroke-width="2"/>
+      <polygon points="255,65 250,70 255,75" fill="#fbbf24"/>
+      <text x="275" y="60" fill="#fbbf24" font-size="7">① fetch</text>
+      <path d="M195 80 L120 80" stroke="#fbbf24" stroke-width="2"/>
+      <polygon points="125,75 120,80 125,85" fill="#fbbf24"/>
+      <text x="155" y="95" fill="#fbbf24" font-size="7">② deliver</text>
+      <!-- Package box -->
+      <g class="floating" transform="translate(195,78)">
+        <rect x="-15" y="-12" width="30" height="24" rx="3" fill="#fbbf24"/>
+        <text x="0" y="3" fill="#0a1628" font-size="7" text-anchor="middle">📦</text>
+      </g>
+      <text x="200" y="130" fill="#85c1e9" font-size="10" text-anchor="middle">🚚 Indirect Download — eIM delivers for sleepy devices</text>
+      <text x="200" y="148" fill="#c8d6e5" font-size="8" text-anchor="middle">Like a friend picking up your parcel!</text>
+    </svg>
+  </div>
+  <h3>🚚 Indirect Download — The eIM Delivers</h3>
+  <p class="story-text">Sometimes the device can't reach the profile factory — maybe it's on a slow network. The <strong>eIM handles everything</strong>: fetches the profile, securely packages it, and delivers it. The device never talks to the factory at all — like having a friend pick up your parcel!</p>
+  <div class="page-num">📖 Page 3</div>
+</div>
+
+<!-- PAGE 4: SIGNED PACKAGE -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 220" width="350">
+      <!-- Envelope being opened -->
+      <g transform="translate(130,30)">
+        <rect x="0" y="0" width="140" height="100" rx="6" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2"/>
+        <polygon points="0,0 70,40 140,0" fill="#0d1b2a" stroke="#fbbf24" stroke-width="1"/>
+        <!-- Contents -->
+        <text x="70" y="50" fill="#5dade2" font-size="8" text-anchor="middle">✏️ Enable Profile</text>
+        <text x="70" y="65" fill="#5dade2" font-size="8" text-anchor="middle">✏️ Disable Profile</text>
+        <text x="70" y="80" fill="#5dade2" font-size="8" text-anchor="middle">✏️ Delete Profile</text>
+        <!-- Signature seal -->
+        <circle cx="120" cy="90" r="14" fill="#ac4142" opacity="0.8"/>
+        <text x="120" y="93" fill="#e8eef5" font-size="6" text-anchor="middle">SIGNED</text>
+      </g>
+      <!-- Counter -->
+      <g transform="translate(40,150)">
+        <rect x="0" y="0" width="60" height="30" rx="4" fill="#0d1b2a" stroke="#34d399" stroke-width="1"/>
+        <text x="30" y="20" fill="#34d399" font-size="9" text-anchor="middle">Counter: #42</text>
+      </g>
+      <!-- Anti-replay -->
+      <g transform="translate(300,150)">
+        <rect x="0" y="0" width="70" height="30" rx="4" fill="#0d1b2a" stroke="#ac4142" stroke-width="1"/>
+        <text x="35" y="20" fill="#ac4142" font-size="8" text-anchor="middle">❌ Old #41</text>
+      </g>
+      <text x="200" y="200" fill="#85c1e9" font-size="9" text-anchor="middle">🛡️ Old commands are rejected — no cheating!</text>
+    </svg>
+  </div>
+  <h3>✉️ The Signed Command Package</h3>
+  <p class="story-text">Instead of sending commands one at a time, the eIM bundles everything into a <strong>signed digital envelope</strong> — an <strong>eIM Package</strong>. It has a digital signature (like a wax seal), an anti-replay counter, and a list of actions. The chip checks the signature, verifies the counter, and executes every command inside.</p>
+  <div class="page-num">📖 Page 4</div>
+</div>
+
+<!-- PAGE 5: REPLAY PROTECTION -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 200" width="350">
+      <!-- Counter mechanism -->
+      <g transform="translate(50,40)">
+        <text x="0" y="0" fill="#c8d6e5" font-size="9">Old packages:</text>
+        <g transform="translate(0,10)">
+          <rect x="0" y="0" width="50" height="25" rx="3" fill="#1b3a5c" stroke="#30363d" stroke-width="1"/>
+          <text x="25" y="17" fill="#5a6d80" font-size="9" text-anchor="middle">Ticket #41</text>
+        </g>
+        <g transform="translate(0,42)">
+          <rect x="0" y="0" width="50" height="25" rx="3" fill="#1b3a5c" stroke="#30363d" stroke-width="1"/>
+          <text x="25" y="17" fill="#5a6d80" font-size="9" text-anchor="middle">Ticket #40</text>
+        </g>
+        <text x="25" y="85" fill="#ac4142" font-size="8" text-anchor="middle">❌ REJECTED</text>
+      </g>
+      <!-- Current -->
+      <g transform="translate(175,40)">
+        <text x="0" y="0" fill="#34d399" font-size="9">New package:</text>
+        <g transform="translate(0,10)">
+          <rect x="0" y="0" width="50" height="25" rx="3" fill="#1b3a5c" stroke="#34d399" stroke-width="1.5"/>
+          <text x="25" y="17" fill="#34d399" font-size="9" text-anchor="middle">Ticket #42</text>
+        </g>
+        <text x="25" y="55" fill="#34d399" font-size="8" text-anchor="middle">✅ ACCEPTED</text>
+      </g>
+      <!-- Chip storing counter -->
+      <g transform="translate(120,130)">
+        <rect x="0" y="0" width="160" height="40" rx="6" fill="#0d1b2a" stroke="#5dade2" stroke-width="1.5"/>
+        <text x="80" y="18" fill="#5dade2" font-size="9" text-anchor="middle">eSIM CHIP remembers:</text>
+        <text x="80" y="34" fill="#fbbf24" font-size="10" text-anchor="middle">Highest seen: #42</text>
+      </g>
+    </svg>
+  </div>
+  <h3>🛡️ No Cheating Allowed!</h3>
+  <p class="story-text">Every package has a <strong>counter value</strong> that only goes up. The chip remembers the highest number it's seen. If a bad actor tries to replay an old package with a lower number, the chip says <strong>"Nope, I've already seen this!"</strong> and rejects it. The counter can go up to <em>8,388,607</em> — enough for daily use over 28 years!</p>
+  <div class="page-num">📖 Page 5</div>
+</div>
+
+<!-- PAGE 6: FUN FACT -->
+<div class="page page-cover">
+  <div class="illustration floating">
+    <svg viewBox="0 0 400 260" width="350">
+      <circle cx="200" cy="60" r="35" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2"/>
+      <text x="200" y="68" font-size="28" text-anchor="middle">🧠</text>
+      <!-- Giant number -->
+      <text x="200" y="125" fill="#fbbf24" font-size="36" text-anchor="middle" font-weight="bold">8,388,607</text>
+      <text x="200" y="155" fill="#85c1e9" font-size="11" text-anchor="middle">Maximum counter value</text>
+      <!-- Math -->
+      <text x="200" y="190" fill="#c8d6e5" font-size="9" text-anchor="middle">That's 800 operations every single day</text>
+      <text x="200" y="208" fill="#c8d6e5" font-size="9" text-anchor="middle">for 28 years without running out!</text>
+    </svg>
+  </div>
+  <h3>🧠 Did You Know?</h3>
+  <p class="story-text">The anti-replay counter can go all the way up to <strong>8,388,607</strong> — that's enough for 800 operations <em>every single day</em> for 28 years without running out. When it gets close to the limit, the manager is re-added with a fresh counter!</p>
+  <div class="page-num">📖 Page 6 — The End ✨</div>
+</div>
+
+<!-- PAGE 7: BACK COVER -->
+<div class="page page-cover">
+  <h2>📚 Ready for the Next Story?</h2>
+  <p class="story-text" style="margin-bottom:1.5rem">Learn the secret handshakes that keep robot communications safe!</p>
+  <p style="text-align:center;margin-bottom:1rem">
+    <a href="storybook-10.html" style="display:inline-block;padding:.8rem 2rem;background:rgba(93,173,226,0.15);color:#5dade2;text-decoration:none;border-radius:8px;font-size:1.1rem">📖 Next: Secret Handshakes →</a>
+  </p>
+  <p style="text-align:center">
+    <a href="index.html" style="display:inline-block;padding:.8rem 2rem;background:rgba(93,173,226,0.15);color:#5dade2;text-decoration:none;border-radius:8px;font-size:1.1rem">📚 Back to All Stories</a>
+  </p>
+  <div class="page-num">📖 Back Cover</div>
+</div>
+
+</div>
+
+<div class="nav">
+  <a href="#" onclick="window.scrollBy({top:-window.innerHeight,behavior:'smooth'});return false">⬆</a>
+  <a href="#" onclick="window.scrollBy({top:window.innerHeight,behavior:'smooth'});return false">⬇</a>
+</div>
+
+</body>
+</html>

@@ -9,6 +9,8 @@ title: "eSIM Explained for Kids — eUICC.tech"
 
 [📖 **Read the Illustrated Storybook →**](storybook.html)
 
+[📚 **Browse All 17 Storybooks →**](storybooks.html)
+
 ---
 
 ## 📱 SGP.22 — How Your Phone's eSIM Works

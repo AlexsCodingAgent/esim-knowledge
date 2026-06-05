@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Robot's Morning Routine — Storybook 13</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Georgia',serif;background:#0a1628;color:#c8d6e5;overflow-x:hidden}
+  .book{max-width:800px;margin:0 auto;min-height:100vh}
+  .page{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;page-break-after:always;scroll-snap-align:start}
+  .page-cover{background:linear-gradient(135deg,#0d1b2a 0%,#0a1628 50%,#0d1b2a 100%)}
+  h1{font-size:2.8rem;color:#e8eef5;text-align:center;margin-bottom:.5rem}
+  h2{font-size:1.6rem;color:#85c1e9;text-align:center;font-weight:400;margin-bottom:1.5rem}
+  h3{font-size:1.3rem;color:#5dade2;text-align:center;margin-bottom:1rem}
+  .story-text{font-size:1.2rem;line-height:1.8;text-align:center;max-width:550px;margin:0 auto}
+  .story-text em{color:#85c1e9;font-style:italic}
+  .story-text strong{color:#e8eef5}
+  .illustration{margin:1.5rem 0}
+  .illustration svg{max-width:100%;height:auto}
+  .page-num{color:#5a6d80;font-size:.85rem;margin-top:2rem}
+  .nav{position:fixed;bottom:1rem;right:1rem;z-index:100}
+  .nav a{display:inline-block;padding:.5rem 1rem;background:rgba(93,173,226,.15);color:#5dade2;text-decoration:none;border-radius:6px;margin-left:.5rem;font-size:.9rem}
+  .nav a:hover{background:rgba(93,173,226,.3)}
+  .sparkle{animation:twinkle 2s infinite}
+  @keyframes twinkle{0%,100%{opacity:.3}50%{opacity:1}}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  .floating{animation:float 3s ease-in-out infinite}
+  @keyframes slideIn{from{transform:translateX(-20px);opacity:0}to{transform:translateX(0);opacity:1}}
+  .slide-in{animation:slideIn .8s ease-out}
+  @media(max-width:600px){h1{font-size:2rem}h2{font-size:1.2rem}.story-text{font-size:1.05rem}}
+  html{scroll-behavior:smooth;scroll-snap-type:y mandatory}
+</style>
+</head>
+<body>
+
+<div class="book">
+
+<!-- PAGE 1: COVER -->
+<div class="page page-cover">
+  <div class="illustration floating">
+    <svg viewBox="0 0 400 300" width="350">
+      <defs><radialGradient id="glow"><stop offset="0%" stop-color="#5dade2" stop-opacity="0.3"/><stop offset="100%" stop-color="#0a1628" stop-opacity="0"/></radialGradient></defs>
+      <circle cx="200" cy="140" r="130" fill="url(#glow)"/>
+      <!-- Sun rising -->
+      <circle cx="300" cy="50" r="30" fill="#fbbf24" opacity="0.4"/>
+      <circle cx="300" cy="50" r="20" fill="#fbbf24" opacity="0.6"/>
+      <!-- Robot waking up -->
+      <g transform="translate(150,80)">
+        <rect x="0" y="0" width="60" height="70" rx="8" fill="#4a90d9" stroke="#85c1e9" stroke-width="2"/>
+        <circle cx="18" cy="22" r="5" fill="#85c1e9"/>
+        <circle cx="42" cy="22" r="5" fill="#85c1e9"/>
+        <!-- Stretch arms -->
+        <rect x="-25" y="18" width="25" height="6" rx="3" fill="#4a90d9"/>
+        <rect x="60" y="18" width="25" height="6" rx="3" fill="#4a90d9"/>
+        <text x="30" y="52" fill="#e8eef5" font-size="10" text-anchor="middle">⚡</text>
+      </g>
+      <!-- Alarm clock -->
+      <g transform="translate(260,120)">
+        <circle cx="0" cy="0" r="20" fill="none" stroke="#fbbf24" stroke-width="2"/>
+        <line x1="0" y1="0" x2="0" y2="-10" stroke="#fbbf24" stroke-width="2"/>
+        <line x1="0" y1="0" x2="8" y2="5" stroke="#fbbf24" stroke-width="1.5"/>
+        <text x="0" y="30" fill="#fbbf24" font-size="8" text-anchor="middle">⏰ 6:00 AM</text>
+      </g>
+      <!-- Stars -->
+      <circle cx="50" cy="40" r="2" fill="#85c1e9" class="sparkle"/>
+      <circle cx="100" cy="25" r="1.5" fill="#5dade2" class="sparkle"/>
+    </svg>
+  </div>
+  <h1>🌅 The Morning Routine</h1>
+  <h2>How IoT Devices Wake Up Every Time</h2>
+  <p class="story-text" style="color:#5a6d80">A story of stretching, checking files, and getting ready for the day</p>
+  <div class="page-num">📖 Page 1</div>
+</div>
+
+<!-- PAGE 2: SIX STEPS -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 220" width="350">
+      <!-- Step numbers -->
+      <g transform="translate(30,15)">
+        <text x="0" y="0" fill="#fbbf24" font-size="10">1.⚡ Power On</text>
+        <text x="0" y="18" fill="#c8d6e5" font-size="7">Chip's tiny OS boots up</text>
+      </g>
+      <g transform="translate(30,50)">
+        <text x="0" y="0" fill="#fbbf24" font-size="10">2.🔍 Discover Profiles</text>
+        <text x="0" y="18" fill="#c8d6e5" font-size="7">"What profiles do I have?"</text>
+      </g>
+      <g transform="translate(30,85)">
+        <text x="0" y="0" fill="#fbbf24" font-size="10">3.🎯 Select Manager</text>
+        <text x="0" y="18" fill="#c8d6e5" font-size="7">Pick ISD-R by ID number</text>
+      </g>
+      <g transform="translate(210,15)">
+        <text x="0" y="0" fill="#fbbf24" font-size="10">4.🤖 Activate IPA</text>
+        <text x="0" y="18" fill="#c8d6e5" font-size="7">Translator wakes up too</text>
+      </g>
+      <g transform="translate(210,50)">
+        <text x="0" y="0" fill="#fbbf24" font-size="10">5.📇 Check Contacts</text>
+        <text x="0" y="18" fill="#c8d6e5" font-size="7">"Who do I trust?"</text>
+      </g>
+      <g transform="translate(210,85)">
+        <text x="0" y="0" fill="#fbbf24" font-size="10">6.📡 Connect!</text>
+        <text x="0" y="18" fill="#c8d6e5" font-size="7">Try network… or parachute!</text>
+      </g>
+      <!-- Robot ready -->
+      <g transform="translate(150,140)">
+        <rect x="0" y="0" width="100" height="50" rx="6" fill="#4a90d9" stroke="#34d399" stroke-width="2"/>
+        <text x="50" y="20" fill="#e8eef5" font-size="10" text-anchor="middle" font-weight="bold">READY!</text>
+        <text x="50" y="38" fill="#34d399" font-size="8" text-anchor="middle">All in milliseconds</text>
+      </g>
+    </svg>
+  </div>
+  <h3>⏰ The Six-Step Wake-Up</h3>
+  <p class="story-text">Every time an IoT device powers on, it follows a morning routine: <strong>boot up</strong> the tiny OS, <strong>discover profiles</strong>, <strong>select the manager</strong>, <strong>activate the translator</strong>, <strong>check the contact list</strong>, and <strong>connect to the network</strong>. Six steps — all happening in milliseconds!</p>
+  <div class="page-num">📖 Page 2</div>
+</div>
+
+<!-- PAGE 3: FILING CABINET -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 220" width="350">
+      <!-- Filing cabinet -->
+      <g transform="translate(60,15)">
+        <rect x="0" y="0" width="280" height="190" rx="4" fill="#1b3a5c" stroke="#5dade2" stroke-width="2"/>
+        <rect x="0" y="0" width="280" height="25" rx="4" fill="#0d1b2a"/>
+        <text x="140" y="17" fill="#85c1e9" font-size="9" text-anchor="middle" font-weight="bold">🗂️ eSIM CHIP FILING CABINET</text>
+        <!-- File drawers -->
+        <rect x="10" y="35" width="260" height="22" rx="2" fill="#0d1b2a"/>
+        <text x="20" y="50" fill="#c8d6e5" font-size="7">📁 EF.DIR — Directory of all apps</text>
+        <rect x="10" y="62" width="260" height="22" rx="2" fill="#0d1b2a"/>
+        <text x="20" y="77" fill="#c8d6e5" font-size="7">📁 EF.ICCID — Chip's serial number</text>
+        <rect x="10" y="89" width="260" height="22" rx="2" fill="#0d1b2a"/>
+        <text x="20" y="104" fill="#c8d6e5" font-size="7">📁 EF.EID — Unique 32-digit ID</text>
+        <rect x="10" y="116" width="260" height="22" rx="2" fill="#0d1b2a"/>
+        <text x="20" y="131" fill="#34d399" font-size="7">✨ EF.EIMCFG — Contact list (NEW!)</text>
+        <rect x="10" y="143" width="260" height="22" rx="2" fill="#0d1b2a"/>
+        <text x="20" y="158" fill="#34d399" font-size="7">✨ EF.NOTIF — Pending report cards (NEW!)</text>
+        <rect x="10" y="170" width="260" height="22" rx="2" fill="#0d1b2a"/>
+        <text x="20" y="185" fill="#c8d6e5" font-size="7">📁 EF.SMDP — Profile factory address</text>
+      </g>
+    </svg>
+  </div>
+  <h3>🗂️ The Chip's Filing Cabinet</h3>
+  <p class="story-text">The eSIM chip has a tiny filing cabinet of important files: the <strong>directory of apps</strong>, the <strong>chip's serial number</strong>, its <strong>unique 32-digit EID</strong>, and — new for IoT — the <strong>contact list</strong> (EIMCFG) and <strong>pending notifications</strong> (NOTIF). Everything the chip needs to know, neatly organized!</p>
+  <div class="page-num">📖 Page 3</div>
+</div>
+
+<!-- PAGE 4: PARACHUTE CHECK -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 200" width="350">
+      <!-- Parachute check -->
+      <g transform="translate(120,20)">
+        <path d="M-50,0 Q-25,30 0,40 Q25,30 50,0" fill="#5dade2" stroke="#85c1e9" stroke-width="1.5"/>
+        <line x1="0" y1="40" x2="0" y2="70" stroke="#fbbf24" stroke-width="2"/>
+        <!-- Chip -->
+        <rect x="-25" y="70" width="50" height="40" rx="5" fill="#0d1b2a" stroke="#34d399" stroke-width="1.5"/>
+        <text x="0" y="92" fill="#34d399" font-size="7" text-anchor="middle">eSIM CHIP</text>
+      </g>
+      <g transform="translate(230,20)">
+        <text x="0" y="0" fill="#34d399" font-size="16">✅</text>
+        <text x="0" y="20" fill="#c8d6e5" font-size="9" text-anchor="middle">Parachute</text>
+        <text x="0" y="35" fill="#c8d6e5" font-size="9" text-anchor="middle">Checked!</text>
+      </g>
+      <text x="200" y="145" fill="#85c1e9" font-size="10" text-anchor="middle">Fallback Profile is auto-checked during boot</text>
+      <text x="200" y="163" fill="#c8d6e5" font-size="8" text-anchor="middle">"I hope I never need it, but I'm glad it's there!"</text>
+    </svg>
+  </div>
+  <h3>🪂 The Parachute Check</h3>
+  <p class="story-text">During boot, the chip asks: <strong>"Do I have a Fallback Profile?"</strong> If no normal profile works, the chip automatically switches to this emergency backup — usually a basic one from the manufacturer with just enough connectivity to call for help. Like checking your parachute before jumping!</p>
+  <div class="page-num">📖 Page 4</div>
+</div>
+
+<!-- PAGE 5: DEVICE INFO -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 200" width="350">
+      <!-- DeviceInfo card -->
+      <g transform="translate(80,15)">
+        <rect x="0" y="0" width="240" height="170" rx="6" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2"/>
+        <text x="120" y="25" fill="#fbbf24" font-size="11" text-anchor="middle" font-weight="bold">🏷️ DeviceInfo Card</text>
+        <line x1="15" y1="33" x2="225" y2="33" stroke="#30363d" stroke-width="1"/>
+        <text x="20" y="53" fill="#c8d6e5" font-size="8">Model: WeatherSensor-3000</text>
+        <text x="20" y="72" fill="#c8d6e5" font-size="8">Type: IPAe (inside chip)</text>
+        <text x="20" y="91" fill="#c8d6e5" font-size="8">Speaks: HTTPS, CoAP</text>
+        <text x="20" y="110" fill="#c8d6e5" font-size="8">Capable: Profile download ✅</text>
+        <text x="20" y="129" fill="#c8d6e5" font-size="8">Capable: Notifications ✅</text>
+        <text x="20" y="148" fill="#c8d6e5" font-size="8">Capable: Fallback ✅</text>
+      </g>
+    </svg>
+  </div>
+  <h3>🏷️ Telling the Control Centre Who You Are</h3>
+  <p class="story-text">Once connected, the device sends a <strong>DeviceInfo card</strong> to the control centre: "Here's my model, I'm an IPAe, I speak HTTPS and CoAP, and here's what I can do!" The control centre uses this to customize its communication — gentle, lightweight messages for tiny sensors, richer commands for powerful gateways.</p>
+  <div class="page-num">📖 Page 5</div>
+</div>
+
+<!-- PAGE 6: FUN FACT -->
+<div class="page page-cover">
+  <div class="illustration floating">
+    <svg viewBox="0 0 400 260" width="350">
+      <circle cx="200" cy="60" r="35" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2"/>
+      <text x="200" y="68" font-size="28" text-anchor="middle">🧠</text>
+      <!-- 32-digit EID -->
+      <text x="200" y="125" fill="#fbbf24" font-size="16" text-anchor="middle" font-weight="bold">8901 2345 6789 0123</text>
+      <text x="200" y="145" fill="#fbbf24" font-size="16" text-anchor="middle" font-weight="bold">4567 8901 2345 6789</text>
+      <!-- Sand grains -->
+      <g transform="translate(140,190)">
+        <circle cx="0" cy="0" r="2" fill="#c8d6e5"/>
+        <circle cx="8" cy="2" r="1.5" fill="#c8d6e5"/>
+        <circle cx="16" cy="-1" r="2" fill="#c8d6e5"/>
+        <circle cx="24" cy="2" r="1.5" fill="#c8d6e5"/>
+        <circle cx="32" cy="0" r="2" fill="#c8d6e5"/>
+      </g>
+      <g transform="translate(180,190)">
+        <circle cx="0" cy="0" r="2" fill="#c8d6e5"/>
+        <circle cx="8" cy="2" r="1.5" fill="#c8d6e5"/>
+        <circle cx="16" cy="-1" r="2" fill="#c8d6e5"/>
+      </g>
+      <g transform="translate(210,190)">
+        <circle cx="0" cy="0" r="2" fill="#c8d6e5"/>
+        <circle cx="8" cy="2" r="1.5" fill="#c8d6e5"/>
+        <circle cx="16" cy="-1" r="2" fill="#c8d6e5"/>
+      </g>
+      <text x="200" y="220" fill="#85c1e9" font-size="10" text-anchor="middle">Enough numbers to ID every grain of sand on Earth…</text>
+      <text x="200" y="236" fill="#85c1e9" font-size="10" text-anchor="middle">many times over!</text>
+    </svg>
+  </div>
+  <h3>🧠 Did You Know?</h3>
+  <p class="story-text">The eSIM chip's unique ID (the <strong>EID</strong>) is <strong>32 digits</strong> long. That's enough numbers to give a unique identifier to every single grain of sand on planet Earth… many times over!</p>
+  <div class="page-num">📖 Page 6 — The End ✨</div>
+</div>
+
+<!-- PAGE 7: BACK COVER -->
+<div class="page page-cover">
+  <h2>📚 Ready for the Next Story?</h2>
+  <p class="story-text" style="margin-bottom:1.5rem">Learn the magic of controlling SIM profiles from across the world!</p>
+  <p style="text-align:center;margin-bottom:1rem">
+    <a href="storybook-14.html" style="display:inline-block;padding:.8rem 2rem;background:rgba(93,173,226,0.15);color:#5dade2;text-decoration:none;border-radius:8px;font-size:1.1rem">📖 Next: Magic Remote Control →</a>
+  </p>
+  <p style="text-align:center">
+    <a href="index.html" style="display:inline-block;padding:.8rem 2rem;background:rgba(93,173,226,0.15);color:#5dade2;text-decoration:none;border-radius:8px;font-size:1.1rem">📚 Back to All Stories</a>
+  </p>
+  <div class="page-num">📖 Back Cover</div>
+</div>
+
+</div>
+
+<div class="nav">
+  <a href="#" onclick="window.scrollBy({top:-window.innerHeight,behavior:'smooth'});return false">⬆</a>
+  <a href="#" onclick="window.scrollBy({top:window.innerHeight,behavior:'smooth'});return false">⬇</a>
+</div>
+
+</body>
+</html>

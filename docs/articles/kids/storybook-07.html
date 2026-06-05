@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tiny Robots Need Special eSIMs — Storybook 7</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Georgia',serif;background:#0a1628;color:#c8d6e5;overflow-x:hidden}
+  .book{max-width:800px;margin:0 auto;min-height:100vh}
+  .page{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;page-break-after:always;scroll-snap-align:start}
+  .page-cover{background:linear-gradient(135deg,#0d1b2a 0%,#0a1628 50%,#0d1b2a 100%)}
+  h1{font-size:2.8rem;color:#e8eef5;text-align:center;margin-bottom:.5rem}
+  h2{font-size:1.6rem;color:#85c1e9;text-align:center;font-weight:400;margin-bottom:1.5rem}
+  h3{font-size:1.3rem;color:#5dade2;text-align:center;margin-bottom:1rem}
+  .story-text{font-size:1.2rem;line-height:1.8;text-align:center;max-width:550px;margin:0 auto}
+  .story-text em{color:#85c1e9;font-style:italic}
+  .story-text strong{color:#e8eef5}
+  .illustration{margin:1.5rem 0}
+  .illustration svg{max-width:100%;height:auto}
+  .page-num{color:#5a6d80;font-size:.85rem;margin-top:2rem}
+  .nav{position:fixed;bottom:1rem;right:1rem;z-index:100}
+  .nav a{display:inline-block;padding:.5rem 1rem;background:rgba(93,173,226,.15);color:#5dade2;text-decoration:none;border-radius:6px;margin-left:.5rem;font-size:.9rem}
+  .nav a:hover{background:rgba(93,173,226,.3)}
+  .sparkle{animation:twinkle 2s infinite}
+  @keyframes twinkle{0%,100%{opacity:.3}50%{opacity:1}}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  .floating{animation:float 3s ease-in-out infinite}
+  @keyframes slideIn{from{transform:translateX(-20px);opacity:0}to{transform:translateX(0);opacity:1}}
+  .slide-in{animation:slideIn .8s ease-out}
+  @media(max-width:600px){h1{font-size:2rem}h2{font-size:1.2rem}.story-text{font-size:1.05rem}}
+  html{scroll-behavior:smooth;scroll-snap-type:y mandatory}
+</style>
+</head>
+<body>
+
+<div class="book">
+
+<!-- PAGE 1: COVER -->
+<div class="page page-cover">
+  <div class="illustration floating">
+    <svg viewBox="0 0 400 300" width="350">
+      <defs><radialGradient id="glow"><stop offset="0%" stop-color="#5dade2" stop-opacity="0.3"/><stop offset="100%" stop-color="#0a1628" stop-opacity="0"/></radialGradient></defs>
+      <circle cx="200" cy="140" r="130" fill="url(#glow)"/>
+      <!-- Tiny robot character -->
+      <rect x="170" y="80" width="60" height="70" rx="10" fill="#4a90d9" stroke="#85c1e9" stroke-width="2.5"/>
+      <circle cx="185" cy="100" r="6" fill="#85c1e9"/>
+      <circle cx="215" cy="100" r="6" fill="#85c1e9"/>
+      <rect x="190" y="112" width="20" height="6" rx="3" fill="#85c1e9"/>
+      <!-- Antenna -->
+      <line x1="200" y1="80" x2="200" y2="55" stroke="#fbbf24" stroke-width="2.5"/>
+      <circle cx="200" cy="50" r="5" fill="#fbbf24" class="sparkle"/>
+      <!-- Arms -->
+      <rect x="145" y="100" width="25" height="8" rx="4" fill="#4a90d9"/>
+      <rect x="230" y="100" width="25" height="8" rx="4" fill="#4a90d9"/>
+      <!-- Tiny phone next to robot -->
+      <rect x="290" y="100" width="35" height="60" rx="6" fill="#1b3a5c" stroke="#5dade2" stroke-width="1.5"/>
+      <rect x="297" y="110" width="21" height="30" rx="2" fill="#0d1b2a"/>
+      <text x="307" y="130" fill="#ac4142" font-size="18" text-anchor="middle">✕</text>
+      <!-- Stars -->
+      <circle cx="50" cy="40" r="2" fill="#85c1e9" class="sparkle"/>
+      <circle cx="350" cy="50" r="2" fill="#5dade2" class="sparkle"/>
+      <circle cx="100" cy="25" r="1.5" fill="#85c1e9" class="sparkle"/>
+      <circle cx="300" cy="30" r="1.5" fill="#5dade2" class="sparkle"/>
+      <!-- Robot fleet in background -->
+      <rect x="60" y="180" width="12" height="16" rx="2" fill="#0d1b2a" stroke="#30363d" stroke-width="1"/>
+      <rect x="80" y="180" width="12" height="16" rx="2" fill="#0d1b2a" stroke="#30363d" stroke-width="1"/>
+      <rect x="100" y="180" width="12" height="16" rx="2" fill="#0d1b2a" stroke="#30363d" stroke-width="1"/>
+      <rect x="280" y="185" width="10" height="14" rx="2" fill="#0d1b2a" stroke="#30363d" stroke-width="1"/>
+      <rect x="300" y="185" width="10" height="14" rx="2" fill="#0d1b2a" stroke="#30363d" stroke-width="1"/>
+      <rect x="320" y="185" width="10" height="14" rx="2" fill="#0d1b2a" stroke="#30363d" stroke-width="1"/>
+    </svg>
+  </div>
+  <h1>🤖 Tiny Robots Need Special eSIMs</h1>
+  <h2>Why IoT Devices Got Their Own Architecture</h2>
+  <p class="story-text" style="color:#5a6d80">A story of weather sensors, sleepy devices, and fleet-sized thinking</p>
+  <div class="page-num">📖 Page 1</div>
+</div>
+
+<!-- PAGE 2: PHONE VS ROBOT -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 220" width="350">
+      <!-- Phone -->
+      <rect x="40" y="30" width="70" height="110" rx="10" fill="#1b3a5c" stroke="#5dade2" stroke-width="2"/>
+      <rect x="52" y="50" width="46" height="60" rx="3" fill="#0d1b2a" stroke="#30363d" stroke-width="1"/>
+      <rect x="60" y="55" width="30" height="8" rx="2" fill="#4a90d9"/>
+      <text x="75" y="90" fill="#c8d6e5" font-size="8" text-anchor="middle">📱 SMS</text>
+      <text x="75" y="102" fill="#c8d6e5" font-size="7" text-anchor="middle">WiFi ON</text>
+      <!-- Arrow -->
+      <text x="140" y="90" fill="#fbbf24" font-size="24">➡️</text>
+      <!-- Robot -->
+      <rect x="170" y="40" width="60" height="70" rx="8" fill="#4a90d9" stroke="#85c1e9" stroke-width="2"/>
+      <circle cx="185" cy="60" r="4" fill="#85c1e9"/>
+      <circle cx="215" cy="60" r="4" fill="#85c1e9"/>
+      <line x1="200" y1="40" x2="200" y2="25" stroke="#fbbf24" stroke-width="2"/>
+      <circle cx="200" cy="22" r="3" fill="#fbbf24"/>
+      <!-- Robot problems -->
+      <text x="160" y="130" fill="#ac4142" font-size="8" text-anchor="middle">❌ No screen</text>
+      <text x="260" y="130" fill="#ac4142" font-size="8" text-anchor="middle">❌ No SMS</text>
+      <text x="160" y="148" fill="#ac4142" font-size="8" text-anchor="middle">❌ Sleeps weeks</text>
+      <text x="260" y="148" fill="#ac4142" font-size="8" text-anchor="middle">❌ Fleet of 1000s</text>
+      <!-- Divider -->
+      <line x1="70" y1="170" x2="330" y2="170" stroke="#5a6d80" stroke-width="1" stroke-dasharray="4,4"/>
+      <text x="200" y="195" fill="#85c1e9" font-size="10" text-anchor="middle">Phones are easy. Robots are… different!</text>
+    </svg>
+  </div>
+  <h3>📱 The Phone Way vs 🤖 The Robot Way</h3>
+  <p class="story-text">Phones have screens to tap, SMS messages, and always-on internet. But tiny IoT robots have <strong>none of that</strong> — they're sealed in boxes, sleep for days, and there are <em>thousands</em> of them. So engineers built a brand new system called <strong>SGP.31 and SGP.32</strong>.</p>
+  <div class="page-num">📖 Page 2</div>
+</div>
+
+<!-- PAGE 3: REMOTE CONTROL CENTRE -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 220" width="350">
+      <!-- Control centre -->
+      <rect x="30" y="20" width="340" height="180" rx="10" fill="#1b3a5c" stroke="#5dade2" stroke-width="2"/>
+      <rect x="30" y="20" width="340" height="30" rx="10" fill="#0d1b2a"/>
+      <text x="200" y="40" fill="#85c1e9" font-size="12" text-anchor="middle" font-weight="bold">🏢 REMOTE CONTROL CENTRE (eIM)</text>
+      <!-- Dashboard -->
+      <rect x="50" y="60" width="290" height="70" rx="5" fill="#0d1b2a" stroke="#30363d" stroke-width="1"/>
+      <!-- Robot icons on dashboard -->
+      <rect x="65" y="75" width="14" height="18" rx="2" fill="#4a90d9"/>
+      <rect x="90" y="75" width="14" height="18" rx="2" fill="#4a90d9"/>
+      <rect x="115" y="75" width="14" height="18" rx="2" fill="#4a90d9"/>
+      <rect x="140" y="75" width="14" height="18" rx="2" fill="#34d399"/>
+      <rect x="165" y="75" width="14" height="18" rx="2" fill="#34d399"/>
+      <rect x="190" y="75" width="14" height="18" rx="2" fill="#4a90d9"/>
+      <rect x="215" y="75" width="14" height="18" rx="2" fill="#34d399"/>
+      <rect x="240" y="75" width="14" height="18" rx="2" fill="#4a90d9"/>
+      <rect x="265" y="75" width="14" height="18" rx="2" fill="#4a90d9"/>
+      <rect x="290" y="75" width="14" height="18" rx="2" fill="#34d399"/>
+      <text x="195" y="122" fill="#c8d6e5" font-size="9" text-anchor="middle">Managing 1,000+ devices at once!</text>
+      <!-- Signal waves -->
+      <g class="sparkle">
+        <path d="M200 150 Q220 140 240 150" stroke="#fbbf24" stroke-width="1.5" fill="none"/>
+        <path d="M190 160 Q220 145 250 160" stroke="#fbbf24" stroke-width="1.5" fill="none"/>
+        <path d="M180 170 Q220 150 260 170" stroke="#fbbf24" stroke-width="1.5" fill="none"/>
+      </g>
+    </svg>
+  </div>
+  <h3>🎮 The Remote Control Centre (eIM)</h3>
+  <p class="story-text">Instead of tapping a phone screen, a <strong>Remote Control Centre</strong> (called the eIM) manages everything from the cloud. One person can control <em>thousands</em> of devices from a single dashboard — sending commands, switching profiles, and checking status.</p>
+  <div class="page-num">📖 Page 3</div>
+</div>
+
+<!-- PAGE 4: THE IPA HELPER -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 220" width="350">
+      <!-- Robot with IPA inside -->
+      <rect x="80" y="30" width="80" height="90" rx="10" fill="#4a90d9" stroke="#85c1e9" stroke-width="2.5"/>
+      <circle cx="105" cy="55" r="5" fill="#85c1e9"/>
+      <circle cx="135" cy="55" r="5" fill="#85c1e9"/>
+      <rect x="110" y="68" width="20" height="5" rx="2" fill="#85c1e9"/>
+      <!-- IPA label inside -->
+      <rect x="95" y="82" width="50" height="22" rx="4" fill="#1b3a5c" stroke="#fbbf24" stroke-width="1.5"/>
+      <text x="120" y="97" fill="#fbbf24" font-size="8" text-anchor="middle" font-weight="bold">IPA</text>
+      <!-- Speech bubble from IPA -->
+      <ellipse cx="240" cy="55" rx="70" ry="35" fill="#1b3a5c" stroke="#5dade2" stroke-width="1.5"/>
+      <text x="240" y="48" fill="#e8eef5" font-size="10" text-anchor="middle">I'm the translator!</text>
+      <text x="240" y="62" fill="#e8eef5" font-size="9" text-anchor="middle">I deliver messages</text>
+      <text x="240" y="76" fill="#e8eef5" font-size="9" text-anchor="middle">but don't make decisions.</text>
+      <!-- Arrow from eIM cloud -->
+      <g transform="translate(300,100)">
+        <ellipse cx="0" cy="0" rx="30" ry="18" fill="#1b3a5c" stroke="#5dade2" stroke-width="1"/>
+        <text x="0" y="4" fill="#85c1e9" font-size="8" text-anchor="middle">eIM</text>
+      </g>
+      <path d="M280 110 L200 110 L200 90" stroke="#fbbf24" stroke-width="1.5" fill="none" stroke-dasharray="4,3"/>
+      <!-- Arrow from IPA to chip -->
+      <path d="M120 120 L120 160" stroke="#fbbf24" stroke-width="2" fill="none"/>
+      <!-- Chip inside -->
+      <rect x="95" y="160" width="50" height="35" rx="4" fill="#0d1b2a" stroke="#34d399" stroke-width="1.5"/>
+      <text x="120" y="182" fill="#34d399" font-size="7" text-anchor="middle">eSIM CHIP</text>
+    </svg>
+  </div>
+  <h3>🤖 The On-Device Translator (IPA)</h3>
+  <p class="story-text">Each device has a little helper called the <strong>IPA</strong> (IoT Profile Assistant). It's like a translator — it takes commands from the remote control centre and passes them to the eSIM chip. The IPA doesn't make decisions — it just delivers messages, like a faithful messenger.</p>
+  <div class="page-num">📖 Page 4</div>
+</div>
+
+<!-- PAGE 5: SAFETY NETS -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 220" width="350">
+      <!-- Parachute -->
+      <g transform="translate(200,40)">
+        <path d="M-50,0 Q-25,30 0,40 Q25,30 50,0" fill="#5dade2" stroke="#85c1e9" stroke-width="1.5"/>
+        <line x1="0" y1="40" x2="0" y2="80" stroke="#fbbf24" stroke-width="2"/>
+        <!-- Robot hanging -->
+        <rect x="-15" y="80" width="30" height="35" rx="5" fill="#4a90d9" stroke="#85c1e9" stroke-width="1.5"/>
+        <circle cx="-6" cy="92" r="3" fill="#85c1e9"/>
+        <circle cx="6" cy="92" r="3" fill="#85c1e9"/>
+      </g>
+      <text x="200" y="150" fill="#85c1e9" font-size="11" text-anchor="middle">🪂 Fallback Profile — Emergency Parachute!</text>
+      <!-- Rollback icon -->
+      <g transform="translate(120,175)">
+        <text x="0" y="0" font-size="20" class="sparkle">⏪</text>
+        <text x="25" y="0" fill="#c8d6e5" font-size="9">Rollback: undo any mistake</text>
+      </g>
+      <!-- Safe connection -->
+      <g transform="translate(280,175)">
+        <text x="0" y="0" font-size="20" class="sparkle">🛡️</text>
+        <text x="25" y="0" fill="#c8d6e5" font-size="9">Won't wear out memory</text>
+      </g>
+    </svg>
+  </div>
+  <h3>🪂 Safety Nets and Undo Buttons</h3>
+  <p class="story-text">What if a profile switch goes wrong and the robot loses connection? The chip has a <strong>fallback profile</strong> — an automatic parachute. And if a download breaks, it can <strong>roll back</strong> like pressing "undo." Plus, the system is careful not to wear out the chip's memory — some devices need to run for <em>10+ years</em> on one battery!</p>
+  <div class="page-num">📖 Page 5</div>
+</div>
+
+<!-- PAGE 6: COMPARISON -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 220" width="350">
+      <!-- Phone side -->
+      <rect x="20" y="20" width="155" height="180" rx="8" fill="#1b3a5c" stroke="#5dade2" stroke-width="1.5"/>
+      <text x="97" y="46" fill="#85c1e9" font-size="10" text-anchor="middle" font-weight="bold">📱 Your Phone</text>
+      <line x1="35" y1="55" x2="160" y2="55" stroke="#30363d" stroke-width="1"/>
+      <text x="97" y="78" fill="#c8d6e5" font-size="9" text-anchor="middle">You tap "Enable"</text>
+      <text x="97" y="100" fill="#c8d6e5" font-size="9" text-anchor="middle">Scan QR code</text>
+      <text x="97" y="122" fill="#c8d6e5" font-size="9" text-anchor="middle">Profile has a name</text>
+      <text x="97" y="144" fill="#c8d6e5" font-size="9" text-anchor="middle">Always connected</text>
+      <text x="97" y="166" fill="#c8d6e5" font-size="9" text-anchor="middle">One device</text>
+      <!-- Robot side -->
+      <rect x="225" y="20" width="155" height="180" rx="8" fill="#1b3a5c" stroke="#34d399" stroke-width="1.5"/>
+      <text x="302" y="46" fill="#34d399" font-size="10" text-anchor="middle" font-weight="bold">🤖 IoT Robots</text>
+      <line x1="240" y1="55" x2="365" y2="55" stroke="#30363d" stroke-width="1"/>
+      <text x="302" y="78" fill="#c8d6e5" font-size="9" text-anchor="middle">eIM sends signed command</text>
+      <text x="302" y="100" fill="#c8d6e5" font-size="9" text-anchor="middle">Code pushed from cloud</text>
+      <text x="302" y="122" fill="#c8d6e5" font-size="9" text-anchor="middle">No nicknames needed!</text>
+      <text x="302" y="144" fill="#c8d6e5" font-size="9" text-anchor="middle">May sleep for weeks</text>
+      <text x="302" y="166" fill="#c8d6e5" font-size="9" text-anchor="middle">Fleets of thousands!</text>
+      <!-- Arrow between -->
+      <text x="194" y="105" fill="#fbbf24" font-size="22">➡️</text>
+    </svg>
+  </div>
+  <h3>🚀 What Makes This Different?</h3>
+  <p class="story-text">Everything is <strong>remote</strong>, <strong>automatic</strong>, and built for <strong>fleets of thousands</strong>. No tapping screens, no QR codes, no naming profiles — just signed commands from the cloud and devices that take care of themselves.</p>
+  <div class="page-num">📖 Page 6</div>
+</div>
+
+<!-- PAGE 7: FUN FACT -->
+<div class="page page-cover">
+  <div class="illustration floating">
+    <svg viewBox="0 0 400 260" width="350">
+      <circle cx="200" cy="60" r="35" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2"/>
+      <text x="200" y="68" font-size="28" text-anchor="middle">🧠</text>
+      <!-- Battery -->
+      <rect x="150" y="120" width="100" height="40" rx="4" fill="#1b3a5c" stroke="#34d399" stroke-width="2"/>
+      <rect x="250" y="130" width="8" height="20" rx="2" fill="#34d399"/>
+      <rect x="160" y="130" width="80" height="20" rx="2" fill="#34d399" opacity="0.3"/>
+      <text x="200" y="145" fill="#34d399" font-size="14" text-anchor="middle" font-weight="bold">10+ YEARS</text>
+      <!-- Chip being careful -->
+      <text x="200" y="195" fill="#85c1e9" font-size="10" text-anchor="middle">eSIM system writes to memory</text>
+      <text x="200" y="210" fill="#85c1e9" font-size="10" text-anchor="middle">only when absolutely needed!</text>
+      <g class="sparkle" transform="translate(200,240)">
+        <text font-size="16" text-anchor="middle">⚡</text>
+      </g>
+    </svg>
+  </div>
+  <h3>🧠 Did You Know?</h3>
+  <p class="story-text">Some IoT devices are designed to run for <strong>10+ years</strong> on a single battery — so the eSIM system has to be careful not to wear out the chip's memory with too many writes. Every operation is precious!</p>
+  <div class="page-num">📖 Page 7 — The End ✨</div>
+</div>
+
+<!-- PAGE 8: BACK COVER -->
+<div class="page page-cover">
+  <h2>📚 Ready for the Next Story?</h2>
+  <p class="story-text" style="margin-bottom:1.5rem">Learn how the Remote Control Centre and Translators work together!</p>
+  <p style="text-align:center;margin-bottom:1rem">
+    <a href="storybook-08.html" style="display:inline-block;padding:.8rem 2rem;background:rgba(93,173,226,0.15);color:#5dade2;text-decoration:none;border-radius:8px;font-size:1.1rem">📖 Next: Mission Control →</a>
+  </p>
+  <p style="text-align:center">
+    <a href="index.html" style="display:inline-block;padding:.8rem 2rem;background:rgba(93,173,226,0.15);color:#5dade2;text-decoration:none;border-radius:8px;font-size:1.1rem">📚 Back to All Stories</a>
+  </p>
+  <div class="page-num">📖 Back Cover</div>
+</div>
+
+</div>
+
+<div class="nav">
+  <a href="#" onclick="window.scrollBy({top:-window.innerHeight,behavior:'smooth'});return false">⬆</a>
+  <a href="#" onclick="window.scrollBy({top:window.innerHeight,behavior:'smooth'});return false">⬇</a>
+</div>
+
+</body>
+</html>
