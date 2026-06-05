@@ -76,3 +76,5 @@ eSIM uses a special kind of math called **elliptic curves** (specifically one na
 ---
 
 *Kid-friendly version of GSMA SGP.22, Sections 2.6, 4.5, and 4.6 — Security*
+
+← [Back to Kids Articles](index)

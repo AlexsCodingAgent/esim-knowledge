@@ -73,3 +73,5 @@ For the very first manager (when nobody is trusted yet), a special unsigned comm
 ---
 
 🧠 **Did You Know?** A single eSIM chip can trust *multiple* managers at once — so the company that made the device and the customer who bought it can both manage it, each with their own trusted spot on the list!
+
+← [Back to Kids Articles](index)

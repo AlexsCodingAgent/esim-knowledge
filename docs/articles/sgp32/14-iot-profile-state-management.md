@@ -5,6 +5,8 @@ date: 2026-06-05
 
 # Profile State Management via the eIM: Remote Enable, Disable, Delete
 
+**🏠 [eUICC.tech](/) > [SGP.32 IoT eSIM](/docs/articles/sgp32/) > Profile State Management via the eIM: Remote Enable, Disable, Delete**
+
 > **💡 Why this matters:** In consumer eSIM, you tap "Enable" in Settings. In IoT, a server sends a signed binary blob across the internet and the eUICC executes it without any human involvement — then cryptographically proves it did so. This article covers the full lifecycle of PSMO (Profile State Management Operations), the mechanism that makes fleet-scale remote profile control possible.
 
 > **Key takeaways:**
@@ -238,6 +240,16 @@ The `eIM` can pre-configure whether downloaded profiles should be immediately en
 - Six PSMO types cover enable, disable, delete, rollback, and fallback attribute management
 - Precondition checks (profile state, Policy Rules) gate every operation before the REFRESH cycle
 - Rollback and Immediate Profile Enabling provide safety and efficiency for the two most common IoT edge cases
+
+---
+
+<div align="center">
+
+← Previous: [IoT Device Initialisation and the eUICC File Structure](/docs/articles/sgp32/13-iot-device-initialisation) · [🏠 Home](/)
+
+Next: [SM-DS Operations in IoT eSIM: Event Registration and Retrieval](/docs/articles/sgp32/15-iot-smsds-operations) →
+
+</div>
 
 ---
 

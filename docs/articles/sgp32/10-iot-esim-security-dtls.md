@@ -5,6 +5,8 @@ date: 2026-06-01
 
 # IoT eSIM Security: eIM Certificates, DTLS, and Device Trust
 
+**🏠 [eUICC.tech](/) > [SGP.32 IoT eSIM](/docs/articles/sgp32/) > IoT eSIM Security: eIM Certificates, DTLS, and Device Trust**
+
 > **💡 Why this matters:** IoT devices live in hostile environments — remote locations, no physical security, constrained CPUs that can't run full PKI stacks. The IoT eSIM security model extends the consumer PKI with a new `eIM` certificate class, adapts transport security from TLS to DTLS for UDP-based LPWA networks, and introduces three trust models for devices ranging from Linux gateways to bare-metal RTOS sensors.
 
 > **Key takeaways:**
@@ -179,6 +181,16 @@ The fallback mechanism is triggered by the eUICC autonomously — no eIM involve
 - Three trust models (full PKI, certificate pinning, raw public key) accommodate devices from Linux gateways to RTOS sensors
 - DTLS with Connection ID (RFC 9146) enables session survival across IP changes on NB-IoT devices
 - Fallback Mechanism provides autonomous recovery — the eUICC can revert to a provisioning profile without any server interaction
+
+---
+
+<div align="center">
+
+← Previous: [IoT Profile Download: Direct, Indirect, and eIM Package Handling](/docs/articles/sgp32/09-iot-profile-download-packages) · [🏠 Home](/)
+
+Next: [eIM Configuration: Associating Remote Managers with Your eUICC](/docs/articles/sgp32/11-eim-configuration) →
+
+</div>
 
 ---
 

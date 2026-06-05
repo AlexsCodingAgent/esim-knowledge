@@ -75,3 +75,5 @@ Only when all checks pass does the chip execute the command.
 ---
 
 🧠 **Did You Know?** A profile can have a rule saying "delete me after I'm disabled." So one disable command can actually trigger two actions — disable now, auto-delete afterwards. It's like a domino effect built into the profile itself!
+
+← [Back to Kids Articles](index)

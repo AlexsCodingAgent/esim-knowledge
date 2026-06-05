@@ -81,3 +81,5 @@ The control centre uses this card to decide how to talk to this specific device.
 ---
 
 🧠 **Did You Know?** The eSIM chip's unique ID (EID) is 32 digits long — that's enough numbers to give a unique ID to every single grain of sand on Earth... many times over!
+
+← [Back to Kids Articles](index)

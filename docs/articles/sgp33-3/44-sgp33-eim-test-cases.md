@@ -5,6 +5,8 @@ date: 2026-06-05
 
 # Key eIM Test Cases: PSMO, Notifications, and Configuration
 
+**🏠 [eUICC.tech](/) > [SGP.33-3 eIM Testing](/docs/articles/sgp33-3/) > Key eIM Test Cases: PSMO, Notifications, and Configuration**
+
 > **💡 Why this matters:** The eIM's job is to remotely manage what happens on IoT devices — enabling and disabling profiles, handling configuration changes, and processing notifications about profile state — all without any End User pressing buttons. SGP.33-3's test cases verify that the eIM correctly orchestrates these operations across four different interfaces (ESep, ES9+', ES11', ESipa) and through multiple communication patterns. If the eIM gets any of these wrong, IoT devices in the field could be left with the wrong profile enabled, missed notifications, or an unmanageable eUICC.
 
 > **Key takeaways:**
@@ -160,6 +162,16 @@ Each sequence includes conditional branching on `O_S_TRID` (whether a Transactio
 - ESipa defines 11 interface functions but all test sequences are FFS — the eIM-to-IPA interface testing methodology is still maturing
 - The only fully-defined behaviour test is Profile Enable via eIM Package Retrieval, with 4 nominal sequences and error cases, conditionally applicable based on optional features O_S_PKG_RETRIEVAL and O_S_ESIPA_HTTPS
 - Most ES9+' and ES11' test sequences reference SGP.23 and substitute the eIM for LPAd, providing a foundation of proven test methodology
+
+---
+
+<div align="center">
+
+← Previous: [eIM Test Architecture: Simulated eIM and Reference IPA](/docs/articles/sgp33-3/43-sgp33-eim-architecture) · [🏠 Home](/)
+
+Next: [eIM Security Testing: DTLS, Certificates, and Signed Packages](/docs/articles/sgp33-3/45-sgp33-eim-security) →
+
+</div>
 
 ---
 

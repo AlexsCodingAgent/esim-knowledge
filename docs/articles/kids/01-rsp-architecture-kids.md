@@ -67,3 +67,5 @@ There are **thirteen different pathways** (called *interfaces*) connecting these
 ---
 
 *Kid-friendly version of GSMA SGP.22, Section 2 — General Architecture*
+
+← [Back to Kids Articles](index)

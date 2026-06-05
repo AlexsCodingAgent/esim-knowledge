@@ -72,3 +72,5 @@ What about bad actors? The system protects against:
 ---
 
 🧠 **Did You Know?** DTLS with Connection ID means a device could change IP addresses — like moving to a different WiFi network — and still keep its secure conversation going without starting over!
+
+← [Back to Kids Articles](index)

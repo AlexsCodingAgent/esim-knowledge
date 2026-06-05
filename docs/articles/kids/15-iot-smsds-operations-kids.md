@@ -78,3 +78,5 @@ One wake-up, four jobs done! This is a huge battery saver for tiny sensors where
 ---
 
 🧠 **Did You Know?** The message board never actually stores any profiles — just tiny notes pointing to them. This means even a small server can handle notes for *millions* of devices. It's like the difference between storing actual packages vs. just storing "your package is at locker #7" slips!
+
+← [Back to Kids Articles](index)

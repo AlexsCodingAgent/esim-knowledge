@@ -5,6 +5,8 @@ date: 2026-06-05
 
 # eUICC Certification: From SGP.23-1 Tests to SAS-UP Approval
 
+**🏠 [eUICC.tech](/) > [SGP.23-1 eUICC Testing](/docs/articles/sgp23-1/) > eUICC Certification: From SGP.23-1 Tests to SAS-UP Approval**
+
 > **💡 Why this matters:** Passing SGP.23-1's 797 pages of test cases isn't just an engineering milestone — it's a regulatory and commercial gateway. An eUICC that can't produce a valid DLOA (Digital Letter of Approval) backed by SAS-UP accreditation cannot be deployed in production devices. Understanding the certification workflow — from declaring optional features through test execution to final approval — reveals what separates a prototype eUICC from a production-ready one.
 
 > **Key takeaways:**
@@ -183,6 +185,14 @@ SGP.23-1's document history (Annex L) shows a steady stream of CRs (Change Reque
 - A GlobalPlatform Digital Letter of Approval (DLOA) is the final deliverable — a portable, verifiable compliance certificate
 - SGP.23-1 certification feeds into SGP.23 system testing, where the certified eUICC serves as a trusted component
 - GSMA Test Events provide the formal venue for conformance assessment, with iterative CRs refining the specification based on real-world testing experience
+
+---
+
+<div align="center">
+
+← Previous: [eUICC Security Testing: Certificates, Keys, and Channels](/docs/articles/sgp23-1/35-sgp23-1-security) · [🏠 Home](/)
+
+</div>
 
 ---
 

@@ -84,3 +84,5 @@ If you copy a Bound Profile from one phone and try to install it on another, it 
 ---
 
 *Kid-friendly version of GSMA SGP.22, Section 3 — Procedures*
+
+← [Back to Kids Articles](index)

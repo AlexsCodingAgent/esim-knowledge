@@ -63,3 +63,5 @@ Every package has a **counter value** (like a ticket number) that only goes up. 
 ---
 
 🧠 **Did You Know?** The counter can go all the way up to 8,388,607 — that's enough for 800 operations *every single day* for 28 years without running out!
+
+← [Back to Kids Articles](index)

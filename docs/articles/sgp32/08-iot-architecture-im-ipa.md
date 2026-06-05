@@ -5,6 +5,8 @@ date: 2026-05-26
 
 # The eSIM IoT Architecture: eIM, IPA, and the New Interfaces
 
+**🏠 [eUICC.tech](/) > [SGP.32 IoT eSIM](/docs/articles/sgp32/) > The eSIM IoT Architecture: eIM, IPA, and the New Interfaces**
+
 > **💡 Why this matters:** The IoT eSIM architecture adds two entirely new network players and four new interfaces on top of the consumer RSP model. Understanding how the `eIM` and `IPA` divide responsibilities — and what each interface carries — is the key to understanding the entire IoT provisioning system.
 
 > **Key takeaways:**
@@ -137,6 +139,16 @@ The protocol choice is configured per-eIM in the eIM Configuration Data via the 
 - `IPA` comes in two variants: `IPAd` (in device) for richer hardware, `IPAe` (in eUICC) for ultra-constrained devices
 - All profile decisions are remote — the `IPA` is a conduit, and consumer LUI/ES10c features are removed
 - Four protocol stacks (HTTPS, CoAPS, MQTTs, Proprietary) let the architecture scale from LPWA sensors to Linux gateways
+
+---
+
+<div align="center">
+
+← Previous: [eSIM for IoT: Why It Needed Its Own Architecture](/docs/articles/sgp32/07-iot-esim-why) · [🏠 Home](/)
+
+Next: [IoT Profile Download: Direct, Indirect, and eIM Package Handling](/docs/articles/sgp32/09-iot-profile-download-packages) →
+
+</div>
 
 ---
 

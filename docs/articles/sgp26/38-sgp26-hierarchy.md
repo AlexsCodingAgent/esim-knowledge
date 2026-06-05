@@ -5,6 +5,8 @@ date: 2026-06-06
 
 # Test Certificate Hierarchy: CI, EUM, DP, DS, and eUICC
 
+**🏠 [eUICC.tech](/) > [SGP.26 Test Certificates](/docs/articles/sgp26/) > Test Certificate Hierarchy: CI, EUM, DP, DS, and eUICC**
+
 > **💡 Why this matters:** Certificate validation in eSIM is not just about checking a signature — it's about walking a chain of trust from a known root through potentially multiple intermediate CAs, verifying path length constraints, name constraints, and role-specific policy OIDs at every step. SGP.26 gives you the complete chain for every RSP entity, so you can trace exactly how trust flows from the GSMA Test CI down to an individual eUICC or SM-DP+ TLS endpoint.
 
 > **Key takeaways:**
@@ -239,6 +241,16 @@ Both curves produce 64-byte signatures (two 32-byte integers, r and s, DER-encod
 - The eUICC certificate has effectively infinite validity (2,000,000 days) and carries the EID in its Subject DN's `serialNumber` field
 - eIM certificates chain directly to the CI root and are not variant-scoped — reflecting their independent role in the SGP.32 IoT architecture
 - All certificates use ECDSA over NIST P-256 or Brainpool P256r1 with SHA-256 — no RSA anywhere in the test PKI
+
+---
+
+<div align="center">
+
+← Previous: [SGP.26 Overview: The GSMA RSP Test Certificate Infrastructure](/docs/articles/sgp26/37-sgp26-overview) · [🏠 Home](/)
+
+Next: [Certificate Profiles: What Makes a Valid Test Certificate](/docs/articles/sgp26/39-sgp26-profiles) →
+
+</div>
 
 ---
 

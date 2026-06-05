@@ -5,6 +5,8 @@ date: 2026-06-05
 
 # EID Format Decoded: The 32-Digit Structure
 
+**🏠 [eUICC.tech](/) > [SGP.29 EID](/docs/articles/sgp29/) > EID Format Decoded: The 32-Digit Structure**
+
 > **💡 Why this matters:** The EID's 32-digit structure is not arbitrary — it encodes a hierarchical delegation chain from the GSMA down to individual eUICC manufacturers, with built-in cryptographic verification. Understanding the format reveals how EID ranges are delegated through a tree of assignment authorities, how manufacturers encode their identity, and how anyone can validate an EID's authenticity using simple modular arithmetic.
 
 > **Key takeaways:**
@@ -179,6 +181,16 @@ GSMA ──ERHI1──▶ Group of Device Mfrs ──ERHI2──▶ Single Devic
 - Verification is trivial: compute `EID MOD 97` and check if the result equals 1
 - Three delegation chain patterns support different supply chain structures: GSMA→EAA→DevMfr→EUM, GSMA→DevMfr→EUM, and GSMA→Group→Member→EUM
 - EIDs are explicitly NOT ICCIDs and must not start with "89"
+
+---
+
+<div align="center">
+
+← Previous: [SGP.29 Overview: The eUICC Identifier (EID)](/docs/articles/sgp29/27-sgp29-overview) · [🏠 Home](/)
+
+Next: [EID Assignment: How Manufacturers Get Their Allocations](/docs/articles/sgp29/29-sgp29-assignment) →
+
+</div>
 
 ---
 

@@ -71,3 +71,5 @@ The eUICC uses a type of math called **elliptic curve cryptography** for its sec
 ---
 
 *Kid-friendly version of GSMA SGP.22, Section 2.4 — eUICC Architecture*
+
+← [Back to Kids Articles](index)

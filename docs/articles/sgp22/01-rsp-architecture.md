@@ -5,6 +5,8 @@ date: 2026-05-24
 
 # The eSIM RSP Architecture: Players and Interfaces
 
+**🏠 [eUICC.tech](/) > [SGP.22 Consumer RSP](/docs/articles/sgp22/) > The eSIM RSP Architecture: Players and Interfaces**
+
 > **💡 Why this matters:** Every eSIM interaction — scanning a QR code, switching carriers, provisioning a factory-fresh IoT device — flows through this architecture. Knowing the five players and thirteen interfaces is the map you need before diving into any protocol detail.
 
 > **Key takeaways:**
@@ -105,6 +107,16 @@ A device that supports a non-removable eUICC without an LPAe must provide an LPA
 - The LPA is explicitly untrusted by design — it's a transport layer, not a security boundary
 - Two deployment models (`LPAd` and `LPAe`) cover everything from smartphones to headless IoT devices
 - Trust always chains back to the GSMA CI root — no exceptions
+
+---
+
+<div align="center">
+
+← Previous: [eSIM Remote SIM Provisioning (RSP) — How It Works](/docs/articles/sgp22/00-sgp22-overview) · [🏠 Home](/)
+
+Next: [Inside the eUICC: The Secure Element That Powers Your eSIM](/docs/articles/sgp22/02-inside-the-euicc) →
+
+</div>
 
 ---
 

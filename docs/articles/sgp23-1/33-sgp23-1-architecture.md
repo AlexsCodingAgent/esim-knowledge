@@ -5,6 +5,8 @@ date: 2026-06-05
 
 # eUICC Test Architecture: Readers, Scripts, and GSMA Tools
 
+**🏠 [eUICC.tech](/) > [SGP.23-1 eUICC Testing](/docs/articles/sgp23-1/) > eUICC Test Architecture: Readers, Scripts, and GSMA Tools**
+
 > **💡 Why this matters:** Testing an eUICC isn't like testing a web API — you can't just send HTTP requests and check JSON responses. The test architecture must handle physical chip interfaces (ISO 7816-4 contacts, USB CCID), APDU-level command chaining, logical channel management, and a parallel test PKI that keeps certification testing isolated from production infrastructure. Understanding this architecture reveals what test tool vendors must build and what eUICC manufacturers must provide.
 
 > **Key takeaways:**
@@ -125,6 +127,16 @@ Test profiles (Annex E) use known ICCIDs (`89019990001234567893`), known USIM AI
 - Integrated eUICCs must implement Annex J's USB CCID interface — or provide a Bluetooth/USB adapter if USB is unavailable
 - Test cases use a three-tier notation system (#constants, <variables>, #IUT_settings) with reusable procedure macros
 - eUICC manufacturers must deliver products in known initial states (Annex G) pre-loaded with test certificates, keys, and profiles
+
+---
+
+<div align="center">
+
+← Previous: [SGP.23-1 Overview: Testing the eUICC Itself](/docs/articles/sgp23-1/32-sgp23-1-overview) · [🏠 Home](/)
+
+Next: [Key eUICC Test Cases: ISD-R, ECASD, and Profile Lifecycle](/docs/articles/sgp23-1/34-sgp23-1-test-cases) →
+
+</div>
 
 ---
 

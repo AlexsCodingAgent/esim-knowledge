@@ -5,6 +5,8 @@ date: 2026-06-05
 
 # SGP.23 Overview: How eSIM Interoperability Is Tested
 
+**🏠 [eUICC.tech](/) > [SGP.23 Test Specifications](/docs/articles/sgp23/) > SGP.23 Overview: How eSIM Interoperability Is Tested**
+
 > **💡 Why this matters:** SGP.22 defines *what* an eSIM system must do. SGP.23 defines *how to prove it works* — the 913-page test specification that every eUICC, SM-DP+, SM-DS, and LPA implementation must pass before deployment. Understanding SGP.23 reveals the compliance regime that makes multi-vendor eSIM interoperability possible.
 
 > **Key takeaways:**
@@ -102,6 +104,16 @@ The DLOA serves as a portable certificate of compliance — a product that holds
 - Two testing scopes (interface compliance + system behaviour) span ES2+, ES6, ES8+, ES9+, ES10a/b/c, ES11, ES12, and ES15
 - Optional Features and Applicability tables ensure each implementation is tested against relevant requirements only
 - SAS accreditation numbers and the GlobalPlatform DLOA link testing to production certification
+
+---
+
+<div align="center">
+
+[🏠 Home](/)
+
+Next: [The GSMA eSIM Test Infrastructure](/docs/articles/sgp23/18-sgp23-test-infrastructure) →
+
+</div>
 
 ---
 

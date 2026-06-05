@@ -5,6 +5,8 @@ date: 2026-06-05
 
 # Key eUICC Test Cases: ISD-R, ECASD, and Profile Lifecycle
 
+**🏠 [eUICC.tech](/) > [SGP.23-1 eUICC Testing](/docs/articles/sgp23-1/) > Key eUICC Test Cases: ISD-R, ECASD, and Profile Lifecycle**
+
 > **💡 Why this matters:** Before any profile can be downloaded, before any carrier switch can happen, the eUICC must correctly handle the fundamental lifecycle of its secure domains and profiles. SGP.23-1's 27 interface test groups and 8 behaviour test groups verify every state transition — from the first ATR byte through ISD-R selection, secure channel establishment, profile installation, enablement, and deletion. These are the tests that catch the bugs which would otherwise surface as "inexplicable" field failures.
 
 > **Key takeaways:**
@@ -14,6 +16,9 @@ date: 2026-06-05
 > - ES10c local profile management tests `GetProfilesInfo`, `EnableProfile`, `DisableProfile`, `DeleteProfile`, and `eUICCMemoryReset` — the most heavily tested interface with hundreds of pages
 > - Behavior testing covers retry mechanisms (Confirmation Code, one-time key reuse), forbidden PPRs, file structure validation, and notification handling
 > - MEP (Multiple Enabled Profiles) adds extensive test sequences for multi-profile management across LSI multiplexing
+
+* TOC
+{:toc}
 
 SGP.23-1's test cases are organised into two major chapters: Section 4 (Interface Compliance Testing, pages 37–595) and Section 5 (Procedure - Behaviour Testing, pages 595–611). Together they cover 27 interface-level test groups and 8 behaviour-level test groups, each containing multiple test sequences.
 
@@ -198,6 +203,16 @@ Beyond interface compliance, these behaviour tests verify the full process lifec
 - ES10c (8 function groups) is the most heavily tested interface, with EnableProfile alone spanning ~117 pages of test sequences
 - System behaviour testing (Section 5) goes beyond interface compliance to verify retry mechanisms, PPR enforcement, file structure integrity, and state transitions
 - MEP (Multiple Enabled Profiles) adds extensive test variants across ISD-R selection, EnableProfile, DisableProfile, and DeleteProfile
+
+---
+
+<div align="center">
+
+← Previous: [eUICC Test Architecture: Readers, Scripts, and GSMA Tools](/docs/articles/sgp23-1/33-sgp23-1-architecture) · [🏠 Home](/)
+
+Next: [eUICC Security Testing: Certificates, Keys, and Channels](/docs/articles/sgp23-1/35-sgp23-1-security) →
+
+</div>
 
 ---
 

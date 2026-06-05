@@ -1,4 +1,12 @@
+---
+date: 2026-06-05
+---
+
 # eSIM Remote SIM Provisioning (RSP) — How It Works
+
+**🏠 [eUICC.tech](/) > [SGP.22 Consumer RSP](/docs/articles/sgp22/) > eSIM Remote SIM Provisioning (RSP) — How It Works**
+
+> **📚 Prerequisites:** New to telecom or smart card technology? Read our [Prerequisites Guide](/docs/prerequisites) first. The [Glossary](/docs/glossary) defines all acronyms used in these articles.
 
 > **💡 Why this matters:** SGP.22 is the protocol behind every eSIM download, carrier switch, and multi-profile device on the planet. Understanding it gives you the foundation for everything from consumer eSIM UX to industrial IoT provisioning.
 
@@ -185,6 +193,16 @@ That's it. The device extracts the SM-DP+ URL and the Matching ID, then begins t
 - Three delivery phases — initiation via `ES2+`, mutual authentication via `ES9+`/`ES10b`, and encrypted download via `ES8+` — ensure end-to-end security on untrusted transport
 - A GSMA-rooted PKI with hardware-level isolation and perfect forward secrecy makes the system resilient even against compromised intermediaries
 - The specification is vast (268 pages in v2.2.2), but the core model is elegant and consistent throughout
+
+---
+
+<div align="center">
+
+[🏠 Home](/)
+
+Next: [The eSIM RSP Architecture: Players and Interfaces](/docs/articles/sgp22/01-rsp-architecture) →
+
+</div>
 
 ---
 

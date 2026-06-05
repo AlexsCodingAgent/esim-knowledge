@@ -37,13 +37,13 @@ New to eSIM? Read these in order — each builds on the last.
 
 | Article | Date |
 |---------|------|
-| [Overview: The eSIM RSP Technical Specification](docs/articles/sgp22/00-sgp22-overview) | — |
-| [The eSIM RSP Architecture: Players and Interfaces](docs/articles/sgp22/01-rsp-architecture) | 2026-05-24 |
-| [Inside the eUICC: The Secure Element That Powers Your eSIM](docs/articles/sgp22/02-inside-the-euicc) | 2026-05-27 |
-| [How a Profile Gets Delivered: The eSIM Download Process](docs/articles/sgp22/03-profile-download) | 2026-05-29 |
-| [eSIM Security: The PKI and Certificate Model](docs/articles/sgp22/04-esim-security-pki) | 2026-06-01 |
-| [Managing Your eSIM: Local Profile Operations](docs/articles/sgp22/05-local-profile-management) | 2026-06-03 |
-| [The Developer's View: RSP Interfaces and Protocol Binding](docs/articles/sgp22/06-developer-interfaces) | 2026-06-05 |
+| [Overview](docs/articles/sgp22/00-sgp22-overview) | — |
+| [Architecture](docs/articles/sgp22/01-rsp-architecture) | 2026-05-24 |
+| [Inside the eUICC](docs/articles/sgp22/02-inside-the-euicc) | 2026-05-27 |
+| [Profile Download](docs/articles/sgp22/03-profile-download) | 2026-05-29 |
+| [Security & PKI](docs/articles/sgp22/04-esim-security-pki) | 2026-06-01 |
+| [Profile Management](docs/articles/sgp22/05-local-profile-management) | 2026-06-03 |
+| [Developer Interfaces](docs/articles/sgp22/06-developer-interfaces) | 2026-06-05 |
 
 ---
 
@@ -203,6 +203,6 @@ New to eSIM? Read these in order — each builds on the last.
 
 *Sources: GSMA SGP.22 v2.7 · SGP.23 v1.16 · SGP.23-1 v3.1.3 · SGP.25 v2.1 · SGP.26 v3.0.2 · SGP.29 v1.1 · SGP.31 v1.3 · SGP.32 v1.3 · SGP.33-3 v1.2 · SGP.41 v1.0*
 
-[View on GitHub](https://github.com/AlexsCodingAgent/esim-knowledge) · eUICC.tech *(domain to be linked)* · [🧒 Kid-Friendly Versions](docs/articles/kids/) · [🗺️ Standards Map](docs/standards-map)
+[View on GitHub](https://github.com/AlexsCodingAgent/esim-knowledge) · eUICC.tech *(domain to be linked)* · [📖 Glossary](docs/glossary) · [📚 Prerequisites](docs/prerequisites) · [🧒 Kid-Friendly Versions](docs/articles/kids/) · [🗺️ Standards Map](docs/standards-map)
 
 </div>

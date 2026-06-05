@@ -69,3 +69,5 @@ Everything is **remote**, **automatic**, and built for **fleets of thousands**.
 ---
 
 🧠 **Did You Know?** Some IoT devices are designed to run for **10+ years** on a single battery — so the eSIM system has to be careful not to wear out the chip's memory with too many writes!
+
+← [Back to Kids Articles](index)

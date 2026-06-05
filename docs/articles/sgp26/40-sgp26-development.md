@@ -5,6 +5,8 @@ date: 2026-06-06
 
 # Using Test Certificates: Developer Setup and Integration
 
+**🏠 [eUICC.tech](/) > [SGP.26 Test Certificates](/docs/articles/sgp26/) > Using Test Certificates: Developer Setup and Integration**
+
 > **💡 Why this matters:** Having a specification for test certificates is one thing — getting them onto actual test hardware is another. This article covers the practical path from downloading the SGP.26 ZIP package to having a test eUICC that trusts your test SM-DP+, including OpenSSL commands, certificate provisioning, and the common mistakes that waste days in the lab.
 
 > **Key takeaways:**
@@ -14,6 +16,9 @@ date: 2026-06-06
 > - Test SM-DP+ configuration needs all three SM-DP+ certificates (auth, profile binding, TLS) plus their private keys, and must serve the test CRL at the URLs specified in the certificates
 > - Self-signed test CIs (Annex C) allow RSP actors to generate their own test roots and publish them via GSMA's registry at `https://www.gsma.com/esim/gsma-root-ci/`
 > - Common pitfalls: forgetting to convert DER to PEM for OpenSSL signing, using the wrong variant's certificates for your test scenario, CRL distribution point URL mismatches, and certificate expiry during long-running test suites
+
+* TOC
+{:toc}
 
 SGP.26 is not just a reference document — it ships with an actual file package containing every key, certificate, and configuration file needed to stand up a complete test RSP environment. This article covers the end-to-end developer workflow.
 
@@ -305,6 +310,16 @@ The eUICC checks the `certificatePolicies` extension. If an SM-DP+ presents a TL
 - Self-signed test CIs (Annex C) let vendors create independent test PKIs and publish them via GSMA's test certificate registry
 - Avoid the seven common pitfalls: DER/PEM confusion, variant mismatch, unreachable CRL DPs, expiry, production trust anchors, curve mismatch, and policy mismatch
 - The GSMA public registry at `https://www.gsma.com/esim/gsma-root-ci/` lists test SM-DP+ servers that are publicly accessible for interoperability testing
+
+---
+
+<div align="center">
+
+← Previous: [Certificate Profiles: What Makes a Valid Test Certificate](/docs/articles/sgp26/39-sgp26-profiles) · [🏠 Home](/)
+
+Next: [CRL and Certificate Management in the Test Ecosystem](/docs/articles/sgp26/41-sgp26-crl) →
+
+</div>
 
 ---
 

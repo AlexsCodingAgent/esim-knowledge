@@ -5,6 +5,8 @@ date: 2026-06-05
 
 # Physical Security: Side-Channel and Fault Injection Defenses
 
+**🏠 [eUICC.tech](/) > [SGP.25 eUICC Security](/docs/articles/sgp25/) > Physical Security: Side-Channel and Fault Injection Defenses**
+
 > **💡 Why this matters:** An eUICC doesn't just face network-based attacks — it sits inside a device that an adversary can physically hold, probe, and manipulate. Side-channel analysis can extract cryptographic keys from power consumption patterns. Fault injection can flip bits during critical operations. Physical tampering can expose internal buses and memory. SGP.25 explicitly addresses these threats, requiring the TOE and its underlying platform to resist attackers with oscilloscopes, glitching tools, and lab benches.
 
 > **Key takeaways:**
@@ -14,6 +16,9 @@ date: 2026-06-05
 > - OE.IC.SUPPORT requires atomic memory operations, segmentation fault detection, and secure low-level cryptographic processing
 > - O.DATA-CONFIDENTIALITY and O.DATA-INTEGRITY objectives apply to both the TOE and Runtime Environment, including explicit side-channel resistance
 > - Secure manufacturing processes (life-cycle phases a–e) create a chain of trust from IC fabrication through personalisation to operational deployment
+
+* TOC
+{:toc}
 
 Physical attacks represent a qualitatively different threat than logical attacks. They don't exploit bugs in software — they exploit the physical reality that every computation consumes power, takes time, emits radiation, and can be disrupted. SGP.25's treatment of physical security spans the TOE's own SFRs, the objectives placed on the operational environment (IC, Runtime Environment), and the life-cycle controls on manufacturing.
 
@@ -202,6 +207,16 @@ This means the eUICC software architecture must include self-protection mechanis
 - Side-channel resistance is a multi-layer requirement spanning IC, Runtime Environment, and TOE software
 - The eUICC life-cycle (Phases a–e) creates a chain of trust from development through manufacturing, personalisation, and deployment
 - TOE delivery points define when the product leaves trusted environments, with SAS accreditation required for the personalisation phase
+
+---
+
+<div align="center">
+
+← Previous: [eUICC Assurance Requirements: EAL4+ and Penetration Testing](/docs/articles/sgp25/24-sgp25-assurance) · [🏠 Home](/)
+
+Next: [SGP.25 Certification: SAS-UP and the Evaluation Process](/docs/articles/sgp25/26-sgp25-certification) →
+
+</div>
 
 ---
 

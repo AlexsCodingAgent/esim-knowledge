@@ -79,3 +79,5 @@ If a device is making an emergency call (like eCall in a car after an accident),
 ---
 
 🧠 **Did You Know?** When you make an emergency call on an eSIM device, the chip blocks *every single management operation* until you hang up — just to make absolutely sure nothing interrupts your call for help!
+
+← [Back to Kids Articles](index)

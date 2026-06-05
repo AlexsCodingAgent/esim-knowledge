@@ -5,6 +5,8 @@ date: 2026-06-05
 
 # SGP.25 Certification: SAS-UP and the Evaluation Process
 
+**🏠 [eUICC.tech](/) > [SGP.25 eUICC Security](/docs/articles/sgp25/) > SGP.25 Certification: SAS-UP and the Evaluation Process**
+
 > **💡 Why this matters:** A Protection Profile is only as valuable as the certification process behind it. SGP.25 certification doesn't happen in a vacuum — it's embedded in a broader ecosystem of GSMA security accreditation (SAS), Common Criteria evaluation schemes, accredited laboratories, and the interoperability testing regime defined by SGP.23-1. Understanding the end-to-end certification journey reveals how an eUICC goes from a design document to a trusted component in live operator networks.
 
 > **Key takeaways:**
@@ -218,6 +220,14 @@ A secure application embedded into a certified eUICC can itself be certified in 
 - GSMA SAS (specifically SAS-UP) provides the mandatory site accreditation layer, auditing manufacturing and personalisation facilities
 - SGP.23-1 protocol testing and SGP.25 security evaluation are complementary — both are required for production deployment
 - The certificate lifecycle extends beyond initial issuance through flaw reporting (ALC_FLR.2), assurance continuity, and composite certification for eUICC-resident applications
+
+---
+
+<div align="center">
+
+← Previous: [Physical Security: Side-Channel and Fault Injection Defenses](/docs/articles/sgp25/25-sgp25-physical-security) · [🏠 Home](/)
+
+</div>
 
 ---
 

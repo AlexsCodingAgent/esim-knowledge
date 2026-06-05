@@ -5,6 +5,8 @@ date: 2026-06-06
 
 # IFPP Security: Factory Trust Models and Certificate Chains
 
+**🏠 [eUICC.tech](/) > [SGP.41 IFPP](/docs/articles/sgp41/) > IFPP Security: Factory Trust Models and Certificate Chains**
+
 > **💡 Why this matters:** Factory floors are untrusted environments. The Device Manufacturer and FPA handle profile packages but must never see them in plaintext. One-time keys, forward secrecy, and pre-encryption create a security model where the factory is a courier, not a custodian — the profile's confidentiality and integrity are preserved end-to-end from the SAS-certified SM-DPf to the eUICC, regardless of what happens on the production line.
 
 > **Key takeaways:**
@@ -181,6 +183,16 @@ SGP.41 Annex B identifies four categories of threats:
 - Two explicit factory-side security reductions: no SAS accreditation required (GENS01), no HSM required (GENS02)
 - FPA Services are gated to the Device Production Process only; LPA/IPA Services are blocked while factory one-time keys exist
 - The SM-DPf and EUM MUST be SAS-accredited; the Device Manufacturer may operate without SAS (Option 1)
+
+---
+
+<div align="center">
+
+← Previous: [IFPP Flow: Manufacturing Step to Configuration Step](/docs/articles/sgp41/49-sgp41-flow) · [🏠 Home](/)
+
+Next: [IFPP in Practice: PC OEMs, Automotive, and IoT Manufacturing](/docs/articles/sgp41/51-sgp41-practice) →
+
+</div>
 
 ---
 

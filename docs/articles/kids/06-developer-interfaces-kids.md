@@ -86,3 +86,5 @@ The ES8+ encrypted messages travel through your phone's Assistant app — but th
 ---
 
 *Kid-friendly version of GSMA SGP.22, Sections 5 and 6 — Functions and Interface Binding*
+
+← [Back to Kids Articles](index)

@@ -5,6 +5,8 @@ date: 2026-06-05
 
 # The GSMA eSIM Test Infrastructure
 
+**🏠 [eUICC.tech](/) > [SGP.23 Test Specifications](/docs/articles/sgp23/) > The GSMA eSIM Test Infrastructure**
+
 > **💡 Why this matters:** You can't test an eSIM ecosystem with production SIMs and live servers — you need a parallel universe of test certificates, test keys, test profiles, and simulated servers. SGP.23's Annexes (A through K) define this entire parallel infrastructure, enabling deterministic, repeatable conformance testing without touching a live operator network.
 
 > **Key takeaways:**
@@ -124,6 +126,16 @@ IUT settings (Annex F) cover product-specific information that test tool provide
 - Twelve+ numbered test environments map simulators to specific IUT types and interfaces
 - Integrated eUICCs use USB CCID test interfaces (Annex J) instead of physical UICC contacts
 - The constant/variable/IUT-setting notation system connects test case steps to concrete test data
+
+---
+
+<div align="center">
+
+← Previous: [SGP.23 Overview: How eSIM Interoperability Is Tested](/docs/articles/sgp23/17-sgp23-overview) · [🏠 Home](/)
+
+Next: [Testing the LPA: LDS, LPD, and LUI Conformance](/docs/articles/sgp23/19-sgp23-lpa-testing) →
+
+</div>
 
 ---
 

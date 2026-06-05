@@ -5,6 +5,8 @@ date: 2026-06-02
 
 # eIM Configuration: Associating Remote Managers with Your eUICC
 
+**🏠 [eUICC.tech](/) > [SGP.32 IoT eSIM](/docs/articles/sgp32/) > eIM Configuration: Associating Remote Managers with Your eUICC**
+
 > **💡 Why this matters:** In consumer eSIM, there's no persistent "who manages me" relationship stored on the chip — the LPA trusts the SM-DP+ based on the GSMA CI chain, but that trust is ephemeral. IoT needs something stronger: an `eIM` that can send signed commands to a device in a remote wind farm, with the eUICC verifying them locally using a stored public key — no network call required. That's what eIM Configuration Operations (`eCOs`) deliver.
 
 > **Key takeaways:**
@@ -198,6 +200,16 @@ When the `IPA` runs inside the eUICC (`IPAe`), the `trustedPublicKeyDataTls` fie
 - Four eCOs (`addEim`, `updateEim`, `deleteEim`, `listEim`) manage the full lifecycle, all carried in signed eUICC Packages
 - Two bootstrap paths: eIM-managed (requires an already-associated eIM) and IPA-managed (unsigned, for the very first eIM)
 - Counter value + `associationToken` provide replay protection; overflow requires a controlled delete-and-re-add cycle
+
+---
+
+<div align="center">
+
+← Previous: [IoT eSIM Security: eIM Certificates, DTLS, and Device Trust](/docs/articles/sgp32/10-iot-esim-security-dtls) · [🏠 Home](/)
+
+Next: [Notifications and Error Handling in IoT eSIM](/docs/articles/sgp32/12-notifications-errors) →
+
+</div>
 
 ---
 

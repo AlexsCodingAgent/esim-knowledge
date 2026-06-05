@@ -5,6 +5,8 @@ date: 2026-06-05
 
 # EID Security: Privacy, Tracking, and GSMA Governance
 
+**🏠 [eUICC.tech](/) > [SGP.29 EID](/docs/articles/sgp29/) > EID Security: Privacy, Tracking, and GSMA Governance**
+
 > **💡 Why this matters:** The EID is a permanent, globally unique identifier burned into every eSIM chip. If misused, it could become a surveillance mechanism — allowing third parties to track devices across networks, correlate eSIM activity with physical locations, or impersonate legitimate eUICCs. SGP.29 establishes governance and privacy controls designed to prevent these outcomes, while the GSMA's central registry and verification processes form the enforcement backbone.
 
 > **Key takeaways:**
@@ -204,6 +206,14 @@ This is significantly stronger than the Luhn MOD 10 algorithm (used for credit c
 - The "89" prefix reservation prevents collision between GSMA-assigned and legacy ITU-T EIDs
 - MOD 97-10 check digits provide 100% detection of single-digit errors and transpositions
 - The EID is a claim of identity, not proof — cryptographic authentication (SGP.22) prevents EID-based impersonation
+
+---
+
+<div align="center">
+
+← Previous: [EID in RSP Protocols: Discovery, Matching, and Events](/docs/articles/sgp29/30-sgp29-in-protocols) · [🏠 Home](/)
+
+</div>
 
 ---
 

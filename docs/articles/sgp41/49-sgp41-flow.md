@@ -5,6 +5,8 @@ date: 2026-06-06
 
 # IFPP Flow: Manufacturing Step to Configuration Step
 
+**🏠 [eUICC.tech](/) > [SGP.41 IFPP](/docs/articles/sgp41/) > IFPP Flow: Manufacturing Step to Configuration Step**
+
 > **💡 Why this matters:** The IFPP flow is SGP.41's beating heart — 16 steps spanning profile preparation, eUICC key delivery, BPP creation, factory-floor loading, and post-production reporting. Understanding this flow reveals why IFPP works where SGP.22 fails: the heavy cryptographic lifting (binding, encryption) happens *before* the profile reaches the production line, and the factory itself does nothing more complex than pushing pre-packaged data. The two-phase split between the Manufacturing Step and the Configuration Step is what enables the flexible inventory management and region-specific provisioning that consumer RSP cannot offer.
 
 > **Key takeaways:**
@@ -176,6 +178,16 @@ The IFPP flow is designed for real manufacturing environments with several pract
 - Profile generation and binding can be decoupled: bulk generate, just-in-time bind
 - Profile Loading Reports aggregate eUICC-signed results and FPA error reports for delivery to the SM-DPf and ultimately the Operator
 - The entire flow repeats cleanly for multiple profiles from multiple operators on a single eUICC
+
+---
+
+<div align="center">
+
+← Previous: [The IFPP Architecture: SM-DPf, FPA, and Device Manufacturer](/docs/articles/sgp41/48-sgp41-architecture) · [🏠 Home](/)
+
+Next: [IFPP Security: Factory Trust Models and Certificate Chains](/docs/articles/sgp41/50-sgp41-security) →
+
+</div>
 
 ---
 

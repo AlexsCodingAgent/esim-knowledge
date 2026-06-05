@@ -76,3 +76,5 @@ Even though your phone shows profiles as simple on/off switches, what actually h
 ---
 
 *Kid-friendly version of GSMA SGP.22, Sections 3.2, 3.3, and 5.7 — Local Profile Management*
+
+← [Back to Kids Articles](index)

@@ -65,3 +65,5 @@ Your phone's eSIM chip can hold several profiles at once — like having a keych
 ---
 
 *Kid-friendly version of GSMA SGP.22 — eSIM Remote SIM Provisioning*
+
+← [Back to Kids Articles](index)

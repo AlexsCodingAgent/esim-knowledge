@@ -5,6 +5,8 @@ date: 2026-05-29
 
 # How a Profile Gets Delivered: The eSIM Download Process
 
+**🏠 [eUICC.tech](/) > [SGP.22 Consumer RSP](/docs/articles/sgp22/) > How a Profile Gets Delivered: The eSIM Download Process**
+
 > **💡 Why this matters:** The profile download is the core transaction in the eSIM ecosystem — it's where all the cryptographic infrastructure proves itself. Every component (SM-DP+, SM-DS, LPA, eUICC, GSMA CI) participates. Understanding the full three-phase flow at protocol level is essential for debugging interoperability issues, implementing an RSP component, or integrating with any eSIM platform.
 
 > **Key takeaways:**
@@ -15,6 +17,8 @@ date: 2026-05-29
 > - 14 specific error codes catch every failure mode from ICCID collision to policy rule violations, with automatic rollback on failure
 
 ---
+* TOC
+{:toc}
 
 Downloading an eSIM profile is a multi-party cryptographic protocol involving the end user, the operator's backend, the SM-DP+ profile factory, the SM-DS discovery server, the LPA on-device software, and the eUICC chip itself. The process is defined in SGP.22 Section 3 and spans three distinct phases, each with its own interfaces, security guarantees, and error-recovery mechanisms.
 
@@ -600,7 +604,7 @@ The profile data transforms through four stages on its journey from operator dat
 
 | Stage | Name | What Happens | Where | Protection |
 |-------|------|-------------|-------|-----------|
-| **1. UPP** | Unprotected Profile Package | Operator profile data assembled into SIMalliance TLV structure | Inside SM-DP+ | None (internal only) |
+| **1. UPP** | Unprotected Profile Package | Operator profile data assembled into Trusted Connectivity Alliance (TCA, formerly SIMalliance) TLV structure | Inside SM-DP+ | None (internal only) |
 | **2. PPP** | Protected Profile Package | UPP encrypted with SCP03t. Profile Protection Keys generated. | Inside SM-DP+ | Encrypted (PPK-ENC/MAC) |
 | **3. BPP** | Bound Profile Package | PPP + ECDH key agreement + ISD-P config + metadata. Cryptographically locked to one specific eUICC. | SM-DP+ output | Bound to eUICC via ECDH + ECDSA |
 | **4. SBPP** | Segmented Bound Profile Package | BPP split into STORE DATA APDU sequence for ISO 7816 transport | In transit LPA → eUICC | SCP03t encrypted per-APDU, MAC-chained |
@@ -680,6 +684,16 @@ Test profiles are marked with Profile Class = Test. They have relaxed security r
 - 15 specific error codes cover every failure mode, with automatic rollback on installation failure
 - The LPA is a completely passive transport — all cryptographic operations happen on the eUICC and SM-DP+ endpoints
 - The Profile Package Interpreter inside the eUICC decodes Profile Element TLVs sequentially, rolling back the entire installation if any element fails
+
+---
+
+<div align="center">
+
+← Previous: [Inside the eUICC: The Secure Element That Powers Your eSIM](/docs/articles/sgp22/02-inside-the-euicc) · [🏠 Home](/)
+
+Next: [eSIM Security: The PKI and Certificate Model](/docs/articles/sgp22/04-esim-security-pki) →
+
+</div>
 
 ---
 

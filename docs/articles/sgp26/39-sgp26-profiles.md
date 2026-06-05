@@ -5,6 +5,8 @@ date: 2026-06-06
 
 # Certificate Profiles: What Makes a Valid Test Certificate
 
+**🏠 [eUICC.tech](/) > [SGP.26 Test Certificates](/docs/articles/sgp26/) > Certificate Profiles: What Makes a Valid Test Certificate**
+
 > **💡 Why this matters:** An eUICC doesn't just verify a signature — it validates the entire certificate profile: key usage, extended key usage, certificate policies, basic constraints, subject key identifier chaining, and CRL distribution points. One wrong extension and the eUICC must reject the certificate. SGP.26 defines the exact extension profile for each certificate type so that testers know precisely what "valid" means — and what deliberate violations trigger which error codes.
 
 > **Key takeaways:**
@@ -232,6 +234,16 @@ These invalid certificates are generated from the same templates as valid certif
 - SKI = SHA-1 of public key; AKI = issuer's SKI + issuer DN — present on all non-root certificates
 - Validity periods range from 398 days (TLS) to 2,000,000 days (eUICC) to accommodate different lifecycle requirements
 - Section 4's invalid certificates provide 32+ defective variants for negative testing across SM-DP+ and SM-DS
+
+---
+
+<div align="center">
+
+← Previous: [Test Certificate Hierarchy: CI, EUM, DP, DS, and eUICC](/docs/articles/sgp26/38-sgp26-hierarchy) · [🏠 Home](/)
+
+Next: [Using Test Certificates: Developer Setup and Integration](/docs/articles/sgp26/40-sgp26-development) →
+
+</div>
 
 ---
 

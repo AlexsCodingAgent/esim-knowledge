@@ -5,6 +5,8 @@ date: 2026-06-05
 
 # eUICC Security Testing: Certificates, Keys, and Channels
 
+**🏠 [eUICC.tech](/) > [SGP.23-1 eUICC Testing](/docs/articles/sgp23-1/) > eUICC Security Testing: Certificates, Keys, and Channels**
+
 > **💡 Why this matters:** The eSIM security model is built on a chain of trust extending from the GSMA Certificate Issuer (CI) down through the eUICC manufacturer (EUM), the SM-DP+, and finally the eUICC itself. If any link in this chain fails — a certificate doesn't validate, a key operation produces wrong results, or a secure channel is established with weak parameters — the entire profile delivery system is compromised. SGP.23-1 devotes significant testing to every cryptographic operation the eUICC must perform.
 
 > **Key takeaways:**
@@ -177,6 +179,16 @@ For Integrated eUICCs using USB CCID (Annex J), the test interface specification
 - CRL handling tests verify correct loading and subsequent rejection of revoked certificates
 - One-time key pair generation is tested for fresh generation and (optionally) retry reuse
 - Every eUICC signature (`euiccSignPIR`, `euiccSignRPR`, `EUICC_SIGNATURE2`) is verified against the known test public key `#PK_EUICC_SIG`
+
+---
+
+<div align="center">
+
+← Previous: [Key eUICC Test Cases: ISD-R, ECASD, and Profile Lifecycle](/docs/articles/sgp23-1/34-sgp23-1-test-cases) · [🏠 Home](/)
+
+Next: [eUICC Certification: From SGP.23-1 Tests to SAS-UP Approval](/docs/articles/sgp23-1/36-sgp23-1-certification) →
+
+</div>
 
 ---
 

@@ -5,6 +5,8 @@ date: 2026-06-01
 
 # eSIM Security: The PKI and Certificate Model
 
+**🏠 [eUICC.tech](/) > [SGP.22 Consumer RSP](/docs/articles/sgp22/) > eSIM Security: The PKI and Certificate Model**
+
 > **💡 Why this matters:** The eSIM security model is what makes it possible to deliver operator credentials over the public internet — through an untrusted device — without anyone in the middle being able to steal or tamper with them. Every eSIM download depends on this PKI.
 
 > **Key takeaways:**
@@ -188,6 +190,16 @@ These certifications are verified through **Digital Letters of Approval (DLOAs)*
 - `ES8+` session keys use ephemeral ECDH for Perfect Forward Secrecy — even a fully compromised SM-DP+ can't decrypt past downloads
 - Dual-layer profile protection (PPK-ENC/PPK-MAC) enables pre-generation at scale without sacrificing security
 - CRLs loaded via `ES10b.LoadCRL` allow the ecosystem to revoke compromised certificates, and EUMs can directly delete CI keys from the ECASD
+
+---
+
+<div align="center">
+
+← Previous: [How a Profile Gets Delivered: The eSIM Download Process](/docs/articles/sgp22/03-profile-download) · [🏠 Home](/)
+
+Next: [Managing Your eSIM: Local Profile Operations](/docs/articles/sgp22/05-local-profile-management) →
+
+</div>
 
 ---
 

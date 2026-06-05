@@ -5,6 +5,8 @@ date: 2026-06-07
 
 # IoT eSIM Functions Reference: ESipa, ES9+', ES11', ESep
 
+**🏠 [eUICC.tech](/) > [SGP.32 IoT eSIM](/docs/articles/sgp32/) > IoT eSIM Functions Reference: ESipa, ES9+', ES11', ESep**
+
 > **💡 Why this matters:** This is the API-level reference for SGP.32's four IoT-specific interfaces — the catalogue you reach for when implementing an `eIM`, `IPA`, or IoT eSIM integration. Every function, its parameters, and its transport binding are listed here so you don't have to grep through 231 pages of specification.
 
 > **Key takeaways:**
@@ -13,6 +15,9 @@ date: 2026-06-07
 > - `ES11'` mirrors consumer `ES11` for server-side SM-DS polling by the `eIM`
 > - `ESep` is logical only — its functions (`EuiccPackageRequest`, `EuiccPackageResult`, `EuiccMemoryReset`, `ExecuteFallbackMechanism`) are embedded within eUICC Packages over `ESipa`
 > - Eight new ES10b extensions (`LoadEuiccPackage`, `AddInitialEimConfiguration`, `ProfileRollback`, etc.) support IoT-specific eUICC operations
+
+* TOC
+{:toc}
 
 This article catalogues the key functions defined by SGP.32's four IoT-specific interfaces — the API-level reference for anyone implementing an `eIM`, `IPA`, or IoT eSIM integration.
 
@@ -262,6 +267,14 @@ SGP.32 extends SGP.22's ES10 functions with IoT-specific additions:
 - `ES9+'` and `ES11'` mirror consumer `ES9+`/`ES11` for server-side orchestration by the `eIM`
 - `ESep` is purely logical — its functions live inside eUICC Packages signed by both `eIM` and eUICC
 - Eight new `ES10b` functions extend the IPA-to-eUICC interface for IoT-specific operations
+
+---
+
+<div align="center">
+
+← Previous: [SM-DS Operations in IoT eSIM: Event Registration and Retrieval](/docs/articles/sgp32/15-iot-smsds-operations) · [🏠 Home](/)
+
+</div>
 
 ---
 

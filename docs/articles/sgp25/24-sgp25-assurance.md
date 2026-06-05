@@ -5,6 +5,8 @@ date: 2026-06-05
 
 # eUICC Assurance Requirements: EAL4+ and Penetration Testing
 
+**🏠 [eUICC.tech](/) > [SGP.25 eUICC Security](/docs/articles/sgp25/) > eUICC Assurance Requirements: EAL4+ and Penetration Testing**
+
 > **💡 Why this matters:** Security Functional Requirements define *what* the eUICC must do. Assurance Requirements define *how thoroughly we verify* it actually does those things — and at what level of rigour. For an eUICC that will store operator credentials worth millions and resist attackers with physical access to the device, "we tested the happy path" is not enough. EAL4+ with AVA_VAN.5 penetration testing means evaluators actively try to break the TOE using state-of-the-art attack techniques.
 
 > **Key takeaways:**
@@ -173,6 +175,16 @@ The assurance requirements validate the functional requirements by proving:
 - ALC_DVS.2 requires demonstrably sufficient development security measures, beyond the standard EAL4 requirement
 - Architectural design refinements specifically mandate domain separation and tamper self-protection
 - The optional ALC_FLR.2 adds formal flaw reporting, creating an ongoing security lifecycle beyond initial certification
+
+---
+
+<div align="center">
+
+← Previous: [eUICC Security Functional Requirements](/docs/articles/sgp25/23-sgp25-security-requirements) · [🏠 Home](/)
+
+Next: [Physical Security: Side-Channel and Fault Injection Defenses](/docs/articles/sgp25/25-sgp25-physical-security) →
+
+</div>
 
 ---
 

@@ -5,6 +5,8 @@ date: 2026-06-05
 
 # SGP.23-1 Overview: Testing the eUICC Itself
 
+**🏠 [eUICC.tech](/) > [SGP.23-1 eUICC Testing](/docs/articles/sgp23-1/) > SGP.23-1 Overview: Testing the eUICC Itself**
+
 > **💡 Why this matters:** SGP.23 tests the entire eSIM ecosystem as an integrated system — but before any of that integration testing can happen, the eUICC chip itself must be proven compliant. SGP.23-1 is the 797-page test bible dedicated exclusively to the eUICC — the embedded chip at the heart of every eSIM device. If your eUICC can't pass these tests, nothing downstream works.
 
 > **Key takeaways:**
@@ -103,6 +105,16 @@ SGP.23-1 sits in a broader certification ecosystem:
 - System behaviour testing (Section 5) covers retry mechanisms, PPR enforcement, file structure, delete/enable/disable processes, and notifications
 - A 30+ option Optional Features Table drives conditional applicability, ensuring each eUICC is tested only against its declared capabilities
 - SGP.23-1 connects to SAS-UP for manufacturing certification and feeds into SGP.23 for full system-level interoperability testing
+
+---
+
+<div align="center">
+
+[🏠 Home](/)
+
+Next: [eUICC Test Architecture: Readers, Scripts, and GSMA Tools](/docs/articles/sgp23-1/33-sgp23-1-architecture) →
+
+</div>
 
 ---
 

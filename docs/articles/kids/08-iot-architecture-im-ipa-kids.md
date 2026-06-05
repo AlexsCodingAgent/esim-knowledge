@@ -76,3 +76,5 @@ Not all devices speak the same language! The system supports:
 ---
 
 🧠 **Did You Know?** The IPAe variant lives *inside* the eSIM chip itself! That means even the tiniest, simplest sensor — one with barely any computer power — can still be remotely managed. The chip does all the thinking.
+
+← [Back to Kids Articles](index)

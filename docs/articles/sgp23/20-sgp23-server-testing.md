@@ -5,6 +5,8 @@ date: 2026-06-05
 
 # Testing the SM-DP+ and SM-DS
 
+**🏠 [eUICC.tech](/) > [SGP.23 Test Specifications](/docs/articles/sgp23/) > Testing the SM-DP+ and SM-DS**
+
 > **💡 Why this matters:** The SM-DP+ is the profile factory and the SM-DS is the notification backbone. Together they form the server-side of every eSIM deployment. SGP.23 tests these components across six interfaces (ES2+, ES8+, ES9+, ES12, ES11, TLS) with strict requirements for cryptographic correctness, error handling, and inter-component coordination.
 
 > **Key takeaways:**
@@ -195,6 +197,16 @@ Test cases verify: supported cipher suites, certificate chain validation, OID ma
 - TLS is tested independently across mutual authentication, server authentication, and client authentication scenarios
 - All server-side testing uses JSON input data and simulated counterparts (S_MNO, S_LPAd, S_SM-DS, etc.)
 - Each test case references specific SGP.22 requirements by their identifiers (RQxx_xxx format), providing full traceability
+
+---
+
+<div align="center">
+
+← Previous: [Testing the LPA: LDS, LPD, and LUI Conformance](/docs/articles/sgp23/19-sgp23-lpa-testing) · [🏠 Home](/)
+
+Next: [SGP.23 Certification: From Test Cases to DLOA](/docs/articles/sgp23/21-sgp23-certification) →
+
+</div>
 
 ---
 

@@ -5,6 +5,8 @@ date: 2026-06-05
 
 # The Developer's View: RSP Interfaces and Protocol Binding
 
+**🏠 [eUICC.tech](/) > [SGP.22 Consumer RSP](/docs/articles/sgp22/) > The Developer's View: RSP Interfaces and Protocol Binding**
+
 > **💡 Why this matters:** If you're building an LPA, an SM-DP+, or integrating eSIM into a device, this is your reference. Every function signature, HTTP endpoint, ASN.1 structure, and protocol binding rule is standardised — you just need to know where to look.
 
 > **Key takeaways:**
@@ -15,6 +17,8 @@ date: 2026-06-05
 > - The SM-DS introduces an event-driven decoupling pattern — profiles can be generated today and discovered next week
 
 ---
+* TOC
+{:toc}
 
 For developers implementing eSIM support — whether building an LPA, an SM-DP+, or integrating with an eUICC — understanding the function-level API and wire protocol is essential. SGP.22 defines every function call, every TLV structure, and both JSON and ASN.1 serialisation formats.
 
@@ -271,6 +275,14 @@ Every function call includes a `functionCallIdentifier` — a unique ID that ena
 - `ES10b` provides 11 functions for profile download orchestration; `ES10c` provides 7 for local management — all over ISO 7816 APDUs
 - `functionCallIdentifier` headers provide idempotency, retry safety, and end-to-end auditability across every interface
 - The SM-DS event pattern (`ES11`/`ES12`/`ES15`) decouples profile generation from delivery timing, enabling global-scale deferred provisioning
+
+---
+
+<div align="center">
+
+← Previous: [Managing Your eSIM: Local Profile Operations](/docs/articles/sgp22/05-local-profile-management) · [🏠 Home](/)
+
+</div>
 
 ---
 

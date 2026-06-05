@@ -5,6 +5,8 @@ date: 2026-06-05
 
 # SGP.23 Certification: From Test Cases to DLOA
 
+**🏠 [eUICC.tech](/) > [SGP.23 Test Specifications](/docs/articles/sgp23/) > SGP.23 Certification: From Test Cases to DLOA**
+
 > **💡 Why this matters:** Passing 800+ pages of test cases is only the beginning. The journey from a compliant implementation to a certified product involves GSMA Test Events, SAS-accredited labs, mandatory certification audits, and ultimately a GlobalPlatform Digital Letter of Approval (DLOA) — the portable certificate that gatekeeps access to production eSIM deployments.
 
 > **Key takeaways:**
@@ -133,6 +135,14 @@ SGP.23 explicitly marks certain areas as **FFS (For Future Study)** or out of sc
 - The GlobalPlatform DLOA is the portable digital certificate of compliance, managed via a DLOA Registrar
 - SGP.23 supports certification against SGP.22 v2.2 through v2.6 with version-specific applicability
 - End-to-end testing remains FFS, limiting current certification to per-component conformance
+
+---
+
+<div align="center">
+
+← Previous: [Testing the SM-DP+ and SM-DS](/docs/articles/sgp23/20-sgp23-server-testing) · [🏠 Home](/)
+
+</div>
 
 ---
 

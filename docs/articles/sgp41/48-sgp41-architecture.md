@@ -5,6 +5,8 @@ date: 2026-06-06
 
 # The IFPP Architecture: SM-DPf, FPA, and Device Manufacturer
 
+**🏠 [eUICC.tech](/) > [SGP.41 IFPP](/docs/articles/sgp41/) > The IFPP Architecture: SM-DPf, FPA, and Device Manufacturer**
+
 > **💡 Why this matters:** SGP.41 doesn't just tweak existing eSIM components — it introduces three entirely new architectural roles and nine specialised interfaces for the factory environment. Understanding how the SM-DPf differs from a regular SM-DP+, what the FPA actually does (and doesn't do), and how the Device Manufacturer's role expands is essential for anyone designing, deploying, or certifying an IFPP solution.
 
 > **Key takeaways:**
@@ -158,6 +160,16 @@ The eUICC architecture in SGP.41 is fundamentally the same as SGP.21's — same 
 - Nine interfaces connect the ecosystem, with Esbpp (BPP delivery/reporting) and ES8f (secure end-to-end channel) as the most critical
 - The eUICC architecture remains the same as SGP.21, with FPA Services, one-time key storage, and service gating added
 - The EUM provisions one-time keys during eUICC manufacturing in a SAS-UP environment — one key per profile to be loaded
+
+---
+
+<div align="center">
+
+← Previous: [SGP.41 Overview: In-Factory Profile Provisioning](/docs/articles/sgp41/47-sgp41-overview) · [🏠 Home](/)
+
+Next: [IFPP Flow: Manufacturing Step to Configuration Step](/docs/articles/sgp41/49-sgp41-flow) →
+
+</div>
 
 ---
 

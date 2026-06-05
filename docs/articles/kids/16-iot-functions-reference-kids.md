@@ -100,3 +100,5 @@ SGP.32 also added eight new gadgets for talking directly to the eSIM chip:
 ---
 
 🧠 **Did You Know?** Even though ESep is a "logical" interface with no separate wires, it's arguably the most important one — every single remote management command travels through its double-signed tunnel, making it the backbone of IoT device security!
+
+← [Back to Kids Articles](index)

@@ -5,6 +5,8 @@ date: 2026-06-05
 
 # eUICC Security Functional Requirements
 
+**🏠 [eUICC.tech](/) > [SGP.25 eUICC Security](/docs/articles/sgp25/) > eUICC Security Functional Requirements**
+
 > **💡 Why this matters:** The heart of any Protection Profile is its Security Functional Requirements (SFRs). These are the precise, testable statements that define what the eUICC must *do* to be considered secure — from authenticating remote actors and isolating Profiles to protecting cryptographic keys and enforcing policy rules. Understanding the SFRs reveals exactly what security properties a certified eUICC guarantees.
 
 > **Key takeaways:**
@@ -14,6 +16,9 @@ date: 2026-06-05
 > - Security Domain SFRs (FDP_ACC.1, FDP_ACF.1) enforce strict isolation between ISD-R, ISD-P, and ECASD based on AID and ISD-P state attributes
 > - Security management SFRs (FMT_*) control who may modify security attributes like Profile Policy Rules, keys, and the Rules Authorisation Table
 > - The TOE scope explicitly excludes MNO-SD, Profiles, and the Runtime Environment from the PP's SFR coverage
+
+* TOC
+{:toc}
 
 The Security Functional Requirements in SGP.25 are drawn from Common Criteria Part 2, with refinements (adding detail), selections (choosing from CC options), assignments (specifying parameter values), and iterations (repeating components for different contexts). This article unpacks the SFR structure and explains what each group of requirements means in practice.
 
@@ -203,6 +208,16 @@ What SGP.25 SFRs explicitly do **NOT** cover:
 - Security Domain access control SFRs enforce strict isolation between ISD-R, ISD-P, and ECASD based on AID and state attributes
 - Management SFRs (FMT_*) define who can modify Profile Policy Rules, RAT, keys, and certificates — and what default values apply
 - Internal protection SFRs cover side-channel resistance (FPT_EMS.1), integrity monitoring (FDP_SDI.1), and secure failure (FPT_FLS.1)
+
+---
+
+<div align="center">
+
+← Previous: [SGP.25 Overview: The eUICC Common Criteria Protection Profile](/docs/articles/sgp25/22-sgp25-overview) · [🏠 Home](/)
+
+Next: [eUICC Assurance Requirements: EAL4+ and Penetration Testing](/docs/articles/sgp25/24-sgp25-assurance) →
+
+</div>
 
 ---
 

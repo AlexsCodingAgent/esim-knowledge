@@ -5,6 +5,8 @@ date: 2026-06-06
 
 # CRL and Certificate Management in the Test Ecosystem
 
+**🏠 [eUICC.tech](/) > [SGP.26 Test Certificates](/docs/articles/sgp26/) > CRL and Certificate Management in the Test Ecosystem**
+
 > **💡 Why this matters:** In production, CRLs are the emergency brake — when a certificate is compromised, the CRL tells every eUICC and server to stop trusting it. In testing, you need to verify that this emergency brake actually works. SGP.26 provides a complete CRL infrastructure with distribution points at every CA level, plus deliberately unusual parameters (3-year CRL validity) that ensure test suites don't break from CRL expiry mid-run.
 
 > **Key takeaways:**
@@ -226,6 +228,14 @@ Until then, the CRL infrastructure exists for structural validation — verifyin
 - The `issuingDistributionPoint` extension controls CRL scope: EUM CRL covers only CA certs; DP/DS SubCA CRLs cover only end-entity certs; CI CRLs cover both
 - Certificate expiry varies from 398 days (TLS) to 2,000,000 days (eUICC) — rotation planning is essential for long-running test infrastructure
 - SGP.26 uses CRLs exclusively (no OCSP), consistent with the embedded eUICC environment where continuous connectivity cannot be assumed
+
+---
+
+<div align="center">
+
+← Previous: [Using Test Certificates: Developer Setup and Integration](/docs/articles/sgp26/40-sgp26-development) · [🏠 Home](/)
+
+</div>
 
 ---
 

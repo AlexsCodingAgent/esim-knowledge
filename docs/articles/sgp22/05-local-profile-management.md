@@ -5,6 +5,8 @@ date: 2026-06-03
 
 # Managing Your eSIM: Local Profile Operations
 
+**🏠 [eUICC.tech](/) > [SGP.22 Consumer RSP](/docs/articles/sgp22/) > Managing Your eSIM: Local Profile Operations**
+
 > **💡 Why this matters:** This is the user-facing half of eSIM — everything you actually do on your device: switching carriers, deleting old plans, and naming profiles. The UI is simple, but the underlying protocol is precise and policy-enforced.
 
 > **Key takeaways:**
@@ -225,6 +227,16 @@ For development and testing, SGP.22 defines a **Device Test Mode** — a hidden 
 - Three policy rules (`ppr1`, `ppr2`, `ppr3`) provide hard enforcement for enterprise and lifecycle scenarios — even the end user can't override them
 - Device Test Mode and Provisioning Profiles enable development, testing, and bootstrap connectivity with special lifecycle handling and UI filtering
 - Memory management, nicknames, and the Rules Authorisation Table round out a complete local management surface
+
+---
+
+<div align="center">
+
+← Previous: [eSIM Security: The PKI and Certificate Model](/docs/articles/sgp22/04-esim-security-pki) · [🏠 Home](/)
+
+Next: [The Developer's View: RSP Interfaces and Protocol Binding](/docs/articles/sgp22/06-developer-interfaces) →
+
+</div>
 
 ---
 
