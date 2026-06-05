@@ -140,13 +140,13 @@ The entire profile package is encrypted specifically for the target eUICC — it
 
 The entire eSIM security model is rooted in the GSMA's RSP architecture, which defines five key players and thirteen interfaces across the ecosystem:
 
-<img src="../diagrams/01-rsp-architecture.svg" alt="RSP Architecture: five entities and thirteen interfaces" style="width:100%;max-width:800px;display:block;margin:20px auto;border-radius:8px;">
+<img src="../../diagrams/01-rsp-architecture.svg" alt="RSP Architecture: five entities and thirteen interfaces" style="width:100%;max-width:800px;display:block;margin:20px auto;border-radius:8px;">
 
 **Key security properties:**
 
 - **Isolation** — Profiles are in separate ISD-Ps with GlobalPlatform-level isolation. No profile can access another's keys or data.
 - **Forward secrecy** — `ES8+` provides **Perfect Forward Secrecy** via ephemeral session keys. Compromising the SM-DP+'s long-term key doesn't expose past profile downloads.
-- **Binding** — Profiles are cryptographically bound to a specific eUICC. The SM-DP+ encrypts the profile with a key derived from the eUICC's unique public key.
+- **Binding** — Profiles are cryptographically bound to a specific eUICC. The SM-DP+ and eUICC perform an ephemeral ECDH key agreement to derive symmetric session keys. These session keys encrypt the profile, ensuring Perfect Forward Secrecy — the binding to a specific eUICC is enforced through mutual authentication signatures using that eUICC's unique private key.
 - **Certificate revocation** — **CRLs** (Certificate Revocation Lists) can be loaded onto the eUICC to blacklist compromised certificates.
 
 ---

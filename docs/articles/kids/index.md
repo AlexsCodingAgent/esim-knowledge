@@ -7,7 +7,7 @@ title: "eSIM Explained for Kids — eUICC.tech"
 
 *Curious about how eSIMs work? These articles explain everything with simple stories, fun analogies, and emojis — no complicated words!*
 
-[📖 **Read the Illustrated Storybook →**](storybook.html)
+[📖 **Read the Illustrated Storybook →**](storybooks)
 
 [📚 **Browse All 17 Storybooks →**](storybooks)
 

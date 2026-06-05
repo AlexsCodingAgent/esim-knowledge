@@ -24,7 +24,7 @@ The eUICC (embedded Universal Integrated Circuit Card) is not just a storage chi
 
 At the top level, the eUICC consists of an operating system, a telecom framework, and several security domains and services:
 
-<img src="../diagrams/02-euicc-internals.svg" alt="eUICC internal architecture: ECASD, ISD-R, ISD-Ps, Telecom Framework, Profile Policy Enabler, Profile Package Interpreter, and LPA Services" style="width:100%;max-width:800px;display:block;margin:20px auto;border-radius:8px;">
+<img src="../../diagrams/02-euicc-internals.svg" alt="eUICC internal architecture: ECASD, ISD-R, ISD-Ps, Telecom Framework, Profile Policy Enabler, Profile Package Interpreter, and LPA Services" style="width:100%;max-width:800px;display:block;margin:20px auto;border-radius:8px;">
 
 ---
 

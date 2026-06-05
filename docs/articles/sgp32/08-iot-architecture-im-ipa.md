@@ -23,7 +23,7 @@ SGP.32 defines two deployment models, just like consumer RSP:
 
 ### IPA in the IoT Device (`IPAd`)
 
-<img src="../diagrams/04-iot-architecture.svg" alt="IoT eSIM Architecture with eIM, IPA, and interfaces" style="width:100%;max-width:800px;display:block;margin:20px auto;border-radius:8px;">
+<img src="../../diagrams/04-iot-architecture.svg" alt="IoT eSIM Architecture with eIM, IPA, and interfaces" style="width:100%;max-width:800px;display:block;margin:20px auto;border-radius:8px;">
 
 ### IPA in the eUICC (`IPAe`)
 
