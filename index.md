@@ -15,45 +15,35 @@ title: eUICC.tech — eSIM RSP Knowledge Base
 
 ---
 
-<div align="center">
+## 📖 [Technical Deep Dives →](docs/articles/)
 
-| | |
-|---|---|
-| [## 📖 Technical Deep Dives<br>*Spec-driven. Precise. For engineers.*](docs/articles/) | [## 🎨 Illustrated Guides<br>*Stories & analogies. For everyone.*](docs/articles/kids/) |
+Spec-driven. Precise. For engineers and implementers. Every GSMA eSIM specification explained in 5–12 focused articles.
 
-</div>
+## 🎨 [Illustrated Guides →](docs/articles/kids/)
+
+Stories, analogies, and emojis. For visual learners, newcomers, or anyone who wants the intuition before the technical detail. Every article has a kid-friendly companion.
 
 ---
 
 ## 🧭 What's Inside
 
-<div align="center">
+📱 **SGP.22 v2.7** — Consumer eSIM RSP — [12 articles →](docs/articles/sgp22/)
 
-| 📱 | 🔀 | 🤖 |
-|---|---|---|
-| **SGP.22 v2.7** | **SGP.22 v3.x** | **SGP.32 / SGP.31** |
-| Consumer eSIM | Unified RSP | IoT eSIM |
-| 12 articles | 12 articles | 12 articles |
+🔀 **SGP.22 v3.x** — Unified RSP (the fork) — [12 articles →](docs/articles/sgp22-v3/)
 
-<br>
+🤖 **SGP.32 / SGP.31** — IoT eSIM — [12 articles →](docs/articles/sgp32/)
 
-| 🏭 | 🆔 | 🧪 |
-|---|---|---|
-| **SGP.41** | **SGP.29** | **SGP.23 / 23-1** |
-| In-Factory Provisioning | EID Definition | Conformance Testing |
-| 5 articles | 5 articles | 10 articles |
+🏭 **SGP.41** — In-Factory Profile Provisioning — [5 articles →](docs/articles/sgp41/)
 
-<br>
+🆔 **SGP.29** — EID Definition & Assignment — [5 articles →](docs/articles/sgp29/)
 
-| 🔒 | 🛡️ | 🎭 |
-|---|---|---|
-| **SGP.33-3** | **SGP.25** | **SGP.26** |
-| eIM Testing | eUICC Security | Test Certificates |
-| 5 articles | 5 articles | 5 articles |
+🧪 **SGP.23 / SGP.23-1** — RSP Conformance Testing — [10 articles →](docs/articles/sgp23/)
 
-</div>
+🦾 **SGP.33-3** — eIM Test Specification — [5 articles →](docs/articles/sgp33-3/)
 
-[📋 Full Specification Index →](docs/articles/)
+🛡️ **SGP.25** — eUICC Protection Profile — [5 articles →](docs/articles/sgp25/)
+
+🎭 **SGP.26** — RSP Test Certificates — [5 articles →](docs/articles/sgp26/)
 
 ---
 
@@ -61,7 +51,7 @@ title: eUICC.tech — eSIM RSP Knowledge Base
 
 **New to eSIM?** Start with the [Guided Path](docs/articles/sgp22/00-sgp22-overview) — 7 articles that take you from zero to understanding the full RSP architecture.
 
-**Prefer stories?** Jump to the [Illustrated Edition](docs/articles/kids/) — every concept explained through analogies, emojis, and hand-drawn illustrations.
+**Prefer stories?** Jump to the [Illustrated Edition](docs/articles/kids/) — every concept explained through analogies, emojis, and illustrations.
 
 **Need a specific spec?** Browse the [full article index](docs/articles/) or search by topic.
 
