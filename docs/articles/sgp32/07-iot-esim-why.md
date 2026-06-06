@@ -7,7 +7,7 @@ date: 2026-05-22
 
 **🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.32 IoT eSIM]({{ site.baseurl }}/docs/articles/sgp32/) > eSIM for IoT: Why It Needed Its Own Architecture**
 
-> **📚 Prerequisites:** This series assumes you've read the SGP.22 Consumer eSIM articles (01–06) or understand eSIM RSP fundamentals. The [Glossary](/docs/glossary) defines all acronyms used in these articles.
+> **📚 Prerequisites:** This series assumes you've read the SGP.22 Consumer eSIM articles (01–06) or understand eSIM RSP fundamentals. The [Glossary]({{ site.baseurl }}/docs/glossary) defines all acronyms used in these articles.
 
 > **💡 Why this matters:** Consumer eSIM (SGP.22) was built for smartphones — always-on, TCP/IP-connected, with a human user at the helm. IoT devices share none of those properties. The GSMA had to design a parallel architecture from scratch, and understanding *why* reveals the engineering constraints that shaped SGP.31 and SGP.32.
 

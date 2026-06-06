@@ -108,6 +108,6 @@ Key ecosystem terms:
 
 Start with the [🧒 Kid-Friendly Versions](/docs/articles/kids/) — they explain every concept with stories, analogies, and zero jargon. Then come back to the main articles.
 
-Check the [Glossary](/docs/glossary) for quick definitions of every acronym used in this knowledge base.
+Check the [Glossary]({{ site.baseurl }}/docs/glossary) for quick definitions of every acronym used in this knowledge base.
 
 ---
