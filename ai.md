@@ -107,6 +107,27 @@ title: "eSIM RSP Knowledge Base — AI-Optimized Index"
 
 ---
 
+## 📡 SGP.02 v4.2 — M2M eSIM (Legacy Push Model) (12 articles)
+
+**What it is:** The original machine-to-machine eSIM specification. Uses a "push" model where the SM-SR controls when profiles are delivered, unlike the consumer "pull" model. Still deployed in millions of industrial and automotive devices.
+
+| # | Question This Article Answers | Link |
+|---|-------------------------------|------|
+| 00 | What is SGP.02 and how does the M2M push model work? | [Read →](docs/articles/sgp02/00-sgp02-overview) |
+| 01 | What are the six M2M roles and how do EUM, SM-DP, and SM-SR differ from consumer? | [Read →](docs/articles/sgp02/01-sgp02-architecture) |
+| 02 | How does the M2M eUICC differ? What are ISD-R, ISD-P, ECASD, and EID in M2M? | [Read →](docs/articles/sgp02/02-sgp02-euicc-internals) |
+| 03 | How does the three-tier M2M PKI work? What certs do CI, EUM, SM-DP, and SM-SR hold? | [Read →](docs/articles/sgp02/03-sgp02-pki) |
+| 04 | How does OTA communication work in M2M? What are SMS, PSK-TLS, and CAT_TP? | [Read →](docs/articles/sgp02/04-sgp02-ota) |
+| 05 | How are profiles downloaded in M2M? What is SCP03 key establishment? | [Read →](docs/articles/sgp02/05-sgp02-download) |
+| 06 | How does profile lifecycle (enable, disable, delete) work in M2M? | [Read →](docs/articles/sgp02/06-sgp02-lifecycle) |
+| 07 | How does SM-SR Change work? What is the ES7 handover procedure? | [Read →](docs/articles/sgp02/07-sgp02-sm-sr-change) |
+| 08 | How does M2M handle resilience? What are fall-back and emergency profiles? | [Read →](docs/articles/sgp02/08-sgp02-resilience) |
+| 09 | How do POL1/POL2 policy rules work? What are M2M notifications? | [Read →](docs/articles/sgp02/09-sgp02-policy-notifications) |
+| 10 | What are the ES1-ES7 off-card interfaces? How does SOAP binding work? | [Read →](docs/articles/sgp02/10-sgp02-offcard-interfaces) |
+| 11 | How does SGP.02 compare to SGP.22 and SGP.32? Which should you use? | [Read →](docs/articles/sgp02/11-sgp02-comparison) |
+
+---
+
 ## 🆔 SGP.29 — EID Definition and Assignment (5 articles)
 
 **What it is:** The 32-digit eUICC Identifier — how it's formatted, assigned, and used across the eSIM ecosystem.

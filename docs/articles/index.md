@@ -80,6 +80,29 @@ All 72 articles across 11 GSMA eSIM specifications.
 
 ---
 
+## 📡 SGP.02 v4.2 — M2M eSIM (Legacy Push Model)
+
+*The original machine-to-machine specification. SM-SR push model, industrial and automotive. **12 articles.***
+
+| # | Article |
+|---|---------|
+| 00 | [SGP.02 Overview: The M2M Push Architecture](sgp02/00-sgp02-overview) |
+| 01 | [M2M Ecosystem: EUM, SM-DP, SM-SR & Operator](sgp02/01-sgp02-architecture) |
+| 02 | [Inside the M2M eUICC](sgp02/02-sgp02-euicc-internals) |
+| 03 | [M2M Certificate Hierarchy & PKI](sgp02/03-sgp02-pki) |
+| 04 | [OTA Communication: SMS, PSK-TLS, CAT_TP](sgp02/04-sgp02-ota) |
+| 05 | [Profile Download: ISD-P, SCP03, Encrypted Delivery](sgp02/05-sgp02-download) |
+| 06 | [Profile Lifecycle: Enable, Disable, Delete](sgp02/06-sgp02-lifecycle) |
+| 07 | [SM-SR Change: Handover & EIS Migration](sgp02/07-sgp02-sm-sr-change) |
+| 08 | [Resilience: Fall-Back & Emergency Profiles](sgp02/08-sgp02-resilience) |
+| 09 | [Policy Rules & Notifications: POL1, POL2](sgp02/09-sgp02-policy-notifications) |
+| 10 | [Off-Card Interfaces: ES1-ES7 & SOAP](sgp02/10-sgp02-offcard-interfaces) |
+| 11 | [SGP.02 vs SGP.22 vs SGP.32](sgp02/11-sgp02-comparison) |
+
+[📂 SGP.02 section →](sgp02/)
+
+---
+
 ## More Specifications
 
 | Spec | Articles | Section |

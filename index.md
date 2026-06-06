@@ -9,7 +9,7 @@ title: eUICC.tech — eSIM RSP Knowledge Base
 
 <h3>Deep Dives Into GSMA eSIM Remote SIM Provisioning</h3>
 
-*72 articles · 11 specifications · 71 illustrated guides · Built from primary source GSMA specs*
+*84 articles · 12 specifications · 71 illustrated guides · Built from primary source GSMA specs*
 
 </div>
 
@@ -32,6 +32,8 @@ Stories, analogies, and emojis. For visual learners, newcomers, or anyone who wa
 🔀 **[SGP.22 v3.x](docs/articles/sgp22-v3/)** — Unified RSP (the fork) — 12 articles
 
 🤖 **[SGP.32 / SGP.31](docs/articles/sgp32/)** — IoT eSIM — 12 articles
+
+📡 **[SGP.02 v4.2](docs/articles/sgp02/)** — M2M eSIM (legacy push model) — 12 articles
 
 🏭 **[SGP.41](docs/articles/sgp41/)** — In-Factory Profile Provisioning — 5 articles
 
@@ -61,7 +63,7 @@ Stories, analogies, and emojis. For visual learners, newcomers, or anyone who wa
 
 <div align="center">
 
-*Sources: GSMA SGP.22 v2.7 · SGP.22 v3.1 · SGP.23 v1.16 · SGP.23-1 v3.1.3 · SGP.25 v2.1 · SGP.26 v3.0.2 · SGP.29 v1.1 · SGP.31 v1.3 · SGP.32 v1.3 · SGP.33-3 v1.2 · SGP.41 v1.0*
+*Sources: GSMA SGP.02 v4.2 · SGP.22 v2.7 · SGP.22 v3.1 · SGP.23 v1.16 · SGP.23-1 v3.1.3 · SGP.25 v2.1 · SGP.26 v3.0.2 · SGP.29 v1.1 · SGP.31 v1.3 · SGP.32 v1.3 · SGP.33-3 v1.2 · SGP.41 v1.0*
 
 [View on GitHub](https://github.com/AlexsCodingAgent/esim-knowledge) · [📖 Glossary](docs/glossary) · [📚 Prerequisites](docs/prerequisites) · [🗺️ Standards Map](docs/standards-map) · [🤖 AI Index](ai)
 
