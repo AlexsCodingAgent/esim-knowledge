@@ -211,3 +211,8 @@ Next: [SGP.23 Certification: From Test Cases to DLOA]({{ site.baseurl }}/docs/ar
 ---
 
 *Based on GSMA SGP.23 v1.16 (29 April 2025) — RSP Test Specification, Sections 4.3 (SM-DP+ Interfaces), 4.5 (SM-DS Interfaces), 4.6 (TLS Interfaces), 3.2.2 (SM-DP+ and SM-DS Test Environment)*
+
+
+---
+
+← Previous: [Testing the LPA: LDS, LPD, and LUI Conformance](19-sgp23-lpa-testing) | [Section Index](index) | Next: [SGP.23 Certification: From Test Cases to DLOA](21-sgp23-certification) →

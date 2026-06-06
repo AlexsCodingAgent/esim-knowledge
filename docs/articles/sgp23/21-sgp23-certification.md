@@ -149,3 +149,8 @@ SGP.23 explicitly marks certain areas as **FFS (For Future Study)** or out of sc
 ---
 
 *Based on GSMA SGP.23 v1.16 (29 April 2025) — RSP Test Specification, Sections 1-3, Annex F (IUT Settings), GlobalPlatform DLOA specification [19], GSMA SAS programme*
+
+
+---
+
+← Previous: [Testing the SM-DP+ and SM-DS](20-sgp23-server-testing) | [Section Index](index)

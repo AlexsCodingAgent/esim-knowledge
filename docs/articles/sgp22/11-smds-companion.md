@@ -247,3 +247,8 @@ Annex C.1 enumerates 14 device requirements (DEV1-DEV14). The most impactful for
 ---
 
 The SM-DS and companion device architecture complete the SGP.22 picture. From the initial architecture (article 01) through the eUICC internals (article 02), profile download (article 03), security (article 04), local management (article 05), developer interfaces (article 06), LPAe (article 07), boot (article 08), policy (article 09), and notifications (article 10) — we've now covered the full consumer eSIM stack. The SM-DS is the final piece: the infrastructure that makes discovery automatic and companion devices possible.
+
+
+---
+
+← Previous: [SGP.22 v2.7 — Notifications and Post-Install: Keeping Operators in the Loop](10-notifications-postinstall) | [Section Index](index)

@@ -195,3 +195,8 @@ Next: [EID Assignment: How Manufacturers Get Their Allocations]({{ site.baseurl 
 ---
 
 *Based on GSMA SGP.29 v1.1 (22 March 2024) — EID Definition and Assignment Process, Section 10 (eUICC Numbering System) and Section 8 (EID Scheme Requirements)*
+
+
+---
+
+← Previous: [SGP.29 Overview: The eUICC Identifier (EID)](27-sgp29-overview) | [Section Index](index) | Next: [EID Assignment: How Manufacturers Get Their Allocations](29-sgp29-assignment) →

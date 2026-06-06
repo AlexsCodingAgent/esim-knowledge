@@ -232,3 +232,8 @@ A secure application embedded into a certified eUICC can itself be certified in 
 ---
 
 *Based on GSMA SGP.25 v2.1 (3 February 2025) — eUICC for Consumer and IoT Devices Protection Profile, Sections 1.2.3 (TOE life-cycle), 1.2.5 (Protection Profile Usage), 2 (Conformance Claims), 4.2 (Security Objectives for the Operational Environment — OE.CI, OE.SM-DP+, OE.SM-DS), 6.2 (Security Assurance Rationale), 6.3.4 (Rationale for the Security Assurance Requirements); GSMA SAS Programme; GlobalPlatform DLOA Specification [19]; SGP.23-1 RSP Test Specification*
+
+
+---
+
+← Previous: [Physical Security: Side-Channel and Fault Injection Defenses](25-sgp25-physical-security) | [Section Index](index)

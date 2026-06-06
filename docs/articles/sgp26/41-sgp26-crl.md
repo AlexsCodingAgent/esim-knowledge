@@ -240,3 +240,8 @@ Until then, the CRL infrastructure exists for structural validation — verifyin
 ---
 
 *Based on GSMA SGP.26 v3.0.2 (27 January 2025) — RSP Test Certificates Definition, Sections 5, Annexes A and E*
+
+
+---
+
+← Previous: [Using Test Certificates: Developer Setup and Integration](40-sgp26-development) | [Section Index](index)

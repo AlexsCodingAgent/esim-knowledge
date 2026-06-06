@@ -114,3 +114,8 @@ Next: [Profile Download & Installation in v3.x]({{ site.baseurl }}/docs/articles
 ---
 
 *Based on GSMA SGP.22 v3.1 (01 December 2023), Sections 3.8 — Remote Management by the Operator, 3.9 — Profile Content Management, 3.10 — eUICC Root Public Key Update*
+
+
+---
+
+← Previous: [Device Change and Profile Recovery: Moving eSIMs Between Devices](58-device-change-and-profile-recovery) | [Section Index](index) | Next: [Profile Download & Installation in SGP.22 v3.x](60-profile-download-v3) →

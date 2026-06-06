@@ -128,3 +128,13 @@ Next: [Multiple Enabled Profiles: Running Several eSIMs at Once]({{ site.baseurl
 ---
 
 *Based on GSMA SGP.22 v3.1 (01 December 2023), Sections 1.1–1.10, 2.1–2.13, and cross-references to SGP.22 v2.7*
+
+
+---
+
+[Section Index](index) | Next: [Multiple Enabled Profiles: Running Several eSIMs at Once](53-multiple-enabled-profiles) →
+
+
+---
+
+[Section Index](index) | Next: [Multiple Enabled Profiles: Running Several eSIMs at Once](53-multiple-enabled-profiles) →

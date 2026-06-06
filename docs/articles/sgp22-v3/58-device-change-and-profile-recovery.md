@@ -179,3 +179,8 @@ Next: [eUICC Updates and Profile Content Management: Lifecycle Beyond Download](
 ---
 
 *Based on GSMA SGP.22 v3.1 (01 December 2023), Section 3.11 — Device Change and Profile Recovery, Section 5.6.6 — ConfirmDeviceChange, and Annex O — Device Change Configuration*
+
+
+---
+
+← Previous: [Remote Profile Management: RPM Initiation, Download, and Execution](57-remote-profile-management) | [Section Index](index) | Next: [eUICC Updates and Profile Content Management: Lifecycle Beyond Download](59-euicc-updates-pcm) →

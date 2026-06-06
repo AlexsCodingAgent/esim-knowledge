@@ -252,3 +252,8 @@ Next: [IoT eSIM Certification Path: From Test Cases to Production]({{ site.baseu
 ---
 
 *Based on GSMA SGP.33-3 v1.2 (27 January 2025) — eUICC IoT Manager Test Specification, Sections 4.2.10–4.2.18 (TLS/HTTPS testing), Annexes A–B (Constants, Dynamic Content), Annex G (Initial States)*
+
+
+---
+
+← Previous: [Key eIM Test Cases: PSMO, Notifications, and Configuration](44-sgp33-eim-test-cases) | [Section Index](index) | Next: [IoT eSIM Certification Path: From Test Cases to Production](46-sgp33-certification) →

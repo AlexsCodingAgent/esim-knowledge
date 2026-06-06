@@ -217,3 +217,8 @@ Next: [eUICC Security Testing: Certificates, Keys, and Channels]({{ site.baseurl
 ---
 
 *Based on GSMA SGP.23-1 v3.1.3 (27 January 2025) — RSP Test Specification for the eUICC, Sections 4.2, 5.2*
+
+
+---
+
+← Previous: [eUICC Test Architecture: Readers, Scripts, and GSMA Tools](33-sgp23-1-architecture) | [Section Index](index) | Next: [eUICC Security Testing: Certificates, Keys, and Channels](35-sgp23-1-security) →

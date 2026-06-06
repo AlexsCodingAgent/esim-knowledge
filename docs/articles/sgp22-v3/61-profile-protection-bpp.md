@@ -206,3 +206,8 @@ Next: [Policy Management in SGP.22 v3.x]({{ site.baseurl }}/docs/articles/sgp22-
 ---
 
 *Based on GSMA SGP.22 v3.1 (01 December 2023), Sections 2.5 — Profile Protection and Delivery, and 2.6.4 — BPP Security Protocol*
+
+
+---
+
+← Previous: [Profile Download & Installation in SGP.22 v3.x](60-profile-download-v3) | [Section Index](index) | Next: [Policy Management in SGP.22 v3.x: PPR, RAT, and the Policy Enforcer](62-policy-management-v3) →

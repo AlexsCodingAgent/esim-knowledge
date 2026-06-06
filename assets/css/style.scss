@@ -1,0 +1,18 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+/* Hide the theme's injected title bar — eUICC.tech has its own hero */
+#title h1 {
+  font-size: 0.85rem;
+  font-weight: 400;
+  opacity: 0.5;
+  margin-bottom: 0;
+}
+
+#title {
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}

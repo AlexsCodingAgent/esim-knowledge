@@ -192,3 +192,8 @@ Next: [IoT eSIM Functions Reference: ESipa, ES9+', ES11', ESep]({{ site.baseurl 
 ---
 
 *Based on GSMA SGP.32 v1.3, Section 3.9*
+
+
+---
+
+← Previous: [Profile State Management via the eIM: Remote Enable, Disable, Delete](14-iot-profile-state-management) | [Section Index](index) | Next: [IoT eSIM Functions Reference: ESipa, ES9+', ES11', ESep](16-iot-functions-reference) →

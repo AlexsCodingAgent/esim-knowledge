@@ -279,3 +279,8 @@ SGP.32 extends SGP.22's ES10 functions with IoT-specific additions:
 ---
 
 *Based on GSMA SGP.32 v1.3, Sections 5 and 6*
+
+
+---
+
+← Previous: [SM-DS Operations in IoT eSIM: Event Registration and Retrieval](15-iot-smsds-operations) | [Section Index](index) | Next: [Profile Lifecycle & Policy: Types, PPE, and Enforcement in IoT eSIM](17-profile-lifecycle-policy) →

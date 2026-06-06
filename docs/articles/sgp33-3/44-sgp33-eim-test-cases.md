@@ -176,3 +176,8 @@ Next: [eIM Security Testing: DTLS, Certificates, and Signed Packages]({{ site.ba
 ---
 
 *Based on GSMA SGP.33-3 v1.2 (27 January 2025) — eUICC IoT Manager Test Specification, Sections 4–5*
+
+
+---
+
+← Previous: [eIM Test Architecture: Simulated eIM and Reference IPA](43-sgp33-eim-architecture) | [Section Index](index) | Next: [eIM Security Testing: DTLS, Certificates, and Signed Packages](45-sgp33-eim-security) →

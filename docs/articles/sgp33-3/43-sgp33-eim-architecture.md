@@ -164,3 +164,8 @@ Next: [Key eIM Test Cases: PSMO, Notifications, and Configuration]({{ site.baseu
 ---
 
 *Based on GSMA SGP.33-3 v1.2 (27 January 2025) — eUICC IoT Manager Test Specification, Sections 3, Annexes A–D, G*
+
+
+---
+
+← Previous: [SGP.33 Overview: The IoT eSIM Test Family](42-sgp33-overview) | [Section Index](index) | Next: [Key eIM Test Cases: PSMO, Notifications, and Configuration](44-sgp33-eim-test-cases) →

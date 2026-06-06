@@ -193,3 +193,8 @@ Next: [eUICC Certification: From SGP.23-1 Tests to SAS-UP Approval]({{ site.base
 ---
 
 *Based on GSMA SGP.23-1 v3.1.3 (27 January 2025) — RSP Test Specification for the eUICC, Sections 4.2.3, 4.2.10, 4.2.17, 4.2.18, Annexes A.2, J*
+
+
+---
+
+← Previous: [Key eUICC Test Cases: ISD-R, ECASD, and Profile Lifecycle](34-sgp23-1-test-cases) | [Section Index](index) | Next: [eUICC Certification: From SGP.23-1 Tests to SAS-UP Approval](36-sgp23-1-certification) →

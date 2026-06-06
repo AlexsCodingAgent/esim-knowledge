@@ -170,3 +170,8 @@ Next: [Profile State Management via the eIM: Remote Enable, Disable, Delete]({{ 
 ---
 
 *Based on GSMA SGP.32 v1.3, Sections 3.8 and SGP.31 v1.3, Section 5*
+
+
+---
+
+← Previous: [Notifications and Error Handling in IoT eSIM](12-notifications-errors) | [Section Index](index) | Next: [Profile State Management via the eIM: Remote Enable, Disable, Delete](14-iot-profile-state-management) →

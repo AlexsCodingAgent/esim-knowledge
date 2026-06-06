@@ -121,3 +121,8 @@ Next: [Inside the eUICC: The Secure Element That Powers Your eSIM]({{ site.baseu
 ---
 
 *Based on GSMA SGP.22 v2.7 (24 April 2026), Section 2 — General Architecture*
+
+
+---
+
+← Previous: [eSIM Remote SIM Provisioning (RSP) — How It Works](00-sgp22-overview) | [Section Index](index) | Next: [Inside the eUICC: The Secure Element That Powers Your eSIM](02-inside-the-euicc) →

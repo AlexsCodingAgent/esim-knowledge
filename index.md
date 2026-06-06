@@ -27,23 +27,23 @@ Stories, analogies, and emojis. For visual learners, newcomers, or anyone who wa
 
 ## 🧭 What's Inside
 
-📱 **SGP.22 v2.7** — Consumer eSIM RSP — [12 articles →](docs/articles/sgp22/)
+📱 **[SGP.22 v2.7](docs/articles/sgp22/)** — Consumer eSIM RSP — 12 articles
 
-🔀 **SGP.22 v3.x** — Unified RSP (the fork) — [12 articles →](docs/articles/sgp22-v3/)
+🔀 **[SGP.22 v3.x](docs/articles/sgp22-v3/)** — Unified RSP (the fork) — 12 articles
 
-🤖 **SGP.32 / SGP.31** — IoT eSIM — [12 articles →](docs/articles/sgp32/)
+🤖 **[SGP.32 / SGP.31](docs/articles/sgp32/)** — IoT eSIM — 12 articles
 
-🏭 **SGP.41** — In-Factory Profile Provisioning — [5 articles →](docs/articles/sgp41/)
+🏭 **[SGP.41](docs/articles/sgp41/)** — In-Factory Profile Provisioning — 5 articles
 
-🆔 **SGP.29** — EID Definition & Assignment — [5 articles →](docs/articles/sgp29/)
+🆔 **[SGP.29](docs/articles/sgp29/)** — EID Definition & Assignment — 5 articles
 
-🧪 **SGP.23 / SGP.23-1** — RSP Conformance Testing — [10 articles →](docs/articles/sgp23/)
+🧪 **[SGP.23 / SGP.23-1](docs/articles/sgp23/)** — RSP Conformance Testing — 10 articles
 
-🦾 **SGP.33-3** — eIM Test Specification — [5 articles →](docs/articles/sgp33-3/)
+🦾 **[SGP.33-3](docs/articles/sgp33-3/)** — eIM Test Specification — 5 articles
 
-🛡️ **SGP.25** — eUICC Protection Profile — [5 articles →](docs/articles/sgp25/)
+🛡️ **[SGP.25](docs/articles/sgp25/)** — eUICC Protection Profile — 5 articles
 
-🎭 **SGP.26** — RSP Test Certificates — [5 articles →](docs/articles/sgp26/)
+🎭 **[SGP.26](docs/articles/sgp26/)** — RSP Test Certificates — 5 articles
 
 ---
 
@@ -63,6 +63,6 @@ Stories, analogies, and emojis. For visual learners, newcomers, or anyone who wa
 
 *Sources: GSMA SGP.22 v2.7 · SGP.22 v3.1 · SGP.23 v1.16 · SGP.23-1 v3.1.3 · SGP.25 v2.1 · SGP.26 v3.0.2 · SGP.29 v1.1 · SGP.31 v1.3 · SGP.32 v1.3 · SGP.33-3 v1.2 · SGP.41 v1.0*
 
-[View on GitHub](https://github.com/AlexsCodingAgent/esim-knowledge) · eUICC.tech *(domain to be linked)* · [📖 Glossary](docs/glossary) · [📚 Prerequisites](docs/prerequisites) · [🗺️ Standards Map](docs/standards-map)
+[View on GitHub](https://github.com/AlexsCodingAgent/esim-knowledge) · [📖 Glossary](docs/glossary) · [📚 Prerequisites](docs/prerequisites) · [🗺️ Standards Map](docs/standards-map)
 
 </div>

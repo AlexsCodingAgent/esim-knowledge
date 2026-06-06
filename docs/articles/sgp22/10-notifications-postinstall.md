@@ -180,3 +180,8 @@ Before attempting the actual retrieval, the LPA can first check *whether* ACR is
 ---
 
 The notification framework closes the loop between the eUICC and the ecosystem. Without it, profile management would be a fire-and-forget operation — the operator would never know if the profile was actually enabled or if it was later deleted. With it, eSIM becomes a fully observable, manageable system. In the final article of this series, we'll explore the SM-DS discovery service and how it enables companion device provisioning.
+
+
+---
+
+← Previous: [SGP.22 v2.7 — Profile Policy Management: PPRs, RAT, and Profile Policy Enabler](09-policy-management) | [Section Index](index) | Next: [SGP.22 v2.7 — SM-DS and Companion Devices: Discovery, Cascading, and Multi-Device Provisioning](11-smds-companion) →

@@ -114,3 +114,13 @@ Next: [The IFPP Architecture: SM-DPf, FPA, and Device Manufacturer]({{ site.base
 ---
 
 *Based on GSMA SGP.41 v1.0 (28 February 2025) — eSIM In-Factory Profile Provisioning Architecture and Requirements, Sections 1–3*
+
+
+---
+
+[Section Index](index) | Next: [The IFPP Architecture: SM-DPf, FPA, and Device Manufacturer](48-sgp41-architecture) →
+
+
+---
+
+[Section Index](index) | Next: [The IFPP Architecture: SM-DPf, FPA, and Device Manufacturer](48-sgp41-architecture) →

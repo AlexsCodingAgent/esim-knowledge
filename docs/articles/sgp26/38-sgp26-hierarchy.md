@@ -255,3 +255,8 @@ Next: [Certificate Profiles: What Makes a Valid Test Certificate]({{ site.baseur
 ---
 
 *Based on GSMA SGP.26 v3.0.2 (27 January 2025) — RSP Test Certificates Definition, Sections 3.1–3.6*
+
+
+---
+
+← Previous: [SGP.26 Overview: The GSMA RSP Test Certificate Infrastructure](37-sgp26-overview) | [Section Index](index) | Next: [Certificate Profiles: What Makes a Valid Test Certificate](39-sgp26-profiles) →

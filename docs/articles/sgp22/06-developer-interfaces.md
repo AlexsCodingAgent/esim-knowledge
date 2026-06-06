@@ -287,3 +287,8 @@ Every function call includes a `functionCallIdentifier` — a unique ID that ena
 ---
 
 *Based on GSMA SGP.22 v2.7 (24 April 2026), Sections 5 and 6 — Functions and Interface Binding*
+
+
+---
+
+← Previous: [Managing Your eSIM: Local Profile Operations](05-local-profile-management) | [Section Index](index) | Next: [SGP.22 v2.7 — LPAe: The In-eUICC Local Profile Assistant](07-lpae-in-euicc) →

@@ -121,3 +121,13 @@ Next: [The eSIM IoT Architecture: eIM, IPA, and the New Interfaces]({{ site.base
 ---
 
 *Based on GSMA SGP.31 v1.3 and SGP.32 v1.3 (22 May 2026)*
+
+
+---
+
+[Section Index](index) | Next: [The eSIM IoT Architecture: eIM, IPA, and the New Interfaces](08-iot-architecture-im-ipa) →
+
+
+---
+
+[Section Index](index) | Next: [The eSIM IoT Architecture: eIM, IPA, and the New Interfaces](08-iot-architecture-im-ipa) →

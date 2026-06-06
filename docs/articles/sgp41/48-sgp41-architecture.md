@@ -174,3 +174,8 @@ Next: [IFPP Flow: Manufacturing Step to Configuration Step]({{ site.baseurl }}/d
 ---
 
 *Based on GSMA SGP.41 v1.0 (28 February 2025) — eSIM In-Factory Profile Provisioning Architecture and Requirements, Sections 2–3*
+
+
+---
+
+← Previous: [SGP.41 Overview: In-Factory Profile Provisioning](47-sgp41-overview) | [Section Index](index) | Next: [IFPP Flow: Manufacturing Step to Configuration Step](49-sgp41-flow) →

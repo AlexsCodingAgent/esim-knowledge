@@ -254,3 +254,8 @@ Next: [SM-DS Operations in IoT eSIM: Event Registration and Retrieval]({{ site.b
 ---
 
 *Based on GSMA SGP.32 v1.3, Sections 3.3-3.4*
+
+
+---
+
+← Previous: [IoT Device Initialisation and the eUICC File Structure](13-iot-device-initialisation) | [Section Index](index) | Next: [SM-DS Operations in IoT eSIM: Event Registration and Retrieval](15-iot-smsds-operations) →

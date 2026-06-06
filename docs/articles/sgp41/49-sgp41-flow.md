@@ -192,3 +192,8 @@ Next: [IFPP Security: Factory Trust Models and Certificate Chains]({{ site.baseu
 ---
 
 *Based on GSMA SGP.41 v1.0 (28 February 2025) — eSIM In-Factory Profile Provisioning Architecture and Requirements, Section 5.1 and Annexes A, C*
+
+
+---
+
+← Previous: [The IFPP Architecture: SM-DPf, FPA, and Device Manufacturer](48-sgp41-architecture) | [Section Index](index) | Next: [IFPP Security: Factory Trust Models and Certificate Chains](50-sgp41-security) →

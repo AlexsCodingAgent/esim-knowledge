@@ -324,3 +324,8 @@ Next: [CRL and Certificate Management in the Test Ecosystem]({{ site.baseurl }}/
 ---
 
 *Based on GSMA SGP.26 v3.0.2 (27 January 2025) — RSP Test Certificates Definition, Sections 2, Annexes A, B, C, D, and F*
+
+
+---
+
+← Previous: [Certificate Profiles: What Makes a Valid Test Certificate](39-sgp26-profiles) | [Section Index](index) | Next: [CRL and Certificate Management in the Test Ecosystem](41-sgp26-crl) →

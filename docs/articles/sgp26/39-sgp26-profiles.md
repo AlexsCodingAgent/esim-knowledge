@@ -248,3 +248,8 @@ Next: [Using Test Certificates: Developer Setup and Integration]({{ site.baseurl
 ---
 
 *Based on GSMA SGP.26 v3.0.2 (27 January 2025) — RSP Test Certificates Definition, Sections 3, 4, and Annex E*
+
+
+---
+
+← Previous: [Test Certificate Hierarchy: CI, EUM, DP, DS, and eUICC](38-sgp26-hierarchy) | [Section Index](index) | Next: [Using Test Certificates: Developer Setup and Integration](40-sgp26-development) →

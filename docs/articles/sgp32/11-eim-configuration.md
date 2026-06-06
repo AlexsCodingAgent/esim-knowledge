@@ -214,3 +214,8 @@ Next: [Notifications and Error Handling in IoT eSIM]({{ site.baseurl }}/docs/art
 ---
 
 *Based on GSMA SGP.32 v1.3, Sections 2.10-2.11 and 3.5*
+
+
+---
+
+← Previous: [IoT eSIM Security: eIM Certificates, DTLS, and Device Trust](10-iot-esim-security-dtls) | [Section Index](index) | Next: [Notifications and Error Handling in IoT eSIM](12-notifications-errors) →

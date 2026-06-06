@@ -196,3 +196,8 @@ Next: [Enterprise Profiles in SGP.22 v3.x]({{ site.baseurl }}/docs/articles/sgp2
 ---
 
 *Based on GSMA SGP.22 v3.1 (01 December 2023), Section 2.9 — Profile Policy Management, and related sections on Profile Rules Enforcer (2.4.12) and Enterprise Configuration (2.4a.1.7)*
+
+
+---
+
+← Previous: [Profile Protection & BPP Security: How eSIM Profiles Stay Secret](61-profile-protection-bpp) | [Section Index](index) | Next: [Enterprise Profiles in SGP.22 v3.x: Corporate Control of eSIMs](63-enterprise-profiles) →

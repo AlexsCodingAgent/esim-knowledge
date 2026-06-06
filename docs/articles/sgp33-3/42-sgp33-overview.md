@@ -118,3 +118,13 @@ Next: [eIM Test Architecture: Simulated eIM and Reference IPA]({{ site.baseurl }
 ---
 
 *Based on GSMA SGP.33-3 v1.2 (27 January 2025) — eUICC IoT Manager Test Specification, Sections 1–3*
+
+
+---
+
+[Section Index](index) | Next: [eIM Test Architecture: Simulated eIM and Reference IPA](43-sgp33-eim-architecture) →
+
+
+---
+
+[Section Index](index) | Next: [eIM Test Architecture: Simulated eIM and Reference IPA](43-sgp33-eim-architecture) →

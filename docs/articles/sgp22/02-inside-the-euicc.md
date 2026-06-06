@@ -170,3 +170,8 @@ Next: [How a Profile Gets Delivered: The eSIM Download Process]({{ site.baseurl 
 ---
 
 *Based on GSMA SGP.22 v2.7 (24 April 2026), Section 2.4 — eUICC Architecture*
+
+
+---
+
+← Previous: [The eSIM RSP Architecture: Players and Interfaces](01-rsp-architecture) | [Section Index](index) | Next: [How a Profile Gets Delivered: The eSIM Download Process](03-profile-download) →

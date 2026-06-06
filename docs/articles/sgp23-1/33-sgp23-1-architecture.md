@@ -141,3 +141,8 @@ Next: [Key eUICC Test Cases: ISD-R, ECASD, and Profile Lifecycle]({{ site.baseur
 ---
 
 *Based on GSMA SGP.23-1 v3.1.3 (27 January 2025) — RSP Test Specification for the eUICC, Section 3, Annexes A, E, F, G, J*
+
+
+---
+
+← Previous: [SGP.23-1 Overview: Testing the eUICC Itself](32-sgp23-1-overview) | [Section Index](index) | Next: [Key eUICC Test Cases: ISD-R, ECASD, and Profile Lifecycle](34-sgp23-1-test-cases) →

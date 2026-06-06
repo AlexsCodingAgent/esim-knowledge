@@ -138,3 +138,8 @@ Next: [Feature Support: Capability Negotiation in v3.x]({{ site.baseurl }}/docs/
 ---
 
 *Based on GSMA SGP.22 v3.1 (01 December 2023), Section 2.13 — Overview of Push Service, Section 3.6.5 — Push Service Registration, and Section 1.9 — Feature Support*
+
+
+---
+
+← Previous: [Multiple Enabled Profiles: Running Several eSIMs at Once](53-multiple-enabled-profiles) | [Section Index](index) | Next: [Feature Support: Capability Negotiation in v3.x](55-feature-support) →

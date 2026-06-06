@@ -224,3 +224,8 @@ Next: [EID Security: Privacy, Tracking, and GSMA Governance]({{ site.baseurl }}/
 ---
 
 *Based on GSMA SGP.29 v1.1 (22 March 2024) — EID Definition and Assignment Process, Section 6 (EID Usage), with protocol context from SGP.21, SGP.22, and SGP.32*
+
+
+---
+
+← Previous: [EID Assignment: How Manufacturers Get Their Allocations](29-sgp29-assignment) | [Section Index](index) | Next: [EID Security: Privacy, Tracking, and GSMA Governance](31-sgp29-security) →

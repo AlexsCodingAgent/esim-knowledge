@@ -128,3 +128,13 @@ Next: [EID Format Decoded: The 32-Digit Structure]({{ site.baseurl }}/docs/artic
 ---
 
 *Based on GSMA SGP.29 v1.1 (22 March 2024) — EID Definition and Assignment Process, Sections 1–7*
+
+
+---
+
+[Section Index](index) | Next: [EID Format Decoded: The 32-Digit Structure](28-sgp29-eid-format) →
+
+
+---
+
+[Section Index](index) | Next: [EID Format Decoded: The 32-Digit Structure](28-sgp29-eid-format) →

@@ -197,3 +197,8 @@ Next: [IFPP in Practice: PC OEMs, Automotive, and IoT Manufacturing]({{ site.bas
 ---
 
 *Based on GSMA SGP.41 v1.0 (28 February 2025) — eSIM In-Factory Profile Provisioning Architecture and Requirements, Sections 4.2 and Annex B*
+
+
+---
+
+← Previous: [IFPP Flow: Manufacturing Step to Configuration Step](49-sgp41-flow) | [Section Index](index) | Next: [IFPP in Practice: PC OEMs, Automotive, and IoT Manufacturing](51-sgp41-practice) →

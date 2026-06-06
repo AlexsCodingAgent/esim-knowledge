@@ -180,3 +180,8 @@ Manufacturing          Profile Install        Post-Install          Runtime
 ---
 
 Profile Policy Management is the bridge between user freedom and operator control. It's a carefully balanced system where the device manufacturer sets the ground rules (RAT), the operator declares its intent (PPRs), and the eUICC enforces everything neutrally. In the next article, we'll look at how the eUICC reports back to the ecosystem — the notification framework that keeps operators informed about what's happening on the device.
+
+
+---
+
+← Previous: [SGP.22 v2.7 — Device and eUICC Boot: First Power-On to Profile Discovery](08-boot-initialisation) | [Section Index](index) | Next: [SGP.22 v2.7 — Notifications and Post-Install: Keeping Operators in the Loop](10-notifications-postinstall) →

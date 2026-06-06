@@ -218,3 +218,8 @@ This is significantly stronger than the Luhn MOD 10 algorithm (used for credit c
 ---
 
 *Based on GSMA SGP.29 v1.1 (22 March 2024) — EID Definition and Assignment Process, Sections 7 (EID Principles), 8 (EID Scheme Requirements), 9 (Assignment Authority Requirements), 12–14 (Assignment Process and GSMA Responsibilities), and Annex A*
+
+
+---
+
+← Previous: [EID in RSP Protocols: Discovery, Matching, and Events](30-sgp29-in-protocols) | [Section Index](index)

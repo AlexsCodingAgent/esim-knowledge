@@ -190,3 +190,8 @@ For NB-IoT sensors, smart meters, asset trackers, and industrial IoT devices:
 ---
 
 *Based on GSMA SGP.41 v1.0 (28 February 2025) — eSIM In-Factory Profile Provisioning Architecture and Requirements, Annex A*
+
+
+---
+
+← Previous: [IFPP Security: Factory Trust Models and Certificate Chains](50-sgp41-security) | [Section Index](index)

@@ -170,3 +170,8 @@ Next: [Advanced IoT Security & Lifecycle]({{ site.baseurl }}/docs/articles/sgp32
 ---
 
 *Based on GSMA SGP.22 v3.1, Sections 2.4.5, 2.9; GSMA SGP.32 v1.3, Sections 2.4.5, 2.4.12, 2.8, 5.9.5*
+
+
+---
+
+← Previous: [IoT eSIM Functions Reference: ESipa, ES9+', ES11', ESep](16-iot-functions-reference) | [Section Index](index) | Next: [Advanced IoT Security & Lifecycle: Mutual Auth, OS Update, Emergency Profiles, and ECASD](18-advanced-security-lifecycle) →

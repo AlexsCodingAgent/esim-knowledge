@@ -184,3 +184,8 @@ Next: [IoT Device Initialisation and the eUICC File Structure]({{ site.baseurl }
 ---
 
 *Based on GSMA SGP.32 v1.3, Sections 3.6-3.7*
+
+
+---
+
+← Previous: [eIM Configuration: Associating Remote Managers with Your eUICC](11-eim-configuration) | [Section Index](index) | Next: [IoT Device Initialisation and the eUICC File Structure](13-iot-device-initialisation) →

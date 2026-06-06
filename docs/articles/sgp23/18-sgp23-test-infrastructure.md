@@ -140,3 +140,8 @@ Next: [Testing the LPA: LDS, LPD, and LUI Conformance]({{ site.baseurl }}/docs/a
 ---
 
 *Based on GSMA SGP.23 v1.16 (29 April 2025) — RSP Test Specification, Sections 3, Annexes A, B, E, F, G, J*
+
+
+---
+
+← Previous: [SGP.23 Overview: How eSIM Interoperability Is Tested](17-sgp23-overview) | [Section Index](index) | Next: [Testing the LPA: LDS, LPD, and LUI Conformance](19-sgp23-lpa-testing) →

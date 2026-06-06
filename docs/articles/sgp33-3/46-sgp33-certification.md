@@ -221,3 +221,8 @@ SGP.33-3 does not exist in isolation. It connects to:
 ---
 
 *Based on GSMA SGP.33-3 v1.2 (27 January 2025) — eUICC IoT Manager Test Specification, Sections 1–5, Annexes F–G; GSMA SGP.23 certification framework; GSMA SAS programme*
+
+
+---
+
+← Previous: [eIM Security Testing: DTLS, Certificates, and Signed Packages](45-sgp33-eim-security) | [Section Index](index)

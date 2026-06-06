@@ -197,3 +197,8 @@ SGP.23-1's document history (Annex L) shows a steady stream of CRs (Change Reque
 ---
 
 *Based on GSMA SGP.23-1 v3.1.3 (27 January 2025) — RSP Test Specification for the eUICC, Sections 2.1, 2.2, 3, Annexes F, G, L; GlobalPlatform GPC_SPE_095*
+
+
+---
+
+← Previous: [eUICC Security Testing: Certificates, Keys, and Channels](35-sgp23-1-security) | [Section Index](index)

@@ -221,3 +221,8 @@ Next: [SGP.25 Certification: SAS-UP and the Evaluation Process]({{ site.baseurl 
 ---
 
 *Based on GSMA SGP.25 v2.1 (3 February 2025) — eUICC for Consumer and IoT Devices Protection Profile, Sections 1.2.3 (TOE life-cycle), 3.3.6 (Second-level threats — T.PHYSICAL-ATTACK), 4.1 (Security objectives for the TOE — O.DATA-CONFIDENTIALITY), 4.2.2 (Platform objectives — OE.IC.SUPPORT, OE.IC.RECOVERY), and 6.1 (SFRs — FPT_EMS.1/Base)*
+
+
+---
+
+← Previous: [eUICC Assurance Requirements: EAL4+ and Penetration Testing](24-sgp25-assurance) | [Section Index](index) | Next: [SGP.25 Certification: SAS-UP and the Evaluation Process](26-sgp25-certification) →

@@ -162,3 +162,8 @@ For companion devices (smartwatches, fitness trackers), the LPAe is often the *p
 ---
 
 The choice between LPAd and LPAe is one of the most consequential architectural decisions in eSIM device design. It determines the OS requirements, the security boundary, the UI technology, and the companion device story. In the next article, we'll look at what happens when a device first powers on — the boot and initialisation sequence that sets all of this in motion.
+
+
+---
+
+← Previous: [The Developer's View: RSP Interfaces and Protocol Binding](06-developer-interfaces) | [Section Index](index) | Next: [SGP.22 v2.7 — Device and eUICC Boot: First Power-On to Profile Discovery](08-boot-initialisation) →

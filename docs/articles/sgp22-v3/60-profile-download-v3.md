@@ -228,3 +228,8 @@ Next: [Profile Protection & BPP Security]({{ site.baseurl }}/docs/articles/sgp22
 ---
 
 *Based on GSMA SGP.22 v3.1 (01 December 2023), Sections 3.1.1 — Profile Download Initiation, 3.1.3 — Profile Download and Installation, 3.1.4 — Limitation for Profile Installation, 3.1.5 — Error Handling Within the Profile Download and Installation Procedure, and 3.1.6 — Profile Lifecycle at SM-DP+*
+
+
+---
+
+← Previous: [eUICC Updates and Profile Content Management: Lifecycle Beyond Download](59-euicc-updates-pcm) | [Section Index](index) | Next: [Profile Protection & BPP Security: How eSIM Profiles Stay Secret](61-profile-protection-bpp) →

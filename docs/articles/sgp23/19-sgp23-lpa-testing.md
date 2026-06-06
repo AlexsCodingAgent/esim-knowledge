@@ -184,3 +184,8 @@ Next: [Testing the SM-DP+ and SM-DS]({{ site.baseurl }}/docs/articles/sgp23/20-s
 ---
 
 *Based on GSMA SGP.23 v1.16 (29 April 2025) — RSP Test Specification, Sections 4.2 (eUICC Interfaces), 4.4 (LPAd Interfaces), 5.2 (eUICC Behaviour), 5.4 (Device Procedures)*
+
+
+---
+
+← Previous: [The GSMA eSIM Test Infrastructure](18-sgp23-test-infrastructure) | [Section Index](index) | Next: [Testing the SM-DP+ and SM-DS](20-sgp23-server-testing) →

@@ -152,3 +152,13 @@ Next: [eUICC Security Functional Requirements]({{ site.baseurl }}/docs/articles/
 ---
 
 *Based on GSMA SGP.25 v2.1 (3 February 2025) — eUICC for Consumer and IoT Devices Protection Profile, Sections 1–2, conformant to Common Criteria CC:2022 release 1*
+
+
+---
+
+[Section Index](index) | Next: [eUICC Security Functional Requirements](23-sgp25-security-requirements) →
+
+
+---
+
+[Section Index](index) | Next: [eUICC Security Functional Requirements](23-sgp25-security-requirements) →

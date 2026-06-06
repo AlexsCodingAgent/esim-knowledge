@@ -217,3 +217,8 @@ Next: [EID in RSP Protocols: Discovery, Matching, and Events]({{ site.baseurl }}
 ---
 
 *Based on GSMA SGP.29 v1.1 (22 March 2024) — EID Definition and Assignment Process, Sections 11–15*
+
+
+---
+
+← Previous: [EID Format Decoded: The 32-Digit Structure](28-sgp29-eid-format) | [Section Index](index) | Next: [EID in RSP Protocols: Discovery, Matching, and Events](30-sgp29-in-protocols) →

@@ -199,3 +199,8 @@ Next: [IoT eSIM Security: eIM Certificates, DTLS, and Device Trust]({{ site.base
 ---
 
 *Based on GSMA SGP.32 v1.3, Sections 2.11, 3.1-3.4 and SGP.31 v1.3, Section 6*
+
+
+---
+
+← Previous: [The eSIM IoT Architecture: eIM, IPA, and the New Interfaces](08-iot-architecture-im-ipa) | [Section Index](index) | Next: [IoT eSIM Security: eIM Certificates, DTLS, and Device Trust](10-iot-esim-security-dtls) →

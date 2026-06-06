@@ -204,3 +204,8 @@ Next: [Managing Your eSIM: Local Profile Operations]({{ site.baseurl }}/docs/art
 ---
 
 *Based on GSMA SGP.22 v2.7 (24 April 2026), Sections 2.6, 4.5, and 4.6 — Security Overview, Keys and Certificates, and CRL*
+
+
+---
+
+← Previous: [How a Profile Gets Delivered: The eSIM Download Process](03-profile-download) | [Section Index](index) | Next: [Managing Your eSIM: Local Profile Operations](05-local-profile-management) →

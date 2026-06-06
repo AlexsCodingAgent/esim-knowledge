@@ -195,3 +195,8 @@ Next: [eIM Configuration: Associating Remote Managers with Your eUICC]({{ site.b
 ---
 
 *Based on GSMA SGP.32 v1.3, Sections 2.6-2.7 and SGP.31 v1.3, Sections 5.2 and Annex A*
+
+
+---
+
+← Previous: [IoT Profile Download: Direct, Indirect, and eIM Package Handling](09-iot-profile-download-packages) | [Section Index](index) | Next: [eIM Configuration: Associating Remote Managers with Your eUICC](11-eim-configuration) →

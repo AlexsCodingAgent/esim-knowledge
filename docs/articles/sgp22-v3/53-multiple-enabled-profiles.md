@@ -153,3 +153,8 @@ Next: [Push Service: How eSIMs Get Notified Without Polling]({{ site.baseurl }}/
 ---
 
 *Based on GSMA SGP.22 v3.1 (01 December 2023), Section 2.12 — Multiple Enabled Profiles, and ETSI TS 102 221 [6]*
+
+
+---
+
+← Previous: [SGP.22 v3.x Overview: The Unified eSIM Specification](52-sgp22-v3-overview) | [Section Index](index) | Next: [Push Service: How eSIMs Get Notified Without Polling](54-push-service) →

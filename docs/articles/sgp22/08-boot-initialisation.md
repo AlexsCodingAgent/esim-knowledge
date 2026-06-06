@@ -183,3 +183,8 @@ Power-on Discovery:
 ---
 
 The boot and initialisation sequence is deceptively simple but absolutely critical. Every eSIM device on the market executes these exact steps every time it powers on. Understanding them is the key to diagnosing provisioning failures and designing resilient device firmware. In the next article, we'll dive into what happens when a profile arrives with policy rules attached — the Profile Policy Management framework.
+
+
+---
+
+← Previous: [SGP.22 v2.7 — LPAe: The In-eUICC Local Profile Assistant](07-lpae-in-euicc) | [Section Index](index) | Next: [SGP.22 v2.7 — Profile Policy Management: PPRs, RAT, and Profile Policy Enabler](09-policy-management) →

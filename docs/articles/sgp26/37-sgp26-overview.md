@@ -126,3 +126,13 @@ Next: [Test Certificate Hierarchy: CI, EUM, DP, DS, and eUICC]({{ site.baseurl }
 ---
 
 *Based on GSMA SGP.26 v3.0.2 (27 January 2025) — RSP Test Certificates Definition, Sections 1, 2, and Annex A*
+
+
+---
+
+[Section Index](index) | Next: [Test Certificate Hierarchy: CI, EUM, DP, DS, and eUICC](38-sgp26-hierarchy) →
+
+
+---
+
+[Section Index](index) | Next: [Test Certificate Hierarchy: CI, EUM, DP, DS, and eUICC](38-sgp26-hierarchy) →

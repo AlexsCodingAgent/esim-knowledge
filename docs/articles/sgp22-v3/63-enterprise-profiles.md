@@ -220,3 +220,8 @@ This means enterprises can use RPM for fleet management operations (enable, disa
 ---
 
 *Based on GSMA SGP.22 v3.1 (01 December 2023), Sections 2.4.5 — Profile, 2.4a.1.7 — Data type: EnterpriseConfiguration, 2.4.12 — Profile Rules Enforcer, and 3.1.3 — Profile Download and Installation (enterprise-related checks)*
+
+
+---
+
+← Previous: [Policy Management in SGP.22 v3.x: PPR, RAT, and the Policy Enforcer](62-policy-management-v3) | [Section Index](index)

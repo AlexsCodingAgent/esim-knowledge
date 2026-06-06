@@ -118,3 +118,13 @@ Next: [The GSMA eSIM Test Infrastructure]({{ site.baseurl }}/docs/articles/sgp23
 ---
 
 *Based on GSMA SGP.23 v1.16 (29 April 2025) — RSP Test Specification*
+
+
+---
+
+[Section Index](index) | Next: [The GSMA eSIM Test Infrastructure](18-sgp23-test-infrastructure) →
+
+
+---
+
+[Section Index](index) | Next: [The GSMA eSIM Test Infrastructure](18-sgp23-test-infrastructure) →

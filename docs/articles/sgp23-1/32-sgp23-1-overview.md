@@ -121,3 +121,13 @@ Next: [eUICC Test Architecture: Readers, Scripts, and GSMA Tools]({{ site.baseur
 ---
 
 *Based on GSMA SGP.23-1 v3.1.3 (27 January 2025) — RSP Test Specification for the eUICC, Sections 1–3*
+
+
+---
+
+[Section Index](index) | Next: [eUICC Test Architecture: Readers, Scripts, and GSMA Tools](33-sgp23-1-architecture) →
+
+
+---
+
+[Section Index](index) | Next: [eUICC Test Architecture: Readers, Scripts, and GSMA Tools](33-sgp23-1-architecture) →

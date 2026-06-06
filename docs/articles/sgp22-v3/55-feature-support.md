@@ -165,3 +165,8 @@ Next: [Version Interoperability: How v2.x and v3.x Coexist]({{ site.baseurl }}/d
 ---
 
 *Based on GSMA SGP.22 v3.1 (01 December 2023), Section 1.9 — Feature Support, Section 3.0.1 — Common Mutual Authentication Procedure, and Section 4.3 — eUICC Information*
+
+
+---
+
+← Previous: [Push Service: How eSIMs Get Notified Without Polling](54-push-service) | [Section Index](index) | Next: [Version Interoperability: How v2.x and v3.x Coexist](56-version-interoperability) →

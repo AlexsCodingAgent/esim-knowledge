@@ -222,3 +222,8 @@ Next: [eUICC Assurance Requirements: EAL4+ and Penetration Testing]({{ site.base
 ---
 
 *Based on GSMA SGP.25 v2.1 (3 February 2025) — eUICC for Consumer and IoT Devices Protection Profile, Sections 3 (Security Problem Definition), 4 (Security Objectives), and 6 (Security Requirements including SFR definitions)*
+
+
+---
+
+← Previous: [SGP.25 Overview: The eUICC Common Criteria Protection Profile](22-sgp25-overview) | [Section Index](index) | Next: [eUICC Assurance Requirements: EAL4+ and Penetration Testing](24-sgp25-assurance) →

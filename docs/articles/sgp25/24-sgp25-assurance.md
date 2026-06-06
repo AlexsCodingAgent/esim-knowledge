@@ -189,3 +189,8 @@ Next: [Physical Security: Side-Channel and Fault Injection Defenses]({{ site.bas
 ---
 
 *Based on GSMA SGP.25 v2.1 (3 February 2025) — eUICC for Consumer and IoT Devices Protection Profile, Sections 6.2 (Security Assurance Rationale) and 6.3.4 (Rationale for the Security Assurance Requirements), conformant to CC Part 3 [39]*
+
+
+---
+
+← Previous: [eUICC Security Functional Requirements](23-sgp25-security-requirements) | [Section Index](index) | Next: [Physical Security: Side-Channel and Fault Injection Defenses](25-sgp25-physical-security) →

@@ -153,3 +153,8 @@ Next: [IoT Profile Download: Direct, Indirect, and eIM Package Handling]({{ site
 ---
 
 *Based on GSMA SGP.32 v1.3, Sections 2.1-2.3 and SGP.31 v1.3, Section 4*
+
+
+---
+
+← Previous: [eSIM for IoT: Why It Needed Its Own Architecture](07-iot-esim-why) | [Section Index](index) | Next: [IoT Profile Download: Direct, Indirect, and eIM Package Handling](09-iot-profile-download-packages) →
