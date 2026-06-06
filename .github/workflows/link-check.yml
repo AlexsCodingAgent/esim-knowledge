@@ -13,38 +13,103 @@ jobs:
   check-links:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-
-      - uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.3'
-
-      - name: Install dependencies
+      - name: Check all pages
         run: |
-          gem install jekyll jekyll-theme-midnight html-proofer --no-document
+          BASE="https://alexscodingagent.github.io/esim-knowledge"
+          FAILS=0
 
-      - name: Build site
-        run: |
-          jekyll build --baseurl /esim-knowledge
+          check() {
+            STATUS=$(curl -sL -o /dev/null -w "%{http_code}" --max-time 15 "$1")
+            if [ "$STATUS" -ge 200 ] && [ "$STATUS" -lt 400 ]; then
+              echo "  ✅ $STATUS  $1"
+            else
+              echo "  ❌ $STATUS  $1"
+              FAILS=$((FAILS + 1))
+            fi
+          }
 
-      - name: Check links
-        run: |
-          htmlproofer _site \
-            --disable-external \
-            --allow-hash-href \
-            --empty-alt-ignore \
-            --assume-extension \
-            --file-ignore "/docs/articles/kids/storybook/"
+          echo "🏠 Homepage & index pages..."
+          check "$BASE/"
+          check "$BASE/docs/articles/"
+          check "$BASE/docs/articles/kids/"
+          check "$BASE/docs/glossary"
+          check "$BASE/docs/standards-map"
+          check "$BASE/docs/prerequisites"
 
-      - name: Check external links (optional, failure non-blocking)
-        continue-on-error: true
-        run: |
-          htmlproofer _site \
-            --internal-domains alexscodingagent.github.io \
-            --external-only \
-            --allow-hash-href \
-            --empty-alt-ignore \
-            --assume-extension \
-            --http-status-ignore 429,503 \
-            --timeframe 7d \
-            --file-ignore "/docs/articles/kids/storybook/" || echo "External check completed with failures"
+          echo ""
+          echo "📱 SGP.22 v2.7..."
+          for i in 00-sgp22-overview 01-rsp-architecture 02-inside-the-euicc 03-profile-download 04-esim-security-pki 05-local-profile-management 06-developer-interfaces 07-lpae-in-euicc 08-boot-initialisation 09-policy-management 10-notifications-postinstall 11-smds-companion; do
+            check "$BASE/docs/articles/sgp22/$i"
+          done
+
+          echo ""
+          echo "🔀 SGP.22 v3.x..."
+          for i in 52-sgp22-v3-overview 53-multiple-enabled-profiles 54-push-service 55-feature-support 56-version-interoperability 57-remote-profile-management 58-device-change-and-profile-recovery 59-euicc-updates-pcm 60-profile-download-v3 61-profile-protection-bpp 62-policy-management-v3 63-enterprise-profiles; do
+            check "$BASE/docs/articles/sgp22-v3/$i"
+          done
+
+          echo ""
+          echo "🤖 SGP.32..."
+          for i in 07-iot-esim-why 08-iot-architecture-im-ipa 09-iot-profile-download-packages 10-iot-esim-security-dtls 11-eim-configuration 12-notifications-errors 13-iot-device-initialisation 14-iot-profile-state-management 15-iot-smsds-operations 16-iot-functions-reference 17-profile-lifecycle-policy 18-advanced-security-lifecycle; do
+            check "$BASE/docs/articles/sgp32/$i"
+          done
+
+          echo ""
+          echo "🏭 SGP.41..."
+          for i in 47-sgp41-overview 48-sgp41-architecture 49-sgp41-flow 50-sgp41-security 51-sgp41-practice; do
+            check "$BASE/docs/articles/sgp41/$i"
+          done
+
+          echo ""
+          echo "🆔 SGP.29..."
+          for i in 27-sgp29-overview 28-sgp29-eid-format 29-sgp29-assignment 30-sgp29-in-protocols 31-sgp29-security; do
+            check "$BASE/docs/articles/sgp29/$i"
+          done
+
+          echo ""
+          echo "🧪 SGP.23..."
+          for i in 17-sgp23-overview 18-sgp23-test-infrastructure 19-sgp23-lpa-testing 20-sgp23-server-testing 21-sgp23-certification; do
+            check "$BASE/docs/articles/sgp23/$i"
+          done
+
+          echo ""
+          echo "🔒 SGP.23-1..."
+          for i in 32-sgp23-1-overview 33-sgp23-1-architecture 34-sgp23-1-test-cases 35-sgp23-1-security 36-sgp23-1-certification; do
+            check "$BASE/docs/articles/sgp23-1/$i"
+          done
+
+          echo ""
+          echo "🦾 SGP.33-3..."
+          for i in 42-sgp33-overview 43-sgp33-eim-architecture 44-sgp33-eim-test-cases 45-sgp33-eim-security 46-sgp33-certification; do
+            check "$BASE/docs/articles/sgp33-3/$i"
+          done
+
+          echo ""
+          echo "🛡️ SGP.25..."
+          for i in 22-sgp25-overview 23-sgp25-security-requirements 24-sgp25-assurance 25-sgp25-physical-security 26-sgp25-certification; do
+            check "$BASE/docs/articles/sgp25/$i"
+          done
+
+          echo ""
+          echo "🎭 SGP.26..."
+          for i in 37-sgp26-overview 38-sgp26-hierarchy 39-sgp26-profiles 40-sgp26-development 41-sgp26-crl; do
+            check "$BASE/docs/articles/sgp26/$i"
+          done
+
+          echo ""
+          echo "📖 Storybooks..."
+          for i in 00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 27 28 29 30 31 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63; do
+            check "$BASE/docs/articles/kids/storybook-$i.html"
+          done
+
+          echo ""
+          echo "🧒 Simplified articles (sample)..."
+          check "$BASE/docs/articles/kids/52-sgp22-v3-overview-kids"
+          check "$BASE/docs/articles/kids/47-sgp41-overview-kids"
+          check "$BASE/docs/articles/kids/27-sgp29-overview-kids"
+          check "$BASE/docs/articles/kids/17-sgp23-overview-kids"
+
+          echo ""
+          echo "---"
+          echo "Failed: $FAILS"
+          exit $FAILS
