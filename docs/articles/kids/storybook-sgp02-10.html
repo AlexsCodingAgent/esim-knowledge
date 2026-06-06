@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How All the Helpers Talk — SGP.02 M2M Story</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Georgia',serif;background:#0a1628;color:#c8d6e5;overflow-x:hidden}
+  .book{max-width:800px;margin:0 auto;min-height:100vh}
+  .page{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;page-break-after:always;scroll-snap-align:start}
+  .page-cover{background:linear-gradient(135deg,#0d1b2a 0%,#0a1628 50%,#0d1b2a 100%)}
+  h1{font-size:2.4rem;color:#e8eef5;text-align:center;margin-bottom:.5rem}
+  h2{font-size:1.5rem;color:#85c1e9;text-align:center;font-weight:400;margin-bottom:1.5rem}
+  h3{font-size:1.3rem;color:#5dade2;text-align:center;margin-bottom:1rem}
+  .story-text{font-size:1.2rem;line-height:1.8;text-align:center;max-width:550px;margin:0 auto}
+  .story-text em{color:#85c1e9;font-style:italic}
+  .story-text strong{color:#e8eef5}
+  .illustration{margin:1.5rem 0}
+  .illustration svg{max-width:100%;height:auto}
+  .page-num{color:#5a6d80;font-size:.85rem;margin-top:2rem}
+  .nav{position:fixed;bottom:1rem;right:1rem;z-index:100}
+  .nav a{display:inline-block;padding:.5rem 1rem;background:rgba(93,173,226,.15);color:#5dade2;text-decoration:none;border-radius:6px;margin-left:.5rem;font-size:.9rem}
+  .nav a:hover{background:rgba(93,173,226,.3)}
+  .sparkle{animation:twinkle 2s infinite}
+  @keyframes twinkle{0%,100%{opacity:.3}50%{opacity:1}}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  .floating{animation:float 3s ease-in-out infinite}
+  @keyframes slideIn{from{transform:translateX(-20px);opacity:0}to{transform:translateX(0);opacity:1}}
+  .slide-in{animation:slideIn .8s ease-out}
+  @media(max-width:600px){h1{font-size:2rem}h2{font-size:1.2rem}.story-text{font-size:1.05rem}}
+  html{scroll-behavior:smooth;scroll-snap-type:y mandatory}
+</style>
+</head>
+<body>
+<div style="position:fixed;top:0;left:0;right:0;background:rgba(10,22,40,0.92);padding:0.5rem 1.2rem;z-index:200;display:flex;justify-content:space-between;align-items:center;font-size:0.85rem;border-bottom:1px solid rgba(93,173,226,0.2);backdrop-filter:blur(8px)">
+  <span style="color:#5a6d80">📖 eUICC.tech</span>
+  <span>
+    <a href="index.html" style="color:#5dade2;text-decoration:none;margin-right:1rem">← All Stories</a>
+    <a href="../../index.html" style="color:#85c1e9;text-decoration:none">🏠 Home</a>
+  </span>
+</div>
+
+<div class="book">
+
+<!-- PAGE 1: COVER -->
+<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 1 of 7</div>
+  <div class="illustration floating">
+    <svg viewBox="0 0 400 280" width="350">
+      <defs><radialGradient id="glow"><stop offset="0%" stop-color="#5dade2" stop-opacity="0.2"/><stop offset="100%" stop-color="#0a1628" stop-opacity="0"/></radialGradient></defs>
+      <circle cx="200" cy="130" r="130" fill="url(#glow)"/>
+      <!-- Switchboard frame -->
+      <rect x="60" y="40" width="280" height="200" rx="12" fill="#1b3a5c" stroke="#5dade2" stroke-width="2"/>
+      <text x="200" y="62" fill="#85c1e9" font-size="10" font-weight="bold" text-anchor="middle">🔌 TELEPHONE SWITCHBOARD</text>
+      <line x1="80" y1="70" x2="320" y2="70" stroke="#5dade2" stroke-width="0.5"/>
+      <!-- Jacks and cables -->
+      <g class="sparkle">
+        <!-- Jack 1 -->
+        <circle cx="95" cy="95" r="8" fill="none" stroke="#34d399" stroke-width="2"/>
+        <text x="95" y="99" fill="#34d399" font-size="7" text-anchor="middle">ES1</text>
+        <line x1="103" y1="95" x2="340" y2="95" stroke="#34d399" stroke-width="1.5"/>
+        <!-- Jack 2 -->
+        <circle cx="95" cy="120" r="8" fill="none" stroke="#85c1e9" stroke-width="2"/>
+        <text x="95" y="124" fill="#85c1e9" font-size="7" text-anchor="middle">ES2</text>
+        <line x1="103" y1="120" x2="340" y2="120" stroke="#85c1e9" stroke-width="1.5"/>
+        <!-- Jack 3 -->
+        <circle cx="95" cy="145" r="8" fill="none" stroke="#fbbf24" stroke-width="2"/>
+        <text x="95" y="149" fill="#fbbf24" font-size="7" text-anchor="middle">ES3</text>
+        <line x1="103" y1="145" x2="340" y2="145" stroke="#fbbf24" stroke-width="1.5"/>
+        <!-- Jack 4 -->
+        <circle cx="95" cy="170" r="8" fill="none" stroke="#5dade2" stroke-width="2"/>
+        <text x="95" y="174" fill="#5dade2" font-size="7" text-anchor="middle">ES4</text>
+        <line x1="103" y1="170" x2="340" y2="170" stroke="#5dade2" stroke-width="1.5"/>
+        <!-- Jack 5 -->
+        <circle cx="95" cy="195" r="8" fill="none" stroke="#c8d6e5" stroke-width="2"/>
+        <text x="95" y="199" fill="#c8d6e5" font-size="7" text-anchor="middle">ES5</text>
+        <line x1="103" y1="195" x2="340" y2="195" stroke="#c8d6e5" stroke-width="1.5"/>
+      </g>
+      <!-- Plugs on right -->
+      <text x="200" y="240" fill="#5a6d80" font-size="8" text-anchor="middle">8 interfaces — ES1 through ES8</text>
+    </svg>
+  </div>
+  <h1>🔌 How All the Helpers Talk</h1>
+  <h2>ES1 Through ES8: The Off-Card Interfaces</h2>
+  <p class="story-text" style="color:#5a6d80">A story of telephone lines, secret connections, and the 8 channels that let helpers share secrets</p>
+  <div class="page-num"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 2 of 7</div>
+</div>
+
+<!-- PAGE 2: SO MANY HELPERS, SO MANY CONVERSATIONS -->
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 3 of 7</div>
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 220" width="350">
+      <!-- Six helpers in a circle -->
+      <circle cx="200" cy="100" r="70" fill="none" stroke="#5a6d80" stroke-width="1" stroke-dasharray="3,3"/>
+      <!-- EUM top -->
+      <rect x="170" y="22" width="60" height="24" rx="5" fill="#5dade2"/>
+      <text x="200" y="38" fill="#fff" font-size="8" text-anchor="middle">🏭 EUM</text>
+      <!-- CI right -->
+      <rect x="260" y="88" width="50" height="24" rx="5" fill="#c8d6e5"/>
+      <text x="285" y="104" fill="#0a1628" font-size="8" text-anchor="middle">🏛️ CI</text>
+      <!-- SM-DP bottom right -->
+      <rect x="250" y="165" width="55" height="24" rx="5" fill="#34d399"/>
+      <text x="277" y="181" fill="#0a1628" font-size="8" text-anchor="middle">🔑 SM-DP</text>
+      <!-- SM-SR center -->
+      <rect x="160" y="88" width="90" height="28" rx="6" fill="#fbbf24" stroke="#e8c44a" stroke-width="2"/>
+      <text x="205" y="107" fill="#0a1628" font-size="9" font-weight="bold" text-anchor="middle">🦾 SM-SR</text>
+      <!-- Operator bottom -->
+      <rect x="150" y="165" width="65" height="24" rx="5" fill="#85c1e9"/>
+      <text x="182" y="181" fill="#0a1628" font-size="8" text-anchor="middle">📡 Operator</text>
+      <!-- M2M SP left -->
+      <rect x="90" y="88" width="60" height="24" rx="5" fill="#e8eef5"/>
+      <text x="120" y="104" fill="#0a1628" font-size="8" text-anchor="middle">🚛 M2M SP</text>
+      <!-- Lines connecting -->
+      <line x1="200" y1="46" x2="205" y2="88" stroke="#5a6d80" stroke-width="0.5"/>
+      <line x1="260" y1="100" x2="250" y2="165" stroke="#5a6d80" stroke-width="0.5"/>
+      <line x1="200" y1="116" x2="200" y2="165" stroke="#fbbf24" stroke-width="1"/>
+      <line x1="170" y1="116" x2="170" y2="165" stroke="#5a6d80" stroke-width="0.5"/>
+      <line x1="120" y1="100" x2="170" y2="100" stroke="#5a6d80" stroke-width="0.5"/>
+      <text x="200" y="210" fill="#5a6d80" font-size="7" text-anchor="middle">Every pair needs a dedicated conversation channel!</text>
+    </svg>
+  </div>
+  <h3>🗣️ So Many Helpers, So Many Conversations</h3>
+  <p class="story-text">With six different helpers in the M2M system, there are a lot of conversations happening at once! The EUM talks to the CI. The SM-DP talks to the SM-SR. The Operator talks to both the SM-DP and SM-SR. SGP.02 defined <strong>8 standard interfaces (ES1–ES8)</strong> so all these channels are secure and standardised.</p>
+  <div class="page-num"></div>
+</div>
+
+<!-- PAGE 3: ES1 & ES2 — ORDERING AND REPORTING -->
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 4 of 7</div>
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 230" width="350">
+      <!-- ES1 -->
+      <g transform="translate(20,15)">
+        <rect x="0" y="0" width="160" height="100" rx="8" fill="#1b3a5c" stroke="#34d399" stroke-width="2"/>
+        <text x="80" y="22" fill="#34d399" font-size="10" text-anchor="middle" font-weight="bold">ES1 — Ordering</text>
+        <line x1="20" y1="30" x2="140" y2="30" stroke="#34d399" stroke-width="0.5"/>
+        <text x="80" y="48" fill="#c8d6e5" font-size="8" text-anchor="middle">📡 Operator</text>
+        <text x="80" y="64" fill="#c8d6e5" font-size="8" text-anchor="middle">⬇ order profiles</text>
+        <text x="80" y="80" fill="#c8d6e5" font-size="8" text-anchor="middle">🔑 SM-DP</text>
+      </g>
+      <!-- ES2 -->
+      <g transform="translate(220,15)">
+        <rect x="0" y="0" width="160" height="100" rx="8" fill="#1b3a5c" stroke="#85c1e9" stroke-width="2"/>
+        <text x="80" y="22" fill="#85c1e9" font-size="10" text-anchor="middle" font-weight="bold">ES2 — Reporting</text>
+        <line x1="20" y1="30" x2="140" y2="30" stroke="#85c1e9" stroke-width="0.5"/>
+        <text x="80" y="48" fill="#c8d6e5" font-size="8" text-anchor="middle">📡 Operator</text>
+        <text x="80" y="64" fill="#c8d6e5" font-size="8" text-anchor="middle">⬆ gets updates</text>
+        <text x="80" y="80" fill="#c8d6e5" font-size="8" text-anchor="middle">🦾 SM-SR</text>
+      </g>
+      <!-- Data flow -->
+      <g transform="translate(40,135)">
+        <rect x="0" y="0" width="140" height="24" rx="4" fill="#34d399" opacity="0.1"/>
+        <text x="70" y="16" fill="#c8d6e5" font-size="8" text-anchor="middle">"Build profile for #8721!"</text>
+      </g>
+      <g transform="translate(220,135)">
+        <rect x="0" y="0" width="140" height="24" rx="4" fill="#85c1e9" opacity="0.1"/>
+        <text x="70" y="16" fill="#c8d6e5" font-size="8" text-anchor="middle">"Profile #8721 is live!"</text>
+      </g>
+      <!-- Two-way arrows -->
+      <text x="200" y="185" fill="#5a6d80" font-size="8" text-anchor="middle">Ordering (ES1) and Reporting (ES2)</text>
+      <text x="200" y="200" fill="#fbbf24" font-size="9" text-anchor="middle">The Operator's two direct lines</text>
+    </svg>
+  </div>
+  <h3>📡 ES1 & ES2: Ordering and Reporting</h3>
+  <p class="story-text"><strong>ES1</strong> is the ordering line — the Fleet Owner tells the Key Factory "make me a profile for this robot." <strong>ES2</strong> is the reporting line — the Commander sends status updates back to the Fleet Owner, like "profile installed successfully" or "robot #8721 is now on Network B." Order and report — the heartbeat of the fleet!</p>
+  <div class="page-num"></div>
+</div>
+
+<!-- PAGE 4: ES3 & ES4 — THE KEY FACTORY TALKS -->
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 5 of 7</div>
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 230" width="350">
+      <!-- ES3 -->
+      <g transform="translate(15,15)">
+        <rect x="0" y="0" width="170" height="95" rx="8" fill="#1b3a5c" stroke="#fbbf24" stroke-width="1.5"/>
+        <text x="85" y="22" fill="#fbbf24" font-size="10" text-anchor="middle" font-weight="bold">ES3 — Key Factory ↔ CMDR</text>
+        <line x1="15" y1="30" x2="155" y2="30" stroke="#fbbf24" stroke-width="0.5"/>
+        <text x="85" y="48" fill="#c8d6e5" font-size="8" text-anchor="middle">🔑 SM-DP</text>
+        <text x="85" y="64" fill="#c8d6e5" font-size="8" text-anchor="middle">↔ mutual auth, EIS query</text>
+        <text x="85" y="80" fill="#c8d6e5" font-size="8" text-anchor="middle">🦾 SM-SR</text>
+      </g>
+      <!-- ES4 -->
+      <g transform="translate(215,15)">
+        <rect x="0" y="0" width="170" height="95" rx="8" fill="#1b3a5c" stroke="#5dade2" stroke-width="1.5"/>
+        <text x="85" y="22" fill="#5dade2" font-size="10" text-anchor="middle" font-weight="bold">ES4 — Vault ↔ Key Factory</text>
+        <line x1="15" y1="30" x2="155" y2="30" stroke="#5dade2" stroke-width="0.5"/>
+        <text x="85" y="48" fill="#c8d6e5" font-size="8" text-anchor="middle">🛡️ eUICC (chip)</text>
+        <text x="85" y="64" fill="#c8d6e5" font-size="8" text-anchor="middle">↔ secret handshake</text>
+        <text x="85" y="80" fill="#c8d6e5" font-size="8" text-anchor="middle">🔑 SM-DP</text>
+      </g>
+      <!-- The handshake again -->
+      <g transform="translate(60,125)">
+        <rect x="0" y="0" width="280" height="90" rx="8" fill="#5dade2" opacity="0.08" stroke="#5dade2" stroke-width="0.5"/>
+        <text x="140" y="20" fill="#5dade2" font-size="8" text-anchor="middle" font-weight="bold">ES4: The Secret Handshake</text>
+        <text x="20" y="40" fill="#c8d6e5" font-size="7">1. SM-DP sends its ID badge → eUICC checks CI</text>
+        <text x="20" y="56" fill="#c8d6e5" font-size="7">2. eUICC sends random challenge → SD-DP signs it</text>
+        <text x="20" y="72" fill="#c8d6e5" font-size="7">3. Both compute shared secret → SCP03t encrypts profile</text>
+        <text x="20" y="88" fill="#5a6d80" font-size="7">This is the MOST important interface in the whole system</text>
+      </g>
+    </svg>
+  </div>
+  <h3>🔑 ES3 & ES4: The Key Factory Conversations</h3>
+  <p class="story-text"><strong>ES3</strong> is the line between the Key Factory and the Commander — they ask about robot identities, send encrypted profiles for relay, and check each other's certificates. <strong>ES4</strong> is the <em>most critical interface</em> — it's the secure tunnel from the Key Factory directly to the robot's vault chip, where all the secret handshake math happens!</p>
+  <div class="page-num"></div>
+</div>
+
+<!-- PAGE 5: ES5-ES8 -->
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 6 of 7</div>
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 220" width="350">
+      <!-- ES5 -->
+      <g transform="translate(10,10)">
+        <rect x="0" y="0" width="180" height="45" rx="6" fill="#1b3a5c" stroke="#c8d6e5" stroke-width="1.5"/>
+        <text x="90" y="20" fill="#c8d6e5" font-size="9" text-anchor="middle" font-weight="bold">ES5 — Vault ↔ Commander</text>
+        <text x="90" y="36" fill="#c8d6e5" font-size="7" text-anchor="middle">Profile management (through ISD-R)</text>
+      </g>
+      <!-- ES6 -->
+      <g transform="translate(210,10)">
+        <rect x="0" y="0" width="180" height="45" rx="6" fill="#1b3a5c" stroke="#e8eef5" stroke-width="1.5"/>
+        <text x="90" y="20" fill="#e8eef5" font-size="9" text-anchor="middle" font-weight="bold">ES6 — Vault ↔ Fleet Mgr</text>
+        <text x="90" y="36" fill="#e8eef5" font-size="7" text-anchor="middle">Direct management line (ISD-R)</text>
+      </g>
+      <!-- ES7 -->
+      <g transform="translate(10,70)">
+        <rect x="0" y="0" width="180" height="45" rx="6" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2"/>
+        <text x="90" y="20" fill="#fbbf24" font-size="9" text-anchor="middle" font-weight="bold">ES7 — CMDR Handover</text>
+        <text x="90" y="36" fill="#fbbf24" font-size="7" text-anchor="middle">Old SM-SR → New SM-SR</text>
+      </g>
+      <!-- ES8 -->
+      <g transform="translate(210,70)">
+        <rect x="0" y="0" width="180" height="45" rx="6" fill="#1b3a5c" stroke="#5dade2" stroke-width="2"/>
+        <text x="90" y="20" fill="#5dade2" font-size="9" text-anchor="middle" font-weight="bold">ES8 — Chip ↔ Factory</text>
+        <text x="90" y="36" fill="#5dade2" font-size="7" text-anchor="middle">EUM ↔ CI (birth certificate)</text>
+      </g>
+      <!-- Summary -->
+      <g transform="translate(40,135)">
+        <rect x="0" y="0" width="320" height="70" rx="8" fill="#fbbf24" opacity="0.08" stroke="#fbbf24" stroke-width="0.5"/>
+        <text x="160" y="20" fill="#fbbf24" font-size="9" text-anchor="middle" font-weight="bold">🔌 8 Interfaces = 8 Secure Channels</text>
+        <text x="20" y="42" fill="#c8d6e5" font-size="8">ES3-ES4: Key Factory's world</text>
+        <text x="20" y="58" fill="#c8d6e5" font-size="8">ES5-ES6: Direct chip access (ISD-R)</text>
+      </g>
+    </svg>
+  </div>
+  <h3>🔌 ES5–ES8: Every Pair Gets a Line</h3>
+  <p class="story-text"><strong>ES5</strong> and <strong>ES6</strong> connect directly to the robot's ISD-R channel for local profile management. <strong>ES7</strong> is the special handover line when Commanders change. <strong>ES8</strong> is the chip-building line — the EUM and CI exchanging certificates when a new robot is born. Eight interfaces, six helpers, one seamless system!</p>
+  <div class="page-num"></div>
+</div>
+
+<!-- PAGE 6: ALL EIGHT LINES -->
+<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 7 of 7</div>
+  <div class="illustration floating">
+    <svg viewBox="0 0 400 240" width="350">
+      <defs><radialGradient id="bigglow"><stop offset="0%" stop-color="#5dade2" stop-opacity="0.15"/><stop offset="100%" stop-color="#0a1628" stop-opacity="0"/></radialGradient></defs>
+      <circle cx="200" cy="120" r="140" fill="url(#bigglow)"/>
+      <!-- Central switchboard -->
+      <rect x="130" y="60" width="140" height="90" rx="10" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2"/>
+      <text x="200" y="85" fill="#fbbf24" font-size="10" text-anchor="middle" font-weight="bold">🔌 Switchboard</text>
+      <text x="200" y="105" fill="#c8d6e5" font-size="7" text-anchor="middle">ES1 through ES8</text>
+      <text x="200" y="120" fill="#c8d6e5" font-size="7" text-anchor="middle">All standardised</text>
+      <text x="200" y="138" fill="#c8d6e5" font-size="7" text-anchor="middle">All secured with certificates</text>
+      <!-- Interface lines radiating -->
+      <line x1="130" y1="80" x2="70" y2="50" stroke="#34d399" stroke-width="1.5"/>
+      <text x="55" y="48" fill="#34d399" font-size="7">ES1</text>
+      <line x1="130" y1="100" x2="60" y2="100" stroke="#85c1e9" stroke-width="1.5"/>
+      <text x="45" y="100" fill="#85c1e9" font-size="7">ES2</text>
+      <line x1="130" y1="120" x2="60" y2="150" stroke="#fbbf24" stroke-width="1.5"/>
+      <text x="45" y="152" fill="#fbbf24" font-size="7">ES3</text>
+      <line x1="270" y1="80" x2="330" y2="50" stroke="#5dade2" stroke-width="1.5"/>
+      <text x="335" y="48" fill="#5dade2" font-size="7">ES4</text>
+      <line x1="270" y1="100" x2="340" y2="100" stroke="#c8d6e5" stroke-width="1.5"/>
+      <text x="345" y="100" fill="#c8d6e5" font-size="7">ES5</text>
+      <line x1="270" y1="120" x2="340" y2="150" stroke="#e8eef5" stroke-width="1.5"/>
+      <text x="345" y="152" fill="#e8eef5" font-size="7">ES6</text>
+      <line x1="200" y1="150" x2="200" y2="190" stroke="#fbbf24" stroke-width="1.5" class="sparkle"/>
+      <text x="210" y="190" fill="#fbbf24" font-size="7">ES7</text>
+      <line x1="200" y1="60" x2="200" y2="25" stroke="#5dade2" stroke-width="1.5" class="sparkle"/>
+      <text x="210" y="22" fill="#5dade2" font-size="7">ES8</text>
+      <text x="200" y="210" fill="#fbbf24" font-size="10" text-anchor="middle">Every connection defined, every path secure</text>
+    </svg>
+  </div>
+  <h3>🧠 Did You Know?</h3>
+  <p class="story-text">The ES interfaces are the invisible plumbing of eSIM. They don't live on the chip — they're <strong>off-card</strong>, running between servers in data centres around the world. Every ES interface uses <strong>mutual TLS</strong> with certificates signed by the CI, ensuring that every conversation is authenticated end-to-end!</p>
+  <h2 style="margin-top:2rem">📚 Read the Next Story!</h2>
+  <p style="text-align:center;margin-bottom:1rem">
+    <a href="storybook-sgp02-11.html" style="display:inline-block;padding:.8rem 2rem;background:rgba(93,173,226,0.15);color:#5dade2;text-decoration:none;border-radius:8px;font-size:1.1rem">⚖️ Next: Three Kinds of eSIM →</a>
+  </p>
+  <p style="text-align:center">
+    <a href="index.html" style="color:#5a6d80;text-decoration:none;font-size:.9rem">📖 Back to All Stories</a>
+  </p>
+</div>
+
+</div>
+
+<div class="nav">
+  <a href="#" onclick="window.scrollBy({top:-window.innerHeight,behavior:'smooth'});return false">⬆</a>
+  <a href="#" onclick="window.scrollBy({top:window.innerHeight,behavior:'smooth'});return false">⬇</a>
+</div>
+
+</body>
+</html>

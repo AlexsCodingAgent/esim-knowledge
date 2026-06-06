@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Robot Rulebook — SGP.02 M2M Story</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Georgia',serif;background:#0a1628;color:#c8d6e5;overflow-x:hidden}
+  .book{max-width:800px;margin:0 auto;min-height:100vh}
+  .page{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;page-break-after:always;scroll-snap-align:start}
+  .page-cover{background:linear-gradient(135deg,#0d1b2a 0%,#0a1628 50%,#0d1b2a 100%)}
+  h1{font-size:2.4rem;color:#e8eef5;text-align:center;margin-bottom:.5rem}
+  h2{font-size:1.5rem;color:#85c1e9;text-align:center;font-weight:400;margin-bottom:1.5rem}
+  h3{font-size:1.3rem;color:#5dade2;text-align:center;margin-bottom:1rem}
+  .story-text{font-size:1.2rem;line-height:1.8;text-align:center;max-width:550px;margin:0 auto}
+  .story-text em{color:#85c1e9;font-style:italic}
+  .story-text strong{color:#e8eef5}
+  .illustration{margin:1.5rem 0}
+  .illustration svg{max-width:100%;height:auto}
+  .page-num{color:#5a6d80;font-size:.85rem;margin-top:2rem}
+  .nav{position:fixed;bottom:1rem;right:1rem;z-index:100}
+  .nav a{display:inline-block;padding:.5rem 1rem;background:rgba(93,173,226,.15);color:#5dade2;text-decoration:none;border-radius:6px;margin-left:.5rem;font-size:.9rem}
+  .nav a:hover{background:rgba(93,173,226,.3)}
+  .sparkle{animation:twinkle 2s infinite}
+  @keyframes twinkle{0%,100%{opacity:.3}50%{opacity:1}}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  .floating{animation:float 3s ease-in-out infinite}
+  @keyframes slideIn{from{transform:translateX(-20px);opacity:0}to{transform:translateX(0);opacity:1}}
+  .slide-in{animation:slideIn .8s ease-out}
+  @media(max-width:600px){h1{font-size:2rem}h2{font-size:1.2rem}.story-text{font-size:1.05rem}}
+  html{scroll-behavior:smooth;scroll-snap-type:y mandatory}
+</style>
+</head>
+<body>
+<div style="position:fixed;top:0;left:0;right:0;background:rgba(10,22,40,0.92);padding:0.5rem 1.2rem;z-index:200;display:flex;justify-content:space-between;align-items:center;font-size:0.85rem;border-bottom:1px solid rgba(93,173,226,0.2);backdrop-filter:blur(8px)">
+  <span style="color:#5a6d80">📖 eUICC.tech</span>
+  <span>
+    <a href="index.html" style="color:#5dade2;text-decoration:none;margin-right:1rem">← All Stories</a>
+    <a href="../../index.html" style="color:#85c1e9;text-decoration:none">🏠 Home</a>
+  </span>
+</div>
+
+<div class="book">
+
+<!-- PAGE 1: COVER -->
+<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 1 of 7</div>
+  <div class="illustration floating">
+    <svg viewBox="0 0 400 280" width="350">
+      <defs><radialGradient id="glow"><stop offset="0%" stop-color="#fbbf24" stop-opacity="0.25"/><stop offset="100%" stop-color="#0a1628" stop-opacity="0"/></radialGradient></defs>
+      <circle cx="200" cy="130" r="130" fill="url(#glow)"/>
+      <!-- Glowing rulebook -->
+      <g transform="translate(200,80)">
+        <!-- Book spine -->
+        <rect x="-55" y="-60" width="110" height="130" rx="8" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2.5"/>
+        <!-- Cover title -->
+        <text x="0" y="-30" fill="#fbbf24" font-size="12" font-weight="bold" text-anchor="middle">📜 RULEBOOK</text>
+        <line x1="-35" y1="-20" x2="35" y2="-20" stroke="#fbbf24" stroke-width="1"/>
+        <!-- POL1 -->
+        <rect x="-35" y="-10" width="70" height="18" rx="3" fill="#fbbf24" opacity="0.2"/>
+        <text x="0" y="3" fill="#fbbf24" font-size="9" text-anchor="middle">POL1 ⭐</text>
+        <!-- POL2 -->
+        <rect x="-35" y="14" width="70" height="18" rx="3" fill="#85c1e9" opacity="0.2"/>
+        <text x="0" y="27" fill="#85c1e9" font-size="9" text-anchor="middle">POL2 ⭐</text>
+        <!-- More rules -->
+        <rect x="-35" y="38" width="70" height="12" rx="3" fill="#5a6d80" opacity="0.3"/>
+        <text x="0" y="47" fill="#c8d6e5" font-size="7" text-anchor="middle">••••</text>
+      </g>
+      <!-- Bell next to it -->
+      <g class="sparkle" transform="translate(310,60)">
+        <path d="M0,-20 Q-15,-35 0,-45 Q15,-35 0,-20" fill="#fbbf24" style="opacity:0.7"/>
+        <rect x="-5" y="-18" width="10" height="6" rx="2" fill="#fbbf24"/>
+        <circle cx="0" cy="-10" r="3" fill="#e8c44a"/>
+        <!-- Bell waves -->
+        <path d="M10,-25 Q20,-30 15,-40" fill="none" stroke="#fbbf24" stroke-width="1"/>
+        <path d="M-10,-25 Q-20,-30 -15,-40" fill="none" stroke="#fbbf24" stroke-width="1"/>
+      </g>
+      <!-- Sparkles around book -->
+      <circle cx="120" cy="90" r="2" fill="#fbbf24" class="sparkle"/>
+      <circle cx="280" cy="70" r="2" fill="#85c1e9" class="sparkle"/>
+      <circle cx="100" cy="130" r="1.5" fill="#fbbf24" class="sparkle"/>
+      <circle cx="300" cy="140" r="1.5" fill="#85c1e9" class="sparkle"/>
+      <text x="200" y="225" fill="#5a6d80" font-size="8" text-anchor="middle">Rules + Notifications = Safe Robots</text>
+    </svg>
+  </div>
+  <h1>📜 The Robot Rulebook</h1>
+  <h2>POL1, POL2, and the Notification Bell</h2>
+  <p class="story-text" style="color:#5a6d80">A story of unbreakable rules, report cards, and the bell that tells the Commander everything</p>
+  <div class="page-num"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 2 of 7</div>
+</div>
+
+<!-- PAGE 2: EVERY ROBOT HAS RULES -->
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 3 of 7</div>
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 220" width="350">
+      <!-- Robot -->
+      <rect x="145" y="20" width="110" height="130" rx="12" fill="#4a90d9" stroke="#85c1e9" stroke-width="2.5"/>
+      <text x="200" y="52" fill="#fff" font-size="10" text-anchor="middle">🤖 Robot</text>
+      <!-- Profile rooms -->
+      <rect x="165" y="65" width="70" height="18" rx="3" fill="#34d399"/>
+      <text x="200" y="78" fill="#0a1628" font-size="7" text-anchor="middle">ISD-P Net A</text>
+      <rect x="165" y="88" width="70" height="18" rx="3" fill="#fbbf24"/>
+      <text x="200" y="101" fill="#0a1628" font-size="7" text-anchor="middle">ISD-P Net B</text>
+      <!-- Rulebook chained -->
+      <g class="sparkle">
+        <rect x="165" y="115" width="70" height="22" rx="4" fill="#fbbf24" stroke="#e8c44a" stroke-width="1.5"/>
+        <text x="200" y="130" fill="#0a1628" font-size="8" text-anchor="middle">📜 POL1/POL2</text>
+      </g>
+      <!-- Chained to robot -->
+      <line x1="200" y1="137" x2="200" y2="150" stroke="#fbbf24" stroke-width="1.5"/>
+      <!-- Rule descriptions -->
+      <g transform="translate(20,170)">
+        <rect x="0" y="0" width="360" height="35" rx="5" fill="#fbbf24" opacity="0.1"/>
+        <text x="180" y="15" fill="#fbbf24" font-size="8" text-anchor="middle">POL1: "You can NEVER disable or delete this profile"</text>
+        <text x="180" y="28" fill="#fbbf24" font-size="8" text-anchor="middle">POL2: "You can NEVER delete this profile (but CAN disable)"</text>
+      </g>
+    </svg>
+  </div>
+  <h3>📜 Every Robot Has Rules</h3>
+  <p class="story-text">When a profile arrives inside a robot, it can carry a <strong>rulebook</strong> called POL1 and POL2. These aren't suggestions — they're <em>hardware-enforced</em> rules burned into the chip. The robot's vault will obey them no matter what — even if the Commander gives a direct order to break them!</p>
+  <div class="page-num"></div>
+</div>
+
+<!-- PAGE 3: POL1 — DON'T TURN THIS OFF -->
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 4 of 7</div>
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 230" width="350">
+      <!-- POL1 badge -->
+      <rect x="80" y="15" width="240" height="50" rx="12" fill="#fbbf24" stroke="#e8c44a" stroke-width="2.5"/>
+      <text x="200" y="35" fill="#0a1628" font-size="12" font-weight="bold" text-anchor="middle">⭐ POL1 — "DO NOT DISABLE OR DELETE"</text>
+      <text x="200" y="53" fill="#0a1628" font-size="8" text-anchor="middle">Unbreakable rule!</text>
+      <!-- The scenario -->
+      <g transform="translate(50,90)">
+        <!-- Commander -->
+        <rect x="0" y="0" width="70" height="30" rx="5" fill="#fbbf24"/>
+        <text x="35" y="20" fill="#0a1628" font-size="8" text-anchor="middle">CMDR</text>
+        <!-- Command bubble -->
+        <rect x="80" y="0" width="150" height="30" rx="8" fill="#ac4142" opacity="0.2" stroke="#ac4142" stroke-width="1"/>
+        <text x="155" y="14" fill="#ac4142" font-size="7" text-anchor="middle">"DISABLE profile!"</text>
+        <text x="155" y="25" fill="#ac4142" font-size="6" text-anchor="middle">(POL1 says NO)</text>
+      </g>
+      <!-- Robot -->
+      <rect x="160" y="130" width="80" height="45" rx="8" fill="#4a90d9" stroke="#85c1e9" stroke-width="2"/>
+      <text x="200" y="157" fill="#fff" font-size="9" text-anchor="middle">🤖</text>
+      <!-- Response -->
+      <g class="sparkle">
+        <rect x="120" y="185" width="160" height="20" rx="4" fill="#34d399"/>
+        <text x="200" y="199" fill="#0a1628" font-size="9" text-anchor="middle">❌ REJECTED — POL1 forbids it!</text>
+      </g>
+      <!-- Padlock -->
+      <text x="200" y="70" fill="#fbbf24" font-size="16" text-anchor="middle" class="sparkle">🔒</text>
+    </svg>
+  </div>
+  <h3>⭐ POL1: "Don't Turn This Off"</h3>
+  <p class="story-text"><strong>POL1</strong> is the strongest rule in the robot world. It says: <em>"You can NEVER disable or delete this profile."</em> Even the Commander can't override it. It's designed for emergency fallback profiles — the one profile that <strong>must</strong> always work, no matter what. The only way out is for the Fleet Owner to order the rule removed!</p>
+  <div class="page-num"></div>
+</div>
+
+<!-- PAGE 4: POL2 — DON'T DELETE THIS -->
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 5 of 7</div>
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 230" width="350">
+      <!-- POL2 badge -->
+      <rect x="80" y="15" width="240" height="50" rx="12" fill="#85c1e9" stroke="#5dade2" stroke-width="2.5"/>
+      <text x="200" y="35" fill="#0a1628" font-size="12" font-weight="bold" text-anchor="middle">⭐ POL2 — "DON'T DELETE (DISABLE OK)"</text>
+      <text x="200" y="53" fill="#0a1628" font-size="8" text-anchor="middle">Strong but stoppable</text>
+      <!-- Two scenarios side by side -->
+      <g transform="translate(30,85)">
+        <text x="60" y="-5" fill="#34d399" font-size="8" text-anchor="middle">DISABLE ✓</text>
+        <rect x="5" y="5" width="110" height="40" rx="6" fill="#1b3a5c" stroke="#34d399" stroke-width="1.5"/>
+        <text x="60" y="22" fill="#c8d6e5" font-size="8" text-anchor="middle">CMDR: Disable</text>
+        <text x="60" y="36" fill="#34d399" font-size="7" text-anchor="middle">✅ OK — POL2 allows!</text>
+      </g>
+      <g transform="translate(260,85)">
+        <text x="60" y="-5" fill="#ac4142" font-size="8" text-anchor="middle">DELETE ✕</text>
+        <rect x="5" y="5" width="110" height="40" rx="6" fill="#1b3a5c" stroke="#ac4142" stroke-width="1.5"/>
+        <text x="60" y="22" fill="#c8d6e5" font-size="8" text-anchor="middle">CMDR: Delete</text>
+        <text x="60" y="36" fill="#ac4142" font-size="7" text-anchor="middle">❌ BLOCKED!</text>
+      </g>
+      <!-- Sleep mode -->
+      <g transform="translate(60,165)">
+        <rect x="0" y="0" width="280" height="50" rx="8" fill="#fbbf24" opacity="0.1" stroke="#fbbf24" stroke-width="1"/>
+        <text x="140" y="20" fill="#c8d6e5" font-size="9" text-anchor="middle">Can be disabled (takes a nap 💤)</text>
+        <text x="140" y="38" fill="#c8d6e5" font-size="9" text-anchor="middle">But never deleted — it stays forever!</text>
+      </g>
+    </svg>
+  </div>
+  <h3>⭐ POL2: "Don't Delete This"</h3>
+  <p class="story-text"><strong>POL2</strong> is slightly gentler. It says: <em>"You can disable me, but never delete me."</em> The profile can take a nap when not needed, but can always wake up again later. POL2 is perfect for seasonal profiles — like a shipping robot that needs a European network profile every winter but can pause it in summer.</p>
+  <div class="page-num"></div>
+</div>
+
+<!-- PAGE 5: REPORT CARDS -->
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 6 of 7</div>
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 230" width="350">
+      <!-- Robot -->
+      <rect x="20" y="30" width="70" height="55" rx="8" fill="#4a90d9" stroke="#85c1e9" stroke-width="2"/>
+      <text x="55" y="62" fill="#fff" font-size="9" text-anchor="middle">🤖</text>
+      <!-- Notification envelope -->
+      <g class="sparkle">
+        <rect x="110" y="35" width="120" height="45" rx="6" fill="#fbbf24" stroke="#e8c44a" stroke-width="1.5"/>
+        <text x="170" y="55" fill="#0a1628" font-size="8" text-anchor="middle">📨 NOTIFICATION</text>
+        <text x="170" y="70" fill="#0a1628" font-size="7" text-anchor="middle">"Profile #3 enabled"</text>
+      </g>
+      <!-- Arrow to Commander -->
+      <line x1="230" y1="57" x2="290" y2="57" stroke="#fbbf24" stroke-width="1.5"/>
+      <rect x="290" y="35" width="90" height="45" rx="6" fill="#34d399" opacity="0.5" stroke="#34d399" stroke-width="1.5"/>
+      <text x="335" y="62" fill="#0a1628" font-size="8" text-anchor="middle">CMDR</text>
+      <!-- What notifications say -->
+      <g transform="translate(40,115)">
+        <rect x="0" y="0" width="320" height="100" rx="8" fill="#1b3a5c" stroke="#5dade2" stroke-width="1.5"/>
+        <text x="160" y="22" fill="#85c1e9" font-size="9" text-anchor="middle" font-weight="bold">📋 Report Card Contents</text>
+        <text x="20" y="42" fill="#c8d6e5" font-size="8">• Profile enabled / disabled / deleted</text>
+        <text x="20" y="58" fill="#c8d6e5" font-size="8">• Download succeeded or failed</text>
+        <text x="20" y="74" fill="#c8d6e5" font-size="8">• POL1/POL2 rule violations</text>
+        <text x="20" y="90" fill="#c8d6e5" font-size="8">• Certificate expiry warnings</text>
+      </g>
+    </svg>
+  </div>
+  <h3>📨 Report Cards: How the Commander Knows</h3>
+  <p class="story-text">Every time something important happens — a profile is enabled, a download fails, a rule is violated — the robot sends a <strong>notification</strong> to the Commander. These are like report cards, telling the Commander exactly what happened and when. The Commander can then forward these to the Fleet Owner for billing and audits!</p>
+  <div class="page-num"></div>
+</div>
+
+<!-- PAGE 6: RULES KEEP THE FLEET SAFE -->
+<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 7 of 7</div>
+  <div class="illustration floating">
+    <svg viewBox="0 0 400 240" width="350">
+      <defs><radialGradient id="bigglow"><stop offset="0%" stop-color="#fbbf24" stop-opacity="0.15"/><stop offset="100%" stop-color="#0a1628" stop-opacity="0"/></radialGradient></defs>
+      <circle cx="200" cy="120" r="140" fill="url(#bigglow)"/>
+      <!-- Central robot protected -->
+      <rect x="150" y="70" width="100" height="70" rx="10" fill="#4a90d9" stroke="#fbbf24" stroke-width="2.5"/>
+      <text x="200" y="100" fill="#fff" font-size="9" text-anchor="middle">🤖 Robot</text>
+      <text x="200" y="118" fill="#c8d6e5" font-size="7" text-anchor="middle">Protected</text>
+      <!-- Shield rings -->
+      <circle cx="200" cy="105" r="50" fill="none" stroke="#fbbf24" stroke-width="1.5" opacity="0.4"/>
+      <circle cx="200" cy="105" r="65" fill="none" stroke="#85c1e9" stroke-width="1" opacity="0.3" stroke-dasharray="6,3"/>
+      <!-- POL shield -->
+      <g transform="translate(200,40)">
+        <text x="0" y="0" fill="#fbbf24" font-size="10" text-anchor="middle">POL1 ⭐</text>
+      </g>
+      <g transform="translate(140,170)">
+        <text x="0" y="0" fill="#85c1e9" font-size="10" text-anchor="middle">POL2 ⭐</text>
+      </g>
+      <g transform="translate(260,170)">
+        <text x="0" y="0" fill="#34d399" font-size="10" text-anchor="middle">🔔 Notify</text>
+      </g>
+      <!-- Base text -->
+      <text x="200" y="210" fill="#fbbf24" font-size="11" text-anchor="middle">Rules + Notifications = Safe Fleet</text>
+    </svg>
+  </div>
+  <h3>🧠 Did You Know?</h3>
+  <p class="story-text">The POL1 and POL2 rules are special because they're enforced by the <strong>hardware vault</strong> — not by software. Even if someone reprogrammed the robot's operating system, they couldn't override POL1. The vault chip says NO at the silicon level. That's why eSIM is trusted for multi-billion dollar industries!</p>
+  <h2 style="margin-top:2rem">📚 Read the Next Story!</h2>
+  <p style="text-align:center;margin-bottom:1rem">
+    <a href="storybook-sgp02-10.html" style="display:inline-block;padding:.8rem 2rem;background:rgba(93,173,226,0.15);color:#5dade2;text-decoration:none;border-radius:8px;font-size:1.1rem">🔌 Next: How All the Helpers Talk →</a>
+  </p>
+  <p style="text-align:center">
+    <a href="index.html" style="color:#5a6d80;text-decoration:none;font-size:.9rem">📖 Back to All Stories</a>
+  </p>
+</div>
+
+</div>
+
+<div class="nav">
+  <a href="#" onclick="window.scrollBy({top:-window.innerHeight,behavior:'smooth'});return false">⬆</a>
+  <a href="#" onclick="window.scrollBy({top:window.innerHeight,behavior:'smooth'});return false">⬇</a>
+</div>
+
+</body>
+</html>

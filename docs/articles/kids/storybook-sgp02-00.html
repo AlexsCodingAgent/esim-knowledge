@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Robot Fleet Commander — SGP.02 M2M Story</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Georgia',serif;background:#0a1628;color:#c8d6e5;overflow-x:hidden}
+  .book{max-width:800px;margin:0 auto;min-height:100vh}
+  .page{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;page-break-after:always;scroll-snap-align:start}
+  .page-cover{background:linear-gradient(135deg,#0d1b2a 0%,#0a1628 50%,#0d1b2a 100%)}
+  h1{font-size:2.4rem;color:#e8eef5;text-align:center;margin-bottom:.5rem}
+  h2{font-size:1.5rem;color:#85c1e9;text-align:center;font-weight:400;margin-bottom:1.5rem}
+  h3{font-size:1.3rem;color:#5dade2;text-align:center;margin-bottom:1rem}
+  .story-text{font-size:1.2rem;line-height:1.8;text-align:center;max-width:550px;margin:0 auto}
+  .story-text em{color:#85c1e9;font-style:italic}
+  .story-text strong{color:#e8eef5}
+  .illustration{margin:1.5rem 0}
+  .illustration svg{max-width:100%;height:auto}
+  .page-num{color:#5a6d80;font-size:.85rem;margin-top:2rem}
+  .nav{position:fixed;bottom:1rem;right:1rem;z-index:100}
+  .nav a{display:inline-block;padding:.5rem 1rem;background:rgba(93,173,226,.15);color:#5dade2;text-decoration:none;border-radius:6px;margin-left:.5rem;font-size:.9rem}
+  .nav a:hover{background:rgba(93,173,226,.3)}
+  .sparkle{animation:twinkle 2s infinite}
+  @keyframes twinkle{0%,100%{opacity:.3}50%{opacity:1}}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  .floating{animation:float 3s ease-in-out infinite}
+  @keyframes slideIn{from{transform:translateX(-20px);opacity:0}to{transform:translateX(0);opacity:1}}
+  .slide-in{animation:slideIn .8s ease-out}
+  @media(max-width:600px){h1{font-size:2rem}h2{font-size:1.2rem}.story-text{font-size:1.05rem}}
+  html{scroll-behavior:smooth;scroll-snap-type:y mandatory}
+</style>
+</head>
+<body>
+<div style="position:fixed;top:0;left:0;right:0;background:rgba(10,22,40,0.92);padding:0.5rem 1.2rem;z-index:200;display:flex;justify-content:space-between;align-items:center;font-size:0.85rem;border-bottom:1px solid rgba(93,173,226,0.2);backdrop-filter:blur(8px)">
+  <span style="color:#5a6d80">📖 eUICC.tech</span>
+  <span>
+    <a href="index.html" style="color:#5dade2;text-decoration:none;margin-right:1rem">← All Stories</a>
+    <a href="../../index.html" style="color:#85c1e9;text-decoration:none">🏠 Home</a>
+  </span>
+</div>
+
+<div class="book">
+
+<!-- PAGE 1: COVER -->
+<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 1 of 7</div>
+  <div class="illustration floating">
+    <svg viewBox="0 0 400 280" width="350">
+      <defs><radialGradient id="glow"><stop offset="0%" stop-color="#5dade2" stop-opacity="0.25"/><stop offset="100%" stop-color="#0a1628" stop-opacity="0"/></radialGradient></defs>
+      <circle cx="200" cy="130" r="140" fill="url(#glow)"/>
+      <!-- Commander figure -->
+      <g transform="translate(200,50)">
+        <rect x="-18" y="-22" width="36" height="44" rx="6" fill="#fbbf24" stroke="#e8c44a" stroke-width="1.5"/>
+        <circle cx="0" cy="-32" r="12" fill="#fbbf24" stroke="#e8c44a" stroke-width="1.5"/>
+        <circle cx="-5" cy="-35" r="2" fill="#0a1628"/><circle cx="5" cy="-35" r="2" fill="#0a1628"/>
+        <rect x="-14" y="-5" width="28" height="6" rx="2" fill="#1b3a5c"/>
+        <text x="0" y="30" fill="#e8eef5" font-size="8" text-anchor="middle">COMMANDER</text>
+      </g>
+      <!-- Map grid -->
+      <rect x="60" y="150" width="280" height="100" rx="6" fill="#1b3a5c" stroke="#5dade2" stroke-width="1.5"/>
+      <line x1="100" y1="150" x2="100" y2="250" stroke="#30363d" stroke-width="0.5"/>
+      <line x1="140" y1="150" x2="140" y2="250" stroke="#30363d" stroke-width="0.5"/>
+      <line x1="180" y1="150" x2="180" y2="250" stroke="#30363d" stroke-width="0.5"/>
+      <line x1="220" y1="150" x2="220" y2="250" stroke="#30363d" stroke-width="0.5"/>
+      <line x1="260" y1="150" x2="260" y2="250" stroke="#30363d" stroke-width="0.5"/>
+      <line x1="300" y1="150" x2="300" y2="250" stroke="#30363d" stroke-width="0.5"/>
+      <line x1="60" y1="180" x2="340" y2="180" stroke="#30363d" stroke-width="0.5"/>
+      <line x1="60" y1="210" x2="340" y2="210" stroke="#30363d" stroke-width="0.5"/>
+      <!-- Robots on map -->
+      <g class="sparkle"><rect x="115" y="165" width="10" height="10" rx="2" fill="#5dade2"/><circle cx="120" cy="170" r="2" fill="#e8eef5"/></g>
+      <g class="sparkle"><rect x="235" y="195" width="10" height="10" rx="2" fill="#85c1e9"/><circle cx="240" cy="200" r="2" fill="#e8eef5"/></g>
+      <g class="sparkle"><rect x="175" y="225" width="10" height="10" rx="2" fill="#5dade2"/><circle cx="180" cy="230" r="2" fill="#e8eef5"/></g>
+      <g class="sparkle"><rect x="295" y="170" width="10" height="10" rx="2" fill="#85c1e9"/><circle cx="300" cy="175" r="2" fill="#e8eef5"/></g>
+      <g class="sparkle"><rect x="85" y="215" width="10" height="10" rx="2" fill="#5dade2"/><circle cx="90" cy="220" r="2" fill="#e8eef5"/></g>
+      <!-- Push arrows -->
+      <g class="sparkle"><line x1="200" y1="90" x2="120" y2="165" stroke="#fbbf24" stroke-width="1.5" marker-end="url(#arrow)"/></g>
+      <defs><marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#fbbf24"/></marker></defs>
+    </svg>
+  </div>
+  <h1>🤖 The Robot Fleet Commander</h1>
+  <h2>How M2M eSIM Pushes Orders to Millions of Robots</h2>
+  <p class="story-text" style="color:#5a6d80">A story of push commands, sealed vaults, and robots that stay connected for 15 years without anyone touching them</p>
+  <div class="page-num"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 2 of 7</div>
+</div>
+
+<!-- PAGE 2: ROBOTS NEED ORDERS DIFFERENTLY -->
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 3 of 7</div>
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 230" width="350">
+      <!-- Phone side (pull) -->
+      <g transform="translate(30,20)">
+        <text x="45" y="-8" fill="#ac4142" font-size="11" text-anchor="middle" font-weight="bold">Phone (Pull) ❌</text>
+        <rect x="10" y="5" width="70" height="100" rx="8" fill="#1b3a5c" stroke="#ac4142" stroke-width="1.5"/>
+        <rect x="25" y="25" width="40" height="55" rx="4" fill="#0d1b2a"/>
+        <text x="45" y="55" fill="#c8d6e5" font-size="8" text-anchor="middle">Scan QR</text>
+        <text x="45" y="70" fill="#c8d6e5" font-size="8" text-anchor="middle">→ Ask</text>
+        <text x="45" y="115" fill="#5a6d80" font-size="8" text-anchor="middle">User-driven</text>
+      </g>
+      <!-- Robot side (push) -->
+      <g transform="translate(270,20)">
+        <text x="50" y="-8" fill="#34d399" font-size="11" text-anchor="middle" font-weight="bold">Robot (Push) ✅</text>
+        <rect x="15" y="5" width="70" height="100" rx="8" fill="#1b3a5c" stroke="#34d399" stroke-width="2"/>
+        <rect x="22" y="15" width="56" height="30" rx="4" fill="#fbbf24" opacity="0.3"/>
+        <text x="50" y="35" fill="#fbbf24" font-size="8" text-anchor="middle">📻 Radio</text>
+        <text x="50" y="50" fill="#c8d6e5" font-size="8" text-anchor="middle">← Receive</text>
+        <text x="50" y="78" r="5" fill="#fbbf24" class="sparkle" font-size="14" text-anchor="middle">📡</text>
+        <text x="50" y="115" fill="#5a6d80" font-size="8" text-anchor="middle">Zero human</text>
+      </g>
+      <!-- VS -->
+      <text x="200" y="75" fill="#5dade2" font-size="24" text-anchor="middle" font-weight="bold">VS</text>
+      <!-- Arrow -->
+      <text x="200" y="160" fill="#fbbf24" font-size="11" text-anchor="middle">No screens. No hands. Commander decides.</text>
+    </svg>
+  </div>
+  <h3>🤖 Robots Need Orders Differently</h3>
+  <p class="story-text">Your phone <em>pulls</em> — you scan a QR code, it asks for a key. But robots? They're sealed in basements, on rooftops, inside machines. No screens, no fingers, no users. They need a <strong>Commander</strong> who <em>pushes</em> orders by radio — without being asked.</p>
+  <div class="page-num"></div>
+</div>
+
+<!-- PAGE 3: THE PUSH MODEL -->
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 4 of 7</div>
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 220" width="350">
+      <!-- Commander tower -->
+      <rect x="160" y="20" width="80" height="60" rx="6" fill="#fbbf24" stroke="#e8c44a" stroke-width="2"/>
+      <text x="200" y="45" fill="#0a1628" font-size="9" font-weight="bold" text-anchor="middle">COMMANDER</text>
+      <text x="200" y="62" fill="#0a1628" font-size="8" text-anchor="middle">SM-SR</text>
+      <!-- Radio waves -->
+      <g class="sparkle">
+        <path d="M200,80 Q140,110 120,150" stroke="#fbbf24" stroke-width="1.5" fill="none"/>
+        <path d="M200,80 Q260,110 280,150" stroke="#fbbf24" stroke-width="1.5" fill="none"/>
+        <path d="M200,80 Q200,110 200,150" stroke="#fbbf24" stroke-width="1.5" fill="none"/>
+      </g>
+      <!-- Three robots receiving -->
+      <rect x="90" y="155" width="40" height="40" rx="5" fill="#1b3a5c" stroke="#5dade2" stroke-width="1.5"/>
+      <circle cx="110" cy="175" r="6" fill="#5dade2" class="sparkle"/>
+      <text x="110" y="210" fill="#5a6d80" font-size="7" text-anchor="middle">#8721</text>
+
+      <rect x="180" y="155" width="40" height="40" rx="5" fill="#1b3a5c" stroke="#85c1e9" stroke-width="1.5"/>
+      <circle cx="200" cy="175" r="6" fill="#85c1e9" class="sparkle"/>
+      <text x="200" y="210" fill="#5a6d80" font-size="7" text-anchor="middle">#4502</text>
+
+      <rect x="270" y="155" width="40" height="40" rx="5" fill="#1b3a5c" stroke="#5dade2" stroke-width="1.5"/>
+      <circle cx="290" cy="175" r="6" fill="#5dade2" class="sparkle"/>
+      <text x="290" y="210" fill="#5a6d80" font-size="7" text-anchor="middle">#9934</text>
+      <!-- Label -->
+      <text x="200" y="235" fill="#85c1e9" font-size="9" text-anchor="middle">One commander, thousands of robots</text>
+    </svg>
+  </div>
+  <h3>📤 The Push Model</h3>
+  <p class="story-text">In phone-land, you go to the shop and <em>buy</em> a key. In robot-land, the <strong>Commander radios orders</strong>: "Robot #8721, switch to Network B now!" The robots don't ask. They wait. Only the Commander has the secret radio frequency.</p>
+  <div class="page-num"></div>
+</div>
+
+<!-- PAGE 4: THE COMMANDER & KEY FACTORY -->
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 5 of 7</div>
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 240" width="350">
+      <!-- Commander -->
+      <rect x="60" y="30" width="100" height="55" rx="8" fill="#fbbf24" stroke="#e8c44a" stroke-width="2"/>
+      <text x="110" y="53" fill="#0a1628" font-size="9" font-weight="bold" text-anchor="middle">🦾 Commander</text>
+      <text x="110" y="70" fill="#0a1628" font-size="8" text-anchor="middle">SM-SR</text>
+      <!-- Key Factory -->
+      <rect x="240" y="30" width="100" height="55" rx="8" fill="#34d399" stroke="#2ab080" stroke-width="2"/>
+      <text x="290" y="53" fill="#0a1628" font-size="9" font-weight="bold" text-anchor="middle">🔑 Key Factory</text>
+      <text x="290" y="70" fill="#0a1628" font-size="8" text-anchor="middle">SM-DP</text>
+      <!-- Commander abilities -->
+      <text x="110" y="115" fill="#fbbf24" font-size="8" text-anchor="middle">Owns radio channel</text>
+      <text x="110" y="132" fill="#fbbf24" font-size="8" text-anchor="middle">Knows every robot</text>
+      <text x="110" y="149" fill="#fbbf24" font-size="8" text-anchor="middle">Pushes orders</text>
+      <!-- Key Factory abilities -->
+      <text x="290" y="115" fill="#34d399" font-size="8" text-anchor="middle">Builds secret keys</text>
+      <text x="290" y="132" fill="#34d399" font-size="8" text-anchor="middle">Encrypts profiles</text>
+      <text x="290" y="149" fill="#34d399" font-size="8" text-anchor="middle">Works w/ Commander</text>
+      <!-- Robot below -->
+      <rect x="150" y="175" width="100" height="40" rx="6" fill="#1b3a5c" stroke="#5dade2" stroke-width="1.5"/>
+      <text x="200" y="200" fill="#c8d6e5" font-size="9" text-anchor="middle">🤖 Robot #8721</text>
+      <!-- Connection lines -->
+      <line x1="160" y1="85" x2="240" y2="85" stroke="#5a6d80" stroke-width="1" stroke-dasharray="3,3"/>
+      <line x1="110" y1="85" x2="200" y2="175" stroke="#fbbf24" stroke-width="1.5"/>
+      <line x1="290" y1="85" x2="200" y2="175" stroke="#34d399" stroke-width="1" stroke-dasharray="2,3"/>
+      <text x="200" y="85" fill="#5a6d80" font-size="7" text-anchor="middle">ES3</text>
+    </svg>
+  </div>
+  <h3>🦾 Meet the Commander (SM-SR)</h3>
+  <p class="story-text">The <strong>SM-SR</strong> is the Robot Fleet Commander. It knows where every robot lives, owns the secret radio channel, and pushes orders whenever the Fleet Owner decides. The <strong>SM-DP</strong> is the Key Factory — it crafts unique keys for each robot but can't talk to them directly. Only the Commander relays the keys!</p>
+  <div class="page-num"></div>
+</div>
+
+<!-- PAGE 5: ONE DIRECTION -->
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 6 of 7</div>
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 220" width="350">
+      <!-- Commander at top -->
+      <rect x="150" y="15" width="100" height="40" rx="6" fill="#fbbf24" stroke="#e8c44a" stroke-width="2"/>
+      <text x="200" y="40" fill="#0a1628" font-size="10" font-weight="bold" text-anchor="middle">COMMANDER</text>
+      <!-- Big arrow down -->
+      <polygon points="200,65 175,100 190,100 190,150 210,150 210,100 225,100" fill="#fbbf24" class="sparkle"/>
+      <text x="240" y="115" fill="#fbbf24" font-size="9">PUSH ONLY</text>
+      <!-- Robots at bottom -->
+      <g transform="translate(0,170)">
+        <rect x="50" y="0" width="30" height="30" rx="4" fill="#5dade2"/><text x="65" y="20" fill="#fff" font-size="8" text-anchor="middle">🤖</text>
+        <rect x="100" y="0" width="30" height="30" rx="4" fill="#85c1e9"/><text x="115" y="20" fill="#fff" font-size="8" text-anchor="middle">🤖</text>
+        <rect x="150" y="0" width="30" height="30" rx="4" fill="#5dade2"/><text x="165" y="20" fill="#fff" font-size="8" text-anchor="middle">🤖</text>
+        <rect x="200" y="0" width="30" height="30" rx="4" fill="#85c1e9"/><text x="215" y="20" fill="#fff" font-size="8" text-anchor="middle">🤖</text>
+        <rect x="250" y="0" width="30" height="30" rx="4" fill="#5dade2"/><text x="265" y="20" fill="#fff" font-size="8" text-anchor="middle">🤖</text>
+        <rect x="300" y="0" width="30" height="30" rx="4" fill="#85c1e9"/><text x="315" y="20" fill="#fff" font-size="8" text-anchor="middle">🤖</text>
+      </g>
+      <!-- No reverse arrows -->
+      <text x="200" y="200" fill="#5a6d80" font-size="8" text-anchor="middle">Robots never request — they only obey</text>
+    </svg>
+  </div>
+  <h3>➡️ One Direction: Commander Pushes</h3>
+  <p class="story-text">The Commander doesn't wait to be asked. It <strong>decides</strong> when a robot needs new keys and <strong>pushes</strong> them. The robot's job is to listen and obey. No QR codes. No taps. No humans. Pure radio command — the Commander is always in charge.</p>
+  <div class="page-num"></div>
+</div>
+
+<!-- PAGE 6: WHY THIS MATTERS -->
+<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 7 of 7</div>
+  <div class="illustration floating">
+    <svg viewBox="0 0 400 240" width="350">
+      <defs><radialGradient id="bigglow"><stop offset="0%" stop-color="#fbbf24" stop-opacity="0.2"/><stop offset="100%" stop-color="#0a1628" stop-opacity="0"/></radialGradient></defs>
+      <circle cx="200" cy="120" r="140" fill="url(#bigglow)"/>
+      <!-- Globe -->
+      <circle cx="200" cy="100" r="70" fill="none" stroke="#5dade2" stroke-width="1.5"/>
+      <ellipse cx="200" cy="100" rx="40" ry="70" fill="none" stroke="#5dade2" stroke-width="0.8"/>
+      <line x1="130" y1="100" x2="270" y2="100" stroke="#5dade2" stroke-width="0.8"/>
+      <!-- Dots around globe = robots -->
+      <circle cx="140" cy="60" r="3" fill="#34d399" class="sparkle"/>
+      <circle cx="250" cy="55" r="3" fill="#85c1e9" class="sparkle"/>
+      <circle cx="280" cy="110" r="3" fill="#34d399" class="sparkle"/>
+      <circle cx="130" cy="140" r="3" fill="#85c1e9" class="sparkle"/>
+      <circle cx="200" cy="160" r="3" fill="#34d399" class="sparkle"/>
+      <circle cx="160" cy="80" r="3" fill="#fbbf24" class="sparkle"/>
+      <circle cx="240" cy="85" r="3" fill="#fbbf24" class="sparkle"/>
+      <circle cx="175" cy="130" r="3" fill="#85c1e9" class="sparkle"/>
+      <circle cx="230" cy="140" r="3" fill="#fbbf24" class="sparkle"/>
+      <!-- Commander at top -->
+      <rect x="170" y="20" width="60" height="24" rx="5" fill="#fbbf24"/>
+      <text x="200" y="36" fill="#0a1628" font-size="8" text-anchor="middle" font-weight="bold">CMDR</text>
+      <!-- Signal lines -->
+      <line x1="200" y1="44" x2="140" y2="60" stroke="#fbbf24" stroke-width="1" stroke-dasharray="2,2"/>
+      <line x1="200" y1="44" x2="250" y2="55" stroke="#fbbf24" stroke-width="1" stroke-dasharray="2,2"/>
+      <text x="200" y="200" fill="#fbbf24" font-size="11" text-anchor="middle">Millions of robots, one commander!</text>
+    </svg>
+  </div>
+  <h3>🧠 Did You Know?</h3>
+  <p class="story-text">SGP.02 was the <strong>very first eSIM standard</strong> ever created — in 2013, years before smartphones got eSIM! It was designed for robots, meters, and cars. Over <em>450 pages</em> of specifications keep millions of invisible robots connected every single day.</p>
+  <h2 style="margin-top:2rem">📚 Read the Next Story!</h2>
+  <p style="text-align:center;margin-bottom:1rem">
+    <a href="storybook-sgp02-01.html" style="display:inline-block;padding:.8rem 2rem;background:rgba(93,173,226,0.15);color:#5dade2;text-decoration:none;border-radius:8px;font-size:1.1rem">🦸 Next: Six Special Helpers →</a>
+  </p>
+  <p style="text-align:center">
+    <a href="index.html" style="color:#5a6d80;text-decoration:none;font-size:.9rem">📖 Back to All Stories</a>
+  </p>
+  <div class="page-num"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 7 of 7</div>
+</div>
+
+</div>
+
+<div class="nav">
+  <a href="#" onclick="window.scrollBy({top:-window.innerHeight,behavior:'smooth'});return false">⬆</a>
+  <a href="#" onclick="window.scrollBy({top:window.innerHeight,behavior:'smooth'});return false">⬇</a>
+</div>
+
+</body>
+</html>

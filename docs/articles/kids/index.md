@@ -13,9 +13,26 @@ title: "eSIM Explained — Illustrated Edition"
 
 ## 📚 Storybook Collection
 
-*39 illustrated books — scroll through each one like a real book. Every page has custom SVG illustrations.*
+*51 illustrated books — scroll through each one like a real book. Every page has custom SVG illustrations.*
 
-[📖 Browse All 39 Storybooks →](storybooks)
+[📖 Browse All 51 Storybooks →](storybooks)
+
+### 🤖 SGP.02 — M2M Robot Network Stories
+
+| # | Storybook | What It's About |
+|---|-----------|-----------------|
+| 00 | [The Robot Fleet Commander](storybook-sgp02-00.html) | Push model: why M2M robots needed their own eSIM system |
+| 01 | [Six Special Helpers](storybook-sgp02-01.html) | The M2M team: EUM, CI, SM-DP, SM-SR, Operator, Fleet Owner |
+| 02 | [Inside the Robot's Vault](storybook-sgp02-02.html) | ECASD, ISD-R, ISD-P — the chip's internal rooms |
+| 03 | [The Robot ID System](storybook-sgp02-03.html) | Three-tier PKI: how M2M certificates work |
+| 04 | [Secret Robot Messages](storybook-sgp02-04.html) | SMS, PSK-TLS, CAT_TP — how the commander talks to robots |
+| 05 | [Mission Orders Delivered](storybook-sgp02-05.html) | Profile download: triple-locked boxes and SCP03 |
+| 06 | [The Robot Remote Control](storybook-sgp02-06.html) | Enable, disable, delete — controlling profiles from afar |
+| 07 | [Changing Commanders](storybook-sgp02-07.html) | SM-SR Change: handing over the fleet |
+| 08 | [Emergency Plans](storybook-sgp02-08.html) | Fall-back, emergency, and test profiles |
+| 09 | [The Robot Rulebook](storybook-sgp02-09.html) | POL1, POL2, and notification report cards |
+| 10 | [How All the Helpers Talk](storybook-sgp02-10.html) | ES1-ES7: all the secret languages |
+| 11 | [Three Kinds of eSIM](storybook-sgp02-11.html) | SGP.02 vs SGP.22 vs SGP.32 comparison |
 
 ### 📱 SGP.22 — Consumer eSIM Stories
 
@@ -98,6 +115,23 @@ title: "eSIM Explained — Illustrated Edition"
 ## 📝 Simplified Articles
 
 *Prefer reading to scrolling? These articles explain the same concepts in plain language with analogies and emojis.*
+
+### 🤖 SGP.02 — M2M: The Robot Fleet Commander
+
+| # | Article |
+|---|---------|
+| 1 | [The Robot Fleet Commander: How M2M eSIM Works](00-sgp02-overview-kids) |
+| 2 | [The M2M Dream Team: Six Special Helpers](01-sgp02-architecture-kids) |
+| 3 | [Inside the Robot's Vault Chip](02-sgp02-euicc-internals-kids) |
+| 4 | [The ID Badge Family Tree for Robots](03-sgp02-pki-kids) |
+| 5 | [How the Commander Talks to Robots: Secret Messages](04-sgp02-ota-kids) |
+| 6 | [Mission Orders: How Robots Get New Instructions](05-sgp02-download-kids) |
+| 7 | [Turning Missions On and Off: The Robot's Remote Control](06-sgp02-lifecycle-kids) |
+| 8 | [Handing Over the Fleet: Changing Commanders](07-sgp02-sm-sr-change-kids) |
+| 9 | [Emergency Plans: When Robots Need Backup](08-sgp02-resilience-kids) |
+| 10 | [The Robot Rulebook and Report Cards](09-sgp02-policy-notifications-kids) |
+| 11 | [Secret Languages: How All the Helpers Talk](10-sgp02-offcard-interfaces-kids) |
+| 12 | [Three Kinds of eSIM: Phones, Robots, and the Future](11-sgp02-comparison-kids) |
 
 ### 📱 SGP.22 — How Your Phone's eSIM Works
 

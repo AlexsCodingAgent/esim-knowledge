@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emergency Plans — SGP.02 M2M Story</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Georgia',serif;background:#0a1628;color:#c8d6e5;overflow-x:hidden}
+  .book{max-width:800px;margin:0 auto;min-height:100vh}
+  .page{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;page-break-after:always;scroll-snap-align:start}
+  .page-cover{background:linear-gradient(135deg,#0d1b2a 0%,#0a1628 50%,#0d1b2a 100%)}
+  h1{font-size:2.4rem;color:#e8eef5;text-align:center;margin-bottom:.5rem}
+  h2{font-size:1.5rem;color:#85c1e9;text-align:center;font-weight:400;margin-bottom:1.5rem}
+  h3{font-size:1.3rem;color:#5dade2;text-align:center;margin-bottom:1rem}
+  .story-text{font-size:1.2rem;line-height:1.8;text-align:center;max-width:550px;margin:0 auto}
+  .story-text em{color:#85c1e9;font-style:italic}
+  .story-text strong{color:#e8eef5}
+  .illustration{margin:1.5rem 0}
+  .illustration svg{max-width:100%;height:auto}
+  .page-num{color:#5a6d80;font-size:.85rem;margin-top:2rem}
+  .nav{position:fixed;bottom:1rem;right:1rem;z-index:100}
+  .nav a{display:inline-block;padding:.5rem 1rem;background:rgba(93,173,226,.15);color:#5dade2;text-decoration:none;border-radius:6px;margin-left:.5rem;font-size:.9rem}
+  .nav a:hover{background:rgba(93,173,226,.3)}
+  .sparkle{animation:twinkle 2s infinite}
+  @keyframes twinkle{0%,100%{opacity:.3}50%{opacity:1}}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  .floating{animation:float 3s ease-in-out infinite}
+  @keyframes slideIn{from{transform:translateX(-20px);opacity:0}to{transform:translateX(0);opacity:1}}
+  .slide-in{animation:slideIn .8s ease-out}
+  @media(max-width:600px){h1{font-size:2rem}h2{font-size:1.2rem}.story-text{font-size:1.05rem}}
+  html{scroll-behavior:smooth;scroll-snap-type:y mandatory}
+</style>
+</head>
+<body>
+<div style="position:fixed;top:0;left:0;right:0;background:rgba(10,22,40,0.92);padding:0.5rem 1.2rem;z-index:200;display:flex;justify-content:space-between;align-items:center;font-size:0.85rem;border-bottom:1px solid rgba(93,173,226,0.2);backdrop-filter:blur(8px)">
+  <span style="color:#5a6d80">📖 eUICC.tech</span>
+  <span>
+    <a href="index.html" style="color:#5dade2;text-decoration:none;margin-right:1rem">← All Stories</a>
+    <a href="../../index.html" style="color:#85c1e9;text-decoration:none">🏠 Home</a>
+  </span>
+</div>
+
+<div class="book">
+
+<!-- PAGE 1: COVER -->
+<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 1 of 7</div>
+  <div class="illustration floating">
+    <svg viewBox="0 0 400 280" width="350">
+      <defs><radialGradient id="glow"><stop offset="0%" stop-color="#85c1e9" stop-opacity="0.2"/><stop offset="100%" stop-color="#0a1628" stop-opacity="0"/></radialGradient></defs>
+      <circle cx="200" cy="120" r="130" fill="url(#glow)"/>
+      <!-- Robot falling -->
+      <g transform="translate(200,50)">
+        <!-- Robot body -->
+        <rect x="-25" y="-20" width="50" height="40" rx="8" fill="#4a90d9" stroke="#85c1e9" stroke-width="2"/>
+        <circle cx="0" cy="-10" r="8" fill="#5dade2"/>
+        <text x="0" y="2" fill="#fff" font-size="8" text-anchor="middle">🤖</text>
+        <!-- Parachute -->
+        <g class="sparkle">
+          <path d="M-50,0 Q-60,-50 0,-70 Q60,-50 50,0" fill="none" stroke="#fbbf24" stroke-width="2.5"/>
+          <line x1="-50" y1="0" x2="-25" y2="-20" stroke="#fbbf24" stroke-width="1"/>
+          <line x1="0" y1="-70" x2="0" y2="-20" stroke="#fbbf24" stroke-width="1"/>
+          <line x1="50" y1="0" x2="25" y2="-20" stroke="#fbbf24" stroke-width="1"/>
+        </g>
+      </g>
+      <!-- Ground below -->
+      <rect x="60" y="170" width="280" height="6" rx="3" fill="#34d399" opacity="0.5"/>
+      <!-- Emergency logos -->
+      <text x="200" y="120" fill="#fbbf24" font-size="18" text-anchor="middle">🪂</text>
+      <text x="200" y="205" fill="#5a6d80" font-size="8" text-anchor="middle">Safe landing zone</text>
+    </svg>
+  </div>
+  <h1>🪂 Emergency Plans</h1>
+  <h2>How Robots Stay Safe When Things Go Wrong</h2>
+  <p class="story-text" style="color:#5a6d80">A story of parachutes, fallback plans, and why every robot has a way home</p>
+  <div class="page-num"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 2 of 7</div>
+</div>
+
+<!-- PAGE 2: WHAT IF THINGS GO WRONG? -->
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 3 of 7</div>
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 220" width="350">
+      <!-- Scenario cards -->
+      <g transform="translate(20,20)">
+        <rect x="0" y="0" width="110" height="55" rx="6" fill="#ac4142" opacity="0.2" stroke="#ac4142" stroke-width="1.5"/>
+        <text x="55" y="20" fill="#ac4142" font-size="8" text-anchor="middle" font-weight="bold">⚡ Power fails</text>
+        <text x="55" y="35" fill="#c8d6e5" font-size="7" text-anchor="middle">Mid-download</text>
+        <text x="55" y="48" fill="#c8d6e5" font-size="7" text-anchor="middle">Connection lost</text>
+      </g>
+      <g transform="translate(145,20)">
+        <rect x="0" y="0" width="110" height="55" rx="6" fill="#fbbf24" opacity="0.2" stroke="#fbbf24" stroke-width="1.5"/>
+        <text x="55" y="20" fill="#fbbf24" font-size="8" text-anchor="middle" font-weight="bold">📡 Commander</text>
+        <text x="55" y="35" fill="#c8d6e5" font-size="7" text-anchor="middle">goes offline</text>
+        <text x="55" y="48" fill="#c8d6e5" font-size="7" text-anchor="middle">Can't reach robot</text>
+      </g>
+      <g transform="translate(270,20)">
+        <rect x="0" y="0" width="110" height="55" rx="6" fill="#5dade2" opacity="0.2" stroke="#5dade2" stroke-width="1.5"/>
+        <text x="55" y="20" fill="#5dade2" font-size="8" text-anchor="middle" font-weight="bold">📦 Bad profile</text>
+        <text x="55" y="35" fill="#c8d6e5" font-size="7" text-anchor="middle">Corrupted mission</text>
+        <text x="55" y="48" fill="#c8d6e5" font-size="7" text-anchor="middle">Won't work</text>
+      </g>
+      <!-- Robot with question marks -->
+      <rect x="130" y="110" width="140" height="80" rx="10" fill="#4a90d9" stroke="#85c1e9" stroke-width="2"/>
+      <text x="200" y="140" fill="#fff" font-size="9" text-anchor="middle">🤖 Robot</text>
+      <text x="200" y="158" fill="#fbbf24" font-size="8" text-anchor="middle" class="sparkle">What if...?</text>
+      <text x="200" y="175" fill="#c8d6e5" font-size="7" text-anchor="middle">I need a plan!</text>
+    </svg>
+  </div>
+  <h3>⚠️ What If Things Go Wrong?</h3>
+  <p class="story-text">Robots live in harsh places — factory floors, oil rigs, moving vehicles. Power can cut out mid-download. The Commander's server could crash. A profile could be corrupted. SGP.02 knew this, so it built in <strong>emergency plans</strong> that protect the robot no matter what happens.</p>
+  <div class="page-num"></div>
+</div>
+
+<!-- PAGE 3: THE FALLBACK PLAN -->
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 4 of 7</div>
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 230" width="350">
+      <!-- Normal path -->
+      <rect x="15" y="20" width="170" height="30" rx="6" fill="#34d399" stroke="#2ab080" stroke-width="1.5"/>
+      <text x="100" y="40" fill="#0a1628" font-size="9" text-anchor="middle">📶 Normal Network</text>
+      <!-- Robot -->
+      <rect x="165" y="100" width="70" height="50" rx="8" fill="#4a90d9" stroke="#85c1e9" stroke-width="2"/>
+      <text x="200" y="130" fill="#fff" font-size="9" text-anchor="middle">🤖</text>
+      <!-- Fallback path -->
+      <rect x="215" y="20" width="170" height="30" rx="6" fill="#fbbf24" stroke="#e8c44a" stroke-width="1.5"/>
+      <text x="300" y="40" fill="#0a1628" font-size="9" text-anchor="middle">🔄 Fallback Network</text>
+      <!-- Connecting lines -->
+      <line x1="90" y1="50" x2="200" y2="100" stroke="#34d399" stroke-width="1.5" stroke-dasharray="4,2"/>
+      <line x1="300" y1="50" x2="200" y2="100" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="4,2"/>
+      <!-- Switch arrow -->
+      <g class="sparkle">
+        <text x="130" y="75" fill="#34d399" font-size="8" text-anchor="middle">Primary</text>
+        <text x="270" y="75" fill="#fbbf24" font-size="8" text-anchor="middle">Fallback</text>
+      </g>
+      <!-- Robot with two profiles -->
+      <rect x="165" y="160" width="32" height="18" rx="3" fill="#34d399"/>
+      <text x="181" y="173" fill="#0a1628" font-size="6" text-anchor="middle">Net A</text>
+      <rect x="203" y="160" width="32" height="18" rx="3" fill="#fbbf24"/>
+      <text x="219" y="173" fill="#0a1628" font-size="6" text-anchor="middle">Net B</text>
+      <text x="200" y="200" fill="#5a6d80" font-size="8" text-anchor="middle">Two profiles = always a way home</text>
+    </svg>
+  </div>
+  <h3>🔁 The Fallback Plan</h3>
+  <p class="story-text">Every robot can hold <strong>multiple profiles</strong>. The Fallback Plan is simple: keep one profile on the primary network and another on a backup network. If the primary fails, the Commander simply <strong>sends ENABLE</strong> on the backup profile. The robot switches instantly — no new download needed!</p>
+  <div class="page-num"></div>
+</div>
+
+<!-- PAGE 4: EMERGENCY AND TEST MISSIONS -->
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 5 of 7</div>
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 230" width="350">
+      <!-- Emergency Mission -->
+      <g transform="translate(20,15)">
+        <rect x="0" y="0" width="170" height="190" rx="10" fill="#1b3a5c" stroke="#ac4142" stroke-width="1.5"/>
+        <text x="85" y="25" fill="#ac4142" font-size="9" text-anchor="middle" font-weight="bold">🚨 Emergency</text>
+        <!-- Emergency ISD-P -->
+        <rect x="15" y="40" width="140" height="30" rx="4" fill="#ac4142" opacity="0.15" stroke="#ac4142" stroke-width="1"/>
+        <text x="85" y="52" fill="#c8d6e5" font-size="7" text-anchor="middle">ISD-P "Emergency Room"</text>
+        <text x="85" y="64" fill="#c8d6e5" font-size="7" text-anchor="middle">Always ready, empty</text>
+        <!-- Fallback type -->
+        <rect x="15" y="80" width="140" height="30" rx="4" fill="#fbbf24" opacity="0.15" stroke="#fbbf24" stroke-width="1"/>
+        <text x="85" y="92" fill="#c8d6e5" font-size="7" text-anchor="middle">Fallback Mechanism</text>
+        <text x="85" y="104" fill="#c8d6e5" font-size="7" text-anchor="middle">Return to old profile</text>
+        <!-- USIM fallback -->
+        <rect x="15" y="120" width="140" height="30" rx="4" fill="#85c1e9" opacity="0.15" stroke="#85c1e9" stroke-width="1"/>
+        <text x="85" y="132" fill="#c8d6e5" font-size="7" text-anchor="middle">Revert Mechanism</text>
+        <text x="85" y="144" fill="#c8d6e5" font-size="7" text-anchor="middle">Back to factory defaults</text>
+      </g>
+      <!-- Test Mission -->
+      <g transform="translate(210,15)">
+        <rect x="0" y="0" width="170" height="190" rx="10" fill="#1b3a5c" stroke="#34d399" stroke-width="1.5"/>
+        <text x="85" y="25" fill="#34d399" font-size="9" text-anchor="middle" font-weight="bold">🧪 Test Mission</text>
+        <!-- Trial before real -->
+        <rect x="15" y="40" width="140" height="30" rx="4" fill="#34d399" opacity="0.15" stroke="#34d399" stroke-width="1"/>
+        <text x="85" y="52" fill="#c8d6e5" font-size="7" text-anchor="middle">Install to one robot</text>
+        <text x="85" y="64" fill="#c8d6e5" font-size="7" text-anchor="middle">Test for 24 hours</text>
+        <!-- Then fleet -->
+        <rect x="15" y="80" width="140" height="30" rx="4" fill="#fbbf24" opacity="0.15" stroke="#fbbf24" stroke-width="1"/>
+        <text x="85" y="92" fill="#c8d6e5" font-size="7" text-anchor="middle">If works → send to all</text>
+        <text x="85" y="104" fill="#c8d6e5" font-size="7" text-anchor="middle">Thousands at once!</text>
+        <!-- Rollback -->
+        <rect x="15" y="120" width="140" height="30" rx="4" fill="#ac4142" opacity="0.15" stroke="#ac4142" stroke-width="1"/>
+        <text x="85" y="132" fill="#c8d6e5" font-size="7" text-anchor="middle">If fails → rollback</text>
+        <text x="85" y="144" fill="#c8d6e5" font-size="7" text-anchor="middle">Only 1 robot affected</text>
+      </g>
+    </svg>
+  </div>
+  <h3>🚨 Emergency + 🧪 Test Missions</h3>
+  <p class="story-text">SGP.02 has <strong>emergency ISD-P rooms</strong> sitting empty, ready for urgent profiles. The <strong>Fallback Mechanism</strong> can instantly revert to the old profile if a new one fails. And before rolling out to 10,000 robots, the Commander always does a <strong>test mission</strong> on just one robot first — safe and smart!</p>
+  <div class="page-num"></div>
+</div>
+
+<!-- PAGE 5: LOCAL CONTROL -->
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 6 of 7</div>
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 220" width="350">
+      <!-- Local admin -->
+      <rect x="20" y="20" width="130" height="80" rx="8" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2"/>
+      <text x="85" y="45" fill="#fbbf24" font-size="9" text-anchor="middle" font-weight="bold">🛠️ Local Admin</text>
+      <text x="85" y="62" fill="#c8d6e5" font-size="7" text-anchor="middle">Physical access</text>
+      <text x="85" y="76" fill="#c8d6e5" font-size="7" text-anchor="middle">Toolkit connected</text>
+      <text x="85" y="90" fill="#c8d6e5" font-size="7" text-anchor="middle">Direct ISD-R talk</text>
+      <!-- Robot -->
+      <rect x="190" y="60" width="80" height="60" rx="8" fill="#4a90d9" stroke="#85c1e9" stroke-width="2"/>
+      <text x="230" y="95" fill="#fff" font-size="9" text-anchor="middle">🤖</text>
+      <!-- ISD-R -->
+      <rect x="200" y="130" width="60" height="18" rx="3" fill="#fbbf24"/>
+      <text x="230" y="143" fill="#0a1628" font-size="6" text-anchor="middle">ISD-R</text>
+      <!-- Connection line -->
+      <line x1="150" y1="60" x2="190" y2="80" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="4,3"/>
+      <!-- Capabilities -->
+      <rect x="290" y="20" width="90" height="80" rx="6" fill="#34d399" opacity="0.15" stroke="#34d399" stroke-width="1"/>
+      <text x="335" y="40" fill="#c8d6e5" font-size="7" text-anchor="middle">No network?</text>
+      <text x="335" y="55" fill="#c8d6e5" font-size="7" text-anchor="middle">No problem!</text>
+      <text x="335" y="72" fill="#c8d6e5" font-size="7" text-anchor="middle">Local ISD-R</text>
+      <text x="335" y="87" fill="#c8d6e5" font-size="7" text-anchor="middle">always works</text>
+      <!-- Key point -->
+      <text x="200" y="175" fill="#5a6d80" font-size="8" text-anchor="middle">ISD-R = the robot's private comms channel</text>
+      <text x="200" y="195" fill="#fbbf24" font-size="9" text-anchor="middle">Always accessible locally!</text>
+    </svg>
+  </div>
+  <h3>🔧 Local Control</h3>
+  <p class="story-text">Even if the Commander is completely unreachable, a technician with a physical toolkit can connect directly to the robot's <strong>ISD-R</strong> — its private communications channel. Through ISD-R, they can enable, disable, or diagnose profiles <em>locally</em>. No network needed. It's the ultimate emergency plan!</p>
+  <div class="page-num"></div>
+</div>
+
+<!-- PAGE 6: ALWAYS A WAY HOME -->
+<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 7 of 7</div>
+  <div class="illustration floating">
+    <svg viewBox="0 0 400 240" width="350">
+      <defs><radialGradient id="bigglow"><stop offset="0%" stop-color="#34d399" stop-opacity="0.15"/><stop offset="100%" stop-color="#0a1628" stop-opacity="0"/></radialGradient></defs>
+      <circle cx="200" cy="120" r="140" fill="url(#bigglow)"/>
+      <!-- Safety layers ring -->
+      <circle cx="200" cy="100" r="80" fill="none" stroke="#5dade2" stroke-width="1" stroke-dasharray="4,4"/>
+      <circle cx="200" cy="100" r="55" fill="none" stroke="#85c1e9" stroke-width="1"/>
+      <circle cx="200" cy="100" r="30" fill="none" stroke="#34d399" stroke-width="1.5"/>
+      <!-- Robot in center -->
+      <rect x="180" y="82" width="40" height="36" rx="6" fill="#4a90d9" stroke="#fbbf24" stroke-width="2" class="sparkle"/>
+      <text x="200" y="105" fill="#fff" font-size="8" text-anchor="middle">🤖</text>
+      <!-- Layers labeled -->
+      <text x="200" y="50" fill="#5a6d80" font-size="7" text-anchor="middle">Fallback</text>
+      <text x="280" y="87" fill="#85c1e9" font-size="7" text-anchor="middle">Test</text>
+      <text x="170" y="190" fill="#34d399" font-size="8" text-anchor="middle">Local ISD-R</text>
+      <!-- Safety checklist -->
+      <g transform="translate(10,20)">
+        <text x="0" y="0" fill="#34d399" font-size="8">✅ Multiple profiles</text>
+        <text x="0" y="16" fill="#85c1e9" font-size="8">✅ Test before fleet</text>
+        <text x="0" y="32" fill="#fbbf24" font-size="8">✅ Rollback always possible</text>
+        <text x="0" y="48" fill="#5dade2" font-size="8">✅ Local access ISD-R</text>
+      </g>
+      <text x="200" y="215" fill="#fbbf24" font-size="10" text-anchor="middle">Robots always have a way home</text>
+    </svg>
+  </div>
+  <h3>🧠 Did You Know?</h3>
+  <p class="story-text">The <strong>ISD-R channel</strong> is the secret to SGP.02 resilience. Even if over-the-air commands fail, ISD-R provides a direct physical link to the robot's secure environment. It's like having an emergency door that opens with a physical key — no network, no passwords, just pure hardware security!</p>
+  <h2 style="margin-top:2rem">📚 Read the Next Story!</h2>
+  <p style="text-align:center;margin-bottom:1rem">
+    <a href="storybook-sgp02-09.html" style="display:inline-block;padding:.8rem 2rem;background:rgba(93,173,226,0.15);color:#5dade2;text-decoration:none;border-radius:8px;font-size:1.1rem">📜 Next: The Robot Rulebook →</a>
+  </p>
+  <p style="text-align:center">
+    <a href="index.html" style="color:#5a6d80;text-decoration:none;font-size:.9rem">📖 Back to All Stories</a>
+  </p>
+</div>
+
+</div>
+
+<div class="nav">
+  <a href="#" onclick="window.scrollBy({top:-window.innerHeight,behavior:'smooth'});return false">⬆</a>
+  <a href="#" onclick="window.scrollBy({top:window.innerHeight,behavior:'smooth'});return false">⬇</a>
+</div>
+
+</body>
+</html>
