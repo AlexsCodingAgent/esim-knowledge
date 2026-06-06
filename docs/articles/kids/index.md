@@ -9,7 +9,7 @@ title: "eSIM Explained — Illustrated Edition"
 
 <div align="center">
 
-*📖 Reading: **Illustrated** · [Switch to Technical →](/)*
+*📖 Reading: <strong>Illustrated</strong> · <a href="{{ site.baseurl }}/">Switch to Technical →</a>*
 
 </div>
 

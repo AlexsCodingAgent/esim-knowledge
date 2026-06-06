@@ -15,7 +15,7 @@ title: eUICC.tech — eSIM RSP Knowledge Base
 
 <div align="center">
 
-*📖 Reading: **Technical** · [Switch to Illustrated →](docs/articles/kids/)*
+*📖 Reading: <strong>Technical</strong> · <a href="docs/articles/kids/">Switch to Illustrated →</a>*
 
 </div>
 
