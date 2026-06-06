@@ -9,7 +9,7 @@ title: eUICC.tech — eSIM RSP Knowledge Base
 
 <h3>Deep Dives Into GSMA eSIM Remote SIM Provisioning</h3>
 
-*84 articles · 12 specifications · 71 illustrated guides · Built from primary source GSMA specs*
+*84 articles · 12 specifications · 83 illustrated guides · Built from primary source GSMA specs*
 
 </div>
 
