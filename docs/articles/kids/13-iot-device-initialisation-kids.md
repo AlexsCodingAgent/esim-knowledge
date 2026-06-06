@@ -5,7 +5,7 @@ date: 2026-06-04
 
 # 🌅 The Morning Routine of an IoT Device
 
-**Imagine...** you wake up in the morning. What do you do? You stretch, check your phone, see what's on your schedule, and get ready for the day. IoT devices have a **morning routine** too — except theirs happens every time they power on, and it all takes place in milliseconds!
+**Imagine...** you wake up in the morning. What do you do? You stretch, check your phone, see what's on your schedule, and get ready for the day. IoT devices have a **morning routine** too: except theirs happens every time they power on, and it all takes place in milliseconds!
 
 ---
 
@@ -20,7 +20,7 @@ The eSIM chip's tiny operating system boots up. The main manager (ISD-R) wakes u
 The manager checks: "What profiles do I have? Which ones are enabled? Which are disabled?"
 
 ### 3. 🎯 Manager Selection
-The device selects the chip's manager by its ID number (AID) — like calling a specific person in a busy office.
+The device selects the chip's manager by its ID number (AID) : like calling a specific person in a busy office.
 
 ### 4. 🤖 Translator Activation
 The translator (IPA) wakes up too. If it lives inside the chip (IPAe), it starts running there. If it lives in the device (IPAd), it boots separately.
@@ -51,9 +51,9 @@ The eSIM chip has a tiny filing cabinet of important files:
 
 ## 🪂 The Parachute Check
 
-During boot, the chip also checks: "Do I have a Fallback Profile?" If no normal profile works, the chip can automatically switch to this emergency backup profile. It's like checking your parachute before you jump — you hope you never need it, but you're glad it's there!
+During boot, the chip also checks: "Do I have a Fallback Profile?" If no normal profile works, the chip can automatically switch to this emergency backup profile. It's like checking your parachute before you jump: you hope you never need it, but you're glad it's there!
 
-The fallback profile is usually a basic one from the device manufacturer — just enough connectivity to call for help, not for normal operations.
+The fallback profile is usually a basic one from the device manufacturer: just enough connectivity to call for help, not for normal operations.
 
 ---
 
@@ -66,7 +66,7 @@ Once connected, the device sends a **DeviceInfo** card to the control centre:
 - "I speak HTTPS, CoAP, and MQTT"
 - "Here's what I can do!"
 
-The control centre uses this card to decide how to talk to this specific device. A tiny sensor gets gentle, lightweight messages — a powerful gateway gets richer commands.
+The control centre uses this card to decide how to talk to this specific device. A tiny sensor gets gentle, lightweight messages: a powerful gateway gets richer commands.
 
 ---
 
@@ -80,6 +80,6 @@ The control centre uses this card to decide how to talk to this specific device.
 
 ---
 
-🧠 **Did You Know?** The eSIM chip's unique ID (EID) is 32 digits long — that's enough numbers to give a unique ID to every single grain of sand on Earth... many times over!
+The eSIM chip's unique ID (EID) is 32 digits long: that's enough numbers to give a unique ID to every single grain of sand on Earth... many times over!
 
 ← [Back to Kids Articles](index)

@@ -7,7 +7,7 @@ date: 2026-06-07
 
 ## Imagine...
 
-You're a general sending orders to troops in the field. If the enemy intercepts your message, they could cause chaos. So you use **sealed envelopes** with a **wax stamp** — only the right person can open it, and the stamp proves it really came from you. Any message without the stamp gets thrown away.
+You're a general sending orders to troops in the field. If the enemy intercepts your message, they could cause chaos. So you use **sealed envelopes** with a **wax stamp** : only the right person can open it, and the stamp proves it really came from you. Any message without the stamp gets thrown away.
 
 That's how the eIM protects its commands to IoT robots. Every order is wrapped in encryption, signed with a digital stamp, and protected against replay. SGP.33-3's security tests make sure these protections actually work.
 
@@ -29,9 +29,9 @@ Each layer gets its own set of test cases to verify it works under attack.
 
 ## Layer 1: Encrypted Tunnels (TLS) 🔒
 
-Every connection between the eIM and other servers uses **TLS v1.2** — the same technology that puts the padlock icon in your browser. But in IoT eSIM, it works one-way:
+Every connection between the eIM and other servers uses **TLS v1.2** : the same technology that puts the padlock icon in your browser. But in IoT eSIM, it works one-way:
 
-> **Server Authentication mode**: The eIM verifies the server it's talking to, but doesn't prove its own identity with a client certificate. It's like calling a bank — you check it's really the bank, then prove who you are with your account details.
+> **Server Authentication mode**: The eIM verifies the server it's talking to, but doesn't prove its own identity with a client certificate. It's like calling a bank: you check it's really the bank, then prove who you are with your account details.
 
 The test cases verify:
 
@@ -65,7 +65,7 @@ The robot vault checks:
 2. Is the counter higher than last time? (Prevents replay)
 3. Is the order for this robot? (Prevents mix-ups)
 
-Result packages flow back the same way — signed by the robot's vault to prove it really executed the order.
+Result packages flow back the same way: signed by the robot's vault to prove it really executed the order.
 
 ---
 
@@ -82,7 +82,7 @@ The **counterValue** is a simple but powerful idea. Every time the eIM sends an 
 
 The robot vault remembers the last counter it saw from each Mission Control. If an attacker captures an old order and tries to replay it:
 
-> "Order #2 again? No thanks — I already did that one!"
+> "Order #2 again? No thanks: I already did that one!"
 
 This prevents **replay attacks** where someone records a legitimate command and sends it again later to cause trouble.
 
@@ -124,12 +124,10 @@ This is like the difference between calling customer service (you verify them) v
 
 ---
 
-## 🧠 Did You Know?
-
-Notifications about profile changes are also signed — by the robot vault itself. They include the full certificate chain (eUICC + EUM certificates) along with the signature, so the Key Maker can verify them without needing any pre-loaded information about that specific chip. It's like including your photo ID along with your signature!
+Notifications about profile changes are also signed: by the robot vault itself. They include the full certificate chain (eUICC + EUM certificates) along with the signature, so the Key Maker can verify them without needing any pre-loaded information about that specific chip. It's like including your photo ID along with your signature!
 
 ---
 
-*Kid-friendly version of GSMA SGP.33-3 — eUICC IoT Manager Test Specification, Security Testing*
+*Kid-friendly version of GSMA SGP.33-3: eUICC IoT Manager Test Specification, Security Testing*
 
 ← [Back to Kids Articles](index)

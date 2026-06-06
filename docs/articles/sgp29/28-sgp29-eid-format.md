@@ -7,7 +7,7 @@ date: 2026-06-05
 
 **🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.29 EID]({{ site.baseurl }}/docs/articles/sgp29/) > EID Format Decoded: The 32-Digit Structure**
 
-> **💡 Why this matters:** The EID's 32-digit structure is not arbitrary — it encodes a hierarchical delegation chain from the GSMA down to individual eUICC manufacturers, with built-in cryptographic verification. Understanding the format reveals how EID ranges are delegated through a tree of assignment authorities, how manufacturers encode their identity, and how anyone can validate an EID's authenticity using simple modular arithmetic.
+> **💡 Why this matters:** The EID's 32-digit structure is not arbitrary: it encodes a hierarchical delegation chain from the GSMA down to individual eUICC manufacturers, with built-in cryptographic verification. Understanding the format reveals how EID ranges are delegated through a tree of assignment authorities, how manufacturers encode their identity, and how anyone can validate an EID's authenticity using simple modular arithmetic.
 
 > **Key takeaways:**
 > - The EID is exactly 32 digits, composed of EIN (N digits) + ESIN (30−N digits) + 2 check digits
@@ -34,7 +34,7 @@ The EID structure specified in SGP.29 Section 10 is a hierarchical numbering sch
 └──────────────────────────┴───────────────────┴───────────────┘
 ```
 
-### Part 1: EIN — EUM Identification Number
+### Part 1: EIN: EUM Identification Number
 
 The EIN identifies the eUICC Manufacturer (EUM) and the delegation path that granted them their numbering range. It is composed of one or more concatenated **ERHI** (EID Range Holder Identifier) values:
 
@@ -51,16 +51,16 @@ EIN = ERHI1 || ERHI2 || ERHI3 || ... || ERHIx
 
 | Property | Rule |
 |----------|------|
-| **Variable length** | Each ERHI can be a different number of digits — the assigning EAA decides the length |
+| **Variable length** | Each ERHI can be a different number of digits: the assigning EAA decides the length |
 | **Prefix reservation** | Assigning ERHI "11" blocks all numbers starting with "11" (e.g., 110–119) |
 | **Uniqueness** | Each EAA is responsible for uniqueness within its assigned range |
 | **Delegation chain** | The hierarchical chain can be as long or short as needed |
 
-### Part 2: ESIN — EUM Specific Identification Number
+### Part 2: ESIN: EUM Specific Identification Number
 
 The ESIN fills the remaining digits up to position 30 (before the check digits). Since the EIN takes N digits, the ESIN is always **30 − N digits**. The EUM assigns ESINs to individual eUICC chips and is responsible for their uniqueness.
 
-### Part 3: Check Digits — Modulo-97 Validation
+### Part 3: Check Digits: Modulo-97 Validation
 
 The final 2 digits provide cryptographic-strength validation of the entire EID, using the same algorithm as IBAN (International Bank Account Number) validation.
 
@@ -68,7 +68,7 @@ The final 2 digits provide cryptographic-strength validation of the entire EID, 
 
 ## The MOD 97-10 Check Digit Algorithm (ISO 7064)
 
-> **Note:** While commonly described as a "Luhn-style" algorithm, SGP.29 actually specifies ISO/IEC 7064 MOD 97-10 — the same standard used for IBANs. This is a different (and stronger) algorithm than the MOD 10 Luhn algorithm used for credit cards.
+> **Note:** While commonly described as a "Luhn-style" algorithm, SGP.29 actually specifies ISO/IEC 7064 MOD 97-10: the same standard used for IBANs. This is a different (and stronger) algorithm than the MOD 10 Luhn algorithm used for credit cards.
 
 ### Calculation (by the EUM)
 
@@ -177,7 +177,7 @@ GSMA ──ERHI1──▶ Group of Device Mfrs ──ERHI2──▶ Single Devic
 
 - The EID is a 32-digit hierarchical identifier: EIN (N digits) + ESIN (30−N) + 2 check digits
 - The EIN encodes a delegation chain of ERHIs from GSMA down to the EUM
-- Check digits use MOD 97-10 validation — the same algorithm as IBANs — providing strong error detection
+- Check digits use MOD 97-10 validation: the same algorithm as IBANs: providing strong error detection
 - Verification is trivial: compute `EID MOD 97` and check if the result equals 1
 - Three delegation chain patterns support different supply chain structures: GSMA→EAA→DevMfr→EUM, GSMA→DevMfr→EUM, and GSMA→Group→Member→EUM
 - EIDs are explicitly NOT ICCIDs and must not start with "89"
@@ -194,7 +194,7 @@ Next: [EID Assignment: How Manufacturers Get Their Allocations]({{ site.baseurl 
 
 ---
 
-*Based on GSMA SGP.29 v1.1 (22 March 2024) — EID Definition and Assignment Process, Section 10 (eUICC Numbering System) and Section 8 (EID Scheme Requirements)*
+*Based on GSMA SGP.29 v1.1 (22 March 2024) : EID Definition and Assignment Process, Section 10 (eUICC Numbering System) and Section 8 (EID Scheme Requirements)*
 
 
 ---

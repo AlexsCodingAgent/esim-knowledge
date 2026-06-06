@@ -7,17 +7,17 @@ date: 2026-06-05
 
 **🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.29 EID]({{ site.baseurl }}/docs/articles/sgp29/) > EID Assignment: How Manufacturers Get Their Allocations**
 
-> **💡 Why this matters:** Behind every eSIM chip's EID is a formal assignment process that verifies the legitimacy of the requesting entity, prevents fraud, and ensures global uniqueness. Without this governance, bad actors could obtain EID ranges and manufacture counterfeit eUICCs — undermining the entire RSP trust model. Understanding the ERHI1 assignment flow reveals the administrative machinery that keeps the eSIM numbering system secure.
+> **💡 Why this matters:** Behind every eSIM chip's EID is a formal assignment process that verifies the legitimacy of the requesting entity, prevents fraud, and ensures global uniqueness. Without this governance, bad actors could obtain EID ranges and manufacture counterfeit eUICCs: undermining the entire RSP trust model. Understanding the ERHI1 assignment flow reveals the administrative machinery that keeps the eSIM numbering system secure.
 
 > **Key takeaways:**
 > - ERHI1 assignment is a 5-stage process: Form Filling → Submission → Verification (≤5 days) → Assignment → Confirmation
-> - Applicants must be EUMs, Device Manufacturers, or Groups of Device Manufacturers — single corporate entities under specific legislative regulation
+> - Applicants must be EUMs, Device Manufacturers, or Groups of Device Manufacturers: single corporate entities under specific legislative regulation
 > - The GSMA DAG (EIN Assignment Services) handles all ERHI1 applications via EISRegistration@gsma.com
 > - Eligibility criteria include: must not already hold an ERHI1 (with limited justified exceptions) and must commit to use within 12 months
 > - A parallel cancellation process exists for ERHI1s that are no longer needed, with identical verification rigour
 > - Subsequent Level EAAs (Level ≥2) have their own responsibilities under SGP.29, including complying with all EID requirements and reporting to their parent EAA
 
-The ERHI1 assignment process is the gatekeeper of the eSIM numbering system. Every EID in existence traces back to an ERHI1 issued by the GSMA — making this process the foundation of eUICC identity governance.
+The ERHI1 assignment process is the gatekeeper of the eSIM numbering system. Every EID in existence traces back to an ERHI1 issued by the GSMA: making this process the foundation of eUICC identity governance.
 
 ---
 
@@ -31,7 +31,7 @@ The most direct path. EUMs who manufacture eUICC chips apply directly to the GSM
 
 ### 2. Device Manufacturers
 
-Added in SGP.29 v1.1 (March 2024, CR11000R06). Device manufacturers — companies that embed eUICCs into consumer devices (phones, tablets, wearables) or IoT equipment — can now obtain ERHI1 values directly. This allows them to manage EID allocation for the eUICCs they integrate without going through an intermediate authority.
+Added in SGP.29 v1.1 (March 2024, CR11000R06). Device manufacturers: companies that embed eUICCs into consumer devices (phones, tablets, wearables) or IoT equipment: can now obtain ERHI1 values directly. This allows them to manage EID allocation for the eUICCs they integrate without going through an intermediate authority.
 
 ### 3. National Authorities
 
@@ -90,8 +90,8 @@ The completed and signed Registration Form is sent to **EISRegistration@gsma.com
 
 The GSMA verifies two things:
 
-1. **Authenticity of the applicant company** — Is this a legitimate, registered corporate entity?
-2. **Validity of the application** — Does the applicant meet all eligibility criteria?
+1. **Authenticity of the applicant company** : Is this a legitimate, registered corporate entity?
+2. **Validity of the application** : Does the applicant meet all eligibility criteria?
 
 The entire verification process is estimated to take **no more than 5 working days** after receipt of the correctly completed form.
 
@@ -161,7 +161,7 @@ An ERHI1 that is no longer used may be voluntarily cancelled. The process mirror
 | **1. Form Filling** | Applicant completes the Cancellation Form from gsma.com |
 | **2. Submission** | Form submitted to EISRegistration@gsma.com with the ERHI1 to be cancelled |
 | **3. Verification** | GSMA verifies authenticity and validity (≤5 working days) |
-| **4. Cancellation** | GSMA cancels the ERHI1 — it is marked as cancelled in the registry |
+| **4. Cancellation** | GSMA cancels the ERHI1: it is marked as cancelled in the registry |
 | **5. Confirmation** | GSMA notifies applicant that the ERHI1 has been cancelled |
 
 > **Important:** Once cancelled, an ERHI1 is **never reassigned** to any other entity. And the former holder **SHALL NOT use** any EIDs under that ERHI1 after the cancellation date specified in the Cancellation Form.
@@ -184,14 +184,14 @@ The GSMA's ongoing responsibilities extend beyond the assignment itself:
 
 ## Subsequent Level EAA Responsibilities (Section 15)
 
-Any Level X EIN Assignment Authority (where X ≥ 2) — e.g., a National Authority that received an ERHI1 and is assigning ERHI2 values — has its own set of responsibilities:
+Any Level X EIN Assignment Authority (where X ≥ 2) : e.g., a National Authority that received an ERHI1 and is assigning ERHI2 values: has its own set of responsibilities:
 
-1. **Comply with EID requirements** — Must follow Sections 8 (EID Scheme Requirements), 9 (Assignment Authority Requirements), and 10 (Numbering Scheme)
-2. **Complete forms accurately** — Fill in all required information on Registration or Cancellation Forms
-3. **Ensure ERHIx uniqueness** — Each sub-delegated ERHI must be unique within the EAA's range
-4. **Only the verified company cancels** — A third party cannot request cancellation of another entity's identifier
-5. **No reuse after cancellation** — Cancelled ERHIx values must not be used after the cancellation date
-6. **Report to parent EAA** — Comply with assignment reporting requirements for the Level X−1 authority that granted their range
+1. **Comply with EID requirements** : Must follow Sections 8 (EID Scheme Requirements), 9 (Assignment Authority Requirements), and 10 (Numbering Scheme)
+2. **Complete forms accurately** : Fill in all required information on Registration or Cancellation Forms
+3. **Ensure ERHIx uniqueness** : Each sub-delegated ERHI must be unique within the EAA's range
+4. **Only the verified company cancels** : A third party cannot request cancellation of another entity's identifier
+5. **No reuse after cancellation** : Cancelled ERHIx values must not be used after the cancellation date
+6. **Report to parent EAA** : Comply with assignment reporting requirements for the Level X−1 authority that granted their range
 
 ---
 
@@ -216,7 +216,7 @@ Next: [EID in RSP Protocols: Discovery, Matching, and Events]({{ site.baseurl }}
 
 ---
 
-*Based on GSMA SGP.29 v1.1 (22 March 2024) — EID Definition and Assignment Process, Sections 11–15*
+*Based on GSMA SGP.29 v1.1 (22 March 2024) : EID Definition and Assignment Process, Sections 11–15*
 
 
 ---

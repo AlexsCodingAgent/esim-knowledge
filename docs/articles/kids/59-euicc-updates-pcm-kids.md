@@ -7,11 +7,11 @@ date: 2026-06-07
 
 ## Imagine...
 
-You've had your magic vault chip for five years. It's been faithfully storing your secret keys, locking and unlocking them on command. But now there are new types of locks in the world — quantum-proof locks, faster locks, smarter locks. Your vault is stuck with its old tricks.
+You've had your magic vault chip for five years. It's been faithfully storing your secret keys, locking and unlocking them on command. But now there are new types of locks in the world: quantum-proof locks, faster locks, smarter locks. Your vault is stuck with its old tricks.
 
-In the old days, you'd need to rip out the vault and install a brand new one. But that's impossible — the vault is soldered inside your phone!
+In the old days, you'd need to rip out the vault and install a brand new one. But that's impossible: the vault is soldered inside your phone!
 
-v3.x solves this: you can now **teach the vault new tricks** without replacing it. Security updates, new key types, even entirely new capabilities — delivered over the air, straight to the chip.
+v3.x solves this: you can now **teach the vault new tricks** without replacing it. Security updates, new key types, even entirely new capabilities: delivered over the air, straight to the chip.
 
 ---
 
@@ -19,15 +19,15 @@ v3.x solves this: you can now **teach the vault new tricks** without replacing i
 
 ### 1. Changing the Vault's Master Key 🔐
 
-Every magic vault has a "master key" — the GSMA Certificate Issuer's public key — that verifies everyone it talks to. If that master key ever gets compromised, every vault in the world would be vulnerable.
+Every magic vault has a "master key" : the GSMA Certificate Issuer's public key: that verifies everyone it talks to. If that master key ever gets compromised, every vault in the world would be vulnerable.
 
 **Root Public Key Update** lets the current master key sign an update package containing a new master key:
 
 - The vault checks: "Is this package signed by the master key I already trust?"
-- If yes, the vault installs the new master key — now it trusts a fresh, secure key
+- If yes, the vault installs the new master key: now it trusts a fresh, secure key
 - The vault can even hold both old and new keys during the transition
 
-Think of it like changing the locks on every door in a building — but doing it by magic, with a single command, to millions of buildings worldwide.
+Think of it like changing the locks on every door in a building: but doing it by magic, with a single command, to millions of buildings worldwide.
 
 ---
 
@@ -45,7 +45,7 @@ In v2.x, if an operator wanted to add a new payment applet or fix a bug in your 
 | **Update** | Replace an old feature with a new version | Swapping an old lock for a new one |
 | **Lock/Unlock** | Temporarily disable or re-enable a feature | Putting a "Do Not Disturb" sign on a room |
 
-Your Assistant (LPA) acts as a messenger, carrying instructions from the operator to the vault. But just like with profile downloads, the assistant can't see or tamper with the actual content — it's all encrypted end-to-end.
+Your Assistant (LPA) acts as a messenger, carrying instructions from the operator to the vault. But just like with profile downloads, the assistant can't see or tamper with the actual content: it's all encrypted end-to-end.
 
 ---
 
@@ -53,9 +53,9 @@ Your Assistant (LPA) acts as a messenger, carrying instructions from the operato
 
 Two smaller but powerful upgrades:
 
-**Metadata Update via ES6:** The operator can now change what's shown on your screen — the profile name, the carrier name, the icon. In v2.x, this was frozen forever after download. Now your "Work" profile can be renamed to "Acme Corp" when your company rebrands.
+**Metadata Update via ES6:** The operator can now change what's shown on your screen: the profile name, the carrier name, the icon. In v2.x, this was frozen forever after download. Now your "Work" profile can be renamed to "Acme Corp" when your company rebrands.
 
-**Pending Operation Alerting:** When the operator schedules a remote operation (like enabling a profile), the vault now sends an alert. No more surprise changes — you always know what's happening to your keys.
+**Pending Operation Alerting:** When the operator schedules a remote operation (like enabling a profile), the vault now sends an alert. No more surprise changes: you always know what's happening to your keys.
 
 ---
 
@@ -70,12 +70,10 @@ Two smaller but powerful upgrades:
 
 ---
 
-## 🧠 Did You Know?
-
-These update mechanisms mean that an eSIM chip made today could stay secure for 10, 15, or even 20 years — adapting to new cryptographic standards as they're invented. Your phone's vault is no longer frozen in time — it can learn and grow!
+These update mechanisms mean that an eSIM chip made today could stay secure for 10, 15, or even 20 years: adapting to new cryptographic standards as they're invented. Your phone's vault is no longer frozen in time: it can learn and grow!
 
 ---
 
-*Kid-friendly version of GSMA SGP.22 v3.x, Sections 3.8–3.10 — eUICC Updates, Profile Content Management, and Root Public Key Update*
+*Kid-friendly version of GSMA SGP.22 v3.x, Sections 3.8–3.10: eUICC Updates, Profile Content Management, and Root Public Key Update*
 
 ← [Back to Kids Articles](index)

@@ -9,19 +9,19 @@ date: 2026-06-07
 
 You work at a big company. They give you a work keycard. It opens the office door, lets you into the server room, and pays for lunch at the cafeteria.
 
-But there are rules: you can't throw away the keycard (the company owns it). You can't lend it to a friend. If you leave the company, THEY decide when to deactivate it — not you. Maybe the company even says: "You can have one personal key on this keychain, but the work key must always be active."
+But there are rules: you can't throw away the keycard (the company owns it). You can't lend it to a friend. If you leave the company, THEY decide when to deactivate it: not you. Maybe the company even says: "You can have one personal key on this keychain, but the work key must always be active."
 
-That's an **Enterprise Profile** — your work keycard, living inside your magic vault alongside your personal keys.
+That's an **Enterprise Profile** : your work keycard, living inside your magic vault alongside your personal keys.
 
 ---
 
 ## What Makes a Key an "Enterprise" Key? 🏷️
 
-Any key can become an enterprise key — the magic isn't in its shape but in the **Enterprise Configuration**:
+Any key can become an enterprise key: the magic isn't in its shape but in the **Enterprise Configuration**:
 
 | Field | What It Means |
 |---|---|
-| **Enterprise OID** | A globally unique company ID. Immutable — never changeable. |
+| **Enterprise OID** | A globally unique company ID. Immutable: never changeable. |
 | **Enterprise Name** | The human-readable name: "Acme Corp" |
 | **Enterprise Rules** | The actual restrictions the company enforces |
 
@@ -35,7 +35,7 @@ Without the Enterprise Rules, the key is just a regular profile with a company l
 |---|---|
 | **`referenceEnterpriseRule`** | The master switch. This profile's rules govern the ENTIRE vault. Only ONE profile can hold this. |
 | **`priorityEnterpriseProfile`** | Work comes first. You must enable the work key before (or instead of) any personal key. |
-| **`onlyEnterpriseProfilesCanBeInstalled`** | Company phone only. No personal keys allowed — only work profiles. |
+| **`onlyEnterpriseProfilesCanBeInstalled`** | Company phone only. No personal keys allowed: only work profiles. |
 
 Plus a quota: **`numberOfNonEnterpriseProfiles`** limits how many personal keys can be active at once. A vault with 3 slots might have Work Key (always on) + 2 personal keys = quota full!
 
@@ -46,20 +46,20 @@ Plus a quota: **`numberOfNonEnterpriseProfiles`** limits how many personal keys 
 | Device Type | What It Means |
 |---|---|
 | **Enterprise Capable** | Full enforcement. Rules ARE enforced by hardware. Seven checks during download. |
-| **Non-Enterprise Capable** | Regular phone. Can install enterprise profiles, but rules are just labels — not enforced. |
+| **Non-Enterprise Capable** | Regular phone. Can install enterprise profiles, but rules are just labels: not enforced. |
 | **Enterprise Owned** | Company owns the phone. Strongest enforcement. |
 
 ---
 
 ## How Work and Personal Keys Coexist 🤝
 
-### BYOD — Bring Your Own Device
+### BYOD: Bring Your Own Device
 
 You own the phone, company provides the SIM. Work key lives alongside personal keys. `priorityEnterpriseProfile` keeps the work key active. Quota limits how many personal keys can be on. Combined with PPR2 ("cannot delete"), the company key stays put.
 
-### COPE — Corporate Owned, Personally Enabled
+### COPE: Corporate Owned, Personally Enabled
 
-Company buys the phone, you use it for work AND personal. `onlyEnterpriseProfilesCanBeInstalled` may block all personal profiles — or allow exactly one. The company key is undeletable, always active.
+Company buys the phone, you use it for work AND personal. `onlyEnterpriseProfilesCanBeInstalled` may block all personal profiles: or allow exactly one. The company key is undeletable, always active.
 
 ---
 
@@ -91,16 +91,14 @@ When downloading an enterprise profile, the Assistant runs seven checks:
 | 6 | Enterprise-only conflict | Reference rule demands work-only, but you're installing personal |
 | 7 | LPR not supported | Profile needs Local Profile Removal but device lacks it |
 
-Each check has its own error code — when something fails, everyone knows exactly why.
+Each check has its own error code: when something fails, everyone knows exactly why.
 
 ---
 
-## 🧠 Did You Know?
-
-Once an Enterprise OID is written into the vault, it can NEVER be changed — not by you, not by the company, not even by the Key Maker. The eUICC chip enforces this in hardware. Even a rogue IT admin can't remotely change the company ID on your work profile. The vault says: "Sorry, that field is locked forever."
+Once an Enterprise OID is written into the vault, it can NEVER be changed: not by you, not by the company, not even by the Key Maker. The eUICC chip enforces this in hardware. Even a rogue IT admin can't remotely change the company ID on your work profile. The vault says: "Sorry, that field is locked forever."
 
 ---
 
-*Kid-friendly version of GSMA SGP.22 v3.x, Sections 2.4a.1.7 and 2.4.12 — Enterprise Profiles and Enterprise Rules*
+*Kid-friendly version of GSMA SGP.22 v3.x, Sections 2.4a.1.7 and 2.4.12: Enterprise Profiles and Enterprise Rules*
 
 ← [Back to Kids Articles](index)

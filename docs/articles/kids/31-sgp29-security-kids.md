@@ -7,7 +7,7 @@ date: 2026-06-07
 
 ## Imagine...
 
-Your house has a street address. The mail carrier needs it to deliver packages. But the address doesn't reveal who lives inside, what they're eating for dinner, or what's in the packages. It's just a location label — nothing more.
+Your house has a street address. The mail carrier needs it to deliver packages. But the address doesn't reveal who lives inside, what they're eating for dinner, or what's in the packages. It's just a location label: nothing more.
 
 The EID works the same way. It tells the eSIM ecosystem *which chip* to talk to, but it doesn't reveal anything about *who you are* or *what you're doing*. SGP.29 builds strong privacy walls to keep it that way.
 
@@ -30,8 +30,8 @@ EID DOES reveal:                    EID does NOT reveal:
 
 The EID identifies **hardware**, not **people**. This separation is enforced by two key rules:
 
-- **EID.P03**: The EID is NOT a payment account number — it can't be used in financial systems to charge or track you
-- **EID.P04**: The EID is NOT for billing — your phone bill isn't linked to your EID
+- **EID.P03**: The EID is NOT a payment account number: it can't be used in financial systems to charge or track you
+- **EID.P04**: The EID is NOT for billing: your phone bill isn't linked to your EID
 
 ---
 
@@ -41,18 +41,18 @@ Because the EID is permanent (it survives resets, profile changes, and even fact
 
 | Risk | How Bad Is It? | What Stops It |
 |---|---|---|
-| **Cross-profile tracking** | Medium | SM-DS access requires authentication — random people can't just look up EIDs |
+| **Cross-profile tracking** | Medium | SM-DS access requires authentication: random people can't just look up EIDs |
 | **Supply chain snooping** | Low | The ERHI chain shows the manufacturer, not the end user |
 | **Device fingerprinting** | Low | EID doesn't say if it's a phone, car, or smart meter |
-| **Impersonation** | High — but blocked! | Cryptographic authentication (SGP.22) means knowing an EID isn't enough to fake a chip's identity |
+| **Impersonation** | High: but blocked! | Cryptographic authentication (SGP.22) means knowing an EID isn't enough to fake a chip's identity |
 
-**The golden rule**: The EID is a *claim* ("I am chip #12345..."), not *proof*. The actual proof comes from the chip's private key — a secret cryptographic code that never leaves the chip. An attacker who knows your EID still can't impersonate your chip without also stealing its private key (which is locked in tamper-proof hardware).
+**The golden rule**: The EID is a *claim* ("I am chip #12345..."), not *proof*. The actual proof comes from the chip's private key: a secret cryptographic code that never leaves the chip. An attacker who knows your EID still can't impersonate your chip without also stealing its private key (which is locked in tamper-proof hardware).
 
 ---
 
 ## How the GSMA Keeps the System Honest 🏛️
 
-The GSMA's governance isn't just bureaucracy — it's the enforcement backbone of EID security:
+The GSMA's governance isn't just bureaucracy: it's the enforcement backbone of EID security:
 
 ### 1. 🔒 Central Registry
 
@@ -95,7 +95,7 @@ ASSIGNMENT ──▶ ACTIVE USE ──▶ CANCELLATION ──▶ EXPIRED (archiv
                                 and cancels
 ```
 
-Once a range reaches "Expired," it's permanently archived. Those numbers will never appear on a new chip — guaranteeing that every EID ever created remains unique for all time.
+Once a range reaches "Expired," it's permanently archived. Those numbers will never appear on a new chip: guaranteeing that every EID ever created remains unique for all time.
 
 ---
 
@@ -111,7 +111,7 @@ SGP.29 builds in one more clever protection: **GSMA-assigned EIDs never start wi
 No collision possible! The "89" prefix acts as a permanent wall.
 ```
 
-This means old and new systems coexist peacefully — an eSIM chip identified under SGP.29 will never be confused with one identified under the old ICCID scheme.
+This means old and new systems coexist peacefully: an eSIM chip identified under SGP.29 will never be confused with one identified under the old ICCID scheme.
 
 ---
 
@@ -126,16 +126,14 @@ The MOD 97-10 check digit algorithm provides banking-grade error detection:
 | Twin errors (11 → 22) | **100%** guaranteed |
 | Other random errors | ~99.0% |
 
-If anyone — a factory worker, a database, a QR code scanner — makes a single-digit mistake in an EID, the check will catch it instantly. This prevents misrouted profiles, misidentified chips, and all the chaos that would follow.
+If anyone: a factory worker, a database, a QR code scanner: makes a single-digit mistake in an EID, the check will catch it instantly. This prevents misrouted profiles, misidentified chips, and all the chaos that would follow.
 
 ---
 
-## 🧠 Did You Know?
-
-The EID is one of the few truly permanent identifiers in the digital world. Your phone number changes when you switch carriers. Your IMEI changes when you get a new phone. But the EID on an eSIM chip stays the same forever — from the factory floor to the recycling centre. That's why SGP.29 takes its privacy and security so seriously!
+The EID is one of the few truly permanent identifiers in the digital world. Your phone number changes when you switch carriers. Your IMEI changes when you get a new phone. But the EID on an eSIM chip stays the same forever: from the factory floor to the recycling centre. That's why SGP.29 takes its privacy and security so seriously!
 
 ---
 
-*Kid-friendly version of GSMA SGP.29 v1.1 — EID Security, Sections 7–9, 12–14, and Annex A*
+*Kid-friendly version of GSMA SGP.29 v1.1: EID Security, Sections 7–9, 12–14, and Annex A*
 
 ← [Back to Kids Articles](index)

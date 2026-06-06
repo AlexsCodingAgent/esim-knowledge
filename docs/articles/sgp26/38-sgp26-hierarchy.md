@@ -7,15 +7,15 @@ date: 2026-06-06
 
 **🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.26 Test Certificates]({{ site.baseurl }}/docs/articles/sgp26/) > Test Certificate Hierarchy: CI, EUM, DP, DS, and eUICC**
 
-> **💡 Why this matters:** Certificate validation in eSIM is not just about checking a signature — it's about walking a chain of trust from a known root through potentially multiple intermediate CAs, verifying path length constraints, name constraints, and role-specific policy OIDs at every step. SGP.26 gives you the complete chain for every RSP entity, so you can trace exactly how trust flows from the GSMA Test CI down to an individual eUICC or SM-DP+ TLS endpoint.
+> **💡 Why this matters:** Certificate validation in eSIM is not just about checking a signature: it's about walking a chain of trust from a known root through potentially multiple intermediate CAs, verifying path length constraints, name constraints, and role-specific policy OIDs at every step. SGP.26 gives you the complete chain for every RSP entity, so you can trace exactly how trust flows from the GSMA Test CI down to an individual eUICC or SM-DP+ TLS endpoint.
 
 > **Key takeaways:**
 > - The test PKI spans up to 4 levels: Root CI → CI SubCA → Role SubCA → End Entity, depending on the variant
 > - The CI root (CERT.CI.SIG) uses NIST P-256/Brainpool P256r1, signs with SHA-256, has a 35-year validity, and carries `keyCertSign` + `cRLSign` key usage
-> - The EUM certificate (CERT.EUM.SIG) anchors the eUICC manufacturing trust domain — it signs the eUICC certificate and carries a `nameConstraints` extension restricting permitted EINs to `89049032`
-> - SM-DP+ servers hold three certificates each: one for authentication (CERT.DPauth.SIG), one for profile binding (CERT.DPpb.SIG), and one for TLS (CERT.DP.TLS) — each with distinct key usages and policy OIDs
+> - The EUM certificate (CERT.EUM.SIG) anchors the eUICC manufacturing trust domain: it signs the eUICC certificate and carries a `nameConstraints` extension restricting permitted EINs to `89049032`
+> - SM-DP+ servers hold three certificates each: one for authentication (CERT.DPauth.SIG), one for profile binding (CERT.DPpb.SIG), and one for TLS (CERT.DP.TLS) : each with distinct key usages and policy OIDs
 > - The eUICC certificate has a 2,000,000-day validity (effectively infinite), uses `digitalSignature` key usage, and carries the policy OID `2.23.146.1.2.1.0.0.0.0.0` (id-rspRole-euicc)
-> - eIM certificates (signing + TLS/DTLS) chain directly to the CI root and are not scoped by variants — they have no SubCA delegates
+> - eIM certificates (signing + TLS/DTLS) chain directly to the CI root and are not scoped by variants: they have no SubCA delegates
 
 The SGP.26 certificate hierarchy mirrors the trust relationships defined in SGP.22's PKI architecture. Every certificate is an X.509 v3 certificate conforming to RFC 5280, with ECDSA signatures over NIST P-256 or Brainpool P256r1.
 
@@ -25,8 +25,8 @@ The SGP.26 certificate hierarchy mirrors the trust relationships defined in SGP.
 
 The Certificate Issuer (CI) root is the ultimate trust anchor. Two distinct CI roots exist:
 
-- **CI Root for Variant O** — Subject: `cn = Test CI, ou = TESTCERT, o = RSPTEST, c = IT`. Includes `crlDistributionPoints` extension pointing to `http://ci.test.example.com/CRL-1.crl` and `CRL-2.crl`.
-- **CI Root for Variants Ov3, A, B, C** — Same subject but without the `crlDistributionPoints` extension (Variant Ov3) or with it added for other variants.
+- **CI Root for Variant O** : Subject: `cn = Test CI, ou = TESTCERT, o = RSPTEST, c = IT`. Includes `crlDistributionPoints` extension pointing to `http://ci.test.example.com/CRL-1.crl` and `CRL-2.crl`.
+- **CI Root for Variants Ov3, A, B, C** : Same subject but without the `crlDistributionPoints` extension (Variant Ov3) or with it added for other variants.
 
 Both CI roots have:
 - **Validity**: 12,783 days (35 years)
@@ -37,7 +37,7 @@ Both CI roots have:
 - **Subject Alternative Name**: `RID:2.999.1` (a GSMA-registered OID)
 - **Serial Number**: Variant O = `0x00B874F3ABFA6C44D3`; Variants A/B/C = `0x000`
 
-The CI root is self-signed — its Issuer field equals its Subject field.
+The CI root is self-signed: its Issuer field equals its Subject field.
 
 ---
 
@@ -54,9 +54,9 @@ The CI SubCA (CERT.CISUBCA.SIG) is the first delegation level, present only in V
 | **Basic Constraints** | Critical, `CA = true` |
 | **Certificate Policies** | `2.23.146.1.2.1.0.0` (one level below id-rspRole-ci) |
 | **AKI** | keyId + issuer from CI Root |
-| **CRL DPs** | Same URLs as CI root — valid because both CI and CI SubCA are signed by the same parent |
+| **CRL DPs** | Same URLs as CI root: valid because both CI and CI SubCA are signed by the same parent |
 
-The CI SubCA can sign EUM, EUM SubCA, SM-DP+, SM-DP+ SubCA, SM-DS, and SM-DS SubCA certificates — essentially all downstream entities except the CI root itself.
+The CI SubCA can sign EUM, EUM SubCA, SM-DP+, SM-DP+ SubCA, SM-DS, and SM-DS SubCA certificates: essentially all downstream entities except the CI root itself.
 
 For Variant C, the CI SubCA also signs the role-specific SubCAs (EUM SubCA, DP SubCA, DS SubCA), which then sign end-entity certificates.
 
@@ -64,7 +64,7 @@ For Variant C, the CI SubCA also signs the role-specific SubCAs (EUM SubCA, DP S
 
 ## Level 2: Role-Specific SubCAs (Variants A and C)
 
-### EUM SubCA (CERT.EUMSUBCA.SIG) — Variants A, C
+### EUM SubCA (CERT.EUMSUBCA.SIG) : Variants A, C
 
 The EUM SubCA delegates the eUICC manufacturer's signing authority. Its `pathLenConstraint = 0` means it can sign end-entity certificates (eUICCs) but not further SubCAs:
 
@@ -76,7 +76,7 @@ The EUM SubCA delegates the eUICC manufacturer's signing authority. Its `pathLen
 | **Certificate Policies** | `2.23.146.1.2.1.5` (id-rspRole-eum) |
 | **Validity** | 1,095 days (3 years) |
 
-### SM-DP+ SubCA (CERT.DPSubCA.SIG) — Variants A, C
+### SM-DP+ SubCA (CERT.DPSubCA.SIG) : Variants A, C
 
 Delegates SM-DP+ server certificate signing. Also `pathLenConstraint = 0`:
 
@@ -88,7 +88,7 @@ Delegates SM-DP+ server certificate signing. Also `pathLenConstraint = 0`:
 | **Certificate Policies** | `2.23.146.1.2.1.0.0.1` |
 | **Validity** | 1,095 days (3 years) |
 
-### SM-DS SubCA (CERT.DSSubCA.SIG) — Variants A, C
+### SM-DS SubCA (CERT.DSSubCA.SIG) : Variants A, C
 
 Delegates SM-DS server certificate signing:
 
@@ -121,7 +121,7 @@ The eUICC Manufacturer certificate is a CA certificate (it signs eUICC certifica
 | **Name Constraints** | Critical. Permitted EINs: `89049032` (GSMA-specific extension `2.23.146.1.2.2.0`) |
 | **SAN** | Variant O: `RID:2.999.5`; Variants A/B/C: `RID:2.999.101` |
 
-The name constraints extension is critical — it restricts which EINs (eUICC Identifier namespace prefixes) the EUM is authorized to sign for. In the test PKI, only EINs beginning with `89049032` are permitted. A production EUM would have its own assigned EIN prefix.
+The name constraints extension is critical: it restricts which EINs (eUICC Identifier namespace prefixes) the EUM is authorized to sign for. In the test PKI, only EINs beginning with `89049032` are permitted. A production EUM would have its own assigned EIN prefix.
 
 ### eUICC Certificate (CERT.EUICC.SIG)
 
@@ -131,12 +131,12 @@ The leaf certificate on every test eUICC:
 |---|---|
 | **Subject** | `cn = Test eUICC, serialNumber = 89049032123451234512345678901235, o = <same as EUM>, c = ES` |
 | **Issuer** | Variants O, Ov3, B: EUM; Variants A, C: EUM SubCA |
-| **Validity** | 2,000,000 days (≈5,479 years — effectively infinite) |
+| **Validity** | 2,000,000 days (≈5,479 years: effectively infinite) |
 | **Key Usage** | Critical, `digitalSignature` |
 | **Certificate Policies** | Critical. Variant O: `2.23.146.1.2.1.1`; Variants A/B/C: `2.23.146.1.2.1.0.0.0.0.0` (id-rspRole-euicc) |
 | **Serial Number** | Variant O: EID string; Variants A/B/C: EID value from Annex E.1 |
 
-The eUICC certificate's `serialNumber` in the Subject DN contains the eUICC's EID — the unique identifier that binds the certificate to a specific chip. The 2,000,000-day validity reflects the reality that eUICC certificates must never expire during the chip's operational life.
+The eUICC certificate's `serialNumber` in the Subject DN contains the eUICC's EID: the unique identifier that binds the certificate to a specific chip. The 2,000,000-day validity reflects the reality that eUICC certificates must never expire during the chip's operational life.
 
 ---
 
@@ -156,7 +156,7 @@ The TLS certificate additionally carries:
 
 SGP.26 provides TLS certificates for four SM-DP+ instances (servers 1, 2, 4, 8) to support multi-server test scenarios.
 
-The auth certificate is presented during ES9+ mutual authentication. The pb certificate signs Bound Profile Packages during ES8+ download. The TLS certificate secures the ES9+ HTTPS connection. These three roles are deliberately separated into distinct certificates — a production SM-DP+ would do the same to limit the blast radius of a key compromise.
+The auth certificate is presented during ES9+ mutual authentication. The pb certificate signs Bound Profile Packages during ES8+ download. The TLS certificate secures the ES9+ HTTPS connection. These three roles are deliberately separated into distinct certificates: a production SM-DP+ would do the same to limit the blast radius of a key compromise.
 
 ---
 
@@ -182,7 +182,7 @@ The eIM (eSIM IoT Manager) signs eUICC package requests in SGP.32 IoT environmen
 | **CERT.EIM.ECDSA** | Critical, `digitalSignature` | CI root | `cn = eim.example.com, c = DE` | 2,555 days (7 years) |
 | **CERT.EIM.TLS** | Critical, `digitalSignature`; EKU: `serverAuth` + `clientAuth` | CI root | `cn = eim.example.com, c = DE` | 398 days |
 
-eIM certificates chain directly to the CI root — they are not scoped by variants and have no SubCA delegates.
+eIM certificates chain directly to the CI root: they are not scoped by variants and have no SubCA delegates.
 
 ---
 
@@ -207,7 +207,7 @@ Variant C:          CI ── CISubCA ──┬── EUM SubCA ── EUM ─�
                                    └── DS SubCA ── SM-DS (auth, TLS)
 ```
 
-These variants are not arbitrary — they reflect real-world deployment patterns. Variant O represents a legacy model where the CI signs everything directly. Variant B represents a CI that delegates to a single SubCA. Variant A represents a CI that uses role-specific SubCAs. Variant C represents the fully-delegated model with both a CI SubCA and role-specific SubCAs — the deepest hierarchy, exercising the most complex certificate path validation.
+These variants are not arbitrary: they reflect real-world deployment patterns. Variant O represents a legacy model where the CI signs everything directly. Variant B represents a CI that delegates to a single SubCA. Variant A represents a CI that uses role-specific SubCAs. Variant C represents the fully-delegated model with both a CI SubCA and role-specific SubCAs: the deepest hierarchy, exercising the most complex certificate path validation.
 
 ---
 
@@ -215,8 +215,8 @@ These variants are not arbitrary — they reflect real-world deployment patterns
 
 All SGP.26 certificates use ECDSA with one of two curves:
 
-- **NIST P-256** (prime256v1) — 256-bit elliptic curve, 32-byte private keys
-- **Brainpool P256r1** — 256-bit Brainpool curve, 32-byte private keys
+- **NIST P-256** (prime256v1) : 256-bit elliptic curve, 32-byte private keys
+- **Brainpool P256r1** : 256-bit Brainpool curve, 32-byte private keys
 
 The signature algorithm is always `sha256ECDSA`. No RSA certificates are defined. Key generation uses OpenSSL's `ecparam` command:
 
@@ -236,11 +236,11 @@ Both curves produce 64-byte signatures (two 32-byte integers, r and s, DER-encod
 
 - The CI root is self-signed, valid for 35 years, carrying `keyCertSign` + `cRLSign` and the `id-rspRole-ci` policy OID
 - Five variants exercise different delegation depths: direct-CI (O), single SubCA (B), role SubCAs (A), and full delegation (C)
-- The EUM certificate carries a critical `nameConstraints` extension restricting permitted EINs to `89049032` — exactly as a production EUM would
-- SM-DP+ servers hold three separate certificates (auth, profile binding, TLS) with distinct policy OIDs — mirroring real key separation
+- The EUM certificate carries a critical `nameConstraints` extension restricting permitted EINs to `89049032` : exactly as a production EUM would
+- SM-DP+ servers hold three separate certificates (auth, profile binding, TLS) with distinct policy OIDs: mirroring real key separation
 - The eUICC certificate has effectively infinite validity (2,000,000 days) and carries the EID in its Subject DN's `serialNumber` field
-- eIM certificates chain directly to the CI root and are not variant-scoped — reflecting their independent role in the SGP.32 IoT architecture
-- All certificates use ECDSA over NIST P-256 or Brainpool P256r1 with SHA-256 — no RSA anywhere in the test PKI
+- eIM certificates chain directly to the CI root and are not variant-scoped: reflecting their independent role in the SGP.32 IoT architecture
+- All certificates use ECDSA over NIST P-256 or Brainpool P256r1 with SHA-256: no RSA anywhere in the test PKI
 
 ---
 
@@ -254,7 +254,7 @@ Next: [Certificate Profiles: What Makes a Valid Test Certificate]({{ site.baseur
 
 ---
 
-*Based on GSMA SGP.26 v3.0.2 (27 January 2025) — RSP Test Certificates Definition, Sections 3.1–3.6*
+*Based on GSMA SGP.26 v3.0.2 (27 January 2025) : RSP Test Certificates Definition, Sections 3.1–3.6*
 
 
 ---

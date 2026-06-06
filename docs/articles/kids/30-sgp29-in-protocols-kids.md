@@ -7,9 +7,9 @@ date: 2026-06-07
 
 ## Imagine...
 
-You walk up to a hotel front desk. "I have a reservation," you say. The clerk asks: "What's your name?" You tell them, they look it up, and — yes! — a room is waiting. Then they ask for your ID to prove you really are that person before handing over the key.
+You walk up to a hotel front desk. "I have a reservation," you say. The clerk asks: "What's your name?" You tell them, they look it up, and: yes! : a room is waiting. Then they ask for your ID to prove you really are that person before handing over the key.
 
-That's exactly how the EID works in eSIM protocols — showing your ID card to prove who you are. The EID is how eSIM chips announce themselves, get matched to waiting profiles, and prove their identity before receiving secret keys.
+That's exactly how the EID works in eSIM protocols: showing your ID card to prove who you are. The EID is how eSIM chips announce themselves, get matched to waiting profiles, and prove their identity before receiving secret keys.
 
 ---
 
@@ -51,7 +51,7 @@ This is where the EID becomes a security anchor. Before any profile is delivered
 
 | Step | What Happens |
 |---|---|
-| **Key Maker → Chip** | "I have a key for EID 12345... — is that you?" |
+| **Key Maker → Chip** | "I have a key for EID 12345... : is that you?" |
 | **Chip verifies** | "Is this Key Maker's certificate valid? Is this key really for me?" |
 | **Chip → Key Maker** | "Yes, I am EID 12345... Here's my cryptographic proof!" |
 | **Key Maker verifies** | "Does the EID match? Is the certificate valid? Is the signature correct?" |
@@ -76,11 +76,11 @@ The next time that chip polls the SM-DS, the waiting event appears. The EID is t
 
 ## Across Different eSIM Worlds 🌐
 
-The EID is universal — it works across all major eSIM specifications:
+The EID is universal: it works across all major eSIM specifications:
 
 | Specification | How EID Is Used |
 |---|---|
-| **SGP.22 (Consumer)** | ES8+ downloads, ES11 polling, SM-DS discovery — your phone's eSIM |
+| **SGP.22 (Consumer)** | ES8+ downloads, ES11 polling, SM-DS discovery: your phone's eSIM |
 | **SGP.32 (IoT)** | Same pattern, but for smart sensors, meters, and trackers |
 | **SGP.02 (M2M)** | Profile download and management for machine-to-machine devices |
 
@@ -94,20 +94,18 @@ SGP.29 Principle **EID.P02** demands global EID uniqueness. Here's what would ha
 
 | Scenario | Disaster |
 |---|---|
-| **Wrong profile delivery** | Chip B receives a profile meant for Chip A — potentially giving an attacker access to someone else's mobile plan |
+| **Wrong profile delivery** | Chip B receives a profile meant for Chip A: potentially giving an attacker access to someone else's mobile plan |
 | **SM-DS confusion** | The Discovery Service can't tell which chip should get which profile |
 | **Authentication failure** | Cryptographic handshakes fail because the Key Maker can't distinguish between two chips claiming the same identity |
 
-Global uniqueness is not optional — it's the foundation everything else rests on!
+Global uniqueness is not optional: it's the foundation everything else rests on!
 
 ---
 
-## 🧠 Did You Know?
-
-When your eSIM helper app polls the SM-DS for pending profiles, it does so using your chip's real EID — but the connection is encrypted, and the SM-DS requires authentication. Knowing someone's EID alone isn't enough to steal their profiles. The EID is a *claim* of identity, but the cryptographic proof (the chip's private key) is what actually *proves* it!
+When your eSIM helper app polls the SM-DS for pending profiles, it does so using your chip's real EID: but the connection is encrypted, and the SM-DS requires authentication. Knowing someone's EID alone isn't enough to steal their profiles. The EID is a *claim* of identity, but the cryptographic proof (the chip's private key) is what actually *proves* it!
 
 ---
 
-*Kid-friendly version of GSMA SGP.29 v1.1 — EID in RSP Protocols, Section 6*
+*Kid-friendly version of GSMA SGP.29 v1.1: EID in RSP Protocols, Section 6*
 
 ← [Back to Kids Articles](index)

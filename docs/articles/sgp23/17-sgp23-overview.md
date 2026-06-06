@@ -7,16 +7,16 @@ date: 2026-06-05
 
 **🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.23 Test Specifications]({{ site.baseurl }}/docs/articles/sgp23/) > SGP.23 Overview: How eSIM Interoperability Is Tested**
 
-> **💡 Why this matters:** SGP.22 defines *what* an eSIM system must do. SGP.23 defines *how to prove it works* — the 913-page test specification that every eUICC, SM-DP+, SM-DS, and LPA implementation must pass before deployment. Understanding SGP.23 reveals the compliance regime that makes multi-vendor eSIM interoperability possible.
+> **💡 Why this matters:** SGP.22 defines *what* an eSIM system must do. SGP.23 defines *how to prove it works* : the 913-page test specification that every eUICC, SM-DP+, SM-DS, and LPA implementation must pass before deployment. Understanding SGP.23 reveals the compliance regime that makes multi-vendor eSIM interoperability possible.
 
 > **Key takeaways:**
 > - SGP.23 tests four Implementation Under Test (IUT) types: eUICC, LPAd/Device, SM-DP+, and SM-DS
-> - Two testing scopes — interface compliance testing and system behaviour testing — cover every interaction
+> - Two testing scopes: interface compliance testing and system behaviour testing: cover every interaction
 > - Test environments use simulators (S_SM-DP+, S_SM-DS, S_LPAd, etc.) to isolate each component under test
 > - An Optional Features Table and Applicability Table let vendors declare capabilities and determine which test cases apply
 > - Certification culminates in a GlobalPlatform Digital Letter of Approval (DLOA), with SAS accreditation numbers embedded in the eUICC
 
-SGP.23 v1.16 (913 pages) is the GSMA's test specification for the consumer Remote SIM Provisioning ecosystem. Where SGP.22 defines the protocol, SGP.23 defines the test cases that prove an implementation conforms to that protocol — covering every interface, every procedure, and every corner case defined by SGP.22 v2.2 through v2.6.
+SGP.23 v1.16 (913 pages) is the GSMA's test specification for the consumer Remote SIM Provisioning ecosystem. Where SGP.22 defines the protocol, SGP.23 defines the test cases that prove an implementation conforms to that protocol: covering every interface, every procedure, and every corner case defined by SGP.22 v2.2 through v2.6.
 
 ---
 
@@ -26,22 +26,22 @@ SGP.23 v1.16 (913 pages) is the GSMA's test specification for the consumer Remot
 
 SGP.23 defines four categories of IUT (Implementation Under Test):
 
-- **eUICC** — the embedded chip. Tested via ISO/IEC 7816-4 contact interface (removable form factor) or USB CCID (integrated eUICC in SoC). Tests verify ATR, ISD-R selection, ES8+ end-to-end channel operations, ES10a/b/c interface functions, and ES6 OTA management.
-- **LPAd / Device** — the on-device profile assistant. Tested as a complete Device Under Test with a GSMA-compliant test eUICC, exercising ES9+ (to simulated SM-DP+), ES10a/b/c (to the test eUICC), ES11 (to simulated SM-DS), and all local profile management procedures.
-- **SM-DP+** — the profile delivery server. Tested across three test environments: ES12 only (TE_P1), ES9+ only (TE_P2), and ES2+ with ES9+/ES12 combined (TE_P3), using simulated Operators, LPAs, and SM-DSs.
-- **SM-DS** — the discovery server. Tested as either Root SM-DS or Alternative SM-DS, across ES11 (to simulated LPA), ES12 (to simulated SM-DP+), and ES15 (between cascaded SM-DSs).
+- **eUICC** : the embedded chip. Tested via ISO/IEC 7816-4 contact interface (removable form factor) or USB CCID (integrated eUICC in SoC). Tests verify ATR, ISD-R selection, ES8+ end-to-end channel operations, ES10a/b/c interface functions, and ES6 OTA management.
+- **LPAd / Device** : the on-device profile assistant. Tested as a complete Device Under Test with a GSMA-compliant test eUICC, exercising ES9+ (to simulated SM-DP+), ES10a/b/c (to the test eUICC), ES11 (to simulated SM-DS), and all local profile management procedures.
+- **SM-DP+** : the profile delivery server. Tested across three test environments: ES12 only (TE_P1), ES9+ only (TE_P2), and ES2+ with ES9+/ES12 combined (TE_P3), using simulated Operators, LPAs, and SM-DSs.
+- **SM-DS** : the discovery server. Tested as either Root SM-DS or Alternative SM-DS, across ES11 (to simulated LPA), ES12 (to simulated SM-DP+), and ES15 (between cascaded SM-DSs).
 
 ### Two Testing Scopes
 
 **Interface Compliance Testing** (Section 4): Verifies that every API call across every interface conforms to the ASN.1 structures and procedure flows defined in SGP.22. Each test case specifies exact request/response sequences with expected DER encoding, step-by-step.
 
-**System Behaviour Testing** (Section 5): Verifies end-to-end functional behaviour — profile download and installation, mutual authentication, profile policy rule enforcement, notification handling, retry mechanisms, and device-level procedures like Add/Enable/Disable/Delete Profile.
+**System Behaviour Testing** (Section 5): Verifies end-to-end functional behaviour: profile download and installation, mutual authentication, profile policy rule enforcement, notification handling, retry mechanisms, and device-level procedures like Add/Enable/Disable/Delete Profile.
 
 ### Who Uses SGP.23
 
-- **Test tool developers** — implement the simulators and test harnesses
-- **Vendors** (eUICC manufacturers, device makers, SM-DP+/SM-DS providers) — validate their products
-- **Operators** — ensure interoperability across their deployment scenarios
+- **Test tool developers** : implement the simulators and test harnesses
+- **Vendors** (eUICC manufacturers, device makers, SM-DP+/SM-DS providers) : validate their products
+- **Operators** : ensure interoperability across their deployment scenarios
 
 ---
 
@@ -69,15 +69,15 @@ The pattern is: `S_ComponentName` for a simulated component, `ComponentName` for
 
 Not every test case applies to every implementation. SGP.23 provides two key tables:
 
-**Optional Features Table** — The vendor declares which optional capabilities their product supports. For eUICCs, this includes cryptographic curve support (NIST P-256, brainpoolP256r1, FRP256V1), CRL support, integrated eUICC form factor, LPAe support, one-time key reuse, and more. For SM-DP+s: session key usage, ES2+ retry, brainpoolP256r1 TLS. For Devices: SM-DS support, nickname display, combined Add+Enable operations, cellular-only connectivity.
+**Optional Features Table** : The vendor declares which optional capabilities their product supports. For eUICCs, this includes cryptographic curve support (NIST P-256, brainpoolP256r1, FRP256V1), CRL support, integrated eUICC form factor, LPAe support, one-time key reuse, and more. For SM-DP+s: session key usage, ES2+ retry, brainpoolP256r1 TLS. For Devices: SM-DS support, nickname display, combined Add+Enable operations, cellular-only connectivity.
 
-**Applicability Table** — Maps every test case to an applicability code: `M` (mandatory), `N/A` (not applicable), or `Ci` (conditional — applies only if certain optional features are supported). This produces a tailored test suite for each implementation, keyed to the SGP.22 version under test (v2.2 through v2.6). (Note: SGP.22 v2.7, published April 2026, post-dates SGP.23 v1.16 and is not yet covered.)
+**Applicability Table** : Maps every test case to an applicability code: `M` (mandatory), `N/A` (not applicable), or `Ci` (conditional: applies only if certain optional features are supported). This produces a tailored test suite for each implementation, keyed to the SGP.22 version under test (v2.2 through v2.6). (Note: SGP.22 v2.7, published April 2026, post-dates SGP.23 v1.16 and is not yet covered.)
 
 ---
 
 ## SAS and the Accreditation Number
 
-Every eUICC eligible for production deployment must carry a **SAS Accreditation Number** (`sasAcreditationNumber`), embedded in the `EUICCInfo2` structure. This number certifies that the eUICC manufacturing site has passed the GSMA's **Security Accreditation Scheme** (SAS) audit — a mandatory requirement for commercial eSIMs.
+Every eUICC eligible for production deployment must carry a **SAS Accreditation Number** (`sasAcreditationNumber`), embedded in the `EUICCInfo2` structure. This number certifies that the eUICC manufacturing site has passed the GSMA's **Security Accreditation Scheme** (SAS) audit: a mandatory requirement for commercial eSIMs.
 
 SGP.23 test cases verify that the eUICC correctly returns this number in its `GetEUICCInfo` response, confirming traceability from the test lab back to the accredited factory.
 
@@ -93,7 +93,7 @@ The GSMA runs regular **Test Events** where vendors bring their implementations 
 4. Test results are recorded and reviewed
 5. Upon successful completion, a **Digital Letter of Approval** (DLOA) is issued per the GlobalPlatform DLOA specification
 
-The DLOA serves as a portable certificate of compliance — a product that holds a valid DLOA has been independently verified against the SGP.23 test suite.
+The DLOA serves as a portable certificate of compliance: a product that holds a valid DLOA has been independently verified against the SGP.23 test suite.
 
 ---
 
@@ -117,7 +117,7 @@ Next: [The GSMA eSIM Test Infrastructure]({{ site.baseurl }}/docs/articles/sgp23
 
 ---
 
-*Based on GSMA SGP.23 v1.16 (29 April 2025) — RSP Test Specification*
+*Based on GSMA SGP.23 v1.16 (29 April 2025) : RSP Test Specification*
 
 
 ---

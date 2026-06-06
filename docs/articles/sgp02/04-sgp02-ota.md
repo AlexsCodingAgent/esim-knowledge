@@ -6,84 +6,60 @@ date: 2026-06-07
 
 **🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.02 M2M RSP]({{ site.baseurl }}/docs/articles/sgp02/) > OTA Communication: SMS, PSK-TLS, CAT_TP, and DNS**
 
-> **📚 Prerequisites:** Read the [Architecture]({{ site.baseurl }}/docs/articles/sgp02/01-sgp02-architecture) article to understand the ES5 interface and the SM-SR's role. The [eUICC Internals]({{ site.baseurl }}/docs/articles/sgp02/02-sgp02-euicc-internals) article explains the ISD-R and secure channels.
+The SM-SR has one job nobody else gets to do: talk directly to the eUICC over the air. SGP.02 §2.4 puts it bluntly: "the OTA communication is exclusively handled by the SM-SR." If you're coming from [the Architecture article]({{ site.baseurl }}/docs/articles/sgp02/01-sgp02-architecture), you already know the ES5 interface is where the push model gets physical. And if you've read [the eUICC Internals piece]({{ site.baseurl }}/docs/articles/sgp02/02-sgp02-euicc-internals), you know the ISD-R is the on-chip endpoint that receives these commands.
 
-> **💡 Why this matters:** The ES5 OTA channel is the physical manifestation of the push model. Understanding how the SM-SR reaches the eUICC — across SMS, HTTPS, and CAT_TP — is essential for anyone deploying or troubleshooting M2M devices in the field.
-
-> **Key takeaways:**
-> - The SM-SR exclusively owns the OTA channel — no other entity can initiate communication with the eUICC
-> - Three transport protocols are available: SMS (for short commands), HTTPS with PSK-TLS (for bulk data), and CAT_TP (for constrained network scenarios)
-> - All ES5 traffic is protected by SCP80 or SCP81 secure channels regardless of transport
-> - PSK-TLS keys are derived from the SCP81 key set shared between SM-SR and ISD-R
-> - DNS resolution is optional but critical for deployments where the SM-SR's IP address changes
+Here's what the SM-SR actually has at its disposal: three transport protocols: SMS for short commands, HTTPS with PSK-TLS for bulk data, and CAT_TP for constrained networks. All of it gets wrapped in SCP80 or SCP81 secure channels regardless of what's underneath. The eUICC must speak SMS plus at least one of HTTPS or CAT_TP; the SM-SR must speak all three. And through it all, no other off-card entity (not the Operator, not the SM-DP, not the M2M SP) can send a single byte to the chip without going through the SM-SR.
 
 ---
 
-## The ES5 Interface: Exclusive OTA Ownership
+## SMS: The Universal Fallback
 
-SGP.02 §2.4 states it plainly: "In the eUICC Remote Provisioning and Management system the OTA communication is exclusively handled by the SM-SR." This is the push model made concrete. No other off-card entity — not the Operator, not the SM-DP, not the M2M SP — can send a single byte to the eUICC without going through the SM-SR.
-
-The SM-SR selects the transport protocol based on:
-- The eUICC's and Device's capabilities (declared in the EIS)
-- The type of operation being performed
-- Network conditions and efficiency considerations
-- The SM-SR's own preferences
-
-The eUICC **SHALL** support SMS and either CAT_TP or HTTPS (or both). The SM-SR **SHALL** support all three. For LTE network deployments, SMS support must comply with GSMA PRD IR.92.
-
-All ES5 traffic is secured by either **SCP80** or **SCP81** — GlobalPlatform secure channel protocols that provide origin authentication, integrity protection, and confidentiality. The security level is independent of the transport layer beneath.
-
----
-
-## SMS — The Universal Fallback
-
-SMS is the most fundamental ES5 transport. Its use cases fall into three categories (SGP.02 §2.4.3):
+SMS does three things in SGP.02 (SGP.02 §2.4.3):
 
 ### 1. Direct Command Delivery
 
-When a platform management command fits into a few SMS messages, it's more efficient to send it directly via SMS than to open a full HTTPS session. Commands like profile enabling, disabling, or policy updates can often be delivered in a single secure SMS.
+When a platform management command fits in a handful of SMS messages, sending it directly is faster than opening a full HTTPS session. Profile enabling, disabling, policy updates; these often squeeze into a single secure SMS.
 
-SMS commands use the **Expanded Remote Command** structure defined in ETSI TS 102 226, with SCP80 security:
-- **Cryptographic Checksum (CC)**: 64-bit AES-CMAC for integrity and origin authentication
-- **Encryption**: AES in CBC mode
-- **Proof of Receipt (PoR)**: Typically requested (`SPI2 = '39'`), which triggers a response SMS with its own CC and encryption
-- **Counter management**: The SM-SR verifies that the PoR counter value matches the command packet's counter
+Commands use the Expanded Remote Command structure from ETSI TS 102 226, with SCP80 riding on top:
 
-If the eUICC cannot authenticate the SM-SR (SCP80 verification fails), it discards the command silently and sends no PoR — preventing information leakage about the chip's configuration.
+- **Cryptographic Checksum (CC):** 64-bit AES-CMAC for integrity and origin authentication
+- **Encryption:** AES in CBC mode
+- **Proof of Receipt (PoR):** Typically requested with `SPI2 = '39'`, triggering a response SMS with its own CC and encryption
+- **Counter management:** The SM-SR verifies that the PoR counter value matches the command packet's counter
+
+If the eUICC can't authenticate the SM-SR (if SCP80 verification fails), it drops the command silently and sends no PoR. No information about the chip's configuration leaks to a potential attacker.
 
 ### 2. HTTPS Session Triggering
 
-For bulk operations — like profile download — SMS triggers an HTTPS session. The SM-SR sends a special SMS addressed to the ISD-R containing the Administration Session Triggering Parameters defined in GlobalPlatform Amendment B. The TAR (Toolkit Application Reference) for the ISD-R is included in the EIS.
+For bulk operations like profile download, SMS plays a lighter role: it kicks open the door for HTTPS. The SM-SR sends a special SMS addressed to the ISD-R carrying Administration Session Triggering Parameters from GlobalPlatform Amendment B. The ISD-R's TAR (Toolkit Application Reference) is listed in the EIS.
 
-The SM-SR can choose whether to request a PoR for the triggering SMS. A PoR confirms the eUICC received the trigger, but adds latency. For time-sensitive operations, skipping the PoR is acceptable since the subsequent HTTPS session opening confirms delivery implicitly.
+The SM-SR can request a PoR for this triggering SMS, but it's optional. A PoR confirms the eUICC got the trigger, at the cost of some added latency. For time-sensitive operations, skipping it is fine; the subsequent HTTPS session opening implicitly confirms delivery.
 
 ### 3. CAT_TP Session Triggering
 
-For CAT_TP transport, the triggering SMS is more complex. Per ETSI TS 102 226, it includes two commands in the same push SMS:
-- **"Request for BIP channel opening"** — opens the Bearer Independent Protocol channel
-- **"Request for CAT_TP link establish"** — establishes the CAT_TP layer on top
+When the transport is CAT_TP, the triggering SMS gets a bit more involved. Per ETSI TS 102 226, it packs two commands into one push SMS:
 
-The corresponding "Data for BIP channel opening" and "Data for CAT_TP link establishment" parameters configure the session.
+- **"Request for BIP channel opening"**: opens the Bearer Independent Protocol channel
+- **"Request for CAT_TP link establish"**: layers CAT_TP on top
+
+The corresponding "Data for BIP channel opening" and "Data for CAT_TP link establishment" parameters configure the session specifics.
 
 ---
 
-## HTTPS with PSK-TLS — The Bulk Data Workhorse
+## HTTPS with PSK-TLS: The Bulk Data Workhorse
 
-HTTPS is the preferred transport for operations involving significant data transfer — most importantly, profile download and installation. The HTTPS stack in SGP.02 uses **PSK-TLS** (Pre-Shared Key TLS) rather than certificate-based TLS (SGP.02 §2.4.4).
+For anything involving serious data transfer (and profile download is the prime example), HTTPS is the default choice. But SGP.02 doesn't use certificate-based TLS. It uses PSK-TLS (Pre-Shared Key TLS), and the reason is straightforward: certificate TLS would demand an X.509 certificate and private key on the eUICC that a public CA recognizes. That's a big ask for a constrained smart card. PSK-TLS sidesteps the problem by using symmetric keys already shared between the SM-SR and ISD-R through the SCP81 key set (SGP.02 §2.4.4).
 
-### Why PSK-TLS?
+The Pre-Shared Keys need at least 128 bits of entropy. The eUICC supports TLS 1.2 with at least one of:
 
-Certificate-based TLS would require the eUICC to possess an X.509 certificate and private key recognized by a public CA — a heavy requirement for a constrained smart card. PSK-TLS instead uses symmetric keys already shared between the SM-SR and ISD-R through the SCP81 key set.
-
-The **Pre-Shared Keys** must have at least **128 bits of entropy**. The eUICC supports TLS 1.2 with at least one of these cipher suites:
-- `TLS_PSK_WITH_AES_128_GCM_SHA256` (preferred — GCM authenticated encryption)
+- `TLS_PSK_WITH_AES_128_GCM_SHA256` (preferred: GCM authenticated encryption)
 - `TLS_PSK_WITH_AES_128_CBC_SHA256`
 
-TLS session resumption (RFC 4507/5077) and parallel TLS sessions are **not supported** — there's exactly one HTTPS session per OTA interaction.
+No session resumption (RFC 4507/5077), no parallel TLS sessions. One HTTPS session per OTA interaction, period.
 
 ### PSK Identity Format
 
-During the TLS handshake, the eUICC presents a PSK Identity that tells the SM-SR which key to use. The PSK-ID is a TLV structure (SGP.02 §2.4.4.1, Table 4):
+During the TLS handshake, the eUICC presents a PSK Identity that tells the SM-SR which key to reach for. It's a TLV structure (SGP.02 §2.4.4.1, Table 4):
 
 | Tag | Content | Length | Example |
 |-----|---------|--------|---------|
@@ -93,11 +69,11 @@ During the TLS handshake, the eUICC presents a PSK Identity that tells the SM-SR
 | `82` | Key identifier | 1 byte | Which key within the key set |
 | `83` | Key version | 1 byte | `40`–`4F` (reserved for SCP81) |
 
-This TLV binary is converted to a hex string, then encoded as UTF-8 for the TLS `psk_identity` field. The SM-SR uses the EID and key identifier to look up the correct PSK.
+This TLV binary gets converted to a hex string, then encoded as UTF-8 for the TLS `psk_identity` field. The SM-SR pulls the EID and key identifier, looks up the matching PSK, and the handshake proceeds.
 
 ### HTTP POST Request/Response Pattern
 
-The HTTPS session follows the **GlobalPlatform RAM over HTTP** protocol (Amendment B). It's a half-duplex, POST-driven conversation:
+The HTTPS session follows GlobalPlatform RAM over HTTP (Amendment B). It's a half-duplex, POST-driven conversation:
 
 **Session opening** (SMS-triggered):
 1. SM-SR sends MT-SMS with HTTPS triggering command (SCP80 protected)
@@ -109,67 +85,58 @@ The HTTPS session follows the **GlobalPlatform RAM over HTTP** protocol (Amendme
 
 **Command delivery** (SM-SR → eUICC):
 - SM-SR responds `HTTP/1.1 200` with `Content-Type: application/vnd.globalplatform.card-content-mgt;version=1.0`
-- `X-Admin-Next-URI` provides the URI for the eUICC's next POST
-- If targeting an ISD-P: `X-Admin-Targeted-Application: //aid/<rid>/<pix>` identifies the ISD-P by AID
-- Body contains the command script (Expanded Remote Command format)
+- `X-Admin-Next-URI` tells the eUICC where to POST next
+- If targeting an ISD-P: `X-Admin-Targeted-Application: //aid/<rid>/<pix>` identifies it by AID
+- Body carries the command script in Expanded Remote Command format
 
 **Response delivery** (eUICC → SM-SR):
 - eUICC sends `POST <next-uri>` with `Content-Type: application/vnd.globalplatform.card-content-mgt-response;version=1.0`
-- `X-Admin-Script-Status: ok` (or error status)
-- Body contains the response script
+- `X-Admin-Script-Status: ok` (or an error status)
+- Body carries the response script
 
 **Session management:**
-- `HTTP/1.1 204` (No Content) with `X-Admin-Next-URI` keeps the session alive for the next exchange
-- `HTTP/1.1 204` without `X-Admin-Next-URI` closes the session
+- `HTTP/1.1 204` (No Content) with `X-Admin-Next-URI` keeps the session alive
+- `HTTP/1.1 204` without `X-Admin-Next-URI` closes it
 
-The eUICC uses **Chunked Transfer Encoding** for POST requests. The SM-SR uses chunked encoding for POST responses. This allows streaming of large profile packages without buffering.
+Both sides use Chunked Transfer Encoding: the eUICC for POST requests, the SM-SR for POST responses. This lets large profile packages stream through without buffering the whole thing in memory.
 
 ---
 
-## CAT_TP — Constrained Network Transport
+## CAT_TP: Constrained Network Transport
 
-**CAT_TP** (Card Application Toolkit Transport Protocol) provides an alternative to HTTPS for scenarios where TCP/TLS overhead is problematic — very low bandwidth, high latency, or intermittent connections (SGP.02 §2.4.3.2).
+CAT_TP (Card Application Toolkit Transport Protocol) exists for the scenarios where TCP/TLS overhead becomes a problem: very low bandwidth, high latency, intermittent connections (SGP.02 §2.4.3.2).
 
-CAT_TP operates over the **BIP** (Bearer Independent Protocol) channel defined in ETSI TS 102 223. The transport provides reliable, connection-oriented data transfer with flow control, optimized for the constrained environment of a UICC communicating through a modem.
+It runs over the BIP (Bearer Independent Protocol) channel from ETSI TS 102 223: reliable, connection-oriented data transfer with flow control, designed for a UICC talking through a modem. Commands over CAT_TP use the same SCP80 security as SMS: expanded remote command structure with AES-CMAC checksums and AES-CBC encryption. The security lives at the application layer, not the transport.
 
-Commands sent over CAT_TP use the same SCP80 security as SMS — the expanded remote command structure with AES-CMAC cryptographic checksums and AES-CBC encryption. The security is at the application layer, not the transport layer.
+Where CAT_TP shines:
 
-CAT_TP is particularly valuable for:
-- 2G/3G networks where TCP performance is poor
-- Devices with limited IP stack capabilities
+- 2G/3G networks where TCP performance is rough
+- Devices with limited IP stacks
 - Deployments where the SM-SR wants a lightweight, persistent connection without TLS overhead
 
 ---
 
-## DNS Resolution — Finding the SM-SR
+## DNS Resolution: Finding the SM-SR
 
-DNS resolution is an optional but powerful ES5 feature (SGP.02 §2.4.5). It allows the eUICC to resolve the SM-SR's FQDN to an IP address dynamically, rather than relying on a hardcoded IP.
+DNS resolution is optional but useful (SGP.02 §2.4.5). It lets the eUICC resolve the SM-SR's FQDN to an IP address dynamically instead of relying on a hardcoded IP that might change.
 
-### When DNS Resolution Triggers
+The eUICC performs DNS resolution when all of these hold:
 
-The eUICC performs DNS resolution when ALL of these conditions are met:
-1. The eUICC is requested to open an HTTPS session
-2. The eUICC supports DNS resolution
-3. The ISD-R has no hardcoded IP address in its Connection Parameters or the triggering SMS
+1. The eUICC has been asked to open an HTTPS session
+2. The eUICC supports DNS resolution at all
+3. The ISD-R has no hardcoded IP in its Connection Parameters or the triggering SMS
 4. The ISD-R has an FQDN and DNS server IP addresses configured
-5. The ISD-R hasn't already resolved the FQDN, or considers the cached value stale
+5. The ISD-R hasn't already resolved that FQDN, or considers the cached value stale
 
-### DNS Protocol Details
+The resolver on both SM-SR and eUICC must comply with RFC 1035 and RFC 3596, support query types A (IPv4) and AAAA (IPv6), and use UDP transport.
 
-The DNS resolver on both SM-SR and eUICC must:
-- Comply with **RFC 1035** and **RFC 3596** (Domain Name System)
-- Support query types **A** (IPv4) and **AAAA** (IPv6)
-- Use **UDP** transport
-
-The flow is simple: the eUICC's DNS Resolver Client sends a query to the configured DNS Resolver Server (typically the SM-SR itself or a network-provided DNS server), which returns the resolved IP addresses. This happens after the SMS trigger but before the TLS handshake.
-
-The eUICC may implement proprietary retry procedures, load balancing across multiple resolved IP addresses, and fallback logic — but these implementation details are out of scope for SGP.02.
+The flow is simple: the eUICC's DNS Resolver Client fires off a query to the configured DNS Resolver Server (often the SM-SR itself, or a network-provided DNS server), gets back the resolved IPs. This happens after the SMS trigger, before the TLS handshake. What the eUICC does with multiple resolved addresses (retry logic, load balancing, fallback) is implementation-specific and outside SGP.02's scope.
 
 ---
 
-## The ES8 Tunnel — A Secure Channel Inside a Secure Channel
+## The ES8 Tunnel: A Secure Channel Inside a Secure Channel
 
-ES8 is the interface between the SM-DP and the ISD-P, but it has no physical layer of its own. Instead, it's a tunnel (SGP.02 §2.5):
+ES8 connects the SM-DP to the ISD-P, but it has no physical layer. It's a tunnel riding on other people's wires (SGP.02 §2.5):
 
 ```
 SM-DP ──ES3──▶ SM-SR ──ES5──▶ ISD-R ──▶ ISD-P
@@ -177,31 +144,31 @@ SM-DP ──ES3──▶ SM-SR ──ES5──▶ ISD-R ──▶ ISD-P
   └──── ES8 logical channel ────┘
 ```
 
-The SM-DP encrypts commands for the ISD-P using SCP03 or SCP03t. This encrypted payload is carried over ES3 (SM-DP to SM-SR) using whatever secure transport those two servers have agreed upon. The SM-SR then wraps the SCP03 payload inside the SCP80/SCP81-protected ES5 channel to the ISD-R. The ISD-R forwards the payload to the target ISD-P, which decrypts and processes it.
+The SM-DP encrypts commands for the ISD-P using SCP03 or SCP03t. That encrypted payload travels over ES3 (SM-DP to SM-SR) using whatever secure transport those two servers have negotiated. The SM-SR then wraps the SCP03 payload inside the SCP80/SCP81-protected ES5 channel to the ISD-R. The ISD-R forwards it to the target ISD-P, which decrypts and processes it.
 
-The SM-SR **cannot decrypt the ES8 payload** — it sees only the encrypted SCP03 data. This ensures the SM-SR, despite being the OTA gateway, has no access to profile contents.
-
----
-
-## ES6 and ES1 — Other Communication Paths
-
-Two additional communication interfaces complete the picture:
-
-**ES6 (Operator → MNO-SD)**: The Operator's OTA platform communicates directly with the MNO-SD inside a Profile. This uses the same SCP80/SCP81 secure channel model as ES5, following ETSI TS 102 225/226. The initial OTA keys are loaded during profile download or at manufacturing. This is how the operator manages its profile post-install — updating network parameters, installing applets, or refreshing file contents — without involving the SM-DP or SM-SR.
-
-**ES1 (EUM → SM-SR)**: At manufacturing time, the EUM sends the EIS to the first SM-SR. The ISD-R key sets in the EIS are protected by a mechanism agreed between the EUM and SM-SR, which must include at minimum: AES-128 transport key, ECB cipher mode, and PKCS#7 padding when needed.
+And here's the part that matters: the SM-SR can't read what's inside. It sees only the SCP03 ciphertext. Despite being the OTA gateway (despite touching every byte that flows to and from the chip), the SM-SR has zero access to profile contents.
 
 ---
 
-## 📋 Summary
+## ES6 and ES1: The Other Communication Paths
 
-- The SM-SR has exclusive OTA access to the eUICC via the ES5 interface — the defining characteristic of the push model
-- SMS handles short platform management commands and triggers HTTPS/CAT_TP sessions for bulk operations
+Two more interfaces round out the picture:
+
+**ES6 (Operator → MNO-SD).** The Operator's OTA platform talks directly to the MNO-SD inside a Profile, using the same SCP80/SCP81 model as ES5, following ETSI TS 102 225/226. The initial OTA keys get loaded during profile download or at manufacturing. Post-install, this is how the operator manages its profile (updating network parameters, installing applets, refreshing file contents) without involving the SM-DP or SM-SR at all.
+
+**ES1 (EUM → SM-SR).** At manufacturing time, the EUM sends the EIS to the first SM-SR. The ISD-R key sets in the EIS are protected by a mechanism the EUM and SM-SR agree on, which must include at minimum: AES-128 transport key, ECB cipher mode, and PKCS#7 padding when needed.
+
+---
+
+## Summary
+
+- The SM-SR owns the OTA channel; no other entity can reach the eUICC over the air without going through it
+- SMS handles short platform management commands and triggers HTTPS or CAT_TP sessions for anything bulkier
 - HTTPS uses PSK-TLS (not certificate TLS), with keys derived from the SCP81 key set shared between SM-SR and ISD-R
-- The HTTP POST pattern follows GlobalPlatform RAM over HTTP: half-duplex, chunked, with X-Admin headers for session management
-- CAT_TP provides a lightweight alternative for constrained networks, with the same SCP80 application-layer security as SMS
-- DNS resolution lets the eUICC dynamically locate the SM-SR, decoupling the chip from hardcoded IP addresses
-- ES8 tunnels SCP03/SCP03t through ES3→ES5, ensuring the SM-SR never sees profile plaintext despite being the OTA gateway
+- The HTTP POST pattern follows GlobalPlatform RAM over HTTP: half-duplex, chunked, with X-Admin headers managing session state
+- CAT_TP gives you a lightweight alternative for constrained networks, with the same SCP80 application-layer security SMS uses
+- DNS resolution decouples the eUICC from hardcoded IPs; the chip can find the SM-SR dynamically
+- ES8 tunnels SCP03/SCP03t through ES3→ES5; the SM-SR carries the bytes but never sees profile plaintext
 
 ---
 
@@ -215,7 +182,7 @@ Two additional communication interfaces complete the picture:
 
 ---
 
-*Based on GSMA SGP.02 v4.2 §2.4–2.8 — OTA Communication and Secure Channels*
+*Based on GSMA SGP.02 v4.2 §2.4–2.8: OTA Communication and Secure Channels*
 
 
 ---

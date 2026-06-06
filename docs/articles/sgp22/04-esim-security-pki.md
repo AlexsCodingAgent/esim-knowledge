@@ -7,18 +7,18 @@ date: 2026-06-01
 
 **🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > eSIM Security: The PKI and Certificate Model**
 
-> **💡 Why this matters:** The eSIM security model is what makes it possible to deliver operator credentials over the public internet — through an untrusted device — without anyone in the middle being able to steal or tamper with them. Every eSIM download depends on this PKI.
+> **💡 Why this matters:** The eSIM security model is what makes it possible to deliver operator credentials over the public internet: through an untrusted device: without anyone in the middle being able to steal or tamper with them. Every eSIM download depends on this PKI.
 
 > **Key takeaways:**
 > - All trust chains back to a single root: the **GSMA Certificate Issuer (CI)**, whose public keys are burned into every eUICC at the factory
 > - Seven certificate types serve distinct roles: chip identity, server authentication, transport encryption, and profile binding
-> - Mutual authentication uses ECDSA on NIST P-256 with a critical ordering rule — server authenticates first
-> - `ES8+` session keys provide **Perfect Forward Secrecy** — past downloads stay safe even if long-term keys are stolen
+> - Mutual authentication uses ECDSA on NIST P-256 with a critical ordering rule: server authenticates first
+> - `ES8+` session keys provide **Perfect Forward Secrecy** : past downloads stay safe even if long-term keys are stolen
 > - CRLs and CI key management allow the ecosystem to respond to certificate compromise
 
 ---
 
-SGP.22's security architecture is built on a single principle: **no one in the middle can be trusted.** The LPA — the software on your phone that orchestrates profile downloads — is explicitly treated as untrusted. It simply transports encrypted messages between two endpoints that verify each other directly.
+SGP.22's security architecture is built on a single principle: **no one in the middle can be trusted.** The LPA: the software on your phone that orchestrates profile downloads: is explicitly treated as untrusted. It simply transports encrypted messages between two endpoints that verify each other directly.
 
 This article explains how the Public Key Infrastructure (PKI) makes this possible, what certificates exist in the ecosystem, and how the system handles compromise.
 
@@ -26,7 +26,7 @@ This article explains how the Public Key Infrastructure (PKI) makes this possibl
 
 ## The Trust Chain
 
-Every entity in the RSP ecosystem ultimately trusts the **GSMA Certificate Issuer (CI)**. The CI is the root Certificate Authority — it signs the certificates of EUMs, SM-DP+ providers, and SM-DS providers. The full trust chain is shown below:
+Every entity in the RSP ecosystem ultimately trusts the **GSMA Certificate Issuer (CI)**. The CI is the root Certificate Authority: it signs the certificates of EUMs, SM-DP+ providers, and SM-DS providers. The full trust chain is shown below:
 
 <img src="../../diagrams/03-pki-trust-chain.svg" alt="PKI trust chain: CI root → EUM → eUICC plus CI → DP/DS auth + TLS certificates, with mutual authentication flow" style="width:100%;max-width:800px;display:block;margin:20px auto;border-radius:8px;">
 
@@ -44,7 +44,7 @@ The root. Contains the GSMA CI's public key and identifies the CI by a unique OI
 - GSMA CI OID (to identify which CI)
 - Subject Key Identifier (for chain verification)
 
-The eUICC may store multiple CI public keys from the same or different CIs — supporting CI key rotation.
+The eUICC may store multiple CI public keys from the same or different CIs: supporting CI key rotation.
 
 ### EUM Certificate (`CERT.EUM.ECDSA`)
 
@@ -122,9 +122,9 @@ After mutual authentication, the profile download requires session keys with **P
 1. The SM-DP+ generates an ephemeral ECDH key pair for this transaction
 2. The key agreement data is sent in the `InitialiseSecureChannel` block
 3. Both sides derive shared session keys:
-   - **S-ENC** — AES-128-CBC for encryption
-   - **S-MAC** — AES-128 for message authentication (CMAC)
-   - **Initial MAC chaining value** — prevents replay
+   - **S-ENC** : AES-128-CBC for encryption
+   - **S-MAC** : AES-128 for message authentication (CMAC)
+   - **Initial MAC chaining value** : prevents replay
 
 These session keys are discarded after the transaction. Even if the SM-DP+'s long-term private key is stolen years later, past profile downloads cannot be decrypted.
 
@@ -136,7 +136,7 @@ Profiles can be protected at two levels:
 
 **Single-layer protection:** The profile is encrypted directly with the session keys (S-ENC, S-MAC) established during key agreement. Simpler, but the SM-DP+ must have the profile ready when the eUICC connects.
 
-**Dual-layer protection:** The profile is pre-encrypted with profile-specific **Profile Protection Keys** (PPK-ENC, PPK-MAC) during preparation at the SM-DP+. During download, an `ES8+.ReplaceSessionKeys` block swaps the session keys to the profile keys. This allows profiles to be pre-generated and stored before the eUICC ever connects — critical for large-scale profile provisioning.
+**Dual-layer protection:** The profile is pre-encrypted with profile-specific **Profile Protection Keys** (PPK-ENC, PPK-MAC) during preparation at the SM-DP+. During download, an `ES8+.ReplaceSessionKeys` block swaps the session keys to the profile keys. This allows profiles to be pre-generated and stored before the eUICC ever connects: critical for large-scale profile provisioning.
 
 ---
 
@@ -174,20 +174,20 @@ SGP.22 mandates:
 The ecosystem's security depends on rigorous certification:
 
 - **eUICC**: Must be certified against the GSMA eUICC Protection Profile for Consumer Devices
-- **EUM**: GSMA SAS-UP certified (Secure Accreditation Scheme — UICC Production)
+- **EUM**: GSMA SAS-UP certified (Secure Accreditation Scheme: UICC Production)
 - **SM-DP+**: GSMA SAS-SM certified (for Subscription Management)
 - **SM-DS**: GSMA SAS-SM certified
 - **Device/LPA**: Must comply with security features defined in SGP.21 and SGP.22
 
-These certifications are verified through **Digital Letters of Approval (DLOAs)** — digitally signed attestations stored at a DLOA Registrar and retrievable by any management system that needs to verify a component's certification level.
+These certifications are verified through **Digital Letters of Approval (DLOAs)** : digitally signed attestations stored at a DLOA Registrar and retrievable by any management system that needs to verify a component's certification level.
 
 ---
 
 ## 📋 Summary
 
-- The GSMA CI is the single root of trust — all seven certificate types chain back to it, and its public keys live in every eUICC's ECASD
+- The GSMA CI is the single root of trust: all seven certificate types chain back to it, and its public keys live in every eUICC's ECASD
 - Mutual authentication uses ECDSA challenge-response with a strict server-first ordering rule; the eUICC never signs anything before verifying the server
-- `ES8+` session keys use ephemeral ECDH for Perfect Forward Secrecy — even a fully compromised SM-DP+ can't decrypt past downloads
+- `ES8+` session keys use ephemeral ECDH for Perfect Forward Secrecy: even a fully compromised SM-DP+ can't decrypt past downloads
 - Dual-layer profile protection (PPK-ENC/PPK-MAC) enables pre-generation at scale without sacrificing security
 - CRLs loaded via `ES10b.LoadCRL` allow the ecosystem to revoke compromised certificates, and EUMs can directly delete CI keys from the ECASD
 
@@ -203,7 +203,7 @@ Next: [Managing Your eSIM: Local Profile Operations]({{ site.baseurl }}/docs/art
 
 ---
 
-*Based on GSMA SGP.22 v2.7 (24 April 2026), Sections 2.6, 4.5, and 4.6 — Security Overview, Keys and Certificates, and CRL*
+*Based on GSMA SGP.22 v2.7 (24 April 2026), Sections 2.6, 4.5, and 4.6: Security Overview, Keys and Certificates, and CRL*
 
 
 ---

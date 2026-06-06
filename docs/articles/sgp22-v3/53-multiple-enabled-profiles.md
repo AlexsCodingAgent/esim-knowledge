@@ -28,23 +28,23 @@ In SGP.22 v2.x, the eUICC maintains state for one Enabled Profile. When you want
 1. Disable Profile A (sending a REFRESH to reset the UICC interface)
 2. Enable Profile B
 
-During the switch, the device loses connectivity. Even on a dual-SIM device with two physical basebands, v2.x cannot expose two active eSIM profiles simultaneously — there's a single logical channel.
+During the switch, the device loses connectivity. Even on a dual-SIM device with two physical basebands, v2.x cannot expose two active eSIM profiles simultaneously: there's a single logical channel.
 
-MEP removes this limitation. The eUICC presents multiple **eSIM Ports**, each of which can host a different Enabled Profile. A device with two basebands can connect one to each port, giving the user two active mobile subscriptions at once — just like a dual physical SIM phone.
+MEP removes this limitation. The eUICC presents multiple **eSIM Ports**, each of which can host a different Enabled Profile. A device with two basebands can connect one to each port, giving the user two active mobile subscriptions at once: just like a dual physical SIM phone.
 
 ---
 
 ## How MEP Works: eSIM Ports
 
-The core concept of MEP is the **eSIM Port** — what ETSI TS 102 221 calls a Logical SE Interface (LSI). Ports are identified by consecutive numbers starting from zero:
+The core concept of MEP is the **eSIM Port** : what ETSI TS 102 221 calls a Logical SE Interface (LSI). Ports are identified by consecutive numbers starting from zero:
 
-- **eSIM Port 0** — typically the "primary" port, where the ISD-R may be selectable (depending on the MEP mode)
-- **eSIM Port 1, Port 2, ...** — additional ports that can host Enabled Profiles
+- **eSIM Port 0** : typically the "primary" port, where the ISD-R may be selectable (depending on the MEP mode)
+- **eSIM Port 1, Port 2, ...** : additional ports that can host Enabled Profiles
 
 The multiplexing of APDU streams to different Profiles on a single physical interface uses standard mechanisms defined in ETSI TS 102 221:
 
-- **APDU MANAGE LSI (select LSI)** — when transmission protocol T=0 or T=1 is used, the device selects which eSIM Port an APDU targets
-- **NAD byte** — when T=1 is used, the Node Address byte identifies the target port
+- **APDU MANAGE LSI (select LSI)** : when transmission protocol T=0 or T=1 is used, the device selects which eSIM Port an APDU targets
+- **NAD byte** : when T=1 is used, the Node Address byte identifies the target port
 
 The key constraint: **each eSIM Port SHALL be assigned to at most one Enabled Profile, and each Profile SHALL be assigned to at most one eSIM Port**. Profile Enabling assigns a Profile to a port; Profile Disabling releases the assignment. A Disabled Profile is not assigned to any port.
 
@@ -59,7 +59,7 @@ The specification defines three options for how ISD-R selection and port assignm
 In MEP-A1:
 - The **ISD-R is selected only on eSIM Port 0** (the Command Port)
 - **Profiles are selected on eSIM Ports 1 and higher** (the Target Ports)
-- The LPA assigns which Profile goes to which port — so the Command Port and Target Port are **always different**
+- The LPA assigns which Profile goes to which port: so the Command Port and Target Port are **always different**
 
 This is the simplest model for the LPA: it controls port assignment directly.
 
@@ -68,7 +68,7 @@ This is the simplest model for the LPA: it controls port assignment directly.
 In MEP-A2:
 - The **ISD-R is selected only on eSIM Port 0** (the Command Port)
 - **Profiles are selected on eSIM Ports 1 and higher** (the Target Ports)
-- The **eUICC assigns** which Profile goes to which port — Command Port and Target Port are always different
+- The **eUICC assigns** which Profile goes to which port: Command Port and Target Port are always different
 
 Here the eUICC makes the assignment decision, which may be useful when the eUICC has knowledge about port capabilities that the LPA lacks.
 
@@ -77,7 +77,7 @@ Here the eUICC makes the assignment decision, which may be useful when the eUICC
 In MEP-B:
 - **Profiles can be selected on eSIM Ports 0 and higher**
 - The **ISD-R can be selected on any eSIM Port**
-- `ES10c.EnableProfile` and (when CAT is initialised on the Target Port) `ES10c.DisableProfile` are always sent **on the Target Port** — so Command Port and Target Port are identical
+- `ES10c.EnableProfile` and (when CAT is initialised on the Target Port) `ES10c.DisableProfile` are always sent **on the Target Port** : so Command Port and Target Port are identical
 - If CAT is not initialised on the Target Port, `ES10c.DisableProfile` can be sent on any eSIM Port where CAT is initialised
 - Other ES10 commands can be sent on any eSIM Port where CAT is initialised
 
@@ -92,13 +92,13 @@ v2.x defines two options for profile switching: with or without a REFRESH proact
 - **With REFRESH**: After enabling/disabling a Profile, the ISD-R sends a REFRESH proactive command (SEP mode) or an LSI COMMAND with "UICC Platform Reset" (MEP mode)
 - **Without REFRESH**: The profile switch completes without any proactive command
 
-In MEP mode, instead of a REFRESH command that resets the entire UICC, the eUICC can send an **LSI COMMAND proactive command** with "UICC Platform Reset" — targeting only the affected port rather than resetting the entire eUICC. This means enabling a profile on Port 1 doesn't disrupt the active session on Port 0.
+In MEP mode, instead of a REFRESH command that resets the entire UICC, the eUICC can send an **LSI COMMAND proactive command** with "UICC Platform Reset" : targeting only the affected port rather than resetting the entire eUICC. This means enabling a profile on Port 1 doesn't disrupt the active session on Port 0.
 
 ---
 
 ## Comparison: v2.x (SEP) vs v3.x (MEP)
 
-| Aspect | v2.x (SEP — Single Enabled Profile) | v3.x (MEP — Multiple Enabled Profiles) |
+| Aspect | v2.x (SEP: Single Enabled Profile) | v3.x (MEP: Multiple Enabled Profiles) |
 |--------|-------------------------------------|----------------------------------------|
 | Profiles Enabled at once | 1 | Multiple (one per eSIM Port) |
 | Port model | Single logical interface | Multiple eSIM Ports (LSIs) |
@@ -125,7 +125,7 @@ This flexibility is valuable for device manufacturers who want a single LPA impl
 
 ## MEP and Profile Policy Rules
 
-The v3.x Profile Rules Enforcer (section 2.4.12) must handle the multi-port scenario. When a profile is Enabled on a port, Profile Policy Rules (PPRs) related to that profile — such as restrictions on disabling or deletion — still apply. The ISD-R enforces these rules regardless of which port the profile occupies.
+The v3.x Profile Rules Enforcer (section 2.4.12) must handle the multi-port scenario. When a profile is Enabled on a port, Profile Policy Rules (PPRs) related to that profile: such as restrictions on disabling or deletion: still apply. The ISD-R enforces these rules regardless of which port the profile occupies.
 
 For profile switching in MEP mode, the same PPR logic applies as in v2.x: a profile configured with a "disabling not allowed" rule cannot be disabled, even if another profile is being enabled on the same port.
 
@@ -152,7 +152,7 @@ Next: [Push Service: How eSIMs Get Notified Without Polling]({{ site.baseurl }}/
 
 ---
 
-*Based on GSMA SGP.22 v3.1 (01 December 2023), Section 2.12 — Multiple Enabled Profiles, and ETSI TS 102 221 [6]*
+*Based on GSMA SGP.22 v3.1 (01 December 2023), Section 2.12: Multiple Enabled Profiles, and ETSI TS 102 221 [6]*
 
 
 ---

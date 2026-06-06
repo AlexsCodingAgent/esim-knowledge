@@ -7,16 +7,16 @@ date: 2026-06-06
 
 **🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.26 Test Certificates]({{ site.baseurl }}/docs/articles/sgp26/) > CRL and Certificate Management in the Test Ecosystem**
 
-> **💡 Why this matters:** In production, CRLs are the emergency brake — when a certificate is compromised, the CRL tells every eUICC and server to stop trusting it. In testing, you need to verify that this emergency brake actually works. SGP.26 provides a complete CRL infrastructure with distribution points at every CA level, plus deliberately unusual parameters (3-year CRL validity) that ensure test suites don't break from CRL expiry mid-run.
+> **💡 Why this matters:** In production, CRLs are the emergency brake: when a certificate is compromised, the CRL tells every eUICC and server to stop trusting it. In testing, you need to verify that this emergency brake actually works. SGP.26 provides a complete CRL infrastructure with distribution points at every CA level, plus deliberately unusual parameters (3-year CRL validity) that ensure test suites don't break from CRL expiry mid-run.
 
 > **Key takeaways:**
-> - The SGP.26 CRL infrastructure covers four CA levels: CI root, CI SubCA, EUM, SM-DP+ SubCA, and SM-DS SubCA — each issues its own CRL
-> - All CRLs currently contain empty `revokedCertificates` sequences — no certificates have been revoked (certificates with revoked entries are marked "FFS" — For Future Study)
-> - CRL validity is set to 1,095 days (3 years), which SGP.26 notes is "unusual" — chosen deliberately so that no test execution risks failing because the CRL itself expired
+> - The SGP.26 CRL infrastructure covers four CA levels: CI root, CI SubCA, EUM, SM-DP+ SubCA, and SM-DS SubCA: each issues its own CRL
+> - All CRLs currently contain empty `revokedCertificates` sequences: no certificates have been revoked (certificates with revoked entries are marked "FFS" : For Future Study)
+> - CRL validity is set to 1,095 days (3 years), which SGP.26 notes is "unusual" : chosen deliberately so that no test execution risks failing because the CRL itself expired
 > - CRL Distribution Points (CDPs) are embedded in every certificate, pointing to test URLs like `http://ci.test.example.com/CRL-1.crl` and `http://smdp.test.example.com/CRL.crl`
 > - The `issuingDistributionPoint` extension controls scope: `onlyContainsCACerts` and `onlyContainsUserCerts` determine whether a CRL covers CAs, end-entities, or both
-> - CRL numbering starts from 2024 (decimal) across all issuers — a fixed, predictable value for test reproducibility
-> - Certificate expiry and rotation schedules vary dramatically: from 398 days (TLS) to 2,000,000 days (eUICC) — test suites must account for this
+> - CRL numbering starts from 2024 (decimal) across all issuers: a fixed, predictable value for test reproducibility
+> - Certificate expiry and rotation schedules vary dramatically: from 398 days (TLS) to 2,000,000 days (eUICC) : test suites must account for this
 
 The CRL (Certificate Revocation List) infrastructure in SGP.26 mirrors production: every CA that can sign certificates also issues CRLs covering those certificates. The structure is defined in Section 5 of the specification.
 
@@ -44,16 +44,16 @@ Every SGP.26 CRL is an X.509 v2 CRL conforming to RFC 5280. The core structure:
 
 | Field | Value |
 |---|---|
-| **version** | V2 (1) — automatically set |
+| **version** | V2 (1) : automatically set |
 | **signature** | sha256ECDSA (same algorithm as certificates) |
 | **issuer** | Same as the issuing CA's Subject DN |
 | **thisUpdate** | Timestamp of CRL generation |
 | **nextUpdate** | `thisUpdate` + 1,095 days (3 years) |
 | **revokedCertificates** | Empty sequence (no revoked certificates) |
 | **cRLNumber** | 2024 (decimal) |
-| **authorityKeyIdentifier** | `keyId` + `issuer` — references the issuing CA |
+| **authorityKeyIdentifier** | `keyId` + `issuer` : references the issuing CA |
 
-The empty `revokedCertificates` sequence is noteworthy. The current version of SGP.26 (v3.0.2) explicitly states: *"The current version of SGP.26 only provides CRLs where no Certificate has been revoked. Test CRLs listing revoked Certificates are FFS."* This means the CRL infrastructure exists and is validatable, but the actual revocation testing — verifying that the eUICC correctly rejects a revoked certificate — is deferred to future versions.
+The empty `revokedCertificates` sequence is noteworthy. The current version of SGP.26 (v3.0.2) explicitly states: *"The current version of SGP.26 only provides CRLs where no Certificate has been revoked. Test CRLs listing revoked Certificates are FFS."* This means the CRL infrastructure exists and is validatable, but the actual revocation testing: verifying that the eUICC correctly rejects a revoked certificate: is deferred to future versions.
 
 ---
 
@@ -63,7 +63,7 @@ SGP.26 sets CRL `nextUpdate` to `thisUpdate` + 1,095 days (3 years). The specifi
 
 > *"A duration of 3 years for a CRL is unusual. This setting is chosen so that no execution of tests during the validity period of an SGP.26 Server Certificate risks failing because the corresponding CRL is itself expired."*
 
-In production, CRLs typically have much shorter validity — often 24 hours to 7 days for high-security environments. A 3-year CRL would be unacceptable in production because a revoked certificate would remain trusted for up to 3 years on any system that caches CRLs. But in testing, the priority is different: the test suite must run without CRL-expiry interruptions, even for long-duration tests that span months.
+In production, CRLs typically have much shorter validity: often 24 hours to 7 days for high-security environments. A 3-year CRL would be unacceptable in production because a revoked certificate would remain trusted for up to 3 years on any system that caches CRLs. But in testing, the priority is different: the test suite must run without CRL-expiry interruptions, even for long-duration tests that span months.
 
 The trade-off is understood and accepted within the test context.
 
@@ -85,7 +85,7 @@ Every SGP.26 certificate (except the CI root in variants without CDPs) carries o
         Full Name: URL=http://ci.test.example.com/CRL-2.crl
 ```
 
-The dual distribution points provide redundancy. Both point to the same CI root — the CI and CI SubCA share CDP URLs because both are signed by the CI parent, which is valid per RFC 5280.
+The dual distribution points provide redundancy. Both point to the same CI root: the CI and CI SubCA share CDP URLs because both are signed by the CI parent, which is valid per RFC 5280.
 
 ### Role-Specific SubCA Certificates
 
@@ -114,11 +114,11 @@ End-entity certificates inherit CDPs from their issuer. For example, an SM-DP+ a
 
 ### authorityKeyIdentifier
 
-Every CRL includes the issuing CA's key identifier through the AKI extension. This allows a validator to match the CRL to the correct CA certificate — critical when multiple CAs exist in the chain.
+Every CRL includes the issuing CA's key identifier through the AKI extension. This allows a validator to match the CRL to the correct CA certificate: critical when multiple CAs exist in the chain.
 
 ### cRLNumber
 
-All SGP.26 CRLs use `cRLNumber = 2024` (decimal). This is a fixed, predictable value that makes CRL identification deterministic in test scenarios. In production, the CRL number monotonically increases with each CRL issuance. In testing, a fixed number simplifies validation — test cases can hardcode the expected value.
+All SGP.26 CRLs use `cRLNumber = 2024` (decimal). This is a fixed, predictable value that makes CRL identification deterministic in test scenarios. In production, the CRL number monotonically increases with each CRL issuance. In testing, a fixed number simplifies validation: test cases can hardcode the expected value.
 
 ### issuingDistributionPoint
 
@@ -128,11 +128,11 @@ The IDP extension controls which certificates the CRL covers:
 |---|---|---|---|
 | **CI Root** | `false` | `false` | Covers both CA and end-entity certificates |
 | **CI SubCA** | `false` | `false` | Covers both |
-| **EUM** | `true` | — | Covers only CA certificates (EUM SubCA) |
-| **SM-DP+ SubCA** | — | `true` | Covers only end-entity certificates (SM-DP+ auth/pb/TLS) |
-| **SM-DS SubCA** | — | `true` | Covers only end-entity certificates (SM-DS auth/TLS) |
+| **EUM** | `true` | : | Covers only CA certificates (EUM SubCA) |
+| **SM-DP+ SubCA** | : | `true` | Covers only end-entity certificates (SM-DP+ auth/pb/TLS) |
+| **SM-DS SubCA** | : | `true` | Covers only end-entity certificates (SM-DS auth/TLS) |
 
-The EUM's CRL has `onlyContainsCACerts = true` because, in Variants A and C, the EUM signs the EUM SubCA (a CA certificate). In Variants O and B, the EUM signs only eUICC end-entity certificates — but the CRL IDP is still set to `onlyContainsCACerts`, which means an eUICC certificate revocation would need to come from a different mechanism (or the IDP flag would need to change).
+The EUM's CRL has `onlyContainsCACerts = true` because, in Variants A and C, the EUM signs the EUM SubCA (a CA certificate). In Variants O and B, the EUM signs only eUICC end-entity certificates: but the CRL IDP is still set to `onlyContainsCACerts`, which means an eUICC certificate revocation would need to come from a different mechanism (or the IDP flag would need to change).
 
 The DP SubCA and DS SubCA CRLs have `onlyContainsUserCerts = true` because those SubCAs only sign end-entity server certificates.
 
@@ -144,7 +144,7 @@ The DP SubCA and DS SubCA CRLs have `onlyContainsUserCerts = true` because those
 
 | Certificate Type | Validity | Effective Lifetime |
 |---|---|---|
-| **CI Root** | 12,783 days (35 years) | Longest — anchors everything |
+| **CI Root** | 12,783 days (35 years) | Longest: anchors everything |
 | **CI SubCA** | Same as CI Root | Same |
 | **eUICC** | 2,000,000 days | Effectively permanent |
 | **eIM Signing** | 2,555 days (7 years) | Long-lived IoT |
@@ -154,7 +154,7 @@ The DP SubCA and DS SubCA CRLs have `onlyContainsUserCerts = true` because those
 | **SM-DP+ SubCA** | 1,095 days | Same |
 | **SM-DS Auth** | 1,095 days | Same |
 | **SM-DS SubCA** | 1,095 days | Same |
-| **SM-DP+ TLS** | 398 days | Shortest — mirrors CA/B Forum limits |
+| **SM-DP+ TLS** | 398 days | Shortest: mirrors CA/B Forum limits |
 | **SM-DS TLS** | 398 days | Same |
 | **eIM TLS/DTLS** | 398 days | Same |
 
@@ -162,7 +162,7 @@ The DP SubCA and DS SubCA CRLs have `onlyContainsUserCerts = true` because those
 
 **TLS certificates (398 days)**: These are the most frequently rotated. Test suites that run for more than a year must be prepared to update TLS certificates. The SGP.26 ZIP package is updated at least every two years, but TLS certificates may expire before the package is refreshed. Testers should either regenerate TLS certificates with fresh validity periods using the provided configuration templates, or download updated packages when available.
 
-**Server certificates (1,095 days)**: SM-DP+ auth/pb and SM-DS auth certificates have 3-year validity, matching the CRL validity. This coordination is intentional — the CRL remains valid for as long as the certificates it covers.
+**Server certificates (1,095 days)**: SM-DP+ auth/pb and SM-DS auth certificates have 3-year validity, matching the CRL validity. This coordination is intentional: the CRL remains valid for as long as the certificates it covers.
 
 **CI root (35 years)**: In practice, the CI root validity exceeds any conceivable test suite duration. However, it still has a finite expiry date. Very long-running test infrastructure (e.g., permanent CI/CD pipelines) should note the root expiry date.
 
@@ -198,11 +198,11 @@ The CRL files must be served at the exact paths specified in the certificates:
 
 ### CRL Content-Type
 
-CRLs are served with MIME type `application/pkix-crl`. Ensure your HTTP server is configured to return this Content-Type header — some validators check it.
+CRLs are served with MIME type `application/pkix-crl`. Ensure your HTTP server is configured to return this Content-Type header: some validators check it.
 
 ### CRL and OCSP
 
-SGP.26 does not define OCSP (Online Certificate Status Protocol) responders. The test PKI relies exclusively on CRLs for revocation status. This is consistent with the embedded nature of eUICCs — an eUICC in the field may not have continuous IP connectivity to query an OCSP responder, so CRLs (which can be preloaded and cached) are the preferred revocation mechanism in the RSP ecosystem.
+SGP.26 does not define OCSP (Online Certificate Status Protocol) responders. The test PKI relies exclusively on CRLs for revocation status. This is consistent with the embedded nature of eUICCs: an eUICC in the field may not have continuous IP connectivity to query an OCSP responder, so CRLs (which can be preloaded and cached) are the preferred revocation mechanism in the RSP ecosystem.
 
 ---
 
@@ -215,18 +215,18 @@ The specification explicitly marks "Test CRLs listing revoked Certificates" as F
 - Corresponding certificates that are valid except for their presence on the CRL
 - Test cases in SGP.23 that verify the eUICC correctly rejects certificates listed on the CRL
 
-Until then, the CRL infrastructure exists for structural validation — verifying that CDP URLs resolve, that CRL signatures verify, and that the `nextUpdate` field is checked — but the actual revocation logic is tested indirectly.
+Until then, the CRL infrastructure exists for structural validation: verifying that CDP URLs resolve, that CRL signatures verify, and that the `nextUpdate` field is checked: but the actual revocation logic is tested indirectly.
 
 ---
 
 ## 📋 Summary
 
-- The SGP.26 CRL hierarchy has up to five CRL issuers: CI root, CI SubCA, EUM, DP SubCA, and DS SubCA — each covering the certificates they directly sign
-- All CRLs currently have empty `revokedCertificates` — revocation testing is deferred ("FFS") to future SGP.26 versions
+- The SGP.26 CRL hierarchy has up to five CRL issuers: CI root, CI SubCA, EUM, DP SubCA, and DS SubCA: each covering the certificates they directly sign
+- All CRLs currently have empty `revokedCertificates` : revocation testing is deferred ("FFS") to future SGP.26 versions
 - CRL validity of 1,095 days (3 years) is deliberately long to prevent CRL-expiry failures during extended test runs
-- CRL Distribution Points use test URLs under `test.example.com` — testers must configure local DNS/hosts and HTTP servers to resolve them
+- CRL Distribution Points use test URLs under `test.example.com` : testers must configure local DNS/hosts and HTTP servers to resolve them
 - The `issuingDistributionPoint` extension controls CRL scope: EUM CRL covers only CA certs; DP/DS SubCA CRLs cover only end-entity certs; CI CRLs cover both
-- Certificate expiry varies from 398 days (TLS) to 2,000,000 days (eUICC) — rotation planning is essential for long-running test infrastructure
+- Certificate expiry varies from 398 days (TLS) to 2,000,000 days (eUICC) : rotation planning is essential for long-running test infrastructure
 - SGP.26 uses CRLs exclusively (no OCSP), consistent with the embedded eUICC environment where continuous connectivity cannot be assumed
 
 ---
@@ -239,7 +239,7 @@ Until then, the CRL infrastructure exists for structural validation — verifyin
 
 ---
 
-*Based on GSMA SGP.26 v3.0.2 (27 January 2025) — RSP Test Certificates Definition, Sections 5, Annexes A and E*
+*Based on GSMA SGP.26 v3.0.2 (27 January 2025) : RSP Test Certificates Definition, Sections 5, Annexes A and E*
 
 
 ---

@@ -7,23 +7,23 @@ date: 2026-06-07
 
 **🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.32 IoT eSIM]({{ site.baseurl }}/docs/articles/sgp32/) > IoT eSIM Functions Reference: ESipa, ES9+', ES11', ESep**
 
-> **💡 Why this matters:** This is the API-level reference for SGP.32's four IoT-specific interfaces — the catalogue you reach for when implementing an `eIM`, `IPA`, or IoT eSIM integration. Every function, its parameters, and its transport binding are listed here so you don't have to grep through 231 pages of specification.
+> **💡 Why this matters:** This is the API-level reference for SGP.32's four IoT-specific interfaces: the catalogue you reach for when implementing an `eIM`, `IPA`, or IoT eSIM integration. Every function, its parameters, and its transport binding are listed here so you don't have to grep through 231 pages of specification.
 
 > **Key takeaways:**
 > - `ESipa` is the workhorse: `TransferEimPackage`, `ProvideEimPackageResult`, `IpaEuiccDataRequest`/`Response`, `ProfileDownloadTrigger`, `HandleNotification`, plus Indirect Download relay functions
 > - `ES9+'` mirrors consumer `ES9+` for server-side profile download orchestration by the `eIM`
 > - `ES11'` mirrors consumer `ES11` for server-side SM-DS polling by the `eIM`
-> - `ESep` is logical only — its functions (`EuiccPackageRequest`, `EuiccPackageResult`, `EuiccMemoryReset`, `ExecuteFallbackMechanism`) are embedded within eUICC Packages over `ESipa`
+> - `ESep` is logical only: its functions (`EuiccPackageRequest`, `EuiccPackageResult`, `EuiccMemoryReset`, `ExecuteFallbackMechanism`) are embedded within eUICC Packages over `ESipa`
 > - Eight new ES10b extensions (`LoadEuiccPackage`, `AddInitialEimConfiguration`, `ProfileRollback`, etc.) support IoT-specific eUICC operations
 
 * TOC
 {:toc}
 
-This article catalogues the key functions defined by SGP.32's four IoT-specific interfaces — the API-level reference for anyone implementing an `eIM`, `IPA`, or IoT eSIM integration.
+This article catalogues the key functions defined by SGP.32's four IoT-specific interfaces: the API-level reference for anyone implementing an `eIM`, `IPA`, or IoT eSIM integration.
 
 ---
 
-## `ESipa` — eIM to IPA
+## `ESipa` : eIM to IPA
 
 The primary IoT interface, carrying eIM Packages, data requests, and notifications.
 
@@ -56,7 +56,7 @@ eIM → IPA:  Acknowledgements { sequenceNumbers }
 
 ### `IpaEuiccDataRequest` / `IpaEuiccDataResponse`
 
-The heartbeat exchange — `IPA` pushes eUICC state to the `eIM`.
+The heartbeat exchange : `IPA` pushes eUICC state to the `eIM`.
 
 ```
 eIM → IPA:  IpaEuiccDataRequest {
@@ -111,7 +111,7 @@ Forwards notifications to receivers.
 ```
 IPA → eIM:  ESipa.HandleNotification {
                 notificationList,
-                euiccPackageResult (optional — for PSMO results too)
+                euiccPackageResult (optional: for PSMO results too)
             }
 ```
 
@@ -149,7 +149,7 @@ IPA → eUICC: ES10b.LoadBoundProfilePackage (segments)
 
 ---
 
-## `ES9+'` — SM-DP+ to eIM
+## `ES9+'` : SM-DP+ to eIM
 
 Server-side mirror of consumer `ES9+`, used exclusively in Indirect profile download.
 
@@ -165,7 +165,7 @@ These are HTTP/JSON functions (like consumer `ES9+`), called by the `eIM` rather
 
 ---
 
-## `ES11'` — SM-DS to eIM
+## `ES11'` : SM-DS to eIM
 
 Server-side mirror of `ES11`, used when the `eIM` polls the SM-DS on behalf of the `IPA`.
 
@@ -179,9 +179,9 @@ Same HTTP/JSON binding as `ES11`, just with the `eIM` as the HTTP client instead
 
 ---
 
-## `ESep` — eIM to eUICC (Logical)
+## `ESep` : eIM to eUICC (Logical)
 
-Not a separate wire protocol — `ESep` functions are embedded within eUICC Packages carried over `ESipa`.
+Not a separate wire protocol : `ESep` functions are embedded within eUICC Packages carried over `ESipa`.
 
 ---
 
@@ -228,11 +228,11 @@ eIM → eUICC: Explicitly trigger fallback mechanism
 eUICC: Disables current profile, enables Fallback Profile
 ```
 
-This is the server-side equivalent of the autonomous fallback trigger — used when the `eIM` detects a connectivity issue and wants to proactively switch the device to its recovery profile.
+This is the server-side equivalent of the autonomous fallback trigger: used when the `eIM` detects a connectivity issue and wants to proactively switch the device to its recovery profile.
 
 ---
 
-## `ES10x` — IPA to eUICC (SGP.32 Extensions)
+## `ES10x` : IPA to eUICC (SGP.32 Extensions)
 
 SGP.32 extends SGP.22's ES10 functions with IoT-specific additions:
 
@@ -265,7 +265,7 @@ SGP.32 extends SGP.22's ES10 functions with IoT-specific additions:
 
 - `ESipa` carries everything: eIM Packages, data requests, profile download triggers, notifications, and Indirect Download relay
 - `ES9+'` and `ES11'` mirror consumer `ES9+`/`ES11` for server-side orchestration by the `eIM`
-- `ESep` is purely logical — its functions live inside eUICC Packages signed by both `eIM` and eUICC
+- `ESep` is purely logical: its functions live inside eUICC Packages signed by both `eIM` and eUICC
 - Eight new `ES10b` functions extend the IPA-to-eUICC interface for IoT-specific operations
 
 ---

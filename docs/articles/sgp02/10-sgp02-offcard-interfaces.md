@@ -8,23 +8,17 @@ title: "Off-Card Interfaces: ES1–ES7 and the SOAP Binding"
 
 **🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.02 M2M RSP]({{ site.baseurl }}/docs/articles/sgp02/) > Off-Card Interfaces: ES1–ES7 and the SOAP Binding**
 
-> **📚 Prerequisites:** This is a reference-level article. You should understand the SGP.02 roles (EUM, SM-DP, SM-SR, Operator, M2M SP) from Article 2 and the distinction between off-card and on-card interfaces. All previous articles use these interfaces — this article maps the complete function catalog.
+If you're implementing an SM-DP, integrating with an SM-SR, or debugging a profile operation that's failing somewhere in the chain, this is the article you'll keep coming back to. The off-card interfaces (ES1 through ES7) are the communication fabric that connects every server-side entity in the SGP.02 ecosystem. Together they carry somewhere north of ninety defined functions, and understanding which entity calls which function on which interface is table stakes for any serious implementation work.
 
-> **💡 Why this matters:** The off-card interfaces are the communication fabric that connects every entity in the SGP.02 ecosystem. Understanding which entity calls which function on which interface is essential for implementation, integration testing, and architectural decision-making.
+The previous articles have used these interfaces constantly (every Profile Download, every lifecyle command, every notification) but always from the perspective of the procedure. Here we flip the lens: what does each interface look like on its own terms, what's on it, and what's the thinking behind each one?
 
-> **Key takeaways:**
-> - Six off-card interfaces (ES1–ES4, ES4A, ES7) carry ~90+ defined functions using shared request-response and notification-handler patterns
-> - ES3 (SM-DP ↔ SM-SR) is the busiest interface with 28 functions; ES2 (Operator ↔ SM-DP) follows with 25 functions
-> - All off-card messages share a common structure: header (function identifier, caller/sender identification, execution parameters) + body (function-specific data)
-> - The SOAP/HTTPS binding (Annex B) maps ASN.1-defined messages (Annex A) to web services transport
-> - ES4A is a subset of ES4 dedicated to M2M SP authorisation and Operator Notification Configuration
-> - ES7 exists solely for SM-SR Change — only three functions, but among the most security-critical in the spec
+Chapter 5 of the spec (§5.1–5.7) is the source material, with ASN.1 definitions in Annex A and the SOAP binding in Annex B. The on-card interfaces (ES5, ES6, ES8, ESx) live in Chapter 4 and aren't covered here.
 
 ---
 
-## The Interface Landscape
+## The landscape: six interfaces at a glance
 
-SGP.02 Chapter 5 defines the off-card interfaces — the machine-to-machine APIs between server-side entities. These are distinct from the on-card (eUICC) interfaces (ES5, ES6, ES8, ESx) described in Chapter 4.
+Before diving into function tables, here's the bird's-eye view. Six off-card interfaces, each connecting a specific pair of entities:
 
 | Interface | Between | Purpose | Function Count |
 |-----------|---------|---------|---------------|
@@ -35,48 +29,50 @@ SGP.02 Chapter 5 defines the off-card interfaces — the machine-to-machine APIs
 | **ES4A** | Operator → SM-SR | M2M SP authorisation (PLMA) and ONC | 4 |
 | **ES7** | SM-SR → SM-SR | SM-SR Change handover | 3 |
 
-The interfaces form a hub-and-spoke pattern around the SM-SR, which participates in four of the six interfaces (ES1, ES3, ES4, ES7, plus ES4A). The SM-DP participates in two (ES2, ES3). The Operator participates in two (ES2, ES4) plus ES4A.
+The SM-SR is the hub: it participates in four of the six interfaces (ES1, ES3, ES4, ES7, plus ES4A). The SM-DP participates in two (ES2, ES3). The Operator touches ES2, ES4, and ES4A. Most functions appear on at least two interfaces; once on ES2 for the SM-DP relay path, and once on ES4 for the direct path. This isn't duplication for its own sake; it's the spec accommodating two different deployment topologies.
 
 ---
 
-## Common Function Patterns (§5.1)
+## Common patterns: what every function call looks like
 
-All off-card functions follow one of two communication patterns:
+Every off-card function, regardless of interface, follows one of two communication patterns from §5.1.
 
-### Request-Response (§5.1.2)
+### Request-response (§5.1.2)
 
-A synchronous call where the caller sends a request and blocks until receiving a response. Used for operations that must complete before the caller proceeds (e.g., `EnableProfile`, `DeleteProfile`). The request includes input parameters; the response includes an execution status and output data.
+The caller sends a request and blocks until the response arrives. Used for operations where the caller can't proceed without knowing the outcome: `EnableProfile`, `DeleteProfile`, `DownloadProfile`, and most management functions. The request carries input parameters; the response carries an execution status and output data.
 
-### Notification Handler (§5.1.3)
+### Notification handler (§5.1.3)
 
-An asynchronous one-way message where the sender informs the receiver of an event. Notifications do not expect a response (beyond transport-level acknowledgement). Used for status change notifications (e.g., `HandleProfileEnabledNotification`, `HandleSMSRChangeNotification`).
+A one-way asynchronous message. The sender fires it off and doesn't wait for a response beyond transport-level acknowledgement. Used for event notifications: `HandleProfileEnabledNotification`, `HandleSMSRChangeNotification`, and the like. In practice, these often trigger cascading updates: the SM-SR receives a notification from the eUICC and fans it out to every interested Operator and M2M SP.
 
-### Common Message Structure
+### The message envelope
 
-Every message, regardless of function, shares the same envelope structure:
+Every message shares the same structural skeleton, regardless of which function it carries:
 
-- **Header:** Function identifier, caller/sender identification, eUICC identification (EID), execution parameters (validity period, retry policy), and message correlation identifiers
-- **Body:** Function-specific input data — structured data types defined in ASN.1 notation (Annex A)
-- **Status codes:** Execution status values including `Executed-Success`, `Executed-WithWarning`, `Failed`, and function-specific error codes
+- **Header:** Function identifier, caller/sender identification, EID (so the receiver knows which eUICC we're talking about), execution parameters (validity period, retry policy), and correlation IDs for matching responses to requests
+- **Body:** Function-specific payload, structured ASN.1 types defined in Annex A
+- **Status codes:** Standardised values including `Executed-Success`, `Executed-WithWarning`, `Failed`, and function-specific error codes
+
+If you've ever worked with SOAP or gRPC, this pattern will feel familiar. The header handles routing and correlation; the body carries the domain logic.
 
 ---
 
-## ES1: EUM to SM-SR (§5.2)
+## ES1: EUM → SM-SR (§5.2)
 
-The simplest interface — only two functions, used during manufacturing and initial provisioning:
+The simplest interface: two functions, used exactly once per eUICC at manufacturing time and occasionally for metadata updates:
 
 | Function | Direction | Purpose |
 |----------|-----------|---------|
 | `RegisterEIS` | EUM → SM-SR | Register a new eUICC by submitting its EIS (signed by EUM) |
 | `UpdateEISAdditionalProperties` | EUM → SM-SR | Update additional properties in an existing EIS |
 
-The EIS registration is the first step in an eUICC's lifecycle. The EUM, having manufactured the chip, submits the signed EIS containing the ECASD certificate, ISD-R configuration, and initial metadata. The SM-SR verifies the EUM signature before accepting.
+ES1 is the eUICC's entry into the ecosystem. The EUM, having manufactured the chip, submits a signed EIS containing the ECASD certificate, ISD-R configuration, and initial metadata. The SM-SR verifies the EUM signature before accepting the record. If this registration fails, the eUICC doesn't exist as far as the RSP infrastructure is concerned: no profiles, no OTA commands, nothing. Two functions, but the whole system depends on them.
 
 ---
 
-## ES2: Operator to SM-DP (§5.3)
+## ES2: Operator → SM-DP (§5.3)
 
-The Operator's primary interface for profile management through the SM-DP. With 25 functions, it covers the full lifecycle:
+The Operator's primary workhorse. Twenty-five functions covering the full Profile lifecycle, all routed through the SM-DP:
 
 | Function | Pattern | Purpose |
 |----------|---------|---------|
@@ -106,13 +102,15 @@ The Operator's primary interface for profile management through the SM-DP. With 
 | `HandleFallBackAttributeSetNotification` | Notification | Receive notification of Fall-Back attribute set |
 | `HandleFallBackAttributeUnsetNotification` | Notification | Receive notification of Fall-Back attribute unset |
 
-Profile ordering and Master Delete functions on ES2 are considered out of scope — they use pre-existing Operator processes.
+Notice the split: roughly half are request-response (the Operator wants something done), and half are notification handlers (the Operator wants to know when something happened). The notification handlers are how the Operator stays aware of events it didn't directly trigger: a Profile being disabled by an M2M SP, an SM-SR change completed by a different Operator, a Fall-Back attribute being unset by an emergency procedure.
+
+Profile ordering and Master Delete functions are considered out of scope for ES2; they use pre-existing Operator processes rather than standardised RSP interfaces.
 
 ---
 
-## ES3: SM-DP to SM-SR (§5.4)
+## ES3: SM-DP → SM-SR (§5.4)
 
-The busiest interface, carrying 28 functions. ES3 serves as the SM-DP's channel to the SM-SR for all Profile and ISD-P operations. Many ES2 functions have a corresponding ES3 function that the SM-DP calls on the SM-SR:
+ES3 is the busiest interface in the spec: 28 functions, and it earns every one of them. It's the SM-DP's channel into the SM-SR for everything Profile-related. Many ES2 functions have a corresponding ES3 function: when the Operator calls `ES2.EnableProfile`, the SM-DP calls `ES3.EnableProfile` on the SM-SR. ES3 isn't a simple pass-through, though; the SM-DP adds cryptographic work (Profile preparation, key establishment) that doesn't exist on the ES2 side.
 
 | Function | Purpose |
 |----------|---------|
@@ -139,13 +137,15 @@ The busiest interface, carrying 28 functions. ES3 serves as the SM-DP's channel 
 | `HandleFallBackAttributeSetNotification` | Forward Fall-Back attribute set notification |
 | `HandleFallBackAttributeUnsetNotification` | Forward Fall-Back attribute unset notification |
 
-Plus ISD-P lifecycle and authorisation management functions.
+Plus ISD-P lifecycle and authorisation management functions rounding out the 28.
+
+If you're building an SM-DP, ES3 is where most of your integration complexity lives. You're not just proxying Operator commands; you're managing ISD-P creation, key establishment, and Profile encryption, all through this single interface.
 
 ---
 
-## ES4: Operator/M2M SP to SM-SR (§5.5)
+## ES4: Operator/M2M SP → SM-SR (§5.5)
 
-The direct channel to the SM-SR, carrying 23 functions. This is the interface used when the Operator has a direct relationship with the SM-SR (rather than going through an SM-DP):
+The direct channel. When the Operator has a relationship with the SM-SR (rather than going through an SM-DP), ES4 is the interface they use. Twenty-three functions, and the list mirrors ES2 almost exactly: same operations, different routing:
 
 | Function | Purpose |
 |----------|---------|
@@ -173,13 +173,13 @@ The direct channel to the SM-SR, carrying 23 functions. This is the interface us
 | `HandleFallBackAttributeSetNotification` | Receive Fall-Back attribute set notification |
 | `HandleFallBackAttributeUnsetNotification` | Receive Fall-Back attribute unset notification |
 
-The parallel between ES2 (via SM-DP) and ES4 (direct) function sets is deliberate — they support the same operations through different routing.
+The parallel between ES2 and ES4 is deliberate: they support the exact same operations, just through different routing. An Operator with an SM-DP relationship uses ES2; an Operator with a direct SM-SR relationship uses ES4. The functions themselves stay consistent. The two extra functions on ES4 that don't appear on ES2 (`PrepareSMSRChange` and `SMSRChange`) are the SM-SR Change operations. Those can't go through an SM-DP because the SM-DP isn't involved in SM-SR handover.
 
 ---
 
-## ES4A: Operator to SM-SR — PLMA and ONC (§5.7)
+## ES4A: Operator → SM-SR: PLMA and ONC (§5.7)
 
-ES4A is a subset of ES4 dedicated to two specific concerns:
+ES4A is a focused subset of ES4, carved out for two specific concerns:
 
 | Function | Purpose |
 |----------|---------|
@@ -188,13 +188,13 @@ ES4A is a subset of ES4 dedicated to two specific concerns:
 | `SetONC` | Set Operator Notification Configuration |
 | `GetONC` | Retrieve Operator Notification Configuration |
 
-The interface functionally overlaps with ES4 in some areas (PLMA and ONC can also be managed via ES2+ES3 relay), but ES4A provides the dedicated path for Operators with a direct SM-SR relationship.
+Four functions, two pairs of get/set. PLMA and ONC can also be managed through the ES2+ES3 relay path, but ES4A gives Operators with a direct SM-SR connection a dedicated administrative channel. If you're wondering why this needs its own interface rather than just being part of ES4, the spec separates them because PLMA and ONC are configuration operations, not lifecycle operations. They change policy, not Profile state. Different concern, different interface.
 
 ---
 
-## ES7: SM-SR to SM-SR — The Handover Interface (§5.6)
+## ES7: SM-SR → SM-SR: the handover interface (§5.6)
 
-The smallest interface by function count but arguably the most architecturally significant. ES7 exists exclusively for SM-SR Change, carrying three functions:
+The smallest interface by function count. The most architecturally significant. ES7 exists for exactly one purpose: SM-SR Change. Three functions, all critical to avoiding vendor lock-in:
 
 | Function | Direction | Purpose |
 |----------|-----------|---------|
@@ -202,39 +202,25 @@ The smallest interface by function count but arguably the most architecturally s
 | `AuthenticateSM-SR` | SM-SR2 → SM-SR1 | Provide SM-SR2's certificate for eUICC authentication |
 | `CreateAdditionalKeySet` | SM-SR2 → SM-SR1 | Provide ephemeral key and signature for KS2 creation |
 
-See Article 8 for the complete SM-SR Change procedure that uses these functions.
+ES7 is the only inter-SM-SR interface in the spec. Without it, migrating an eUICC between SM-SRs would be impossible; you'd be locked into your original SM-SR vendor for the lifetime of every device. The full change procedure that uses these three functions is covered in Article 7.
 
 ---
 
-## Annex B: The SOAP/HTTPS Binding
+## Annex B: The SOAP/HTTPS binding
 
-SGP.02 Annex B defines how the ASN.1 messages from Annex A are transported over SOAP web services. Key points:
+Annex A defines the messages in ASN.1. Annex B defines how they travel over the wire. The binding is normative (implementations must support it for interoperability) though the spec acknowledges that proprietary bindings exist for specific deployment scenarios.
 
-- **Transport:** SOAP v1.2 over HTTPS with mutual TLS authentication
-- **Message structure:** Each function call maps to a SOAP message with a header (containing function identifier, caller identity, correlation data) and a body (containing the function-specific payload)
-- **Header mapping:** The common message header elements (function caller, sender ID, EID, validity period) map into the SOAP header
-- **Body mapping:** The function-specific data structures map into the SOAP body
-- **Security:** Web Services Security (WS-Security) provides message-level signing and encryption; TLS provides transport-level security
-- **MEPs (Message Exchange Patterns):** Request-response functions use a synchronous SOAP request-response MEP; notification handlers use a one-way MEP
+The stack is SOAP v1.2 over HTTPS with mutual TLS authentication. Each function call maps to a SOAP message: the common header elements (function caller, sender ID, EID, validity period) go into the SOAP header, and the function-specific data structures go into the SOAP body. WS-Security provides message-level signing and encryption on top of the transport-level TLS.
 
-The binding is normative — implementations MUST support it for interoperability, though the spec acknowledges proprietary bindings for specific deployment scenarios.
+Message Exchange Patterns map cleanly: request-response functions use synchronous SOAP request-response MEPs, and notification handlers use one-way MEPs. WS-Addressing headers (`MessageID`, `RelatesTo`, `To`, `From`) handle message routing and correlation: every message gets a unique ID, and responses reference the request they're answering.
 
-### WS-Addressing
-
-Every SOAP message includes WS-Addressing headers for message routing and correlation:
-- `MessageID` uniquely identifies each message
-- `RelatesTo` correlates responses to requests
-- `To` / `From` identify endpoints
-
-### URI Structure
-
-Each function has a defined URI endpoint following the pattern: `https://<host>/<interface>/<function>`. For example, ES4's `EnableProfile` might map to `https://smsr.example.com/es4/EnableProfile`.
+The URI structure follows a predictable pattern: `https://<host>/<interface>/<function>`. ES4's `EnableProfile` might resolve to `https://smsr.example.com/es4/EnableProfile`. If you're building a client, the URI convention is stable enough to generate programmatically.
 
 ---
 
-## Interface Usage by Procedure
+## Which interface carries which procedure?
 
-Mapping the full procedure catalog (Articles 6–9) to the interfaces that carry them:
+A cross-reference mapping the procedure catalog back to the interfaces that carry them:
 
 | Procedure | Initiation Path | Interfaces Used |
 |-----------|----------------|-----------------|
@@ -249,16 +235,19 @@ Mapping the full procedure catalog (Articles 6–9) to the interfaces that carry
 | POL1 Update | Operator → eUICC | ES6 |
 | POL2 Update | Operator → SM-DP → SM-SR | ES2, ES3 |
 
+Every on-card operation flows through ES5. Every server-side operation flows through one of the off-card interfaces above. The two domains meet at the SM-SR, which holds keys for both.
+
 ---
 
 ## 📋 Summary
 
-- Six off-card interfaces carry ~90+ defined functions: ES1 (EUM registration), ES2 (Operator→SM-DP, 25 functions), ES3 (SM-DP→SM-SR, 28 functions), ES4 (Operator/M2M SP→SM-SR, 23 functions), ES4A (PLMA + ONC), and ES7 (SM-SR handover, 3 functions)
-- All functions follow one of two patterns: synchronous request-response or asynchronous one-way notification handler
-- Common message structure: header (function ID, caller, EID, execution params) + body (function-specific data) + status codes
-- ES2 and ES4 provide parallel function sets for the same operations through different routing (via SM-DP relay or direct)
-- The SOAP/HTTPS binding (Annex B) maps ASN.1 messages (Annex A) to web services with WS-Addressing, WS-Security, and mutual TLS
-- ES7 is the only inter-SM-SR interface — minimal (3 functions) but critical for avoiding vendor lock-in
+- Six off-card interfaces carry roughly 90+ defined functions, with the SM-SR at the centre of most of them
+- ES3 is the busiest (28 functions); it's where the SM-DP and SM-SR do the real work of Profile management
+- ES2 and ES4 provide parallel function sets for the same operations through different routing: relay (via SM-DP) or direct (to SM-SR)
+- Every function is either request-response (synchronous, caller blocks) or notification handler (asynchronous, fire-and-forget), sharing a common header+body envelope
+- The SOAP/HTTPS binding (Annex B) is the normative transport, with ASN.1 payloads in SOAP bodies, WS-Addressing for correlation, and mutual TLS
+- ES7 is the only inter-SM-SR interface: three functions, but they're the only thing standing between you and vendor lock-in
+- ES4A carves out PLMA and ONC into their own interface because they're configuration operations, not lifecycle operations
 
 ---
 
@@ -273,8 +262,7 @@ Next: [SGP.02 vs SGP.22 vs SGP.32: Push, Pull, and the Evolution of eSIM](11-sgp
 
 ---
 
-*Based on GSMA SGP.02 v4.2 (07 July 2020) — Remote Provisioning Architecture for Embedded UICC Technical Specification, Chapter 5 (§5.1–5.7), Annex A–C*
-
+*Based on GSMA SGP.02 v4.2 (07 July 2020), Remote Provisioning Architecture for Embedded UICC Technical Specification, Chapter 5 (§5.1–5.7), Annex A–C*
 
 ---
 

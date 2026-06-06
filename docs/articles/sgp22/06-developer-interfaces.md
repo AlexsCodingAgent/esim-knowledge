@@ -7,20 +7,20 @@ date: 2026-06-05
 
 **🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > The Developer's View: RSP Interfaces and Protocol Binding**
 
-> **💡 Why this matters:** If you're building an LPA, an SM-DP+, or integrating eSIM into a device, this is your reference. Every function signature, HTTP endpoint, ASN.1 structure, and protocol binding rule is standardised — you just need to know where to look.
+> **💡 Why this matters:** If you're building an LPA, an SM-DP+, or integrating eSIM into a device, this is your reference. Every function signature, HTTP endpoint, ASN.1 structure, and protocol binding rule is standardised: you just need to know where to look.
 
 > **Key takeaways:**
 > - Four interface families (`ES2+`, `ES8+`, `ES9+`, `ES10x`) cover ordering, secure delivery, LPA-server communication, and local chip access
 > - `ES2+` and `ES9+` use HTTP/JSON with standardised headers; `ES8+` uses ASN.1 TLV encoding with SCP03t transport security
-> - `ES10x` is the APDU-level interface over ISO 7816 — there are 11 `ES10b` functions and 7 `ES10c` functions
+> - `ES10x` is the APDU-level interface over ISO 7816: there are 11 `ES10b` functions and 7 `ES10c` functions
 > - Every function call carries a `functionCallIdentifier` for idempotency, retry safety, and audit trails
-> - The SM-DS introduces an event-driven decoupling pattern — profiles can be generated today and discovered next week
+> - The SM-DS introduces an event-driven decoupling pattern: profiles can be generated today and discovered next week
 
 ---
 * TOC
 {:toc}
 
-For developers implementing eSIM support — whether building an LPA, an SM-DP+, or integrating with an eUICC — understanding the function-level API and wire protocol is essential. SGP.22 defines every function call, every TLV structure, and both JSON and ASN.1 serialisation formats.
+For developers implementing eSIM support: whether building an LPA, an SM-DP+, or integrating with an eUICC: understanding the function-level API and wire protocol is essential. SGP.22 defines every function call, every TLV structure, and both JSON and ASN.1 serialisation formats.
 
 ---
 
@@ -38,9 +38,9 @@ POST /gsma/rsp2/es2plus/downloadOrder
 Request:
 {
   "header": { "functionRequesterIdentifier": "...", "functionCallIdentifier": "..." },
-  "eid": "8901...",           // Optional — required if ICCID not specified
+  "eid": "8901...",           // Optional: required if ICCID not specified
   "iccid": "8944...",         // Optional
-  "profileType": "..."        // Optional — if ICCID is not present
+  "profileType": "..."        // Optional: if ICCID is not present
 }
 
 Response:
@@ -61,9 +61,9 @@ Request:
 {
   "header": { ... },
   "iccid": "8944...",         // Required
-  "eid": "8901...",           // Optional — required if not in DownloadOrder
+  "eid": "8901...",           // Optional: required if not in DownloadOrder
   "matchingId": "...",        // If empty, SM-DP+ generates it for Activation Code
-  "confirmationCodeRequired": true,  // Optional — requires user to enter code
+  "confirmationCodeRequired": true,  // Optional: requires user to enter code
   "smdsAddress": "https://...",  // Required for SM-DS delivery
   "releaseFlag": true
 }
@@ -214,7 +214,7 @@ Status codes include success states (`Executed-Success`), error states (`Failed`
 
 ### ASN.1 Binding
 
-The `ES8+` interface (SM-DP+ → eUICC) and the Bound Profile Package structure use ASN.1 with TLV encoding. The ASN.1 definitions occupy Annex H of the specification — hundreds of lines of structured type definitions. The BPP structure itself is defined as:
+The `ES8+` interface (SM-DP+ → eUICC) and the Bound Profile Package structure use ASN.1 with TLV encoding. The ASN.1 definitions occupy Annex H of the specification: hundreds of lines of structured type definitions. The BPP structure itself is defined as:
 
 ```asn1
 BoundProfilePackage ::= [54] SEQUENCE {
@@ -238,10 +238,10 @@ All server-to-server and device-to-server communication uses HTTPS with TLS:
 - **Server authentication mode** for `ES9+` and `ES11` (the server presents a certificate, the client does not)
 - **Certificate validation** against the GSMA CI chain
 - **HTTP response codes** standardised:
-  - `200 OK` — function executed
-  - `400 Bad Request` — malformed request
-  - `401 Unauthorized` — authentication failure
-  - `500 Internal Server Error` — unexpected server error
+  - `200 OK` : function executed
+  - `400 Bad Request` : malformed request
+  - `401 Unauthorized` : authentication failure
+  - `500 Internal Server Error` : unexpected server error
 
 ---
 
@@ -254,13 +254,13 @@ The SM-DS system introduces an event-driven pattern:
 3. **SM-DS cascading**: Events can propagate through multiple SM-DS instances via `ES15` for global coverage
 4. **Event deletion**: After profile download, the SM-DP+ deletes the Event via `ES12`: `DeleteEvent(EID, EventID)`
 
-This decouples profile availability from download timing — the SM-DP+ can generate a profile today, and the device can discover it next week.
+This decouples profile availability from download timing: the SM-DP+ can generate a profile today, and the device can discover it next week.
 
 ---
 
 ## Function Call Identifiers
 
-Every function call includes a `functionCallIdentifier` — a unique ID that enables:
+Every function call includes a `functionCallIdentifier` : a unique ID that enables:
 
 - **Idempotency**: Repeating the same call with the same ID produces the same result
 - **Retry logic**: Network failures can be retried without risk of double-execution
@@ -271,8 +271,8 @@ Every function call includes a `functionCallIdentifier` — a unique ID that ena
 ## 📋 Summary
 
 - Four interface families cover the full eSIM lifecycle: `ES2+` (ordering, JSON), `ES8+` (secure delivery, ASN.1/SCP03t), `ES9+` (LPA-server, JSON), and `ES10x` (local chip access, APDU)
-- The `ES8+` Bound Profile Package uses ASN.1 TLV encoding with SCP03t encryption — five function calls carry the entire profile payload through an untrusted LPA
-- `ES10b` provides 11 functions for profile download orchestration; `ES10c` provides 7 for local management — all over ISO 7816 APDUs
+- The `ES8+` Bound Profile Package uses ASN.1 TLV encoding with SCP03t encryption: five function calls carry the entire profile payload through an untrusted LPA
+- `ES10b` provides 11 functions for profile download orchestration; `ES10c` provides 7 for local management: all over ISO 7816 APDUs
 - `functionCallIdentifier` headers provide idempotency, retry safety, and end-to-end auditability across every interface
 - The SM-DS event pattern (`ES11`/`ES12`/`ES15`) decouples profile generation from delivery timing, enabling global-scale deferred provisioning
 
@@ -286,9 +286,9 @@ Every function call includes a `functionCallIdentifier` — a unique ID that ena
 
 ---
 
-*Based on GSMA SGP.22 v2.7 (24 April 2026), Sections 5 and 6 — Functions and Interface Binding*
+*Based on GSMA SGP.22 v2.7 (24 April 2026), Sections 5 and 6: Functions and Interface Binding*
 
 
 ---
 
-← Previous: [Managing Your eSIM: Local Profile Operations](05-local-profile-management) | [Section Index](index) | Next: [SGP.22 v2.7 — LPAe: The In-eUICC Local Profile Assistant](07-lpae-in-euicc) →
+← Previous: [Managing Your eSIM: Local Profile Operations](05-local-profile-management) | [Section Index](index) | Next: [SGP.22 v2.7: LPAe: The In-eUICC Local Profile Assistant](07-lpae-in-euicc) →

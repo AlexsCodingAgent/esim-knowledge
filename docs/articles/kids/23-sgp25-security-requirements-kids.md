@@ -7,9 +7,9 @@ date: 2026-06-07
 
 ## Imagine...
 
-You're the head of security for a bank vault. Your checklist has specific items: steel doors that lock automatically, motion sensors on every wall, guards who check ID badges, and separate locked rooms for different customers' safe deposit boxes. If anything is missing — the vault fails inspection.
+You're the head of security for a bank vault. Your checklist has specific items: steel doors that lock automatically, motion sensors on every wall, guards who check ID badges, and separate locked rooms for different customers' safe deposit boxes. If anything is missing: the vault fails inspection.
 
-SGP.25 has exactly this kind of checklist. They're called **Security Functional Requirements** (SFRs) — precise, testable statements that say exactly what the eUICC chip must *do* to be secure. Not vague suggestions. Not "best efforts." Specific, measurable requirements.
+SGP.25 has exactly this kind of checklist. They're called **Security Functional Requirements** (SFRs) : precise, testable statements that say exactly what the eUICC chip must *do* to be secure. Not vague suggestions. Not "best efforts." Specific, measurable requirements.
 
 ---
 
@@ -24,7 +24,7 @@ SGP.25 organises its requirements around four Security Function Policies (SFPs):
 | **ISD-R Content Access SFP** | Who can manage profiles | Only the vault manager has the master key |
 | **ECASD Access SFP** | Who can touch secret keys | Only the security director knows the combination |
 
-Each policy has specific rules about who can do what — and what happens when someone tries to break them.
+Each policy has specific rules about who can do what: and what happens when someone tries to break them.
 
 ---
 
@@ -34,11 +34,11 @@ Before anyone can do *anything* on the chip, they must prove who they are:
 
 | Requirement | What It Means |
 |-------------|---------------|
-| **FIA_UID.1** | "Show your ID before entering." — Every actor identified first |
-| **FIA_UAU.1** | "Now prove it's really you." — Authentication must succeed |
-| **FIA_USB.1** | "Here's your access badge." — Bind identity to permissions |
-| **FIA_UAU.4** | "No re-using old passwords." — Single-use authentication only |
-| **FIA_API.1** | "Here's proof of MY identity." — Chip proves it's real to others |
+| **FIA_UID.1** | "Show your ID before entering." : Every actor identified first |
+| **FIA_UAU.1** | "Now prove it's really you." : Authentication must succeed |
+| **FIA_USB.1** | "Here's your access badge." : Bind identity to permissions |
+| **FIA_UAU.4** | "No re-using old passwords." : Single-use authentication only |
+| **FIA_API.1** | "Here's proof of MY identity." : Chip proves it's real to others |
 
 Different actors get authenticated differently:
 
@@ -54,10 +54,10 @@ Different actors get authenticated differently:
 Every message going in or out of the chip travels through protected channels:
 
 ```
-FTP_ITC.1  — "Build a secure tunnel."
-FDP_UCT.1  — "Keep the contents secret."
-FDP_UIT.1  — "Make sure nobody tampered with it."
-FDP_IFC.1  — "Here are the rules for what flows where."
+FTP_ITC.1  : "Build a secure tunnel."
+FDP_UCT.1  : "Keep the contents secret."
+FDP_UIT.1  : "Make sure nobody tampered with it."
+FDP_IFC.1  : "Here are the rules for what flows where."
 ```
 
 Three secure channel protocols handle different conversations:
@@ -108,7 +108,7 @@ Not everyone can change security settings. SGP.25 defines specific rules:
 | **ISD-P State** | ISD-R, under strict rules |
 | **Profile creation/deletion** | ISD-R, authorised by authenticated operators |
 
-The RAT (Rules Authorisation Table) is especially important — it's set once at manufacturing and can never be changed. It defines what operations are forever forbidden on each profile. Think of it as the vault's constitution — the rules that even the vault manager can't override.
+The RAT (Rules Authorisation Table) is especially important: it's set once at manufacturing and can never be changed. It defines what operations are forever forbidden on each profile. Think of it as the vault's constitution: the rules that even the vault manager can't override.
 
 ---
 
@@ -116,10 +116,10 @@ The RAT (Rules Authorisation Table) is especially important — it's set once at
 
 What happens when things go wrong? The chip must fail **securely**:
 
-- **FPT_FLS.1** — If an operation fails, the chip returns to a secure state. No half-installed profiles, no partially deleted keys.
-- **FDP_SDI.1** — The chip constantly monitors its own data integrity. If something looks corrupted, it raises the alarm.
-- **FDP_RIP.1** — When data is deleted, it's *really* deleted. No leftover scraps of secret keys in freed memory.
-- **FCS_RNG.1** — All random numbers used for keys and challenges must come from a properly certified random number generator. No shortcuts!
+- **FPT_FLS.1** : If an operation fails, the chip returns to a secure state. No half-installed profiles, no partially deleted keys.
+- **FDP_SDI.1** : The chip constantly monitors its own data integrity. If something looks corrupted, it raises the alarm.
+- **FDP_RIP.1** : When data is deleted, it's *really* deleted. No leftover scraps of secret keys in freed memory.
+- **FCS_RNG.1** : All random numbers used for keys and challenges must come from a properly certified random number generator. No shortcuts!
 
 ---
 
@@ -138,12 +138,10 @@ This clean separation means each layer is independently certified and trusted. T
 
 ---
 
-## 🧠 Did You Know?
-
-The TOE (Target of Evaluation — what's actually tested) for SGP.25 includes the ISD-R, ECASD, ISD-Ps, and Platform Layer, but explicitly **excludes** the MNO-SD, profiles, and runtime environment. It's like inspecting the vault's security system without inspecting what customers put in their safe deposit boxes!
+The TOE (Target of Evaluation: what's actually tested) for SGP.25 includes the ISD-R, ECASD, ISD-Ps, and Platform Layer, but explicitly **excludes** the MNO-SD, profiles, and runtime environment. It's like inspecting the vault's security system without inspecting what customers put in their safe deposit boxes!
 
 ---
 
-*Kid-friendly version of GSMA SGP.25 v2.1 — Security Functional Requirements*
+*Kid-friendly version of GSMA SGP.25 v2.1: Security Functional Requirements*
 
 ← [Back to Kids Articles](index)

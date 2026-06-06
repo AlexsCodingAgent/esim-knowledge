@@ -1,11 +1,11 @@
 ---
 layout: default
-title: "SGP.26 — RSP Test Certificates"
+title: "SGP.26: RSP Test Certificates"
 ---
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > SGP.26 — RSP Test Certificates**
+**🏠 [eUICC.tech]({{ site.baseurl }}/) > SGP.26: RSP Test Certificates**
 
-# SGP.26 — RSP Test Certificates
+# SGP.26: RSP Test Certificates
 
 *The PKI for eSIM development and testing.*
 

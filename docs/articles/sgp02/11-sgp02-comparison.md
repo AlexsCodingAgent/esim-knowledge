@@ -8,22 +8,88 @@ title: "SGP.02 vs SGP.22 vs SGP.32: Push, Pull, and the Evolution of eSIM"
 
 **🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.02 M2M RSP]({{ site.baseurl }}/docs/articles/sgp02/) > SGP.02 vs SGP.22 vs SGP.32: Push, Pull, and the Evolution of eSIM**
 
-> **📚 Prerequisites:** You should have read the full SGP.02 series (at minimum Articles 1–2 for architecture, plus the procedure articles for lifecycle understanding). Familiarity with SGP.22's consumer architecture (LPA, SM-DP+, SM-DS) is helpful — see the SGP.22 overview on this site.
+You're standing in front of a whiteboard with three boxes labeled SGP.02, SGP.22, and SGP.32. Someone (your boss, your architect, your client) wants to know which one to use. And if you get this wrong, the cost isn't a code refactor. It's 10,000 truck rolls in year five when your fleet needs to switch operators and every device needs a technician visit because you picked a pull architecture for a device that can't pull.
 
-> **💡 Why this matters:** The GSMA has published three major eSIM specifications targeting different device categories. Choosing the wrong architecture for your deployment can mean the difference between a smooth fleet operation and a logistical nightmare. This comparison gives you the framework to make that decision.
+So let's get this right.
 
-> **Key takeaways:**
-> - SGP.02 (2014) was first — designed for M2M push, where servers control provisioning of unattended devices
-> - SGP.22 (2016) introduced the consumer pull model — user-initiated, QR-code-driven, designed for smartphones
-> - SGP.32 (2023) brings pull to IoT — combining consumer-style UX with M2M-scale fleet management
-> - Each spec uses a fundamentally different model for who initiates provisioning and who holds the OTA channel
-> - The line between M2M and IoT blurs — SGP.32 now covers many use cases that were historically SGP.02 territory
+The GSMA has published three major eSIM specifications. They weren't designed as v1, v2, v3 of the same thing; each targets a fundamentally different class of device, and they answer the central question differently: **who initiates profile provisioning?**
+
+- **SGP.02** says the server does. A push model, written for headless meters, automotive telematics, industrial sensors: devices nobody touches for a decade.
+- **SGP.22** says the user does. A pull model, built for smartphones. QR codes, touch screens, end-user choice.
+- **SGP.32** says... it depends. A pull model with a server-side orchestrator, designed to give IoT deployments the best of both worlds.
+
+Before we get into the details: if you've been reading this series from the start, you've already absorbed 10 articles about SGP.02. This one zooms out. You won't need to have memorized every procedure, but you should know the roles (SM-DP, SM-SR, Operator, M2M SP), the push model, and the idea that the SM-SR owns the OTA channel. If those are fuzzy, the [Architecture article]({{ site.baseurl }}/docs/articles/sgp02/01-sgp02-architecture) will get you sorted. For the consumer side, familiarity with SGP.22's LPA and SM-DP+ helps but isn't mandatory; I'll explain what you need.
 
 ---
 
-## The Three Generations of eSIM
+## The short answer: a decision table
 
-The GSMA's eSIM standardisation didn't follow a linear progression from simple to complex. Instead, each specification was designed for a fundamentally different class of device, with different constraints and different answers to the central question: **who initiates profile provisioning?**
+If you want to skip the nuance (don't, but I get it, you're busy), here's the one-minute version:
+
+| You're building... | Use this | Because... |
+|---|---|---|
+| A smartphone, tablet, or smartwatch | SGP.22 | QR onboarding, LPA, end-user self-service |
+| A new IoT fleet with manageable devices | SGP.32 | Pull flexibility + eIM fleet orchestration |
+| Truly unreachable M2M: sealed meters, buried sensors, eCall | SGP.02 | Push model; the server reaches in, no device cooperation needed |
+| You already have 50,000 SGP.02 devices deployed | SGP.02 | Migration to SGP.32 involves new hardware; your fleet's got another decade to run |
+
+Obvious caveat: reality is messier than a 2×4 table. Your automotive module might talk SGP.02 today but have an SGP.32 roadmap for 2028. Your smart meter fleet might be split; SGP.02 for the meters already in basements, SGP.32 for the new generation. Let's walk through why.
+
+---
+
+## SGP.02: the server knows best
+
+SGP.02 was first, published in 2014 (current version: v4.2, July 2020). It was designed for a world where the device is dumb and the server is smart; and that's not an insult, it's a design constraint. When your device has no screen, no keyboard, and sits in a concrete vault for 15 years, you don't ask it to make decisions. You push.
+
+The SM-SR sits at the center of the architecture. It holds the Platform Management keys, stores the EIS for every eUICC under management, and owns the OTA channel: SMS, HTTPS, CAT_TP, whatever it takes to reach the chip. The SM-DP builds profiles. The Operator decides when. The SM-SR delivers. The device accepts.
+
+The split SM-DP/SM-SR architecture isn't an accident. It means an operator can buy profile generation from one vendor and secure routing from another, and can switch SM-SR providers without rebuilding profiles (the SM-SR Change procedure: 32 steps, four entities, one atomic commit point at step 23). That procedure alone is a 15-year insurance policy against vendor lock-in.
+
+SGP.02 also has things the other specs simply don't: the Fall-Back Mechanism (one profile flagged to take over automatically when connectivity drops), the Emergency Profile (eCall compliance without a commercial subscription), and the M2M SP role (fleet managers who don't own connectivity but need to manage it).
+
+**The reason to still pick SGP.02 for new deployments in 2026:** your devices are truly unreachable. Not "occasionally offline"; actually unreachable. Sealed. No IP stack. Deep sleep for months. The kind of device where the server has to reach down and flip a switch whether the device is awake or not.
+
+**The reason not to:** if your devices can check in periodically, even once a day, SGP.32 almost certainly gives you more flexibility with less complexity.
+
+---
+
+## SGP.22: the user is in charge
+
+SGP.22 (first published 2016, current v2.7 from April 2026) flipped everything SGP.02 established. No SM-SR. No push. The LPA (Local Profile Assistant) runs on the device and initiates everything. It pulls profiles from the SM-DP+, a combined server role that handles both profile preparation and delivery.
+
+The activation flow is the one everyone knows: scan a QR code encoded with `LPA:1$SMDP_ADDRESS$MATCHING_ID`. The LPA reaches out, mutual authentication happens, the profile downloads, done. The user tapped a button.
+
+SGP.22 unified the SM-DP and SM-SR into the SM-DP+, collapsing two server roles into one. The ecosystem got simpler. The end-to-end security got stronger: ES8+ creates an SCP03t-encrypted tunnel between the SM-DP+ and the eUICC's ISD-P that the LPA can't see inside. The SM-DS (Discovery Server) acts as a bulletin board: the operator posts "there's a profile waiting for EID X," the LPA checks in, finds the pointer, and pulls.
+
+**The reason to pick SGP.22:** consumer devices. Screens, QR codes, users who want to switch plans while sitting in an airport. If your device has an LPA (and every modern smartphone OS ships one), SGP.22 is the answer.
+
+**The reason not to for IoT:** SGP.22 was never designed for fleet management. There's no server-side orchestrator. Managing 10,000 devices through SGP.22 means 10,000 individual QR code scans or activation codes. The spec doesn't stop you from building fleet tooling on top, but it doesn't help you either.
+
+---
+
+## SGP.32: IoT grows up
+
+SGP.32 (first published 2023) is the newest member of the family, and it's explicitly designed to fill the gap SGP.22 left open: IoT devices that want pull-model flexibility but need fleet management at scale.
+
+It introduces two new pieces:
+
+**The IPA (IoT Profile Assistant)**, the device-side component, conceptually similar to the LPA but lighter. It can run on the device itself or on a companion gateway that manages multiple constrained eUICCs. Think of a smart home hub managing eSIMs for a dozen sensors.
+
+**The eIM (eSIM IoT Manager)** is a server-side fleet orchestrator. The eIM can trigger profile operations on behalf of the device owner, giving you a server-driven element within the pull architecture. It doesn't replace the SM-DP+; SGP.32 reuses the existing consumer infrastructure. Operators don't need to deploy new profile servers.
+
+The flexibility is the headline. A device can pull a profile on its own (like SGP.22). Or the eIM can trigger the pull (server-initiated within a pull framework). Or the IPA on a gateway can manage profiles for devices that are too constrained to run their own assistant.
+
+The gateway model is genuinely new. A cellular router with an IPA can provision eSIMs on sensors that don't even have an IP stack; they just need the eUICC hardware. The IPA handles the heavy lifting.
+
+**The reason to pick SGP.32 for new IoT:** pull flexibility, fleet management with the eIM, reuse of consumer SM-DP+ infrastructure, and the gateway model for the really constrained stuff. Unless your devices are completely unreachable (in which case, back to SGP.02), SGP.32 is the modern answer.
+
+**The catch:** SGP.32 is newer. The ecosystem is still maturing. SGP.02 has been in production for a decade; SGP.32 is ramping up now. For a deployment starting in 2026, that's probably fine, but worth knowing.
+
+---
+
+## The specs side by side
+
+### Architecture overview
 
 | Dimension | SGP.02 (M2M Push) | SGP.22 (Consumer Pull) | SGP.32 (IoT Pull) |
 |-----------|-------------------|----------------------|-------------------|
@@ -38,91 +104,7 @@ The GSMA's eSIM standardisation didn't follow a linear progression from simple t
 | **Gateway Model** | Not applicable | Not applicable | IPA in gateway devices |
 | **Spec Pages** | 452 pages | 296 pages | Evolving |
 
----
-
-## The Push Model (SGP.02)
-
-SGP.02 is built around a simple principle: the device is dumb, the server is smart. The SM-SR owns the OTA channel and decides when profiles arrive.
-
-**Key architectural characteristics:**
-- **Split server roles:** SM-DP builds profiles; SM-SR manages platform operations. This separation creates a two-vendor ecosystem — you can change SM-DP without changing SM-SR, and vice versa
-- **SM-SR as central hub:** All profile operations route through the SM-SR. The SM-SR holds the Platform Management keys, maintains the EIS, and is the single point of OTA contact
-- **Operator-controlled lifecycle:** The Operator (not the device owner) decides when to provision, enable, disable, or delete profiles
-- **No user interface path:** The ESx interface exists only for Device-initiated Test/Emergency profile switching — not for normal profile management
-- **SM-SR Change procedure:** The spec includes a complete handover protocol (32 steps, four entities) to prevent vendor lock-in at the SM-SR level
-
-**Best for:** Devices that are truly unreachable — sealed, headless, installed in inaccessible locations for years. Automotive telematics units with no screen, utility meters in basements, remote environmental sensors.
-
-**Limitations:** Complex ecosystem with more roles and interfaces. Overhead of split DP/SR architecture. No end-user self-service path. Higher integration cost for small deployments.
-
----
-
-## The Consumer Pull Model (SGP.22)
-
-SGP.22 flipped the script: the device/user initiates everything. The LPA (Local Profile Assistant) running on the device pulls profiles from the SM-DP+.
-
-**Key architectural characteristics:**
-- **Unified SM-DP+:** Combines the functions of SM-DP and SM-SR into a single server role. Simpler ecosystem, fewer interfaces
-- **LPA as device-side orchestrator:** Three sub-components (LDS for discovery, LPD for download, LUI for user interface) handle everything on-device
-- **SM-DS for discovery:** A notification service that tells the LPA when a profile is waiting — the SM-DS holds pointers, not profiles
-- **QR code activation:** The standard activation mechanism is an `LPA:1$SMDP_ADDRESS$MATCHING_ID` string encoded in a QR code
-- **User-driven lifecycle:** Enable, disable, delete, nickname — all through the LUI
-- **ES8+ end-to-end security:** The SM-DP+ communicates directly with the eUICC's ISD-P through an encrypted tunnel that the LPA cannot see inside
-
-**Best for:** Consumer devices with screens and user interaction. Smartphones, tablets, smartwatches, laptops — any device where the end user makes connectivity decisions.
-
-**Limitations:** Requires a functioning LPA on the device (software dependency). No fleet management infrastructure built into the spec. The pull model assumes the device is reachable and powered on when the user wants to act.
-
----
-
-## The IoT Pull Model (SGP.32)
-
-SGP.32 is the newest member of the family — designed to bring pull-model flexibility to IoT while addressing the fleet management needs that SGP.22 lacks and the accessibility constraints that make SGP.02's push model impractical for some IoT deployments.
-
-**Key architectural characteristics:**
-- **IPA (IoT Profile Assistant):** The device-side component, analogous to LPA but designed for constrained IoT devices. May run on the device itself or on a companion gateway
-- **eIM (eSIM IoT Manager):** A new server-side role for fleet orchestration. The eIM can trigger profile operations on behalf of the device owner, providing a server-driven element within the pull architecture
-- **Reuses SM-DP+ and SM-DS:** Leverages the existing consumer infrastructure — operators don't need to deploy new profile servers
-- **Flexible initiation:** Supports both device-initiated pull (like SGP.22) and eIM-triggered operations (server-initiated within a pull framework)
-- **Gateway model:** IPA can run on a gateway device managing multiple eUICCs — enabling provisioning of very constrained sensors through a more capable hub
-
-**Best for:** IoT devices that benefit from pull flexibility but need fleet management. Asset trackers, smart home devices, edge gateways, agricultural sensors — devices that are reachable but deployed in large fleets.
-
-**Relationship to SGP.02:** SGP.32 explicitly addresses many use cases that were previously SGP.02's domain. For new IoT deployments, SGP.32 is generally preferred. SGP.02 remains relevant for legacy fleets and truly unreachable devices.
-
----
-
-## When to Use Which Standard
-
-### Use SGP.02 when:
-
-- The device has no screen, no user interaction, and no LPA-capable OS
-- The Operator (not the device owner) controls connectivity decisions
-- Devices are sealed and physically inaccessible for their entire lifecycle
-- You need the split SM-DP/SM-SR architecture (e.g., separate vendors for profile preparation and platform management)
-- You're supporting an existing M2M fleet built on SGP.02 infrastructure
-- You need the SM-SR Change procedure for SM-SR-level vendor portability
-
-### Use SGP.22 when:
-
-- The device has a screen and end-user interaction
-- Users need to self-manage profiles (add travel eSIMs, switch plans)
-- QR code activation is the expected onboarding flow
-- You're building a consumer product (phone, tablet, wearable, laptop)
-- You want the simplest server-side architecture (single SM-DP+ vendor)
-
-### Use SGP.32 when:
-
-- You're deploying a new IoT fleet and want pull-model flexibility
-- You need fleet management at scale (thousands of devices) with central orchestration
-- Devices are constrained but reachable — they can check in periodically
-- You want to reuse existing consumer SM-DP+ infrastructure
-- You need the gateway model for very constrained sensors
-- You want the option of both device-initiated and server-initiated operations
-
----
-
-## Architectural Differences at a Glance
+### Technical differences
 
 | Feature | SGP.02 | SGP.22 | SGP.32 |
 |---------|--------|--------|--------|
@@ -138,41 +120,45 @@ SGP.32 is the newest member of the family — designed to bring pull-model flexi
 
 ---
 
-## Migration Paths
+## "But I already have SGP.02 devices in the field"
 
-Organisations with existing SGP.02 deployments have several migration options:
+This is the question that actually matters for anyone reading these articles because they're responsible for a real fleet. You're not starting from a blank whiteboard. You've got 10,000 smart meters running SGP.02, and they're supposed to keep running until 2038. What now?
 
-**Stay on SGP.02:** For deeply embedded M2M devices with 10+ year lifecycles, staying on SGP.02 may be the right choice. The spec is mature, infrastructure is proven, and the SM-SR Change procedure ensures SM-SR portability. The GSMA continues to maintain the spec (v4.2 from 2020 remains current).
+**Option 1: Stay put.** SGP.02 is mature, proven, and the GSMA still maintains it (v4.2 from 2020 is current). Your SM-SR Change procedure protects you against vendor lock-in at the backend level. If your devices are working and your operator relationships are stable, doing nothing is a legitimate strategy. The spec was designed for 15-year lifecycles; it's not going anywhere.
 
-**Hybrid Architecture:** Some operators run both SGP.02 and SGP.22/SGP.32 infrastructure, serving different device categories from the same core network. The SM-DP component can be shared if the vendor supports both protocols.
+**Option 2: Run both.** Several operators already do this: SGP.02 infrastructure for the legacy M2M fleet, SGP.22/SGP.32 for new device types, all behind the same core network. The SM-DP component can be shared between architectures if your vendor supports both protocols. Your existing devices stay on SGP.02; new deployments start on SGP.32.
 
-**Greenfield SGP.32:** New deployments should strongly consider SGP.32 for any IoT use case — it provides better fleet management, simpler server architecture, and a modern security model. The only reason to choose SGP.02 for a new deployment is if the devices are truly unreachable (no IP connectivity, no periodic check-in capability).
+**Option 3: Plan a hardware transition.** If you're refreshing your device hardware anyway (next-generation meters, a new telematics module), go SGP.32 on the new hardware. The eUICCs manufactured for SGP.02 can't simply get a firmware update to become SGP.32 devices; the ISD-R architecture is fundamentally different, and the IPA requires capabilities the M2M eUICC wasn't built for. Most transitions mean new chips.
 
-**SGP.02 → SGP.32 transition:** Physical eUICCs manufactured for SGP.02 can potentially support SGP.32 if the eUICC OS is updated to include IPA-like functionality. However, the ISD-R architecture differs significantly, and in practice most transitions involve new hardware.
-
----
-
-## The Enduring Relevance of SGP.02
-
-Despite being the oldest of the three specifications, SGP.02 remains relevant for specific niches:
-
-- **Automotive:** SGP.02 was designed with automotive requirements in mind (Emergency Profile for eCall, Fall-Back for connectivity resilience). While SGP.32 is gaining adoption, SGP.02 has a 10+ year head start in connected cars
-- **Utility metering:** Meters installed in 2018 running SGP.02 will operate into the 2030s. Replacing the eUICC means replacing the meter
-- **Industrial sensors in harsh environments:** Devices sealed against water, dust, and tampering where physical SIM replacement is impossible
-- **Regulatory compliance:** Some regulatory frameworks reference SGP.02 specifically; migrating requires regulatory approval
-
-The spec's longevity is a feature, not a bug — the M2M world moves slowly, and SGP.02 was designed for that reality.
+The real-world path is usually Option 2 with a slow drift toward Option 3. The SGP.02 fleet keeps running. New devices arrive with SGP.32. Over a decade, the fleet composition shifts. Nobody does a flag-day cutover. M2M doesn't work that way.
 
 ---
 
-## 📋 Summary
+## Where SGP.02 still owns the terrain
 
-- SGP.02 (M2M Push), SGP.22 (Consumer Pull), and SGP.32 (IoT Pull) represent three generations of eSIM architecture, each optimised for different device categories
-- SGP.02's push model puts the SM-SR in control — ideal for unreachable, headless devices where the Operator manages connectivity
-- SGP.22's pull model empowers end users — ideal for consumer devices with screens and QR code onboarding
-- SGP.32 bridges the gap — bringing pull flexibility to IoT with the eIM for fleet management, suitable for most new IoT deployments
-- For new projects, SGP.32 is generally preferred for IoT; SGP.02 remains relevant for legacy fleets, automotive, and truly unreachable deployments
-- The choice between standards is ultimately about who initiates provisioning, who controls the OTA channel, and how the device manages profiles
+Despite being the oldest of the three, SGP.02 isn't legacy; it's specialized. Here's where it still wins:
+
+**Automotive.** SGP.02 was designed with automotive requirements in mind from the start. The Emergency Profile exists because eCall regulation demanded it. The Fall-Back Mechanism exists because a car crossing borders can't afford to lose connectivity when one operator's network drops. SGP.32 is gaining traction in automotive, but SGP.02 has a 10+ year head start in production telematics units. That installed base isn't going anywhere.
+
+**Utility metering.** Meters installed in 2018 running SGP.02 will operate into the 2030s. Replacing the eUICC means replacing the meter. Nobody's doing that voluntarily.
+
+**Regulatory frameworks.** Some jurisdictions reference SGP.02 by name in their certification requirements. Migrating means not just a hardware swap but a regulatory re-approval process that can take years.
+
+**Industrial environments.** Devices sealed against water, dust, and tampering (where physical access means breaking environmental seals) are SGP.02's natural habitat. The push model was literally invented for them.
+
+The spec's longevity isn't a sign that it's outdated. The M2M world moves slowly, and SGP.02 was designed for that reality from page one.
+
+---
+
+## Summary
+
+- SGP.02 (M2M Push, 2014), SGP.22 (Consumer Pull, 2016), and SGP.32 (IoT Pull, 2023) aren't sequential versions; they're three architectures optimized for different device categories
+- The decision hinges on one question: who initiates provisioning? Server (SGP.02), user (SGP.22), or device with optional server orchestration (SGP.32)
+- SGP.02 owns the unreachable-device niche: push model, SM-SR as OTA gateway, Fall-Back and Emergency mechanisms built in
+- SGP.22 owns consumer devices: pull model, LPA on-device, QR code activation, unified SM-DP+
+- SGP.32 bridges the gap for IoT: pull flexibility with eIM fleet management, IPA on-device or on-gateway, reuses consumer infrastructure
+- For existing SGP.02 fleets: stay, run hybrid, or plan hardware refresh; there's no flag day
+- For new deployments in 2026: SGP.22 for consumer, SGP.32 for IoT, SGP.02 only if your devices are truly unreachable
 
 ---
 
@@ -180,13 +166,13 @@ The spec's longevity is a feature, not a bug — the M2M world moves slowly, and
 
 [🏠 Home]({{ site.baseurl }}/)
 
-Previous: [Off-Card Interfaces: ES1–ES7 and the SOAP Binding](10-sgp02-offcard-interfaces) →
+← Previous: [Off-Card Interfaces: ES1–ES7 and the SOAP Binding]({{ site.baseurl }}/docs/articles/sgp02/10-sgp02-offcard-interfaces)
 
 </div>
 
 ---
 
-*Based on GSMA SGP.02 v4.2 (07 July 2020), SGP.22 v2.7 (24 April 2026), and SGP.32 — cross-specification comparative analysis*
+*Based on GSMA SGP.02 v4.2 (07 July 2020), SGP.22 v2.7 (24 April 2026), and SGP.32, cross-specification comparative analysis*
 
 
 ---

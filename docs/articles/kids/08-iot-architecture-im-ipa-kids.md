@@ -11,27 +11,27 @@ date: 2026-05-26
 
 ## 🎯 The Two Superheroes
 
-### 🏢 The eIM — Remote Control Centre
+### 🏢 The eIM: Remote Control Centre
 
 The **eIM** (eSIM IoT Remote Manager) is the boss. It lives in the cloud and:
 - Tells devices **which profile to use** (like choosing which carrier's SIM to activate)
-- Sends **profile downloads** — no QR code scanning needed!
+- Sends **profile downloads** : no QR code scanning needed!
 - Can manage **thousands** of devices at once
 - Uses its own **secret signature** so the chip knows commands are genuine
 
-Think of it like a mission control room for a space fleet — one room, many rockets! 🚀
+Think of it like a mission control room for a space fleet: one room, many rockets! 🚀
 
-### 🤖 The IPA — On-Device Translator
+### 🤖 The IPA: On-Device Translator
 
 The **IPA** (IoT Profile Assistant) lives on each device. It:
 - **Receives commands** from the remote control centre
 - **Passes them to the eSIM chip** inside the device
-- **Reports back** what happened — success or failure
-- Does NOT make decisions — it's a messenger, not the boss
+- **Reports back** what happened: success or failure
+- Does NOT make decisions: it's a messenger, not the boss
 
 Two flavours exist:
-- **IPAd** — lives in the device's main computer (for smarter devices)
-- **IPAe** — lives *inside* the eSIM chip itself (for super-tiny sensors)
+- **IPAd** : lives in the device's main computer (for smarter devices)
+- **IPAe** : lives *inside* the eSIM chip itself (for super-tiny sensors)
 
 ---
 
@@ -39,16 +39,16 @@ Two flavours exist:
 
 Four special communication bridges connect everything:
 
-### 📡 **ESipa** — The Main Highway
-The busiest bridge — connects the remote control centre to the device translator. Carries commands, profile downloads, and status reports.
+### 📡 **ESipa** : The Main Highway
+The busiest bridge: connects the remote control centre to the device translator. Carries commands, profile downloads, and status reports.
 
-### 🏭 **ES9+'** — The Profile Factory Line
+### 🏭 **ES9+'** : The Profile Factory Line
 A direct line from the control centre to the **profile factory** (SM-DP+). Used when the control centre handles profile downloads for devices that can't reach the internet directly.
 
-### 📮 **ES11'** — The Message Board
+### 📮 **ES11'** : The Message Board
 Lets the control centre check a **message board** (SM-DS) for waiting profiles on behalf of sleepy devices.
 
-### 🔐 **ESep** — The Secret Tunnel
+### 🔐 **ESep** : The Secret Tunnel
 A logical, encrypted tunnel between the control centre and the chip. Commands travel through this tunnel with a **digital signature** proving they're genuine.
 
 ---
@@ -68,13 +68,13 @@ Not all devices speak the same language! The system supports:
 
 ## 📋 In a Nutshell
 
-- The **eIM** is the cloud control centre — the boss
-- The **IPA** is the on-device translator — the messenger
+- The **eIM** is the cloud control centre: the boss
+- The **IPA** is the on-device translator: the messenger
 - Four bridges connect everything, each with its own job
 - Different devices speak different languages, and the system handles them all
 
 ---
 
-🧠 **Did You Know?** The IPAe variant lives *inside* the eSIM chip itself! That means even the tiniest, simplest sensor — one with barely any computer power — can still be remotely managed. The chip does all the thinking.
+The IPAe variant lives *inside* the eSIM chip itself! That means even the tiniest, simplest sensor: one with barely any computer power: can still be remotely managed. The chip does all the thinking.
 
 ← [Back to Kids Articles](index)

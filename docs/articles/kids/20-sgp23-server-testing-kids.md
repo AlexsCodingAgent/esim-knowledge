@@ -14,7 +14,7 @@ You run a factory that makes custom keys, and a post office that tells people th
 - You deliver keys through a secure, unbreakable tube
 - Your post office correctly tells people "you have mail!" and "never mind, it's been picked up"
 
-This is what **SM-DP+ and SM-DS testing** does — it puts the server-side of the eSIM world through rigorous quality control.
+This is what **SM-DP+ and SM-DS testing** does: it puts the server-side of the eSIM world through rigorous quality control.
 
 ---
 
@@ -24,8 +24,8 @@ The SM-DP+ (Key Maker server) is tested in three different configurations:
 
 | Test Room | Interfaces Tested | Who's Watching |
 |---|---|---|
-| TE_P1 | ES12 only — talking to the Post Office | S_SM-DS simulator |
-| TE_P2 | ES9+ only — talking to the Phone Assistant | S_LPAd simulator |
+| TE_P1 | ES12 only: talking to the Post Office | S_SM-DS simulator |
+| TE_P2 | ES9+ only: talking to the Phone Assistant | S_LPAd simulator |
 | TE_P3 | Everything at once! ES2+ + ES9+ + ES12 | S_MNO + S_LPAd + S_SM-DS |
 
 ---
@@ -34,23 +34,23 @@ The SM-DP+ (Key Maker server) is tested in three different configurations:
 
 Six functions test how the Key Maker handles orders:
 
-- **DownloadOrder** — "Reserve an ICCID number for this profile." The Key Maker must not give out the same number twice.
-- **ConfirmOrder** — "Here's the phone's EID — build a key for THIS specific phone." The Key Maker locks the key so it only works in that one vault.
-- **CancelOrder** — "Never mind, cancel that order." The ICCID goes back into the available pool.
-- **ReleaseProfile** — "That profile is no longer needed, free up the space."
-- **HandleDownloadProgressInfo** — "How's that download going?" The operator can check on progress.
+- **DownloadOrder** : "Reserve an ICCID number for this profile." The Key Maker must not give out the same number twice.
+- **ConfirmOrder** : "Here's the phone's EID: build a key for THIS specific phone." The Key Maker locks the key so it only works in that one vault.
+- **CancelOrder** : "Never mind, cancel that order." The ICCID goes back into the available pool.
+- **ReleaseProfile** : "That profile is no longer needed, free up the space."
+- **HandleDownloadProgressInfo** : "How's that download going?" The operator can check on progress.
 
 ---
 
 ## ES8+: The Secure Delivery Tube 🔒
 
-ES8+ is the end-to-end encrypted channel from the Key Maker straight to the chip — the LPA carries the messages but can't peek inside. Five functions are tested:
+ES8+ is the end-to-end encrypted channel from the Key Maker straight to the chip: the LPA carries the messages but can't peek inside. Five functions are tested:
 
-- **InitialiseSecureChannel** — Builds the encrypted tunnel using SCP03t (think: a steel pipe with locks at both ends)
-- **ConfigureISDP** — Creates a new locked room inside the vault for the profile
-- **StoreMetadata** — Writes the label on the room: "This key belongs to Carrier X, named 'My Plan'"
-- **LoadProfileElements** — Delivers the actual key, chunk by chunk, like sending a jigsaw puzzle piece by piece
-- **ReplaceSessionKeys** — Changes the locks mid-delivery for extra security
+- **InitialiseSecureChannel** : Builds the encrypted tunnel using SCP03t (think: a steel pipe with locks at both ends)
+- **ConfigureISDP** : Creates a new locked room inside the vault for the profile
+- **StoreMetadata** : Writes the label on the room: "This key belongs to Carrier X, named 'My Plan'"
+- **LoadProfileElements** : Delivers the actual key, chunk by chunk, like sending a jigsaw puzzle piece by piece
+- **ReplaceSessionKeys** : Changes the locks mid-delivery for extra security
 
 ---
 
@@ -58,17 +58,17 @@ ES8+ is the end-to-end encrypted channel from the Key Maker straight to the chip
 
 ES9+ is the HTTPS interface that any phone can connect to. Five functions:
 
-- **InitiateAuthentication** — The Key Maker and chip exchange ID badges
-- **AuthenticateClient** — The Key Maker verifies the chip is genuine
-- **GetBoundProfilePackage** — The Key Maker hands over the encrypted key package
-- **HandleNotification** — The phone says "key installed!" or "key deleted!" and the Key Maker acknowledges
-- **CancelSession** — If something goes wrong, the phone can say "abort!"
+- **InitiateAuthentication** : The Key Maker and chip exchange ID badges
+- **AuthenticateClient** : The Key Maker verifies the chip is genuine
+- **GetBoundProfilePackage** : The Key Maker hands over the encrypted key package
+- **HandleNotification** : The phone says "key installed!" or "key deleted!" and the Key Maker acknowledges
+- **CancelSession** : If something goes wrong, the phone can say "abort!"
 
 ---
 
 ## The Post Office: SM-DS Testing 📬
 
-The Post Office (SM-DS) has the trickiest testing — seven different environments depending on whether it's a Root SM-DS or an Alternative SM-DS:
+The Post Office (SM-DS) has the trickiest testing: seven different environments depending on whether it's a Root SM-DS or an Alternative SM-DS:
 
 | Interface | Direction | What's Tested |
 |---|---|---|
@@ -89,9 +89,7 @@ Every internet connection between servers must be protected. A separate group of
 
 ---
 
-## 🧠 Did You Know?
-
-The Key Maker is tested as both a TLS server (when phones connect to it) AND a TLS client (when it connects to the Post Office). It has to wear both hats — and the tests verify it wears each one correctly!
+The Key Maker is tested as both a TLS server (when phones connect to it) AND a TLS client (when it connects to the Post Office). It has to wear both hats: and the tests verify it wears each one correctly!
 
 ---
 

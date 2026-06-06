@@ -7,9 +7,9 @@ date: 2026-05-22
 
 ## Imagine...
 
-You just got a brand new phone. No SIM card slot, no tiny plastic chip to fumble with. You tap a few buttons, scan a QR code, and *poof* — your phone connects to the internet and starts making calls. But how? There's no physical key!
+You just got a brand new phone. No SIM card slot, no tiny plastic chip to fumble with. You tap a few buttons, scan a QR code, and *poof* : your phone connects to the internet and starts making calls. But how? There's no physical key!
 
-That's the magic of **eSIM** — short for *embedded SIM*. It means your phone already has a secret chip built right into it, waiting to receive digital keys over the internet.
+That's the magic of **eSIM** : short for *embedded SIM*. It means your phone already has a secret chip built right into it, waiting to receive digital keys over the internet.
 
 ---
 
@@ -26,7 +26,7 @@ That's the magic of **eSIM** — short for *embedded SIM*. It means your phone a
 
 ## The Secret Vault Inside Your Phone 🏦
 
-Deep inside your phone sits a tiny, super-secure computer chip called the **eUICC** (pronounced "you-ick"). Think of it like a tiny digital vault with many locked rooms. Each room can hold one **Profile** — a complete set of secret codes from a mobile company that lets your phone talk to their towers.
+Deep inside your phone sits a tiny, super-secure computer chip called the **eUICC** (pronounced "you-ick"). Think of it like a tiny digital vault with many locked rooms. Each room can hold one **Profile** : a complete set of secret codes from a mobile company that lets your phone talk to their towers.
 
 One vault. Many keys. Your phone can hold profiles from different companies all at once!
 
@@ -36,11 +36,11 @@ One vault. Many keys. Your phone can hold profiles from different companies all 
 
 When you download an eSIM, five different helpers work together behind the scenes:
 
-- **The Vault** (eUICC) — the security chip in your phone
-- **The Key Maker** (SM-DP+) — builds and encrypts digital keys just for you
-- **The Notifier** (SM-DS) — like a post office that says "you have mail!"
-- **The Assistant** (LPA) — the app on your phone that manages everything
-- **The Carrier** (Operator) — your mobile company
+- **The Vault** (eUICC) : the security chip in your phone
+- **The Key Maker** (SM-DP+) : builds and encrypts digital keys just for you
+- **The Notifier** (SM-DS) : like a post office that says "you have mail!"
+- **The Assistant** (LPA) : the app on your phone that manages everything
+- **The Carrier** (Operator) : your mobile company
 
 Together they make sure your digital key arrives safely, can't be stolen, and only works on *your* phone.
 
@@ -54,16 +54,14 @@ Together they make sure your digital key arrives safely, can't be stolen, and on
 4. That key is delivered through an encrypted tunnel that nobody can peek into
 5. Your Vault stores it safely in one of its locked rooms
 
-The best part? The app on your phone — the Assistant — is just a messenger. It can't see the actual key! Only your secure chip and the Key Maker know what's inside.
+The best part? The app on your phone: the Assistant: is just a messenger. It can't see the actual key! Only your secure chip and the Key Maker know what's inside.
 
 ---
 
-## 🧠 Did You Know?
-
-Your phone's eSIM chip can hold several profiles at once — like having a keychain with keys to different houses. You could have a "Home" profile, a "Travel" profile, and a "Work" profile, all living peacefully on the same tiny chip!
+Your phone's eSIM chip can hold several profiles at once: like having a keychain with keys to different houses. You could have a "Home" profile, a "Travel" profile, and a "Work" profile, all living peacefully on the same tiny chip!
 
 ---
 
-*Kid-friendly version of GSMA SGP.22 — eSIM Remote SIM Provisioning*
+*Kid-friendly version of GSMA SGP.22: eSIM Remote SIM Provisioning*
 
 ← [Back to Kids Articles](index)

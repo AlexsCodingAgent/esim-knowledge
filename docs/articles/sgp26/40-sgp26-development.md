@@ -7,12 +7,12 @@ date: 2026-06-06
 
 **🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.26 Test Certificates]({{ site.baseurl }}/docs/articles/sgp26/) > Using Test Certificates: Developer Setup and Integration**
 
-> **💡 Why this matters:** Having a specification for test certificates is one thing — getting them onto actual test hardware is another. This article covers the practical path from downloading the SGP.26 ZIP package to having a test eUICC that trusts your test SM-DP+, including OpenSSL commands, certificate provisioning, and the common mistakes that waste days in the lab.
+> **💡 Why this matters:** Having a specification for test certificates is one thing: getting them onto actual test hardware is another. This article covers the practical path from downloading the SGP.26 ZIP package to having a test eUICC that trusts your test SM-DP+, including OpenSSL commands, certificate provisioning, and the common mistakes that waste days in the lab.
 
 > **Key takeaways:**
-> - The SGP.26 ZIP package (`SGP.26_v3.x-YYYYMMDD_Files.ZIP`) contains all keys (PEM), certificates (DER), CRLs, and OpenSSL configuration files — it's the single source of truth for the test PKI
+> - The SGP.26 ZIP package (`SGP.26_v3.x-YYYYMMDD_Files.ZIP`) contains all keys (PEM), certificates (DER), CRLs, and OpenSSL configuration files: it's the single source of truth for the test PKI
 > - Key generation uses OpenSSL 1.1.0e's `ecparam` command for NIST P-256 and Brainpool P256r1 curves; CSRs use `openssl req -new -nodes -sha256 -config <cnf>` with template configuration files from Annex F
-> - Installing test certificates on an eUICC test SIM requires provisioning CERT.CI.SIG (or equivalent self-signed CI), CERT.EUM.SIG, and CERT.EUICC.SIG — along with the eUICC's private key — into the ECASD
+> - Installing test certificates on an eUICC test SIM requires provisioning CERT.CI.SIG (or equivalent self-signed CI), CERT.EUM.SIG, and CERT.EUICC.SIG: along with the eUICC's private key: into the ECASD
 > - Test SM-DP+ configuration needs all three SM-DP+ certificates (auth, profile binding, TLS) plus their private keys, and must serve the test CRL at the URLs specified in the certificates
 > - Self-signed test CIs (Annex C) allow RSP actors to generate their own test roots and publish them via GSMA's registry at `https://www.gsma.com/esim/gsma-root-ci/`
 > - Common pitfalls: forgetting to convert DER to PEM for OpenSSL signing, using the wrong variant's certificates for your test scenario, CRL distribution point URL mismatches, and certificate expiry during long-running test suites
@@ -20,7 +20,7 @@ date: 2026-06-06
 * TOC
 {:toc}
 
-SGP.26 is not just a reference document — it ships with an actual file package containing every key, certificate, and configuration file needed to stand up a complete test RSP environment. This article covers the end-to-end developer workflow.
+SGP.26 is not just a reference document: it ships with an actual file package containing every key, certificate, and configuration file needed to stand up a complete test RSP environment. This article covers the end-to-end developer workflow.
 
 ---
 
@@ -52,13 +52,13 @@ CERT_S_SM_DP1_TLS_NIST.der
 # ... plus CRLs, .cnf configuration files, and BRP equivalents
 ```
 
-All private keys are unencrypted PEM files — deliberately, since these are test-only keys. In a production context, private keys would be in HSMs and never exported.
+All private keys are unencrypted PEM files: deliberately, since these are test-only keys. In a production context, private keys would be in HSMs and never exported.
 
 ---
 
 ## The OpenSSL Toolchain
 
-SGP.26 specifies OpenSSL 1.1.0e as the reference toolchain. The version matters — later OpenSSL versions (3.x) changed default behaviour for some extensions and may produce certificates that differ in subtle ASN.1 encoding. Tests should use the exact version specified, or at minimum verify that the generated certificates match the reference DER files byte-for-byte.
+SGP.26 specifies OpenSSL 1.1.0e as the reference toolchain. The version matters: later OpenSSL versions (3.x) changed default behaviour for some extensions and may produce certificates that differ in subtle ASN.1 encoding. Tests should use the exact version specified, or at minimum verify that the generated certificates match the reference DER files byte-for-byte.
 
 ### Step 1: Generate Private Keys
 
@@ -123,7 +123,7 @@ openssl x509 -in CERT_EUICC_SIG_NIST.pem -outform DER -out CERT_EUICC_SIG_NIST.d
 openssl x509 -in CERT_EUICC_SIG_NIST.der -inform der -text -noout
 ```
 
-This displays the full certificate content — verify that all extensions match the expected profile.
+This displays the full certificate content: verify that all extensions match the expected profile.
 
 ### CI Root Certificate Generation (Self-Signed)
 
@@ -159,7 +159,7 @@ The exact provisioning mechanism depends on the eUICC vendor. Common approaches:
 
 - **GSMA SAS-UP certified test SIMs**: Many eUICC vendors offer pre-provisioned test SIMs loaded with SGP.26 certificates. These are profile-ready out of the box.
 - **GlobalPlatform-compliant personalization**: Use the vendor's personalization tools to load certificates during the manufacturing equivalent phase.
-- **SCP03t script loading**: Some test eUICCs support certificate injection via SCP03t secure channel scripts — query the vendor's test documentation.
+- **SCP03t script loading**: Some test eUICCs support certificate injection via SCP03t secure channel scripts: query the vendor's test documentation.
 - **RSP Test Platform provisioning**: Some eUICC test platforms (e.g., COMPRION, FIME) support loading SGP.26 certificates through their management interfaces.
 
 The CI root public key (or its Subject Key Identifier) must also be configured in `euiccCiPKIdListForVerification` or the equivalent list that the eUICC uses to determine which CIs it trusts. For SGP.23 testing, this list is typically set to include the SGP.26 test CI.
@@ -230,7 +230,7 @@ The recommended minimum profile for a self-signed test CI (Table 50):
 | **certificatePolicies** | `2.23.146.1.2.1.0` (id-rspRole-ci) |
 | **basicConstraints** | CA = true |
 
-This allows, for example, an SM-DP+ vendor to set up a complete test environment with their own test root and distribute compatible test eUICCs to their customers — without depending on the GSMA test CI.
+This allows, for example, an SM-DP+ vendor to set up a complete test environment with their own test root and distribute compatible test eUICCs to their customers: without depending on the GSMA test CI.
 
 ---
 
@@ -270,7 +270,7 @@ openssl x509 -inform der -in CERT_CI_SIG_NIST.der -out CERT_CI_SIG_NIST.pem
 
 ### 2. Variant Mismatch
 
-Not all certificates work with all variants. An eUICC provisioned with Variant O certificates (trusting the Variant O CI root directly) will reject a Variant A SM-DP+ certificate that chains through a DP SubCA the eUICC doesn't know about. Ensure the entire chain — from the eUICC's CI trust anchor to the SM-DP+'s leaf certificate — uses the same variant.
+Not all certificates work with all variants. An eUICC provisioned with Variant O certificates (trusting the Variant O CI root directly) will reject a Variant A SM-DP+ certificate that chains through a DP SubCA the eUICC doesn't know about. Ensure the entire chain: from the eUICC's CI trust anchor to the SM-DP+'s leaf certificate: uses the same variant.
 
 ### 3. CRL Distribution Point Unreachable
 
@@ -282,7 +282,7 @@ The eUICC may attempt to fetch CRLs during certificate validation. If `ci.test.e
 
 ### 4. Certificate Expiry in Long-Running Tests
 
-TLS certificates expire after 398 days. SM-DP+ auth/pb certificates expire after 1,095 days (3 years). For CI/CD pipelines that run continuously, check certificate expiry dates and plan for rotation. The SGP.26 ZIP package is updated at least every two years — download the latest version.
+TLS certificates expire after 398 days. SM-DP+ auth/pb certificates expire after 1,095 days (3 years). For CI/CD pipelines that run continuously, check certificate expiry dates and plan for rotation. The SGP.26 ZIP package is updated at least every two years: download the latest version.
 
 ### 5. Using Production Crypto on Test Hardware
 
@@ -303,9 +303,9 @@ The eUICC checks the `certificatePolicies` extension. If an SM-DP+ presents a TL
 
 ## 📋 Summary
 
-- The SGP.26 ZIP package is the single source of truth — download the latest version at least every two years to avoid expiry
-- The OpenSSL toolchain generates keys with `ecparam`, CSRs with `req`, and certificates with `x509 -req` — always use `-sha256` and the correct configuration files from Annex F
-- Installing test certificates on an eUICC requires four elements: CI root, EUM cert, eUICC cert, and eUICC private key — plus configuring the eUICC's trust list
+- The SGP.26 ZIP package is the single source of truth: download the latest version at least every two years to avoid expiry
+- The OpenSSL toolchain generates keys with `ecparam`, CSRs with `req`, and certificates with `x509 -req` : always use `-sha256` and the correct configuration files from Annex F
+- Installing test certificates on an eUICC requires four elements: CI root, EUM cert, eUICC cert, and eUICC private key: plus configuring the eUICC's trust list
 - Test SM-DP+ configuration needs all three certificate types (auth, pb, TLS) deployed to the correct services, plus a CRL distribution endpoint
 - Self-signed test CIs (Annex C) let vendors create independent test PKIs and publish them via GSMA's test certificate registry
 - Avoid the seven common pitfalls: DER/PEM confusion, variant mismatch, unreachable CRL DPs, expiry, production trust anchors, curve mismatch, and policy mismatch
@@ -323,7 +323,7 @@ Next: [CRL and Certificate Management in the Test Ecosystem]({{ site.baseurl }}/
 
 ---
 
-*Based on GSMA SGP.26 v3.0.2 (27 January 2025) — RSP Test Certificates Definition, Sections 2, Annexes A, B, C, D, and F*
+*Based on GSMA SGP.26 v3.0.2 (27 January 2025) : RSP Test Certificates Definition, Sections 2, Annexes A, B, C, D, and F*
 
 
 ---

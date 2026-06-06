@@ -8,176 +8,117 @@ title: "Policy Rules & Notifications: POL1, POL2, and the Default Notification"
 
 **🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.02 M2M RSP]({{ site.baseurl }}/docs/articles/sgp02/) > Policy Rules & Notifications: POL1, POL2, and the Default Notification**
 
-> **📚 Prerequisites:** This article builds on the Profile lifecycle operations (Article 7) and the eUICC's internal architecture — particularly the ISD-R's role as policy enforcer and the ISD-P as profile container. Understanding the three initiation paths (Operator, SM-DP relay, M2M SP) helps contextualise how policy rules are updated.
+You've seen the machinery by now. The eUICC can download Profiles, the SM-SR can push enable/disable commands, the SM-DP can relay operations, and the M2M SP can drive the whole lifecycle on behalf of an Operator. But here's the question that should be nagging at you: *who decides what's actually allowed?*
 
-> **💡 Why this matters:** Policy Rules are the governance layer of SGP.02. They determine who can do what to a Profile — and they're enforced at two independent levels, creating a belt-and-suspenders security model. The notification system ensures every stakeholder knows when profile state changes.
+If an M2M SP sends a `DeleteProfile` command for a Profile owned by Operator A, does anything stop them? If the SM-SR itself gets compromised, can an attacker wipe every eUICC in the field? If a Profile's been disabled for six months, should the device just… hold onto it forever?
 
-> **Key takeaways:**
-> - POL1 lives on the eUICC (in the ISD-P) and is enforced by ISD-R during Platform Management
-> - POL2 lives on the SM-SR (in the EIS) and is enforced by the SM-SR before issuing commands
-> - When POL1 and POL2 conflict, the most restrictive result wins — and both are independently checked
-> - The Default Notification procedure uses SMS or HTTPS from the eUICC to the SM-SR after every profile state change
-> - ONC (Operator Notification Configuration) lets Operators selectively suppress notifications on a per-Profile-Type basis
+These aren't edge cases. They're the kind of conflicts that emerge the moment you hand lifecycle control to multiple parties. And SGP.02's answer is a dual-enforcement policy framework backed by mandatory notifications. It's not the flashiest part of the spec, but it's the part that keeps operators from accidentally (or maliciously) stepping on each other's Profiles.
+
+We're drawing on §3.11–3.15 (POL1/POL2 and Default Notification), §3.20 (PLMA), §3.21 (ONC), and §3.24 (ES4A). If the lifecycle operations from Article 6 feel like second nature at this point, you're in the right place.
 
 ---
 
-## Why Two Policy Stores?
+## Why two policy stores: and why both matter
 
-SGP.02 splits policy enforcement across two locations — the eUICC and the SM-SR. This isn't redundancy for redundancy's sake. Each location serves a different threat model:
+SGP.02 doesn't store policy in one place. It splits it across the eUICC (POL1) and the SM-SR (POL2). If you're coming from a web-services background, your first instinct might be "that's just redundancy." It's not. The two stores protect against different attackers, and they check at different moments.
 
-- **POL1 (on-card):** Protects against a compromised or misbehaving SM-SR. Even if the SM-SR issues a delete command, the ISD-R checks POL1 before executing. POL1 is the Profile owner's last line of defence — it lives inside the tamper-resistant chip
-- **POL2 (server-side):** Protects against OTA command overhead and enables SM-SR-level policy decisions without contacting the eUICC. The SM-SR can reject a request before wasting OTA resources on a command the eUICC would refuse anyway
+**POL1 lives on the chip.** It's stored inside the ISD-P, in the Profile's own file system, and the ISD-R enforces it right before executing any Platform Management command. This means even a fully compromised SM-SR (an attacker with every ES4 credential) can't force a delete or disable that the Profile's owner didn't permit. The last word lives inside tamper-resistant silicon.
 
-This dual enforcement means an attacker would need to compromise both the SM-SR and the eUICC to bypass policy rules — a significantly higher bar.
+**POL2 lives on the server.** It's stored in the SM-SR's EIS record, and the SM-SR checks it *before* constructing an OTA command. If POL2 says "disable not allowed," the request dies at the SM-SR. No OTA bandwidth wasted, no SCP80 packet crafted, no radio awake time burned on a command that was doomed from the start.
 
----
-
-## POL1: On-Card Policy Rules
-
-POL1 resides within the Profile itself, stored in the ISD-P's file system. The ISD-R reads POL1 when processing Platform Management commands (enable, disable, delete). Key characteristics:
-
-**Storage:** POL1 is part of the Profile package downloaded during Profile Installation (§3.1). It's written during the `ES8.StoreMetadata` step.
-
-**Enforcement:** The ISD-R enforces POL1 at the moment of executing each command — not when the command arrives, but when the ISD-P operation is about to occur. This means POL1 is checked even if the command was relayed through multiple entities.
-
-**Update paths:**
-- **Operator via ES6** (§3.12): The Operator sends an SCP80-secured SMS with `ES6.UpdatePOL1byMNO` to the MNO-SD within the Profile. The MNO-SD forwards the update to the ISD-P. This is the direct OTA path
-- **During Profile Download:** POL1 is set as part of the profile package
-
-**POL1 cannot be updated by:**
-- The SM-DP (no ES8 path for POL1 update exists)
-- The M2M SP (POL1 is exclusively the Operator's domain)
-- The SM-SR (SM-SR only enforces POL2)
-
-**Special case:** If a Profile has the Fall-Back Attribute set AND POL1 contains "Profile deletion is mandatory when disabled," the POL1 deletion rule is ignored for the Fall-Back Profile (SGP.02 §3.16). This prevents the safety net from being automatically destroyed.
+An attacker who wants to bypass policy has to own *both* the SM-SR and the eUICC. That's not impossible (nothing in security is) but it's a meaningfully higher bar than either store alone would set.
 
 ---
 
-## POL2: Server-Side Policy Rules
+## POL1: The on-card enforcer
 
-POL2 is stored in the SM-SR's EIS (eUICC Information Set) record, associated with a specific Profile but residing server-side. Key characteristics:
+POL1 arrives with the Profile. It's part of the Profile package downloaded during installation (§3.1) and gets written during the `ES8.StoreMetadata` step. From that moment on, it lives in the ISD-P's file system, and only one entity can change it: the Operator.
 
-**Enforcement:** The SM-SR checks POL2 before issuing OTA commands. If POL2 says "disable not allowed," the SM-SR rejects the `ES4.DisableProfile` call before any OTA communication occurs — saving bandwidth, power, and time.
+The update path is narrow by design. The Operator sends an SCP80-secured SMS carrying `ES6.UpdatePOL1byMNO` to the MNO-SD inside the Profile, which forwards it to the ISD-P. That's it. No ES8 path exists for POL1 updates, the SM-DP can't touch it, the M2M SP can't touch it, and the SM-SR (the entity that enforces POL2) has no write access to POL1 whatsoever. The Operator retains exclusive control over the last line of defence.
 
-**Update paths:**
-- **Operator via SM-DP** (§3.11): `ES2.UpdatePolicyRules(POL2)` → SM-DP forwards to SM-SR via `ES3.UpdatePolicyRules`
-- **Direct ES4A path** (§3.24): A dedicated POL2 update via ES4A interface (for Operators with direct SM-SR connections)
+When does the ISD-R check POL1? Not when the command arrives over ES5; but at the moment of execution, when the ISD-P operation is about to happen. This matters because commands can be relayed through multiple entities. An `EnableProfile` might originate from an Operator, pass through an SM-DP, get forwarded by the SM-SR, and arrive at the eUICC as an SCP80 command. The ISD-R doesn't care about the chain of custody. It checks POL1 at the point of impact.
 
-**POL2 is specified by the Operator even if empty:** The spec states the Operator "SHALL be able to specify the POL2 content even if it contains no rules." This ensures explicit intent — an empty POL2 means "no restrictions," not "undefined behaviour."
-
-**M2M SP and POL2:** The PLMA system explicitly excludes POL2 management — "The management of POL2 cannot be authorised to a M2M SP" (SGP.02 §3.20). POL2 remains exclusively under Operator control.
+There's one deliberate exception. If a Profile carries the Fall-Back Attribute *and* POL1 says "Profile deletion is mandatory when disabled," the deletion rule is ignored for the Fall-Back Profile (§3.16). You don't want your safety net destroying itself the moment it catches you.
 
 ---
 
-## POL1 vs POL2: The Dual Enforcement Model
+## POL2: The server-side gatekeeper
 
-The spec explicitly acknowledges that POL1 and POL2 "MAY have different content." When this happens:
+POL2 sits in the SM-SR's EIS, associated with a specific Profile but living entirely server-side. The Operator updates it via `ES2.UpdatePolicyRules` (through the SM-DP, which relays to `ES3`) or directly through the ES4A path (§3.24). The M2M SP is explicitly locked out: the PLMA system says "the management of POL2 cannot be authorised to an M2M SP" (§3.20). POL2 stays under Operator control, full stop.
+
+The spec is unusually explicit about a corner case: the Operator "SHALL be able to specify the POL2 content even if it contains no rules." An empty POL2 isn't undefined behaviour; it's a deliberate declaration that "this Profile has no server-side restrictions." Intentional emptiness is different from the absence of configuration, and the spec makes sure implementations can't conflate the two.
+
+Because POL2 is checked before any OTA command leaves the SM-SR, it acts as an early rejection filter. If the SM-SR knows the eUICC will refuse a command anyway, why spend the airtime? POL2 catches the obvious "no" before the radio even wakes up.
+
+---
+
+## When the two stores disagree
+
+POL1 and POL2 "MAY have different content": the spec's diplomatic way of saying they'll drift apart in the real world. An Operator updates POL1 over ES6 but forgets to update POL2. A relay fails. A configuration tool has a bug. When the two stores say different things:
 
 | Scenario | What Happens |
 |----------|-------------|
-| POL1 allows, POL2 denies | SM-SR rejects before OTA — command never reaches eUICC |
+| POL1 allows, POL2 denies | SM-SR rejects before OTA; command never reaches eUICC |
 | POL1 denies, POL2 allows | SM-SR sends command; ISD-R rejects during enforcement |
 | Both allow | Command executes |
-| Both deny | SM-SR rejects (POL2 check first) |
+| Both deny | SM-SR rejects (POL2 checked first) |
 
-The practical result: the most restrictive combination always wins. The SM-SR can't force an operation the eUICC's POL1 prohibits, and the eUICC can't execute an operation the SM-SR's POL2 already blocked.
+The pattern is simple: the most restrictive combination always wins. POL2 gets checked first because it's cheaper (server-side, no OTA), but if POL2 says yes and POL1 says no, the eUICC still has the final veto.
 
-After disabling, both POL1 and POL2 can independently trigger Profile deletion (if they contain "Profile deletion is mandatory when its state is changed to disabled"). POL1-triggered deletion happens on the eUICC before the notification confirmation. POL2-triggered deletion happens after the notification confirmation, initiated by the SM-SR. This means the same Profile could be deleted twice — and the spec handles this gracefully.
-
----
-
-## The Default Notification Procedure
-
-Every profile state change — enable, disable, Fall-Back activation — must be communicated back to the SM-SR. The Default Notification Procedure (§3.15) is how the eUICC reports these changes.
-
-### When Notifications Fire
-
-The eUICC sends a notification after:
-- **First network attachment** — happens exactly once in the eUICC's lifetime, signalling deployment
-- **Profile enabling** (explicit or Fall-Back triggered) — after network attachment with the new Profile
-- **Fall-Back Mechanism activation** — confirming the automatic switch
-
-### SMS Notification (§3.15.1)
-
-1. The eUICC detects a profile change or first power-on
-2. Sends an MO-SMS containing an SCP80 Command Packet (with cryptographic checksum, no ciphering) using the ISD-R's SCP80 keys
-3. Sets counter to `0000000000` and SPI to "No counter available" — this is a special notification mode, not a normal secured command
-4. Retries until getting `TR=0` (successful terminal response) from the device
-5. Waits for SM-SR confirmation (`ES5.NotificationConfirmation` via MT-SMS)
-6. If no confirmation arrives within a configured timeout, retries the entire sequence
-7. After exhausting all retries, the eUICC rolls back to the previously Enabled Profile
-
-### HTTPS Notification (§3.15.2)
-
-1. If DNS is configured, the eUICC resolves the SM-SR's FQDN to an IP address
-2. Opens a BIP channel using the Enabled Profile's network parameters
-3. Performs PSK-TLS handshake with the SM-SR (using ISD-R keys)
-4. Sends HTTP POST with `?msg=<hex-encoded notification data>` query parameter
-5. SM-SR responds with HTTP 200 containing `ES5.NotificationConfirmation`
-6. eUICC processes confirmation (including any follow-up activities like post-disable deletion)
-7. Sends a second HTTP POST with the confirmation response
-8. SM-SR acknowledges with HTTP 204
-
-### Notification Content
-
-The notification carries: eUICC identification (EID), the currently enabled Profile's ICCID, notification type (first-attach, profile-change-success, fall-back-activated), and device information. The content is identical regardless of transport protocol.
-
-### Notification Confirmation and Follow-Up
-
-The SM-SR's confirmation is not just an ACK — it carries the `ES5.NotificationConfirmation` command, which can trigger follow-up activities on the eUICC. For example, if a Profile was disabled and POL1 requires deletion, the ISD-R performs the deletion after receiving the confirmation, and the eUICC reports the deletion status in its confirmation response.
-
-If the SM-SR receives the notification after the Validity Period of the original function call has expired, it does NOT send a confirmation — and the eUICC treats this as a notification failure.
+There's an interesting edge case around post-disable deletion. Both POL1 and POL2 can independently contain "Profile deletion is mandatory when its state is changed to disabled." POL1-triggered deletion happens on the eUICC *before* the notification confirmation. POL2-triggered deletion happens *after* confirmation, initiated by the SM-SR. A Profile could get deleted twice; and the spec handles that gracefully.
 
 ---
 
-## Operator Notification Configuration (ONC)
+## After every state change: the Default Notification
 
-The Default Notification ensures the SM-SR always knows about profile state changes. But not every Operator wants every notification. The **Operator Notification Configuration** (ONC, §3.21) lets Operators selectively suppress notifications.
+Every Profile state change (enable, disable, Fall-Back activation) triggers a notification from the eUICC back to the SM-SR. This isn't optional. The Default Notification Procedure (§3.15) is how the ecosystem stays synchronised, and it's one of the few procedures the eUICC initiates autonomously.
 
-### How ONC Works
+Three events fire a notification: the eUICC's first-ever network attachment (happens once, signalling deployment), a Profile being enabled (whether explicitly or by Fall-Back), and Fall-Back activation itself.
 
-An ONC is a combination of:
-- **Identifiers:** Operator identity + Profile Type (identifying which Profiles the configuration applies to)
-- **Discarded notifications:** A list of notification types the Operator does NOT want to receive
+The eUICC has two transport options.
 
-The Operator sets ONC via:
-- `ES4A.SetONC` (direct Operator → SM-SR, §3.21.1)
-- `ES2.SetONC` → SM-DP → `ES3` relay (§3.21.2)
+**SMS (§3.15.1).** The eUICC sends an MO-SMS containing an SCP80 Command Packet using the ISD-R's SCP80 keys. It sets the counter to `0000000000` and the SPI to "No counter available": this is a special notification-mode signal, not a normal secured command. The eUICC retries until it gets `TR=0` (successful terminal response) from the device, then waits for the SM-SR's confirmation via MT-SMS (`ES5.NotificationConfirmation`). If the confirmation doesn't arrive within a configured timeout, the eUICC retries the whole sequence. After exhausting all retries, it rolls back to the previously enabled Profile. The system would rather undo the state change than proceed without the SM-SR knowing about it.
 
-### Default Behaviour
+**HTTPS (§3.15.2).** If DNS is configured, the eUICC resolves the SM-SR's FQDN, opens a BIP channel using the enabled Profile's network parameters, performs a PSK-TLS handshake with the SM-SR (using ISD-R keys), and sends an HTTP POST with `?msg=<hex-encoded notification data>`. The SM-SR responds with HTTP 200 carrying `ES5.NotificationConfirmation`. The eUICC processes the confirmation (including any follow-up activities like post-disable deletion), sends a second POST with the confirmation response, and gets an HTTP 204 acknowledgement.
 
-If no ONC is configured for a given Profile Type, the Operator receives **all notifications** for status changes on its Profiles. ONC is an opt-out system, not an opt-in.
+The notification payload is the same regardless of transport: EID, the currently enabled Profile's ICCID, notification type (first-attach, profile-change-success, fall-back-activated), and device information.
 
-### SM-SR Support is Optional
-
-The SM-SR's support for ONC is optional:
-- If supported: SM-SR implements `SetONC`/`GetONC` functions exactly as specified
-- If not supported: SM-SR rejects `SetONC` calls and sends all notifications to all Operators (the default behaviour)
+The SM-SR's confirmation isn't just an ACK; it's an `ES5.NotificationConfirmation` command that can trigger follow-up activities on the eUICC. If a Profile was disabled and POL1 requires deletion, the ISD-R performs that deletion after receiving the confirmation, and reports the deletion status in its confirmation response. If the SM-SR receives the notification after the validity period of the original function call has expired, it does *not* send a confirmation; and the eUICC treats that as a notification failure, triggering the retry-and-rollback sequence.
 
 ---
 
-## PLMA: Authorising the M2M SP
+## ONC: telling the system to pipe down
 
-The **Profile Lifecycle Management Authorisation** (PLMA, §3.20) is technically a policy mechanism, though it's not POL1/POL2. PLMA defines what operations an M2M SP can perform and what notifications it can receive on behalf of an Operator's Profiles.
+The Default Notification ensures the SM-SR always knows about Profile state changes. But not every Operator wants every notification. If you're managing 200,000 smart meters and each one fires a notification on every state transition, that's a lot of noise.
 
-A PLMA is a combination of:
-- **Identifiers:** Operator, M2M SP, and Profile Type
-- **Authorised actions:** List of operations (enable, disable, delete) and notifications the M2M SP can perform/receive
+The Operator Notification Configuration (§3.21) lets Operators suppress specific notification types on a per-Profile-Type basis. It's opt-out, not opt-in; if no ONC is configured, you get everything.
 
-PLMA is set by the Operator via `ES4A.SetPLMA` (§3.20.1) or via SM-DP relay (§3.20.2). The SM-SR checks PLMA before executing any M2M SP-initiated operation.
+An ONC entry combines an Operator identity, a Profile Type (identifying which Profiles the configuration applies to), and a list of notification types to discard. The Operator sets it via `ES4A.SetONC` (direct) or `ES2.SetONC` → SM-DP → `ES3` relay.
 
-Importantly, PLMA can authorise an M2M SP to **unset** attributes (Emergency, Fall-Back) on another Operator's Profile — this is the mechanism that enables Case 2 of Emergency Profile replacement (§3.25).
+SM-SR support for ONC is optional. If the SM-SR doesn't support it, `SetONC` calls get rejected and all notifications flow to all Operators, the safe default.
+
+---
+
+## PLMA: handing the M2M SP the keys (some of them)
+
+The Profile Lifecycle Management Authorisation (§3.20) is technically a policy mechanism, though it's distinct from POL1 and POL2. PLMA defines what an M2M SP can do on behalf of an Operator's Profiles.
+
+A PLMA entry combines Operator identity, M2M SP identity, Profile Type, and a list of authorised actions: which lifecycle operations the M2M SP can perform and which notifications it can receive. The Operator sets it via `ES4A.SetPLMA` (§3.20.1) or via SM-DP relay (§3.20.2), and the SM-SR checks PLMA before executing any M2M SP-initiated operation.
+
+PLMA can authorise an M2M SP to *unset* attributes (Emergency, Fall-Back) on another Operator's Profile. This is the mechanism that enables Case 2 of Emergency Profile replacement (§3.25); one of the few places in the spec where an entity other than the Profile owner can modify Profile attributes. It's a narrow, carefully gated exception, and it exists for a reason: in an emergency, you can't always reach the original Operator.
+
+What PLMA explicitly cannot do: hand over POL2 management. That stays with the Operator, period. PLMA governs what M2M SPs can *do*; POL2 governs what *anyone* can do. Different layers, different owners.
 
 ---
 
 ## 📋 Summary
 
-- POL1 (on-card, in ISD-P) and POL2 (server-side, in EIS) form a dual-enforcement policy framework — both must permit an operation for it to succeed
-- POL1 is updated exclusively by the Operator via ES6 OTA; POL2 is updated via ES2/ES3 relay
-- The most restrictive combination of POL1 + POL2 always wins, with POL2 checked first (saving OTA resources)
-- The Default Notification procedure fires after every profile state change using SMS or HTTPS, with SM-SR confirmation required; failure to confirm triggers roll-back
-- ONC lets Operators suppress specific notifications on a per-Profile-Type basis — optional SM-SR support
-- PLMA governs what M2M SPs can do; POL2 management is explicitly excluded from PLMA scope
+- POL1 (on-card, in ISD-P) and POL2 (server-side, in EIS) form a belt-and-suspenders policy framework: an attacker has to compromise both the SM-SR and the eUICC to bypass policy
+- POL1 is updated exclusively by the Operator via ES6 OTA; POL2 is updated via ES2/ES3 relay or direct ES4A
+- When POL1 and POL2 conflict, the most restrictive combination wins; POL2 gets checked first because it's cheaper
+- The Default Notification fires after every Profile state change (SMS or HTTPS), and failure to confirm triggers roll-back to the previously enabled Profile
+- ONC lets Operators mute specific notification types on a per-Profile-Type basis; SM-SR support is optional, and the default is "send everything"
+- PLMA governs what M2M SPs can do on an Operator's behalf; POL2 management is explicitly excluded from PLMA scope
 
 ---
 
@@ -192,8 +133,7 @@ Next: [Off-Card Interfaces: ES1–ES7 and the SOAP Binding](10-sgp02-offcard-int
 
 ---
 
-*Based on GSMA SGP.02 v4.2 (07 July 2020) — Remote Provisioning Architecture for Embedded UICC Technical Specification, §3.11–3.15, §3.20–3.21, §3.24*
-
+*Based on GSMA SGP.02 v4.2 (07 July 2020), Remote Provisioning Architecture for Embedded UICC Technical Specification, §3.11–3.15, §3.20–3.21, §3.24*
 
 ---
 

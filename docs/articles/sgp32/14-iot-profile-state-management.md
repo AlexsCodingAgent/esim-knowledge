@@ -7,7 +7,7 @@ date: 2026-06-05
 
 **🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.32 IoT eSIM]({{ site.baseurl }}/docs/articles/sgp32/) > Profile State Management via the eIM: Remote Enable, Disable, Delete**
 
-> **💡 Why this matters:** In consumer eSIM, you tap "Enable" in Settings. In IoT, a server sends a signed binary blob across the internet and the eUICC executes it without any human involvement — then cryptographically proves it did so. This article covers the full lifecycle of PSMO (Profile State Management Operations), the mechanism that makes fleet-scale remote profile control possible.
+> **💡 Why this matters:** In consumer eSIM, you tap "Enable" in Settings. In IoT, a server sends a signed binary blob across the internet and the eUICC executes it without any human involvement: then cryptographically proves it did so. This article covers the full lifecycle of PSMO (Profile State Management Operations), the mechanism that makes fleet-scale remote profile control possible.
 
 > **Key takeaways:**
 > - All PSMOs follow the same pattern: `eIM` signs → `IPA` delivers → eUICC verifies → executes → signs result → `IPA` returns
@@ -58,7 +58,7 @@ Start conditions:
 eUICC execution:
     1. Identify target Profile (by ICCID or ISD-P AID)
     2. Verify Profile is in Disabled state
-    3. Check Profile Policy Rules (ppr1 — "Disabling not allowed" on currently enabled profile)
+    3. Check Profile Policy Rules (ppr1 : "Disabling not allowed" on currently enabled profile)
     4. Mark target Profile "to be enabled"
     5. Record whether Rollback Mechanism usage is allowed
     6. Generate enableResult
@@ -86,8 +86,8 @@ Start conditions:
 
 eUICC execution:
     1. Verify Profile is in Enabled state
-    2. Check ppr1 — if "Disabling not allowed," reject
-    3. Check ppr3 — if "Delete after disable" is set, mark Profile for auto-deletion after disable
+    2. Check ppr1: if "Disabling not allowed," reject
+    3. Check ppr3: if "Delete after disable" is set, mark Profile for auto-deletion after disable
     4. Mark target Profile "to be disabled" [and optionally "to be deleted"]
 
 After execution:
@@ -116,7 +116,7 @@ If Profile is Enabled:
 
 eUICC execution:
     1. Verify Profile state is appropriate
-    2. Check ppr2 — if "Deletion not allowed," reject
+    2. Check ppr2: if "Deletion not allowed," reject
     3. Mark Profile "to be deleted" (or "to be disabled and deleted")
     4. Generate deleteResult
 
@@ -161,7 +161,7 @@ Two additional PSMOs manage the eUICC's autonomous safety net:
 
 ### `SetFallbackAttribute`
 
-Designates a profile as the fallback — the one the eUICC enables if connectivity is lost.
+Designates a profile as the fallback: the one the eUICC enables if connectivity is lost.
 
 ```
 Restrictions:
@@ -201,7 +201,7 @@ Configuration:
     OR IPA can request it independently (section 3.4.5)
 ```
 
-This is used for "first boot" provisioning — download the profile and activate it in one flow, without the latency of an additional eIM round trip.
+This is used for "first boot" provisioning: download the profile and activate it in one flow, without the latency of an additional eIM round trip.
 
 ---
 
@@ -209,7 +209,7 @@ This is used for "first boot" provisioning — download the profile and activate
 
 The `eIM` can pre-configure whether downloaded profiles should be immediately enabled:
 
-**By eIM:** `ES10b.ConfigureImmediateEnable(eIM-signed)` — the `eIM` sends this as a standalone configuration command outside the PSMO framework.
+**By eIM:** `ES10b.ConfigureImmediateEnable(eIM-signed)` : the `eIM` sends this as a standalone configuration command outside the PSMO framework.
 
 **By IPA:** The `IPA` can independently set this via `ES10b.ConfigureImmediateEnable(IPA-initiated)` during the profile download flow. The `IPA` typically does this when it knows the current profile is a provisioning profile that should be replaced immediately.
 

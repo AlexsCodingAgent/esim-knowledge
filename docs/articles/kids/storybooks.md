@@ -1,15 +1,15 @@
 ---
 layout: default
-title: "Illustrated Storybooks — eUICC.tech"
+title: "Illustrated Storybooks: eUICC.tech"
 ---
 
 # 📖 The eSIM Storybook Collection
 
-*17 illustrated children's books explaining eSIM technology — scroll through each one like a real book!*
+*17 illustrated children's books explaining eSIM technology: scroll through each one like a real book!*
 
 ---
 
-## 📱 SGP.22 — Consumer eSIM Stories
+## 📱 SGP.22: Consumer eSIM Stories
 
 | # | Storybook | What It's About |
 |---|-----------|-----------------|
@@ -19,9 +19,9 @@ title: "Illustrated Storybooks — eUICC.tech"
 | 03 | [The Secret Spy Mission](storybook-03.html) | Three-phase profile download: order, handshake, delivery |
 | 04 | [The ID Badge System](storybook-04.html) | How certificates and signatures keep eSIMs secure |
 | 05 | [The Magic Backpack](storybook-05.html) | Switching between profiles like changing invisible cloaks |
-| 06 | [The Secret Languages](storybook-06.html) | ES2+, ES9+, ES8+, ES10x — how the helpers talk |
+| 06 | [The Secret Languages](storybook-06.html) | ES2+, ES9+, ES8+, ES10x: how the helpers talk |
 
-## 🤖 SGP.32 — IoT eSIM Stories
+## 🤖 SGP.32: IoT eSIM Stories
 
 | # | Storybook | What It's About |
 |---|-----------|-----------------|
@@ -40,7 +40,7 @@ title: "Illustrated Storybooks — eUICC.tech"
 
 <div align="center">
 
-*Read in order or jump to any story — each one stands alone!*
+*Read in order or jump to any story: each one stands alone!*
 
 [📚 Back to Kids Articles](index.html) · [🏠 eUICC.tech Home]({{ site.baseurl }}/)
 

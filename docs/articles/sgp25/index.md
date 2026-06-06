@@ -1,11 +1,11 @@
 ---
 layout: default
-title: "SGP.25 — eUICC Protection Profile"
+title: "SGP.25: eUICC Protection Profile"
 ---
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > SGP.25 — eUICC Protection Profile**
+**🏠 [eUICC.tech]({{ site.baseurl }}/) > SGP.25: eUICC Protection Profile**
 
-# SGP.25 — eUICC Protection Profile
+# SGP.25: eUICC Protection Profile
 
 *Common Criteria security certification for eUICC hardware.*
 

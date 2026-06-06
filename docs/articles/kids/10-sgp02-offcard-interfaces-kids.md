@@ -1,23 +1,21 @@
 ---
-title: "Secret Languages: How All the Helpers Talk"
+title: "Six Phone Lines: How the Chip Helpers Talk to Each Other"
 date: 2026-06-07
 ---
 
-# Secret Languages: How All the Helpers Talk 🗣️
+# Six Phone Lines: How the Chip Helpers Talk to Each Other 🗣️
 
-## Imagine...
+Picture a construction site. The architect needs to tell the electrician where to run the wiring. The electrician needs parts from the supplier. The site manager needs daily reports from everyone. And they all have different clipboards, different walkie-talkie channels, different forms.
 
-Six different helpers in the robot network all need to talk to each other. The Key Factory talks to the Commander. The Commander talks to the Chip Builder. The Fleet Owner talks to everyone. But they all speak different "languages" — different interfaces with different rules.
-
-SGP.02 defines six off-card interfaces (server-to-server) that connect the entire ecosystem. Think of them as dedicated telephone lines between helpers.
+SGP.02's server-to-server world works the same way. Six dedicated communication channels, called **off-card interfaces** : connect all the different "helpers" in the eSIM ecosystem. Each one has a specific job, a specific caller, and a specific recipient. No confusion. No crossed wires.
 
 ---
 
-## The Interface Map 🗺️
+## Who's Calling Whom?
 
 ```
-     🏛️ CI
-      │ (out of band)
+     🏛️ CI (Certificate Issuer)
+      │ out-of-band only
       │
 🏭 Chip Builder ──ES1──▶ 🦾 Commander
                              ▲
@@ -36,120 +34,121 @@ SGP.02 defines six off-card interfaces (server-to-server) that connect the entir
 
 ---
 
-## All Six Interfaces at a Glance 🃏
+## The Six Lines at a Glance
 
-| Interface | Between | Purpose | Function Count |
+| Line | Caller → Receiver | What It's For | How Many Functions |
 |---|---|---|---|
-| **ES1** | Chip Builder → Commander | Register new robots at manufacturing | 2 functions |
-| **ES2** | Fleet Owner → Key Factory | Order profiles, manage lifecycle, get notifications | 25 functions |
-| **ES3** | Key Factory → Commander | Relay profile operations, create rooms, deliver keys | 28 functions |
-| **ES4** | Fleet Owner / Fleet Manager → Commander | Direct lifecycle operations, database queries | 23 functions |
-| **ES4A** | Fleet Owner → Commander | Manage Fleet Manager permissions (PLMA) and notification settings (ONC) | 4 functions |
-| **ES7** | Commander → Commander | Hand over robots during SM-SR Change | 3 functions |
+| **ES1** | Chip Builder → Commander | Register new chips at the factory | 2 |
+| **ES2** | Fleet Owner → Key Factory | Order profiles, manage lifecycles, get notified | 25 |
+| **ES3** | Key Factory → Commander | Relay profile operations, create rooms, deliver keys | 28 |
+| **ES4** | Fleet Owner/Fleet Manager → Commander | Direct lifecycle commands, database queries | 23 |
+| **ES4A** | Fleet Owner → Commander | Manage Fleet Manager permissions and notification settings | 4 |
+| **ES7** | Commander → Commander | Hand over chips during SM-SR Change | 3 |
 
 ---
 
-## Two Conversation Styles 💬
+## Two Conversation Styles
 
 Every interface uses one of two patterns:
 
-| Pattern | How It Works | Used For |
-|---|---|---|
-| **Request-Response** | "Please do X" → "Done!" or "Failed!" | Enable, disable, delete, download |
-| **Notification Handler** | "Just so you know: Y happened" → (no response expected) | Status updates, profile changes |
+- **Request-Response**: "Please do X" → "Done!" or "Failed!" : used for commands like enable, disable, delete, and download
+- **Notification Handler**: "Just so you know: Y happened" : used for status updates; no response expected
+
+The first is a phone call. The second is a postcard.
 
 ---
 
-## ES1: Registering New Robots 🏭
+## ES1: Factory Registration
 
-The simplest interface. When the Chip Builder manufactures a new robot:
+The simplest of the bunch. When the Chip Builder manufactures a new eUICC:
 
-- `RegisterEIS`: "Here's a new robot — its ID, certificate, and initial configuration"
-- `UpdateEISAdditionalProperties`: "Here's updated info for an existing robot"
+- `RegisterEIS`: "Here's a new chip, its ID, certificate, and initial setup"
+- `UpdateEISAdditionalProperties`: "Here's updated info for an existing chip"
 
-This happens exactly once per robot, at the factory.
-
----
-
-## ES2: The Fleet Owner's Control Panel 📡
-
-The busiest interface after ES3. The Fleet Owner uses it to talk to the Key Factory:
-
-| Category | Example Functions |
-|---|---|
-| **Profile Orders** | `DownloadProfile`, `GetEUICCInfo` |
-| **Lifecycle** | `EnableProfile`, `DisableProfile`, `DeleteProfile` |
-| **Policies** | `UpdatePolicyRules` (POL2) |
-| **Attributes** | `SetFallBackAttribute`, `SetEmergencyProfileAttribute` |
-| **Fleet Manager** | `SetAuthorisationsOfM2MSP` (PLMA) |
-| **Notifications** | Receive `HandleProfileEnabledNotification` and 7+ others |
+This happens exactly once per chip, at the factory. Short and sweet.
 
 ---
 
-## ES3: The Key Factory's Relay Service 🔑
+## ES2: The Fleet Owner's Console
 
-The busiest interface overall (28 functions). The Key Factory uses ES3 to work through the Commander:
+The second-busiest interface. The Fleet Owner uses ES2 to talk *through* the Key Factory:
 
-- `GetEIS`: "Tell me everything about robot #8721"
-- `CreateISDP`: "Build a new profile room"
-- `EstablishISDPKeySet`: "Let's do the secret handshake"
-- `DownloadProfile`: "Deliver this encrypted package"
-- Plus relay versions of all ES2 lifecycle commands
-- Plus passing notifications back to the Fleet Owner
+- **Profile Orders**: `DownloadProfile`, `GetEUICCInfo`
+- **Lifecycle**: `EnableProfile`, `DisableProfile`, `DeleteProfile`
+- **Policies**: `UpdatePolicyRules` (POL2)
+- **Attributes**: `SetFallBackAttribute`, `SetEmergencyProfileAttribute`
+- **Fleet Manager**: `SetAuthorisationsOfM2MSP` (PLMA)
+- **Notifications**: Receive `HandleProfileEnabledNotification` and seven more event types
+
+25 functions in total, this is the Fleet Owner's Swiss Army knife.
 
 ---
 
-## ES4: The Direct Hotline 📞
+## ES3: The Key Factory's Relay Desk
 
-When the Fleet Owner has a direct relationship with the Commander, they skip the Key Factory and use ES4. Functionally identical to ES2 — just a different route:
+The busiest interface, 28 functions. The Key Factory doesn't talk directly to chips; it talks through the Commander. ES3 handles:
 
-| ES2 Path | ES4 Equivalent |
+- `GetEIS` : "Tell me everything about chip #8721"
+- `CreateISDP` : "Build a new profile room"
+- `EstablishISDPKeySet` : "Let's do the secret handshake"
+- `DownloadProfile` : "Deliver this encrypted package"
+- Relay versions of all ES2 lifecycle commands
+- Passing notifications back to the Fleet Owner
+
+Think of ES3 as a postal sorting office: everything passes through here.
+
+---
+
+## ES4: The Direct Hotline
+
+When the Fleet Owner has a direct relationship with the Commander, they skip the Key Factory entirely and use ES4. Functionally, it mirrors ES2, just with fewer hops:
+
+| Via ES2 route | Via ES4 |
 |---|---|
 | `ES2.EnableProfile → ES3 → ES5` | `ES4.EnableProfile → ES5` |
-| Fewer hops | More direct |
+| Three hops | Two hops |
 
-M2M Fleet Managers also use ES4 (with PLMA permission), but they can't use ES4A.
-
----
-
-## ES4A: Permission Slips Only 📝
-
-A tiny interface dedicated to two things:
-
-- `SetPLMA` / `GetPLMA`: Who can the Fleet Manager manage?
-- `SetONC` / `GetONC`: Which notifications should I skip?
+Fleet Managers also use ES4 (with PLMA permission), but they can't use ES4A, that's Owner-only territory.
 
 ---
 
-## ES7: Commander Handshake 🤝
+## ES4A: The Permissions Desk
 
-The only inter-Commander interface. Only used during SM-SR Change:
+The smallest interface, just 4 functions, all about who can do what:
 
-- `HandoverEUICC`: "Here's the robot database — it's yours now"
-- `AuthenticateSM-SR`: "Check my ID badge"
-- `CreateAdditionalKeySet`: "Let's agree on new keys"
-
-Small but critically important — this is what prevents vendor lock-in.
+- `SetPLMA` / `GetPLMA` : Which Fleet Manager manages which profiles?
+- `SetONC` / `GetONC` : Which notifications should we skip?
 
 ---
 
-## The Secret Courier Language 📨
+## ES7: The Handover Channel
 
-All these interfaces use a common message format:
-- **Header**: Who's calling, which robot, what function, execution rules
-- **Body**: The actual data — profile details, certificates, keys
-- **Transport**: SOAP web services over HTTPS with mutual TLS authentication
+The only interface between two Commanders. Used exclusively during SM-SR Change:
 
-It's like a standardized shipping label that every helper understands, no matter which interface it travels on.
+- `HandoverEUICC` : "Here's the chip database, it's yours now"
+- `AuthenticateSM-SR` : "Check my ID badge"
+- `CreateAdditionalKeySet` : "Let's agree on new keys"
 
----
-
-## 🧠 Did You Know?
-
-ES2 and ES4 are basically the same interface — just different routes! ES2 goes through the Key Factory (relay), while ES4 goes directly to the Commander. This dual-path design means the Fleet Owner can choose whichever is more efficient or available.
+Only 3 functions, but critical, this is what prevents vendor lock-in. Without ES7, switching Commanders would be impossible without physically replacing every chip.
 
 ---
 
-*Kid-friendly version of GSMA SGP.02 v4.2 Chapter 5 (§5.1–5.7) — Off-Card Interfaces*
+## One Envelope Format for All
+
+All six interfaces use the same message envelope:
+
+- **Header**: Who's calling, which chip, which function, execution rules
+- **Body**: The actual payload, profile details, certificates, keys
+- **Wrap**: SOAP web services over HTTPS, mutual TLS authentication
+
+Same envelope, six different destinations. It's like a standardized shipping label that every helper in the ecosystem knows how to read.
+
+---
+
+ES2 and ES4 do essentially the same thing, just via different routes. ES2 goes through the Key Factory (relay), while ES4 goes straight to the Commander. The Fleet Owner picks whichever route makes more sense for their setup. It's a dual-path design that keeps the system flexible: if you have a Key Factory relationship, use ES2. If you talk directly to the Commander, use ES4. Both get the job done.
+
+---
+
+*Kid-friendly version of GSMA SGP.02 v4.2 Chapter 5 (§5.1–5.7) : Off-Card Interfaces*
 
 ← [Back to Kids Articles](index)

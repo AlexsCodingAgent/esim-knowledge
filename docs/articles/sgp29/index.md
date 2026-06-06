@@ -1,13 +1,13 @@
 ---
 layout: default
-title: "SGP.29 — EID Definition and Assignment"
+title: "SGP.29: EID Definition and Assignment"
 ---
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > SGP.29 — EID Definition and Assignment**
+**🏠 [eUICC.tech]({{ site.baseurl }}/) > SGP.29: EID Definition and Assignment**
 
-# SGP.29 — EID Definition and Assignment
+# SGP.29: EID Definition and Assignment
 
-*The 32-digit eUICC Identifier — format, assignment, and governance.*
+*The 32-digit eUICC Identifier: format, assignment, and governance.*
 
 | # | Article |
 |---|---------|

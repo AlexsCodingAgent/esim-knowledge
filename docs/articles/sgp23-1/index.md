@@ -1,13 +1,13 @@
 ---
 layout: default
-title: "SGP.23-1 — eUICC Test Specification"
+title: "SGP.23-1: eUICC Test Specification"
 ---
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > SGP.23-1 — eUICC Test Specification**
+**🏠 [eUICC.tech]({{ site.baseurl }}/) > SGP.23-1: eUICC Test Specification**
 
-# SGP.23-1 — eUICC Test Specification
+# SGP.23-1: eUICC Test Specification
 
-*Testing the eUICC itself — ISD-R, ECASD, and profile lifecycle conformance.*
+*Testing the eUICC itself: ISD-R, ECASD, and profile lifecycle conformance.*
 
 | # | Article |
 |---|---------|

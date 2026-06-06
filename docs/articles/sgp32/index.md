@@ -1,13 +1,13 @@
 ---
 layout: default
-title: "SGP.32 — IoT eSIM RSP"
+title: "SGP.32: IoT eSIM RSP"
 ---
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > SGP.32 — IoT eSIM RSP**
+**🏠 [eUICC.tech]({{ site.baseurl }}/) > SGP.32: IoT eSIM RSP**
 
-# SGP.32 — IoT eSIM RSP
+# SGP.32: IoT eSIM RSP
 
-*NB-IoT, LTE-M, sensors, trackers — eSIM for things that have no screen.*
+*NB-IoT, LTE-M, sensors, trackers: eSIM for things that have no screen.*
 
 | # | Article |
 |---|---------|

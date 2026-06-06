@@ -1,134 +1,143 @@
 ---
-title: "Three Kinds of eSIM: Phones, Robots, and the Future"
+title: "Three Worlds of eSIM: Factories, Phones, and Farm Fields"
 date: 2026-06-07
 ---
 
-# Three Kinds of eSIM: Phones, Robots, and the Future 📱🤖🔮
+# Three Worlds of eSIM: Factories, Phones, and Farm Fields 📱🤖🔮
 
-## Imagine...
+Three devices walk into a network.
 
-Three different devices need an eSIM: a smartphone in your pocket, a smart meter in a basement, and a soil sensor in a farm field. They all use the same tiny vault chip (eUICC) — but how they get their keys couldn't be more different.
+**First**: a smartphone in your pocket. It has a gorgeous screen, a camera, and a human who taps "Install eSIM" after scanning a QR code.
 
-The GSMA created three separate specifications, each designed for a different kind of device. Let's meet them all!
+**Second**: a smart electricity meter bolted to a basement wall. It has no screen. No buttons. Nobody will touch it for 15 years. It was installed in 2018 and hasn't moved since.
+
+**Third**: a soil sensor buried in a cornfield. It wakes up once a day, sends moisture data, and goes back to sleep. It's one of ten thousand.
+
+Same tiny security chip inside all three: the eUICC. But how each one gets its network keys? Completely different. The GSMA wrote three separate specifications, each for a different world.
 
 ---
 
-## The eSIM Family 👨‍👩‍👧
+## Meet the Three Worlds
 
-| | SGP.02 "The Robot Network" | SGP.22 "The Phone System" | SGP.32 "The Future IoT" |
+| | SGP.02 (The Factory | SGP.22) The Phone Shop | SGP.32. The Farm Field |
 |---|---|---|---|
 | **Nickname** | M2M Push | Consumer Pull | IoT Pull |
-| **Born** | 2013 (Original!) | 2015 | 2023 |
-| **For** | Robots, meters, cars | Phones, tablets, watches | Sensors, trackers, smart home |
-| **How keys arrive** | Commander PUSHES | Phone PULLS (QR code) | Phone PULLS or Manager triggers |
-| **Who decides?** | Fleet Owner (Operator) | You, the user | You or the eIM (IoT Manager) |
+| **Born** | 2013 | 2015 | 2023 |
+| **Built for** | Meters, cars, industrial sensors | Phones, tablets, watches | Sensors, trackers, smart home |
+| **How keys arrive** | PUSHED by the Commander | PULLED by the phone (you scan a QR) | PULLED by the device, or nudged by a manager |
+| **Who's in charge?** | The Fleet Owner (Operator) | You: the person holding the phone | You, or the IoT Manager (eIM) |
 
 ---
 
-## How Each System Delivers Keys 🗝️
+## Three Different Delivery Stories
 
-### SGP.02 — The Commander Pushes
-```
-Fleet Owner: "Switch to Network B!"
-      ↓
-   Commander pushes command via radio
-      ↓
-   Robot: "Yes, Commander!"
-```
-**No human involved. No screen. No scan. The Commander is always in charge.**
+### The Factory (SGP.02) : Keys Get Delivered
 
-### SGP.22 — The Phone Pulls
 ```
-You: *scan QR code*
+Fleet Owner: "Switch Meter #5001 to Network B!"
       ↓
-   Phone: "Key Maker, give me my key!"
+   Commander pushes command over the air
       ↓
-   Key Maker: "Here you go!"
+   Meter: "Command received. Switching."
 ```
-**You decide. You scan. You tap "Install." The phone drives everything.**
 
-### SGP.32 — Best of Both Worlds
+No human. No screen. No scan. The Commander is always in charge. The device doesn't *ask* for keys, it *receives* them. This is push delivery, and it works when the device can't come to you.
+
+### The Phone Shop (SGP.22) : Keys Get Collected
+
 ```
-eIM: "Sensor #5001 needs new keys, please trigger download"
+You scan a QR code in a store
       ↓
-   Sensor checks in: "Got the message! Downloading now..."
+   Your phone: "Key Factory, I need my key!"
       ↓
-   Or: You use an app to start the download
+   Key Factory: "Here you go, enjoy your data plan!"
 ```
-**Either the device pulls, or the IoT Manager nudges it — flexible!**
+
+You decide. You scan. You tap "Install." The phone drives everything. The key factory just waits to be asked. This is pull delivery: the device initiates the download.
+
+### The Farm Field (SGP.32) : Best of Both
+
+```
+IoT Manager: "Soil Sensor #8721, time for new keys. Check in when you wake up."
+      ↓
+   Sensor wakes up at 06:00: "Oh, a message! Downloading now..."
+      ↓
+   Or: You open an app and tap "Update sensors"
+```
+
+Flexible. Either the device pulls when it's ready, or the IoT Manager sends a nudge. It's like leaving a note on the fridge: the device reads it when it gets hungry.
 
 ---
 
-## Architecture Comparison 🏗️
+## Under the Hood: What's Different?
 
-| Feature | SGP.02 (Robots) | SGP.22 (Phones) | SGP.32 (IoT) |
+| What Matters | SGP.02 (Factory) | SGP.22 (Phone Shop) | SGP.32 (Farm Field) |
 |---|---|---|---|
-| **Server roles** | SM-DP + SM-SR (split) | SM-DP+ (combined) | SM-DP+ (combined) |
-| **Device helper** | None (ISD-R passive) | LPA app on phone | IPA (lightweight LPA) |
-| **Fleet manager** | Operator via ES4 | Not built-in | eIM (IoT Manager) |
-| **Discovery** | Not needed (push) | SM-DS post office | SM-DS or eIM |
-| **OTA channel owner** | Commander (SM-SR) | Key Maker (SM-DP+) | Key Maker (SM-DP+) |
-| **User interface** | Headless — none | Full screen, QR codes | Minimal or none |
-| **Key agreement** | ECKA-EG (ElGamal) | ECDH | ECDH (shared) |
-| **Spec pages** | 452 pages | ~296 pages | Evolving |
+| **Server setup** | Two servers: SM-DP + SM-SR (split roles) | One server: SM-DP+ (combined) | One server: SM-DP+ (combined) |
+| **Helper on device** | None, ISD-R is passive | LPA app (full UI) | IPA (lightweight helper) |
+| **Fleet management** | Operator via ES4 | Not built-in | eIM (IoT Manager) |
+| **Discovery** | Not needed (push doesn't discover) | SM-DS "post office" | SM-DS or eIM |
+| **OTA channel** | Commander owns it | Key Factory owns it | Key Factory owns it |
+| **Screen?** | Headless: no UI | Full screen, QR codes, menus | Minimal or none |
+| **Key exchange** | ECKA-EG (ElGamal) | ECDH | ECDH |
+| **Spec size** | 452 pages | ~296 pages | Still growing |
 
 ---
 
-## Which One Should You Use? 🤔
+## Which World for Which Device?
 
-| Scenario | Use This |
-|---|---|
-| Smartphone, tablet, smartwatch | **SGP.22** — users expect QR codes and touch screens |
-| Car telematics with eCall | **SGP.02** — designed for automotive, 10+ year life |
-| Utility meter sealed for 15 years | **SGP.02** — truly unreachable, push model essential |
-| Asset tracker on a shipping container | **SGP.32** — checks in periodically, large fleets |
-| Smart home sensor (new project) | **SGP.32** — modern, flexible, reuses consumer servers |
-| Industrial sensor in a mine | **SGP.02** — harsh environment, no regular connectivity |
-| Agricultural soil sensor grid | **SGP.32** — gateway model handles constrained sensors |
+Quick decision guide:
+
+- **Smartphone, tablet, smartwatch** → SGP.22. Users expect QR codes and a touch interface. Give them one.
+- **Car telematics with eCall** → SGP.02. Built for automotive, 10+ year lifespan, regulatory requirements.
+- **Utility meter sealed for 15+ years** → SGP.02. Truly unreachable. Push is the only option.
+- **Asset tracker on a shipping container** → SGP.32. Checks in periodically, massive fleets.
+- **Smart home sensor (new project, 2026+)** → SGP.32. Modern, flexible, reuses existing consumer infrastructure.
+- **Industrial sensor deep in a mine** → SGP.02. Harsh, unreachable, no regular connectivity window.
+- **Agricultural sensor grid** → SGP.32. Gateway model handles thousands of constrained devices.
 
 ---
 
-## The Push vs Pull Decision Tree 🌳
+## The Push-or-Pull Question
 
 ```
-Is there a human with a screen?
+Does a human hold this device and have a screen?
     │
-    ├── YES ──▶ SGP.22 (Consumer)
+    ├── YES ──▶ SGP.22 (the phone shop)
     │
-    └── NO ──▶ Is the device reachable over IP?
+    └── NO ──▶ Can the device reach the internet on its own,
+               even occasionally?
                    │
-                   ├── YES, periodically ──▶ SGP.32 (IoT)
+                   ├── YES, sometimes ──▶ SGP.32 (the farm field)
                    │
-                   └── NO, truly unreachable ──▶ SGP.02 (M2M Push)
+                   └── NO, truly unreachable ──▶ SGP.02 (the factory)
 ```
 
 ---
 
-## Why SGP.02 Still Matters in 2026 ⏳
+## Why the Oldest Spec Still Runs the Show
 
-Even though it's the oldest spec, SGP.02 is far from obsolete:
+SGP.02 is from 2013. In tech years, that's ancient. But it's far from dead:
 
-- 🚗 **Automotive**: 10+ year head start in connected cars with regulatory requirements
-- ⚡ **Utility meters**: Devices installed in 2018 still running SGP.02 today
-- 🏭 **Industrial**: Sealed sensors in harsh environments where physical access is impossible
-- 📜 **Legislation**: Some regulations specifically reference SGP.02
+- **Automotive**: A decade-plus head start in connected cars, and regulations that explicitly reference it
+- **Utility meters**: Millions installed in 2018:2020, still running SGP.02, still working fine
+- **Industrial**: Sealed sensors in places where physical access means a helicopter ride and a permit
+- **Legislation**: Some countries' eCall and smart metering laws name SGP.02 directly
 
-The M2M world moves slowly — and SGP.02 was designed for exactly that reality.
-
----
-
-## The Good News: They Can Coexist! 🤝
-
-An eUICC chip can potentially support multiple specs. An operator can run SGP.02 for its automotive fleet, SGP.22 for its consumer subscribers, and SGP.32 for its smart home devices — all from the same core network.
+The M2M world moves at its own pace: the spec was designed for exactly that reality.
 
 ---
 
-## 🧠 Did You Know?
+## They Don't Compete. They Coexist
 
-SGP.02 was created before the iPhone had eSIM! When the GSMA started designing remote SIM provisioning in the early 2010s, they weren't thinking about smartphones at all — they were thinking about smart meters, connected cars, and industrial sensors. Consumer eSIM (SGP.22) came *after* the robot network was already designed.
+Here's the part people miss: an operator can run all three at once. SGP.02 for the automotive fleet. SGP.22 for consumer subscribers. SGP.32 for smart home devices. Same core network, same SIM cards, different provisioning paths. The eUICC chip itself can potentially support multiple specs, it's just a secure vault, after all.
 
 ---
 
-*Kid-friendly version — Cross-specification comparison of SGP.02, SGP.22, and SGP.32*
+SGP.02 was published in 2013 (years before the first eSIM iPhone shipped in 2018. When the GSMA started designing remote SIM provisioning in the early 2010s, nobody was thinking about smartphones. They were thinking about smart meters in basements, connected cars on highways, and industrial sensors in oil fields. Consumer eSIM) the one you scan with your phone, came *after* the robot network was already designed and deployed. The machines got there first.
+
+---
+
+*Kid-friendly version, Cross-specification comparison of SGP.02, SGP.22, and SGP.32*
 
 ← [Back to Kids Articles](index)

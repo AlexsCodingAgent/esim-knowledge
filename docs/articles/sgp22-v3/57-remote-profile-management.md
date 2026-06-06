@@ -8,14 +8,14 @@ date: 2026-06-06
 
 **🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.22 v3.x Unified RSP]({{ site.baseurl }}/docs/articles/sgp22-v3/) > Remote Profile Management: RPM Initiation, Download, and Execution**
 
-> **💡 Why this matters:** In SGP.22 v2.x, profile lifecycle management (enable, disable, delete, update metadata) is entirely local — the end user must manually trigger every operation through the device UI. There's no way for an operator to remotely manage a profile they own. Remote Profile Management (RPM) changes this: an operator can issue lifecycle commands through the SM-DP+, which packages them into an RPM Package, delivers them to the eUICC, and reports the results back. This unlocks fleet management, operator-initiated profile switches, remote metadata updates, and contact with the Profile Content Management Platform — all without touching the device.
+> **💡 Why this matters:** In SGP.22 v2.x, profile lifecycle management (enable, disable, delete, update metadata) is entirely local: the end user must manually trigger every operation through the device UI. There's no way for an operator to remotely manage a profile they own. Remote Profile Management (RPM) changes this: an operator can issue lifecycle commands through the SM-DP+, which packages them into an RPM Package, delivers them to the eUICC, and reports the results back. This unlocks fleet management, operator-initiated profile switches, remote metadata updates, and contact with the Profile Content Management Platform: all without touching the device.
 
 > **Key takeaways:**
 > - RPM is a **v3.x-only feature** (`#SupportedForRpmV3.X.Y#`), initiated by the Operator via the ES2+ interface
 > - The Operator sends an **rpmScript** to a **Managing SM-DP+**, which creates an **RPM Package** containing one or more **RPM Commands**
 > - RPM Commands: **Enable, Disable, Delete, ListProfileInfo, UpdateMetadata, Contact PCMP**
 > - RPM has three phases: **Initiation** (Operator → SM-DP+), **Download** (LPA pulls RPM Package from SM-DP+), and **Execution** (eUICC processes commands and returns results)
-> - Each RPM Command requires **Confirmation Request** enforced by the LPA — the end user must approve
+> - Each RPM Command requires **Confirmation Request** enforced by the LPA: the end user must approve
 > - RPM Packages can be chained using `rpmPending` for multi-round operations
 > - The `continueOnFailure` flag allows graceful handling of individual command failures within a package
 
@@ -75,15 +75,15 @@ The RPM Package is limited to **1057 bytes** maximum (value part). If more comma
 
 The Operator initiates RPM by calling `ES2+.RpmOrder` on a Managing SM-DP+:
 
-1. **Operator optionally generates a MatchingID** — this acts as the activation token the LPA uses to discover the RPM Package
+1. **Operator optionally generates a MatchingID** : this acts as the activation token the LPA uses to discover the RPM Package
 2. **Operator calls `ES2+.RpmOrder`** with:
-   - `eid` — the target eUICC
-   - `rpmScript` — the RPM Commands to execute
+   - `eid` : the target eUICC
+   - `rpmScript` : the RPM Commands to execute
    - Optional `MatchingID`
    - Optional Root SM-DS and Alternative SM-DS addresses
 3. **SM-DP+ verifies** that the Operator is the Profile Owner of all targeted Profiles
-4. **SM-DP+ prepares the RPM Package** — building the ASN.1 structure from the rpmScript
-5. **SM-DP+ registers an Event** — either on the specified SM-DS or on a Default SM-DP+ address
+4. **SM-DP+ prepares the RPM Package** : building the ASN.1 structure from the rpmScript
+5. **SM-DP+ registers an Event** : either on the specified SM-DS or on a Default SM-DP+ address
 6. **SM-DP+ returns the MatchingID** to the Operator
 
 The Operator can then deliver the MatchingID to the end user (via SMS, email, app notification, or the Push Service) to trigger the download.
@@ -94,10 +94,10 @@ The Operator can then deliver the MatchingID to the end user (via SMS, email, ap
 
 The LPA retrieves the RPM Package through one of four paths:
 
-1. **Polling Address (from Profile Metadata)** — the LPA detects a pending RPM by polling the SM-DP+ address stored in the profile's metadata
-2. **SM-DS Event** — the LPA retrieves an Event from the SM-DS (traditional v2.x discovery path)
-3. **Default SM-DP+** — the LPA contacts the Default SM-DP+ address
-4. **rpmPending chaining** — a previous RPM Package indicated more commands are pending
+1. **Polling Address (from Profile Metadata)** : the LPA detects a pending RPM by polling the SM-DP+ address stored in the profile's metadata
+2. **SM-DS Event** : the LPA retrieves an Event from the SM-DS (traditional v2.x discovery path)
+3. **Default SM-DP+** : the LPA contacts the Default SM-DP+ address
+4. **rpmPending chaining** : a previous RPM Package indicated more commands are pending
 
 Once the LPA connects to the SM-DP+:
 
@@ -122,7 +122,7 @@ The LPA delivers the RPM Package to the eUICC via `ES10b.LoadRpmPackage`:
    - If execution fails:
      - If `continueOnFailure` is present → the eUICC continues to the next command
      - If `continueOnFailure` is absent → the eUICC stops processing and returns the error
-3. **Atomicity is per-command** — each RPM Command is processed atomically, but if power is lost mid-package, the eUICC may be unable to process remaining commands (indicated by `interruption` in the result)
+3. **Atomicity is per-command** : each RPM Command is processed atomically, but if power is lost mid-package, the eUICC may be unable to process remaining commands (indicated by `interruption` in the result)
 4. The eUICC generates the **Load RPM Package Result** (`LoadRpmPackageResult`) containing:
    - Sequence of `RpmCommandResult` for each executed command
    - Optional `interruption` flag if execution was interrupted
@@ -134,7 +134,7 @@ Special constraints apply to command sequencing within an RPM Package:
 
 - **Enable/Disable limits**: An RPM Package may contain at most one Enable command, one Disable command, or one Disable followed by one Enable. The eUICC MAY reject subsequent Enable/Disable commands with `commandsWithRefreshExceeded`
 - **Contact PCMP must be last**: The Contact PCMP command SHALL NOT be followed by any other RPM Command. Subsequent commands are rejected with `commandAfterContactPcmp`
-- **Test Profiles excluded**: RPM Commands targeting Test Profiles SHALL be rejected — RPM is for Operational Profiles only
+- **Test Profiles excluded**: RPM Commands targeting Test Profiles SHALL be rejected: RPM is for Operational Profiles only
 
 ---
 
@@ -147,7 +147,7 @@ Unlike v2.x profile download (where the end user initiates the download), RPM is
 - When combined, the **highest Confirmation Level** applies (Simple → Strong)
 - The LPA must make it clear to the End User **what RPM Commands will be executed**
 
-The end user can reject — in which case the LPA cancels the session and the RPM Package is never executed.
+The end user can reject: in which case the LPA cancels the session and the RPM Package is never executed.
 
 ---
 
@@ -198,7 +198,7 @@ Next: [Device Change and Profile Recovery: Moving eSIMs Between Devices]({{ site
 
 ---
 
-*Based on GSMA SGP.22 v3.1 (01 December 2023), Section 2.10 — Remote Profile Management, Section 3.7 — Remote Profile Management, and Section 5.3.6 — ES2+.RpmOrder*
+*Based on GSMA SGP.22 v3.1 (01 December 2023), Section 2.10: Remote Profile Management, Section 3.7: Remote Profile Management, and Section 5.3.6: ES2+.RpmOrder*
 
 
 ---

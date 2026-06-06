@@ -12,7 +12,7 @@ date: 2026-06-05
 > **Key takeaways:**
 > - SM-DP+ is tested across three interfaces: ES2+ (Operator-facing, 6 functions), ES8+ (eUICC-facing, 5 functions), and ES9+ (LPA-facing, 5 functions)
 > - ES2+ testing uses a simulated MNO to verify profile ordering, confirmation, cancellation, release, and progress tracking
-> - ES8+ testing verifies the end-to-end secure channel — InitialiseSecureChannel, ConfigureISDP, StoreMetadata, LoadProfileElements, ReplaceSessionKeys
+> - ES8+ testing verifies the end-to-end secure channel: InitialiseSecureChannel, ConfigureISDP, StoreMetadata, LoadProfileElements, ReplaceSessionKeys
 > - ES9+ testing verifies mutual authentication, bound profile package delivery, client authentication, and notification handling
 > - SM-DS is tested across ES12 (event registration/deletion from SM-DP+), ES11 (event retrieval by LPA), and ES15 (inter-SM-DS cascading)
 > - TLS interface testing (Section 4.6) independently verifies mutual authentication, server authentication, and cipher suite compliance
@@ -35,7 +35,7 @@ Test data is provided in JSON format. The SM-DP+ IUT is tested as both a TLS ser
 
 ---
 
-## ES2+ — Operator to SM-DP+ Interface
+## ES2+ : Operator to SM-DP+ Interface
 
 ES2+ is how an operator orders profiles. Six functions are tested:
 
@@ -51,13 +51,13 @@ The operator reserves an ICCID from the SM-DP+'s pool before confirming the orde
 The operator provides the target EID, triggering the SM-DP+ to prepare a profile bound to that specific eUICC. Test cases verify:
 - Successful confirmation with valid EID
 - Rejection with invalid or malformed EIDs
-- That the SM-DP+ can handle ES2+ retry (identical `ConfirmOrder` called twice — optional feature `O_P_ES2+_RETRY`)
+- That the SM-DP+ can handle ES2+ retry (identical `ConfirmOrder` called twice: optional feature `O_P_ES2+_RETRY`)
 - Correct encoding of the `ConfirmOrderResponse`
 
 ### CancelOrder / ReleaseProfile
 
-- **CancelOrder** — Aborts a pending order before profile delivery. Test cases verify that the ICCID returns to the available pool.
-- **ReleaseProfile** — Releases a profile that has been delivered but is no longer needed. Test cases verify proper lifecycle management.
+- **CancelOrder** : Aborts a pending order before profile delivery. Test cases verify that the ICCID returns to the available pool.
+- **ReleaseProfile** : Releases a profile that has been delivered but is no longer needed. Test cases verify proper lifecycle management.
 
 ### HandleDownloadProgressInfo
 
@@ -65,17 +65,17 @@ The operator can query the status of a profile download in progress. Test cases 
 
 ### TLS, Mutual Authentication, Server Session Establishment
 
-The ES2+ connection itself is tested — the SM-DP+ must present a valid TLS server certificate and optionally perform mutual TLS authentication with the operator.
+The ES2+ connection itself is tested: the SM-DP+ must present a valid TLS server certificate and optionally perform mutual TLS authentication with the operator.
 
 ---
 
-## ES8+ — SM-DP+ to eUICC (End-to-End Secure Channel)
+## ES8+ : SM-DP+ to eUICC (End-to-End Secure Channel)
 
-ES8+ is tunnelled through the LPA — the SM-DP+ sends commands that the LPA relays to the eUICC without seeing the payload. Five functions are tested:
+ES8+ is tunnelled through the LPA: the SM-DP+ sends commands that the LPA relays to the eUICC without seeing the payload. Five functions are tested:
 
 ### InitialiseSecureChannel
 
-Establishes the end-to-end encrypted channel between the SM-DP+ and the eUICC's target ISD-P. The SM-DP+ sends SCP03t (Secure Channel Protocol 03 — tunnelled) TLVs containing:
+Establishes the end-to-end encrypted channel between the SM-DP+ and the eUICC's target ISD-P. The SM-DP+ sends SCP03t (Secure Channel Protocol 03: tunnelled) TLVs containing:
 - Key agreement parameters for deriving session keys `<S-ENC>` and `<S-MAC>`
 - The initialisation data for the secure channel
 
@@ -109,7 +109,7 @@ Optionally replaces the session keys mid-download for enhanced security. When se
 
 ---
 
-## ES9+ — SM-DP+ to LPA Interface
+## ES9+ : SM-DP+ to LPA Interface
 
 ES9+ is the HTTPS interface between the SM-DP+ and the device's LPA (LPD component). Five functions are tested:
 
@@ -130,7 +130,7 @@ The LPA forwards the eUICC's signed challenge, and the SM-DP+ verifies the eUICC
 
 ### GetBoundProfilePackage
 
-The LPA requests the encrypted profile package. The SM-DP+ delivers the `BoundProfilePackage` — encrypted specifically for the target eUICC. Test cases verify:
+The LPA requests the encrypted profile package. The SM-DP+ delivers the `BoundProfilePackage` : encrypted specifically for the target eUICC. Test cases verify:
 - Successful delivery of the bound package
 - That the package is correctly encrypted (the test tool can decrypt it with known test keys to verify)
 - Handling when the transaction ID is invalid or expired
@@ -144,8 +144,8 @@ The LPA sends profile operation notifications (install result, enable, disable, 
 
 ### CancelSession / TLS
 
-- **CancelSession** — The LPA can abort a transaction. Test cases verify proper cleanup.
-- **TLS, Server Authentication, Session Establishment** — The SM-DP+ must present a valid TLS server certificate with the correct OID (e.g., `2.999.10` for SM-DP+) and support the required cipher suite (`TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`).
+- **CancelSession** : The LPA can abort a transaction. Test cases verify proper cleanup.
+- **TLS, Server Authentication, Session Establishment** : The SM-DP+ must present a valid TLS server certificate with the correct OID (e.g., `2.999.10` for SM-DP+) and support the required cipher suite (`TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`).
 
 ---
 
@@ -153,23 +153,23 @@ The LPA sends profile operation notifications (install result, enable, disable, 
 
 The SM-DS is tested across three interfaces, with seven test environments depending on whether it is a Root SM-DS or an Alternative SM-DS:
 
-### ES12 — SM-DP+ to SM-DS (Event Registration)
+### ES12: SM-DP+ to SM-DS (Event Registration)
 
 The SM-DP+ registers an Event on the SM-DS when a profile is ready for a specific eUICC. Two functions:
 
-- **RegisterEvent** — Creates an Event with the EID and the SM-DP+'s address. Test cases verify correct registration and duplicate handling.
-- **DeleteEvent** — Removes an Event after the profile has been downloaded or expired. Test cases verify proper deletion.
+- **RegisterEvent** : Creates an Event with the EID and the SM-DP+'s address. Test cases verify correct registration and duplicate handling.
+- **DeleteEvent** : Removes an Event after the profile has been downloaded or expired. Test cases verify proper deletion.
 
-TLS mutual authentication is required — the SM-DS must verify the SM-DP+'s client certificate.
+TLS mutual authentication is required: the SM-DS must verify the SM-DP+'s client certificate.
 
-### ES11 — LPA to SM-DS (Event Retrieval)
+### ES11: LPA to SM-DS (Event Retrieval)
 
 The device's LDS polls the SM-DS for pending Events. Test cases verify:
 - Correct response when Events are pending (returns Event Records with SM-DP+ addresses)
 - Correct response when no Events are pending (empty list)
 - Proper handling of the eUICC's EID in the request
 
-### ES15 — SM-DS to SM-DS (Cascading)
+### ES15: SM-DS to SM-DS (Cascading)
 
 In cascaded SM-DS deployments, Alternative SM-DSs forward Events to a Root SM-DS. Test cases verify:
 - Correct forwarding of Event Registrations from Alternative to Root
@@ -182,9 +182,9 @@ In cascaded SM-DS deployments, Alternative SM-DSs forward Events to a Root SM-DS
 
 TLS is tested independently because both SM-DP+ and SM-DS act as TLS servers and TLS clients in different contexts:
 
-- **TLS, Mutual Authentication, Client** — When the SM-DP+ or SM-DS acts as a TLS client (e.g., SM-DP+ connecting to SM-DS on ES12), it must present a valid client certificate and verify the server's certificate.
-- **TLS, Mutual Authentication, Server** — When acting as a TLS server, the component must present a valid server certificate, optionally request a client certificate, and verify it.
-- **TLS, Server Authentication** — Server-only authentication scenarios (e.g., ES9+ from LPA to SM-DP+) where the server authenticates to the client.
+- **TLS, Mutual Authentication, Client** : When the SM-DP+ or SM-DS acts as a TLS client (e.g., SM-DP+ connecting to SM-DS on ES12), it must present a valid client certificate and verify the server's certificate.
+- **TLS, Mutual Authentication, Server** : When acting as a TLS server, the component must present a valid server certificate, optionally request a client certificate, and verify it.
+- **TLS, Server Authentication** : Server-only authentication scenarios (e.g., ES9+ from LPA to SM-DP+) where the server authenticates to the client.
 
 Test cases verify: supported cipher suites, certificate chain validation, OID matching (SM-DP+ OID: `2.999.10`, SM-DS OID: `2.999.15`), supported signature algorithms (ECDSA with SHA-256), and proper handling of TLS session IDs.
 
@@ -210,7 +210,7 @@ Next: [SGP.23 Certification: From Test Cases to DLOA]({{ site.baseurl }}/docs/ar
 
 ---
 
-*Based on GSMA SGP.23 v1.16 (29 April 2025) — RSP Test Specification, Sections 4.3 (SM-DP+ Interfaces), 4.5 (SM-DS Interfaces), 4.6 (TLS Interfaces), 3.2.2 (SM-DP+ and SM-DS Test Environment)*
+*Based on GSMA SGP.23 v1.16 (29 April 2025) : RSP Test Specification, Sections 4.3 (SM-DP+ Interfaces), 4.5 (SM-DS Interfaces), 4.6 (TLS Interfaces), 3.2.2 (SM-DP+ and SM-DS Test Environment)*
 
 
 ---

@@ -7,17 +7,17 @@ date: 2026-06-05
 
 **🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.29 EID]({{ site.baseurl }}/docs/articles/sgp29/) > SGP.29 Overview: The eUICC Identifier (EID)**
 
-> **💡 Why this matters:** Every eSIM chip on the planet needs a globally unique identifier — the EID. Without a standardised numbering scheme, eUICC manufacturers would face a fragmented landscape of incompatible national numbering authorities, each with different rules for issuing identifiers. SGP.29 establishes the GSMA as the central authority for EID assignment, replacing the ad-hoc use of ICCID-based identifiers with a purpose-built, cryptographically verifiable 32-digit numbering system designed specifically for the eSIM ecosystem.
+> **💡 Why this matters:** Every eSIM chip on the planet needs a globally unique identifier: the EID. Without a standardised numbering scheme, eUICC manufacturers would face a fragmented landscape of incompatible national numbering authorities, each with different rules for issuing identifiers. SGP.29 establishes the GSMA as the central authority for EID assignment, replacing the ad-hoc use of ICCID-based identifiers with a purpose-built, cryptographically verifiable 32-digit numbering system designed specifically for the eSIM ecosystem.
 
 > **Key takeaways:**
 > - The EID (eUICC Identifier) is a 32-digit globally unique serial number that identifies each individual eUICC chip
 > - SGP.29 v1.1 (March 2024) defines the EID format, principles, and assignment process under GSMA administration
 > - Before SGP.29, EIDs were issued through ITU-T E.118 (ICCID scheme) by different National Regulatory Authorities with inconsistent rules
 > - In 2019, industry stakeholders asked the GSMA to assume responsibility for EID administration
-> - The EID is explicitly NOT a Primary Account Number — it cannot be used for charging, service subscriptions, or subscriber identification
+> - The EID is explicitly NOT a Primary Account Number: it cannot be used for charging, service subscriptions, or subscriber identification
 > - GSMA serves as the First Level EIN Assignment Authority, issuing ERHI1 (EID Range Holder Identifier Level 1) to manufacturers, device makers, and national authorities
 
-SGP.29 is a concise but foundational specification in the GSMA eSIM ecosystem. At only 13 pages (plus annexes), it establishes the definitive rules for what an EID is, how it is structured, who may assign it, and how manufacturers obtain their allocations. While SGP.22 defines the protocol and SGP.25 defines security certification, SGP.29 defines the identity layer — without which no eUICC could participate in the RSP ecosystem at all.
+SGP.29 is a concise but foundational specification in the GSMA eSIM ecosystem. At only 13 pages (plus annexes), it establishes the definitive rules for what an EID is, how it is structured, who may assign it, and how manufacturers obtain their allocations. While SGP.22 defines the protocol and SGP.25 defines security certification, SGP.29 defines the identity layer: without which no eUICC could participate in the RSP ecosystem at all.
 
 ---
 
@@ -27,11 +27,11 @@ SGP.29 is a concise but foundational specification in the GSMA eSIM ecosystem. A
 
 The original EID format was inherited from the Integrated Circuit Card Identifier (ICCID) format, defined by ITU-T Recommendation E.118 as a Primary Account Number (PAN). Within the ICCID, the Issuer Identifier Number (IIN) is typically administered by national authorities. This created three fundamental problems:
 
-1. **The EID is not a PAN** — Its primary purpose is chip identification, not charging for services. Forcing it into the PAN framework was a category error.
+1. **The EID is not a PAN** : Its primary purpose is chip identification, not charging for services. Forcing it into the PAN framework was a category error.
 
-2. **Fragmented administration** — Different National Regulatory Authorities issued IINs/ICCIDs for use as EIDs using different rules, creating inconsistent operating conditions for manufacturers. Some manufacturers could not obtain EIDs at all.
+2. **Fragmented administration** : Different National Regulatory Authorities issued IINs/ICCIDs for use as EIDs using different rules, creating inconsistent operating conditions for manufacturers. Some manufacturers could not obtain EIDs at all.
 
-3. **No central governance** — Without a single authority, there was no guarantee of global uniqueness, no coherent assignment policy, and no lifecycle management for identifiers.
+3. **No central governance** : Without a single authority, there was no guarantee of global uniqueness, no coherent assignment policy, and no lifecycle management for identifiers.
 
 ### The 2019 Consensus
 
@@ -62,7 +62,7 @@ SGP.29 covers three core areas:
 
 ## The EID in the RSP Ecosystem
 
-The EID is not just a label — it is an operational identifier used throughout the Remote SIM Provisioning workflow:
+The EID is not just a label: it is an operational identifier used throughout the Remote SIM Provisioning workflow:
 
 | Protocol | EID Role |
 |----------|----------|
@@ -83,7 +83,7 @@ SGP.29 establishes six foundational principles:
 | Principle | Rule |
 |-----------|------|
 | **EID.P01** | Existing ICCID issuance by national authorities is not affected |
-| **EID.P02** | Central purpose: uniquely identify an individual eUICC (independent of form factor — discrete or integrated) |
+| **EID.P02** | Central purpose: uniquely identify an individual eUICC (independent of form factor: discrete or integrated) |
 | **EID.P03** | The EID is NOT a Primary Account Number (PAN) |
 | **EID.P04** | The EID is NOT intended for charging telecommunication services |
 | **EID.P05** | EID assignment is separate from ICCID and IIN assignment |
@@ -103,14 +103,14 @@ SGP.29 establishes the GSMA as the sole First Level EIN Assignment Authority. Th
 - Provides expertise and advice on EID issues
 - Ensures cancelled ERHI1s are never reassigned
 
-However, it is important to note: **EIDs assigned under the ITU-T E.118 based scheme remain valid** in the eSIM ecosystem. SGP.29 does not invalidate legacy identifiers — it creates a parallel, purpose-built scheme going forward.
+However, it is important to note: **EIDs assigned under the ITU-T E.118 based scheme remain valid** in the eSIM ecosystem. SGP.29 does not invalidate legacy identifiers: it creates a parallel, purpose-built scheme going forward.
 
 ---
 
 ## 📋 Summary
 
 - SGP.29 solves the fragmented EID landscape by establishing the GSMA as the central EID assignment authority
-- The EID is a 32-digit globally unique identifier for eUICCs — not a charging number, not a subscriber identifier
+- The EID is a 32-digit globally unique identifier for eUICCs: not a charging number, not a subscriber identifier
 - Six principles govern the EID, emphasising uniqueness, independence from ICCID, and separation from payment systems
 - The EID is operational throughout the RSP ecosystem: discovery, profile matching, download, and event registration
 - SGP.29 v1.1 extends ERHI1 eligibility to Device Manufacturers and Groups of Device Manufacturers
@@ -127,7 +127,7 @@ Next: [EID Format Decoded: The 32-Digit Structure]({{ site.baseurl }}/docs/artic
 
 ---
 
-*Based on GSMA SGP.29 v1.1 (22 March 2024) — EID Definition and Assignment Process, Sections 1–7*
+*Based on GSMA SGP.29 v1.1 (22 March 2024) : EID Definition and Assignment Process, Sections 1–7*
 
 
 ---

@@ -7,9 +7,9 @@ date: 2026-06-07
 
 ## Imagine...
 
-You're moving house. You've got a keychain full of important keys — your front door key, your office key, your safety deposit box key. You can't just leave copies lying around. You need to pack them up securely, lock them in a special briefcase, and hand-deliver them to your new home.
+You're moving house. You've got a keychain full of important keys: your front door key, your office key, your safety deposit box key. You can't just leave copies lying around. You need to pack them up securely, lock them in a special briefcase, and hand-deliver them to your new home.
 
-That's exactly what **Device Change** does for your eSIM profiles! When you get a new phone, it moves your secret digital keys from your old magic vault to your new one — safely, securely, and without losing anything along the way.
+That's exactly what **Device Change** does for your eSIM profiles! When you get a new phone, it moves your secret digital keys from your old magic vault to your new one: safely, securely, and without losing anything along the way.
 
 ---
 
@@ -39,7 +39,7 @@ Like hiring professional movers:
 5. You confirm: "Yes, I really want to do this" (Strong Confirmation)
 6. The old vault deletes your key and creates a special moving receipt
 7. That receipt becomes a QR code for your new phone
-8. Your new phone downloads the key fresh — ready to go!
+8. Your new phone downloads the key fresh: ready to go!
 
 ### The DIY Move: `usingStoredAc`
 
@@ -48,7 +48,7 @@ Like already having a spare key in an envelope marked "NEW HOUSE":
 1. Your profile already has a pre-packed Activation Code stored inside
 2. You trigger the move, the old profile gets deleted
 3. You scan the stored code on your new phone
-4. Done — quick and simple!
+4. Done: quick and simple!
 
 ---
 
@@ -56,13 +56,13 @@ Like already having a spare key in an envelope marked "NEW HOUSE":
 
 Imagine you've packed up all your keys, the movers have left... and the door of your new house won't open. Panic! You've already given up your old keys!
 
-That's where **Profile Recovery** comes in — the safety net:
+That's where **Profile Recovery** comes in: the safety net:
 
 - Your old phone saves recovery information before deleting the profile
 - If the new phone fails to install, you can go back to the old phone
-- The Key Maker verifies: "Yep, the new vault didn't work — let's restore"
+- The Key Maker verifies: "Yep, the new vault didn't work: let's restore"
 - A fresh download brings your key back to the old vault
-- But hurry — the recovery ticket expires after a while!
+- But hurry: the recovery ticket expires after a while!
 
 It's like having a spare key hidden under the doormat, but only for a limited time.
 
@@ -80,12 +80,10 @@ It's like having a spare key hidden under the doormat, but only for a limited ti
 
 ---
 
-## 🧠 Did You Know?
-
-Device Change and Profile Recovery are **brand new in v3.x** — before this, every eSIM transfer was a different process depending on which phone you owned. Now it's one standardised, safe way to move all your secret keys to a new vault!
+Device Change and Profile Recovery are **brand new in v3.x** : before this, every eSIM transfer was a different process depending on which phone you owned. Now it's one standardised, safe way to move all your secret keys to a new vault!
 
 ---
 
-*Kid-friendly version of GSMA SGP.22 v3.x, Section 3.11 — Device Change and Profile Recovery*
+*Kid-friendly version of GSMA SGP.22 v3.x, Section 3.11: Device Change and Profile Recovery*
 
 ← [Back to Kids Articles](index)

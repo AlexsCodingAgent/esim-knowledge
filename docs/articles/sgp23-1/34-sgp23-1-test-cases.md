@@ -7,13 +7,13 @@ date: 2026-06-05
 
 **🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.23-1 eUICC Testing]({{ site.baseurl }}/docs/articles/sgp23-1/) > Key eUICC Test Cases: ISD-R, ECASD, and Profile Lifecycle**
 
-> **💡 Why this matters:** Before any profile can be downloaded, before any carrier switch can happen, the eUICC must correctly handle the fundamental lifecycle of its secure domains and profiles. SGP.23-1's 27 interface test groups and 8 behaviour test groups verify every state transition — from the first ATR byte through ISD-R selection, secure channel establishment, profile installation, enablement, and deletion. These are the tests that catch the bugs which would otherwise surface as "inexplicable" field failures.
+> **💡 Why this matters:** Before any profile can be downloaded, before any carrier switch can happen, the eUICC must correctly handle the fundamental lifecycle of its secure domains and profiles. SGP.23-1's 27 interface test groups and 8 behaviour test groups verify every state transition: from the first ATR byte through ISD-R selection, secure channel establishment, profile installation, enablement, and deletion. These are the tests that catch the bugs which would otherwise surface as "inexplicable" field failures.
 
 > **Key takeaways:**
 > - ISD-R selection is tested across 9 sequences covering nominal cases, enabled/disabled profiles, LPAe support, and MEP configurations (A1, A2, B)
 > - ES8+ secure channel testing covers `InitialiseSecureChannel` (5 error sequences), `ConfigureISDP`, `StoreMetadata` (11+ sequences), and `LoadProfileElements` (12 sequences)
 > - ES10b profile download pipeline tests span `PrepareDownload` (curve-specific + error), `LoadBoundProfilePackage`, `GetEUICCChallenge`, and `AuthenticateServer`
-> - ES10c local profile management tests `GetProfilesInfo`, `EnableProfile`, `DisableProfile`, `DeleteProfile`, and `eUICCMemoryReset` — the most heavily tested interface with hundreds of pages
+> - ES10c local profile management tests `GetProfilesInfo`, `EnableProfile`, `DisableProfile`, `DeleteProfile`, and `eUICCMemoryReset` : the most heavily tested interface with hundreds of pages
 > - Behavior testing covers retry mechanisms (Confirmation Code, one-time key reuse), forbidden PPRs, file structure validation, and notification handling
 > - MEP (Multiple Enabled Profiles) adds extensive test sequences for multi-profile management across LSI multiplexing
 
@@ -33,14 +33,14 @@ The very first thing tested is whether the eUICC powers up correctly and allows 
 | # | Scenario | Key Verification |
 |---|----------|-----------------|
 | 1 | Nominal: ATR + Select ISD-R | ATR contains tBi with b2=1; FCP Template present; ISD-R selection returns proprietary data with `#R_ISDR_SELECTION` |
-| 2 | With Enabled Profile | Same ISD-R selection but response includes `#R_ISDR_SELECTION_EN_PROF` — different proprietary data when a profile is enabled |
-| 3 | LPAe Supported | ISD-R selection response includes `#R_ISDR_SELECTION_LPAE` — the eUICC advertises its LPAe capability |
+| 2 | With Enabled Profile | Same ISD-R selection but response includes `#R_ISDR_SELECTION_EN_PROF` : different proprietary data when a profile is enabled |
+| 3 | LPAe Supported | ISD-R selection response includes `#R_ISDR_SELECTION_LPAE` : the eUICC advertises its LPAe capability |
 | 4 | MEP-A1 | LSI Support present in ATR; `MEP_MODE = '01'`; configures 2 LSIs with IDs "010203" |
 | 5 | MEP-A2 | Similar to A1 but with `MEP_MODE = '10'` |
 | 6 | MEP-B | `MEP_MODE = '11'`; configures for MEP-B with possible auto-deselection behaviour |
 | 7-9 | Additional MEP variants | Various LSI multiplexing and auto-deselection configurations |
 
-The test verifies that the eUICC correctly advertises its capabilities through the ATR historical bytes and ISD-R selection response — the first trust boundary between the device and the eUICC.
+The test verifies that the eUICC correctly advertises its capabilities through the ATR historical bytes and ISD-R selection response: the first trust boundary between the device and the eUICC.
 
 ---
 
@@ -59,7 +59,7 @@ Five error sequences ensure the eUICC rejects malformed channel initiation:
 
 ### ConfigureISDP (4.2.4)
 
-Mandatory test case verifying that the eUICC correctly processes ISD-P configuration commands — allocating memory, setting up the security domain, and preparing for profile content.
+Mandatory test case verifying that the eUICC correctly processes ISD-P configuration commands: allocating memory, setting up the security domain, and preparing for profile content.
 
 ### StoreMetadata (4.2.5)
 
@@ -88,7 +88,7 @@ The ES10b interface is where the LPA orchestrates profile downloads. Key test gr
 
 ### PrepareDownload (4.2.10)
 
-Four test case groups — three curve-specific (NIST, BRP, FRP) and one for error handling. Each verifies:
+Four test case groups: three curve-specific (NIST, BRP, FRP) and one for error handling. Each verifies:
 - Correct generation of the one-time key pair (`otPK.eUICC.ECKA` / `otSK.eUICC.ECKA`)
 - Proper hash of the SM-DP+ profile binding certificate
 - Confirmation Code handling when `#PREP_DOWNLOAD_WITH_CC` is used
@@ -111,13 +111,13 @@ The critical delivery function. Curve-specific tests (NIST, BRP, FRP) plus error
 ### Notification Management (4.2.14–16)
 
 Three test groups covering the notification lifecycle:
-- **ListNotification** — Returns pending notifications; test sequence #5 covers RPM-specific notifications
-- **RetrieveNotificationsList** — Full notification details with sequence number tracking
-- **RemoveNotificationFromList** — Removal by sequence number; verifications that the correct notification is removed
+- **ListNotification** : Returns pending notifications; test sequence #5 covers RPM-specific notifications
+- **RetrieveNotificationsList** : Full notification details with sequence number tracking
+- **RemoveNotificationFromList** : Removal by sequence number; verifications that the correct notification is removed
 
 ### RPM Package Loading (4.2.28)
 
-`LoadRPMPackage` (conditional on `O_E_RPM`) tests the Remote Profile Management capability — updating profile metadata, policy rules, or content on an already-installed profile without full re-download.
+`LoadRPMPackage` (conditional on `O_E_RPM`) tests the Remote Profile Management capability: updating profile metadata, policy rules, or content on an already-installed profile without full re-download.
 
 ---
 
@@ -136,7 +136,7 @@ Returns information about all installed profiles. Test sequences verify:
 
 ### EnableProfile (4.2.21)
 
-The most complex test case group — spanning ~117 pages (from page 238 to 355). It covers:
+The most complex test case group: spanning ~117 pages (from page 238 to 355). It covers:
 - **Nominal enablement** with RefreshFlag behaviour
 - **MEP-A1/A2/B** variants: Multiple Enabled Profiles add significant complexity
 - **Error cases**: enabling an already-enabled profile, "catBusy" when a proactive session is ongoing, PPR violations
@@ -160,7 +160,7 @@ Covers permanent ISD-P removal:
 
 ### eUICCMemoryReset (4.2.24)
 
-Factory-resets the entire eUICC — all profiles and ISD-Ps deleted. Tests verify:
+Factory-resets the entire eUICC: all profiles and ISD-Ps deleted. Tests verify:
 - Complete erasure of all profile data
 - "catBusy" handling when proactive sessions are active
 - That `GetProfilesInfo` returns empty after reset
@@ -174,16 +174,16 @@ Section 5 verifies functional behaviour beyond individual interface calls:
 ### Retry Mechanism (5.2.1)
 
 Tests the eUICC's ability to handle failed downloads gracefully:
-- **Confirmation Code retry** — When the user enters a wrong confirmation code, the eUICC reuses the previous one-time key pair for the retry attempt (conditional on `O_E_REUSE_OTPK`)
-- **Download retry** — Full retry of a failed `LoadBoundProfilePackage` sequence
+- **Confirmation Code retry** : When the user enters a wrong confirmation code, the eUICC reuses the previous one-time key pair for the retry attempt (conditional on `O_E_REUSE_OTPK`)
+- **Download retry** : Full retry of a failed `LoadBoundProfilePackage` sequence
 
 ### Forbidden PPRs (5.2.2)
 
-Verifies that the eUICC refuses operations that violate Profile Policy Rules — the enforcement mechanism that prevents users (or malware) from performing disallowed profile operations.
+Verifies that the eUICC refuses operations that violate Profile Policy Rules: the enforcement mechanism that prevents users (or malware) from performing disallowed profile operations.
 
 ### eUICC File Structure (5.2.4)
 
-Validates the eUICC's internal file system — that EF_UST, EF_DIR, EF_ICCID, and EF_ARR are correctly structured and accessible through standard UICC file selection commands.
+Validates the eUICC's internal file system: that EF_UST, EF_DIR, EF_ICCID, and EF_ARR are correctly structured and accessible through standard UICC file selection commands.
 
 ### Delete/Enable/Disable Process Behaviour (5.2.5–7)
 
@@ -197,7 +197,7 @@ Beyond interface compliance, these behaviour tests verify the full process lifec
 
 ## 📋 Summary
 
-- ISD-R selection (9 sequences) verifies the very first handshake — ATR, logical channel management, and capability advertisement
+- ISD-R selection (9 sequences) verifies the very first handshake: ATR, logical channel management, and capability advertisement
 - ES8+ testing (4 groups) validates the secure channel for profile delivery: initialisation, ISD-P configuration, metadata storage, and profile element loading
 - ES10b (12 function groups) covers the complete profile download pipeline from challenge generation through bound package loading to notification management
 - ES10c (8 function groups) is the most heavily tested interface, with EnableProfile alone spanning ~117 pages of test sequences
@@ -216,7 +216,7 @@ Next: [eUICC Security Testing: Certificates, Keys, and Channels]({{ site.baseurl
 
 ---
 
-*Based on GSMA SGP.23-1 v3.1.3 (27 January 2025) — RSP Test Specification for the eUICC, Sections 4.2, 5.2*
+*Based on GSMA SGP.23-1 v3.1.3 (27 January 2025) : RSP Test Specification for the eUICC, Sections 4.2, 5.2*
 
 
 ---

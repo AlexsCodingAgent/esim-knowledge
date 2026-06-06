@@ -1,4 +1,4 @@
-# eSIM Knowledge Base — Completeness & Consistency Audit
+# eSIM Knowledge Base: Completeness & Consistency Audit
 
 **Date:** 2026-06-06  
 **Auditor:** Hermes Agent (automated)  
@@ -8,7 +8,7 @@
 
 ## 1. NUMBERING AUDIT (00–51)
 
-### Status: ✅ PASS — No gaps, no duplicates
+### Status: ✅ PASS: No gaps, no duplicates
 
 | Range | Spec Family | Count | Files |
 |-------|-------------|-------|-------|
@@ -42,14 +42,14 @@ All 52 articles were sampled (6 read in full, remainder checked at head/tail). E
 | Content sections (##) | All 52 | ✅ |
 | "📋 Summary" | All 52 | ✅ Consistent section header |
 | Navigation links (Home + Prev/Next) | All 52 | ✅ Inside `<div align="center">` |
-| Source citation | All 52 | ✅ Consistent `*Based on GSMA SGP.XX vX.Y (date) — Title*` footer |
+| Source citation | All 52 | ✅ Consistent `*Based on GSMA SGP.XX vX.Y (date) : Title*` footer |
 
 ### 2.2 Frontmatter Inconsistency ⚠️ ISSUE
 
 **Only article 00 (`00-sgp22-overview.md`) is missing `title:` in frontmatter.** All other 51 articles have both `title:` and `date:`.
 
 ```yaml
-# 00-sgp22-overview.md (INCORRECT — missing title)
+# 00-sgp22-overview.md (INCORRECT: missing title)
 ---
 date: 2026-06-05
 ---
@@ -61,7 +61,7 @@ date: 2026-XX-XX
 ---
 ```
 
-### 2.3 Prerequisites Callout — Inconsistent ⚠️ ISSUE
+### 2.3 Prerequisites Callout: Inconsistent ⚠️ ISSUE
 
 | Series | Prerequisites Callout |
 |--------|----------------------|
@@ -77,7 +77,7 @@ date: 2026-XX-XX
 
 Newer articles (17–51) do not guide readers on prerequisites or dependencies.
 
-### 2.4 Table of Contents — Inconsistent ⚠️ ISSUE
+### 2.4 Table of Contents: Inconsistent ⚠️ ISSUE
 
 - **SGP.22 article 03** (`03-profile-download.md`, 700 lines) uses `* TOC {:toc}` (Jekyll auto-TOC).
 - **No other article** uses this feature, even long ones like `16-iot-functions-reference.md` (281 lines).
@@ -96,7 +96,7 @@ Newer articles (17–51) do not guide readers on prerequisites or dependencies.
 | **Code blocks** | Frequent (activation codes, flow diagrams) | Occasional (ASCII art diagrams) |
 | **Prereqs callout** | Present | Absent |
 | **TOC** | Present (article 03 only) | Absent |
-| **Breadcrumb labels** | e.g., `[SGP.22 Consumer RSP](/docs/articles/sgp22/)` | e.g., `[SGP.23 Test Specifications](/docs/articles/sgp23/)` — consistent naming ✅ |
+| **Breadcrumb labels** | e.g., `[SGP.22 Consumer RSP](/docs/articles/sgp22/)` | e.g., `[SGP.23 Test Specifications](/docs/articles/sgp23/)` : consistent naming ✅ |
 
 **Assessment:** Mild style drift. New articles are notably shorter and more compressed. This could be acceptable if the intent is to provide "overview-level" depth for supplementary specs, but the difference is noticeable when reading across the full knowledge base.
 
@@ -119,21 +119,21 @@ Articles are linked ONLY within their own spec series. There is no cross-series 
 
 Readers following "Next" links will dead-end at each series boundary.
 
-### 4.3 Breadcrumb Section Links — 404 ⚠️ ISSUE
+### 4.3 Breadcrumb Section Links: 404 ⚠️ ISSUE
 
 Breadcrumbs contain links like `[SGP.23 Test Specifications](/docs/articles/sgp23/)` but **no `index.md` exists** in any section directory except `kids/`. All 8 section breadcrumb paths return 404:
 
 | Breadcrumb Path | Status |
 |----------------|--------|
-| `/docs/articles/sgp22/` | 404 — no index.md |
-| `/docs/articles/sgp32/` | 404 — no index.md |
-| `/docs/articles/sgp23/` | 404 — no index.md |
-| `/docs/articles/sgp25/` | 404 — no index.md |
-| `/docs/articles/sgp29/` | 404 — no index.md |
-| `/docs/articles/sgp23-1/` | 404 — no index.md |
-| `/docs/articles/sgp26/` | 404 — no index.md |
-| `/docs/articles/sgp33-3/` | 404 — no index.md |
-| `/docs/articles/sgp41/` | 404 — no index.md |
+| `/docs/articles/sgp22/` | 404: no index.md |
+| `/docs/articles/sgp32/` | 404: no index.md |
+| `/docs/articles/sgp23/` | 404: no index.md |
+| `/docs/articles/sgp25/` | 404: no index.md |
+| `/docs/articles/sgp29/` | 404: no index.md |
+| `/docs/articles/sgp23-1/` | 404: no index.md |
+| `/docs/articles/sgp26/` | 404: no index.md |
+| `/docs/articles/sgp33-3/` | 404: no index.md |
+| `/docs/articles/sgp41/` | 404: no index.md |
 
 ### 4.4 Orphan Article Check ✅ PASS
 
@@ -162,11 +162,11 @@ Every article is linked from the homepage index. No orphan articles found.
 
 ### 5.2 Duplicate Content ⚠️ ISSUE
 
-The "Start Here" section and "SGP.22 Consumer RSP" section list the **exact same 7 articles** (00–06). The Start Here section presents them as a sequential reading guide; the SGP.22 section presents them as a per-spec reference. This is confusing — readers may think they're different articles or that they missed content.
+The "Start Here" section and "SGP.22 Consumer RSP" section list the **exact same 7 articles** (00–06). The Start Here section presents them as a sequential reading guide; the SGP.22 section presents them as a per-spec reference. This is confusing: readers may think they're different articles or that they missed content.
 
 ### 5.3 SGP.21 References Without Coverage
 
-The homepage footer and source citations reference **SGP.21** (RSP Architecture), but no article, section, or standards-map entry explains SGP.21 in depth. The standards-map.md timeline does mention it ("2014 — SGP.21 RSP Architecture (underpins SGP.22)") but no dedicated content exists.
+The homepage footer and source citations reference **SGP.21** (RSP Architecture), but no article, section, or standards-map entry explains SGP.21 in depth. The standards-map.md timeline does mention it ("2014: SGP.21 RSP Architecture (underpins SGP.22)") but no dedicated content exists.
 
 ---
 
@@ -200,18 +200,18 @@ The prerequisites page covers: Networking, SIM/UICC basics, Public-key cryptogra
 
 All citations follow a consistent pattern:
 ```
-*Based on GSMA SGP.XX vX.Y (Date) — Specification Title, additional details*
+*Based on GSMA SGP.XX vX.Y (Date) : Specification Title, additional details*
 ```
 
 ### 7.2 Citation Completeness
 
 All 52 articles end with a source citation. Examples:
-- SGP.22: `*Based on GSMA SGP.22 v2.2.2 (05 June 2020) — RSP Technical Specification*`
+- SGP.22: `*Based on GSMA SGP.22 v2.2.2 (05 June 2020) : RSP Technical Specification*`
 - SGP.32: `*Based on GSMA SGP.31 v1.3 and SGP.32 v1.3 (22 May 2026)*`
-- SGP.23: `*Based on GSMA SGP.23 v1.16 (29 April 2025) — RSP Test Specification*`
-- SGP.25: `*Based on GSMA SGP.25 v2.1 (3 February 2025) — eUICC for Consumer and IoT Devices Protection Profile, Sections 1–2, conformant to Common Criteria CC:2022 release 1*`
-- SGP.29: `*Based on GSMA SGP.29 v1.1 (22 March 2024) — EID Definition and Assignment Process, Sections 1–7*`
-- SGP.41: `*Based on GSMA SGP.41 v1.0 (28 February 2025) — eSIM In-Factory Profile Provisioning Architecture and Requirements, Annex A*`
+- SGP.23: `*Based on GSMA SGP.23 v1.16 (29 April 2025) : RSP Test Specification*`
+- SGP.25: `*Based on GSMA SGP.25 v2.1 (3 February 2025) : eUICC for Consumer and IoT Devices Protection Profile, Sections 1–2, conformant to Common Criteria CC:2022 release 1*`
+- SGP.29: `*Based on GSMA SGP.29 v1.1 (22 March 2024) : EID Definition and Assignment Process, Sections 1–7*`
+- SGP.41: `*Based on GSMA SGP.41 v1.0 (28 February 2025) : eSIM In-Factory Profile Provisioning Architecture and Requirements, Annex A*`
 
 **Note:** SGP.22 citations reference v2.2.2 (2020), which is older than SGP.22 v2.7 mentioned in the homepage footer. This may be intentional (articles written against v2.2.2 as the most widely deployed version).
 
@@ -245,16 +245,16 @@ Newer articles (17–51) sometimes use terms like `eUICC`, `SM-DP+`, `ISD-R` wit
 ## SUMMARY OF ISSUES FOUND
 
 ### 🔴 High Priority
-1. **8 breadcrumb section pages return 404** — No `index.md` in `sgp22/`, `sgp32/`, `sgp23/`, `sgp25/`, `sgp29/`, `sgp23-1/`, `sgp26/`, `sgp33-3/`, `sgp41/`. Fix: create short index pages for each section.
-2. **SGP.22 articles duplicated on homepage** — "Start Here" and "SGP.22" sections list the same 7 articles. Fix: keep one and remove/rework the other.
+1. **8 breadcrumb section pages return 404** : No `index.md` in `sgp22/`, `sgp32/`, `sgp23/`, `sgp25/`, `sgp29/`, `sgp23-1/`, `sgp26/`, `sgp33-3/`, `sgp41/`. Fix: create short index pages for each section.
+2. **SGP.22 articles duplicated on homepage** : "Start Here" and "SGP.22" sections list the same 7 articles. Fix: keep one and remove/rework the other.
 
 ### 🟡 Medium Priority
-3. **Frontmatter inconsistency** — Article 00 is missing `title:` field. Fix: add `title: "eSIM Remote SIM Provisioning (RSP) — How It Works"`.
+3. **Frontmatter inconsistency** : Article 00 is missing `title:` field. Fix: add `title: "eSIM Remote SIM Provisioning (RSP) : How It Works"`.
 4. **Missing prerequisites callout** in 35 new articles (17–51). Fix: add a brief prereqs note (at minimum "See the Glossary for acronym definitions").
-5. **Cross-series navigation dead-ends** — No "Next" link between series boundaries. Fix: add cross-series navigation or a "Continue to next section" link.
+5. **Cross-series navigation dead-ends** : No "Next" link between series boundaries. Fix: add cross-series navigation or a "Continue to next section" link.
 
 ### 🟢 Low Priority / Observations
-6. **Style drift** — New articles (17–51) are ~35% shorter and more compressed than original SGP.22/SGP.32 articles. Not necessarily a defect, but worth reviewing if uniform depth is desired.
-7. **Missing TOC** — Only article 03 uses Jekyll `{:toc}`. Long articles (>200 lines) would benefit.
-8. **SGP.21 referenced but not covered** — The homepage footer cites SGP.21 but no dedicated content exists. Add a brief note to standards-map or a footnote.
-9. **SGP.22 citation version drift** — Articles cite v2.2.2 (2020) while homepage footer cites v2.7. Not necessarily wrong (v2.2.2 is the most deployed baseline), but the discrepancy should be documented.
+6. **Style drift** : New articles (17–51) are ~35% shorter and more compressed than original SGP.22/SGP.32 articles. Not necessarily a defect, but worth reviewing if uniform depth is desired.
+7. **Missing TOC** : Only article 03 uses Jekyll `{:toc}`. Long articles (>200 lines) would benefit.
+8. **SGP.21 referenced but not covered** : The homepage footer cites SGP.21 but no dedicated content exists. Add a brief note to standards-map or a footnote.
+9. **SGP.22 citation version drift** : Articles cite v2.2.2 (2020) while homepage footer cites v2.7. Not necessarily wrong (v2.2.2 is the most deployed baseline), but the discrepancy should be documented.

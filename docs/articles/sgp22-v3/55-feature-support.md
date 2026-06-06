@@ -8,7 +8,7 @@ date: 2026-06-06
 
 **🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.22 v3.x Unified RSP]({{ site.baseurl }}/docs/articles/sgp22-v3/) > Feature Support: Capability Negotiation in v3.x**
 
-> **💡 Why this matters:** When two parties communicate in the eSIM ecosystem — a device and a server, or two servers — they may implement different versions of SGP.22 with different capabilities. How does an SM-DP+ know whether an eUICC supports Remote Profile Management? How does an LPA know whether to include Push Service data in a request? Without a capability negotiation mechanism, either data gets sent that the receiver doesn't understand (causing errors), or features go unused because the sender doesn't dare try. The Feature Support system in v3.x solves this with a tag-based model that lets every party declare exactly what it supports — and limits messages accordingly.
+> **💡 Why this matters:** When two parties communicate in the eSIM ecosystem: a device and a server, or two servers: they may implement different versions of SGP.22 with different capabilities. How does an SM-DP+ know whether an eUICC supports Remote Profile Management? How does an LPA know whether to include Push Service data in a request? Without a capability negotiation mechanism, either data gets sent that the receiver doesn't understand (causing errors), or features go unused because the sender doesn't dare try. The Feature Support system in v3.x solves this with a tag-based model that lets every party declare exactly what it supports: and limits messages accordingly.
 
 > **Key takeaways:**
 > - Feature Support uses **tagged acronyms** (e.g., `#SupportedFromV3.X.Y#`, `#SupportedForRpmV3.X.Y#`) throughout the specification
@@ -40,9 +40,9 @@ SGP.22 v3.1 annotates data elements throughout the specification with tags encap
 
 | Tag | Meaning |
 |-----|---------|
-| `#SupportedFromV2.X.Y#` | Data element introduced in v2.X.Y — available in that version and later |
-| `#SupportedOnlyBeforeV3.X.Y#` | Data element used in pre-v3.X.Y versions — SHALL NOT be sent to a receiver indicating v3.X.Y or higher |
-| `#SupportedFromV3.X.Y#` | Data element introduced in v3.X.Y — SHALL NOT be sent to a receiver indicating a version lower than v3.X.Y |
+| `#SupportedFromV2.X.Y#` | Data element introduced in v2.X.Y: available in that version and later |
+| `#SupportedOnlyBeforeV3.X.Y#` | Data element used in pre-v3.X.Y versions: SHALL NOT be sent to a receiver indicating v3.X.Y or higher |
+| `#SupportedFromV3.X.Y#` | Data element introduced in v3.X.Y: SHALL NOT be sent to a receiver indicating a version lower than v3.X.Y |
 | `#MandatoryFromV3.X.Y#` | Data element was optional or undefined pre-v3.X.Y and SHALL always be provided in v3.X.Y or higher |
 
 ### Feature-Specific Tags
@@ -67,7 +67,7 @@ RpmPackage ::= SEQUENCE OF RpmCommand -- #SupportedForRpmV3.0.0#
 
 This means: the `RpmPackage` data structure only exists when RPM is supported. A sender should only include `RpmPackage` in a message destined for a receiver that has declared RPM support.
 
-For `#MandatoryFromV3.X.Y#`, a field that was optional in v2.x becomes mandatory in v3.x — the receiver can rely on it always being present.
+For `#MandatoryFromV3.X.Y#`, a field that was optional in v2.x becomes mandatory in v3.x: the receiver can rely on it always being present.
 
 ---
 
@@ -105,11 +105,11 @@ On ES2+, ES12, and ES15 interfaces (server-to-server), the RSP Server acting as 
 
 The eUICC declares its supported features through `euiccInfo2`, which includes bit flags for:
 
-- **rpmSupport** — whether the eUICC supports Remote Profile Management
-- **lpaProxySupport** — whether the eUICC supports LPA Proxy
-- **enterpriseSupport** — whether the eUICC supports Enterprise Profiles
-- **deviceChangeSupport** — whether the eUICC supports Device Change and Profile Recovery
-- **pushServiceV3Support** — whether the eUICC supports Push Service
+- **rpmSupport** : whether the eUICC supports Remote Profile Management
+- **lpaProxySupport** : whether the eUICC supports LPA Proxy
+- **enterpriseSupport** : whether the eUICC supports Enterprise Profiles
+- **deviceChangeSupport** : whether the eUICC supports Device Change and Profile Recovery
+- **pushServiceV3Support** : whether the eUICC supports Push Service
 
 Additionally, `euiccInfo2.additionalProfilePackageVersions` allows an eUICC to declare support for profile package versions beyond the baseline (e.g., v3.2 or higher).
 
@@ -148,7 +148,7 @@ This prevents errors and keeps messages lean.
 - The Feature Support system uses hash-tagged acronyms to mark version and feature dependencies on data elements
 - Seven feature-specific tags cover RPM, Enterprise, LPA Proxy, Device Change, Event Checking, Push Service, and MEP
 - Runtime capability is exchanged via `rspCapability` / `EuiccRspCapability` / `lpaRspCapability` during Common Mutual Authentication
-- Absence of `rspCapability` from a server means "pre-v3" — limit to v2.x data elements
+- Absence of `rspCapability` from a server means "pre-v3" : limit to v2.x data elements
 - Server-to-server communication uses `X-Admin-Protocol` HTTP header for SVN indication
 - eUICC capability bits declare feature support explicitly
 
@@ -164,7 +164,7 @@ Next: [Version Interoperability: How v2.x and v3.x Coexist]({{ site.baseurl }}/d
 
 ---
 
-*Based on GSMA SGP.22 v3.1 (01 December 2023), Section 1.9 — Feature Support, Section 3.0.1 — Common Mutual Authentication Procedure, and Section 4.3 — eUICC Information*
+*Based on GSMA SGP.22 v3.1 (01 December 2023), Section 1.9: Feature Support, Section 3.0.1: Common Mutual Authentication Procedure, and Section 4.3: eUICC Information*
 
 
 ---

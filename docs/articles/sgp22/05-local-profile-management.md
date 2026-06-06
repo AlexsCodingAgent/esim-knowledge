@@ -7,18 +7,18 @@ date: 2026-06-03
 
 **🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > Managing Your eSIM: Local Profile Operations**
 
-> **💡 Why this matters:** This is the user-facing half of eSIM — everything you actually do on your device: switching carriers, deleting old plans, and naming profiles. The UI is simple, but the underlying protocol is precise and policy-enforced.
+> **💡 Why this matters:** This is the user-facing half of eSIM: everything you actually do on your device: switching carriers, deleting old plans, and naming profiles. The UI is simple, but the underlying protocol is precise and policy-enforced.
 
 > **Key takeaways:**
 > - All local profile operations go through `ES10c` (LPA → eUICC) and are gated by the `ISD-R`
 > - Profiles have exactly two states: Enabled (active) or Disabled (dormant)
-> - **Profile Policy Rules** (`ppr1`, `ppr2`, `ppr3`) can override user intent — critical for corporate-managed devices
+> - **Profile Policy Rules** (`ppr1`, `ppr2`, `ppr3`) can override user intent: critical for corporate-managed devices
 > - Profile switching involves careful application session termination and baseband REFRESH signalling
 > - Device Test Mode and Provisioning Profiles add special lifecycle behaviours for development and bootstrap scenarios
 
 ---
 
-Once profiles are installed on your eUICC, you need to manage them — switch between them, delete old ones, check what's installed, and occasionally factory-reset the whole chip. SGP.22 defines a complete set of local profile management operations through the `ES10c` interface (LPA → eUICC).
+Once profiles are installed on your eUICC, you need to manage them: switch between them, delete old ones, check what's installed, and occasionally factory-reset the whole chip. SGP.22 defines a complete set of local profile management operations through the `ES10c` interface (LPA → eUICC).
 
 Every operation goes through the `ISD-R`, which enforces Profile Policy Rules and ensures operations are valid before executing them.
 
@@ -33,7 +33,7 @@ A Profile can be in one of two states:
 | **Enabled** | The Profile's file system and NAAs are selectable by the device. The modem sees this Profile. Only one Profile can be Enabled at a time. |
 | **Disabled** | The Profile is installed but dormant. Its file system is invisible to the device. Its applications cannot be selected, triggered, or individually deleted. Remote management via `ES6` is blocked. |
 
-When you switch profiles, the disabled one doesn't need to be re-downloaded — it stays on the chip, ready to be enabled again instantly.
+When you switch profiles, the disabled one doesn't need to be re-downloaded: it stays on the chip, ready to be enabled again instantly.
 
 ---
 
@@ -76,7 +76,7 @@ Switching to a different profile involves two critical actions: disabling the cu
 7. Baseband executes network attach with the newly Enabled Profile
 ```
 
-**Critical detail:** If the target is a Provisioning Profile and an Operational Profile was previously enabled, the Operational Profile is implicitly disabled (regardless of any "Disabling not allowed" policy rule — this is the one exception). Similarly, Test Profile transitions have special re-enable behaviour: if an Operational Profile was enabled before entering Test Mode and wasn't deleted, it's automatically re-enabled when leaving Test Mode.
+**Critical detail:** If the target is a Provisioning Profile and an Operational Profile was previously enabled, the Operational Profile is implicitly disabled (regardless of any "Disabling not allowed" policy rule: this is the one exception). Similarly, Test Profile transitions have special re-enable behaviour: if an Operational Profile was enabled before entering Test Mode and wasn't deleted, it's automatically re-enabled when leaving Test Mode.
 
 ---
 
@@ -124,7 +124,7 @@ Permanently removes a Profile and its containing ISD-P:
    - Device signals baseband: no Enabled Profile
 ```
 
-**Profile Policy Rule `ppr3`** ("Delete after disable") triggers automatic deletion when a profile is disabled — useful for one-time provisioning profiles that shouldn't persist.
+**Profile Policy Rule `ppr3`** ("Delete after disable") triggers automatic deletion when a profile is disabled: useful for one-time provisioning profiles that shouldn't persist.
 
 ---
 
@@ -147,7 +147,7 @@ Retrieving what's installed:
    - Profile Policy Rules
 ```
 
-Provisioning Profiles and their metadata are **not visible to the End User in the LUI** — they exist only for machine-to-machine use. The LPA filters them from display.
+Provisioning Profiles and their metadata are **not visible to the End User in the LUI** : they exist only for machine-to-machine use. The LPA filters them from display.
 
 ---
 
@@ -164,7 +164,7 @@ Factory-resets the entire chip:
    - Returns eUICC to a state equivalent to post-manufacturing
 ```
 
-**eUICC Test Memory Reset** is a lighter variant that only deletes post-issuance Test Profiles — useful for development and testing without affecting production profiles.
+**eUICC Test Memory Reset** is a lighter variant that only deletes post-issuance Test Profiles: useful for development and testing without affecting production profiles.
 
 ---
 
@@ -211,7 +211,7 @@ The eUICC has finite storage for multiple Profiles. SGP.22 requires the eUICC to
 
 ## Device Test Mode
 
-For development and testing, SGP.22 defines a **Device Test Mode** — a hidden mode that grants access to Test Profiles:
+For development and testing, SGP.22 defines a **Device Test Mode** : a hidden mode that grants access to Test Profiles:
 
 - Test Profiles use predetermined test authentication keys: all bits set to zero, or the 3GPP TS 34.108 test USIM K value
 - Test Profiles are only selectable when Device Test Mode is active
@@ -224,7 +224,7 @@ For development and testing, SGP.22 defines a **Device Test Mode** — a hidden 
 
 - All local management flows through `ES10c` to the `ISD-R`, which enforces Profile Policy Rules before any state change
 - Profiles toggle between Enabled (active, modem-visible) and Disabled (dormant, fully installed); switching triggers careful session termination and baseband signalling
-- Three policy rules (`ppr1`, `ppr2`, `ppr3`) provide hard enforcement for enterprise and lifecycle scenarios — even the end user can't override them
+- Three policy rules (`ppr1`, `ppr2`, `ppr3`) provide hard enforcement for enterprise and lifecycle scenarios: even the end user can't override them
 - Device Test Mode and Provisioning Profiles enable development, testing, and bootstrap connectivity with special lifecycle handling and UI filtering
 - Memory management, nicknames, and the Rules Authorisation Table round out a complete local management surface
 
@@ -240,7 +240,7 @@ Next: [The Developer's View: RSP Interfaces and Protocol Binding]({{ site.baseur
 
 ---
 
-*Based on GSMA SGP.22 v2.7 (24 April 2026), Sections 3.2, 3.3, and 5.7 — Local Profile Management, Local eUICC Management, and ES10x Functions*
+*Based on GSMA SGP.22 v2.7 (24 April 2026), Sections 3.2, 3.3, and 5.7: Local Profile Management, Local eUICC Management, and ES10x Functions*
 
 
 ---

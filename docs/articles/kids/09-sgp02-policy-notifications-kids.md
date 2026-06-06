@@ -1,128 +1,112 @@
 ---
-title: "The Robot Rulebook and Report Cards"
+title: "The Double-Lock Rulebook and Report Cards"
 date: 2026-06-07
 ---
 
-# The Robot Rulebook and Report Cards 📋
+# The Double-Lock Rulebook and Report Cards 📋
 
-## Imagine...
+What if you could write a rule that **nobody** could break? Not the Fleet Manager. Not the Commander. Not even someone who hacked the central server?
 
-You're the Fleet Owner. You have a profile on Robot #8721, and you want to make sure nobody — not the Fleet Manager, not even the Commander — can delete it by accident. You write a rule: "This profile must never be deleted." You tape one copy inside the robot's vault and give another copy to the Commander.
-
-Now, every time someone tries to delete that profile, **both copies** get checked. If either one says NO, the deletion fails.
-
-That's the **Policies and Notifications** system in SGP.02 — a double-check rulebook that keeps everyone honest.
+SGP.02 gives Fleet Owners exactly that: a rulebook stored in two places that both have to agree before anything changes. It's like a safety deposit box that needs two keys, except one key is welded to the vault door and the other is held by a guard three buildings away.
 
 ---
 
-## Two Rulebooks, Two Locations 📚
+## Two Copies, Two Locations
 
-| Rulebook | Location | Who Enforces It | Who Updates It |
+| Rulebook | Where It Lives | Who Guards It | Who Can Change It |
 |---|---|---|---|
-| **POL1** | Inside the ISD-P (on the chip) | The ISD-R (Commander's Office) | Only the Operator via ES6 OTA |
-| **POL2** | In the SM-SR's EIS database | The Commander | Only the Operator via ES2→ES3 relay |
+| **POL1** | Inside the chip itself (ISD-P) | The Commander's office (ISD-R) | Only the Operator, OTA only |
+| **POL2** | In the Commander's database (SM-SR EIS) | The Commander | Only the Operator, relayed through the Key Factory |
 
-### Why Two?
+**Why bother with two?** Because they defend against different threats:
 
-- **POL1** protects against a rogue Commander. Even if the Commander gets hacked, the chip checks POL1 before doing anything.
-- **POL2** protects against wasted radio commands. The Commander checks POL2 *before* sending a command — saving OTA bandwidth.
+- **POL1** protects against a compromised Commander. Even if the Commander gets hacked and starts issuing malicious commands, the chip checks POL1 *before executing anything*. The hacker needs physical access to the silicon to change it.
 
-An attacker would need to defeat **both** the Commander AND the robot chip — a much higher bar.
+- **POL2** protects against wasted radio chatter. The Commander checks POL2 *before* bothering to send a command over the air, saving precious OTA bandwidth. No point transmitting "delete this profile" if POL2 already says no.
+
+To defeat the system, an attacker has to break both the Commander AND the chip. That's a much higher bar.
 
 ---
 
-## What Rules Can You Write? ✏️
+## What Rules Can You Write?
 
-Rules cover the three lifecycle actions:
+Three lifecycle actions, each with a simple rule:
 
-| Action | Possible Rules |
+| Action | Your Choices |
 |---|---|
-| Enable | "Enable not allowed" or "Enable allowed" |
-| Disable | "Disable not allowed" or "Disable allowed" |
-| Delete | "Delete not allowed" or "Delete mandatory when disabled" |
+| **Enable** | "Allowed" or "Not allowed" |
+| **Disable** | "Allowed" or "Not allowed" |
+| **Delete** | "Allowed" or "Delete mandatory when disabled" |
 
-Special combinations:
-- "Disable not allowed" + "Delete mandatory when disabled" = **Locked forever** — only Master Delete can remove it
-- Empty POL1/POL2 = No restrictions — any action is permitted
+Put them together and you get some interesting combinations. The nastiest one: "Disable not allowed" + "Delete mandatory when disabled" = **locked forever**. Only a Master Delete can touch it. If POL1 and POL2 are both empty? Anything goes: no restrictions at all.
 
 ---
 
-## The Double-Check in Action 🔍
+## Two Must Say Yes
 
-| POL1 Says | POL2 Says | Result |
+Both rulebooks get consulted before any command executes:
+
+| POL1 | POL2 | What Happens |
 |---|---|---|
-| ✅ Allow | ✅ Allow | Command executes |
-| ✅ Allow | ❌ Deny | Commander rejects before OTA — saves bandwidth |
-| ❌ Deny | ✅ Allow | Commander sends command; chip rejects it |
-| ❌ Deny | ❌ Deny | Commander rejects (first to check) |
+| ✅ Allow | ✅ Allow | Command runs |
+| ✅ Allow | ❌ Deny | Commander rejects it, saves OTA bandwidth |
+| ❌ Deny | ✅ Allow | Commander sends it; chip rejects it |
+| ❌ Deny | ❌ Deny | Commander rejects (gets there first) |
 
-The most restrictive combination always wins. Both must say YES for any action to proceed.
+The most restrictive combination always wins. Two yeses or nothing.
 
 ---
 
-## After Disabling: Deletion Check ⚡
+## The Deletion Race
 
-When a profile is disabled, both POL1 and POL2 get checked for "delete mandatory when disabled":
+When a profile gets disabled, both POL1 and POL2 get checked for "delete mandatory when disabled." And here's where it gets fun:
 
-- **POL1-triggered deletion**: The robot deletes the profile right after disabling, before even telling the Commander
+- **POL1-triggered deletion**: The chip deletes the profile *immediately* after disabling, before even telling the Commander
 - **POL2-triggered deletion**: The Commander orders deletion after receiving the notification
 
-Yes, the same profile could be deleted twice — and SGP.02 handles this gracefully! The second deletion attempt simply finds the room already empty.
+Yes: the same profile might get deleted twice. First by the chip (POL1), then the Commander tries (POL2). SGP.02 handles this gracefully: the second deletion attempt just finds an empty room. No crash, no error, no drama.
 
 ---
 
-## Report Cards: The Notification System 📬
+## Report Cards: Every Change Gets Logged
 
-Every time a robot's profile state changes, it sends a **report card** to the Commander:
+Every time a profile's state changes, the chip sends a report card to the Commander:
 
-| Event | Notification |
+| Event | What Gets Sent |
 |---|---|
-| First ever network attachment | "I'm alive!" notification |
+| First network attachment | "I'm alive!" |
 | Profile enabled | "Now using Network B" |
 | Profile disabled | "Network A is off" |
-| Fall-Back activated | "Emergency! Switched to backup" |
+| Fall-Back triggered | "Emergency, switched to backup" |
 | Profile deleted | "Room is empty now" |
 
-### Two Ways to Send Report Cards
-
-| Method | How It Works |
-|---|---|
-| **SMS** | Robot sends a secure text message; Commander replies with confirmation |
-| **HTTPS** | Robot opens a secure web tunnel; Commander confirms inside the same session |
-
-If the Commander doesn't confirm within the Validity Period, the robot treats it as a failure and **rolls back** to the previous state. No confirmation = no trust.
+Two delivery methods: **SMS** (secure text message with confirmation reply) or **HTTPS** (secure web tunnel with confirmation inside the same session). If the Commander doesn't confirm within the Validity Period, the chip treats it as a failure and **rolls back** to the previous state. No confirmation = no trust.
 
 ---
 
-## The Opt-Out Option 📴
+## The Mute Button (ONC)
 
-Some Fleet Owners don't want to be notified about every little thing. The **ONC** (Operator Notification Configuration) lets them suppress specific notifications:
-
-| Setting | Effect |
-|---|---|
-| No ONC (default) | Get ALL notifications |
-| ONC with exclusions | Skip certain notification types |
-| SM-SR doesn't support ONC | All notifications sent — can't disable |
+Not every Fleet Owner wants a notification for every little thing. The **Operator Notification Configuration** lets you suppress specific alerts. No ONC set = you get everything. ONC with exclusions = skip the boring ones. SM-SR doesn't support ONC? Too bad, all notifications will arrive.
 
 ---
 
-## M2M SP Permissions (PLMA) 🚛
+## Fleet Manager Permissions (PLMA)
 
-Fleet Managers (M2M SPs) need permission to manage profiles. The Operator grants this through **PLMA** (Profile Lifecycle Management Authorization):
+Fleet Managers need explicit permission to touch profiles. The Operator grants it through **PLMA** : Profile Lifecycle Management Authorization:
 
-- "M2M SP can enable/disable profiles of Type X"
-- "M2M SP can receive notifications about profile changes"
-- "M2M SP can set Emergency/Fall-Back attributes"
-- **Never**: "M2M SP can change POL2" — that's Operator-only
-
----
-
-## 🧠 Did You Know?
-
-POL1 lives inside the tamper-resistant chip, protected by hardware security. POL2 lives on a server. This means even if the Commander's entire data center gets hacked, the on-chip rulebook still protects the profiles. You'd need to physically drill into the chip to change POL1 — and good luck with that!
+- "You can enable/disable profiles of Type X"
+- "You can receive notifications"
+- "You can set Emergency/Fall-Back attributes"
+- Never: "You can change POL2" : that's Operator territory only
 
 ---
 
-*Kid-friendly version of GSMA SGP.02 v4.2 §3.11–3.15, §3.20–3.21, §3.24 — Policies & Notifications*
+Two copies. Two locations. One unbreakable system.
+
+POL1 lives inside the tamper-resistant chip, protected by hardware security. POL2 lives on a server in a data center. Even if the Commander's entire facility gets compromised, the on-chip rulebook still says NO to dangerous commands. To change POL1, you'd need to physically drill into the chip, and the internal sensors would detect tampering and wipe the keys before you got anywhere near the rulebook.
+
+---
+
+*Kid-friendly version of GSMA SGP.02 v4.2 §3.11–3.15, §3.20–3.21, §3.24, Policies & Notifications*
 
 ← [Back to Kids Articles](index)

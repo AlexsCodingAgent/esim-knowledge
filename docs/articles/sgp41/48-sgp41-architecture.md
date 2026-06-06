@@ -7,17 +7,17 @@ date: 2026-06-06
 
 **🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.41 IFPP]({{ site.baseurl }}/docs/articles/sgp41/) > The IFPP Architecture: SM-DPf, FPA, and Device Manufacturer**
 
-> **💡 Why this matters:** SGP.41 doesn't just tweak existing eSIM components — it introduces three entirely new architectural roles and nine specialised interfaces for the factory environment. Understanding how the SM-DPf differs from a regular SM-DP+, what the FPA actually does (and doesn't do), and how the Device Manufacturer's role expands is essential for anyone designing, deploying, or certifying an IFPP solution.
+> **💡 Why this matters:** SGP.41 doesn't just tweak existing eSIM components: it introduces three entirely new architectural roles and nine specialised interfaces for the factory environment. Understanding how the SM-DPf differs from a regular SM-DP+, what the FPA actually does (and doesn't do), and how the Device Manufacturer's role expands is essential for anyone designing, deploying, or certifying an IFPP solution.
 
 > **Key takeaways:**
-> - **SM-DPf** (Subscription Manager Data Preparation factory): A new SM-DP+ variant that pre-binds profiles before delivery — handles generation, protection, binding, storage, and delivery of BPPs
-> - **FPA** (Factory Profile Assistant): A lightweight, factory-only conduit that pushes BPPs into the eUICC and returns results — can be hardware, a driver, or a factory-mode LPA/IPA
-> - **Device Manufacturer**: Takes on profile requesting, temporary storage, and provisioning functions — with the critical ability to operate fully offline during profile loading
-> - Nine interfaces: ES2f, Esbpp, Esfac, ES10f, ES8f, Esci, Eseum, Esed1, Esed2 — each with specific scope boundaries
-> - The eUICC architecture is unchanged from SGP.21 — same ISD-P, ISD-R, ECASD structure — with new FPA Services and one-time key storage added
+> - **SM-DPf** (Subscription Manager Data Preparation factory): A new SM-DP+ variant that pre-binds profiles before delivery: handles generation, protection, binding, storage, and delivery of BPPs
+> - **FPA** (Factory Profile Assistant): A lightweight, factory-only conduit that pushes BPPs into the eUICC and returns results: can be hardware, a driver, or a factory-mode LPA/IPA
+> - **Device Manufacturer**: Takes on profile requesting, temporary storage, and provisioning functions: with the critical ability to operate fully offline during profile loading
+> - Nine interfaces: ES2f, Esbpp, Esfac, ES10f, ES8f, Esci, Eseum, Esed1, Esed2: each with specific scope boundaries
+> - The eUICC architecture is unchanged from SGP.21: same ISD-P, ISD-R, ECASD structure: with new FPA Services and one-time key storage added
 > - The EUM role gains new responsibilities: provisioning one-time keys into eUICCs during manufacturing
 
-SGP.41 defines a factory-specific variant of the RSP architecture. While it reuses the underlying eUICC structure from SGP.21/SGP.31, it introduces three new actors — the SM-DPf, the FPA, and an expanded Device Manufacturer — connected by interfaces purpose-built for the factory environment.
+SGP.41 defines a factory-specific variant of the RSP architecture. While it reuses the underlying eUICC structure from SGP.21/SGP.31, it introduces three new actors: the SM-DPf, the FPA, and an expanded Device Manufacturer: connected by interfaces purpose-built for the factory environment.
 
 ---
 
@@ -46,7 +46,7 @@ This is Figure 1 from the specification, showing the Consumer/IoT IFPP architect
 
 ## The New Players
 
-### SM-DPf — Subscription Manager Data Preparation Factory
+### SM-DPf: Subscription Manager Data Preparation Factory
 
 The SM-DPf is the central profile preparation entity for IFPP. While conceptually similar to the consumer SM-DP+, the SM-DPf is optimised for batch, offline, and pre-provisioned operations. It provides five functions:
 
@@ -62,7 +62,7 @@ Functionally, the SM-DPf is the only entity allowed to perform profile generatio
 
 The SM-DPf also receives and verifies **Profile Loading Reports** from the Device Manufacturer, checking the integrity and authenticity of eUICC-signed Profile Installation Results before forwarding results to the Mobile Service Provider (DPFF05–DPFF07).
 
-### FPA — Factory Profile Assistant
+### FPA: Factory Profile Assistant
 
 The FPA is the on-device (or near-device) proxy that sits between the Device Manufacturer's production system and the eUICC. Its job is simple and narrow:
 
@@ -70,14 +70,14 @@ The FPA is the on-device (or near-device) proxy that sits between the Device Man
 2. Forward it to the eUICC via the FPA Services (ES10f)
 3. Return the Profile Installation Result
 
-The FPA is deliberately underspecified — SGP.41 explicitly states that the functional split between the Device Manufacturer and the FPA is irrelevant to the specification. The FPA can be implemented as:
+The FPA is deliberately underspecified: SGP.41 explicitly states that the functional split between the Device Manufacturer and the FPA is irrelevant to the specification. The FPA can be implemented as:
 
 - A hardware solution on the production line
 - A low-level driver on the device
 - An LPA (Local Profile Assistant) running in factory mode
 - An IPA (IoT Profile Assistant) running in factory mode
 
-The interface between the Device Manufacturer and the FPA (`Esfac`) is out of scope — this is intentional, letting each manufacturer integrate the FPA in whatever way suits their production line.
+The interface between the Device Manufacturer and the FPA (`Esfac`) is out of scope: this is intentional, letting each manufacturer integrate the FPA in whatever way suits their production line.
 
 ### Device Manufacturer
 
@@ -115,10 +115,10 @@ SGP.41 defines nine interfaces, several of which are deliberately left out of sc
 | Interface | Between | Purpose | Scope |
 |-----------|---------|---------|-------|
 | **ES2f** | Operator ↔ SM-DPf | Profile ordering and notification of provisioning results | In scope (similar to ES2+) |
-| **Esbpp** | SM-DPf ↔ Device Manufacturer | BPP delivery, eUICC data submission, Profile Loading Reports | In scope — data structures specified; at least one transport mechanism required |
-| **Esfac** | Device Manufacturer ↔ FPA | BPP forwarding and result retrieval on the production line | **Out of scope** — implementation-specific |
-| **ES10f** | FPA ↔ eUICC (FPA Services) | Transfer of BPP to eUICC and retrieval of Profile Installation Results | In scope — may reuse ES10 functions from SGP.21 |
-| **ES8f** | SM-DPf ↔ eUICC | Secure end-to-end channel for ISD-P administration during download/install | In scope — may reuse ES8+ functions from SGP.21 |
+| **Esbpp** | SM-DPf ↔ Device Manufacturer | BPP delivery, eUICC data submission, Profile Loading Reports | In scope: data structures specified; at least one transport mechanism required |
+| **Esfac** | Device Manufacturer ↔ FPA | BPP forwarding and result retrieval on the production line | **Out of scope** : implementation-specific |
+| **ES10f** | FPA ↔ eUICC (FPA Services) | Transfer of BPP to eUICC and retrieval of Profile Installation Results | In scope: may reuse ES10 functions from SGP.21 |
+| **ES8f** | SM-DPf ↔ eUICC | Secure end-to-end channel for ISD-P administration during download/install | In scope: may reuse ES8+ functions from SGP.21 |
 | **Esci** | eSIM CA ↔ EUM / SM-DPf | Certificate issuance and revocation status | Out of scope |
 | **Eseum** | EUM ↔ eUICC | One-time key provisioning during eUICC manufacturing | Out of scope |
 | **Esed1** | EUM ↔ SM-DPf | eUICC data (certs, keys, capabilities) to SM-DPf | Data structure in scope; transport out of scope |
@@ -131,7 +131,7 @@ SGP.41 defines nine interfaces, several of which are deliberately left out of sc
 - **eUICC data request** (ESBPP02): eUICC certificates, keys, and capabilities from Device Manufacturer to SM-DPf when requesting profiles
 - **Profile Loading Report** (ESBPP03): Aggregated results including eUICC-generated Profile Installation Results and FPA-reported errors (e.g., unreachable or damaged eUICCs)
 
-At least one transport mechanism must be specified for Esbpp (ESBPP04) — the spec itself doesn't mandate a particular transport, leaving it to be defined elsewhere or by bilateral agreement.
+At least one transport mechanism must be specified for Esbpp (ESBPP04) : the spec itself doesn't mandate a particular transport, leaving it to be defined elsewhere or by bilateral agreement.
 
 **ES8f** is the analogue of SGP.22's ES8+. It provides the same secure end-to-end channel between the SM-DPf and the eUICC, tunnelled through the FPA via ES10f. The eUICC verifies the SM-DPf's certificates and the BPP's integrity using the same cryptographic mechanisms proven in SGP.21.
 
@@ -141,7 +141,7 @@ At least one transport mechanism must be specified for Esbpp (ESBPP04) — the s
 
 ## The eUICC: What's Different
 
-The eUICC architecture in SGP.41 is fundamentally the same as SGP.21's — same ISD-P, ISD-R, ECASD, MNO-SD, CASD, NAAs, SSD, and Profile Package Interpreter. The differences are:
+The eUICC architecture in SGP.41 is fundamentally the same as SGP.21's: same ISD-P, ISD-R, ECASD, MNO-SD, CASD, NAAs, SSD, and Profile Package Interpreter. The differences are:
 
 1. **FPA Services**: A new service access point for the FPA to communicate with the eUICC during factory provisioning. These services are only available during the Device Production Process (GENS13).
 
@@ -156,10 +156,10 @@ The eUICC architecture in SGP.41 is fundamentally the same as SGP.21's — same 
 ## 📋 Summary
 
 - Three new roles: SM-DPf (batch profile binding), FPA (factory conduit), and Device Manufacturer (profile handling and offline provisioning)
-- The FPA is deliberately flexible — hardware, driver, or factory-mode LPA/IPA — with its interface to the Device Manufacturer left out of scope
+- The FPA is deliberately flexible: hardware, driver, or factory-mode LPA/IPA: with its interface to the Device Manufacturer left out of scope
 - Nine interfaces connect the ecosystem, with Esbpp (BPP delivery/reporting) and ES8f (secure end-to-end channel) as the most critical
 - The eUICC architecture remains the same as SGP.21, with FPA Services, one-time key storage, and service gating added
-- The EUM provisions one-time keys during eUICC manufacturing in a SAS-UP environment — one key per profile to be loaded
+- The EUM provisions one-time keys during eUICC manufacturing in a SAS-UP environment: one key per profile to be loaded
 
 ---
 
@@ -173,7 +173,7 @@ Next: [IFPP Flow: Manufacturing Step to Configuration Step]({{ site.baseurl }}/d
 
 ---
 
-*Based on GSMA SGP.41 v1.0 (28 February 2025) — eSIM In-Factory Profile Provisioning Architecture and Requirements, Sections 2–3*
+*Based on GSMA SGP.41 v1.0 (28 February 2025) : eSIM In-Factory Profile Provisioning Architecture and Requirements, Sections 2–3*
 
 
 ---

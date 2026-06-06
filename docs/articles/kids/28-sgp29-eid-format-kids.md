@@ -7,7 +7,7 @@ date: 2026-06-07
 
 ## Imagine...
 
-You look at an international phone number: `+1-555-123-4567`. Even without knowing whose number it is, you can decode it: `+1` means North America, `555` is the area code, and the rest is the local number. The EID works the same way — those 32 digits aren't random. They're a carefully structured code that tells a story!
+You look at an international phone number: `+1-555-123-4567`. Even without knowing whose number it is, you can decode it: `+1` means North America, `555` is the area code, and the rest is the local number. The EID works the same way: those 32 digits aren't random. They're a carefully structured code that tells a story!
 
 ---
 
@@ -26,7 +26,7 @@ Every EID is exactly 32 digits long, built from three pieces:
 
 | Part | Name | What It Tells You |
 |---|---|---|
-| **EIN** | EUM Identification Number | The delegation chain — who authorised this chip's name |
+| **EIN** | EUM Identification Number | The delegation chain: who authorised this chip's name |
 | **ESIN** | EUM Specific Identification Number | Which individual chip this is (like a serial number within a batch) |
 | **Check** | Check Digits (2 digits) | A mathematical fingerprint that proves the EID is genuine |
 
@@ -36,7 +36,7 @@ The EIN can be different lengths (N digits). The ESIN fills whatever's left up t
 
 ## The EIN: A Delegation Chain ⛓️
 
-The EIN isn't just a single number — it's built by chaining together **ERHI** (EID Range Holder Identifier) values, one from each level of authority:
+The EIN isn't just a single number: it's built by chaining together **ERHI** (EID Range Holder Identifier) values, one from each level of authority:
 
 ```
 EIN = ERHI1 + ERHI2 + ERHI3 + ... + ERHIx
@@ -64,13 +64,13 @@ GSMA assigns "98" → Device Maker
         → EIN = "9876" (N=4)
 ```
 
-The chain can be as short or as long as needed — whatever fits the real-world supply chain!
+The chain can be as short or as long as needed: whatever fits the real-world supply chain!
 
 ---
 
 ## The Check Digits: The Magic Number Test 🪄
 
-Here's the coolest part. The last 2 digits let anyone verify an EID with simple math using the **MOD 97-10** algorithm — the same one banks use to validate IBAN numbers!
+Here's the coolest part. The last 2 digits let anyone verify an EID with simple math using the **MOD 97-10** algorithm: the same one banks use to validate IBAN numbers!
 
 ### How to Verify Any EID:
 
@@ -109,16 +109,14 @@ This check catches **100% of single-digit typos** and **100% of swapped digits**
 | **Check method** | MOD 97-10 (bank-grade!) | Luhn MOD 10 | Luhn MOD 10 |
 | **Who manages it** | GSMA | National authorities | GSMA / TIA |
 
-The big difference? EIDs **never** start with "89" — that prefix is reserved for old-style SIM card identifiers. This prevents any possible mix-up between the two systems!
+The big difference? EIDs **never** start with "89" : that prefix is reserved for old-style SIM card identifiers. This prevents any possible mix-up between the two systems!
 
 ---
-
-## 🧠 Did You Know?
 
 The MOD 97-10 check digit algorithm is the exact same one used for IBANs (International Bank Account Numbers). Your eSIM chip's identity is verified with banking-grade mathematics. If a single digit is wrong anywhere in the 32-digit EID, the check will catch it every single time!
 
 ---
 
-*Kid-friendly version of GSMA SGP.29 v1.1 — EID Format, Section 10*
+*Kid-friendly version of GSMA SGP.29 v1.1: EID Format, Section 10*
 
 ← [Back to Kids Articles](index)

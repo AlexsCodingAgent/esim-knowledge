@@ -1,11 +1,11 @@
 ---
 layout: default
-title: "SGP.23 — RSP Test Specification"
+title: "SGP.23: RSP Test Specification"
 ---
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > SGP.23 — RSP Test Specification**
+**🏠 [eUICC.tech]({{ site.baseurl }}/) > SGP.23: RSP Test Specification**
 
-# SGP.23 — RSP Test Specification
+# SGP.23: RSP Test Specification
 
 *How eSIM interoperability is tested and certified.*
 

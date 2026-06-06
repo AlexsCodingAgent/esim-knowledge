@@ -7,7 +7,7 @@ date: 2026-06-05
 
 **🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.23-1 eUICC Testing]({{ site.baseurl }}/docs/articles/sgp23-1/) > eUICC Security Testing: Certificates, Keys, and Channels**
 
-> **💡 Why this matters:** The eSIM security model is built on a chain of trust extending from the GSMA Certificate Issuer (CI) down through the eUICC manufacturer (EUM), the SM-DP+, and finally the eUICC itself. If any link in this chain fails — a certificate doesn't validate, a key operation produces wrong results, or a secure channel is established with weak parameters — the entire profile delivery system is compromised. SGP.23-1 devotes significant testing to every cryptographic operation the eUICC must perform.
+> **💡 Why this matters:** The eSIM security model is built on a chain of trust extending from the GSMA Certificate Issuer (CI) down through the eUICC manufacturer (EUM), the SM-DP+, and finally the eUICC itself. If any link in this chain fails: a certificate doesn't validate, a key operation produces wrong results, or a secure channel is established with weak parameters: the entire profile delivery system is compromised. SGP.23-1 devotes significant testing to every cryptographic operation the eUICC must perform.
 
 > **Key takeaways:**
 > - Certificate validation tests verify the eUICC can validate chains from CERT.DPauth.ECDSA → CI → root, and correctly reject expired, mis-signed, or wrong-issuer certificates
@@ -30,14 +30,14 @@ The test PKI includes:
 
 | Certificate / Key | Role |
 |-------------------|------|
-| `CERT_S_CI_ECDSA` | Simulated Certificate Issuer — the root of trust for testing |
-| `CERT_S_EUM_ECDSA` | Simulated EUM certificate — signs the eUICC's certificates |
-| `CERT_S_SM_DPauth_ECDSA` | SM-DP+ authentication certificate — used in `ES9+.InitiateAuthentication` |
-| `CERT_S_SM_DPpb_ECDSA` | SM-DP+ profile binding certificate — verified during `PrepareDownload` |
+| `CERT_S_CI_ECDSA` | Simulated Certificate Issuer: the root of trust for testing |
+| `CERT_S_EUM_ECDSA` | Simulated EUM certificate: signs the eUICC's certificates |
+| `CERT_S_SM_DPauth_ECDSA` | SM-DP+ authentication certificate: used in `ES9+.InitiateAuthentication` |
+| `CERT_S_SM_DPpb_ECDSA` | SM-DP+ profile binding certificate: verified during `PrepareDownload` |
 | `CERT_S_SM_DP_TLS` | SM-DP+ TLS server certificate |
 | `CERT_S_SM_DS_TLS` | SM-DS TLS certificate |
-| `PK_EUICC_SIG` | eUICC public signature key — used to verify `euiccSignPIR` and `euiccSignRPR` |
-| `SK_EUICC_SIG` | eUICC private signature key — held securely within the eUICC |
+| `PK_EUICC_SIG` | eUICC public signature key: used to verify `euiccSignPIR` and `euiccSignRPR` |
+| `SK_EUICC_SIG` | eUICC private signature key: held securely within the eUICC |
 
 Test eUICCs are pre-loaded with the test CI's public key in their `euiccCiPKIdListForVerification` and `euiccCiPKIdListForSigning` lists. The test SM-DP+ simulator uses `SK.DPauth.SIG` and `SK.DPpb.SIG` to sign its messages, and the eUICC verifies these against the test certificates.
 
@@ -51,7 +51,7 @@ Certificate validation is tested implicitly throughout the specification but con
 
 The eUICC must validate the SM-DP+'s certificate chain during profile download. The `AuthenticateServer` test case verifies:
 
-- **Valid certificate chain**: `CERT.DPauth.ECDSA` is signed by `CERT.CI.ECDSA` which is signed by the CI root — the eUICC must traverse this chain and accept it
+- **Valid certificate chain**: `CERT.DPauth.ECDSA` is signed by `CERT.CI.ECDSA` which is signed by the CI root: the eUICC must traverse this chain and accept it
 - **Wrong certificates**: If the SM-DP+ presents a certificate not chaining to a known CI, the eUICC must reject the authentication
 - **Expired certificates**: Certificates with `notAfter` dates in the past must be rejected
 - **Mismatched matching IDs**: If the certificate's OID doesn't match the expected SM-DP+ OID for the transaction
@@ -78,17 +78,17 @@ ECDSA signing and verification operations are tested across all supported curves
 |-------|----------|------------|
 | **NIST P-256** | `O_E_NIST` | `PrepareDownloadNIST`, `LoadBoundProfilePackageNIST`, plus NIST variants across all ES8+ and ES10b tests |
 | **BrainpoolP256r1** | `O_E_BRP` | `PrepareDownloadBRP`, `LoadBoundProfilePackageBRP`, brainpool variants of all signing/verification tests |
-| **FRP256V1** | `O_E_FRP` | `PrepareDownloadFRP`, `LoadBoundProfilePackageFRP` — French national curve testing |
-| **SM2** | `O_E_SM2` | Chinese national algorithm — noted as "for further study" in v3.1.3 |
+| **FRP256V1** | `O_E_FRP` | `PrepareDownloadFRP`, `LoadBoundProfilePackageFRP` : French national curve testing |
+| **SM2** | `O_E_SM2` | Chinese national algorithm: noted as "for further study" in v3.1.3 |
 
-Every test that involves an eUICC signature — including `euiccSignPIR` in profile installation results, `euiccSignRPR` in RPM package results, and the `EUICC_SIGNATURE2` in the PrepareDownload response — must be verified against `#PK_EUICC_SIG` using the appropriate curve.
+Every test that involves an eUICC signature: including `euiccSignPIR` in profile installation results, `euiccSignRPR` in RPM package results, and the `EUICC_SIGNATURE2` in the PrepareDownload response: must be verified against `#PK_EUICC_SIG` using the appropriate curve.
 
 ### Signature Variants
 
 Five signing variants are tested:
-- **Variant O** (`O_VAR_O`) — Standard signature format
-- **Variant Ov3** (`O_VAR_OV3`) — Updated variant O for V3.x
-- **Variants A, B, C** — Alternative signature formats with different data inclusion rules
+- **Variant O** (`O_VAR_O`) : Standard signature format
+- **Variant Ov3** (`O_VAR_OV3`) : Updated variant O for V3.x
+- **Variants A, B, C** : Alternative signature formats with different data inclusion rules
 
 ---
 
@@ -136,7 +136,7 @@ The `LoadCRL` test case (4.2.17) verifies Certificate Revocation List processing
 - **Rejecting revoked certificates**: After loading a CRL, subsequent `AuthenticateServer` calls with certificates listed in that CRL must be rejected
 - **CRL format validation**: Malformed CRLs must be rejected with appropriate error codes
 
-CRL support is conditional — not all eUICCs are required to support it, but those that do must handle it correctly.
+CRL support is conditional: not all eUICCs are required to support it, but those that do must handle it correctly.
 
 ---
 
@@ -146,7 +146,7 @@ The eUICC generates several types of keys that are verified during testing:
 
 ### One-Time Key Pairs (Profile Binding)
 
-During `PrepareDownload`, the eUICC generates `otPK.eUICC.ECKA` / `otSK.eUICC.ECKA` — the ephemeral key pair used to establish the encrypted download channel. Tests verify:
+During `PrepareDownload`, the eUICC generates `otPK.eUICC.ECKA` / `otSK.eUICC.ECKA` : the ephemeral key pair used to establish the encrypted download channel. Tests verify:
 - Fresh key generation for each `PrepareDownload` call
 - That the public key is correctly formatted for the selected curve
 - Key reuse behaviour: when `O_E_REUSE_OTPK` is supported, the eUICC reuses the previous key pair for retry attempts after a failed download
@@ -192,7 +192,7 @@ Next: [eUICC Certification: From SGP.23-1 Tests to SAS-UP Approval]({{ site.base
 
 ---
 
-*Based on GSMA SGP.23-1 v3.1.3 (27 January 2025) — RSP Test Specification for the eUICC, Sections 4.2.3, 4.2.10, 4.2.17, 4.2.18, Annexes A.2, J*
+*Based on GSMA SGP.23-1 v3.1.3 (27 January 2025) : RSP Test Specification for the eUICC, Sections 4.2.3, 4.2.10, 4.2.17, 4.2.18, Annexes A.2, J*
 
 
 ---

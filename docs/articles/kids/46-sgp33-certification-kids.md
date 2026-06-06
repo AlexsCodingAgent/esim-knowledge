@@ -7,7 +7,7 @@ date: 2026-06-07
 
 ## Imagine...
 
-You've built Mission Control. It works in the simulator. But before you can command a real robot fleet, you need a **license**. You go to an independent testing agency, they run every drill in the book, and if you pass — you get certified. Now operators trust you with their robots.
+You've built Mission Control. It works in the simulator. But before you can command a real robot fleet, you need a **license**. You go to an independent testing agency, they run every drill in the book, and if you pass: you get certified. Now operators trust you with their robots.
 
 That's the certification journey for an eIM product. Passing SGP.33-3 test cases is the gateway from a lab prototype to a production-ready remote management server.
 
@@ -29,7 +29,7 @@ All these pieces come from different companies, but they must work together **fl
 
 ## The Multi-Vendor Puzzle 🧩
 
-Here's what a real IoT eSIM deployment looks like — way more complex than consumer eSIM:
+Here's what a real IoT eSIM deployment looks like: way more complex than consumer eSIM:
 
 ```
         Operator (mobile company)
@@ -70,7 +70,7 @@ One eIM might manage **thousands** of robots, each with different eUICCs and IPA
 Before testing begins, the eIM vendor prepares:
 
 - The eIM implementation itself
-- An **Optional Features Declaration** — what the eIM does and doesn't support:
+- An **Optional Features Declaration** : what the eIM does and doesn't support:
 
 | Feature | Question |
 |---------|----------|
@@ -78,7 +78,7 @@ Before testing begins, the eIM vendor prepares:
 | O_S_PKG_RETRIEVAL | Does the eIM support Package Retrieval mode? |
 | O_S_ESIPA_HTTPS | Does the eIM use TLS on ESipa? |
 
-- **IUT Settings** — the eIM's address, ID, supported RSP version
+- **IUT Settings** : the eIM's address, ID, supported RSP version
 
 ### Step 2: Test Execution
 
@@ -99,7 +99,7 @@ Each test gets a verdict: Pass, Fail, or Inconclusive. Failed tests can be retri
 Testing protocol behaviour is one thing. But the **GSMA Security Accreditation Scheme** (SAS) goes further:
 
 - **SAS-UP** audits eUICC manufacturing sites (chip factories)
-- **SAS-SM** audits subscription management platforms — and that now includes **eIM platforms**
+- **SAS-SM** audits subscription management platforms: and that now includes **eIM platforms**
 
 An eIM must prove:
 
@@ -108,7 +108,7 @@ An eIM must prove:
 - 🌐 Network security and TLS configuration
 - 📜 Operational security procedures
 
-SGP.33-3 test cases indirectly verify SAS-relevant properties — TLS configuration, certificate validation, anti-replay mechanisms — but the full SAS audit is a separate process run by GSMA-accredited auditors.
+SGP.33-3 test cases indirectly verify SAS-relevant properties: TLS configuration, certificate validation, anti-replay mechanisms: but the full SAS audit is a separate process run by GSMA-accredited auditors.
 
 ---
 
@@ -118,10 +118,10 @@ Not everything is ready for certification yet:
 
 | Interface | Status | Certification Ready? |
 |-----------|--------|---------------------|
-| **ES9+'** (eIM→SM-DP+) | Fully defined ✅ | Ready — adapted from proven consumer tests |
-| **ES11'** (eIM→SM-DS) | Fully defined ✅ | Ready — adapted from proven consumer tests |
-| **ESep** (eIM→eUICC) | Partially defined ⚠️ | Limited — most PSMO sequences still FFS |
-| **ESipa** (eIM→IPA) | Requirements only ⚠️ | Not certifiable — all sequences FFS |
+| **ES9+'** (eIM→SM-DP+) | Fully defined ✅ | Ready: adapted from proven consumer tests |
+| **ES11'** (eIM→SM-DS) | Fully defined ✅ | Ready: adapted from proven consumer tests |
+| **ESep** (eIM→eUICC) | Partially defined ⚠️ | Limited: most PSMO sequences still FFS |
+| **ESipa** (eIM→IPA) | Requirements only ⚠️ | Not certifiable: all sequences FFS |
 | **Behaviour** (Profile Enable) | One test case ⚠️ | Conditional only |
 
 For today's eIM vendors, the practical strategy is: certify ES9+' and ES11' first, conduct bilateral interoperability testing for ESipa/ESep, and track the specification as it evolves.
@@ -130,23 +130,21 @@ For today's eIM vendors, the practical strategy is: certify ES9+' and ES11' firs
 
 ## Beyond Isolated Testing 🔭
 
-SGP.33-3 tests the eIM in isolation. But production deployment needs **end-to-end testing** with real eUICCs, IPAs, and servers — an area still marked "For Future Study" in the broader GSMA testing framework.
+SGP.33-3 tests the eIM in isolation. But production deployment needs **end-to-end testing** with real eUICCs, IPAs, and servers: an area still marked "For Future Study" in the broader GSMA testing framework.
 
 For now, vendors fill this gap with:
 - Bilateral testing with partner companies
 - Consortium test events
 - Real-world field trials
 
-The certification path is still being paved — but the foundation (ES9+' and ES11' testing) is solid.
+The certification path is still being paved: but the foundation (ES9+' and ES11' testing) is solid.
 
 ---
-
-## 🧠 Did You Know?
 
 SGP.33-3 connects to at least five other GSMA documents: SGP.33-1 (IPA testing), SGP.33-2 (SM-DP+ testing), SGP.23 (consumer testing), SGP.26 (test certificates), and the GlobalPlatform DLOA framework. No specification is an island!
 
 ---
 
-*Kid-friendly version of GSMA SGP.33-3 — eUICC IoT Manager Test Specification, Certification Path*
+*Kid-friendly version of GSMA SGP.33-3: eUICC IoT Manager Test Specification, Certification Path*
 
 ← [Back to Kids Articles](index)

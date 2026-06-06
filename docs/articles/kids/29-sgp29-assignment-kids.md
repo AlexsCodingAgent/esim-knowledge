@@ -7,7 +7,7 @@ date: 2026-06-07
 
 ## Imagine...
 
-You want to publish a book. You can't just make up your own ISBN — you apply to the national ISBN agency, they verify you're a real publisher, and they assign you a block of numbers. GSMA is the librarian handing out unique ID numbers for eSIM chips, using a formal process to make sure only legitimate manufacturers get them.
+You want to publish a book. You can't just make up your own ISBN: you apply to the national ISBN agency, they verify you're a real publisher, and they assign you a block of numbers. GSMA is the librarian handing out unique ID numbers for eSIM chips, using a formal process to make sure only legitimate manufacturers get them.
 
 ---
 
@@ -17,12 +17,12 @@ SGP.29 v1.1 says four types of organisations can apply for an **ERHI1** (the top
 
 | Who | What They Do |
 |---|---|
-| **eUICC Manufacturers (EUMs)** | The chip factories themselves — they need numbers to stamp onto chips |
+| **eUICC Manufacturers (EUMs)** | The chip factories themselves: they need numbers to stamp onto chips |
 | **Device Manufacturers** | Companies like laptop, car, and phone makers who embed eSIMs into products |
 | **National Authorities** | Government telecom regulators who manage numbering in their country |
 | **Groups of Device Manufacturers** | A coalition of device makers applying together through one representative |
 
-Device Manufacturers and Groups were only added in March 2024 (v1.1) — before that, only chip makers and national authorities could apply!
+Device Manufacturers and Groups were only added in March 2024 (v1.1) : before that, only chip makers and national authorities could apply!
 
 ---
 
@@ -42,7 +42,7 @@ If you can't tick all three boxes, no numbers for you!
 
 ## The 5-Stage Assignment Process 🏗️
 
-Getting an ERHI1 isn't instant — it's a formal five-step process that takes up to a week:
+Getting an ERHI1 isn't instant: it's a formal five-step process that takes up to a week:
 
 ### Stage 1: 📝 Fill Out the Form
 
@@ -54,13 +54,13 @@ Download the Registration Form from the GSMA website. It asks for:
 
 ### Stage 2: 📧 Submit
 
-Send the completed form to **EISRegistration@gsma.com**. That's the dedicated email address for EID assignments — the GSMA's EIN Assignment Services team (called "DAG").
+Send the completed form to **EISRegistration@gsma.com**. That's the dedicated email address for EID assignments: the GSMA's EIN Assignment Services team (called "DAG").
 
 ### Stage 3: 🔍 GSMA Verification (up to 5 working days)
 
 The GSMA checks two things:
-1. **Is this a real company?** — They verify the applicant actually exists as a legitimate business.
-2. **Is the application valid?** — Do they meet all the eligibility criteria?
+1. **Is this a real company?** : They verify the applicant actually exists as a legitimate business.
+2. **Is the application valid?** : Do they meet all the eligibility criteria?
 
 ```
 If verification FAILS → GSMA may investigate further
@@ -80,7 +80,7 @@ The GSMA sends back the approved form with the shiny new ERHI1. The applicant ca
 
 ## What If You Don't Need It Anymore? 🗑️
 
-The cancellation process mirrors the assignment — same five stages, same verification rigour:
+The cancellation process mirrors the assignment: same five stages, same verification rigour:
 
 1. Fill out the Cancellation Form
 2. Submit to the same email address
@@ -88,7 +88,7 @@ The cancellation process mirrors the assignment — same five stages, same verif
 4. ERHI1 is marked as "Cancelled" in the registry
 5. Confirmation sent
 
-**Critical rule**: Once cancelled, an ERHI1 is **never, ever reassigned** to anyone else. And the former holder must immediately stop using EIDs under that range. This prevents "number recycling" — where someone else's old numbers accidentally collide with new ones.
+**Critical rule**: Once cancelled, an ERHI1 is **never, ever reassigned** to anyone else. And the former holder must immediately stop using EIDs under that range. This prevents "number recycling" : where someone else's old numbers accidentally collide with new ones.
 
 ---
 
@@ -103,16 +103,14 @@ The GSMA doesn't just hand out numbers and walk away. They have year-round respo
 | **Expert Advice** | Help stakeholders with EID questions |
 | **No Reassignment** | Guarantee cancelled numbers stay cancelled forever |
 
-They also make sure lower-level authorities (Level ≥2 — like Device Manufacturers handing out sub-ranges) follow all the same rules.
+They also make sure lower-level authorities (Level ≥2: like Device Manufacturers handing out sub-ranges) follow all the same rules.
 
 ---
 
-## 🧠 Did You Know?
-
-The GSMA's verification takes no more than 5 working days — that's the maximum, not the average. If a fraudulent company tried to apply (perhaps impersonating a real chip maker), the GSMA would catch it during verification and may take further action. The EID assignment process is the gatekeeper that keeps counterfeit eSIM chips out of the ecosystem!
+The GSMA's verification takes no more than 5 working days: that's the maximum, not the average. If a fraudulent company tried to apply (perhaps impersonating a real chip maker), the GSMA would catch it during verification and may take further action. The EID assignment process is the gatekeeper that keeps counterfeit eSIM chips out of the ecosystem!
 
 ---
 
-*Kid-friendly version of GSMA SGP.29 v1.1 — EID Assignment, Sections 11–15*
+*Kid-friendly version of GSMA SGP.29 v1.1: EID Assignment, Sections 11–15*
 
 ← [Back to Kids Articles](index)

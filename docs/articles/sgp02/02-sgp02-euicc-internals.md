@@ -6,22 +6,11 @@ date: 2026-06-07
 
 **🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.02 M2M RSP]({{ site.baseurl }}/docs/articles/sgp02/) > Inside the M2M eUICC: ISD-R, ISD-P, ECASD, and EID**
 
-> **📚 Prerequisites:** Read the [SGP.02 Architecture]({{ site.baseurl }}/docs/articles/sgp02/01-sgp02-architecture) article first to understand the roles and interfaces. The [Prerequisites Guide]({{ site.baseurl }}/docs/prerequisites) covers GlobalPlatform security domains and smart card fundamentals.
+Imagine you're two competing mobile operators. Your profiles are both sitting on the same physical chip inside a smart meter in rural Germany. How do you know (really know, in the cryptographic sense) that the other guy can't see your keys? Your IMSI? Your OTA channel?
 
-> **💡 Why this matters:** The eUICC's internal security domain architecture is what makes multi-stakeholder isolation possible — one chip hosting profiles from competing operators, each unable to see or touch the others. This article shows you how that isolation is achieved at the hardware level.
+SGP.02 answers this with hardware-enforced isolation. Not software. Not policy. The chip itself guarantees that one profile can't touch another.
 
-> **Key takeaways:**
-> - Three security domains form the eUICC's backbone: ISD-R (platform manager), ECASD (root of trust), ISD-P (profile container)
-> - The ISD-R is the on-card representative of the SM-SR — there's exactly one per chip
-> - ISD-Ps are cryptographically isolated containers, each holding exactly one Profile
-> - The ECASD holds the chip's unique identity (EID and private key) and is immutable after manufacturing
-> - Profile isolation is absolute: no ISD-P can access another ISD-P's keys, data, or applications
-
----
-
-## The Security Domain Architecture
-
-SGP.02 §2.2 defines the eUICC's internal architecture, which builds directly on the GlobalPlatform Card Specification. The chip is organized into **Security Domains** — isolated execution environments with their own keys, privileges, and lifecycle states. Three types of Security Domain form the core:
+This is what the eUICC's security domain architecture does. It's built on GlobalPlatform's card specification (SGP.02 §2.2), and it partitions the chip into three types of Security Domain. Each has its own keys, its own lifecycle, its own privileges. They can talk to each other through strictly controlled interfaces. They can't cross boundaries without the chip saying no.
 
 ```
 ┌─────────────────────────────────────┐
@@ -49,73 +38,54 @@ SGP.02 §2.2 defines the eUICC's internal architecture, which builds directly on
 └─────────────────────────────────────┘
 ```
 
-This architecture achieves something remarkable: **multiple stakeholders share one chip with hardware-enforced isolation**. The EUM manufactured it. The CI signed its certificates. The SM-SR manages it. One operator's profile lives in ISD-P 1. A competitor's profile lives in ISD-P 2. None can touch each other's keys.
+Three domain types. One chip. Multiple stakeholders (manufacturer, CI, SM-SR, operators) each with their own locked room.
 
----
+## ECASD: the birth certificate you can't change
 
-## ECASD — The Root of Trust
+Every eUICC has exactly one ECASD (eUICC Controlling Authority Security Domain). The EUM creates it during manufacturing. After that, it's frozen: no key updates, no lifecycle transitions beyond PERSONALIZED. It's the chip's cryptographic identity, and four things live inside it (§2.2.1.2):
 
-The **ECASD** (eUICC Controlling Authority Security Domain) is the chip's immutable identity. There is exactly one per eUICC, installed and personalized by the EUM during manufacturing. After manufacturing it cannot be modified — it has no keys that can be updated and no lifecycle transitions after PERSONALIZED.
+**`PK.CI.ECDSA`** : the CI's public key. This is the trust anchor. Every certificate verification on the chip starts here. If someone swapped this key, they could make the chip trust a fake SM-DP. They can't, because the ECASD is immutable.
 
-### What the ECASD Holds
+**`SK.ECASD.ECKA`** : the eUICC's private key. This one *never leaves the chip*. It's used during Scenario#3 key establishment: the chip and the SM-DP each generate an ephemeral key pair, exchange the public halves, and compute a shared secret (`ShS`) from which session keys are derived.
 
-The ECASD is personalized with four critical items ($2.2.1.2):
+**`CERT.ECASD.ECKA`** : the chip's certificate, signed by the EUM. It contains the corresponding public key, the EID, and a reference to the chip's Common Criteria security certification. This is what the SM-DP checks during mutual authentication.
 
-- **`PK.CI.ECDSA`** — The CI's root public key. This is the trust anchor that verifies SM-DP and SM-SR certificates. If you control this key, you control which servers the eUICC will trust.
+**`EID`** : the 32-digit identifier, retrievable at any time with a GlobalPlatform `GET DATA` command.
 
-- **`SK.ECASD.ECKA`** — The eUICC's unique private key. This never leaves the chip. It's used during Scenario#3 key establishment to generate the shared secret (`ShS`) with the SM-DP's ephemeral key pair.
+The ECASD only wakes up for two operations: SM-DP key establishment during profile download (§3.1.2) and SM-SR key establishment during an SM-SR change (§3.8). That's it. It's a vault that opens twice in the chip's lifetime.
 
-- **`CERT.ECASD.ECKA`** — The eUICC's certificate, signed by the EUM. This is the chip's cryptographic identity document. It contains the corresponding public key (`PK.ECASD.ECKA`), the EID, and a technical reference identifying the Common Criteria certification report.
+No profile component can access the ECASD directly. Only the ISD-R and ISD-Ps can call its services.
 
-- **`EID`** — The 32-digit eUICC Identifier, retrievable by the Device at any time via the GlobalPlatform `GET DATA` command.
+## ISD-R: the SM-SR's man on the inside
 
-### ECASD Services
+There's exactly one ISD-R (Issuer Security Domain (Root) per chip, and it's the on-card representative of the SM-SR. The EUM installs it during manufacturing and it enters the PERSONALIZED state immediately) no locked state, no transitional phase.
 
-The ECASD is involved in exactly two operations:
+The ISD-R is the gatekeeper. When the SM-SR wants something done on the chip, the ISD-R is the one that does it:
 
-1. **SM-DP key set establishment** during Profile Download and Installation (§3.1.2) — it verifies `CERT.DP.ECDSA` using `PK.CI.ECDSA`, generates a random challenge, and computes the shared secret using its private key
-2. **SM-SR key set establishment** during SM-SR Change (§3.8) — it authenticates the new SM-SR
+- **Creates ISD-Ps** : the `ES5.CreateISDP` command makes a new empty profile container
+- **Enables and disables profiles** : switches which profile's NAA is selectable over the UICC-Terminal interface, automatically deactivating the previous one
+- **Deletes ISD-Ps** : permanently wipes a profile and its container (including Master Delete)
+- **Manages Fall-Back** : sets which profile activates automatically if the current one loses connectivity
+- **Relays ES8 traffic** : forwards encrypted SCP03/SCT03t commands between the SM-SR and the target ISD-P
+- **Enforces POL1** : checks profile policy rules before letting lifecycle operations through
 
-Only the ISD-R and ISD-Ps can use ECASD services. No profile component has direct access to the ECASD.
+The ISD-R holds the SCP80 (and optionally SCP81) key sets that secure the ES5 channel with the SM-SR. These protect platform management commands over SMS, HTTPS, or CAT_TP.
 
----
+Under GlobalPlatform rules (Annex C), the ISD-R has **Authorized Management** privilege over every ISD-P. That lets it verify command tokens (proving an operation came from an authorized source) and control ISD-P lifecycle. But it *can't read profile contents* beyond POL1 and Connectivity Parameters. It's the building superintendent, not the tenant, it has the master key to the hallway, not to your apartment.
 
-## ISD-R — The Platform Manager
+## ISD-P, one profile, one container, no peeking
 
-The **ISD-R** (Issuer Security Domain — Root) is the on-card representative of the SM-SR. There is exactly one per eUICC. It's installed and first personalized by the EUM during manufacturing and enters the PERSONALIZED lifecycle state immediately — it never supports the LOCKED state.
+An ISD-P (Issuer Security Domain, Profile) holds exactly one Profile. A chip can have many ISD-Ps, but only one is in the ENABLED state at any time.
 
-### ISD-R Responsibilities
+### The life of an ISD-P
 
-The ISD-R is the gatekeeper for all Platform Management operations. It:
-
-- **Creates ISD-Ps** — when the SM-SR sends `ES5.CreateISDP`, the ISD-R instantiates a new profile container
-- **Enables and disables Profiles** — making one profile's NAA selectable over the UICC-Terminal interface and deactivating the previous one
-- **Deletes ISD-Ps** — permanently removing a profile and its container, including during Master Delete
-- **Manages the Fall-Back Attribute** — setting which profile activates automatically on connectivity loss
-- **Relays ES8 traffic** — forwarding SCP03/SCP03t commands between the SM-SR and the target ISD-P
-- **Enforces POL1** — checking profile policy rules before executing lifecycle operations
-
-The ISD-R holds the SCP80 and optionally SCP81 key sets used to secure the ES5 OTA channel with the SM-SR. These are the keys that protect platform management commands over SMS, HTTPS, or CAT_TP.
-
-### GlobalPlatform Privileges
-
-The ISD-R's privileges are defined in SGP.02 Annex C. Critically, it has the **Authorized Management** (AM) privilege over every ISD-P. This means it can perform Token Verification (checking that commands originate from an authorized source) and manage ISD-P lifecycle — but it **cannot read Profile contents** beyond POL1 and Connectivity Parameters.
-
----
-
-## ISD-P — The Profile Container
-
-An **ISD-P** (Issuer Security Domain — Profile) hosts exactly one Profile. Multiple ISD-Ps can exist on an eUICC, but only one can be in the **ENABLED** state at any time.
-
-### ISD-P Creation and Lifecycle
-
-An ISD-P follows a strictly defined lifecycle (SGP.02 §2.2.1.3, Figure 3):
+An ISD-P follows a strict lifecycle (SGP.02 §2.2.1.3, Figure 3):
 
 ```
   [Created via ES5.CreateISDP]
             │
             ▼
-       SELECTABLE ◄── ISD-P exists but empty
+       SELECTABLE ◄── exists but empty
             │
             │ Key Establishment (§3.1.2)
             ▼
@@ -131,98 +101,79 @@ An ISD-P follows a strictly defined lifecycle (SGP.02 §2.2.1.3, Figure 3):
             │
             │ Delete
             ▼
-        [Deleted — ISD-P removed from eUICC]
+        [Deleted, ISD-P removed from eUICC]
 ```
 
-Key points:
-- The INSTALLED state (from GlobalPlatform) is skipped — `ES5.CreateISDP` takes the ISD-P directly to SELECTABLE
-- The LOCKED state is not supported for ISD-Ps
-- After profile download completes successfully, the ISD-P transitions to DISABLED
-- Enabling a new profile automatically disables the previously enabled one
-- The Fall-Back Mechanism can also trigger enable/disable transitions
+A few things about this lifecycle that matter:
 
-### ISD-P Privileges
+The INSTALLED state from GlobalPlatform is skipped, `ES5.CreateISDP` jumps straight to SELECTABLE. The LOCKED state isn't supported at all. After profile download finishes, the ISD-P goes to DISABLED, not enabled: the operator has to explicitly enable it. Enabling a new profile automatically disables whatever was enabled before. And the Fall-Back Mechanism can trigger enable/disable transitions on its own, without any server command.
 
-All Profile Components created within an ISD-P remain permanently affiliated with it. You cannot change the affiliation of a profile component. This ensures that when an ISD-P is deleted, every component within it is cleanly removed.
+All Profile Components created inside an ISD-P stay permanently affiliated with it. You can't move a component between ISD-Ps. When an ISD-P gets deleted, everything inside it goes with it, clean removal, no orphans.
 
-ISD-P privileges (Annex C) include the ability to create applications (NAAs, applets), create supplementary security domains (like the MNO-SD), and manage the profile's file system — but only within its own container.
+ISD-P privileges (Annex C) let it create applications (NAAs, applets), spin up supplementary security domains (like the MNO-SD), and manage its own file system, but only within its own container walls.
 
----
+## What's inside a profile
 
-## Profile Structure
+A Profile inside an ISD-P is a complete operator subscription. Here's what's in the box (§2.2.4):
 
-A Profile inside an ISD-P is a complete operator subscription. It contains (SGP.02 §2.2.4):
+**MNO-SD** : the operator's on-card representative. Holds SCP80/SCP81 keys for the ES6 OTA channel. After installation, the operator uses this to manage the profile directly, bypassing the SM-DP and SM-SR.
 
-**MNO-SD** (Mobile Network Operator Security Domain) — The operator's on-card representative. Holds the SCP80/SCP81 keys for the ES6 OTA channel. The Operator uses this to perform post-install profile management directly, bypassing the SM-DP and SM-SR.
+**NAAs** : Network Access Applications: USIM (3G/4G/5G), ISIM (IMS/VoLTE), or CSIM (CDMA). These hold the IMSI, authentication keys, and network parameters.
 
-**NAAs** (Network Access Applications) — The authentication applications: USIM (for 3G/4G/5G), ISIM (for IMS/VoLTE), or CSIM (for CDMA). These contain the IMSI, authentication keys, and network parameters.
+**File System** : standard UICC files: phonebook, SMS storage, network parameters, service tables. The ISD-R gets read access to Connectivity Parameters (SMSC address, DNS config) but nothing else.
 
-**File System** — Standard UICC files: phonebook, SMS storage, network parameters, service tables. The ISD-R has read access to Connectivity Parameters (SMSC address, DNS configuration) but nothing else.
+**Applets and Supplementary Security Domains** : payment apps, NFC secure elements, proprietary operator code. All sandboxed inside the ISD-P.
 
-**Applets and Supplementary Security Domains** — Payment applications, NFC secure elements, proprietary operator applets. These run inside the ISD-P's isolation boundary.
+**POL1** : Policy Rules stored in the ISD-P's file system. These govern what lifecycle operations are allowed on this specific profile. The ISD-R reads POL1 before saying yes to an enable, disable, or delete.
 
-**POL1** — Policy Rules embedded in the Profile (stored in the ISD-P's file system). These govern what lifecycle operations are permitted on this specific profile. The ISD-R reads POL1 when considering whether to allow an enable, disable, or delete operation.
+**POL2** : Policy Rules associated with the profile but stored *in the ISD-R* (outside the ISD-P), for faster access during platform management. When POL1 and POL2 disagree, SGP.02 defines which one wins.
 
-**POL2** — Policy Rules associated with a Profile but stored in the ISD-R (outside the ISD-P). This allows faster access during platform management. When POL1 and POL2 conflict, SGP.02 defines priority rules.
+### How tight is the isolation?
 
-### Profile Isolation
+Absolute (§2.2.1.3):
 
-The isolation between ISD-Ps is absolute (SGP.02 §2.2.1.3):
-- No component outside an ISD-P has visibility or access to any Profile Component (except the ISD-R's read access to POL1 and Connectivity Parameters)
-- A Profile Component cannot see or access anything outside its ISD-P
-- An ISD-P cannot see or access any other ISD-P
-- The same AID or TAR can be allocated within different Profiles — the ISD-P boundary prevents collisions
+- Nothing outside an ISD-P can see or touch any Profile Component inside it (except the ISD-R's limited read of POL1 and Connectivity Parameters)
+- Nothing inside an ISD-P can see or reach anything outside it
+- No ISD-P can access any other ISD-P
+- Two profiles can reuse the same AID or TAR: the ISD-P boundary prevents collisions
 
-When an ISD-P is not in the enabled state, the eUICC ensures that its file system is unselectable by the Device, its applications cannot be triggered, and remote management via ES6 is blocked.
+When an ISD-P isn't enabled, the eUICC makes its file system unselectable to the Device, blocks its applications, and shuts down ES6 remote management. A disabled profile is invisible to the outside world.
 
----
+## The EID, 32 digits that identify a chip forever
 
-## The EID — eUICC Identifier
+The eUICC Identifier follows ISO/IEC 7812, the same standard that gives credit cards their numbers. Its structure (§2.2.2):
 
-The **EID** is a 32-digit number that uniquely identifies each eUICC globally. Its structure (SGP.02 §2.2.2):
+- **Digit 1**: `8` (Major Industry Identifier, telecommunications)
+- **Digit 2**: `9` (telecommunications sub-identifier)
+- **Digits 3–5**: Country code (padded with leading zeros)
+- **Digits 6–31**: Issuer-specific identifier
+- **Digit 32**: Luhn check digit
 
-- **Digit 1**: Always `8` (Major Industry Identifier per ISO/IEC 7812)
-- **Digit 2**: Always `9` (telecommunications per ISO/IEC 7812)  
-- **Digits 3-5**: Country code (padded with leading zeros if shorter than 3 digits)
-- **Digits 6-31**: Issuer-specific identifier
-- **Digit 32**: Check digit per ISO/IEC 7812 Luhn algorithm
+The EID lives in the ECASD and is retrievable through GlobalPlatform `SELECT` (ECASD AID) followed by `GET DATA` (tag `'5A'`). It's the primary key used everywhere, ES2 profile orders, ES3 EIS lookups, ES4 lifecycle operations, ES7 handovers.
 
-The EID is stored in the ECASD and can be retrieved by the Device at any time using the GlobalPlatform `SELECT` (targeting the ECASD AID) and `GET DATA` (tag `'5A'`) commands. It's the primary identifier used throughout the ecosystem — in ES2 profile orders, ES3 EIS lookups, ES4 lifecycle operations, and ES7 handovers.
+The leading `89` is distinctive. If you see a 32-digit number starting with `89`, you're looking at an eUICC.
 
----
+## How the chip talks to the outside world
 
-## Secure Channels on the eUICC
+Three secure channels, three different protocol pairs (SGP.02 §2.2.5):
 
-SGP.02 §2.2.5 specifies how the various interfaces are secured:
+| Interface | Path | Protocol | What it protects |
+|-----------|------|----------|------------------|
+| ES5 | SM-SR ↔ ISD-R | SCP80 (or SCP81) | Platform management: auth, integrity, confidentiality |
+| ES6 | Operator ↔ MNO-SD | SCP80 (or SCP81) | Post-install profile management |
+| ES8 | SM-DP ↔ ISD-P | SCP03 / SCP03t | Profile download: AES-128 CBC, C-MAC, R-MAC, R-ENCRYPTION |
 
-| Interface | Between | Protocol | Protection |
-|-----------|---------|----------|------------|
-| ES5 | SM-SR ↔ ISD-R | SCP80 (or SCP81) | Origin authentication, integrity, confidentiality |
-| ES6 | Operator ↔ MNO-SD | SCP80 (or SCP81) | Same security level as ES5 recommended |
-| ES8 | SM-DP ↔ ISD-P | SCP03 / SCP03t | AES-128 CBC, C-MAC, R-MAC, R-ENCRYPTION |
+ES8 is the interesting one because it's not a direct connection. SCP03 commands are encrypted, sent to the SM-SR over ES3, then tunneled through the SCP80/SCP81-protected ES5 channel to the ISD-R, which forwards them to the correct ISD-P. The SM-SR carries the bytes but can't decrypt them. Two layers of encryption, two different key sets: the SM-SR is a secure courier, not a reader.
 
-The ES8 secure channel is the most interesting. SCP03 commands are wrapped, encrypted, and tunneled through the ES3 (SM-DP↔SM-SR) link, then through the SCP80/SCP81-protected ES5 channel to the ISD-R, which forwards them to the target ISD-P. The SM-SR acts as a secure relay — it transports the encrypted SCP03 payload but cannot decrypt it.
+## Java Card and physical form factors
+
+The eUICC *may* support Java Card (§2.2.7). If it does, it needs at least version 3.0.4 of the Java Card Classic Platform, enough to run post-issuance applets inside profiles.
+
+On the hardware side (§2.2.8), it's a Tamper Resistant Element. Physical attacks should fail. It can be a discrete chip (removable in an MFF2 form factor, or soldered down) or integrated into a larger SoC, sharing silicon with the modem or application processor.
 
 ---
 
-## Java Card and Hardware
-
-The eUICC **MAY** support Java Card™ (SGP.02 §2.2.7). If supported, it must implement at least version 3.0.4 of the Java Card Classic Platform Specification. This enables post-issuance applet installation within profiles.
-
-Hardware-wise (§2.2.8), the eUICC must be a **Tamper Resistant Element** — a hardware security module designed to resist physical attacks. It can be:
-- **Discrete eUICC**: A separate chip, either removable (in an ETSI TS 102 221 form factor like MFF2) or non-removable (soldered)
-- **Integrated eUICC**: Built into a larger SoC (System-on-Chip), sharing silicon with the modem or application processor
-
----
-
-## 📋 Summary
-
-- The eUICC's three Security Domains — ECASD (root of trust), ISD-R (platform manager), ISD-P (profile container) — partition the chip into isolated stakeholder zones
-- The ECASD stores the chip's immutable identity (EID, private key, certificate, CI root key) and participates only in key establishment during profile download and SM-SR change
-- The ISD-R is the SM-SR's sole on-card agent, enforcing POL1/PO2, managing profile lifecycle, and relaying ES8 traffic without seeing plaintext
-- ISD-Ps provide hardware-enforced cryptographic isolation — profiles from competing operators coexist without any possibility of cross-access
-- Profiles contain a complete operator subscription: MNO-SD, NAAs, file system, applets, and policy rules (POL1/POL2)
-- The 32-digit EID uniquely identifies each eUICC globally, with the distinctive `89` prefix inherited from ISO/IEC 7812
+Three Security Domains. One immutable identity in the ECASD. One platform manager in the ISD-R. As many profile containers as the chip can hold, each cryptographically walled off from the others. Competing operators on the same silicon, unable to see each other's keys. That's the eUICC's architecture, and it's what makes multi-stakeholder remote provisioning possible.
 
 ---
 
@@ -236,7 +187,7 @@ Hardware-wise (§2.2.8), the eUICC must be a **Tamper Resistant Element** — a 
 
 ---
 
-*Based on GSMA SGP.02 v4.2 §2.2 — eUICC Architecture*
+*Based on GSMA SGP.02 v4.2 §2.2, eUICC Architecture*
 
 
 ---

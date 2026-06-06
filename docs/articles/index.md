@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Specification Index — eUICC.tech"
+title: "Specification Index: eUICC.tech"
 ---
 
 **🏠 [eUICC.tech]({{ site.baseurl }}/) > Specification Index**
@@ -11,7 +11,7 @@ All 72 articles across 11 GSMA eSIM specifications.
 
 ---
 
-## 📱 SGP.22 v2.7 — Consumer eSIM RSP
+## 📱 SGP.22 v2.7: Consumer eSIM RSP
 
 *Phones, tablets, wearables, laptops. **12 articles.***
 
@@ -34,7 +34,7 @@ All 72 articles across 11 GSMA eSIM specifications.
 
 ---
 
-## 🔀 SGP.22 v3.x — Unified RSP Specification
+## 🔀 SGP.22 v3.x: Unified RSP Specification
 
 *The forked track. Merges consumer and IoT. **12 articles.***
 
@@ -57,7 +57,7 @@ All 72 articles across 11 GSMA eSIM specifications.
 
 ---
 
-## 🤖 SGP.32 / SGP.31 — IoT eSIM
+## 🤖 SGP.32 / SGP.31: IoT eSIM
 
 *NB-IoT, LTE-M, sensors, trackers. **12 articles.***
 
@@ -80,7 +80,7 @@ All 72 articles across 11 GSMA eSIM specifications.
 
 ---
 
-## 📡 SGP.02 v4.2 — M2M eSIM (Legacy Push Model)
+## 📡 SGP.02 v4.2: M2M eSIM (Legacy Push Model)
 
 *The original machine-to-machine specification. SM-SR push model, industrial and automotive. **12 articles.***
 
@@ -107,13 +107,13 @@ All 72 articles across 11 GSMA eSIM specifications.
 
 | Spec | Articles | Section |
 |------|----------|---------|
-| 🏭 SGP.41 — In-Factory Provisioning | 5 | [Browse →](sgp41/) |
-| 🆔 SGP.29 — EID Definition | 5 | [Browse →](sgp29/) |
-| 🧪 SGP.23 — RSP Testing | 5 | [Browse →](sgp23/) |
-| 🔒 SGP.23-1 — eUICC Testing | 5 | [Browse →](sgp23-1/) |
-| 🦾 SGP.33-3 — eIM Testing | 5 | [Browse →](sgp33-3/) |
-| 🛡️ SGP.25 — eUICC Protection Profile | 5 | [Browse →](sgp25/) |
-| 🎭 SGP.26 — Test Certificates | 5 | [Browse →](sgp26/) |
+| 🏭 SGP.41: In-Factory Provisioning | 5 | [Browse →](sgp41/) |
+| 🆔 SGP.29: EID Definition | 5 | [Browse →](sgp29/) |
+| 🧪 SGP.23: RSP Testing | 5 | [Browse →](sgp23/) |
+| 🔒 SGP.23-1: eUICC Testing | 5 | [Browse →](sgp23-1/) |
+| 🦾 SGP.33-3: eIM Testing | 5 | [Browse →](sgp33-3/) |
+| 🛡️ SGP.25: eUICC Protection Profile | 5 | [Browse →](sgp25/) |
+| 🎭 SGP.26: Test Certificates | 5 | [Browse →](sgp26/) |
 
 ---
 

@@ -11,7 +11,7 @@ You've designed the world's safest car seat. It passed every crash test, every m
 
 A brilliant design made in a sloppy factory is NOT a safe product.
 
-This is the logic behind **SAS-UP** — the Security Accreditation Scheme for UICC Production. It's the final check that transforms a tested eUICC design into a production-ready chip.
+This is the logic behind **SAS-UP** : the Security Accreditation Scheme for UICC Production. It's the final check that transforms a tested eUICC design into a production-ready chip.
 
 ---
 
@@ -48,9 +48,9 @@ If a vendor supports both "with" and "without" a feature (providing different ch
 
 The Applicability Table uses logic to decide which tests to run:
 
-- **M** (Mandatory) — Every chip must pass these, no exceptions
-- **N/A** (Not Applicable) — Impossible in this context (e.g., SGP.22 V2.1 tests are N/A for SGP.23-1 which targets V3.1)
-- **Ci** (Conditional) — Only runs IF certain options are declared:
+- **M** (Mandatory) : Every chip must pass these, no exceptions
+- **N/A** (Not Applicable) : Impossible in this context (e.g., SGP.22 V2.1 tests are N/A for SGP.23-1 which targets V3.1)
+- **Ci** (Conditional) : Only runs IF certain options are declared:
   - `C001` = IF O_E_NIST THEN run NIST-specific tests
   - Complex nesting: `IF ... THEN (IF ... THEN ... ELSE ...) ELSE ...`
 
@@ -66,7 +66,7 @@ SGP.23-1 is fair about failures:
 |---|---|
 | **Pass** ✅ | Every step produced the expected result |
 | **Fail** ❌ | The chip did something unexpected at some step |
-| **Inconclusive** ⚠️ | The test couldn't finish because of setup problems — NOT the chip's fault! |
+| **Inconclusive** ⚠️ | The test couldn't finish because of setup problems: NOT the chip's fault! |
 
 The inconclusive category prevents false negatives. If the test tool has a bug or the card reader glitches, the chip isn't penalised.
 
@@ -74,15 +74,15 @@ The inconclusive category prevents false negatives. If the test tool has a bug o
 
 ## SAS-UP: The Factory Check 🏭
 
-SAS-UP doesn't test the chip design — it audits the **manufacturing site**:
+SAS-UP doesn't test the chip design: it audits the **manufacturing site**:
 
 - Physical security of the production facility
 - How cryptographic material is handled during manufacturing
-- Access controls — who can touch what?
-- Key injection procedures — are secret keys loaded securely?
-- Audit trails — can you trace every chip back through production?
+- Access controls: who can touch what?
+- Key injection procedures: are secret keys loaded securely?
+- Audit trails: can you trace every chip back through production?
 
-The link between testing and manufacturing is the `sasAcreditationNumber` — a unique identifier embedded in every production chip that SGP.23-1 test cases explicitly verify.
+The link between testing and manufacturing is the `sasAcreditationNumber` : a unique identifier embedded in every production chip that SGP.23-1 test cases explicitly verify.
 
 ---
 
@@ -90,16 +90,16 @@ The link between testing and manufacturing is the `sasAcreditationNumber` — a 
 
 When all applicable tests pass, the **Digital Letter of Approval** is issued:
 
-- **Globally recognised** — Accepted by mobile operators worldwide
-- **Machine-verifiable** — Stored on a DLOA Registrar with a discovery URL
-- **Specific** — Lists exactly which SGP.22 version, which optional features, and which test lab
-- **Gateway to production** — Without a DLOA, an eUICC cannot be deployed in commercial devices
+- **Globally recognised** : Accepted by mobile operators worldwide
+- **Machine-verifiable** : Stored on a DLOA Registrar with a discovery URL
+- **Specific** : Lists exactly which SGP.22 version, which optional features, and which test lab
+- **Gateway to production** : Without a DLOA, an eUICC cannot be deployed in commercial devices
 
 ---
 
 ## The Layered Trust Model 🧅
 
-eSIM certification is like an onion — layers of trust, each depending on the layer below:
+eSIM certification is like an onion: layers of trust, each depending on the layer below:
 
 1. **SAS-UP** certifies the factory
 2. **SGP.23-1** certifies the chip from that factory
@@ -108,9 +108,7 @@ eSIM certification is like an onion — layers of trust, each depending on the l
 
 ---
 
-## 🧠 Did You Know?
-
-The GSMA runs regular Test Events where vendors bring their implementations for formal assessment. SGP.23-1's document history shows Change Requests flowing in from these events — each one fixing an ambiguity that real testers discovered. The specification has evolved from v2.0 (2018) through v3.1.3 (2025) based on actual testing experience!
+The GSMA runs regular Test Events where vendors bring their implementations for formal assessment. SGP.23-1's document history shows Change Requests flowing in from these events: each one fixing an ambiguity that real testers discovered. The specification has evolved from v2.0 (2018) through v3.1.3 (2025) based on actual testing experience!
 
 ---
 

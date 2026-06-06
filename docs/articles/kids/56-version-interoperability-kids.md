@@ -7,9 +7,9 @@ date: 2026-06-07
 
 ## Imagine...
 
-Your grandparent has an old flip phone. You have the newest smartphone with every feature imaginable. You want to call your grandparent. Does your phone say: "Sorry, this person uses old technology, I refuse to connect!" No! Phones are designed to work together — your fancy smartphone still knows how to make a simple voice call that your grandparent's flip phone can handle.
+Your grandparent has an old flip phone. You have the newest smartphone with every feature imaginable. You want to call your grandparent. Does your phone say: "Sorry, this person uses old technology, I refuse to connect!" No! Phones are designed to work together: your fancy smartphone still knows how to make a simple voice call that your grandparent's flip phone can handle.
 
-The eSIM world has the same challenge. There are **billions** of older eSIM chips out there running v2.x magic. When SGP.22 v3.x came along with all its shiny new spells, it had to make sure it could still talk to all those older devices — and that older devices wouldn't get confused by the new magic.
+The eSIM world has the same challenge. There are **billions** of older eSIM chips out there running v2.x magic. When SGP.22 v3.x came along with all its shiny new spells, it had to make sure it could still talk to all those older devices: and that older devices wouldn't get confused by the new magic.
 
 ---
 
@@ -17,10 +17,10 @@ The eSIM world has the same challenge. There are **billions** of older eSIM chip
 
 Not everyone upgrades at the same time:
 
-- **Old Phone** (v2.x) + **Old Key Maker** (v2.x) — both speak the old magic
-- **New Phone** (v3.x) + **Old Key Maker** (v2.x) — your new phone must speak old magic
-- **Old Phone** (v2.x) + **New Key Maker** (v3.x) — the new server must speak old magic
-- **New Phone** (v3.x) + **New Key Maker** (v3.x) — full new magic party!
+- **Old Phone** (v2.x) + **Old Key Maker** (v2.x) : both speak the old magic
+- **New Phone** (v3.x) + **Old Key Maker** (v2.x) : your new phone must speak old magic
+- **Old Phone** (v2.x) + **New Key Maker** (v3.x) : the new server must speak old magic
+- **New Phone** (v3.x) + **New Key Maker** (v3.x) : full new magic party!
 
 v3.x was designed for **all four scenarios** from day one.
 
@@ -51,7 +51,7 @@ Different helpers use different signals to figure out what version they're deali
 | Phone ↔ Key Maker | `rspCapability` fields during the handshake |
 | Key Maker ↔ Key Maker (server to server) | `X-Admin-Protocol` HTTP header (same as v2.x) |
 | Phone ↔ Magic Vault Chip | The Phone's Assistant asks the chip for its `highestSvn` |
-| Human-Readable Website (HRI) | Different URL versions — no negotiation needed! |
+| Human-Readable Website (HRI) | Different URL versions: no negotiation needed! |
 
 ---
 
@@ -63,7 +63,7 @@ When the Key Maker is about to send a secret key to a phone, it checks what vers
 - If the chip says "I only know v2.x" → send the older format that it understands
 - If there's no overlap → error (but this almost never happens because v3.x chips all speak v2.x too)
 
-It's like a translator who can speak both ancient and modern languages — always choosing the one the listener understands best.
+It's like a translator who can speak both ancient and modern languages: always choosing the one the listener understands best.
 
 ---
 
@@ -78,9 +78,7 @@ The v3.x rulebook says every server must follow these politeness rules:
 
 ---
 
-## 🧠 Did You Know?
-
-This backwards-compatibility design means you could take a brand-new v3.1 phone to a mobile company running a 5-year-old v2.x Key Maker — and everything would work perfectly. The phone simply becomes a well-behaved v2.x phone for that conversation. It's like being fluent in both modern slang and old-fashioned language, switching effortlessly depending on who you're talking to!
+This backwards-compatibility design means you could take a brand-new v3.1 phone to a mobile company running a 5-year-old v2.x Key Maker: and everything would work perfectly. The phone simply becomes a well-behaved v2.x phone for that conversation. It's like being fluent in both modern slang and old-fashioned language, switching effortlessly depending on who you're talking to!
 
 ---
 

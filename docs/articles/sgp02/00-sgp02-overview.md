@@ -6,70 +6,62 @@ date: 2026-06-07
 
 **🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.02 M2M RSP]({{ site.baseurl }}/docs/articles/sgp02/) > SGP.02 v4.2: The M2M eSIM Push Architecture**
 
-> **📚 Prerequisites:** New to eSIM or smart card technology? Read our [Prerequisites Guide]({{ site.baseurl }}/docs/prerequisites) first. The [Glossary]({{ site.baseurl }}/docs/glossary) defines all acronyms used in these articles.
+Here's the problem SGP.02 was built for.
 
-> **💡 Why this matters:** SGP.02 is the original eSIM standard, designed before smartphones needed QR-code activation. It powers millions of devices you'll never touch — utility meters, automotive telematics units, and industrial sensors — using a fundamentally different "push" philosophy from the consumer eSIM you know.
+You've got a gas meter bolted to a basement wall. It's been running since 2018 and it's supposed to keep running until 2038. No screen. No keyboard. No human anywhere near it. And you need to switch its mobile operator.
 
-> **Key takeaways:**
-> - SGP.02 uses a **push model**: the SM-SR decides when profiles arrive on the eUICC, not the device or user
-> - It was designed for M2M devices that are unattended, headless, and often unreachable
-> - The spec is 452 pages (v4.2, July 2020) defining the complete M2M remote provisioning ecosystem
-> - Unlike SGP.22's combined SM-DP+, SGP.02 splits the server-side role into SM-DP (profile preparation) and SM-SR (secure routing and OTA channel ownership)
-> - SGP.02 predates SGP.22 consumer and SGP.32 IoT — it was the first eSIM standard ever published
+QR codes? Useless (there's no camera, no user to hold up a phone. A "tap to install" button? There's no screen. Even asking the device to pull a profile from a server is optimistic) it might be in deep sleep, powered down, or sitting in a signal shadow.
 
----
+So what do you do?
 
-## What is SGP.02?
+**You push.** Some server, somewhere, decides it's time. It reaches down through the network, wakes the chip, authenticates, and installs the profile. The device never asked for it. The device didn't have to.
 
-**SGP.02** is the GSMA's technical specification for *Remote Provisioning Architecture for Embedded UICC* — the "M2M eSIM standard." Published as version 4.2 in July 2020, it defines how mobile operator credentials (Profiles) are securely delivered to and managed on embedded SIM chips in machine-to-machine devices.
+That's SGP.02.
 
-At its core, SGP.02 solves a problem that consumer eSIM standards don't face: **how do you provision a SIM card in a device that has no screen, no user, and may be sealed inside a utility meter bolted to a basement wall?**
+## Not your phone's eSIM
 
-The answer is the **push model**. In SGP.02, the server-side entity called the SM-SR (Subscription Manager — Secure Routing) owns the Over-The-Air communication channel to the chip. It pushes profiles down when the operator decides — no QR code scanning, no user tapping "Install," no device-initiated pull.
+SGP.02 is the GSMA's *Remote Provisioning Architecture for Embedded UICC* : the M2M eSIM standard. Published as version 4.2 in July 2020, all 452 pages of it. It's the *original* eSIM specification, written years before anyone thought about QR codes and consumer activation flows.
 
----
+If you know consumer eSIM (SGP.22), you know a **pull model**: the device's LPA reaches out to an SM-DP+, downloads a profile, done. The device is the initiator. The user is in the loop.
 
-## Why a Separate Standard for M2M?
+SGP.02 flips that completely. The device is passive. The server (specifically the SM-SR (Subscription Manager) Secure Routing) : owns the over-the-air channel to the chip and pushes profiles down when the operator decides. No QR scanning. No LPA. No user.
 
-When the GSMA began work on embedded SIM technology in the early 2010s, the primary use case was not smartphones. It was **machine-to-machine communication**: connected cars, smart meters, industrial sensors, fleet tracking devices, and vending machines. These devices share characteristics that make a consumer-style "pull" model impractical:
+The spec was written for devices that share a particular set of annoying characteristics:
 
-- **Headless operation**: No screen, no keyboard, no user interaction
-- **Unattended deployment**: Installed in inaccessible locations for years or decades
-- **Unreliable reachability**: May be powered off, in sleep mode, or in areas with intermittent coverage
-- **Batch provisioning**: Thousands of devices may need profiles simultaneously
-- **Operator-controlled lifecycle**: The mobile network operator — not the device owner — typically decides when to switch connectivity providers
+- **Headless**: no screen, no keyboard, nobody to interact with
+- **Unattended**: installed somewhere inaccessible for years or decades
+- **Unreliable**: might be asleep, powered off, or in a coverage dead zone when you try to reach it
+- **Deployed in batches**: thousands of meters all need profiles at the same time
+- **Operator-controlled**: the MNO (not the device owner) decides who provides connectivity
 
-SGP.02 was designed around these constraints. The spec's own scope states it targets "machine-to-machine Devices which are not easily reachable" (SGP.02 §1.3). The push model puts the server in control: when the operator wants to install, enable, disable, or delete a profile, the SM-SR pushes commands to the eUICC over whatever bearer is available.
+The spec's scope section puts it plainly: SGP.02 targets "machine-to-machine Devices which are not easily reachable" (§1.3).
 
----
+## Push means the server calls the shots
 
-## The Push Model in Depth
+Here's what push actually looks like, compared to the consumer pull model most people know:
 
-The push model is the defining architectural characteristic of SGP.02. Here's what it means in practice:
+**Consumer eSIM (SGP.22, pull):**
+1. You buy a plan, get a QR code or activation code
+2. Your phone's LPA scans it and reaches out to the SM-DP+
+3. Mutual authentication happens, profile downloads
+4. Your device was the initiator every step of the way
 
-**In SGP.22 (consumer "pull"):**
-1. User buys an eSIM plan, receives a QR code
-2. User's device scans the QR code
-3. The LPA (Local Profile Assistant) on the device initiates contact with the SM-DP+
-4. Mutual authentication happens, profile is downloaded
-5. The device/user is always the initiator
+**M2M eSIM (SGP.02, push):**
+1. An operator orders a profile from the SM-DP (using the ES2 interface)
+2. The SM-DP prepares the profile and coordinates with the SM-SR (via ES3)
+3. The SM-SR opens a secure OTA channel to the eUICC (using SMS, HTTPS, or CAT_TP) and pushes platform management commands
+4. The encrypted profile flows through the SM-SR as a relay to the chip
+5. The device never initiated anything
 
-**In SGP.02 (M2M "push"):**
-1. Operator orders a profile from the SM-DP via the ES2 interface
-2. SM-DP prepares the profile and works with the SM-SR via the ES3 interface
-3. The SM-SR establishes a secure OTA channel to the eUICC (using SMS, HTTPS, or CAT_TP)
-4. The SM-SR pushes the platform management commands and relays the encrypted profile
-5. The device never initiates — the SM-SR is always the caller
+The SM-SR has to know how to reach every eUICC under its management. It stores the **EIS** (eUICC Information Set) : addressing parameters, security keys, the state of every profile on every chip. When the EUM (manufacturer) creates a new chip, it registers that chip with a designated SM-SR through the ES1 interface before the chip ever leaves the factory floor.
 
-This means the SM-SR must maintain knowledge of how to reach each eUICC. It stores the **EIS** (eUICC Information Set) which includes addressing parameters, security keys, and the current state of every profile on the chip. The ES1 interface is used by the EUM (eUICC Manufacturer) to register a new eUICC with its first SM-SR at manufacturing time.
+Connectivity parameters matter a lot here. The eUICC needs to know its SMSC address for SMS-based OTA, or have working DNS for HTTPS. These aren't optional, they're what keeps the chip reachable, and the SM-SR can update them remotely if they change.
 
-The push model also means that **connectivity parameters** are critical. The eUICC needs to know the SMSC address for SMS, or have DNS resolver configuration for HTTPS. These parameters are managed carefully — the SM-SR can update them, and the eUICC can request DNS resolution when needed.
+## Where SGP.02 sits in the eSIM family
 
----
+SGP.02 was the first. It established the concepts every later spec inherited: the EID, the ISD-R/ISD-P/ECASD security domain architecture, the GSMA CI-rooted PKI, the profile package format. SGP.22 (consumer) and SGP.32 (IoT) both descend from it.
 
-## SGP.02 in the GSMA eSIM Family
-
-SGP.02 was the first eSIM specification. It established the foundational concepts — the EID, the ISD-R/ISD-P/ECASD security domain architecture, the GSMA CI-rooted PKI, and the profile package format — that later specifications inherited. Here's how the three major eSIM standards compare:
+But they're built for different worlds:
 
 | Aspect | SGP.02 (M2M) | SGP.22 (Consumer) | SGP.32 (IoT) |
 |--------|---------------|-------------------|--------------|
@@ -81,45 +73,35 @@ SGP.02 was the first eSIM specification. It established the foundational concept
 | **Target devices** | Meters, automotive, sensors | Phones, tablets, watches | Constrained IoT |
 | **Published** | 2013 (v1.0), v4.2 in 2020 | 2015 (v1.0), v3.1 in 2024 | 2023 (v1.0) |
 
-SGP.02 and SGP.22 evolved in parallel for years, each optimized for its domain. SGP.32 arrived later, bringing a modern "pull" model to IoT devices that might previously have used SGP.02 — but SGP.02 remains relevant for truly embedded, deeply unattended deployments where the operator must retain full control of the connectivity lifecycle.
+SGP.02 and SGP.22 evolved side by side for years, each optimized for its domain. SGP.32 came later, bringing a modern pull model to IoT, which overlaps with some of SGP.02's territory. But SGP.02 still owns the deeply unattended deployments. The ones where the operator has to be able to reach down and flip a switch, whether the device is awake or not.
+
+## What's inside those 452 pages
+
+SGP.02 v4.2 is organized into five chapters, and the split tells you something about the architecture:
+
+- **Chapter 1** (pp. 8–18): Definitions, abbreviations, scope
+- **Chapter 2** (pp. 19–43): Architecture, roles, interfaces, eUICC internals, security model, OTA communication
+- **Chapter 3** (pp. 44–187): The procedures, profile download and installation, lifecycle management, SM-SR change, fall-back, notifications. This is the meat of the spec.
+- **Chapter 4** (pp. 188–247): On-card interfaces, ES5, ES6, ES8, ESx. Everything that touches the chip.
+- **Chapter 5** (pp. 248–452): Off-card interfaces, ES1 through ES7, SOAP bindings, function specs. Everything that runs in data centers.
+
+Notice the boundary: Chapters 4 and 5 are the "on-card" and "off-card" halves of the interface specification. That boundary (between what runs in silicon and what runs on a server) defines the entire ecosystem.
+
+## What makes SGP.02 different from consumer eSIM
+
+Beyond the push model, a few architectural choices set SGP.02 apart:
+
+**Split SM-DP and SM-SR.** Consumer eSIM glues profile preparation and delivery together in the SM-DP+. SGP.02 separates them. The SM-DP builds and encrypts profiles. The SM-SR manages the OTA channel and all platform operations. An operator can buy profile generation from one vendor and secure routing from another, and can switch SM-SR providers without touching its profiles, using the SM-SR Change procedure (§3.8).
+
+**No LPA.** There's no Local Profile Assistant on an SGP.02 device. The ESx interface between device and eUICC provides only the bare minimum: enabling or disabling emergency and test profiles locally. Everything else goes through the SM-SR.
+
+**The M2M Service Provider.** SGP.02 introduces the M2M SP (a fleet manager who doesn't own connectivity. Think of an automotive OEM managing telematics units across countries, contracting with local operators for each region. The M2M SP gets authorized (via PLMA) Profile Lifecycle Management Authorization) to perform lifecycle operations on profiles the operator owns.
+
+**Fall-Back.** Unique to SGP.02, one profile can be flagged with the Fall-Back Attribute. If the currently active profile loses connectivity, the eUICC automatically fails over to the fall-back. The device can always be reached for management, even when its primary operator's network is down.
 
 ---
 
-## Document Scope and Structure
-
-SGP.02 v4.2 is a 452-page specification covering:
-
-- **Chapter 1**: Introduction, definitions, abbreviations (pages 8–18)
-- **Chapter 2**: General architecture — roles, interfaces, eUICC internals, security model, OTA communication (pages 19–43)
-- **Chapter 3**: Detailed procedure specifications — profile download, lifecycle management, SM-SR change, fall-back, notifications (pages 44–187)
-- **Chapter 4**: eUICC interface descriptions — ES5, ES6, ES8, ESx (pages 188–247)
-- **Chapter 5**: Off-card interface descriptions — ES1 through ES7, SOAP binding, function specifications (pages 248–452)
-
-The interfaces within the eUICC (ES5, ES6, ES8, ESx) are specified in Chapter 4, while the off-card interfaces between servers (ES1, ES2, ES3, ES4, ES7) are specified in Chapter 5. This reflects the architectural boundary: everything "on-card" is implemented in the eUICC chip, and everything "off-card" runs on servers in data centers.
-
----
-
-## What Makes SGP.02 Different
-
-Beyond the push model, several architectural choices distinguish SGP.02:
-
-**Separate SM-DP and SM-SR**: In SGP.22, the SM-DP+ combines profile preparation and delivery. In SGP.02, these are separate roles. The SM-DP prepares and encrypts profiles. The SM-SR manages the OTA channel and all platform operations. This separation allows an operator to use different vendors for profile generation and secure routing — and to change SM-SR providers without replacing profiles via the SM-SR Change procedure.
-
-**No LPA**: SGP.02 devices don't have a Local Profile Assistant. The ESx interface (Device ↔ eUICC) provides only minimal local operations — enabling/disabling test and emergency profiles. Everything else goes through the SM-SR.
-
-**M2M Service Provider**: SGP.02 introduces the M2M SP role — an entity that manages a fleet of devices on behalf of the end customer but relies on operators for connectivity. The M2M SP can be authorized (via PLMA — Profile Lifecycle Management Authorization) to perform lifecycle operations on profiles owned by an operator.
-
-**Fall-Back Mechanism**: Unique to SGP.02, one profile can be designated with the Fall-Back Attribute. If the currently enabled profile loses connectivity, the eUICC automatically switches to the fall-back profile, ensuring the device can always reconnect for management commands.
-
----
-
-## 📋 Summary
-
-- SGP.02 is the original eSIM standard, designed for unattended M2M devices that need operator-controlled, push-based profile management
-- The push model puts the SM-SR in command of all OTA communication — profiles arrive when the server decides, not when the device requests them
-- SGP.02 sits alongside SGP.22 (consumer pull) and SGP.32 (IoT pull) in the GSMA eSIM family, each optimized for different deployment scenarios
-- Key architectural differences from consumer eSIM include the split SM-DP/SM-SR roles, the absence of an LPA, the M2M SP role, and the Fall-Back Mechanism
-- Understanding SGP.02 is essential for anyone working with automotive, smart metering, industrial IoT, or any deployment where devices cannot rely on user interaction
+SGP.02 was the first eSIM standard, written for devices that can't ask for help. The push model puts the server in command. The split SM-DP/SM-SR architecture gives operators vendor flexibility. If you're working on anything that sits in a wall, an engine, or a field (something that needs to switch operators without anyone touching it) this is the spec you're living with.
 
 ---
 
@@ -133,7 +115,7 @@ Next: [M2M Ecosystem: EUM, SM-DP, SM-SR, and the Operator]({{ site.baseurl }}/do
 
 ---
 
-*Based on GSMA SGP.02 v4.2 (07 July 2020) — Remote Provisioning Architecture for Embedded UICC Technical Specification*
+*Based on GSMA SGP.02 v4.2 (07 July 2020) : Remote Provisioning Architecture for Embedded UICC Technical Specification*
 
 
 ---

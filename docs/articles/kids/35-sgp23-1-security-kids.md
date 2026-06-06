@@ -7,15 +7,15 @@ date: 2026-06-07
 
 ## Imagine...
 
-You hire a team of security experts to try to break into your safe. Not because you want them to steal anything — but because you want to know if it's *possible*. They try picking the lock. They try drilling. They present fake ID badges at the door. They tamper with the delivery tube. Every attempt gets recorded, and every defence gets tested.
+You hire a team of security experts to try to break into your safe. Not because you want them to steal anything: but because you want to know if it's *possible*. They try picking the lock. They try drilling. They present fake ID badges at the door. They tamper with the delivery tube. Every attempt gets recorded, and every defence gets tested.
 
-This is **eUICC security testing** — SGP.23-1's extensive suite of tests that tries to break every cryptographic protection the chip has. If the chip survives, it earns trust.
+This is **eUICC security testing** : SGP.23-1's extensive suite of tests that tries to break every cryptographic protection the chip has. If the chip survives, it earns trust.
 
 ---
 
 ## The Fake PKI: A Practice World 🎭
 
-Before any security testing can happen, the test lab creates a complete parallel **Public Key Infrastructure** — all fake, all controlled:
+Before any security testing can happen, the test lab creates a complete parallel **Public Key Infrastructure** : all fake, all controlled:
 
 | Test Certificate | Pretends to Be | Purpose |
 |---|---|---|
@@ -25,7 +25,7 @@ Before any security testing can happen, the test lab creates a complete parallel
 | CERT_S_SM_DPpb_ECDSA | Key Maker's Binding Certificate | Proves the Key Maker made this specific profile |
 | PK_EUICC_SIG | Chip's Public Signature Key | Used to verify every signature the chip produces |
 
-The test chip is pre-loaded with these fake certificates. The real GSMA production certificates are never touched — the whole security test happens in a sandbox.
+The test chip is pre-loaded with these fake certificates. The real GSMA production certificates are never touched: the whole security test happens in a sandbox.
 
 ---
 
@@ -41,7 +41,7 @@ The `AuthenticateServer` test group (51 pages!) throws every possible certificat
 | Mismatched ID | Certificate OID doesn't match the transaction | Chip says "REJECTED" |
 | Unknown CI | The CI public key ID isn't in the chip's trusted list | Chip says "REJECTED" |
 
-If the chip accepts even ONE of these bad certificates, the test fails — and the chip goes back for repairs.
+If the chip accepts even ONE of these bad certificates, the test fails: and the chip goes back for repairs.
 
 ---
 
@@ -56,19 +56,19 @@ Elliptic Curve Digital Signature Algorithm (ECDSA) is the math behind eSIM secur
 | **FRP256V1** | French national standard | Required for French government use cases |
 | **SM2** | Chinese national algorithm | Required for Chinese market |
 
-Every signature the chip produces — `euiccSignPIR` (profile install result), `euiccSignRPR` (remote management result), and `EUICC_SIGNATURE2` (download handshake) — is verified against the chip's known public key using the correct curve.
+Every signature the chip produces : `euiccSignPIR` (profile install result), `euiccSignRPR` (remote management result), and `EUICC_SIGNATURE2` (download handshake) : is verified against the chip's known public key using the correct curve.
 
 ---
 
 ## SCP03t: The Unbreakable Delivery Tube 🔒
 
-The ES8+ secure channel uses SCP03t — a protocol so secure that even the LPA carrying the messages can't peek inside. Testing verifies:
+The ES8+ secure channel uses SCP03t: a protocol so secure that even the LPA carrying the messages can't peek inside. Testing verifies:
 
-- **ECDH Key Agreement** — The chip and Key Maker agree on a shared secret without ever sending it over the wire
-- **Session Key Derivation** — Three keys (S-ENC for encryption, S-MAC and S-RMAC for tamper detection) are derived from the shared secret
-- **MAC Verification** — Every message has a MAC tag; if even one byte is changed, the chip detects it
-- **Encryption** — Profile content is encrypted so the LPA sees only scrambled data
-- **Session Key Rotation** — `ReplaceSessionKeys` changes the locks mid-delivery for extra forward secrecy
+- **ECDH Key Agreement** : The chip and Key Maker agree on a shared secret without ever sending it over the wire
+- **Session Key Derivation** : Three keys (S-ENC for encryption, S-MAC and S-RMAC for tamper detection) are derived from the shared secret
+- **MAC Verification** : Every message has a MAC tag; if even one byte is changed, the chip detects it
+- **Encryption** : Profile content is encrypted so the LPA sees only scrambled data
+- **Session Key Rotation** : `ReplaceSessionKeys` changes the locks mid-delivery for extra forward secrecy
 
 Error testing covers: wrong keys, invalid signatures, bad transaction IDs, double initiation attempts, and malformed channel parameters.
 
@@ -78,11 +78,11 @@ Error testing covers: wrong keys, invalid signatures, bad transaction IDs, doubl
 
 The `LoadCRL` test verifies the Certificate Revocation List system:
 
-1. Load a valid CRL onto the chip — "These certificates are no longer trusted"
+1. Load a valid CRL onto the chip : "These certificates are no longer trusted"
 2. Try to authenticate with a certificate on the banned list
 3. The chip MUST reject it
 
-It's like a bouncer at a club checking a banned list — if you're on it, you're not getting in, no matter how good your fake ID looks.
+It's like a bouncer at a club checking a banned list: if you're on it, you're not getting in, no matter how good your fake ID looks.
 
 ---
 
@@ -90,15 +90,13 @@ It's like a bouncer at a club checking a banned list — if you're on it, you're
 
 During `PrepareDownload`, the chip generates a brand-new one-time key pair (`otPK.eUICC.ECKA` / `otSK.eUICC.ECKA`). Tests verify:
 
-- **Freshness** — Each call produces a different key pair (no repeats!)
-- **Correct format** — The public key is properly formatted for the selected curve
-- **Retry reuse** (optional) — If `O_E_REUSE_OTPK` is supported, the chip reuses the key for a retry after a failed download
+- **Freshness** : Each call produces a different key pair (no repeats!)
+- **Correct format** : The public key is properly formatted for the selected curve
+- **Retry reuse** (optional) : If `O_E_REUSE_OTPK` is supported, the chip reuses the key for a retry after a failed download
 
 ---
 
-## 🧠 Did You Know?
-
-The test PKI is so thoroughly isolated from production that even if a test certificate leaked onto the internet, it couldn't be used to attack real eSIMs — because real chips only trust the *real* GSMA Certificate Issuer, and test chips only trust the *fake* one!
+The test PKI is so thoroughly isolated from production that even if a test certificate leaked onto the internet, it couldn't be used to attack real eSIMs: because real chips only trust the *real* GSMA Certificate Issuer, and test chips only trust the *fake* one!
 
 ---
 

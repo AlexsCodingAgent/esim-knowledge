@@ -1,9 +1,9 @@
 ---
-title: "SGP.22 v2.7 — Profile Policy Management: PPRs, RAT, and Profile Policy Enabler"
+title: "SGP.22 v2.7: Profile Policy Management: PPRs, RAT, and Profile Policy Enabler"
 date: 2026-06-07
 ---
 
-# SGP.22 v2.7 — Profile Policy Management: PPRs, RAT, and Profile Policy Enabler
+# SGP.22 v2.7: Profile Policy Management: PPRs, RAT, and Profile Policy Enabler
 
 **🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > Profile Policy Management: PPRs, RAT, and Profile Policy Enabler**
 
@@ -14,7 +14,7 @@ date: 2026-06-07
 > - The **Rules Authorisation Table (RAT)** is set at manufacturing time and controls *which operators* can set *which PPRs* and whether *End User consent* is required
 > - Each RAT entry is a **PPAR** (Profile Policy Authorisation Rule) combining: PPR identifier, Allowed Operators list, and Consent Required flag
 > - The **Profile Policy Enabler** verifies PPRs at installation time, during post-install updates, and enforces them during runtime
-> - PPRs can override user intent — but a Provisioning Profile always takes priority (it can implicitly disable an Operational Profile even if PPR1 is set)
+> - PPRs can override user intent: but a Provisioning Profile always takes priority (it can implicitly disable an Operational Profile even if PPR1 is set)
 > - There are two notable RAT configurations: "all PPRs allowed with consent" (consumer-friendly) and "all PPRs forbidden" (fully open device)
 
 ---
@@ -38,7 +38,7 @@ These are encoded as bits in the `PprIds` ASN.1 BIT STRING (section 2.4a.1.1):
 
 A profile MAY have zero, one, or both PPRs. Test Profiles SHOULD NOT contain any PPRs. PPRs MAY only be provided for a Profile that contains an EF-IMSI (i.e., a profile that actually provides network access).
 
-**Important nuance:** PPR1 only prevents *explicit* disabling. If a Provisioning Profile needs to be enabled, the eUICC SHALL implicitly disable the currently enabled Operational Profile *regardless of PPR1* (section 2.4.5.2). This is the one exception — provisioning always takes priority.
+**Important nuance:** PPR1 only prevents *explicit* disabling. If a Provisioning Profile needs to be enabled, the eUICC SHALL implicitly disable the currently enabled Operational Profile *regardless of PPR1* (section 2.4.5.2). This is the one exception: provisioning always takes priority.
 
 ---
 
@@ -46,7 +46,7 @@ A profile MAY have zero, one, or both PPRs. Test Profiles SHOULD NOT contain any
 
 The RAT (section 2.9.2) answers the question: *which operators are allowed to set which PPRs?* It's defined at the eUICC platform level and is set at manufacturing time or during initial device setup (provided no Operational Profile is yet installed). The OEM or EUM is responsible for its content.
 
-The RAT is persistent — it survives eUICC Memory Reset (ES10b.eUICCMemoryReset does not affect it). This means the device manufacturer's policy decisions are baked into the chip permanently.
+The RAT is persistent: it survives eUICC Memory Reset (ES10b.eUICCMemoryReset does not affect it). This means the device manufacturer's policy decisions are baked into the chip permanently.
 
 ### Profile Policy Authorisation Rules (PPAR)
 
@@ -98,7 +98,7 @@ PPR1+PPR2, *, consent=true
 
 This is the most common consumer device configuration. Any operator can set PPR1 or PPR2, but the user must explicitly consent during profile installation. The LPA SHALL present a clear explanation of what the PPRs mean before asking for consent.
 
-This is what you typically see on iPhones and Android devices — the carrier can lock a profile, but only after you've agreed to it during installation.
+This is what you typically see on iPhones and Android devices: the carrier can lock a profile, but only after you've agreed to it during installation.
 
 ### Fully Open: "All PPRs Forbidden"
 
@@ -106,7 +106,7 @@ This is what you typically see on iPhones and Android devices — the carrier ca
 <no entries in RAT>
 ```
 
-No PPARs means no PPRs can ever be set. This is the configuration for devices where the end user has complete control — they can always delete or disable any profile. This might be appropriate for developer devices, test platforms, or markets where regulators require full user control.
+No PPARs means no PPRs can ever be set. This is the configuration for devices where the end user has complete control: they can always delete or disable any profile. This might be appropriate for developer devices, test platforms, or markets where regulators require full user control.
 
 ---
 
@@ -119,14 +119,14 @@ The Profile Policy Enabler (section 2.9.3) is the runtime enforcement component.
 When a profile is being installed and its metadata contains PPRs, the eUICC SHALL verify each PPR against the RAT:
 
 1. For each PPR in the profile metadata:
-   - Is the PPR known? (PPR1 or PPR2 — any other value is rejected)
+   - Is the PPR known? (PPR1 or PPR2: any other value is rejected)
    - Is the PPR allowed for this Profile Owner? (check RAT for a matching PPAR)
    - If no matching PPAR: **reject the installation**
    - If PPAR requires End User consent: LPA must obtain consent before proceeding
 
 If the eUICC determines that a PPR is not allowed, it returns `pprNotAllowed(15)` in the Profile Installation Result and the installation fails.
 
-The LPA also performs a parallel check (section 2.9.2.4) before even sending the profile to the eUICC, using the RAT retrieved via ES10b.GetRAT. This is a performance optimisation — it's faster to reject at the LPA level than to send a multi-kilobyte BPP to the eUICC only to have it rejected.
+The LPA also performs a parallel check (section 2.9.2.4) before even sending the profile to the eUICC, using the RAT retrieved via ES10b.GetRAT. This is a performance optimisation: it's faster to reject at the LPA level than to send a multi-kilobyte BPP to the eUICC only to have it rejected.
 
 ### 3b. PPR Verification During Post-Install Update (2.9.3.2)
 
@@ -134,7 +134,7 @@ PPRs can be updated after installation via **ES6.UpdateMetadata** (section 5.4.1
 
 - The eUICC checks the new PPRs against the RAT
 - If the update would result in a PPR that wasn't previously allowed, it's rejected
-- The PPR update is atomic — if any PPR fails verification, none are applied
+- The PPR update is atomic: if any PPR fails verification, none are applied
 
 This prevents operators from escalating their privileges post-install. An operator who installed a profile without PPR1 cannot later add it via OTA update unless the RAT allows it.
 
@@ -171,7 +171,7 @@ Manufacturing          Profile Install        Post-Install          Runtime
 
 **For device manufacturers:** Your RAT configuration is a product decision. A consumer-friendly RAT (all PPRs allowed with consent) maximises carrier flexibility. A fully open RAT (no PPRs) gives users total control but may make carriers reluctant to support your device.
 
-**For operators:** PPRs are your lock-in mechanism, but they're constrained by the RAT and require user consent in most configurations. Design your profile metadata carefully — adding PPR1 without consent won't work if the RAT requires it.
+**For operators:** PPRs are your lock-in mechanism, but they're constrained by the RAT and require user consent in most configurations. Design your profile metadata carefully: adding PPR1 without consent won't work if the RAT requires it.
 
 **For enterprise IT:** PPR1 is the enterprise eSIM control. Deploy profiles with PPR1 set, and employees can't switch away from the corporate plan. Combine with a locked RAT on corporate-issued devices for maximum control.
 
@@ -179,9 +179,9 @@ Manufacturing          Profile Install        Post-Install          Runtime
 
 ---
 
-Profile Policy Management is the bridge between user freedom and operator control. It's a carefully balanced system where the device manufacturer sets the ground rules (RAT), the operator declares its intent (PPRs), and the eUICC enforces everything neutrally. In the next article, we'll look at how the eUICC reports back to the ecosystem — the notification framework that keeps operators informed about what's happening on the device.
+Profile Policy Management is the bridge between user freedom and operator control. It's a carefully balanced system where the device manufacturer sets the ground rules (RAT), the operator declares its intent (PPRs), and the eUICC enforces everything neutrally. In the next article, we'll look at how the eUICC reports back to the ecosystem: the notification framework that keeps operators informed about what's happening on the device.
 
 
 ---
 
-← Previous: [SGP.22 v2.7 — Device and eUICC Boot: First Power-On to Profile Discovery](08-boot-initialisation) | [Section Index](index) | Next: [SGP.22 v2.7 — Notifications and Post-Install: Keeping Operators in the Loop](10-notifications-postinstall) →
+← Previous: [SGP.22 v2.7: Device and eUICC Boot: First Power-On to Profile Discovery](08-boot-initialisation) | [Section Index](index) | Next: [SGP.22 v2.7: Notifications and Post-Install: Keeping Operators in the Loop](10-notifications-postinstall) →

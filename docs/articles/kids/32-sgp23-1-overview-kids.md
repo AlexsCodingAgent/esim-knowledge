@@ -7,9 +7,9 @@ date: 2026-06-07
 
 ## Imagine...
 
-You buy a safe to protect your valuables. But before you trust it with your passport and jewellery, you want to know: Can someone pick the lock? Will it survive a drill attack? Does the combination mechanism work every single time — even after a thousand uses?
+You buy a safe to protect your valuables. But before you trust it with your passport and jewellery, you want to know: Can someone pick the lock? Will it survive a drill attack? Does the combination mechanism work every single time: even after a thousand uses?
 
-You're not testing the keys. You're not testing the person who delivers the keys. You're testing **the vault itself** — the box, the lock, the hinges.
+You're not testing the keys. You're not testing the person who delivers the keys. You're testing **the vault itself** : the box, the lock, the hinges.
 
 That's what **SGP.23-1** does for eSIMs. It's the 797-page test bible that asks one question and one question only: *Does this eUICC chip work correctly?*
 
@@ -27,7 +27,7 @@ SGP.23-1 is different from the regular SGP.23 testing. Here's how:
 | Simulators needed | 9 different types | 5 types |
 | Length | 913 pages | 797 pages |
 
-The original SGP.23 tested everything together — chips, servers, phones, post offices. But in 2018, the GSMA realised the chip's testing was so massive it needed its own book. So they split SGP.23 into three: SGP.23-1 (the chip), SGP.23-2 (the Key Maker), and SGP.23-3 (the Post Office and Phone Assistant).
+The original SGP.23 tested everything together: chips, servers, phones, post offices. But in 2018, the GSMA realised the chip's testing was so massive it needed its own book. So they split SGP.23 into three: SGP.23-1 (the chip), SGP.23-2 (the Key Maker), and SGP.23-3 (the Post Office and Phone Assistant).
 
 ---
 
@@ -41,7 +41,7 @@ The chip is tested across five different interfaces:
 | ES8+ | Key Maker → Chip | The encrypted delivery tube for profiles |
 | ES10a | Assistant → Chip | Finding discovery addresses |
 | ES10b | Assistant → Chip | The complete profile download pipeline |
-| ES10c | Assistant → Chip | Managing profiles — enable, disable, delete |
+| ES10c | Assistant → Chip | Managing profiles: enable, disable, delete |
 
 ---
 
@@ -66,21 +66,19 @@ Each checkbox decides which test cases apply. A chip supporting only basic featu
 
 SGP.23-1 feeds into a bigger chain of trust:
 
-1. **SAS-UP** — The factory audit that checks how chips are made
-2. **SGP.23-1** — Proves this specific chip design works correctly
-3. **SGP.23** — The certified chip becomes a "known-good" component for full system testing
-4. **DLOA** — The final Digital Letter of Approval
+1. **SAS-UP** : The factory audit that checks how chips are made
+2. **SGP.23-1** : Proves this specific chip design works correctly
+3. **SGP.23** : The certified chip becomes a "known-good" component for full system testing
+4. **DLOA** : The final Digital Letter of Approval
 
-Every production eUICC carries its `sasAcreditationNumber` inside its `EUICCInfo2` structure — and SGP.23-1 test cases verify it's there!
-
----
-
-## 🧠 Did You Know?
-
-SGP.23-1 has been evolving for over 6 years — from v2.0 in April 2018 through v3.1.3 in 2025 — with Change Requests coming from real Test Events. Every time a tester found an ambiguity, the specification got clearer. It's a living document shaped by actual testing experience!
+Every production eUICC carries its `sasAcreditationNumber` inside its `EUICCInfo2` structure: and SGP.23-1 test cases verify it's there!
 
 ---
 
-*Kid-friendly version of GSMA SGP.23-1 v3.1.3 — RSP Test Specification for the eUICC*
+SGP.23-1 has been evolving for over 6 years: from v2.0 in April 2018 through v3.1.3 in 2025: with Change Requests coming from real Test Events. Every time a tester found an ambiguity, the specification got clearer. It's a living document shaped by actual testing experience!
+
+---
+
+*Kid-friendly version of GSMA SGP.23-1 v3.1.3: RSP Test Specification for the eUICC*
 
 ← [Back to Kids Articles](index)

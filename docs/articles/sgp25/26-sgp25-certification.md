@@ -7,17 +7,17 @@ date: 2026-06-05
 
 **🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.25 eUICC Security]({{ site.baseurl }}/docs/articles/sgp25/) > SGP.25 Certification: SAS-UP and the Evaluation Process**
 
-> **💡 Why this matters:** A Protection Profile is only as valuable as the certification process behind it. SGP.25 certification doesn't happen in a vacuum — it's embedded in a broader ecosystem of GSMA security accreditation (SAS), Common Criteria evaluation schemes, accredited laboratories, and the interoperability testing regime defined by SGP.23-1. Understanding the end-to-end certification journey reveals how an eUICC goes from a design document to a trusted component in live operator networks.
+> **💡 Why this matters:** A Protection Profile is only as valuable as the certification process behind it. SGP.25 certification doesn't happen in a vacuum: it's embedded in a broader ecosystem of GSMA security accreditation (SAS), Common Criteria evaluation schemes, accredited laboratories, and the interoperability testing regime defined by SGP.23-1. Understanding the end-to-end certification journey reveals how an eUICC goes from a design document to a trusted component in live operator networks.
 
 > **Key takeaways:**
 > - SGP.25 certification follows Common Criteria evaluation workflows through nationally accredited laboratories under the CCRA mutual recognition framework
-> - The GSMA Security Accreditation Scheme (SAS) provides the mandatory site audit layer — eUICC manufacturing and personalisation sites must hold SAS accreditation
+> - The GSMA Security Accreditation Scheme (SAS) provides the mandatory site audit layer: eUICC manufacturing and personalisation sites must hold SAS accreditation
 > - Three evaluation models exist: composite evaluation (certified platform + eUICC on top), unified evaluation (whole product at once), and hybrid (certified IC + uncertified OS/RE)
-> - SGP.23-1 testing and SGP.25 evaluation are complementary — SGP.23-1 verifies protocol conformance, while SGP.25 verifies security properties
+> - SGP.23-1 testing and SGP.25 evaluation are complementary: SGP.23-1 verifies protocol conformance, while SGP.25 verifies security properties
 > - A Security Target (ST) instantiates SGP.25 for a specific product, with the ST writer declaring SGP.22/SGP.32 version support, optional features, and delivery life-cycle
-> - The certification ecosystem includes eSIM CA, EUM, accredited labs, certification bodies, and the GSMA SAS programme — each playing a defined trust role
+> - The certification ecosystem includes eSIM CA, EUM, accredited labs, certification bodies, and the GSMA SAS programme: each playing a defined trust role
 
-SGP.25 certification is the gatekeeper for commercial eUICC deployment. Without a valid certificate, an eUICC cannot be trusted to host production operator profiles. This article traces the certification journey from PP conformance claims through laboratory evaluation to final certification — and situates SGP.25 within the broader GSMA security accreditation landscape.
+SGP.25 certification is the gatekeeper for commercial eUICC deployment. Without a valid certificate, an eUICC cannot be trusted to host production operator profiles. This article traces the certification journey from PP conformance claims through laboratory evaluation to final certification: and situates SGP.25 within the broader GSMA security accreditation landscape.
 
 ---
 
@@ -30,7 +30,7 @@ SGP.25 certification is the gatekeeper for commercial eUICC deployment. Without 
 | **GSMA** | PP author and maintainer; operates SAS programme; defines the overall security framework |
 | **eSIM CA** | Trusted third-party issuing certificates to EUM, SM-DP+, and SM-DS; must ensure security of its own private keys |
 | **EUM (eUICC Manufacturer)** | Develops the eUICC; engages an accredited lab; produces the Security Target and evaluation evidence |
-| **Accredited Laboratory** | Conducts the CC evaluation — executes all EAL4+ assurance activities including AVA_VAN.5 penetration testing |
+| **Accredited Laboratory** | Conducts the CC evaluation: executes all EAL4+ assurance activities including AVA_VAN.5 penetration testing |
 | **Certification Body** | National scheme operator (e.g., BSI, ANSSI) that reviews the Evaluation Technical Report and issues the certificate |
 | **GSMA SAS Programme** | Audits and accredits eUICC manufacturing and personalisation sites for physical and procedural security |
 
@@ -40,7 +40,7 @@ The eSIM Certificate Authority (eSIM CA) is the root of trust for the entire pub
 
 > **OE.CI**: The eSIM CA is a trusted third-party for the purpose of authentication of the entities of the system. The eSIM CA provides certificates for the EUM, SM-DS and SM-DP+. The eSIM CA must ensure the security of its own private keys.
 
-The eUICC stores the eSIM CA public key (D.PK.CI.ECDSA) in the ECASD — protected from unauthorised modification by the ECASD Access Control SFP. This public key is the ultimate verification anchor: it validates EUM certificates, which in turn validate individual eUICC certificates, which in turn authenticate the eUICC to SM-DP+ and SM-DS.
+The eUICC stores the eSIM CA public key (D.PK.CI.ECDSA) in the ECASD: protected from unauthorised modification by the ECASD Access Control SFP. This public key is the ultimate verification anchor: it validates EUM certificates, which in turn validate individual eUICC certificates, which in turn authenticate the eUICC to SM-DP+ and SM-DS.
 
 ---
 
@@ -62,7 +62,7 @@ SGP.25's Protection Profile Usage section (1.2.5) defines three distinct paths f
 └──────────────────────┘
 ```
 
-The Security Target refers to the existing IC, OS, and RE Security Targets to fulfil the corresponding security objectives (OE.IC.*, OE.RE.*). The evaluation scope is limited to the eUICC-specific TOE — ISD-R, ISD-P, ECASD, and Platform Layer components.
+The Security Target refers to the existing IC, OS, and RE Security Targets to fulfil the corresponding security objectives (OE.IC.*, OE.RE.*). The evaluation scope is limited to the eUICC-specific TOE: ISD-R, ISD-P, ECASD, and Platform Layer components.
 
 This is the most common path for established eUICC manufacturers using certified Java Card platforms on certified secure ICs.
 
@@ -99,18 +99,18 @@ The ST refers to the IC Security Target for hardware objectives and introduces S
 The vendor (EUM) develops a Security Target that:
 
 1. **Declares conformance** to SGP.25 Base-PP (mandatory) and optionally to LPAe/IPAe PP-Modules
-2. **Specifies the TOE** — which SGP.22/SGP.32 versions are implemented, which form factor (embedded/removable), SEP or MEP support
-3. **Completes all assignments and selections** — filling in the italicised parameters left open by the PP (cryptographic algorithms, RNG classes, emission types, key destruction methods)
-4. **Describes the life-cycle** — at which phase the self-protected TOE is delivered, which delivery activities are required
-5. **Maps environmental objectives** — either by referencing existing certificates or by defining new SFRs
-6. **Adds FCS_COP.1 requirements** — for all cryptographic operations mandated by SGP.22 (SCP03t key derivation, signature verification, shared secret computation) and network authentication algorithms
+2. **Specifies the TOE** : which SGP.22/SGP.32 versions are implemented, which form factor (embedded/removable), SEP or MEP support
+3. **Completes all assignments and selections** : filling in the italicised parameters left open by the PP (cryptographic algorithms, RNG classes, emission types, key destruction methods)
+4. **Describes the life-cycle** : at which phase the self-protected TOE is delivered, which delivery activities are required
+5. **Maps environmental objectives** : either by referencing existing certificates or by defining new SFRs
+6. **Adds FCS_COP.1 requirements** : for all cryptographic operations mandated by SGP.22 (SCP03t key derivation, signature verification, shared secret computation) and network authentication algorithms
 
 ### Step 2: Laboratory Engagement
 
 The vendor engages a CC-accredited evaluation laboratory (recognised under the national scheme where certification will be sought). The lab:
 
 1. Reviews the Security Target for completeness and conformance (ASE_* assurance activities)
-2. Examines the development evidence: functional specification (ADV_FSP.4), TOE design (ADV_TDS.3), implementation representation — source code (ADV_IMP.1), and security architecture (ADV_ARC.1)
+2. Examines the development evidence: functional specification (ADV_FSP.4), TOE design (ADV_TDS.3), implementation representation: source code (ADV_IMP.1), and security architecture (ADV_ARC.1)
 3. Verifies configuration management (ALC_CMC.4, ALC_CMS.4), delivery procedures (ALC_DEL.1), development security (ALC_DVS.2), and life-cycle definition (ALC_LCD.1)
 4. Reviews guidance documents (AGD_OPE.1, AGD_PRE.1)
 5. Conducts or witnesses functional testing (ATE_FUN.1, ATE_COV.2, ATE_DPT.1)
@@ -176,7 +176,7 @@ SGP.25 evaluation and SGP.23-1 testing are complementary but distinct:
 
 | Aspect | SGP.23-1 (Test Specification) | SGP.25 (Protection Profile) |
 |--------|------------------------------|----------------------------|
-| **What it verifies** | Protocol conformance — does the eUICC implement SGP.22/SGP.32 correctly? | Security properties — does the eUICC resist defined threats? |
+| **What it verifies** | Protocol conformance: does the eUICC implement SGP.22/SGP.32 correctly? | Security properties: does the eUICC resist defined threats? |
 | **Methodology** | Scripted test cases with known expected results | Independent vulnerability analysis and penetration testing |
 | **Attacker model** | Protocol-level misbehaviour | Sophisticated attacker with physical access, side-channel equipment |
 | **Certification output** | Digital Letter of Approval (DLOA) | Common Criteria Certificate + Certification Report |
@@ -194,8 +194,8 @@ Both are required for a production-deployable eUICC:
 
 A certificate is valid for the specific TOE version evaluated, under the specific Security Target. Any change to security-relevant functionality requires either:
 
-- **Re-evaluation** — for significant changes affecting SFRs or the TOE design
-- **Assurance continuity** — for incremental changes that can be assessed against the existing certificate (impact analysis, delta evaluation)
+- **Re-evaluation** : for significant changes affecting SFRs or the TOE design
+- **Assurance continuity** : for incremental changes that can be assessed against the existing certificate (impact analysis, delta evaluation)
 
 ### Maintenance and Recertification
 
@@ -204,11 +204,11 @@ The optional ALC_FLR.2 component ensures ongoing security:
 1. Security flaws discovered post-certification are reported through formal channels
 2. The developer analyses, fixes, and distributes corrections
 3. Major fixes may trigger re-evaluation
-4. The PP itself evolves — SGP.25 v2.1 replaced earlier versions, and future versions may add requirements
+4. The PP itself evolves: SGP.25 v2.1 replaced earlier versions, and future versions may add requirements
 
 ### Composite Certification for Applications
 
-A secure application embedded into a certified eUICC can itself be certified in composition at a maximum assurance level of EAL4+ (the EAL of the base PP). If the application pursues higher assurance, it must do so outside composition — the additional evidence reinforces trust in the application but does not raise the platform's EAL.
+A secure application embedded into a certified eUICC can itself be certified in composition at a maximum assurance level of EAL4+ (the EAL of the base PP). If the application pursues higher assurance, it must do so outside composition: the additional evidence reinforces trust in the application but does not raise the platform's EAL.
 
 ---
 
@@ -216,9 +216,9 @@ A secure application embedded into a certified eUICC can itself be certified in 
 
 - SGP.25 certification follows CC evaluation through accredited labs under national schemes, with CCRA mutual recognition across 31 nations
 - Three evaluation models accommodate different starting points: composite (pre-certified platform), unified (all at once), and hybrid (certified IC only)
-- The Security Target is the vendor's instantiation of SGP.25 — specifying TOE scope, cryptographic algorithms, delivery life-cycle, and platform dependencies
+- The Security Target is the vendor's instantiation of SGP.25: specifying TOE scope, cryptographic algorithms, delivery life-cycle, and platform dependencies
 - GSMA SAS (specifically SAS-UP) provides the mandatory site accreditation layer, auditing manufacturing and personalisation facilities
-- SGP.23-1 protocol testing and SGP.25 security evaluation are complementary — both are required for production deployment
+- SGP.23-1 protocol testing and SGP.25 security evaluation are complementary: both are required for production deployment
 - The certificate lifecycle extends beyond initial issuance through flaw reporting (ALC_FLR.2), assurance continuity, and composite certification for eUICC-resident applications
 
 ---
@@ -231,7 +231,7 @@ A secure application embedded into a certified eUICC can itself be certified in 
 
 ---
 
-*Based on GSMA SGP.25 v2.1 (3 February 2025) — eUICC for Consumer and IoT Devices Protection Profile, Sections 1.2.3 (TOE life-cycle), 1.2.5 (Protection Profile Usage), 2 (Conformance Claims), 4.2 (Security Objectives for the Operational Environment — OE.CI, OE.SM-DP+, OE.SM-DS), 6.2 (Security Assurance Rationale), 6.3.4 (Rationale for the Security Assurance Requirements); GSMA SAS Programme; GlobalPlatform DLOA Specification [19]; SGP.23-1 RSP Test Specification*
+*Based on GSMA SGP.25 v2.1 (3 February 2025) : eUICC for Consumer and IoT Devices Protection Profile, Sections 1.2.3 (TOE life-cycle), 1.2.5 (Protection Profile Usage), 2 (Conformance Claims), 4.2 (Security Objectives for the Operational Environment: OE.CI, OE.SM-DP+, OE.SM-DS), 6.2 (Security Assurance Rationale), 6.3.4 (Rationale for the Security Assurance Requirements); GSMA SAS Programme; GlobalPlatform DLOA Specification [19]; SGP.23-1 RSP Test Specification*
 
 
 ---

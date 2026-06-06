@@ -7,13 +7,13 @@ date: 2026-06-05
 
 **🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.33-3 eIM Testing]({{ site.baseurl }}/docs/articles/sgp33-3/) > Key eIM Test Cases: PSMO, Notifications, and Configuration**
 
-> **💡 Why this matters:** The eIM's job is to remotely manage what happens on IoT devices — enabling and disabling profiles, handling configuration changes, and processing notifications about profile state — all without any End User pressing buttons. SGP.33-3's test cases verify that the eIM correctly orchestrates these operations across four different interfaces (ESep, ES9+', ES11', ESipa) and through multiple communication patterns. If the eIM gets any of these wrong, IoT devices in the field could be left with the wrong profile enabled, missed notifications, or an unmanageable eUICC.
+> **💡 Why this matters:** The eIM's job is to remotely manage what happens on IoT devices: enabling and disabling profiles, handling configuration changes, and processing notifications about profile state: all without any End User pressing buttons. SGP.33-3's test cases verify that the eIM correctly orchestrates these operations across four different interfaces (ESep, ES9+', ES11', ESipa) and through multiple communication patterns. If the eIM gets any of these wrong, IoT devices in the field could be left with the wrong profile enabled, missed notifications, or an unmanageable eUICC.
 
 > **Key takeaways:**
-> - Profile State Management Operations (PSMO) test cases cover five eUICC Package functions: Enable, Disable, Delete, ListProfileInfo, and GetRat — all sent via the ESep logical interface
-> - eIM Configuration test cases cover four functions: AddEim, UpdateEim (including anti-replay counter updates), DeleteEim, and ListEim — managing the eIM-eUICC association itself
+> - Profile State Management Operations (PSMO) test cases cover five eUICC Package functions: Enable, Disable, Delete, ListProfileInfo, and GetRat: all sent via the ESep logical interface
+> - eIM Configuration test cases cover four functions: AddEim, UpdateEim (including anti-replay counter updates), DeleteEim, and ListEim: managing the eIM-eUICC association itself
 > - Notification handling is tested across ES9+' (eIM-to-SM-DP+) with 9 nominal test sequences covering PIR, Install, Enable, Disable, and Delete notifications with various SM-DP+ address configurations
-> - The ESipa interface (eIM-to-IPA) defines 11 functions for profile download orchestration, eIM Package transfer, and notification relay — though test sequences remain FFS as of v1.2
+> - The ESipa interface (eIM-to-IPA) defines 11 functions for profile download orchestration, eIM Package transfer, and notification relay: though test sequences remain FFS as of v1.2
 > - The only fully-defined behaviour test case in v1.2 is Profile Enable via eIM Package Retrieval mode, with four nominal sequences and error cases for wrong EID and eIM request errors
 > - Most interface test cases reference SGP.23 and substitute the eIM for the LPAd role, reusing well-proven consumer eSIM test methodology
 
@@ -38,7 +38,7 @@ Requests the eUICC to delete an installed Profile. Conformance references: SGP.2
 Allows the eIM to retrieve the list of Profile information for installed Profiles, including their current state (Enabled/Disabled) and associated Profile Metadata. This is the eIM's equivalent of the LPA's GetProfilesInfo. Conformance references: SGP.22 sections 2.11.1.1, 2.11.1.1.3, 2.11.2.1, 3.3.1, and SGP.32 section 5.13.4. **Test sequences FFS in v1.2.**
 
 ### GetRat (4.2.5)
-Allows the eIM to retrieve the Rules Authorisation Table (RAT) from the eUICC — essential for knowing which profile management operations are permitted. Conformance references: SGP.22 sections 2.11.1.1, 2.11.1.1.3, 2.11.2.1, 3.3.1, and SGP.32 section 5.13.5. One test sequence is defined: Test Sequence #01 Nominal Case.
+Allows the eIM to retrieve the Rules Authorisation Table (RAT) from the eUICC: essential for knowing which profile management operations are permitted. Conformance references: SGP.22 sections 2.11.1.1, 2.11.1.1.3, 2.11.2.1, 3.3.1, and SGP.32 section 5.13.5. One test sequence is defined: Test Sequence #01 Nominal Case.
 
 ---
 
@@ -50,10 +50,10 @@ Four eIM Configuration functions manage the eIM-eUICC association:
 Adds an Associated eIM to the eUICC by providing its eIM Configuration Data including the eimID. This is the eIM equivalent of the initial provisioning step where a remote manager registers itself with an IoT device's eUICC. **Test sequences FFS.**
 
 ### UpdateEim (4.2.7)
-Updates eIM Configuration Data — specifically the public key or Certificate and the related **anti-replay counter value** of an Associated eIM with a given eimID, while keeping the same eimID. This function is critical for key rotation and security maintenance: when an eIM updates its credentials, it must increment the anti-replay counter to prevent replay attacks. **Test sequences FFS.**
+Updates eIM Configuration Data: specifically the public key or Certificate and the related **anti-replay counter value** of an Associated eIM with a given eimID, while keeping the same eimID. This function is critical for key rotation and security maintenance: when an eIM updates its credentials, it must increment the anti-replay counter to prevent replay attacks. **Test sequences FFS.**
 
 ### DeleteEim (4.2.8)
-Deletes an Associated eIM identified by its eimID from the eUICC. If the successfully deleted Associated eIM was the last available Associated eIM, the eUICC SHALL allow ES10b.AddInitialEim again — enabling a fresh association to be established. **Test sequences FFS.**
+Deletes an Associated eIM identified by its eimID from the eUICC. If the successfully deleted Associated eIM was the last available Associated eIM, the eUICC SHALL allow ES10b.AddInitialEim again: enabling a fresh association to be established. **Test sequences FFS.**
 
 ### ListEim (4.2.9)
 Requests the eUICC to provide a list of all currently configured Associated eIMs. This is an audit function allowing the eIM (or a new eIM) to discover what remote managers are currently associated with a given device. **Test sequences FFS** (one error case sequence defined but not detailed).
@@ -141,8 +141,8 @@ The only fully-defined behaviour test case in v1.2 is **TC_eIM_ProfileEnable_TLS
 5. The eIM forwards notifications to the SM-DP+ via ES9+' HandleNotification
 
 Four nominal sequences are defined:
-- **Sequence #01**: Enable with ProvideEimPackageResult — no enabled profile
-- **Sequence #02**: Enable with HandleNotification — no enabled profile
+- **Sequence #01**: Enable with ProvideEimPackageResult: no enabled profile
+- **Sequence #02**: Enable with HandleNotification: no enabled profile
 - **Sequence #03**: Enable with implicit disabling of formerly enabled profile, via ProvideEimPackageResult
 - **Sequence #04**: Enable with implicit disabling of formerly enabled profile, via HandleNotification
 
@@ -150,16 +150,16 @@ Error case sequences cover:
 - **Wrong EID**: IPA provides an eimPackageResult with wrong EID → eIM responds with `eidNotFound`
 - **eIM Request Error cases**: Additional undefined error conditions
 
-Each sequence includes conditional branching on `O_S_TRID` (whether a TransactionId is sent with eUICC Package Requests) — demonstrating how optional features drive test behaviour.
+Each sequence includes conditional branching on `O_S_TRID` (whether a TransactionId is sent with eUICC Package Requests) : demonstrating how optional features drive test behaviour.
 
 ---
 
 ## 📋 Summary
 
-- ESep interface tests cover 5 PSMO functions (Enable, Disable, Delete, ListProfileInfo, GetRat) and 4 eIM Configuration functions (AddEim, UpdateEim, DeleteEim, ListEim) — most test sequences remain FFS
+- ESep interface tests cover 5 PSMO functions (Enable, Disable, Delete, ListProfileInfo, GetRat) and 4 eIM Configuration functions (AddEim, UpdateEim, DeleteEim, ListEim) : most test sequences remain FFS
 - ES9+' testing includes 6 interface functions with extensive nominal, retry, and error case coverage adapted from SGP.23 LPAd tests
 - ES11' testing covers 3 interface functions (InitiateAuthentication, AuthenticateClient, HTTPS) with 17 test sequences total
-- ESipa defines 11 interface functions but all test sequences are FFS — the eIM-to-IPA interface testing methodology is still maturing
+- ESipa defines 11 interface functions but all test sequences are FFS: the eIM-to-IPA interface testing methodology is still maturing
 - The only fully-defined behaviour test is Profile Enable via eIM Package Retrieval, with 4 nominal sequences and error cases, conditionally applicable based on optional features O_S_PKG_RETRIEVAL and O_S_ESIPA_HTTPS
 - Most ES9+' and ES11' test sequences reference SGP.23 and substitute the eIM for LPAd, providing a foundation of proven test methodology
 
@@ -175,7 +175,7 @@ Next: [eIM Security Testing: DTLS, Certificates, and Signed Packages]({{ site.ba
 
 ---
 
-*Based on GSMA SGP.33-3 v1.2 (27 January 2025) — eUICC IoT Manager Test Specification, Sections 4–5*
+*Based on GSMA SGP.33-3 v1.2 (27 January 2025) : eUICC IoT Manager Test Specification, Sections 4–5*
 
 
 ---

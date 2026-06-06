@@ -7,7 +7,7 @@ date: 2026-05-29
 
 ## Imagine...
 
-You've just bought an eSIM plan for your trip to Japan. You scan a QR code, and within seconds your phone has a brand new digital key. But what *actually* happened in those few seconds? It was a three-stage secret mission — and you were the spy master who launched it!
+You've just bought an eSIM plan for your trip to Japan. You scan a QR code, and within seconds your phone has a brand new digital key. But what *actually* happened in those few seconds? It was a three-stage secret mission: and you were the spy master who launched it!
 
 ---
 
@@ -17,9 +17,9 @@ Before anything can happen, your carrier needs to prepare a key just for you.
 
 Here's what happens behind the scenes:
 
-1. You give your carrier your phone's **EID** (a 32-digit number unique to your chip — like its name tag)
+1. You give your carrier your phone's **EID** (a 32-digit number unique to your chip: like its name tag)
 2. The carrier calls the **Key Maker** server and says: "Build a key for this specific phone"
-3. The Key Maker reserves a spot and creates a **Matching ID** — a secret codeword
+3. The Key Maker reserves a spot and creates a **Matching ID** : a secret codeword
 4. That Matching ID gets baked into the QR code you scan
 5. Optionally, a note gets left at the **Notifier** post office
 
@@ -36,7 +36,7 @@ That's it! Just an address and a code. All the real security happens next.
 
 This is where the spy-movie stuff happens. Before the Key Maker hands over any secrets, both sides must prove who they are.
 
-The **server goes first** — this is *very* important:
+The **server goes first** : this is *very* important:
 
 1. Your phone's Assistant asks the Vault chip for a **random challenge** (a big random number)
 2. The Assistant sends this challenge to the Key Maker
@@ -52,13 +52,13 @@ Now the Key Maker knows it's talking to a real chip, and your chip knows it's ta
 
 ## Stage 3: The Delivery 📦
 
-Now the real transfer begins. The Key Maker builds a special encrypted package called a **Bound Profile** — a key locked specifically to your chip.
+Now the real transfer begins. The Key Maker builds a special encrypted package called a **Bound Profile** : a key locked specifically to your chip.
 
 The delivery uses a super-secure tunnel:
 - The Key Maker and your Vault create **one-time secret codes** just for this conversation
 - Every piece of the key is wrapped in layers of encryption
 - The package is streamed in chunks, each one verified before the next arrives
-- If anything goes wrong, the entire download is rolled back — no half-installed keys!
+- If anything goes wrong, the entire download is rolled back: no half-installed keys!
 
 Inside the package are all the pieces of a working profile: network keys, a mini file system, and applets. The chip's **Profile Package Interpreter** unwraps each piece and builds the profile inside a new locked box (ISD-P).
 
@@ -70,19 +70,17 @@ When it's done, the profile is installed but **not yet active**. You have to fli
 
 On its journey, the key goes through four stages:
 
-1. **Raw ingredients** — the carrier's data, unprotected
-2. **Wrapped up** — encrypted with profile-specific keys
-3. **Locked to you** — cryptographically bound to your chip (useless anywhere else!)
-4. **Chopped up** — split into tiny chunks for safe delivery
+1. **Raw ingredients** : the carrier's data, unprotected
+2. **Wrapped up** : encrypted with profile-specific keys
+3. **Locked to you** : cryptographically bound to your chip (useless anywhere else!)
+4. **Chopped up** : split into tiny chunks for safe delivery
 
 ---
 
-## 🧠 Did You Know?
-
-If you copy a Bound Profile from one phone and try to install it on another, it won't work! The encryption is tied to the original chip's unique secret. It's like a key that reshapes itself to fit only one lock — and that lock is inside your phone.
+If you copy a Bound Profile from one phone and try to install it on another, it won't work! The encryption is tied to the original chip's unique secret. It's like a key that reshapes itself to fit only one lock: and that lock is inside your phone.
 
 ---
 
-*Kid-friendly version of GSMA SGP.22, Section 3 — Procedures*
+*Kid-friendly version of GSMA SGP.22, Section 3: Procedures*
 
 ← [Back to Kids Articles](index)

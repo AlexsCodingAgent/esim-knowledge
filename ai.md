@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "eSIM RSP Knowledge Base — AI-Optimized Index"
+title: "eSIM RSP Knowledge Base: AI-Optimized Index"
 ---
 
 <div align="center">
@@ -9,7 +9,7 @@ title: "eSIM RSP Knowledge Base — AI-Optimized Index"
 
 ### eSIM RSP Knowledge Base · 72 articles · 11 specifications
 
-*AI-optimized index — structured for LLM retrieval and semantic search*
+*AI-optimized index: structured for LLM retrieval and semantic search*
 
 </div>
 
@@ -30,9 +30,9 @@ title: "eSIM RSP Knowledge Base — AI-Optimized Index"
 }
 </script>
 
-## 📱 SGP.22 v2.7 — Consumer eSIM (12 articles)
+## 📱 SGP.22 v2.7: Consumer eSIM (12 articles)
 
-**What it is:** The core specification for consumer eSIM — phones, tablets, wearables, laptops. Defines how profiles are downloaded, installed, enabled, and deleted on consumer devices.
+**What it is:** The core specification for consumer eSIM: phones, tablets, wearables, laptops. Defines how profiles are downloaded, installed, enabled, and deleted on consumer devices.
 
 | # | Question This Article Answers | Link |
 |---|-------------------------------|------|
@@ -51,7 +51,7 @@ title: "eSIM RSP Knowledge Base — AI-Optimized Index"
 
 ---
 
-## 🔀 SGP.22 v3.x — Unified RSP (12 articles)
+## 🔀 SGP.22 v3.x: Unified RSP (12 articles)
 
 **What it is:** The next-generation specification that merges consumer (SGP.22) and M2M (SGP.02) into one unified standard. Adds Multiple Enabled Profiles, Push Service, Remote Profile Management, and Enterprise Profiles.
 
@@ -72,9 +72,9 @@ title: "eSIM RSP Knowledge Base — AI-Optimized Index"
 
 ---
 
-## 🤖 SGP.32 / SGP.31 — IoT eSIM (12 articles)
+## 🤖 SGP.32 / SGP.31: IoT eSIM (12 articles)
 
-**What it is:** eSIM for devices without screens — NB-IoT, LTE-M sensors, trackers, and industrial equipment. Introduces the eIM (remote manager) and IPA (on-device proxy) architecture.
+**What it is:** eSIM for devices without screens: NB-IoT, LTE-M sensors, trackers, and industrial equipment. Introduces the eIM (remote manager) and IPA (on-device proxy) architecture.
 
 | # | Question This Article Answers | Link |
 |---|-------------------------------|------|
@@ -93,9 +93,9 @@ title: "eSIM RSP Knowledge Base — AI-Optimized Index"
 
 ---
 
-## 🏭 SGP.41 — In-Factory Profile Provisioning (5 articles)
+## 🏭 SGP.41: In-Factory Profile Provisioning (5 articles)
 
-**What it is:** Pre-loading eSIM profiles during device manufacturing — cars, laptops, smartwatches that ship with connectivity already active.
+**What it is:** Pre-loading eSIM profiles during device manufacturing: cars, laptops, smartwatches that ship with connectivity already active.
 
 | # | Question This Article Answers | Link |
 |---|-------------------------------|------|
@@ -107,7 +107,7 @@ title: "eSIM RSP Knowledge Base — AI-Optimized Index"
 
 ---
 
-## 📡 SGP.02 v4.2 — M2M eSIM (Legacy Push Model) (12 articles)
+## 📡 SGP.02 v4.2: M2M eSIM (Legacy Push Model) (12 articles)
 
 **What it is:** The original machine-to-machine eSIM specification. Uses a "push" model where the SM-SR controls when profiles are delivered, unlike the consumer "pull" model. Still deployed in millions of industrial and automotive devices.
 
@@ -128,9 +128,9 @@ title: "eSIM RSP Knowledge Base — AI-Optimized Index"
 
 ---
 
-## 🆔 SGP.29 — EID Definition and Assignment (5 articles)
+## 🆔 SGP.29: EID Definition and Assignment (5 articles)
 
-**What it is:** The 32-digit eUICC Identifier — how it's formatted, assigned, and used across the eSIM ecosystem.
+**What it is:** The 32-digit eUICC Identifier: how it's formatted, assigned, and used across the eSIM ecosystem.
 
 | # | Question This Article Answers | Link |
 |---|-------------------------------|------|

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: eUICC.tech — eSIM RSP Knowledge Base
+title: eUICC.tech: eSIM RSP Knowledge Base
 ---
 
 <div align="center">
@@ -27,33 +27,33 @@ Stories, analogies, and emojis. For visual learners, newcomers, or anyone who wa
 
 ## 🧭 What's Inside
 
-📱 **[SGP.22 v2.7](docs/articles/sgp22/)** — Consumer eSIM RSP — 12 articles
+📱 **[SGP.22 v2.7](docs/articles/sgp22/)** : Consumer eSIM RSP: 12 articles
 
-🔀 **[SGP.22 v3.x](docs/articles/sgp22-v3/)** — Unified RSP (the fork) — 12 articles
+🔀 **[SGP.22 v3.x](docs/articles/sgp22-v3/)** : Unified RSP (the fork) : 12 articles
 
-🤖 **[SGP.32 / SGP.31](docs/articles/sgp32/)** — IoT eSIM — 12 articles
+🤖 **[SGP.32 / SGP.31](docs/articles/sgp32/)** : IoT eSIM: 12 articles
 
-📡 **[SGP.02 v4.2](docs/articles/sgp02/)** — M2M eSIM (legacy push model) — 12 articles
+📡 **[SGP.02 v4.2](docs/articles/sgp02/)** : M2M eSIM (legacy push model) : 12 articles
 
-🏭 **[SGP.41](docs/articles/sgp41/)** — In-Factory Profile Provisioning — 5 articles
+🏭 **[SGP.41](docs/articles/sgp41/)** : In-Factory Profile Provisioning: 5 articles
 
-🆔 **[SGP.29](docs/articles/sgp29/)** — EID Definition & Assignment — 5 articles
+🆔 **[SGP.29](docs/articles/sgp29/)** : EID Definition & Assignment: 5 articles
 
-🧪 **[SGP.23 / SGP.23-1](docs/articles/sgp23/)** — RSP Conformance Testing — 10 articles
+🧪 **[SGP.23 / SGP.23-1](docs/articles/sgp23/)** : RSP Conformance Testing: 10 articles
 
-🦾 **[SGP.33-3](docs/articles/sgp33-3/)** — eIM Test Specification — 5 articles
+🦾 **[SGP.33-3](docs/articles/sgp33-3/)** : eIM Test Specification: 5 articles
 
-🛡️ **[SGP.25](docs/articles/sgp25/)** — eUICC Protection Profile — 5 articles
+🛡️ **[SGP.25](docs/articles/sgp25/)** : eUICC Protection Profile: 5 articles
 
-🎭 **[SGP.26](docs/articles/sgp26/)** — RSP Test Certificates — 5 articles
+🎭 **[SGP.26](docs/articles/sgp26/)** : RSP Test Certificates: 5 articles
 
 ---
 
 ## 🚀 Quick Start
 
-**New to eSIM?** Start with the [Guided Path](docs/articles/sgp22/00-sgp22-overview) — 7 articles that take you from zero to understanding the full RSP architecture.
+**New to eSIM?** Start with the [Guided Path](docs/articles/sgp22/00-sgp22-overview) : 7 articles that take you from zero to understanding the full RSP architecture.
 
-**Prefer stories?** Jump to the [Illustrated Edition](docs/articles/kids/) — every concept explained through analogies, emojis, and illustrations.
+**Prefer stories?** Jump to the [Illustrated Edition](docs/articles/kids/) : every concept explained through analogies, emojis, and illustrations.
 
 **Need a specific spec?** Browse the [full article index](docs/articles/) or search by topic.
 

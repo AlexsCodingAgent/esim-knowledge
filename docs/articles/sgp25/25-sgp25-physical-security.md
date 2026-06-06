@@ -7,7 +7,7 @@ date: 2026-06-05
 
 **🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.25 eUICC Security]({{ site.baseurl }}/docs/articles/sgp25/) > Physical Security: Side-Channel and Fault Injection Defenses**
 
-> **💡 Why this matters:** An eUICC doesn't just face network-based attacks — it sits inside a device that an adversary can physically hold, probe, and manipulate. Side-channel analysis can extract cryptographic keys from power consumption patterns. Fault injection can flip bits during critical operations. Physical tampering can expose internal buses and memory. SGP.25 explicitly addresses these threats, requiring the TOE and its underlying platform to resist attackers with oscilloscopes, glitching tools, and lab benches.
+> **💡 Why this matters:** An eUICC doesn't just face network-based attacks: it sits inside a device that an adversary can physically hold, probe, and manipulate. Side-channel analysis can extract cryptographic keys from power consumption patterns. Fault injection can flip bits during critical operations. Physical tampering can expose internal buses and memory. SGP.25 explicitly addresses these threats, requiring the TOE and its underlying platform to resist attackers with oscilloscopes, glitching tools, and lab benches.
 
 > **Key takeaways:**
 > - T.PHYSICAL-ATTACK is a "second-level" threat covering environmental stress, electrical probing, side channels, fault injection, and physical tampering
@@ -20,7 +20,7 @@ date: 2026-06-05
 * TOC
 {:toc}
 
-Physical attacks represent a qualitatively different threat than logical attacks. They don't exploit bugs in software — they exploit the physical reality that every computation consumes power, takes time, emits radiation, and can be disrupted. SGP.25's treatment of physical security spans the TOE's own SFRs, the objectives placed on the operational environment (IC, Runtime Environment), and the life-cycle controls on manufacturing.
+Physical attacks represent a qualitatively different threat than logical attacks. They don't exploit bugs in software: they exploit the physical reality that every computation consumes power, takes time, emits radiation, and can be disrupted. SGP.25's treatment of physical security spans the TOE's own SFRs, the objectives placed on the operational environment (IC, Runtime Environment), and the life-cycle controls on manufacturing.
 
 ---
 
@@ -42,7 +42,7 @@ The formal threat definition encompasses:
 | **Unexpected tearing** | Power removal during sensitive operations | Atomicity of state transitions |
 | **Instruction manipulation** | Altering execution order through physical means | TSF code integrity |
 
-All assets of the TOE are directly threatened — from private keys and session secrets to TSF code and Profile data. A successful physical attack could clone the eUICC, extract operator credentials, or bypass profile policy enforcement entirely.
+All assets of the TOE are directly threatened: from private keys and session secrets to TSF code and Profile data. A successful physical attack could clone the eUICC, extract operator credentials, or bypass profile policy enforcement entirely.
 
 ---
 
@@ -78,7 +78,7 @@ The Application Note provides a detailed catalogue of the attack classes that mu
 | **Electromagnetic radiation analysis** | Capturing and analysing EM emissions from the chip during computation | Electromagnetic radiation |
 | **Radio emission analysis** | Detecting radio-frequency emissions from internal operation | Radio emissions |
 
-The evaluator is expected to assess resistance against **state-of-the-art attacks applicable to the technologies employed by the TOE** — a forward-looking requirement that keeps pace with advancing attack techniques.
+The evaluator is expected to assess resistance against **state-of-the-art attacks applicable to the technologies employed by the TOE** : a forward-looking requirement that keeps pace with advancing attack techniques.
 
 ---
 
@@ -90,8 +90,8 @@ SGP.25 explicitly delegates first-line physical defense to the underlying secure
 
 The secure IC must be certified according to:
 
-- **[PP0084]** — Security IC Platform Protection Profile with Augmentation Packages, version 1.0 (BSI-CC-PP-0084-2014), or
-- **[PP0117]** — Security IC Platform Protection Profile for a secure subsystem integrated in a SoC
+- **[PP0084]** : Security IC Platform Protection Profile with Augmentation Packages, version 1.0 (BSI-CC-PP-0084-2014), or
+- **[PP0117]** : Security IC Platform Protection Profile for a secure subsystem integrated in a SoC
 
 This is a mandatory requirement: the IC's hardware security features are independently evaluated before the eUICC software evaluation begins.
 
@@ -132,7 +132,7 @@ This prevents attackers from manipulating eUICC state by precisely timing power 
 
 ### Unique Identification
 
-OE.IC.PROOF_OF_IDENTITY requires the underlying IC to be uniquely identified — a hardware root of trust that anchors the eUICC's identity and prevents chip-swapping attacks.
+OE.IC.PROOF_OF_IDENTITY requires the underlying IC to be uniquely identified: a hardware root of trust that anchors the eUICC's identity and prevents chip-swapping attacks.
 
 ---
 
@@ -149,7 +149,7 @@ Hardware countermeasures: power consumption smoothing, clock randomisation, shie
 The Application Note explicitly requires:
 > "refining the ADV_ARC 'non-bypassability' requirements to explicit the coverage of side channel attacks by the security architecture of the ST TOE."
 
-For Java Card implementations, this means the Java Card System's own security architecture must incorporate side-channel resistance — not just pass through to the hardware.
+For Java Card implementations, this means the Java Card System's own security architecture must incorporate side-channel resistance: not just pass through to the hardware.
 
 ### Layer 3: TOE Software (FPT_EMS.1/Base, O.DATA-CONFIDENTIALITY)
 The TOE itself must ensure that:
@@ -165,19 +165,19 @@ Physical security begins long before the eUICC is deployed. SGP.25's life-cycle 
 
 | Phase | Activity | Security Relevance |
 |-------|----------|-------------------|
-| **Phase a** | eUICC Platform Development | IC and embedded software development — must occur in ALC_DVS.2-protected environment |
-| **Phase b** | IC Manufacturing and Packaging | IC fabrication, pre-personalisation, test — SAS-accredited site |
-| **Phase c** | eUICC Platform Storage, Pre-Personalisation, Test | Software embedding onto the IC — may be combined with Phase d if at same secure site |
-| **Phase d** | eUICC Personalisation | ECASD/ISD-R key injection, optional provisioning Profile loading — **GSMA SAS-accredited** |
+| **Phase a** | eUICC Platform Development | IC and embedded software development: must occur in ALC_DVS.2-protected environment |
+| **Phase b** | IC Manufacturing and Packaging | IC fabrication, pre-personalisation, test: SAS-accredited site |
+| **Phase c** | eUICC Platform Storage, Pre-Personalisation, Test | Software embedding onto the IC: may be combined with Phase d if at same secure site |
+| **Phase d** | eUICC Personalisation | ECASD/ISD-R key injection, optional provisioning Profile loading : **GSMA SAS-accredited** |
 | **Phase e** | Operational Usage | Integration onto Device, SM-DS registration, post-issuance provisioning |
 
 ### TOE Delivery Points
 
 The TOE may be delivered (i.e., leave the trusted environment) at three possible stages:
 
-1. **After Phase b** — If the TOE is already self-protected (unusual)
-2. **After Phase c** — If the TOE is self-protected, unless Phase c and d occur at the same SAS-accredited site (in which case the eUICC Manufacturer is a trusted administrator)
-3. **After Phase d** — The latest delivery point, when the eUICC goes to the customer of the eUICC manufacturer
+1. **After Phase b** : If the TOE is already self-protected (unusual)
+2. **After Phase c** : If the TOE is self-protected, unless Phase c and d occur at the same SAS-accredited site (in which case the eUICC Manufacturer is a trusted administrator)
+3. **After Phase d** : The latest delivery point, when the eUICC goes to the customer of the eUICC manufacturer
 
 The ST writer must describe which delivery activities are required in their specific life-cycle model and at which phase the self-protected TOE is delivered.
 
@@ -195,7 +195,7 @@ ADV_ARC.1.4C: The security architecture description shall demonstrate
 that the TSF protects itself from tampering.
 ```
 
-This means the eUICC software architecture must include self-protection mechanisms that detect and respond to tampering attempts — not just rely on the hardware. The security domain model (ISD-R, ECASD, ISD-P isolation) is the primary architectural mechanism: even if one component is compromised, others remain protected.
+This means the eUICC software architecture must include self-protection mechanisms that detect and respond to tampering attempts: not just rely on the hardware. The security domain model (ISD-R, ECASD, ISD-P isolation) is the primary architectural mechanism: even if one component is compromised, others remain protected.
 
 ---
 
@@ -220,7 +220,7 @@ Next: [SGP.25 Certification: SAS-UP and the Evaluation Process]({{ site.baseurl 
 
 ---
 
-*Based on GSMA SGP.25 v2.1 (3 February 2025) — eUICC for Consumer and IoT Devices Protection Profile, Sections 1.2.3 (TOE life-cycle), 3.3.6 (Second-level threats — T.PHYSICAL-ATTACK), 4.1 (Security objectives for the TOE — O.DATA-CONFIDENTIALITY), 4.2.2 (Platform objectives — OE.IC.SUPPORT, OE.IC.RECOVERY), and 6.1 (SFRs — FPT_EMS.1/Base)*
+*Based on GSMA SGP.25 v2.1 (3 February 2025) : eUICC for Consumer and IoT Devices Protection Profile, Sections 1.2.3 (TOE life-cycle), 3.3.6 (Second-level threats: T.PHYSICAL-ATTACK), 4.1 (Security objectives for the TOE: O.DATA-CONFIDENTIALITY), 4.2.2 (Platform objectives: OE.IC.SUPPORT, OE.IC.RECOVERY), and 6.1 (SFRs: FPT_EMS.1/Base)*
 
 
 ---

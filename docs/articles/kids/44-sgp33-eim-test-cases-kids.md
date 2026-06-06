@@ -31,7 +31,7 @@ The eIM sends special packages called **eUICC Packages** to each robot's vault. 
 | **ListProfileInfo** | Ask what profiles exist | "Show me all your plans." |
 | **GetRat** | Check what's allowed | "Show me the rulebook." |
 
-The **GetRat** command is especially important — it retrieves the Rules Authorisation Table (RAT), which tells Mission Control what operations are permitted. You wouldn't want to try enabling a profile that the rules say must stay disabled!
+The **GetRat** command is especially important: it retrieves the Rules Authorisation Table (RAT), which tells Mission Control what operations are permitted. You wouldn't want to try enabling a profile that the rules say must stay disabled!
 
 ---
 
@@ -56,18 +56,18 @@ The eIM doesn't work alone. Test cases also check how it talks to other services
 
 ### ES9+' Tests (Talking to the Key Maker)
 
-- **InitiateAuthentication** — "Let me prove I'm legit."
-- **GetBoundProfilePackage** — "Send me that digital key!"
-- **AuthenticateClient** — "Here's the robot's ID for you to verify."
-- **HandleNotification** — "The robot says the profile is installed."
-- **CancelSession** — "Abort! Something went wrong."
-- **HTTPS** — "Is our encrypted tunnel working?"
+- **InitiateAuthentication** : "Let me prove I'm legit."
+- **GetBoundProfilePackage** : "Send me that digital key!"
+- **AuthenticateClient** : "Here's the robot's ID for you to verify."
+- **HandleNotification** : "The robot says the profile is installed."
+- **CancelSession** : "Abort! Something went wrong."
+- **HTTPS** : "Is our encrypted tunnel working?"
 
 ### ES11' Tests (Checking the Post Office)
 
-- **InitiateAuthentication** — Prove identity to the message service
-- **AuthenticateClient** — Verify with robot credentials
-- **HTTPS** — Encrypted connection check
+- **InitiateAuthentication** : Prove identity to the message service
+- **AuthenticateClient** : Verify with robot credentials
+- **HTTPS** : Encrypted connection check
 
 ---
 
@@ -77,11 +77,11 @@ As of the current version, only one end-to-end behaviour test is fully defined: 
 
 1. The robot's translator (IPA) connects securely to Mission Control
 2. The translator asks: "Any orders for me?"
-3. Mission Control responds: "Yes — enable Profile X!"
+3. Mission Control responds: "Yes: enable Profile X!"
 4. The translator delivers the result: "Done! Here's proof."
 5. Mission Control tells the Key Maker: "The profile is active now."
 
-Four different sequences test variations — with different notification methods and with/without previously enabled profiles. If Mission Control gets any step wrong, the test fails.
+Four different sequences test variations: with different notification methods and with/without previously enabled profiles. If Mission Control gets any step wrong, the test fails.
 
 ---
 
@@ -94,16 +94,14 @@ Not everything is testable yet! Many test sequences are marked **FFS** (For Futu
 - All 11 ESipa interface test sequences
 - Additional behaviour tests (Disable, Delete, error recovery)
 
-The IoT testing world is still growing — like a new video game getting expansion packs. Each new version of SGP.33-3 fills in more of the FFS gaps.
+The IoT testing world is still growing: like a new video game getting expansion packs. Each new version of SGP.33-3 fills in more of the FFS gaps.
 
 ---
 
-## 🧠 Did You Know?
-
-The extensive error case testing is just as important as the happy-path testing. For **AuthenticateClient** alone, there are **18 error test cases** — testing what happens with expired certificates, wrong signatures, missing memory, unknown IDs, and more. Mission Control must handle *every* curveball!
+The extensive error case testing is just as important as the happy-path testing. For **AuthenticateClient** alone, there are **18 error test cases** : testing what happens with expired certificates, wrong signatures, missing memory, unknown IDs, and more. Mission Control must handle *every* curveball!
 
 ---
 
-*Kid-friendly version of GSMA SGP.33-3 — eUICC IoT Manager Test Specification, Test Cases*
+*Kid-friendly version of GSMA SGP.33-3: eUICC IoT Manager Test Specification, Test Cases*
 
 ← [Back to Kids Articles](index)

@@ -7,12 +7,12 @@ date: 2026-05-29
 
 **🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.32 IoT eSIM]({{ site.baseurl }}/docs/articles/sgp32/) > IoT Profile Download: Direct, Indirect, and eIM Package Handling**
 
-> **💡 Why this matters:** Profile delivery in IoT doesn't look anything like scanning a QR code on a phone. SGP.32 defines two parallel download paths — Direct (IPA-to-SM-DP+) and Indirect (eIM-mediated) — plus a cryptographically signed eIM Package protocol that replaces every consumer interaction with a single binary blob. Choosing the right path for your device's connectivity model is central to any IoT eSIM deployment.
+> **💡 Why this matters:** Profile delivery in IoT doesn't look anything like scanning a QR code on a phone. SGP.32 defines two parallel download paths: Direct (IPA-to-SM-DP+) and Indirect (eIM-mediated) : plus a cryptographically signed eIM Package protocol that replaces every consumer interaction with a single binary blob. Choosing the right path for your device's connectivity model is central to any IoT eSIM deployment.
 
 > **Key takeaways:**
 > - Direct download: `IPA` talks to SM-DP+ directly, triggered by Activation Code or SM-DS Event
 > - Indirect download: `eIM` handles all SM-DP+ interaction, `IPA` never connects to SM-DP+
-> - eIM Packages are cryptographically signed payloads carrying PSMOs and eCOs — replacing all consumer user interactions
+> - eIM Packages are cryptographically signed payloads carrying PSMOs and eCOs: replacing all consumer user interactions
 > - Two SM-DS polling options: Option A (IPA polls) for IP-connected devices, Option B (eIM polls) for constrained devices
 > - Replay protection via per-eIM `counterValue` (max 8,388,607) and optional `associationToken`
 
@@ -28,7 +28,7 @@ The `IPA` handles the download directly with the SM-DP+. Two triggers exist:
 
 <img src="../../diagrams/06-profile-package-stages.svg" alt="Profile package stages and download flow" style="width:100%;max-width:800px;display:block;margin:20px auto;border-radius:8px;">
 
-The Activation Code is pushed from the operator's backend to the `eIM` — no QR code, no user. The `IPA`'s job is to identify the SM-DP+ from the AC and relay the `ES8+` messages.
+The Activation Code is pushed from the operator's backend to the `eIM` : no QR code, no user. The `IPA`'s job is to identify the SM-DP+ from the AC and relay the `ES8+` messages.
 
 ---
 
@@ -36,13 +36,13 @@ The Activation Code is pushed from the operator's backend to the `eIM` — no QR
 
 Two options exist for who retrieves the Event Record:
 
-**Option A — IPA polls SM-DS:**
+**Option A: IPA polls SM-DS:**
 <img src="../../diagrams/06-profile-package-stages.svg" alt="Profile package stages and download flow" style="width:100%;max-width:800px;display:block;margin:20px auto;border-radius:8px;">
 
-**Option B — eIM polls SM-DS:**
+**Option B: eIM polls SM-DS:**
 <img src="../../diagrams/06-profile-package-stages.svg" alt="Profile package stages and download flow" style="width:100%;max-width:800px;display:block;margin:20px auto;border-radius:8px;">
 
-Option B is designed for **Network Constrained Devices** — devices on LPWA networks where the airtime cost of polling the SM-DS directly would be prohibitive. The `eIM` does the heavy lifting on the server side, where bandwidth is free.
+Option B is designed for **Network Constrained Devices** : devices on LPWA networks where the airtime cost of polling the SM-DS directly would be prohibitive. The `eIM` does the heavy lifting on the server side, where bandwidth is free.
 
 ---
 
@@ -110,13 +110,13 @@ Eco ::= CHOICE {
 }
 ```
 
-The eUICC supports multiple Associated eIMs — each with its own public key, counter value, and protocol configuration. A device could be managed by both its manufacturer's `eIM` (for provisioning) and the customer's `eIM` (for operational management).
+The eUICC supports multiple Associated eIMs: each with its own public key, counter value, and protocol configuration. A device could be managed by both its manufacturer's `eIM` (for provisioning) and the customer's `eIM` (for operational management).
 
 ---
 
 ### Replay Protection
 
-Each eIM Package carries a `counterValue` — a monotonically increasing integer. The eUICC stores the highest received value per eIM and rejects any package with a lower or equal counter. The maximum counter value is 8,388,607 (0x7FFFFF) — enough for 800 operations per day for 28 years.
+Each eIM Package carries a `counterValue` : a monotonically increasing integer. The eUICC stores the highest received value per eIM and rejects any package with a lower or equal counter. The maximum counter value is 8,388,607 (0x7FFFFF) : enough for 800 operations per day for 28 years.
 
 An optional `associationToken` provides additional protection against entire sequence replay after eIM removal and re-addition.
 
@@ -148,7 +148,7 @@ Both the eUICC Package and the IPA level have structured error codes:
 |-----------|--------------|---------|
 | IPA | `incorrectTagList` | ASN.1 parsing failed at IPA |
 | IPA | `euiccCiPKIdNotFound` | Requested CI key not on eUICC |
-| IPA | `ecallActive` | Emergency call in progress — no eSIM ops allowed |
+| IPA | `ecallActive` | Emergency call in progress: no eSIM ops allowed |
 | eUICC | `counterValueOutOfRange` | Replay attack or overflow |
 | eUICC | `eimNotFound` | eIM trying to delete itself but not associated |
 | eUICC | `insufficientMemory` | No room for new eIM configuration |
@@ -162,7 +162,7 @@ Between eIM operations, the `IPA` and `eIM` synchronise:
 
 <img src="../../diagrams/06-profile-package-stages.svg" alt="Profile package stages and download flow" style="width:100%;max-width:800px;display:block;margin:20px auto;border-radius:8px;">
 
-This is the heartbeat of the IoT eSIM system — the `IPA` periodically fetches state from the eUICC and delivers it to the `eIM`, along with any pending results from previous operations. The `eIM` uses this data to decide what to do next.
+This is the heartbeat of the IoT eSIM system: the `IPA` periodically fetches state from the eUICC and delivers it to the `eIM`, along with any pending results from previous operations. The `eIM` uses this data to decide what to do next.
 
 ---
 
@@ -170,12 +170,12 @@ This is the heartbeat of the IoT eSIM system — the `IPA` periodically fetches 
 
 The `IPA` reports its capabilities to the `eIM` via `IpaCapabilities`:
 
-- `minimizeEsipaBytes` — compact ASN.1 encoding (reduced tag structures)
+- `minimizeEsipaBytes` : compact ASN.1 encoding (reduced tag structures)
 - Ability to handle direct vs indirect downloads
 - Supported transport protocols
 - Whether it can proxy SM-DS communication
 
-This lets the `eIM` adapt its behaviour to the specific `IPA` implementation — a full `IPAd` on a Linux gateway behaves very differently from an `IPAe` on a battery-powered NB-IoT sensor.
+This lets the `eIM` adapt its behaviour to the specific `IPA` implementation: a full `IPAd` on a Linux gateway behaves very differently from an `IPAe` on a battery-powered NB-IoT sensor.
 
 ---
 

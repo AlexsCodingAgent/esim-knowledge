@@ -7,17 +7,17 @@ date: 2026-06-05
 
 **🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.33-3 eIM Testing]({{ site.baseurl }}/docs/articles/sgp33-3/) > eIM Test Architecture: Simulated eIM and Reference IPA**
 
-> **💡 Why this matters:** Testing the eUICC IoT Manager (eIM) is architecturally unique — it's a *server* under test, not a chip or a device. Unlike eUICC testing (where a physical card sits on a reader) or LPAd testing (where a device runs test software), the eIM is a remote network service that must be tested across four different simulated counterparts simultaneously. Understanding how SGP.33-3 constructs this test environment reveals the engineering challenge of proving that an IoT remote management server works correctly before it ever touches a real IoT device.
+> **💡 Why this matters:** Testing the eUICC IoT Manager (eIM) is architecturally unique: it's a *server* under test, not a chip or a device. Unlike eUICC testing (where a physical card sits on a reader) or LPAd testing (where a device runs test software), the eIM is a remote network service that must be tested across four different simulated counterparts simultaneously. Understanding how SGP.33-3 constructs this test environment reveals the engineering challenge of proving that an IoT remote management server works correctly before it ever touches a real IoT device.
 
 > **Key takeaways:**
-> - The eIM is the sole Implementation Under Test (IUT) — all other components (SM-DP+, SM-DS, eUICC, IPA) are simulators implemented by the test tool provider
+> - The eIM is the sole Implementation Under Test (IUT) : all other components (SM-DP+, SM-DS, eUICC, IPA) are simulators implemented by the test tool provider
 > - Five simulator types surround the eIM: S_SM-DP+ (ES9+'), S_SM-DS (ES11'), S_eUICC (ESep), S_IPA (ESipa), and S_CLIENT/S_SERVER (TLS testing)
-> - Four interfaces are in scope for eIM testing: ESep, ES9+', ES11', and ESipa — while ES2+, ES6, ES8+, ES9+, ES10a, ES10b, ES11, and ES12 are out of scope
+> - Four interfaces are in scope for eIM testing: ESep, ES9+', ES11', and ESipa: while ES2+, ES6, ES8+, ES9+, ES10a, ES10b, ES11, and ES12 are out of scope
 > - The test architecture mirrors the IoT eSIM reference architecture from SGP.31/SGP.32, with the eIM positioned as the central orchestrator between the IoT Device, SM-DP+, and SM-DS
-> - Test environments mirror those from SGP.23 but adapted for IoT-specific interfaces — the eIM plays the role of LPAd for ES9+' and ES11' testing
+> - Test environments mirror those from SGP.23 but adapted for IoT-specific interfaces: the eIM plays the role of LPAd for ES9+' and ES11' testing
 > - Test tools MUST implement all simulators; the specification provides methods (MTD_*) and procedures (PROC_*) as building blocks, but leaves implementation details to tool providers
 
-SGP.33-3 v1.2 defines a test architecture where the eIM sits at the centre of a simulated IoT eSIM ecosystem. Every other component is a simulator — this isolation is essential because the eIM is a server, and you cannot test a server's protocol behaviour without controlled, deterministic counterparts.
+SGP.33-3 v1.2 defines a test architecture where the eIM sits at the centre of a simulated IoT eSIM ecosystem. Every other component is a simulator: this isolation is essential because the eIM is a server, and you cannot test a server's protocol behaviour without controlled, deterministic counterparts.
 
 ---
 
@@ -30,7 +30,7 @@ The test environment (Section 3.2.3.1) places the eIM IUT at the centre of four 
                    |
                  ES9+'
                    |
-  S_SM-DS — ES11' — IUT (eIM) — ESep — S_eUICC
+  S_SM-DS: ES11' : IUT (eIM) : ESep: S_eUICC
                    |
                  ESipa
                    |
@@ -38,13 +38,13 @@ The test environment (Section 3.2.3.1) places the eIM IUT at the centre of four 
 ```
 
 The test environment consists of:
-- **IUT**: The eUICC IoT Manager under test — the real implementation
+- **IUT**: The eUICC IoT Manager under test: the real implementation
 - **S_SM-DP+**: A simulated SM-DP+ supporting ES9+' connections
 - **S_SM-DS**: A simulated SM-DS supporting ES11' connections
 - **S_eUICC**: A simulated eUICC supporting ESep connections
 - **S_IPA**: A simulated IPA supporting ESipa connections
 
-Implementation of all simulators is the responsibility of the test tool providers. The test tools must also implement S_CLIENT and S_SERVER simulators for TLS-level testing — these MAY be the same as S_SM-DP+ or S_SM-DS depending on which component is under test.
+Implementation of all simulators is the responsibility of the test tool providers. The test tools must also implement S_CLIENT and S_SERVER simulators for TLS-level testing: these MAY be the same as S_SM-DP+ or S_SM-DS depending on which component is under test.
 
 ---
 
@@ -74,7 +74,7 @@ SGP.33-3 defines a clear boundary for what is tested:
 | **ES11** | IPA → SM-DS | Event Record retrieval (IPA-side) |
 | **ES12** | SM-DP+ → SM-DS | Event Registration management |
 
-This scoping means SGP.33-3 tests the eIM as the IoT remote management orchestrator — how it talks to profile servers, discovery servers, eUICCs, and the device-side IPA.
+This scoping means SGP.33-3 tests the eIM as the IoT remote management orchestrator: how it talks to profile servers, discovery servers, eUICCs, and the device-side IPA.
 
 ---
 
@@ -108,7 +108,7 @@ The ESipa interface (eIM-to-IPA) is the most IoT-specific interface tested in SG
 10. **HandleNotification** (IPA notifies eIM of profile state changes)
 11. **CancelSession** (eIM cancels ongoing RSP session)
 
-As of v1.2, the test sequences for all ESipa functions are marked **FFS (For Future Study)** — a recognition that the eIM-to-IPA interface testing methodology is still maturing. However, the behaviour testing section (Section 5) does contain a concrete test case for Profile Enable via ESipa (TC_eIM_ProfileEnable_TLS_eIM_Pkg_Retrieval).
+As of v1.2, the test sequences for all ESipa functions are marked **FFS (For Future Study)** : a recognition that the eIM-to-IPA interface testing methodology is still maturing. However, the behaviour testing section (Section 5) does contain a concrete test case for Profile Enable via ESipa (TC_eIM_ProfileEnable_TLS_eIM_Pkg_Retrieval).
 
 ---
 
@@ -145,7 +145,7 @@ The simulated eUICC (S_eUICC) must be pre-configured for eIM testing (Annex G):
 ## 📋 Summary
 
 - The eIM is tested in isolation as the sole IUT, surrounded by five simulator types controlled by the test tool provider
-- Four interfaces are in scope (ESep, ES9+', ES11', ESipa) while eight are out of scope — focusing testing on the eIM's role as IoT remote management orchestrator
+- Four interfaces are in scope (ESep, ES9+', ES11', ESipa) while eight are out of scope: focusing testing on the eIM's role as IoT remote management orchestrator
 - Most ES9+' and ES11' test cases are adapted from SGP.23's LPAd test cases with the eIM playing the role of LPAd
 - The ESipa interface (eIM-to-IPA) represents new test territory with 11 functions defined but test sequences still marked FFS in v1.2
 - Reusable methods (MTD_*) and procedures (PROC_*) provide building blocks for test tool implementers
@@ -163,7 +163,7 @@ Next: [Key eIM Test Cases: PSMO, Notifications, and Configuration]({{ site.baseu
 
 ---
 
-*Based on GSMA SGP.33-3 v1.2 (27 January 2025) — eUICC IoT Manager Test Specification, Sections 3, Annexes A–D, G*
+*Based on GSMA SGP.33-3 v1.2 (27 January 2025) : eUICC IoT Manager Test Specification, Sections 3, Annexes A–D, G*
 
 
 ---

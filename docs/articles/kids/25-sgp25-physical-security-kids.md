@@ -7,7 +7,7 @@ date: 2026-06-07
 
 ## Imagine...
 
-Someone wants to break into a bank vault. They could try picking the lock (that's a logical attack). Or they could get clever: drill through the wall, listen to the tumblers with a stethoscope, or blast it with heat to weaken the steel. These are **physical attacks** — they don't trick the lock, they attack the vault itself.
+Someone wants to break into a bank vault. They could try picking the lock (that's a logical attack). Or they could get clever: drill through the wall, listen to the tumblers with a stethoscope, or blast it with heat to weaken the steel. These are **physical attacks** : they don't trick the lock, they attack the vault itself.
 
 eUICC chips face the same threat. An attacker who holds the device can probe the chip, measure its power consumption, blast it with lasers, or yank the power at just the wrong moment. SGP.25 has specific requirements to stop all of these.
 
@@ -15,7 +15,7 @@ eUICC chips face the same threat. An attacker who holds the device can probe the
 
 ## The Physical Attack Threat: T.PHYSICAL-ATTACK ⚡
 
-SGP.25 defines physical attacks as a "second-level" threat — they bypass all the normal logical protections entirely:
+SGP.25 defines physical attacks as a "second-level" threat: they bypass all the normal logical protections entirely:
 
 | Attack Category | How It Works | What They're After |
 |----------------|-------------|-------------------|
@@ -26,13 +26,13 @@ SGP.25 defines physical attacks as a "second-level" threat — they bypass all t
 | **Unexpected Tearing** | Cut power during sensitive operations | Leave the chip in an inconsistent state |
 | **IC Failure Analysis** | Decapsulate the chip, reverse-engineer layers | Extract TSF code, keys |
 
-All of these target the physical reality of the chip — not bugs in code, but the fact that computation consumes power, takes time, and can be disrupted.
+All of these target the physical reality of the chip: not bugs in code, but the fact that computation consumes power, takes time, and can be disrupted.
 
 ---
 
 ## FPT_EMS.1: The Side-Channel Shield 🔇
 
-The main SFR fighting physical attacks is **FPT_EMS.1/Base** — TOE Emanation Control. In plain language:
+The main SFR fighting physical attacks is **FPT_EMS.1/Base** : TOE Emanation Control. In plain language:
 
 > "The chip must not leak secrets through its physical emanations."
 
@@ -45,14 +45,14 @@ What are "emanations"? Things an attacker can observe from outside:
 | **Electromagnetic radiation** | EM analysis | Internal data processing |
 | **Radio emissions** | RF analysis | Internal operation patterns |
 
-The chip must resist **state-of-the-art attacks** against all of these. Not just the attacks known when the chip was designed — the requirement is forward-looking.
+The chip must resist **state-of-the-art attacks** against all of these. Not just the attacks known when the chip was designed: the requirement is forward-looking.
 
 ### What's Protected?
 
-- 🔑 **D.SK.EUICC.ECDSA** — The chip's private key (the most valuable asset)
-- 🔐 **D.SECRETS** — One-time keys, shared secrets, session keys
-- 📦 **D.MNO_KEYS** — Operator keys within profiles
-- 📡 **D.PROFILE_NAA_PARAMS** — Network authentication parameters
+- 🔑 **D.SK.EUICC.ECDSA** : The chip's private key (the most valuable asset)
+- 🔐 **D.SECRETS** : One-time keys, shared secrets, session keys
+- 📦 **D.MNO_KEYS** : Operator keys within profiles
+- 📡 **D.PROFILE_NAA_PARAMS** : Network authentication parameters
 
 ---
 
@@ -60,8 +60,8 @@ The chip must resist **state-of-the-art attacks** against all of these. Not just
 
 SGP.25 delegates physical defence to the underlying **Secure IC** (the chip hardware itself). The IC must be independently certified under its own Protection Profile:
 
-- **[PP0084]** — Security IC Platform Protection Profile
-- **[PP0117]** — Security IC Platform for SoC subsystems
+- **[PP0084]** : Security IC Platform Protection Profile
+- **[PP0117]** : Security IC Platform for SoC subsystems
 
 The IC must provide four essential capabilities:
 
@@ -71,7 +71,7 @@ The IC must provide four essential capabilities:
 This means: even if you have physical probes on the chip's buses, you can't skip the security checks.
 
 ### 2. Secure Cryptographic Processing
-> The IC must provide secure cryptographic primitives — key generation, signing, verification — that resist physical observation.
+> The IC must provide secure cryptographic primitives: key generation, signing, verification: that resist physical observation.
 
 ### 3. Structured Memory with Access Controls
 > Memory must be structured with segmentation fault detection. Transient objects never stored in non-volatile memory.
@@ -79,7 +79,7 @@ This means: even if you have physical probes on the chip's buses, you can't skip
 This prevents buffer overflow attacks and memory-based exploits at the hardware level.
 
 ### 4. Atomic Memory Operations
-> Memory operations (especially during state transitions) must be atomic — all or nothing.
+> Memory operations (especially during state transitions) must be atomic: all or nothing.
 
 ---
 
@@ -129,9 +129,9 @@ Security begins before the chip is even finished. SGP.25 defines a five-phase li
 | **Phase d** | eUICC personalisation (key injection) | **GSMA SAS-accredited site** |
 | **Phase e** | Operational deployment | In the field |
 
-The critical moment is **Phase d** — that's when the chip's private key and eSIM CA public key are injected. This MUST happen at a SAS-accredited facility with audited physical security, access controls, and key management procedures.
+The critical moment is **Phase d** : that's when the chip's private key and eSIM CA public key are injected. This MUST happen at a SAS-accredited facility with audited physical security, access controls, and key management procedures.
 
-If an attacker compromises the personalisation process, they don't need to break the chip — they can inject their own keys from the start.
+If an attacker compromises the personalisation process, they don't need to break the chip: they can inject their own keys from the start.
 
 ---
 
@@ -146,16 +146,14 @@ The security architecture must demonstrate:
 - The domain separation (ISD-R, ECASD, ISD-P isolation) provides structural defence
 - Tampering attempts are detectable
 
-This is like having a vault where each safe deposit box has its own independent lock — breaking into one doesn't give access to the rest.
+This is like having a vault where each safe deposit box has its own independent lock: breaking into one doesn't give access to the rest.
 
 ---
-
-## 🧠 Did You Know?
 
 Side-channel attacks are remarkably powerful. Differential Power Analysis (DPA) can extract a 256-bit encryption key by measuring the chip's power consumption across thousands of operations and looking for tiny statistical correlations. Countermeasures like constant-time code, power smoothing, and random delays make this practically impossible on a certified eUICC.
 
 ---
 
-*Kid-friendly version of GSMA SGP.25 v2.1 — Physical Security*
+*Kid-friendly version of GSMA SGP.25 v2.1: Physical Security*
 
 ← [Back to Kids Articles](index)
