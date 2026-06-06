@@ -70,6 +70,25 @@ title: eUICC.tech — eSIM RSP Knowledge Base
 
 ---
 
+### 🔀 SGP.22 v3.x — Unified RSP Specification
+
+*The forked track. Merges consumer and IoT into one spec. Multiple profiles, Push Service, device change. **8 articles.***
+
+| Article | Date |
+|---------|------|
+| [v3.x Overview: The Unified eSIM Specification](docs/articles/sgp22-v3/52-sgp22-v3-overview) | 2026-06-06 |
+| [Multiple Enabled Profiles](docs/articles/sgp22-v3/53-multiple-enabled-profiles) | 2026-06-06 |
+| [Push Service](docs/articles/sgp22-v3/54-push-service) | 2026-06-06 |
+| [Feature Support: Capability Negotiation](docs/articles/sgp22-v3/55-feature-support) | 2026-06-06 |
+| [Version Interoperability: v2.x + v3.x](docs/articles/sgp22-v3/56-version-interoperability) | 2026-06-06 |
+| [Remote Profile Management](docs/articles/sgp22-v3/57-remote-profile-management) | 2026-06-06 |
+| [Device Change & Profile Recovery](docs/articles/sgp22-v3/58-device-change-and-profile-recovery) | 2026-06-06 |
+| [eUICC Updates & Content Management](docs/articles/sgp22-v3/59-euicc-updates-pcm) | 2026-06-06 |
+
+[📂 All SGP.22 v3.x articles →](docs/articles/sgp22-v3/)
+
+---
+
 ### 🤖 SGP.32 / SGP.31 — IoT eSIM
 
 *NB-IoT, LTE-M, sensors, trackers. eSIM for things without screens. **10 articles.***
