@@ -13,6 +13,12 @@ title: eUICC.tech — eSIM RSP Knowledge Base
 
 </div>
 
+<div align="center">
+
+*📖 Reading: **Technical** · [Switch to Illustrated →](docs/articles/kids/)*
+
+</div>
+
 ---
 
 ## 🧭 Choose Your Path

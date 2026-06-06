@@ -1,13 +1,19 @@
 ---
 layout: default
-title: "eSIM Explained for Kids — eUICC.tech"
+title: "eSIM Explained — Illustrated Edition"
 ---
 
-# 🧒 eSIM Explained for Kids
+# 📖 eSIM Explained — Illustrated Edition
 
-*Curious about how eSIMs work? These articles explain everything with simple stories, fun analogies, and emojis — no complicated words!*
+*The same eSIM concepts, told through stories, analogies, and hand-drawn illustrations. Perfect for visual learners, younger readers, or anyone who wants the intuition before the technical detail.*
 
-[📖 **Read the Illustrated Storybook →**](storybooks)
+<div align="center">
+
+*📖 Reading: **Illustrated** · [Switch to Technical →](/)*
+
+</div>
+
+[📖 **Read the Storybook Collection →**](storybooks) — 17 illustrated books you can scroll through like a real book
 
 [📚 **Browse All 17 Storybooks →**](storybooks)
 
@@ -44,6 +50,6 @@ title: "eSIM Explained for Kids — eUICC.tech"
 
 <div align="center">
 
-*Part of [eUICC.tech](/) — [Back to main articles](/)*
+*Part of [eUICC.tech](/) — [Switch to Technical Edition →](/)*
 
 </div>
