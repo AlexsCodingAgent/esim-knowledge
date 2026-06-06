@@ -7,7 +7,7 @@ title: "SGP.22 v3.x — Unified RSP Specification"
 
 # 🔀 SGP.22 v3.x — Unified RSP Specification
 
-*The unified eSIM specification track — merging consumer and IoT capabilities. **8 articles.***
+*The unified eSIM specification track — merging consumer and IoT capabilities. **12 articles.***
 
 | # | Article |
 |---|---------|
@@ -19,3 +19,7 @@ title: "SGP.22 v3.x — Unified RSP Specification"
 | 57 | [Remote Profile Management: RPM Initiation, Download, and Execution]({{ site.baseurl }}/docs/articles/sgp22-v3/57-remote-profile-management) |
 | 58 | [Device Change and Profile Recovery: Moving eSIMs Between Devices]({{ site.baseurl }}/docs/articles/sgp22-v3/58-device-change-and-profile-recovery) |
 | 59 | [eUICC Updates and Profile Content Management: Lifecycle Beyond Download]({{ site.baseurl }}/docs/articles/sgp22-v3/59-euicc-updates-pcm) |
+| 60 | [Profile Download & Installation in v3.x: The Core Provisioning Flow]({{ site.baseurl }}/docs/articles/sgp22-v3/60-profile-download-v3) |
+| 61 | [Profile Protection & BPP Security: How eSIM Profiles Stay Secret]({{ site.baseurl }}/docs/articles/sgp22-v3/61-profile-protection-bpp) |
+| 62 | [Policy Management in v3.x: PPR, RAT, and the Policy Enforcer]({{ site.baseurl }}/docs/articles/sgp22-v3/62-policy-management-v3) |
+| 63 | [Enterprise Profiles in v3.x: Corporate Control of eSIMs]({{ site.baseurl }}/docs/articles/sgp22-v3/63-enterprise-profiles) |

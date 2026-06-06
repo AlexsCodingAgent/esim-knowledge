@@ -17,3 +17,8 @@ title: "SGP.22 — Consumer eSIM RSP"
 | 04 | [eSIM Security: The PKI and Certificate Model]({{ site.baseurl }}/docs/articles/sgp22/04-esim-security-pki) |
 | 05 | [Managing Your eSIM: Local Profile Operations]({{ site.baseurl }}/docs/articles/sgp22/05-local-profile-management) |
 | 06 | [The Developer's View: RSP Interfaces and Protocol Binding]({{ site.baseurl }}/docs/articles/sgp22/06-developer-interfaces) |
+| 07 | [LPAe: The In-eUICC Local Profile Assistant]({{ site.baseurl }}/docs/articles/sgp22/07-lpae-in-euicc) |
+| 08 | [Device and eUICC Boot: First Power-On to Profile Discovery]({{ site.baseurl }}/docs/articles/sgp22/08-boot-initialisation) |
+| 09 | [Profile Policy Management: PPRs, RAT, and Profile Policy Enabler]({{ site.baseurl }}/docs/articles/sgp22/09-policy-management) |
+| 10 | [Notifications and Post-Install: Keeping Operators in the Loop]({{ site.baseurl }}/docs/articles/sgp22/10-notifications-postinstall) |
+| 11 | [SM-DS and Companion Devices: Discovery, Cascading, and Multi-Device Provisioning]({{ site.baseurl }}/docs/articles/sgp22/11-smds-companion) |

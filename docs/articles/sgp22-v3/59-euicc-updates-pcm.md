@@ -105,7 +105,9 @@ A v2.x eUICC encountering any of these operations would reject them as unsupport
 
 <div align="center">
 
-← Previous: [Device Change and Profile Recovery: Moving eSIMs Between Devices]({{ site.baseurl }}/docs/articles/sgp22-v3/58-device-change-and-profile-recovery) · [🏠 Home]({{ site.baseurl }}/)
+← Previous: [Device Change and Profile Recovery: Moving eSIMs Between Devices]({{ site.baseurl }}/docs/articles/sgp22-v3/58-device-change-and-profile-recovery)
+
+Next: [Profile Download & Installation in v3.x]({{ site.baseurl }}/docs/articles/sgp22-v3/60-profile-download-v3) →
 
 </div>
 

@@ -21,3 +21,5 @@ title: "SGP.32 — IoT eSIM RSP"
 | 14 | [Profile State Management via the eIM: Remote Enable, Disable, Delete]({{ site.baseurl }}/docs/articles/sgp32/14-iot-profile-state-management) |
 | 15 | [SM-DS Operations in IoT eSIM: Event Registration and Retrieval]({{ site.baseurl }}/docs/articles/sgp32/15-iot-smsds-operations) |
 | 16 | [IoT eSIM Functions Reference: ESipa, ES9+', ES11', ESep]({{ site.baseurl }}/docs/articles/sgp32/16-iot-functions-reference) |
+| 17 | [Profile Lifecycle & Policy: Types, PPE, and Enforcement in IoT eSIM]({{ site.baseurl }}/docs/articles/sgp32/17-profile-lifecycle-policy) |
+| 18 | [Advanced IoT Security & Lifecycle: Mutual Auth, OS Update, Emergency Profiles, and ECASD]({{ site.baseurl }}/docs/articles/sgp32/18-advanced-security-lifecycle) |
