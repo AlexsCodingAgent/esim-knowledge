@@ -61,6 +61,9 @@ title: eUICC.tech — eSIM RSP Knowledge Base
 | [Profile Management](docs/articles/sgp22/05-local-profile-management) | 2026-06-03 |
 | [Developer Interfaces](docs/articles/sgp22/06-developer-interfaces) | 2026-06-05 |
 
+**Diagrams for SGP.22:**
+| [RSP Architecture Overview](docs/diagrams/01-rsp-architecture.html) · [eUICC Internal Architecture](docs/diagrams/02-euicc-internals.html) · [PKI Trust Chain](docs/diagrams/03-pki-trust-chain.html) · [Profile Download Sequence](docs/diagrams/05-profile-download-sequence.html) · [Profile Package Stages](docs/diagrams/06-profile-package-stages.html) |
+
 [📂 All SGP.22 articles →](docs/articles/sgp22/)
 
 ---
@@ -81,6 +84,9 @@ title: eUICC.tech — eSIM RSP Knowledge Base
 | [Profile State Management via the eIM](docs/articles/sgp32/14-iot-profile-state-management) | 2026-06-05 |
 | [SM-DS Operations in IoT eSIM](docs/articles/sgp32/15-iot-smsds-operations) | 2026-06-06 |
 | [IoT eSIM Functions Reference: ESipa, ES9+', ES11', ESep](docs/articles/sgp32/16-iot-functions-reference) | 2026-06-07 |
+
+**Diagram for SGP.32:**
+| [IoT Architecture — eIM + IPA](docs/diagrams/04-iot-architecture.html) — the SGP.32 ecosystem: eIM, IPA, SM-DP+, new interfaces |
 
 [📂 All SGP.32 articles →](docs/articles/sgp32/)
 
@@ -190,21 +196,6 @@ title: eUICC.tech — eSIM RSP Knowledge Base
 | [CRL and Certificate Management in the Test Ecosystem](docs/articles/sgp26/41-sgp26-crl) | 2026-06-05 |
 
 [📂 All SGP.26 articles →](docs/articles/sgp26/)
-
----
-
-## 🎨 Architecture Diagrams
-
-*Dark-themed SVG diagrams — open in any browser. All 6 reference diagrams for presentations and documentation.*
-
-| Diagram | What It Shows |
-|---------|---------------|
-| [RSP Architecture Overview](docs/diagrams/01-rsp-architecture.html) | All 5 entities, 13 interfaces, trust relationships |
-| [eUICC Internal Architecture](docs/diagrams/02-euicc-internals.html) | ISD-R, ISD-P, ECASD, security domains, profile isolation |
-| [PKI Trust Chain](docs/diagrams/03-pki-trust-chain.html) | CI → EUM → eUICC certificate hierarchy |
-| [IoT Architecture — eIM + IPA](docs/diagrams/04-iot-architecture.html) | The SGP.32 ecosystem: eIM, IPA, SM-DP+, new interfaces |
-| [Profile Download Sequence](docs/diagrams/05-profile-download-sequence.html) | Full message flow: activation → auth → install |
-| [Profile Package Stages](docs/diagrams/06-profile-package-stages.html) | How a profile moves from operator → SM-DP+ → eUICC |
 
 ---
 
