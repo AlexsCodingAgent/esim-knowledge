@@ -7,7 +7,7 @@ title: "eSIM Explained — Illustrated Edition"
 
 *The same eSIM concepts, told through stories, analogies, and hand-drawn illustrations. Perfect for visual learners, younger readers, or anyone who wants the intuition before the technical detail.*
 
-<p align="center"><em>📖 Reading: <strong>Illustrated</strong> · <a href="{{ site.baseurl }}/">Switch to Technical →</a></em></p>
+📖 Reading: **Illustrated** · [Switch to Technical →]({{ site.baseurl }}/)
 
 [📖 **Read the Storybook Collection →**](storybooks) — 17 illustrated books you can scroll through like a real book
 
