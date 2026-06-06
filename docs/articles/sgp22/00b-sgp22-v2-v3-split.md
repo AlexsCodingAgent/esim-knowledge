@@ -112,6 +112,9 @@ The fundamental difference is scope:
 - You need a single eUICC platform for both consumer and IoT/M2M use cases
 - You're deploying managed IoT fleets with eIM-based provisioning
 - You need the highest profile package version features
+- You want Multiple Enabled Profiles, Push Service, or Device Change
+
+**📂 [Read the full SGP.22 v3.x article series →]({{ site.baseurl }}/docs/articles/sgp22-v3/52-sgp22-v3-overview)** — 8 deep-dive articles covering all v3.x features
 - You're future-proofing a new platform that won't ship for 18+ months
 
 ### Both tracks in parallel:
