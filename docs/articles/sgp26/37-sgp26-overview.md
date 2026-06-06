@@ -5,7 +5,7 @@ date: 2026-06-06
 
 # SGP.26 Overview: The GSMA RSP Test Certificate Infrastructure
 
-**🏠 [eUICC.tech](/) > [SGP.26 Test Certificates](/docs/articles/sgp26/) > SGP.26 Overview: The GSMA RSP Test Certificate Infrastructure**
+**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.26 Test Certificates]({{ site.baseurl }}/docs/articles/sgp26/) > SGP.26 Overview: The GSMA RSP Test Certificate Infrastructure**
 
 > **💡 Why this matters:** Every eSIM test runs on certificates — but production certificates are tightly guarded secrets. SGP.26 defines a complete, publicly documented test PKI with known private keys so that eUICC manufacturers, SM-DP+ providers, and device testers can all interoperate without risking real credentials. Without SGP.26, there is no common language for eSIM testing.
 
@@ -117,9 +117,9 @@ The invalid test cases are particularly valuable. SGP.26 provides certificates w
 
 <div align="center">
 
-[🏠 Home](/)
+[🏠 Home]({{ site.baseurl }}/)
 
-Next: [Test Certificate Hierarchy: CI, EUM, DP, DS, and eUICC](/docs/articles/sgp26/38-sgp26-hierarchy) →
+Next: [Test Certificate Hierarchy: CI, EUM, DP, DS, and eUICC]({{ site.baseurl }}/docs/articles/sgp26/38-sgp26-hierarchy) →
 
 </div>
 

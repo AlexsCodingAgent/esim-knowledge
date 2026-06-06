@@ -5,7 +5,7 @@ date: 2026-06-05
 
 # SGP.25 Overview: The eUICC Common Criteria Protection Profile
 
-**🏠 [eUICC.tech](/) > [SGP.25 eUICC Security](/docs/articles/sgp25/) > SGP.25 Overview: The eUICC Common Criteria Protection Profile**
+**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.25 eUICC Security]({{ site.baseurl }}/docs/articles/sgp25/) > SGP.25 Overview: The eUICC Common Criteria Protection Profile**
 
 > **💡 Why this matters:** SGP.22 defines *how* eSIM works on a protocol level, and SGP.23 defines *how to test it*. SGP.25 defines *how to trust it* — the Common Criteria Protection Profile that every commercial eUICC must be evaluated against before it can carry real operator profiles. This is the security certification foundation that underpins the entire consumer and IoT eSIM ecosystem.
 
@@ -143,9 +143,9 @@ SGP.25 structures threats in two tiers:
 
 <div align="center">
 
-[🏠 Home](/)
+[🏠 Home]({{ site.baseurl }}/)
 
-Next: [eUICC Security Functional Requirements](/docs/articles/sgp25/23-sgp25-security-requirements) →
+Next: [eUICC Security Functional Requirements]({{ site.baseurl }}/docs/articles/sgp25/23-sgp25-security-requirements) →
 
 </div>
 

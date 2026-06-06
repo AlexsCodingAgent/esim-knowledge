@@ -5,7 +5,7 @@ date: 2026-06-05
 
 # EID Format Decoded: The 32-Digit Structure
 
-**🏠 [eUICC.tech](/) > [SGP.29 EID](/docs/articles/sgp29/) > EID Format Decoded: The 32-Digit Structure**
+**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.29 EID]({{ site.baseurl }}/docs/articles/sgp29/) > EID Format Decoded: The 32-Digit Structure**
 
 > **💡 Why this matters:** The EID's 32-digit structure is not arbitrary — it encodes a hierarchical delegation chain from the GSMA down to individual eUICC manufacturers, with built-in cryptographic verification. Understanding the format reveals how EID ranges are delegated through a tree of assignment authorities, how manufacturers encode their identity, and how anyone can validate an EID's authenticity using simple modular arithmetic.
 
@@ -66,7 +66,7 @@ The final 2 digits provide cryptographic-strength validation of the entire EID, 
 
 ---
 
-## The Luhn Algorithm (Modulo-97)
+## The MOD 97-10 Check Digit Algorithm (ISO 7064)
 
 > **Note:** While commonly described as a "Luhn-style" algorithm, SGP.29 actually specifies ISO/IEC 7064 MOD 97-10 — the same standard used for IBANs. This is a different (and stronger) algorithm than the MOD 10 Luhn algorithm used for credit cards.
 
@@ -186,9 +186,9 @@ GSMA ──ERHI1──▶ Group of Device Mfrs ──ERHI2──▶ Single Devic
 
 <div align="center">
 
-← Previous: [SGP.29 Overview: The eUICC Identifier (EID)](/docs/articles/sgp29/27-sgp29-overview) · [🏠 Home](/)
+← Previous: [SGP.29 Overview: The eUICC Identifier (EID)]({{ site.baseurl }}/docs/articles/sgp29/27-sgp29-overview) · [🏠 Home]({{ site.baseurl }}/)
 
-Next: [EID Assignment: How Manufacturers Get Their Allocations](/docs/articles/sgp29/29-sgp29-assignment) →
+Next: [EID Assignment: How Manufacturers Get Their Allocations]({{ site.baseurl }}/docs/articles/sgp29/29-sgp29-assignment) →
 
 </div>
 

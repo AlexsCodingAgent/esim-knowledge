@@ -5,7 +5,7 @@ date: 2026-06-05
 
 # SGP.23 Certification: From Test Cases to DLOA
 
-**🏠 [eUICC.tech](/) > [SGP.23 Test Specifications](/docs/articles/sgp23/) > SGP.23 Certification: From Test Cases to DLOA**
+**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.23 Test Specifications]({{ site.baseurl }}/docs/articles/sgp23/) > SGP.23 Certification: From Test Cases to DLOA**
 
 > **💡 Why this matters:** Passing 800+ pages of test cases is only the beginning. The journey from a compliant implementation to a certified product involves GSMA Test Events, SAS-accredited labs, mandatory certification audits, and ultimately a GlobalPlatform Digital Letter of Approval (DLOA) — the portable certificate that gatekeeps access to production eSIM deployments.
 
@@ -15,7 +15,7 @@ date: 2026-06-05
 > - SAS (Security Accreditation Scheme) certification is mandatory for eUICC production sites and is verified by SGP.23 test cases
 > - The DLOA is a GlobalPlatform-specified digital certificate managed by a DLOA Registrar with a discovery base URL
 > - SGP.23 Annex F defines `IUT_DLOA_URL` as the Discovery Base URL of the SE default DLOA Registrar
-> - The specification supports SGP.22 versions v2.2 through v2.6, with version-specific applicability so products can certify against their target version
+> - The specification supports SGP.22 versions v2.2 through v2.6, with version-specific applicability so products can certify against their target version (Note: SGP.22 v2.7, published April 2026, post-dates SGP.23 v1.16 and is not yet covered.)
 
 SGP.23 is not just a test specification — it is the technical foundation of the GSMA's eSIM certification programme. This article traces the path from a vendor's implementation to a certified product that can be deployed in production networks.
 
@@ -48,7 +48,7 @@ Each of the four IUT types can earn certification independently:
 
 Before a Test Event, the vendor:
 
-1. Implements SGP.22 per the target version (v2.2 through v2.6)
+1. Implements SGP.22 per the target version (v2.2 through v2.6) (Note: SGP.22 v2.7, published April 2026, post-dates SGP.23 v1.16 and is not yet covered.)
 2. Completes the **Optional Features Table** — declaring which optional capabilities their product supports
 3. Determines the applicable test cases using the **Applicability Table** (mandatory, conditional, or not applicable based on declared features)
 4. Provides **IUT Settings** (Annex F) — product-specific details needed by the test tools:
@@ -110,6 +110,8 @@ SGP.23 v1.16 supports testing against multiple SGP.22 versions:
 | v2.5 | Ref [2f] | Additional features |
 | v2.6 | Ref [2] | Current primary reference |
 
+(Note: SGP.22 v2.7, published April 2026, post-dates SGP.23 v1.16 and is not yet covered.)
+
 The Applicability Table includes version-specific columns so that a product certifying against SGP.22 v2.3 is only tested against test cases relevant to v2.3. The `#IUT_RSP_VERSION` setting selects which column applies.
 
 SGP.23 itself has evolved through 16 minor versions since v1.0 (June 2017), reflecting the continuous expansion of the eSIM ecosystem.
@@ -133,14 +135,14 @@ SGP.23 explicitly marks certain areas as **FFS (For Future Study)** or out of sc
 - GSMA Test Events provide standardised, tool-driven validation against SGP.23 test cases
 - SAS accreditation is mandatory for eUICC manufacturing and is verified within SGP.23 test cases
 - The GlobalPlatform DLOA is the portable digital certificate of compliance, managed via a DLOA Registrar
-- SGP.23 supports certification against SGP.22 v2.2 through v2.6 with version-specific applicability
+- SGP.23 supports certification against SGP.22 v2.2 through v2.6 with version-specific applicability (Note: SGP.22 v2.7, published April 2026, post-dates SGP.23 v1.16 and is not yet covered.)
 - End-to-end testing remains FFS, limiting current certification to per-component conformance
 
 ---
 
 <div align="center">
 
-← Previous: [Testing the SM-DP+ and SM-DS](/docs/articles/sgp23/20-sgp23-server-testing) · [🏠 Home](/)
+← Previous: [Testing the SM-DP+ and SM-DS]({{ site.baseurl }}/docs/articles/sgp23/20-sgp23-server-testing) · [🏠 Home]({{ site.baseurl }}/)
 
 </div>
 

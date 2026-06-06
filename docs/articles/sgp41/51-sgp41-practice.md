@@ -5,7 +5,7 @@ date: 2026-06-06
 
 # IFPP in Practice: PC OEMs, Automotive, and IoT Manufacturing
 
-**🏠 [eUICC.tech](/) > [SGP.41 IFPP](/docs/articles/sgp41/) > IFPP in Practice: PC OEMs, Automotive, and IoT Manufacturing**
+**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.41 IFPP]({{ site.baseurl }}/docs/articles/sgp41/) > IFPP in Practice: PC OEMs, Automotive, and IoT Manufacturing**
 
 > **💡 Why this matters:** SGP.41's architecture is elegant on paper, but its real value emerges on the factory floor. PC OEMs shipping millions of laptops with pre-provisioned eSIM connectivity, automotive assembly lines where cars roll off with active telematics, IoT manufacturers producing devices at scale without SAS-certified facilities — these aren't hypotheticals, they're the use cases the GSMA designed SGP.41 to address.
 
@@ -183,7 +183,7 @@ For NB-IoT sensors, smart meters, asset trackers, and industrial IoT devices:
 
 <div align="center">
 
-← Previous: [IFPP Security: Factory Trust Models and Certificate Chains](/docs/articles/sgp41/50-sgp41-security) · [🏠 Home](/)
+← Previous: [IFPP Security: Factory Trust Models and Certificate Chains]({{ site.baseurl }}/docs/articles/sgp41/50-sgp41-security) · [🏠 Home]({{ site.baseurl }}/)
 
 </div>
 

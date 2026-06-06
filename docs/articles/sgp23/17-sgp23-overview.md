@@ -5,7 +5,7 @@ date: 2026-06-05
 
 # SGP.23 Overview: How eSIM Interoperability Is Tested
 
-**🏠 [eUICC.tech](/) > [SGP.23 Test Specifications](/docs/articles/sgp23/) > SGP.23 Overview: How eSIM Interoperability Is Tested**
+**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.23 Test Specifications]({{ site.baseurl }}/docs/articles/sgp23/) > SGP.23 Overview: How eSIM Interoperability Is Tested**
 
 > **💡 Why this matters:** SGP.22 defines *what* an eSIM system must do. SGP.23 defines *how to prove it works* — the 913-page test specification that every eUICC, SM-DP+, SM-DS, and LPA implementation must pass before deployment. Understanding SGP.23 reveals the compliance regime that makes multi-vendor eSIM interoperability possible.
 
@@ -71,7 +71,7 @@ Not every test case applies to every implementation. SGP.23 provides two key tab
 
 **Optional Features Table** — The vendor declares which optional capabilities their product supports. For eUICCs, this includes cryptographic curve support (NIST P-256, brainpoolP256r1, FRP256V1), CRL support, integrated eUICC form factor, LPAe support, one-time key reuse, and more. For SM-DP+s: session key usage, ES2+ retry, brainpoolP256r1 TLS. For Devices: SM-DS support, nickname display, combined Add+Enable operations, cellular-only connectivity.
 
-**Applicability Table** — Maps every test case to an applicability code: `M` (mandatory), `N/A` (not applicable), or `Ci` (conditional — applies only if certain optional features are supported). This produces a tailored test suite for each implementation, keyed to the SGP.22 version under test (v2.2 through v2.6).
+**Applicability Table** — Maps every test case to an applicability code: `M` (mandatory), `N/A` (not applicable), or `Ci` (conditional — applies only if certain optional features are supported). This produces a tailored test suite for each implementation, keyed to the SGP.22 version under test (v2.2 through v2.6). (Note: SGP.22 v2.7, published April 2026, post-dates SGP.23 v1.16 and is not yet covered.)
 
 ---
 
@@ -99,7 +99,7 @@ The DLOA serves as a portable certificate of compliance — a product that holds
 
 ## 📋 Summary
 
-- SGP.23 is the 913-page GSMA test specification covering every SGP.22 interface and behaviour for consumer eSIM
+- SGP.23 is the 913-page GSMA test specification covering every SGP.22 interface and behaviour for consumer eSIM (Note: SGP.22 v2.7, published April 2026, post-dates SGP.23 v1.16 and is not yet covered.)
 - Four IUT types (eUICC, LPAd/Device, SM-DP+, SM-DS) are tested using isolated simulator environments
 - Two testing scopes (interface compliance + system behaviour) span ES2+, ES6, ES8+, ES9+, ES10a/b/c, ES11, ES12, and ES15
 - Optional Features and Applicability tables ensure each implementation is tested against relevant requirements only
@@ -109,9 +109,9 @@ The DLOA serves as a portable certificate of compliance — a product that holds
 
 <div align="center">
 
-[🏠 Home](/)
+[🏠 Home]({{ site.baseurl }}/)
 
-Next: [The GSMA eSIM Test Infrastructure](/docs/articles/sgp23/18-sgp23-test-infrastructure) →
+Next: [The GSMA eSIM Test Infrastructure]({{ site.baseurl }}/docs/articles/sgp23/18-sgp23-test-infrastructure) →
 
 </div>
 

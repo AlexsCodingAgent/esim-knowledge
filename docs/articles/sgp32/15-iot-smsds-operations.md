@@ -5,7 +5,7 @@ date: 2026-06-06
 
 # SM-DS Operations in IoT eSIM: Event Registration and Retrieval
 
-**🏠 [eUICC.tech](/) > [SGP.32 IoT eSIM](/docs/articles/sgp32/) > SM-DS Operations in IoT eSIM: Event Registration and Retrieval**
+**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.32 IoT eSIM]({{ site.baseurl }}/docs/articles/sgp32/) > SM-DS Operations in IoT eSIM: Event Registration and Retrieval**
 
 > **💡 Why this matters:** The SM-DS bridges the gap between "profile is ready" and "device is awake to receive it." In IoT, that gap can span hours, days, or weeks — and the retrieval path can go through either the `IPA` (ES11) or the `eIM` (ES11'). Understanding both paths and when to use each is essential for designing IoT deployments that don't waste airtime on devices that sleep 99% of the time.
 
@@ -183,9 +183,9 @@ This consolidates what would be three separate exchanges into one wake cycle —
 
 <div align="center">
 
-← Previous: [Profile State Management via the eIM: Remote Enable, Disable, Delete](/docs/articles/sgp32/14-iot-profile-state-management) · [🏠 Home](/)
+← Previous: [Profile State Management via the eIM: Remote Enable, Disable, Delete]({{ site.baseurl }}/docs/articles/sgp32/14-iot-profile-state-management) · [🏠 Home]({{ site.baseurl }}/)
 
-Next: [IoT eSIM Functions Reference: ESipa, ES9+', ES11', ESep](/docs/articles/sgp32/16-iot-functions-reference) →
+Next: [IoT eSIM Functions Reference: ESipa, ES9+', ES11', ESep]({{ site.baseurl }}/docs/articles/sgp32/16-iot-functions-reference) →
 
 </div>
 

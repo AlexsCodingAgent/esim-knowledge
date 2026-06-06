@@ -5,7 +5,7 @@ date: 2026-06-05
 
 # Key eIM Test Cases: PSMO, Notifications, and Configuration
 
-**🏠 [eUICC.tech](/) > [SGP.33-3 eIM Testing](/docs/articles/sgp33-3/) > Key eIM Test Cases: PSMO, Notifications, and Configuration**
+**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.33-3 eIM Testing]({{ site.baseurl }}/docs/articles/sgp33-3/) > Key eIM Test Cases: PSMO, Notifications, and Configuration**
 
 > **💡 Why this matters:** The eIM's job is to remotely manage what happens on IoT devices — enabling and disabling profiles, handling configuration changes, and processing notifications about profile state — all without any End User pressing buttons. SGP.33-3's test cases verify that the eIM correctly orchestrates these operations across four different interfaces (ESep, ES9+', ES11', ESipa) and through multiple communication patterns. If the eIM gets any of these wrong, IoT devices in the field could be left with the wrong profile enabled, missed notifications, or an unmanageable eUICC.
 
@@ -167,9 +167,9 @@ Each sequence includes conditional branching on `O_S_TRID` (whether a Transactio
 
 <div align="center">
 
-← Previous: [eIM Test Architecture: Simulated eIM and Reference IPA](/docs/articles/sgp33-3/43-sgp33-eim-architecture) · [🏠 Home](/)
+← Previous: [eIM Test Architecture: Simulated eIM and Reference IPA]({{ site.baseurl }}/docs/articles/sgp33-3/43-sgp33-eim-architecture) · [🏠 Home]({{ site.baseurl }}/)
 
-Next: [eIM Security Testing: DTLS, Certificates, and Signed Packages](/docs/articles/sgp33-3/45-sgp33-eim-security) →
+Next: [eIM Security Testing: DTLS, Certificates, and Signed Packages]({{ site.baseurl }}/docs/articles/sgp33-3/45-sgp33-eim-security) →
 
 </div>
 

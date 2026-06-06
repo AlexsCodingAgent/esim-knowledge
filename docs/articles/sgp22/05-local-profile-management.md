@@ -5,7 +5,7 @@ date: 2026-06-03
 
 # Managing Your eSIM: Local Profile Operations
 
-**🏠 [eUICC.tech](/) > [SGP.22 Consumer RSP](/docs/articles/sgp22/) > Managing Your eSIM: Local Profile Operations**
+**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > Managing Your eSIM: Local Profile Operations**
 
 > **💡 Why this matters:** This is the user-facing half of eSIM — everything you actually do on your device: switching carriers, deleting old plans, and naming profiles. The UI is simple, but the underlying protocol is precise and policy-enforced.
 
@@ -232,9 +232,9 @@ For development and testing, SGP.22 defines a **Device Test Mode** — a hidden 
 
 <div align="center">
 
-← Previous: [eSIM Security: The PKI and Certificate Model](/docs/articles/sgp22/04-esim-security-pki) · [🏠 Home](/)
+← Previous: [eSIM Security: The PKI and Certificate Model]({{ site.baseurl }}/docs/articles/sgp22/04-esim-security-pki) · [🏠 Home]({{ site.baseurl }}/)
 
-Next: [The Developer's View: RSP Interfaces and Protocol Binding](/docs/articles/sgp22/06-developer-interfaces) →
+Next: [The Developer's View: RSP Interfaces and Protocol Binding]({{ site.baseurl }}/docs/articles/sgp22/06-developer-interfaces) →
 
 </div>
 

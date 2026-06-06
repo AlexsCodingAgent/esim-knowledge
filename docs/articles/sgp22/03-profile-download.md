@@ -5,7 +5,7 @@ date: 2026-05-29
 
 # How a Profile Gets Delivered: The eSIM Download Process
 
-**🏠 [eUICC.tech](/) > [SGP.22 Consumer RSP](/docs/articles/sgp22/) > How a Profile Gets Delivered: The eSIM Download Process**
+**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > How a Profile Gets Delivered: The eSIM Download Process**
 
 > **💡 Why this matters:** The profile download is the core transaction in the eSIM ecosystem — it's where all the cryptographic infrastructure proves itself. Every component (SM-DP+, SM-DS, LPA, eUICC, GSMA CI) participates. Understanding the full three-phase flow at protocol level is essential for debugging interoperability issues, implementing an RSP component, or integrating with any eSIM platform.
 
@@ -689,9 +689,9 @@ Test profiles are marked with Profile Class = Test. They have relaxed security r
 
 <div align="center">
 
-← Previous: [Inside the eUICC: The Secure Element That Powers Your eSIM](/docs/articles/sgp22/02-inside-the-euicc) · [🏠 Home](/)
+← Previous: [Inside the eUICC: The Secure Element That Powers Your eSIM]({{ site.baseurl }}/docs/articles/sgp22/02-inside-the-euicc) · [🏠 Home]({{ site.baseurl }}/)
 
-Next: [eSIM Security: The PKI and Certificate Model](/docs/articles/sgp22/04-esim-security-pki) →
+Next: [eSIM Security: The PKI and Certificate Model]({{ site.baseurl }}/docs/articles/sgp22/04-esim-security-pki) →
 
 </div>
 

@@ -5,7 +5,7 @@ date: 2026-06-01
 
 # eSIM Security: The PKI and Certificate Model
 
-**🏠 [eUICC.tech](/) > [SGP.22 Consumer RSP](/docs/articles/sgp22/) > eSIM Security: The PKI and Certificate Model**
+**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > eSIM Security: The PKI and Certificate Model**
 
 > **💡 Why this matters:** The eSIM security model is what makes it possible to deliver operator credentials over the public internet — through an untrusted device — without anyone in the middle being able to steal or tamper with them. Every eSIM download depends on this PKI.
 
@@ -195,9 +195,9 @@ These certifications are verified through **Digital Letters of Approval (DLOAs)*
 
 <div align="center">
 
-← Previous: [How a Profile Gets Delivered: The eSIM Download Process](/docs/articles/sgp22/03-profile-download) · [🏠 Home](/)
+← Previous: [How a Profile Gets Delivered: The eSIM Download Process]({{ site.baseurl }}/docs/articles/sgp22/03-profile-download) · [🏠 Home]({{ site.baseurl }}/)
 
-Next: [Managing Your eSIM: Local Profile Operations](/docs/articles/sgp22/05-local-profile-management) →
+Next: [Managing Your eSIM: Local Profile Operations]({{ site.baseurl }}/docs/articles/sgp22/05-local-profile-management) →
 
 </div>
 

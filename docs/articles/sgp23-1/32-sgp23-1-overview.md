@@ -5,7 +5,7 @@ date: 2026-06-05
 
 # SGP.23-1 Overview: Testing the eUICC Itself
 
-**🏠 [eUICC.tech](/) > [SGP.23-1 eUICC Testing](/docs/articles/sgp23-1/) > SGP.23-1 Overview: Testing the eUICC Itself**
+**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.23-1 eUICC Testing]({{ site.baseurl }}/docs/articles/sgp23-1/) > SGP.23-1 Overview: Testing the eUICC Itself**
 
 > **💡 Why this matters:** SGP.23 tests the entire eSIM ecosystem as an integrated system — but before any of that integration testing can happen, the eUICC chip itself must be proven compliant. SGP.23-1 is the 797-page test bible dedicated exclusively to the eUICC — the embedded chip at the heart of every eSIM device. If your eUICC can't pass these tests, nothing downstream works.
 
@@ -30,6 +30,8 @@ The original SGP.23 (v1.0, June 2017) was a single 913-page document covering al
 - **SGP.23-3** — RSP Test Specification for the SM-DS and LPAd/Device
 
 This split allowed the eUICC testing to evolve independently, targeting SGP.22 V3.1 (the M2M/IoT profile) rather than the consumer-focused SGP.22 V2.x series. SGP.23-1 now stands at v3.1.3 with multiple MEP (Multiple Enabled Profiles) test additions.
+
+*(Note: SGP.33 is a separate family created later for IoT-specific testing — see SGP.33-3 articles.)*
 
 ---
 
@@ -110,9 +112,9 @@ SGP.23-1 sits in a broader certification ecosystem:
 
 <div align="center">
 
-[🏠 Home](/)
+[🏠 Home]({{ site.baseurl }}/)
 
-Next: [eUICC Test Architecture: Readers, Scripts, and GSMA Tools](/docs/articles/sgp23-1/33-sgp23-1-architecture) →
+Next: [eUICC Test Architecture: Readers, Scripts, and GSMA Tools]({{ site.baseurl }}/docs/articles/sgp23-1/33-sgp23-1-architecture) →
 
 </div>
 

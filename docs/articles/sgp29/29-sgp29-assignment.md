@@ -5,7 +5,7 @@ date: 2026-06-05
 
 # EID Assignment: How Manufacturers Get Their Allocations
 
-**🏠 [eUICC.tech](/) > [SGP.29 EID](/docs/articles/sgp29/) > EID Assignment: How Manufacturers Get Their Allocations**
+**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.29 EID]({{ site.baseurl }}/docs/articles/sgp29/) > EID Assignment: How Manufacturers Get Their Allocations**
 
 > **💡 Why this matters:** Behind every eSIM chip's EID is a formal assignment process that verifies the legitimacy of the requesting entity, prevents fraud, and ensures global uniqueness. Without this governance, bad actors could obtain EID ranges and manufacture counterfeit eUICCs — undermining the entire RSP trust model. Understanding the ERHI1 assignment flow reveals the administrative machinery that keeps the eSIM numbering system secure.
 
@@ -208,9 +208,9 @@ Any Level X EIN Assignment Authority (where X ≥ 2) — e.g., a National Author
 
 <div align="center">
 
-← Previous: [EID Format Decoded: The 32-Digit Structure](/docs/articles/sgp29/28-sgp29-eid-format) · [🏠 Home](/)
+← Previous: [EID Format Decoded: The 32-Digit Structure]({{ site.baseurl }}/docs/articles/sgp29/28-sgp29-eid-format) · [🏠 Home]({{ site.baseurl }}/)
 
-Next: [EID in RSP Protocols: Discovery, Matching, and Events](/docs/articles/sgp29/30-sgp29-in-protocols) →
+Next: [EID in RSP Protocols: Discovery, Matching, and Events]({{ site.baseurl }}/docs/articles/sgp29/30-sgp29-in-protocols) →
 
 </div>
 

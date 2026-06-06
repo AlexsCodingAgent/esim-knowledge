@@ -5,7 +5,7 @@ date: 2026-06-06
 
 # Using Test Certificates: Developer Setup and Integration
 
-**🏠 [eUICC.tech](/) > [SGP.26 Test Certificates](/docs/articles/sgp26/) > Using Test Certificates: Developer Setup and Integration**
+**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.26 Test Certificates]({{ site.baseurl }}/docs/articles/sgp26/) > Using Test Certificates: Developer Setup and Integration**
 
 > **💡 Why this matters:** Having a specification for test certificates is one thing — getting them onto actual test hardware is another. This article covers the practical path from downloading the SGP.26 ZIP package to having a test eUICC that trusts your test SM-DP+, including OpenSSL commands, certificate provisioning, and the common mistakes that waste days in the lab.
 
@@ -315,9 +315,9 @@ The eUICC checks the `certificatePolicies` extension. If an SM-DP+ presents a TL
 
 <div align="center">
 
-← Previous: [Certificate Profiles: What Makes a Valid Test Certificate](/docs/articles/sgp26/39-sgp26-profiles) · [🏠 Home](/)
+← Previous: [Certificate Profiles: What Makes a Valid Test Certificate]({{ site.baseurl }}/docs/articles/sgp26/39-sgp26-profiles) · [🏠 Home]({{ site.baseurl }}/)
 
-Next: [CRL and Certificate Management in the Test Ecosystem](/docs/articles/sgp26/41-sgp26-crl) →
+Next: [CRL and Certificate Management in the Test Ecosystem]({{ site.baseurl }}/docs/articles/sgp26/41-sgp26-crl) →
 
 </div>
 

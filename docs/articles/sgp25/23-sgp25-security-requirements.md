@@ -5,7 +5,7 @@ date: 2026-06-05
 
 # eUICC Security Functional Requirements
 
-**🏠 [eUICC.tech](/) > [SGP.25 eUICC Security](/docs/articles/sgp25/) > eUICC Security Functional Requirements**
+**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.25 eUICC Security]({{ site.baseurl }}/docs/articles/sgp25/) > eUICC Security Functional Requirements**
 
 > **💡 Why this matters:** The heart of any Protection Profile is its Security Functional Requirements (SFRs). These are the precise, testable statements that define what the eUICC must *do* to be considered secure — from authenticating remote actors and isolating Profiles to protecting cryptographic keys and enforcing policy rules. Understanding the SFRs reveals exactly what security properties a certified eUICC guarantees.
 
@@ -213,9 +213,9 @@ What SGP.25 SFRs explicitly do **NOT** cover:
 
 <div align="center">
 
-← Previous: [SGP.25 Overview: The eUICC Common Criteria Protection Profile](/docs/articles/sgp25/22-sgp25-overview) · [🏠 Home](/)
+← Previous: [SGP.25 Overview: The eUICC Common Criteria Protection Profile]({{ site.baseurl }}/docs/articles/sgp25/22-sgp25-overview) · [🏠 Home]({{ site.baseurl }}/)
 
-Next: [eUICC Assurance Requirements: EAL4+ and Penetration Testing](/docs/articles/sgp25/24-sgp25-assurance) →
+Next: [eUICC Assurance Requirements: EAL4+ and Penetration Testing]({{ site.baseurl }}/docs/articles/sgp25/24-sgp25-assurance) →
 
 </div>
 

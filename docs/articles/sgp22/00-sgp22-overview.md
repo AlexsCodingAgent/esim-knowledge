@@ -4,7 +4,7 @@ date: 2026-06-05
 
 # eSIM Remote SIM Provisioning (RSP) — How It Works
 
-**🏠 [eUICC.tech](/) > [SGP.22 Consumer RSP](/docs/articles/sgp22/) > eSIM Remote SIM Provisioning (RSP) — How It Works**
+**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > eSIM Remote SIM Provisioning (RSP) — How It Works**
 
 > **📚 Prerequisites:** New to telecom or smart card technology? Read our [Prerequisites Guide](/docs/prerequisites) first. The [Glossary](/docs/glossary) defines all acronyms used in these articles.
 
@@ -198,9 +198,9 @@ That's it. The device extracts the SM-DP+ URL and the Matching ID, then begins t
 
 <div align="center">
 
-[🏠 Home](/)
+[🏠 Home]({{ site.baseurl }}/)
 
-Next: [The eSIM RSP Architecture: Players and Interfaces](/docs/articles/sgp22/01-rsp-architecture) →
+Next: [The eSIM RSP Architecture: Players and Interfaces]({{ site.baseurl }}/docs/articles/sgp22/01-rsp-architecture) →
 
 </div>
 

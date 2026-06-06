@@ -5,7 +5,7 @@ date: 2026-06-07
 
 # IoT eSIM Functions Reference: ESipa, ES9+', ES11', ESep
 
-**🏠 [eUICC.tech](/) > [SGP.32 IoT eSIM](/docs/articles/sgp32/) > IoT eSIM Functions Reference: ESipa, ES9+', ES11', ESep**
+**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.32 IoT eSIM]({{ site.baseurl }}/docs/articles/sgp32/) > IoT eSIM Functions Reference: ESipa, ES9+', ES11', ESep**
 
 > **💡 Why this matters:** This is the API-level reference for SGP.32's four IoT-specific interfaces — the catalogue you reach for when implementing an `eIM`, `IPA`, or IoT eSIM integration. Every function, its parameters, and its transport binding are listed here so you don't have to grep through 231 pages of specification.
 
@@ -272,7 +272,7 @@ SGP.32 extends SGP.22's ES10 functions with IoT-specific additions:
 
 <div align="center">
 
-← Previous: [SM-DS Operations in IoT eSIM: Event Registration and Retrieval](/docs/articles/sgp32/15-iot-smsds-operations) · [🏠 Home](/)
+← Previous: [SM-DS Operations in IoT eSIM: Event Registration and Retrieval]({{ site.baseurl }}/docs/articles/sgp32/15-iot-smsds-operations) · [🏠 Home]({{ site.baseurl }}/)
 
 </div>
 

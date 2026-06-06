@@ -5,7 +5,7 @@ date: 2026-06-04
 
 # IoT Device Initialisation and the eUICC File Structure
 
-**🏠 [eUICC.tech](/) > [SGP.32 IoT eSIM](/docs/articles/sgp32/) > IoT Device Initialisation and the eUICC File Structure**
+**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.32 IoT eSIM]({{ site.baseurl }}/docs/articles/sgp32/) > IoT Device Initialisation and the eUICC File Structure**
 
 > **💡 Why this matters:** Before an IoT device can receive profiles or respond to remote management commands, a precise boot sequence must execute — the eUICC initialises, the `IPA` activates, associated eIMs are discovered, and connectivity is assessed. Understanding this sequence and the eUICC file structure that underpins it is critical for anyone integrating eSIM into IoT hardware.
 
@@ -161,9 +161,9 @@ The Fallback Profile is typically a provisioning profile from the device manufac
 
 <div align="center">
 
-← Previous: [Notifications and Error Handling in IoT eSIM](/docs/articles/sgp32/12-notifications-errors) · [🏠 Home](/)
+← Previous: [Notifications and Error Handling in IoT eSIM]({{ site.baseurl }}/docs/articles/sgp32/12-notifications-errors) · [🏠 Home]({{ site.baseurl }}/)
 
-Next: [Profile State Management via the eIM: Remote Enable, Disable, Delete](/docs/articles/sgp32/14-iot-profile-state-management) →
+Next: [Profile State Management via the eIM: Remote Enable, Disable, Delete]({{ site.baseurl }}/docs/articles/sgp32/14-iot-profile-state-management) →
 
 </div>
 

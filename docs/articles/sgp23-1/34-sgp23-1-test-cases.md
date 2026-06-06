@@ -5,7 +5,7 @@ date: 2026-06-05
 
 # Key eUICC Test Cases: ISD-R, ECASD, and Profile Lifecycle
 
-**🏠 [eUICC.tech](/) > [SGP.23-1 eUICC Testing](/docs/articles/sgp23-1/) > Key eUICC Test Cases: ISD-R, ECASD, and Profile Lifecycle**
+**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.23-1 eUICC Testing]({{ site.baseurl }}/docs/articles/sgp23-1/) > Key eUICC Test Cases: ISD-R, ECASD, and Profile Lifecycle**
 
 > **💡 Why this matters:** Before any profile can be downloaded, before any carrier switch can happen, the eUICC must correctly handle the fundamental lifecycle of its secure domains and profiles. SGP.23-1's 27 interface test groups and 8 behaviour test groups verify every state transition — from the first ATR byte through ISD-R selection, secure channel establishment, profile installation, enablement, and deletion. These are the tests that catch the bugs which would otherwise surface as "inexplicable" field failures.
 
@@ -208,9 +208,9 @@ Beyond interface compliance, these behaviour tests verify the full process lifec
 
 <div align="center">
 
-← Previous: [eUICC Test Architecture: Readers, Scripts, and GSMA Tools](/docs/articles/sgp23-1/33-sgp23-1-architecture) · [🏠 Home](/)
+← Previous: [eUICC Test Architecture: Readers, Scripts, and GSMA Tools]({{ site.baseurl }}/docs/articles/sgp23-1/33-sgp23-1-architecture) · [🏠 Home]({{ site.baseurl }}/)
 
-Next: [eUICC Security Testing: Certificates, Keys, and Channels](/docs/articles/sgp23-1/35-sgp23-1-security) →
+Next: [eUICC Security Testing: Certificates, Keys, and Channels]({{ site.baseurl }}/docs/articles/sgp23-1/35-sgp23-1-security) →
 
 </div>
 

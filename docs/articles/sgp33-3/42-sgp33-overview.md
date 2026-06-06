@@ -5,7 +5,7 @@ date: 2026-06-05
 
 # SGP.33 Overview: The IoT eSIM Test Family
 
-**🏠 [eUICC.tech](/) > [SGP.33-3 eIM Testing](/docs/articles/sgp33-3/) > SGP.33 Overview: The IoT eSIM Test Family**
+**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.33-3 eIM Testing]({{ site.baseurl }}/docs/articles/sgp33-3/) > SGP.33 Overview: The IoT eSIM Test Family**
 
 > **💡 Why this matters:** Consumer eSIM testing (SGP.23) is well-established, but IoT devices operate under fundamentally different constraints — they may lack a user interface, have no local profile assistant, rely on remote management, and must support entirely new architectural elements like the eIM (eUICC IoT Manager). SGP.33 is the three-part test specification family built specifically for the IoT eSIM ecosystem defined by SGP.31 and SGP.32. Without it, there is no standardised path to prove that an IoT eSIM deployment actually works.
 
@@ -17,7 +17,7 @@ date: 2026-06-05
 > - All three documents share a common test methodology: simulator-based isolation, Optional Features Tables for conditional applicability, and conformance testing across interface compliance and system behaviour
 > - As of v1.2 (January 2025), many test sequences — particularly on the ESipa interface — remain marked FFS (For Future Study), reflecting the evolving nature of IoT eSIM testing
 
-The GSMA's SGP.33 document family was split from the original monolithic SGP.23 test specification in 2018 to give IoT-specific testing the dedicated attention it required. Where SGP.23 tests consumer eSIM components (eUICC, LPAd/Device, SM-DP+, SM-DS) against SGP.22 V2.x, SGP.33 tests IoT-specific components against SGP.22 and SGP.32.
+The GSMA's SGP.33 document family was created in 2023 as a companion to the IoT specifications (SGP.31/SGP.32) to give IoT-specific testing the dedicated attention it required. Where SGP.23 tests consumer eSIM components (eUICC, LPAd/Device, SM-DP+, SM-DS) against SGP.22 V2.x, SGP.33 tests IoT-specific components against SGP.22 and SGP.32.
 
 ---
 
@@ -98,7 +98,7 @@ SGP.33-3 v1.2 was published on 27 January 2025, but this is effectively the firs
 
 ## 📋 Summary
 
-- SGP.33 is a three-part IoT-specific test family: SGP.33-1 (IPA), SGP.33-2 (SM-DP+), and SGP.33-3 (eIM) — split from SGP.23 in 2018
+- SGP.33 is a three-part IoT-specific test family: SGP.33-1 (IPA), SGP.33-2 (SM-DP+), and SGP.33-3 (eIM) — created as a companion to SGP.31/SGP.32 in 2023
 - SGP.33-3 targets the eUICC IoT Manager (eIM), the remote server that manages profiles and configuration on IoT devices without End User interaction
 - IoT eSIM introduces new interfaces (ESep, ESipa, ES9+', ES11') and architectural concepts (eIM Configuration, eIM Package Retrieval) not present in consumer eSIM
 - The test environment isolates the eIM using five simulator types (S_SM-DP+, S_SM-DS, S_eUICC, S_IPA, and TLS simulators)
@@ -109,9 +109,9 @@ SGP.33-3 v1.2 was published on 27 January 2025, but this is effectively the firs
 
 <div align="center">
 
-[🏠 Home](/)
+[🏠 Home]({{ site.baseurl }}/)
 
-Next: [eIM Test Architecture: Simulated eIM and Reference IPA](/docs/articles/sgp33-3/43-sgp33-eim-architecture) →
+Next: [eIM Test Architecture: Simulated eIM and Reference IPA]({{ site.baseurl }}/docs/articles/sgp33-3/43-sgp33-eim-architecture) →
 
 </div>
 

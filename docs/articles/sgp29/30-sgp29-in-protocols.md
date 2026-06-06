@@ -5,7 +5,7 @@ date: 2026-06-05
 
 # EID in RSP Protocols: Discovery, Matching, and Events
 
-**🏠 [eUICC.tech](/) > [SGP.29 EID](/docs/articles/sgp29/) > EID in RSP Protocols: Discovery, Matching, and Events**
+**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.29 EID]({{ site.baseurl }}/docs/articles/sgp29/) > EID in RSP Protocols: Discovery, Matching, and Events**
 
 > **💡 Why this matters:** The EID is not a static label — it is an active operational identifier woven throughout every major RSP protocol. When a consumer scans a QR code to activate an eSIM, when an IoT device wakes up and polls for pending profiles, when an operator pushes an event notification — the EID is the key that links the request to the correct chip. Understanding where and how the EID appears in RSP protocols illuminates the end-to-end identity plumbing of the eSIM ecosystem.
 
@@ -215,9 +215,9 @@ The EID's role spans all four core RSP specifications:
 
 <div align="center">
 
-← Previous: [EID Assignment: How Manufacturers Get Their Allocations](/docs/articles/sgp29/29-sgp29-assignment) · [🏠 Home](/)
+← Previous: [EID Assignment: How Manufacturers Get Their Allocations]({{ site.baseurl }}/docs/articles/sgp29/29-sgp29-assignment) · [🏠 Home]({{ site.baseurl }}/)
 
-Next: [EID Security: Privacy, Tracking, and GSMA Governance](/docs/articles/sgp29/31-sgp29-security) →
+Next: [EID Security: Privacy, Tracking, and GSMA Governance]({{ site.baseurl }}/docs/articles/sgp29/31-sgp29-security) →
 
 </div>
 

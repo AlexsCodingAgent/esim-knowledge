@@ -42,6 +42,6 @@ title: "Illustrated Storybooks — eUICC.tech"
 
 *Read in order or jump to any story — each one stands alone!*
 
-[📚 Back to Kids Articles](index.html) · [🏠 eUICC.tech Home](/)
+[📚 Back to Kids Articles](index.html) · [🏠 eUICC.tech Home]({{ site.baseurl }}/)
 
 </div>

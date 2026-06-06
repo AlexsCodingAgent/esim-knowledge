@@ -5,7 +5,7 @@ date: 2026-05-27
 
 # Inside the eUICC: The Secure Element That Powers Your eSIM
 
-**🏠 [eUICC.tech](/) > [SGP.22 Consumer RSP](/docs/articles/sgp22/) > Inside the eUICC: The Secure Element That Powers Your eSIM**
+**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > Inside the eUICC: The Secure Element That Powers Your eSIM**
 
 > **💡 Why this matters:** The eUICC is the hardware root of trust for every eSIM. Its internal architecture — ECASD, ISD-R, ISD-Ps, and Profile Policy Enabler — determines what's possible and what's impossible in the eSIM security model.
 
@@ -161,9 +161,9 @@ The eUICC must implement **Java Card 3.0.4 Classic Edition** (or higher) with sp
 
 <div align="center">
 
-← Previous: [The eSIM RSP Architecture: Players and Interfaces](/docs/articles/sgp22/01-rsp-architecture) · [🏠 Home](/)
+← Previous: [The eSIM RSP Architecture: Players and Interfaces]({{ site.baseurl }}/docs/articles/sgp22/01-rsp-architecture) · [🏠 Home]({{ site.baseurl }}/)
 
-Next: [How a Profile Gets Delivered: The eSIM Download Process](/docs/articles/sgp22/03-profile-download) →
+Next: [How a Profile Gets Delivered: The eSIM Download Process]({{ site.baseurl }}/docs/articles/sgp22/03-profile-download) →
 
 </div>
 

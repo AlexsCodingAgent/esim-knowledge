@@ -5,9 +5,9 @@ date: 2026-06-05
 
 # SGP.29 Overview: The eUICC Identifier (EID)
 
-**🏠 [eUICC.tech](/) > [SGP.29 EID](/docs/articles/sgp29/) > SGP.29 Overview: The eUICC Identifier (EID)**
+**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.29 EID]({{ site.baseurl }}/docs/articles/sgp29/) > SGP.29 Overview: The eUICC Identifier (EID)**
 
-> **💡 Why this matters:** Every eSIM chip on the planet needs a globally unique identifier — the EID. Without a standardised numbering scheme, eUICC manufacturers would face a fragmented landscape of incompatible national numbering authorities, each with different rules for issuing identifiers. SGP.29 establishes the GSMA as the central authority for EID assignment, replacing the ad-hoc use of ICCID-based identifiers with a purpose-built, cryptographially verifiable 32-digit numbering system designed specifically for the eSIM ecosystem.
+> **💡 Why this matters:** Every eSIM chip on the planet needs a globally unique identifier — the EID. Without a standardised numbering scheme, eUICC manufacturers would face a fragmented landscape of incompatible national numbering authorities, each with different rules for issuing identifiers. SGP.29 establishes the GSMA as the central authority for EID assignment, replacing the ad-hoc use of ICCID-based identifiers with a purpose-built, cryptographically verifiable 32-digit numbering system designed specifically for the eSIM ecosystem.
 
 > **Key takeaways:**
 > - The EID (eUICC Identifier) is a 32-digit globally unique serial number that identifies each individual eUICC chip
@@ -119,9 +119,9 @@ However, it is important to note: **EIDs assigned under the ITU-T E.118 based sc
 
 <div align="center">
 
-[🏠 Home](/)
+[🏠 Home]({{ site.baseurl }}/)
 
-Next: [EID Format Decoded: The 32-Digit Structure](/docs/articles/sgp29/28-sgp29-eid-format) →
+Next: [EID Format Decoded: The 32-Digit Structure]({{ site.baseurl }}/docs/articles/sgp29/28-sgp29-eid-format) →
 
 </div>
 

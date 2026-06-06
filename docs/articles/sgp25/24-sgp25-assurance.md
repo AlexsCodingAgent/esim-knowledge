@@ -5,7 +5,7 @@ date: 2026-06-05
 
 # eUICC Assurance Requirements: EAL4+ and Penetration Testing
 
-**🏠 [eUICC.tech](/) > [SGP.25 eUICC Security](/docs/articles/sgp25/) > eUICC Assurance Requirements: EAL4+ and Penetration Testing**
+**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.25 eUICC Security]({{ site.baseurl }}/docs/articles/sgp25/) > eUICC Assurance Requirements: EAL4+ and Penetration Testing**
 
 > **💡 Why this matters:** Security Functional Requirements define *what* the eUICC must do. Assurance Requirements define *how thoroughly we verify* it actually does those things — and at what level of rigour. For an eUICC that will store operator credentials worth millions and resist attackers with physical access to the device, "we tested the happy path" is not enough. EAL4+ with AVA_VAN.5 penetration testing means evaluators actively try to break the TOE using state-of-the-art attack techniques.
 
@@ -180,9 +180,9 @@ The assurance requirements validate the functional requirements by proving:
 
 <div align="center">
 
-← Previous: [eUICC Security Functional Requirements](/docs/articles/sgp25/23-sgp25-security-requirements) · [🏠 Home](/)
+← Previous: [eUICC Security Functional Requirements]({{ site.baseurl }}/docs/articles/sgp25/23-sgp25-security-requirements) · [🏠 Home]({{ site.baseurl }}/)
 
-Next: [Physical Security: Side-Channel and Fault Injection Defenses](/docs/articles/sgp25/25-sgp25-physical-security) →
+Next: [Physical Security: Side-Channel and Fault Injection Defenses]({{ site.baseurl }}/docs/articles/sgp25/25-sgp25-physical-security) →
 
 </div>
 

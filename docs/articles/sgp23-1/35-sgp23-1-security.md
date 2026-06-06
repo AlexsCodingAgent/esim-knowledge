@@ -5,7 +5,7 @@ date: 2026-06-05
 
 # eUICC Security Testing: Certificates, Keys, and Channels
 
-**🏠 [eUICC.tech](/) > [SGP.23-1 eUICC Testing](/docs/articles/sgp23-1/) > eUICC Security Testing: Certificates, Keys, and Channels**
+**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.23-1 eUICC Testing]({{ site.baseurl }}/docs/articles/sgp23-1/) > eUICC Security Testing: Certificates, Keys, and Channels**
 
 > **💡 Why this matters:** The eSIM security model is built on a chain of trust extending from the GSMA Certificate Issuer (CI) down through the eUICC manufacturer (EUM), the SM-DP+, and finally the eUICC itself. If any link in this chain fails — a certificate doesn't validate, a key operation produces wrong results, or a secure channel is established with weak parameters — the entire profile delivery system is compromised. SGP.23-1 devotes significant testing to every cryptographic operation the eUICC must perform.
 
@@ -184,9 +184,9 @@ For Integrated eUICCs using USB CCID (Annex J), the test interface specification
 
 <div align="center">
 
-← Previous: [Key eUICC Test Cases: ISD-R, ECASD, and Profile Lifecycle](/docs/articles/sgp23-1/34-sgp23-1-test-cases) · [🏠 Home](/)
+← Previous: [Key eUICC Test Cases: ISD-R, ECASD, and Profile Lifecycle]({{ site.baseurl }}/docs/articles/sgp23-1/34-sgp23-1-test-cases) · [🏠 Home]({{ site.baseurl }}/)
 
-Next: [eUICC Certification: From SGP.23-1 Tests to SAS-UP Approval](/docs/articles/sgp23-1/36-sgp23-1-certification) →
+Next: [eUICC Certification: From SGP.23-1 Tests to SAS-UP Approval]({{ site.baseurl }}/docs/articles/sgp23-1/36-sgp23-1-certification) →
 
 </div>
 
