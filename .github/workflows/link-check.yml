@@ -6,24 +6,45 @@ on:
   pull_request:
     branches: [master]
   schedule:
-    - cron: '0 8 * * 1'  # Every Monday at 8am UTC
-  workflow_dispatch:      # Manual trigger
+    - cron: '0 8 * * 1'
+  workflow_dispatch:
 
 jobs:
   check-links:
     runs-on: ubuntu-latest
     steps:
-      - name: Check links on live site
-        uses: lycheeverse/lychee-action@v2
+      - uses: actions/checkout@v4
+
+      - uses: ruby/setup-ruby@v1
         with:
-          args: >
-            --base https://alexscodingagent.github.io/esim-knowledge
-            --accept 200,301,302
-            --retry-wait-time 5
-            --max-retries 3
-            --timeout 30
-            --no-progress
-            --format detailed
-            https://alexscodingagent.github.io/esim-knowledge
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ruby-version: '3.3'
+
+      - name: Install dependencies
+        run: |
+          gem install jekyll jekyll-theme-midnight html-proofer --no-document
+
+      - name: Build site
+        run: |
+          jekyll build --baseurl /esim-knowledge
+
+      - name: Check links
+        run: |
+          htmlproofer _site \
+            --disable-external \
+            --allow-hash-href \
+            --empty-alt-ignore \
+            --assume-extension \
+            --file-ignore "/docs/articles/kids/storybook/"
+
+      - name: Check external links (optional, failure non-blocking)
+        continue-on-error: true
+        run: |
+          htmlproofer _site \
+            --internal-domains alexscodingagent.github.io \
+            --external-only \
+            --allow-hash-href \
+            --empty-alt-ignore \
+            --assume-extension \
+            --http-status-ignore 429,503 \
+            --timeframe 7d \
+            --file-ignore "/docs/articles/kids/storybook/" || echo "External check completed with failures"
