@@ -240,4 +240,4 @@ Next: [The Developer's View: RSP Interfaces and Protocol Binding]({{ site.baseur
 
 ---
 
-*Based on GSMA SGP.22 v2.2.2, Sections 3.2, 3.3, and 5.7 — Local Profile Management, Local eUICC Management, and ES10x Functions*
+*Based on GSMA SGP.22 v2.7 (24 April 2026), Sections 3.2, 3.3, and 5.7 — Local Profile Management, Local eUICC Management, and ES10x Functions*

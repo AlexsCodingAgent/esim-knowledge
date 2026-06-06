@@ -286,4 +286,4 @@ Every function call includes a `functionCallIdentifier` — a unique ID that ena
 
 ---
 
-*Based on GSMA SGP.22 v2.2.2, Sections 5 and 6 — Functions and Interface Binding*
+*Based on GSMA SGP.22 v2.7 (24 April 2026), Sections 5 and 6 — Functions and Interface Binding*

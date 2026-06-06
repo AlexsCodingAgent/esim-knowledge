@@ -697,4 +697,4 @@ Next: [eSIM Security: The PKI and Certificate Model]({{ site.baseurl }}/docs/art
 
 ---
 
-*Based on GSMA SGP.22 v2.2.2, Section 3 — Procedures, Section 4.5 — Keys and Certificates, and Section 5 — ES8+ Protocol Specification*
+*Based on GSMA SGP.22 v2.7 (24 April 2026), Section 3 — Procedures, Section 4.5 — Keys and Certificates, and Section 5 — ES8+ Protocol Specification*

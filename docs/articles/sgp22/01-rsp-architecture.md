@@ -112,7 +112,7 @@ A device that supports a non-removable eUICC without an LPAe must provide an LPA
 
 <div align="center">
 
-← Previous: [eSIM Remote SIM Provisioning (RSP) — How It Works]({{ site.baseurl }}/docs/articles/sgp22/00-sgp22-overview) · [🏠 Home]({{ site.baseurl }}/)
+← Previous: [SGP.22 v2.x vs v3.x: The Specification Split]({{ site.baseurl }}/docs/articles/sgp22/00b-sgp22-v2-v3-split) · [🏠 Home]({{ site.baseurl }}/)
 
 Next: [Inside the eUICC: The Secure Element That Powers Your eSIM]({{ site.baseurl }}/docs/articles/sgp22/02-inside-the-euicc) →
 
@@ -120,4 +120,4 @@ Next: [Inside the eUICC: The Secure Element That Powers Your eSIM]({{ site.baseu
 
 ---
 
-*Based on GSMA SGP.22 v2.2.2, Section 2 — General Architecture*
+*Based on GSMA SGP.22 v2.7 (24 April 2026), Section 2 — General Architecture*

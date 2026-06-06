@@ -192,7 +192,7 @@ That's it. The device extracts the SM-DP+ URL and the Matching ID, then begins t
 - Five actors (eUICC, SM-DP+, SM-DS, LPA, Operator) interact across thirteen standardised interfaces to order, discover, deliver, and manage profiles
 - Three delivery phases — initiation via `ES2+`, mutual authentication via `ES9+`/`ES10b`, and encrypted download via `ES8+` — ensure end-to-end security on untrusted transport
 - A GSMA-rooted PKI with hardware-level isolation and perfect forward secrecy makes the system resilient even against compromised intermediaries
-- The specification is vast (268 pages in v2.2.2), but the core model is elegant and consistent throughout
+- The specification is extensive (296 pages in v2.7), but the core model is elegant and consistent throughout
 
 ---
 
@@ -200,10 +200,10 @@ That's it. The device extracts the SM-DP+ URL and the Matching ID, then begins t
 
 [🏠 Home]({{ site.baseurl }}/)
 
-Next: [The eSIM RSP Architecture: Players and Interfaces]({{ site.baseurl }}/docs/articles/sgp22/01-rsp-architecture) →
+Next: [SGP.22 v2.x vs v3.x: The Specification Split]({{ site.baseurl }}/docs/articles/sgp22/00b-sgp22-v2-v3-split) →
 
 </div>
 
 ---
 
-*Based on GSMA SGP.22 v2.2.2 (05 June 2020) — RSP Technical Specification*
+*Based on GSMA SGP.22 v2.7 (24 April 2026) — RSP Technical Specification*

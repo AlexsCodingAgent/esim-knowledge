@@ -47,7 +47,7 @@ title: "GSMA eSIM Standards Map — eUICC.tech"
   │    SGP.33-3  v1.2 — eIM Test Spec
   │    SGP.41    v1.0 — IFPP
   │
-2026 ─ SGP.22    v2.7 (April 2026) — LATEST consumer spec
+2026 ─ SGP.22    v2.7 (April 2026) — LATEST consumer spec  │ SGP.22 v3.2 — unified consumer+M2M spec (parallel track)
   │    SGP.31    v1.3 (May 2026) — LATEST IoT architecture
   │    SGP.32    v1.3 (May 2026) — LATEST IoT technical spec
 ```
@@ -130,7 +130,8 @@ title: "GSMA eSIM Standards Map — eUICC.tech"
 | SGP.01 | Architecture Overview | — | — | ❌ | 0 (foundational — referenced) |
 | SGP.02 | M2M RSP Architecture | — | — | ❌ | 0 (mentioned in IoT article) |
 | SGP.21 | RSP Architecture | — | — | ❌ | 0 (content absorbed into SGP.22) |
-| **SGP.22** | **RSP Technical Spec** | **v2.7** | **~300** | **✅ 7 articles** | **Update to v2.7** |
+| **SGP.22** | **RSP Technical Spec** | **v2.7** | **~300** | **✅ 8 articles** | **Update to v2.7 + v2/v3 split** |
+| **SGP.22 v3.2** | **Unified RSP Tech Spec** | **v3.2** | **TBD** | **❌** | **0 (parallel track — v2.x/v3.x article covers it)** |
 | **SGP.23** | **RSP Test Spec** | **v1.16** | **913** | **❌ NEW** | **5 articles** |
 | **SGP.23-1** | **eUICC Test Spec** | **v3.1.3** | **797** | **❌ NEW** | **5 articles** |
 | SGP.24 | Compliance Process | — | — | ❌ | 0 (referenced) |
@@ -142,14 +143,17 @@ title: "GSMA eSIM Standards Map — eUICC.tech"
 | **SGP.33-3** | **eIM Test Spec** | **v1.2** | **74** | **❌ NEW** | **5 articles** |
 | **SGP.41** | **IFPP Architecture** | **v1.0** | **~26** | **❌ NEW** | **5 articles** |
 
-**Total: 17 existing articles + 35 new = 52 articles across 8 specs**
+**Total: 18 existing articles + 35 new = 53 articles across 9 specs**
 
 ---
 
 ## Article Plans by Specification
 
 ### SGP.22 v2.7 — RSP Technical Specification (UPDATE existing)
-> *Current articles cite v2.2.2. Update all to reference v2.7. Add v2.7 delta: new features since v2.2.*
+> *Current articles cite v2.2.2. All updated to reference v2.7. Added 00b explaining the v2.x/v3.x specification split.*
+
+### SGP.22 v3.2 — Unified RSP Technical Specification (NEW parallel track)
+> *Unified consumer+M2M specification. Covered in the v2.x/v3.x split article (00b). Full deep-dive articles planned once a stable v3.x CR is available.*
 
 ### SGP.23 v1.16 — RSP Test Specification (NEW)
 1. **SGP.23 Overview: How eSIM Interoperability Is Tested** — The test ecosystem: GSMA test events, SAS certification, DLOA process. Why testing matters.
@@ -204,7 +208,7 @@ title: "GSMA eSIM Standards Map — eUICC.tech"
 
 <div align="center">
 
-*Last updated: 2026-06-05 · Sources: GSMA SGP specifications v2.7, v1.3, v1.16, v3.1.3, v2.1, v3.0.2, v1.1, v1.2, v1.0*
+*Last updated: 2026-06-06 · Sources: GSMA SGP specifications v2.7, v3.2, v1.3, v1.16, v3.1.3, v2.1, v3.0.2, v1.1, v1.2, v1.0*
 
 [🏠 eUICC.tech Home]({{ site.baseurl }}/)
 

@@ -169,4 +169,4 @@ Next: [How a Profile Gets Delivered: The eSIM Download Process]({{ site.baseurl 
 
 ---
 
-*Based on GSMA SGP.22 v2.2.2, Section 2.4 — eUICC Architecture*
+*Based on GSMA SGP.22 v2.7 (24 April 2026), Section 2.4 — eUICC Architecture*
