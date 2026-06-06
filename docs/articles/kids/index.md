@@ -13,9 +13,9 @@ title: "eSIM Explained — Illustrated Edition"
 
 ## 📚 Storybook Collection
 
-*35 illustrated books — scroll through each one like a real book. Every page has custom SVG illustrations.*
+*39 illustrated books — scroll through each one like a real book. Every page has custom SVG illustrations.*
 
-[📖 Browse All 35 Storybooks →](storybooks)
+[📖 Browse All 39 Storybooks →](storybooks)
 
 ### 📱 SGP.22 — Consumer eSIM Stories
 
@@ -60,6 +60,26 @@ title: "eSIM Explained — Illustrated Edition"
 | 61 | [The Unbreakable Envelope](storybook-61.html) | How your secret key stays safe while travelling |
 | 62 | [The Vault's Rulebook](storybook-62.html) | Who can do what to your secret keys |
 | 63 | [Your Work Keycard](storybook-63.html) | How work and personal keys live together |
+
+### 🏭 SGP.41 — Factory Key Stories
+
+| # | Storybook | What It's About |
+|---|-----------|-----------------|
+| 47 | [Magic Keys Built Right In](storybook-47.html) | How eSIM keys are installed right at the factory |
+| 48 | [The Factory Team](storybook-48.html) | Meet the Key Makers and robots on the assembly line |
+| 49 | [From Factory Floor to Your Pocket](storybook-49.html) | The journey from factory loading to first use |
+| 50 | [Factory Secrets](storybook-50.html) | How keys stay secure during factory loading |
+| 51 | [Who Uses Factory Keys?](storybook-51.html) | Cars, laptops, smartwatches, and millions of sensors |
+
+### 🆔 SGP.29 — Chip Name Stories
+
+| # | Storybook | What It's About |
+|---|-----------|-----------------|
+| 27 | [Every Chip's Secret Name](storybook-27.html) | The 32-digit fingerprint that makes every eSIM chip unique |
+| 28 | [Cracking the Secret Code](storybook-28.html) | What those 32 digits mean: manufacturer ID, chip type, serial number, check digit |
+| 29 | [The Name Librarian](storybook-29.html) | How the GSMA hands out unique chip names so no two are alike |
+| 30 | [Show Your ID, Please](storybook-30.html) | How chips prove who they are during profile downloads |
+| 31 | [Keeping Your Chip Name Secret](storybook-31.html) | Privacy, when to share your EID and when to keep it secret |
 
 ### 🧪 SGP.23 — eSIM Testing Stories
 
@@ -194,25 +214,6 @@ title: "eSIM Explained — Illustrated Edition"
 | 5 | [WANTED: The List of Bad Badges](41-sgp26-crl-kids) |
 
 ---
-
-### 🏭 SGP.41 — Factory Key Stories
-
-| # | Storybook | What It's About |
-|---|-----------|-----------------|
-| 47 | [Magic Keys Built Right In](storybook-47.html) | How eSIM keys are installed right at the factory |
-| 48 | [The Factory Team](storybook-48.html) | Meet the Key Makers and robots on the assembly line |
-| 49 | [From Factory Floor to Your Pocket](storybook-49.html) | The journey from factory loading to first use |
-| 50 | [Factory Secrets](storybook-50.html) | How keys stay secure during factory loading |
-| 51 | [Who Uses Factory Keys?](storybook-51.html) | Cars, laptops, smartwatches, and millions of sensors |
-
-### 🆔 SGP.29 — Chip Name Stories
-
-| # | Storybook | What It's About |
-|---|-----------|-----------------|
-| 28 | [Cracking the Secret Code](storybook-28.html) | What those 32 digits mean: manufacturer ID, chip type, serial number, check digit |
-| 29 | [The Name Librarian](storybook-29.html) | How the GSMA hands out unique chip names so no two are alike |
-| 30 | [Show Your ID, Please](storybook-30.html) | How chips prove who they are during profile downloads |
-| 31 | [Keeping Your Chip Name Secret](storybook-31.html) | Privacy, when to share your EID and when to keep it secret |
 
 ---
 
