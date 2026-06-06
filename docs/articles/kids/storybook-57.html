@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Magic Remote Control — An SGP.22 v3.x RPM Story</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Georgia',serif;background:#0a1628;color:#c8d6e5;overflow-x:hidden}
+  .book{max-width:800px;margin:0 auto;min-height:100vh}
+  .page{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;page-break-after:always;scroll-snap-align:start}
+  .page-cover{background:linear-gradient(135deg,#0d1b2a 0%,#0a1628 50%,#0d1b2a 100%)}
+  h1{font-size:2.8rem;color:#e8eef5;text-align:center;margin-bottom:.5rem}
+  h2{font-size:1.6rem;color:#85c1e9;text-align:center;font-weight:400;margin-bottom:1.5rem}
+  h3{font-size:1.3rem;color:#5dade2;text-align:center;margin-bottom:1rem}
+  .story-text{font-size:1.2rem;line-height:1.8;text-align:center;max-width:550px;margin:0 auto}
+  .story-text em{color:#85c1e9;font-style:italic}
+  .story-text strong{color:#e8eef5}
+  .illustration{margin:1.5rem 0}
+  .illustration svg{max-width:100%;height:auto}
+  .page-num{color:#5a6d80;font-size:.85rem;margin-top:2rem}
+  .nav{position:fixed;bottom:1rem;right:1rem;z-index:100}
+  .nav a{display:inline-block;padding:.5rem 1rem;background:rgba(93,173,226,.15);color:#5dade2;text-decoration:none;border-radius:6px;margin-left:.5rem;font-size:.9rem}
+  .nav a:hover{background:rgba(93,173,226,.3)}
+  .sparkle{animation:twinkle 2s infinite}
+  @keyframes twinkle{0%,100%{opacity:.3}50%{opacity:1}}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  .floating{animation:float 3s ease-in-out infinite}
+  @keyframes slideIn{from{transform:translateX(-20px);opacity:0}to{transform:translateX(0);opacity:1}}
+  .slide-in{animation:slideIn .8s ease-out}
+  @media(max-width:600px){h1{font-size:2rem}h2{font-size:1.2rem}.story-text{font-size:1.05rem}}
+  html{scroll-behavior:smooth;scroll-snap-type:y mandatory}
+</style>
+</head>
+<body>
+
+<div class="book">
+
+<!-- PAGE 1: COVER -->
+<div class="page page-cover">
+  <div class="illustration floating">
+    <svg viewBox="0 0 400 300" width="350">
+      <defs><radialGradient id="glow"><stop offset="0%" stop-color="#5dade2" stop-opacity="0.3"/><stop offset="100%" stop-color="#0a1628" stop-opacity="0"/></radialGradient></defs>
+      <circle cx="200" cy="140" r="130" fill="url(#glow)"/>
+      <!-- Remote control -->
+      <g transform="translate(130,50)">
+        <rect x="0" y="0" width="140" height="200" rx="14" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2.5"/>
+        <!-- Antenna -->
+        <rect x="55" y="-25" width="30" height="30" rx="3" fill="#5dade2" opacity="0.5"/>
+        <circle cx="70" cy="-25" r="4" fill="#fbbf24" class="sparkle"/>
+        <!-- Screen -->
+        <rect x="20" y="15" width="100" height="40" rx="5" fill="#0d1b2a" stroke="#30363d" stroke-width="1"/>
+        <text x="70" y="30" fill="#34d399" font-size="8" text-anchor="middle">📶 RPM</text>
+        <text x="70" y="44" fill="#5dade2" font-size="7" text-anchor="middle">Remote Control</text>
+        <!-- Buttons row 1 -->
+        <circle cx="40" cy="75" r="14" fill="#34d399" stroke="#85c1e9" stroke-width="1.5" class="sparkle"/>
+        <text x="40" y="79" fill="#0a1628" font-size="9" text-anchor="middle" font-weight="bold">ON</text>
+        <circle cx="100" cy="75" r="14" fill="#fbbf24" stroke="#85c1e9" stroke-width="1.5"/>
+        <text x="100" y="79" fill="#0a1628" font-size="8" text-anchor="middle" font-weight="bold">OFF</text>
+        <!-- Buttons row 2 -->
+        <circle cx="40" cy="115" r="14" fill="#ac4142" stroke="#e8a0a0" stroke-width="1.5"/>
+        <text x="40" y="119" fill="#e8eef5" font-size="7" text-anchor="middle" font-weight="bold">DEL</text>
+        <circle cx="100" cy="115" r="14" fill="#5dade2" stroke="#85c1e9" stroke-width="1.5"/>
+        <text x="100" y="119" fill="#e8eef5" font-size="7" text-anchor="middle" font-weight="bold">UNDO</text>
+        <!-- D-pad -->
+        <rect x="55" y="150" width="30" height="30" rx="4" fill="#0d1b2a" stroke="#5a6d80" stroke-width="1"/>
+        <text x="70" y="170" fill="#5a6d80" font-size="14" text-anchor="middle">⊕</text>
+      </g>
+      <!-- Globe for "across the world" -->
+      <g transform="translate(300,110)">
+        <circle cx="0" cy="0" r="35" fill="none" stroke="#34d399" stroke-width="2"/>
+        <ellipse cx="0" cy="0" rx="12" ry="35" fill="none" stroke="#34d399" stroke-width="1"/>
+        <line x1="-35" y1="0" x2="35" y2="0" stroke="#34d399" stroke-width="1"/>
+        <line x1="0" y1="-35" x2="0" y2="35" stroke="#34d399" stroke-width="1" opacity="0.4"/>
+      </g>
+      <!-- Connection waves -->
+      <path d="M270 90 Q285 70 300 90" stroke="#fbbf24" stroke-width="1.5" fill="none" class="sparkle"/>
+      <path d="M260 85 Q285 55 310 85" stroke="#fbbf24" stroke-width="1" fill="none" opacity="0.5"/>
+      <!-- Sparkles -->
+      <circle cx="50" cy="50" r="2" fill="#85c1e9" class="sparkle"/>
+      <circle cx="350" cy="60" r="2" fill="#5dade2" class="sparkle"/>
+      <circle cx="80" cy="250" r="1.5" fill="#fbbf24" class="sparkle"/>
+      <circle cx="320" cy="240" r="2" fill="#85c1e9" class="sparkle"/>
+    </svg>
+  </div>
+  <h1>🎮 The Magic Remote Control</h1>
+  <h2>How Carriers Manage Your Keys from Far Away</h2>
+  <p class="story-text" style="color:#5a6d80">A story of invisible buttons, three magical phases, and keys that obey from across the world</p>
+  <div class="page-num">📖 Page 1</div>
+</div>
+
+<!-- PAGE 2: MANAGING KEYS FROM FAR AWAY -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 220" width="350">
+      <!-- Carrier building on left -->
+      <g transform="translate(20,30)">
+        <rect x="0" y="0" width="90" height="70" rx="6" fill="#1b3a5c" stroke="#5dade2" stroke-width="2"/>
+        <text x="45" y="20" fill="#c8d6e5" font-size="9" text-anchor="middle" font-weight="bold">🏢 Carrier</text>
+        <text x="45" y="36" fill="#5a6d80" font-size="7" text-anchor="middle">HQ</text>
+        <rect x="10" y="44" width="70" height="20" rx="3" fill="#fbbf24" opacity="0.2" stroke="#fbbf24" stroke-width="1"/>
+        <text x="45" y="57" fill="#fbbf24" font-size="7" text-anchor="middle">Remote Control</text>
+      </g>
+      <!-- Phone on right -->
+      <g transform="translate(280,30)">
+        <rect x="0" y="0" width="60" height="90" rx="8" fill="#1b3a5c" stroke="#34d399" stroke-width="2"/>
+        <rect x="8" y="12" width="44" height="55" rx="3" fill="#0d1b2a" stroke="#30363d" stroke-width="1"/>
+        <text x="30" y="45" fill="#34d399" font-size="7" text-anchor="middle">Keys</text>
+        <text x="30" y="55" fill="#34d399" font-size="7" text-anchor="middle">Inside</text>
+      </g>
+      <!-- Connection between them -->
+      <path d="M110 65 Q200 20 280 65" stroke="#fbbf24" stroke-width="2" fill="none" stroke-dasharray="6,4" class="sparkle"/>
+      <!-- Signal waves along path -->
+      <g transform="translate(155,38)" class="floating">
+        <text font-size="14" text-anchor="middle">📡</text>
+      </g>
+      <g transform="translate(230,38)" class="floating" style="animation-delay:1s">
+        <text font-size="12" text-anchor="middle">✨</text>
+      </g>
+      <!-- LPA assistant on phone -->
+      <g transform="translate(280,130)">
+        <rect x="-5" y="0" width="70" height="20" rx="4" fill="#5dade2" opacity="0.15" stroke="#5dade2" stroke-width="1"/>
+        <text x="30" y="14" fill="#5dade2" font-size="7" text-anchor="middle">Assistant (LPA)</text>
+      </g>
+      <!-- Arrow from LPA to chip -->
+      <line x1="310" y1="130" x2="310" y2="120" stroke="#5dade2" stroke-width="1"/>
+      <!-- Globe -->
+      <g transform="translate(150,155)">
+        <text font-size="24" text-anchor="middle">🌍</text>
+      </g>
+      <text x="155" y="185" fill="#c8d6e5" font-size="9" text-anchor="middle">Across the world in seconds!</text>
+    </svg>
+  </div>
+  <h3>🌍 Managing Keys from Far Away</h3>
+  <p class="story-text">Before v3.x, most eSIM actions happened on your phone — you tapped buttons to enable or disable profiles. But with v3.x's <strong>Remote Profile Management</strong> (RPM), your mobile carrier can manage your keys <em>from across the world</em>. They send signed commands through your phone's Assistant (LPA), and the Vault obeys — instantly, securely!</p>
+  <div class="page-num">📖 Page 2</div>
+</div>
+
+<!-- PAGE 3: THREE MAGIC BUTTONS -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 220" width="350">
+      <!-- Three big buttons -->
+      <!-- Button 1: Enable -->
+      <g transform="translate(25,20)">
+        <rect x="0" y="0" width="105" height="80" rx="10" fill="#1b3a5c" stroke="#34d399" stroke-width="2.5"/>
+        <circle cx="52" cy="22" r="14" fill="#34d399" opacity="0.2" stroke="#34d399" stroke-width="2"/>
+        <text x="52" y="27" font-size="14" text-anchor="middle">▶</text>
+        <text x="52" y="50" fill="#34d399" font-size="11" text-anchor="middle" font-weight="bold">ENABLE</text>
+        <text x="52" y="68" fill="#c8d6e5" font-size="7" text-anchor="middle">Turn the key ON</text>
+      </g>
+      <!-- Button 2: Disable -->
+      <g transform="translate(147,20)">
+        <rect x="0" y="0" width="105" height="80" rx="10" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2.5"/>
+        <circle cx="52" cy="22" r="14" fill="#fbbf24" opacity="0.2" stroke="#fbbf24" stroke-width="2"/>
+        <text x="52" y="27" font-size="14" text-anchor="middle">⏸</text>
+        <text x="52" y="50" fill="#fbbf24" font-size="11" text-anchor="middle" font-weight="bold">DISABLE</text>
+        <text x="52" y="68" fill="#c8d6e5" font-size="7" text-anchor="middle">Turn the key OFF</text>
+      </g>
+      <!-- Button 3: Delete -->
+      <g transform="translate(269,20)">
+        <rect x="0" y="0" width="105" height="80" rx="10" fill="#1b3a5c" stroke="#ac4142" stroke-width="2.5"/>
+        <circle cx="52" cy="22" r="14" fill="#ac4142" opacity="0.2" stroke="#ac4142" stroke-width="2"/>
+        <text x="52" y="27" font-size="14" text-anchor="middle">✕</text>
+        <text x="52" y="50" fill="#ac4142" font-size="11" text-anchor="middle" font-weight="bold">DELETE</text>
+        <text x="52" y="68" fill="#c8d6e5" font-size="7" text-anchor="middle">Remove forever</text>
+      </g>
+      <!-- Key visual below buttons -->
+      <g transform="translate(200,130)">
+        <circle cx="0" cy="0" r="10" fill="none" stroke="#fbbf24" stroke-width="2.5"/>
+        <rect x="-3" y="10" width="6" height="18" rx="1.5" fill="#fbbf24"/>
+        <rect x="-7" y="24" width="14" height="3" rx="1" fill="#fbbf24"/>
+      </g>
+      <!-- Three arrows from buttons to key -->
+      <line x1="78" y1="100" x2="190" y2="130" stroke="#34d399" stroke-width="1" stroke-dasharray="3,3"/>
+      <line x1="200" y1="100" x2="200" y2="120" stroke="#fbbf24" stroke-width="1" stroke-dasharray="3,3"/>
+      <line x1="322" y1="100" x2="210" y2="130" stroke="#ac4142" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="200" y="180" fill="#85c1e9" font-size="10" text-anchor="middle">Three buttons, one key — all controlled remotely!</text>
+    </svg>
+  </div>
+  <h3>🕹️ Three Magic Buttons</h3>
+  <p class="story-text">The remote control has three main buttons: <strong style="color:#34d399">Enable</strong> turns a downloaded key on so your phone can use it. <strong style="color:#fbbf24">Disable</strong> turns it off without deleting the key — it stays in the Vault for later. <strong style="color:#ac4142">Delete</strong> removes the key <em>forever</em> from the Vault. All three can be triggered remotely by your carrier!</p>
+  <div class="page-num">📖 Page 3</div>
+</div>
+
+<!-- PAGE 4: PHASE 1 - "I WANT TO MANAGE" -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 230" width="350">
+      <!-- Phase 1 header -->
+      <g transform="translate(200,12)">
+        <rect x="-170" y="0" width="340" height="28" rx="6" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2"/>
+        <text x="0" y="18" fill="#fbbf24" font-size="11" text-anchor="middle" font-weight="bold">🔰 Phase 1: "I Want to Manage Your Keys"</text>
+      </g>
+      <!-- Carrier sends intent -->
+      <g transform="translate(25,60)">
+        <rect x="0" y="0" width="85" height="45" rx="6" fill="#1b3a5c" stroke="#fbbf24" stroke-width="1.5"/>
+        <text x="42" y="18" fill="#c8d6e5" font-size="8" text-anchor="middle">Carrier says:</text>
+        <text x="42" y="32" fill="#fbbf24" font-size="8" text-anchor="middle">"I want RPM!"</text>
+      </g>
+      <!-- Arrow -->
+      <text x="130" y="85" font-size="20" fill="#fbbf24" text-anchor="middle">→</text>
+      <!-- Server checks permissions -->
+      <g transform="translate(155,55)">
+        <rect x="0" y="0" width="90" height="55" rx="6" fill="#1b3a5c" stroke="#5dade2" stroke-width="1.5"/>
+        <text x="45" y="16" fill="#c8d6e5" font-size="8" text-anchor="middle">SM-DP+</text>
+        <text x="45" y="30" fill="#5dade2" font-size="7" text-anchor="middle">checks:</text>
+        <text x="45" y="44" fill="#34d399" font-size="7" text-anchor="middle">"Permission ✓"</text>
+      </g>
+      <!-- Arrow -->
+      <text x="265" y="85" font-size="20" fill="#5dade2" text-anchor="middle">→</text>
+      <!-- Phone gets confirmation -->
+      <g transform="translate(290,55)">
+        <rect x="0" y="0" width="85" height="55" rx="6" fill="#1b3a5c" stroke="#34d399" stroke-width="2"/>
+        <text x="42" y="18" fill="#c8d6e5" font-size="8" text-anchor="middle">📱 Phone</text>
+        <text x="42" y="32" fill="#34d399" font-size="7" text-anchor="middle">"Carrier</text>
+        <text x="42" y="44" fill="#34d399" font-size="7" text-anchor="middle">wants RPM"</text>
+      </g>
+      <!-- Confirm button -->
+      <g transform="translate(120,130)">
+        <rect x="0" y="0" width="160" height="55" rx="8" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2"/>
+        <text x="80" y="20" fill="#c8d6e5" font-size="9" text-anchor="middle">User sees:</text>
+        <text x="80" y="36" fill="#fbbf24" font-size="10" text-anchor="middle" font-weight="bold">"Carrier wants to</text>
+        <text x="80" y="50" fill="#fbbf24" font-size="10" text-anchor="middle" font-weight="bold">manage keys. Allow?"</text>
+      </g>
+      <!-- User taps Allow -->
+      <g transform="translate(100,205)">
+        <rect x="0" y="0" width="80" height="20" rx="4" fill="#34d399" opacity="0.3"/>
+        <text x="40" y="14" fill="#34d399" font-size="8" text-anchor="middle">✅ Allow</text>
+      </g>
+      <g transform="translate(220,205)">
+        <rect x="0" y="0" width="80" height="20" rx="4" fill="#5a6d80" opacity="0.3"/>
+        <text x="40" y="14" fill="#5a6d80" font-size="8" text-anchor="middle">❌ Deny</text>
+      </g>
+    </svg>
+  </div>
+  <h3>🔰 Phase 1: "I Want to Manage Your Keys"</h3>
+  <p class="story-text">It all starts with the carrier telling SM-DP+ (the Key Maker): <em>"I want to manage this user's profiles remotely."</em> SM-DP+ checks if the carrier has permission, then sends a notification to your phone. Your phone's Assistant (LPA) <strong>asks for your permission</strong> — only after you say "Allow" does the real magic begin!</p>
+  <div class="page-num">📖 Page 4</div>
+</div>
+
+<!-- PAGE 5: PHASE 2 - "DOWNLOAD" -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 230" width="350">
+      <!-- Phase 2 header -->
+      <g transform="translate(200,12)">
+        <rect x="-170" y="0" width="340" height="28" rx="6" fill="#1b3a5c" stroke="#5dade2" stroke-width="2"/>
+        <text x="0" y="18" fill="#5dade2" font-size="11" text-anchor="middle" font-weight="bold">📥 Phase 2: "Download This Key Package"</text>
+      </g>
+      <!-- SM-DP+ building key -->
+      <g transform="translate(15,55)">
+        <rect x="0" y="0" width="70" height="60" rx="6" fill="#1b3a5c" stroke="#fbbf24" stroke-width="1.5"/>
+        <text x="35" y="16" fill="#c8d6e5" font-size="7" text-anchor="middle">SM-DP+</text>
+        <text x="35" y="28" fill="#fbbf24" font-size="7" text-anchor="middle">Builds</text>
+        <text x="35" y="40" fill="#fbbf24" font-size="7" text-anchor="middle">Profile</text>
+        <text x="35" y="52" fill="#fbbf24" font-size="7" text-anchor="middle">Package</text>
+      </g>
+      <!-- Encrypted tunnel -->
+      <g transform="translate(105,60)">
+        <rect x="0" y="0" width="90" height="50" rx="25" fill="#1b3a5c" stroke="#34d399" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <text x="45" y="20" fill="#34d399" font-size="7" text-anchor="middle">🔒 Secure</text>
+        <text x="45" y="34" fill="#34d399" font-size="7" text-anchor="middle">ES9+ Tunnel</text>
+      </g>
+      <!-- Arrow through tunnel -->
+      <g transform="translate(195,68)" class="floating">
+        <text font-size="16" fill="#fbbf24" text-anchor="middle">📦→</text>
+      </g>
+      <!-- Phone receives -->
+      <g transform="translate(240,50)">
+        <rect x="0" y="0" width="65" height="75" rx="8" fill="#1b3a5c" stroke="#34d399" stroke-width="2"/>
+        <rect x="8" y="12" width="49" height="20" rx="3" fill="#0d1b2a" stroke="#30363d" stroke-width="1"/>
+        <text x="32" y="26" fill="#34d399" font-size="7" text-anchor="middle">Downloading</text>
+        <!-- Progress bar -->
+        <rect x="12" y="40" width="41" height="6" rx="3" fill="#0d1b2a" stroke="#5a6d80" stroke-width="1"/>
+        <rect x="12" y="40" width="30" height="6" rx="3" fill="#34d399" class="sparkle"/>
+        <text x="32" y="58" fill="#c8d6e5" font-size="7" text-anchor="middle">73% done</text>
+        <text x="32" y="70" fill="#5a6d80" font-size="6" text-anchor="middle">Package safe</text>
+      </g>
+      <!-- Arrow down to vault -->
+      <text x="272" y="140" font-size="16" fill="#5dade2" text-anchor="middle">↓</text>
+      <!-- Vault stores -->
+      <g transform="translate(210,155)">
+        <rect x="0" y="0" width="125" height="55" rx="8" fill="#1b3a5c" stroke="#5dade2" stroke-width="2"/>
+        <text x="62" y="18" fill="#c8d6e5" font-size="8" text-anchor="middle">🔒 Vault (ISD-P)</text>
+        <text x="62" y="32" fill="#5dade2" font-size="7" text-anchor="middle">stores profile</text>
+        <text x="62" y="46" fill="#34d399" font-size="7" text-anchor="middle">in disabled state</text>
+      </g>
+      <!-- Phone download note on left -->
+      <g transform="translate(25,155)">
+        <rect x="0" y="0" width="150" height="55" rx="6" fill="#fbbf24" opacity="0.1" stroke="#fbbf24" stroke-width="1"/>
+        <text x="75" y="18" fill="#fbbf24" font-size="8" text-anchor="middle">Phone can also initiate</text>
+        <text x="75" y="32" fill="#c8d6e5" font-size="7" text-anchor="middle">download via LPA —</text>
+        <text x="75" y="46" fill="#c8d6e5" font-size="7" text-anchor="middle">typical consumer flow!</text>
+      </g>
+    </svg>
+  </div>
+  <h3>📥 Phase 2: "Download This Key Package"</h3>
+  <p class="story-text">Once permission is granted, SM-DP+ prepares a special key package encrypted <em>exclusively for your phone's Vault</em>. It travels through the secure ES9+ tunnel — nobody can peek inside! Your phone downloads the package and stores it in the Vault as a <strong>disabled profile</strong>. The key is in your device, but not yet turned on!</p>
+  <div class="page-num">📖 Page 5</div>
+</div>
+
+<!-- PAGE 6: PHASE 3 - "TURN ON!" + ACROSS THE WORLD -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 230" width="350">
+      <!-- Phase 3 header -->
+      <g transform="translate(200,12)">
+        <rect x="-170" y="0" width="340" height="28" rx="6" fill="#1b3a5c" stroke="#34d399" stroke-width="2"/>
+        <text x="0" y="18" fill="#34d399" font-size="11" text-anchor="middle" font-weight="bold">⚡ Phase 3: "Turn It On!"</text>
+      </g>
+      <!-- Disabled key -->
+      <g transform="translate(30,60)">
+        <rect x="0" y="0" width="80" height="55" rx="6" fill="#1b3a5c" stroke="#fbbf24" stroke-width="1.5"/>
+        <text x="40" y="18" fill="#c8d6e5" font-size="8" text-anchor="middle">🔑 Key</text>
+        <text x="40" y="32" fill="#fbbf24" font-size="8" text-anchor="middle">Disabled</text>
+        <text x="40" y="48" fill="#5a6d80" font-size="7" text-anchor="middle">In vault</text>
+      </g>
+      <!-- Enable command -->
+      <g transform="translate(145,60)">
+        <rect x="0" y="0" width="80" height="55" rx="6" fill="#34d399" opacity="0.15" stroke="#34d399" stroke-width="2"/>
+        <text x="40" y="18" fill="#34d399" font-size="8" text-anchor="middle">Remote</text>
+        <text x="40" y="32" fill="#34d399" font-size="8" text-anchor="middle" font-weight="bold">ENABLE!</text>
+        <text x="40" y="48" fill="#34d399" font-size="7" text-anchor="middle">Signed cmd</text>
+      </g>
+      <!-- Arrow to key -->
+      <text x="125" y="90" font-size="18" fill="#34d399" text-anchor="middle">→</text>
+      <!-- Enabled key -->
+      <g transform="translate(190,155)">
+        <circle cx="0" cy="0" r="12" fill="none" stroke="#34d399" stroke-width="2.5" class="sparkle"/>
+        <circle cx="0" cy="0" r="6" fill="#34d399" opacity="0.5"/>
+        <text x="0" y="24" fill="#34d399" font-size="8" text-anchor="middle">ENABLED!</text>
+      </g>
+      <!-- Arrow down from command to key -->
+      <path d="M185 115 Q185 135 190 143" stroke="#34d399" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+      <!-- Globe on right -->
+      <g transform="translate(310,70)">
+        <circle cx="0" cy="0" r="35" fill="none" stroke="#5dade2" stroke-width="2"/>
+        <ellipse cx="0" cy="0" rx="12" ry="35" fill="none" stroke="#5dade2" stroke-width="1"/>
+        <line x1="-35" y1="0" x2="35" y2="0" stroke="#5dade2" stroke-width="1"/>
+        <text x="0" y="4" font-size="16" text-anchor="middle">🌍</text>
+      </g>
+      <!-- Antenna waves from globe to key -->
+      <path d="M275 70 Q250 55 205 40" stroke="#fbbf24" stroke-width="1" fill="none" class="sparkle" stroke-dasharray="3,3"/>
+      <path d="M275 80 Q255 70 220 55" stroke="#fbbf24" stroke-width="0.7" fill="none" opacity="0.5"/>
+      <!-- Text -->
+      <text x="310" y="130" fill="#c8d6e5" font-size="8" text-anchor="middle">Carrier</text>
+      <text x="310" y="145" fill="#c8d6e5" font-size="8" text-anchor="middle">anywhere</text>
+      <text x="310" y="158" fill="#5dade2" font-size="7" text-anchor="middle">🌏</text>
+    </svg>
+  </div>
+  <h3>⚡ Phase 3: "Turn It On!"</h3>
+  <p class="story-text">The final phase: the carrier sends a signed <strong>ENABLE</strong> command to your phone. The Vault verifies the signature, flips the switch, and — click! — the key is now <em>active and ready to use</em>. Your carrier can send this command from <strong>anywhere on the planet</strong>. Tokyo, London, or New York — the magic remote control works across the world!</p>
+  <div class="page-num">📖 Page 6</div>
+</div>
+
+<!-- PAGE 7: DID YOU KNOW + NAV -->
+<div class="page page-cover">
+  <div class="illustration floating">
+    <svg viewBox="0 0 400 240" width="350">
+      <!-- Phone with multiple profiles orbiting -->
+      <g transform="translate(200,120)">
+        <!-- Center phone -->
+        <rect x="-35" y="-45" width="70" height="90" rx="8" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2.5"/>
+        <rect x="-25" y="-32" width="50" height="40" rx="3" fill="#0d1b2a" stroke="#30363d" stroke-width="1"/>
+        <text x="0" y="-15" fill="#fbbf24" font-size="14" text-anchor="middle">📱</text>
+        <!-- Orbiting profiles -->
+        <g transform="translate(-80,-20)" class="floating" style="animation-delay:0s">
+          <circle cx="0" cy="0" r="10" fill="#34d399" opacity="0.8"/>
+          <text x="0" y="4" fill="#0a1628" font-size="8" text-anchor="middle" font-weight="bold">ON</text>
+        </g>
+        <g transform="translate(80,-10)" class="floating" style="animation-delay:1s">
+          <circle cx="0" cy="0" r="10" fill="#fbbf24" opacity="0.8"/>
+          <text x="0" y="4" fill="#0a1628" font-size="7" text-anchor="middle">OFF</text>
+        </g>
+        <g transform="translate(-60,60)" class="floating" style="animation-delay:0.5s">
+          <circle cx="0" cy="0" r="10" fill="#fbbf24" opacity="0.8"/>
+          <text x="0" y="4" fill="#0a1628" font-size="7" text-anchor="middle">OFF</text>
+        </g>
+        <g transform="translate(60,50)" class="floating" style="animation-delay:1.5s">
+          <circle cx="0" cy="0" r="10" fill="#ac4142" opacity="0.6"/>
+          <text x="0" y="4" fill="#e8eef5" font-size="6" text-anchor="middle">DEL</text>
+        </g>
+        <!-- Orbit ring -->
+        <circle cx="0" cy="0" r="85" fill="none" stroke="#5a6d80" stroke-width="0.5" stroke-dasharray="4,8"/>
+      </g>
+      <text x="200" y="210" fill="#fbbf24" font-size="11" text-anchor="middle">Enable, Disable, Delete — all from the cloud!</text>
+    </svg>
+  </div>
+  <h3>🧠 Did You Know?</h3>
+  <p class="story-text">With RPM, a carrier could manage <strong>millions of eSIM keys</strong> simultaneously — pushing updates, enabling new plans, or deactivating old ones — all without a single customer needing to visit a store. It's like having a <em>magic remote control that can reach every phone on Earth</em>!</p>
+  <h2 style="margin-top:2rem">📚 Read the Next Story!</h2>
+  <p style="text-align:center;margin-bottom:1rem">
+    <a href="storybook-58.html" style="display:inline-block;padding:.8rem 2rem;background:rgba(93,173,226,0.15);color:#5dade2;text-decoration:none;border-radius:8px;font-size:1.1rem">🏠➡️🏠 Next: Moving to a New Vault →</a>
+  </p>
+  <p style="text-align:center">
+    <a href="index.html" style="color:#5a6d80;text-decoration:none;font-size:.9rem">📖 Back to All Stories</a>
+  </p>
+  <div class="page-num">📖 Page 7 — The End ✨</div>
+</div>
+
+</div>
+
+<div class="nav">
+  <a href="#" onclick="window.scrollBy({top:-window.innerHeight,behavior:'smooth'});return false">⬆</a>
+  <a href="#" onclick="window.scrollBy({top:window.innerHeight,behavior:'smooth'});return false">⬇</a>
+  <a href="storybook-56.html">← Prev</a>
+  <a href="storybook-58.html">Next →</a>
+</div>
+
+</body>
+</html>

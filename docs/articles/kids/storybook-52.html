@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Big Team-Up — An eSIM Story</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Georgia',serif;background:#0a1628;color:#c8d6e5;overflow-x:hidden}
+  .book{max-width:800px;margin:0 auto;min-height:100vh}
+  .page{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;page-break-after:always;scroll-snap-align:start}
+  .page-cover{background:linear-gradient(135deg,#0d1b2a 0%,#0a1628 50%,#0d1b2a 100%)}
+  h1{font-size:2.8rem;color:#e8eef5;text-align:center;margin-bottom:.5rem}
+  h2{font-size:1.6rem;color:#85c1e9;text-align:center;font-weight:400;margin-bottom:1.5rem}
+  h3{font-size:1.3rem;color:#5dade2;text-align:center;margin-bottom:1rem}
+  .story-text{font-size:1.2rem;line-height:1.8;text-align:center;max-width:550px;margin:0 auto}
+  .story-text em{color:#85c1e9;font-style:italic}
+  .story-text strong{color:#e8eef5}
+  .illustration{margin:1.5rem 0}
+  .illustration svg{max-width:100%;height:auto}
+  .page-num{color:#5a6d80;font-size:.85rem;margin-top:2rem}
+  .nav{position:fixed;bottom:1rem;right:1rem;z-index:100}
+  .nav a{display:inline-block;padding:.5rem 1rem;background:rgba(93,173,226,.15);color:#5dade2;text-decoration:none;border-radius:6px;margin-left:.5rem;font-size:.9rem}
+  .nav a:hover{background:rgba(93,173,226,.3)}
+  .sparkle{animation:twinkle 2s infinite}
+  @keyframes twinkle{0%,100%{opacity:.3}50%{opacity:1}}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  .floating{animation:float 3s ease-in-out infinite}
+  @keyframes slideIn{from{transform:translateX(-20px);opacity:0}to{transform:translateX(0);opacity:1}}
+  .slide-in{animation:slideIn .8s ease-out}
+  @media(max-width:600px){h1{font-size:2rem}h2{font-size:1.2rem}.story-text{font-size:1.05rem}}
+  html{scroll-behavior:smooth;scroll-snap-type:y mandatory}
+</style>
+</head>
+<body>
+
+<div class="book">
+
+<!-- PAGE 1: COVER -->
+<div class="page page-cover">
+  <div class="illustration floating">
+    <svg viewBox="0 0 400 300" width="350">
+      <defs><radialGradient id="glow"><stop offset="0%" stop-color="#5dade2" stop-opacity="0.3"/><stop offset="100%" stop-color="#0a1628" stop-opacity="0"/></radialGradient></defs>
+      <circle cx="200" cy="140" r="130" fill="url(#glow)"/>
+      <!-- Left world: Consumer (phone) -->
+      <g transform="translate(80,80)">
+        <circle cx="50" cy="50" r="55" fill="none" stroke="#5dade2" stroke-width="1.5" stroke-dasharray="6,3"/>
+        <rect x="25" y="20" width="50" height="65" rx="8" fill="#1b3a5c" stroke="#5dade2" stroke-width="2"/>
+        <rect x="32" y="30" width="36" height="30" rx="3" fill="#0d1b2a"/>
+        <circle cx="50" cy="45" r="5" fill="#fbbf24" class="sparkle"/>
+        <text x="50" y="100" fill="#5dade2" font-size="8" text-anchor="middle">Consumer</text>
+      </g>
+      <!-- Right world: M2M (robot/factory) -->
+      <g transform="translate(210,80)">
+        <circle cx="50" cy="50" r="55" fill="none" stroke="#34d399" stroke-width="1.5" stroke-dasharray="6,3"/>
+        <rect x="25" y="20" width="50" height="50" rx="6" fill="#1b3a5c" stroke="#34d399" stroke-width="2"/>
+        <circle cx="50" cy="38" r="8" fill="none" stroke="#34d399" stroke-width="2"/>
+        <circle cx="46" cy="35" r="2" fill="#34d399"/>
+        <circle cx="54" cy="35" r="2" fill="#34d399"/>
+        <rect x="44" y="54" width="12" height="3" rx="1" fill="#34d399"/>
+        <text x="50" y="95" fill="#34d399" font-size="8" text-anchor="middle">IoT / M2M</text>
+      </g>
+      <!-- Merging bridge -->
+      <path d="M135 130 Q200 70 265 130" stroke="#fbbf24" stroke-width="3" fill="none" stroke-dasharray="8,5" class="sparkle"/>
+      <text x="200" y="175" fill="#fbbf24" font-size="14" text-anchor="middle" class="sparkle">✦ MERGE ✦</text>
+      <!-- Sparkles -->
+      <circle cx="170" cy="105" r="2" fill="#fbbf24" class="sparkle"/>
+      <circle cx="230" cy="105" r="2" fill="#fbbf24" class="sparkle"/>
+      <circle cx="200" cy="90" r="2" fill="#85c1e9" class="sparkle"/>
+      <text x="200" y="240" fill="#5a6d80" font-size="10" text-anchor="middle">Article 52 · SGP.22 v3.x</text>
+    </svg>
+  </div>
+  <h1>🤝 The Big Team-Up</h1>
+  <h2>When Two eSIM Worlds Became One</h2>
+  <p class="story-text" style="color:#5a6d80">A story of how consumer phones and IoT robots joined forces under one mighty spec</p>
+  <div class="page-num">📖 Page 1</div>
+</div>
+
+<!-- PAGE 2: TWO SEPARATE WORLDS -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 230" width="350">
+      <!-- Left: Consumer world -->
+      <g transform="translate(20,20)">
+        <rect x="0" y="0" width="160" height="140" rx="10" fill="#1b3a5c" stroke="#5dade2" stroke-width="2"/>
+        <text x="80" y="20" fill="#5dade2" font-size="10" text-anchor="middle" font-weight="bold">📱 Consumer World</text>
+        <line x1="10" y1="28" x2="150" y2="28" stroke="#5a6d80" stroke-width="0.5"/>
+        <text x="80" y="48" fill="#c8d6e5" font-size="8" text-anchor="middle">Phones &amp; watches</text>
+        <text x="80" y="65" fill="#c8d6e5" font-size="8" text-anchor="middle">SIM cards → eSIM</text>
+        <text x="80" y="82" fill="#c8d6e5" font-size="8" text-anchor="middle">SGP.22 rules</text>
+        <text x="80" y="99" fill="#c8d6e5" font-size="8" text-anchor="middle">One profile at a time</text>
+        <text x="80" y="116" fill="#c8d6e5" font-size="8" text-anchor="middle">QR code downloads</text>
+        <text x="80" y="133" fill="#5a6d80" font-size="7" text-anchor="middle">v2.x (2016—2024)</text>
+      </g>
+      <!-- Separator -->
+      <line x1="10" y1="190" x2="390" y2="190" stroke="#ac4142" stroke-width="1" stroke-dasharray="8,4"/>
+      <text x="200" y="210" fill="#ac4142" font-size="9" text-anchor="middle">Two different rulebooks!</text>
+      <!-- Right: IoT world -->
+      <g transform="translate(220,20)">
+        <rect x="0" y="0" width="160" height="140" rx="10" fill="#1b3a5c" stroke="#34d399" stroke-width="2"/>
+        <text x="80" y="20" fill="#34d399" font-size="10" text-anchor="middle" font-weight="bold">🤖 IoT / M2M World</text>
+        <line x1="10" y1="28" x2="150" y2="28" stroke="#5a6d80" stroke-width="0.5"/>
+        <text x="80" y="48" fill="#c8d6e5" font-size="8" text-anchor="middle">Cars &amp; sensors</text>
+        <text x="80" y="65" fill="#c8d6e5" font-size="8" text-anchor="middle">No humans nearby</text>
+        <text x="80" y="82" fill="#c8d6e5" font-size="8" text-anchor="middle">SGP.02 rules</text>
+        <text x="80" y="99" fill="#c8d6e5" font-size="8" text-anchor="middle">Remote control</text>
+        <text x="80" y="116" fill="#c8d6e5" font-size="8" text-anchor="middle">Sleepy devices</text>
+        <text x="80" y="133" fill="#5a6d80" font-size="7" text-anchor="middle">v3.x / v4.x</text>
+      </g>
+    </svg>
+  </div>
+  <h3>🌍 Two Separate Worlds</h3>
+  <p class="story-text">For years, the eSIM ecosystem was split in two: <strong>SGP.22</strong> for consumer phones (where you scan QR codes) and <strong>SGP.02</strong> for IoT machines (cars, sensors, factory robots). Same chip — <em>two completely different rulebooks</em>. Companies had to build everything twice!</p>
+  <div class="page-num">📖 Page 2</div>
+</div>
+
+<!-- PAGE 3: WHY MERGE -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 240" width="350">
+      <!-- Problem icons -->
+      <g transform="translate(30,30)">
+        <rect x="0" y="0" width="100" height="80" rx="8" fill="#1b3a5c" stroke="#ac4142" stroke-width="1.5"/>
+        <text x="50" y="22" fill="#ac4142" font-size="18" text-anchor="middle">💰</text>
+        <text x="50" y="42" fill="#c8d6e5" font-size="8" text-anchor="middle">Build everything</text>
+        <text x="50" y="56" fill="#c8d6e5" font-size="8" text-anchor="middle">twice!</text>
+        <text x="50" y="72" fill="#ac4142" font-size="7" text-anchor="middle">Costly</text>
+      </g>
+      <g transform="translate(150,30)">
+        <rect x="0" y="0" width="100" height="80" rx="8" fill="#1b3a5c" stroke="#ac4142" stroke-width="1.5"/>
+        <text x="50" y="22" fill="#ac4142" font-size="18" text-anchor="middle">🔀</text>
+        <text x="50" y="42" fill="#c8d6e5" font-size="8" text-anchor="middle">Different</text>
+        <text x="50" y="56" fill="#c8d6e5" font-size="8" text-anchor="middle">languages</text>
+        <text x="50" y="72" fill="#ac4142" font-size="7" text-anchor="middle">Confusing</text>
+      </g>
+      <g transform="translate(270,30)">
+        <rect x="0" y="0" width="100" height="80" rx="8" fill="#1b3a5c" stroke="#ac4142" stroke-width="1.5"/>
+        <text x="50" y="22" fill="#ac4142" font-size="18" text-anchor="middle">🔒</text>
+        <text x="50" y="42" fill="#c8d6e5" font-size="8" text-anchor="middle">Missing</text>
+        <text x="50" y="56" fill="#c8d6e5" font-size="8" text-anchor="middle">features</text>
+        <text x="50" y="72" fill="#ac4142" font-size="7" text-anchor="middle">Limited</text>
+      </g>
+      <!-- Arrow down to solution -->
+      <text x="200" y="140" font-size="24" text-anchor="middle" fill="#5dade2">↓</text>
+      <!-- Solution -->
+      <g transform="translate(100,155)">
+        <rect x="0" y="0" width="200" height="55" rx="10" fill="#34d399" opacity="0.15" stroke="#34d399" stroke-width="2"/>
+        <text x="100" y="22" fill="#34d399" font-size="11" text-anchor="middle" font-weight="bold">💡 Solution: Unite!</text>
+        <text x="100" y="42" fill="#e8eef5" font-size="9" text-anchor="middle">One spec, one set of rules, one future!</text>
+      </g>
+    </svg>
+  </div>
+  <h3>🤔 Why Merge Two Worlds?</h3>
+  <p class="story-text">Having two separate specs meant <strong>double the work</strong> for everyone — chip makers, carriers, phone manufacturers. Worse, each spec missed features the other had. The GSMA decided: <em>what if we combined the best of both worlds into one unified rulebook?</em></p>
+  <div class="page-num">📖 Page 3</div>
+</div>
+
+<!-- PAGE 4: ONE SPEC TO RULE THEM ALL -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 240" width="350">
+      <!-- Central unified circle -->
+      <circle cx="200" cy="115" r="70" fill="none" stroke="#fbbf24" stroke-width="3"/>
+      <circle cx="200" cy="115" r="60" fill="#1b3a5c" stroke="#5dade2" stroke-width="2"/>
+      <text x="200" y="100" fill="#fbbf24" font-size="11" text-anchor="middle" font-weight="bold">SGP.22</text>
+      <text x="200" y="118" fill="#fbbf24" font-size="11" text-anchor="middle" font-weight="bold">v3.x</text>
+      <text x="200" y="138" fill="#85c1e9" font-size="9" text-anchor="middle">ONE SPEC</text>
+      <!-- Orbits -->
+      <g class="floating">
+        <circle cx="130" cy="65" r="20" fill="#1b3a5c" stroke="#5dade2" stroke-width="1.5"/>
+        <text x="130" y="68" fill="#5dade2" font-size="7" text-anchor="middle">📱 Phone</text>
+      </g>
+      <g class="floating">
+        <circle cx="280" cy="65" r="20" fill="#1b3a5c" stroke="#34d399" stroke-width="1.5"/>
+        <text x="280" y="68" fill="#34d399" font-size="7" text-anchor="middle">🚗 Car</text>
+      </g>
+      <g class="floating">
+        <circle cx="110" cy="160" r="20" fill="#1b3a5c" stroke="#85c1e9" stroke-width="1.5"/>
+        <text x="110" y="163" fill="#85c1e9" font-size="7" text-anchor="middle">⌚ Watch</text>
+      </g>
+      <g class="floating">
+        <circle cx="290" cy="160" r="20" fill="#1b3a5c" stroke="#fbbf24" stroke-width="1.5"/>
+        <text x="290" y="163" fill="#fbbf24" font-size="7" text-anchor="middle">🏭 Sensor</text>
+      </g>
+      <!-- Lines from center to orbits -->
+      <line x1="200" y1="55" x2="145" y2="65" stroke="#5a6d80" stroke-width="0.5"/>
+      <line x1="200" y1="55" x2="265" y2="65" stroke="#5a6d80" stroke-width="0.5"/>
+      <line x1="200" y1="175" x2="125" y2="160" stroke="#5a6d80" stroke-width="0.5"/>
+      <line x1="200" y1="175" x2="275" y2="160" stroke="#5a6d80" stroke-width="0.5"/>
+    </svg>
+  </div>
+  <h3>👑 One Spec to Rule Them All</h3>
+  <p class="story-text">SGP.22 v3.x is the <strong>grand unification</strong>! Whether you're a smartphone, a smartwatch, a car, or a factory sensor — you now <em>all follow the same rulebook</em>. The best features from both worlds are merged: push notifications from IoT, multiple profiles from consumer, and brand-new capabilities neither had before.</p>
+  <div class="page-num">📖 Page 4</div>
+</div>
+
+<!-- PAGE 5: WHAT'S NEW -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 250" width="350">
+      <text x="200" y="18" fill="#fbbf24" font-size="12" text-anchor="middle" font-weight="bold">✨ What's New in v3.x? ✨</text>
+      <!-- Feature 1: MEP -->
+      <g transform="translate(25,35)">
+        <rect x="0" y="0" width="170" height="45" rx="8" fill="#1b3a5c" stroke="#5dade2" stroke-width="1.5"/>
+        <text x="20" y="20" fill="#5dade2" font-size="9">👥</text>
+        <text x="40" y="18" fill="#e8eef5" font-size="9" font-weight="bold">MEP</text>
+        <text x="40" y="34" fill="#c8d6e5" font-size="8">Two profiles active at once!</text>
+      </g>
+      <!-- Feature 2: Push -->
+      <g transform="translate(205,35)">
+        <rect x="0" y="0" width="170" height="45" rx="8" fill="#1b3a5c" stroke="#34d399" stroke-width="1.5"/>
+        <text x="20" y="20" fill="#34d399" font-size="9">🔔</text>
+        <text x="40" y="18" fill="#e8eef5" font-size="9" font-weight="bold">Push Service</text>
+        <text x="40" y="34" fill="#c8d6e5" font-size="8">Server knocks, you answer!</text>
+      </g>
+      <!-- Feature 3: Feature Support -->
+      <g transform="translate(25,95)">
+        <rect x="0" y="0" width="170" height="45" rx="8" fill="#1b3a5c" stroke="#fbbf24" stroke-width="1.5"/>
+        <text x="20" y="20" fill="#fbbf24" font-size="9">🤝</text>
+        <text x="40" y="18" fill="#e8eef5" font-size="9" font-weight="bold">Feature Support</text>
+        <text x="40" y="34" fill="#c8d6e5" font-size="8">Secret handshake first!</text>
+      </g>
+      <!-- Feature 4: Device Change -->
+      <g transform="translate(205,95)">
+        <rect x="0" y="0" width="170" height="45" rx="8" fill="#1b3a5c" stroke="#85c1e9" stroke-width="1.5"/>
+        <text x="20" y="20" fill="#85c1e9" font-size="9">🏠➡️🏠</text>
+        <text x="40" y="18" fill="#e8eef5" font-size="9" font-weight="bold">Device Change</text>
+        <text x="40" y="34" fill="#c8d6e5" font-size="8">Move keys to a new phone!</text>
+      </g>
+      <!-- Feature 5: Updates -->
+      <g transform="translate(25,155)">
+        <rect x="0" y="0" width="170" height="45" rx="8" fill="#1b3a5c" stroke="#ac4142" stroke-width="1.5"/>
+        <text x="20" y="20" fill="#ac4142" font-size="9">🧠</text>
+        <text x="40" y="18" fill="#e8eef5" font-size="9" font-weight="bold">Chip Updates</text>
+        <text x="40" y="34" fill="#c8d6e5" font-size="8">Teach old vaults new tricks!</text>
+      </g>
+      <!-- Feature 6: Interop -->
+      <g transform="translate(205,155)">
+        <rect x="0" y="0" width="170" height="45" rx="8" fill="#1b3a5c" stroke="#5dade2" stroke-width="1.5"/>
+        <text x="20" y="20" fill="#5dade2" font-size="9">🔀</text>
+        <text x="40" y="18" fill="#e8eef5" font-size="9" font-weight="bold">Interoperability</text>
+        <text x="40" y="34" fill="#c8d6e5" font-size="8">Old + new work together!</text>
+      </g>
+      <text x="200" y="235" fill="#5a6d80" font-size="8" text-anchor="middle">All in one unified rulebook!</text>
+    </svg>
+  </div>
+  <h3>✨ What's New Under the Sun</h3>
+  <p class="story-text">v3.x introduces <strong>six big innovations</strong>: Multiple Enabled Profiles (MEP) so you can be on two networks at once, Push Service for instant notifications, Feature Support handshakes, Device Change to move keys between phones, Chip Updates to keep your vault modern, and Interoperability rules so old and new can coexist peacefully.</p>
+  <div class="page-num">📖 Page 5</div>
+</div>
+
+<!-- PAGE 6: TIMELINE -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 230" width="350">
+      <!-- Timeline -->
+      <line x1="30" y1="115" x2="370" y2="115" stroke="#5a6d80" stroke-width="2"/>
+      <!-- Node 1: SGP.22 v2.x -->
+      <g transform="translate(60,115)">
+        <circle cx="0" cy="0" r="10" fill="#5dade2"/>
+        <text x="0" y="-18" fill="#5dade2" font-size="9" text-anchor="middle">2016</text>
+        <text x="0" y="28" fill="#c8d6e5" font-size="8" text-anchor="middle">SGP.22 v2</text>
+        <text x="0" y="40" fill="#5a6d80" font-size="7" text-anchor="middle">Consumer only</text>
+      </g>
+      <!-- Node 2: SGP.02 -->
+      <g transform="translate(140,115)">
+        <circle cx="0" cy="0" r="10" fill="#34d399"/>
+        <text x="0" y="-45" fill="#34d399" font-size="9" text-anchor="middle">2014—</text>
+        <text x="0" y="-32" fill="#34d399" font-size="9" text-anchor="middle">2024</text>
+        <text x="0" y="28" fill="#c8d6e5" font-size="8" text-anchor="middle">SGP.02</text>
+        <text x="0" y="40" fill="#5a6d80" font-size="7" text-anchor="middle">M2M only</text>
+      </g>
+      <!-- Node 3: The Merge -->
+      <g transform="translate(220,115)">
+        <circle cx="0" cy="0" r="16" fill="none" stroke="#fbbf24" stroke-width="3" class="sparkle"/>
+        <circle cx="0" cy="0" r="8" fill="#fbbf24"/>
+        <text x="0" y="-22" fill="#fbbf24" font-size="9" text-anchor="middle">2024+</text>
+        <text x="0" y="32" fill="#fbbf24" font-size="9" text-anchor="middle" font-weight="bold">THE MERGE</text>
+        <text x="0" y="46" fill="#e8eef5" font-size="8" text-anchor="middle">SGP.22 v3.x</text>
+      </g>
+      <!-- Node 4: Future -->
+      <g transform="translate(320,115)">
+        <circle cx="0" cy="0" r="10" fill="#85c1e9"/>
+        <text x="0" y="-18" fill="#85c1e9" font-size="9" text-anchor="middle">Future</text>
+        <text x="0" y="28" fill="#c8d6e5" font-size="8" text-anchor="middle">One unified</text>
+        <text x="0" y="40" fill="#5a6d80" font-size="7" text-anchor="middle">ecosystem</text>
+      </g>
+      <!-- Merging arrows -->
+      <path d="M100 95 Q170 70 200 95" stroke="#fbbf24" stroke-width="1.5" fill="none" stroke-dasharray="4,3"/>
+      <path d="M160 95 Q190 65 215 95" stroke="#fbbf24" stroke-width="1.5" fill="none" stroke-dasharray="4,3"/>
+      <text x="200" y="190" fill="#85c1e9" font-size="10" text-anchor="middle">Two paths → One future!</text>
+    </svg>
+  </div>
+  <h3>📅 The Timeline of Team-Up</h3>
+  <p class="story-text">For nearly a decade, two parallel eSIM worlds existed side by side. In 2024, the GSMA decided: <strong>let's bring them together</strong>. SGP.22 v3.x absorbs the best of SGP.02 and adds brand-new features, creating a <em>single, future-proof standard</em> that works for phones, cars, watches, sensors — and whatever comes next!</p>
+  <div class="page-num">📖 Page 6</div>
+</div>
+
+<!-- PAGE 7: DID YOU KNOW + NAV -->
+<div class="page page-cover">
+  <div class="illustration floating">
+    <svg viewBox="0 0 400 240" width="350">
+      <!-- Unified ecosystem -->
+      <circle cx="200" cy="100" r="80" fill="none" stroke="#fbbf24" stroke-width="2"/>
+      <!-- Various devices inside -->
+      <g transform="translate(140,55)">
+        <rect x="0" y="0" width="30" height="40" rx="5" fill="#1b3a5c" stroke="#5dade2" stroke-width="1.5"/>
+        <rect x="4" y="6" width="22" height="20" rx="2" fill="#0d1b2a"/>
+      </g>
+      <g transform="translate(185,50)">
+        <circle cx="0" cy="0" r="18" fill="#1b3a5c" stroke="#85c1e9" stroke-width="1.5"/>
+        <text x="0" y="4" fill="#85c1e9" font-size="8" text-anchor="middle">⌚</text>
+      </g>
+      <g transform="translate(240,60)">
+        <rect x="0" y="0" width="40" height="25" rx="5" fill="#1b3a5c" stroke="#34d399" stroke-width="1.5"/>
+        <text x="20" y="17" fill="#34d399" font-size="8" text-anchor="middle">🚗</text>
+      </g>
+      <g transform="translate(160,110)">
+        <rect x="0" y="0" width="25" height="25" rx="4" fill="#1b3a5c" stroke="#fbbf24" stroke-width="1.5"/>
+        <text x="12" y="17" fill="#fbbf24" font-size="8" text-anchor="middle">🏭</text>
+      </g>
+      <g transform="translate(220,105)">
+        <rect x="0" y="0" width="28" height="28" rx="4" fill="#1b3a5c" stroke="#5dade2" stroke-width="1.5"/>
+        <text x="14" y="19" fill="#5dade2" font-size="8" text-anchor="middle">📡</text>
+      </g>
+      <!-- Sparkles around circle -->
+      <circle cx="120" cy="70" r="2" fill="#fbbf24" class="sparkle"/>
+      <circle cx="280" cy="70" r="2" fill="#fbbf24" class="sparkle"/>
+      <circle cx="120" cy="140" r="2" fill="#85c1e9" class="sparkle"/>
+      <circle cx="280" cy="140" r="2" fill="#85c1e9" class="sparkle"/>
+      <text x="200" y="200" fill="#fbbf24" font-size="11" text-anchor="middle">🧠 One spec, every device!</text>
+    </svg>
+  </div>
+  <h3>🧠 Did You Know?</h3>
+  <p class="story-text">SGP.22 v3.x isn't just an update — it's the <strong>biggest eSIM standard merger ever</strong>. By absorbing SGP.02's best ideas (remote management, push notifications) and adding new ones (MEP, device change), it creates <em>one rulebook for every connected device on the planet</em>. That's billions of devices speaking the same language!</p>
+  <h2 style="margin-top:2rem">📚 Read the Next Story!</h2>
+  <p style="text-align:center;margin-bottom:1rem">
+    <a href="storybook-53.html" style="display:inline-block;padding:.8rem 2rem;background:rgba(93,173,226,0.15);color:#5dade2;text-decoration:none;border-radius:8px;font-size:1.1rem">👥 Next: Wearing Two Invisible Cloaks →</a>
+  </p>
+  <p style="text-align:center">
+    <a href="index.html" style="color:#5a6d80;text-decoration:none;font-size:.9rem">📖 Back to All Stories</a>
+  </p>
+  <div class="page-num">📖 Page 7 — The End ✨</div>
+</div>
+
+</div>
+
+<div class="nav">
+  <a href="#" onclick="window.scrollBy({top:-window.innerHeight,behavior:'smooth'});return false">⬆</a>
+  <a href="#" onclick="window.scrollBy({top:window.innerHeight,behavior:'smooth'});return false">⬇</a>
+  <a href="storybook-53.html">Next →</a>
+</div>
+
+</body>
+</html>

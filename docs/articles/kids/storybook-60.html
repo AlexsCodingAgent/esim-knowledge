@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Great Key Delivery — An eSIM Story</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Georgia',serif;background:#0a1628;color:#c8d6e5;overflow-x:hidden}
+  .book{max-width:800px;margin:0 auto;min-height:100vh}
+  .page{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;page-break-after:always;scroll-snap-align:start}
+  .page-cover{background:linear-gradient(135deg,#0d1b2a 0%,#0a1628 50%,#0d1b2a 100%)}
+  h1{font-size:2.8rem;color:#e8eef5;text-align:center;margin-bottom:.5rem}
+  h2{font-size:1.6rem;color:#85c1e9;text-align:center;font-weight:400;margin-bottom:1.5rem}
+  h3{font-size:1.3rem;color:#5dade2;text-align:center;margin-bottom:1rem}
+  .story-text{font-size:1.2rem;line-height:1.8;text-align:center;max-width:550px;margin:0 auto}
+  .story-text em{color:#85c1e9;font-style:italic}
+  .story-text strong{color:#e8eef5}
+  .illustration{margin:1.5rem 0}
+  .illustration svg{max-width:100%;height:auto}
+  .page-num{color:#5a6d80;font-size:.85rem;margin-top:2rem}
+  .nav{position:fixed;bottom:1rem;right:1rem;z-index:100}
+  .nav a{display:inline-block;padding:.5rem 1rem;background:rgba(93,173,226,.15);color:#5dade2;text-decoration:none;border-radius:6px;margin-left:.5rem;font-size:.9rem}
+  .nav a:hover{background:rgba(93,173,226,.3)}
+  .sparkle{animation:twinkle 2s infinite}
+  @keyframes twinkle{0%,100%{opacity:.3}50%{opacity:1}}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  .floating{animation:float 3s ease-in-out infinite}
+  @keyframes slideIn{from{transform:translateX(-20px);opacity:0}to{transform:translateX(0);opacity:1}}
+  .slide-in{animation:slideIn .8s ease-out}
+  @media(max-width:600px){h1{font-size:2rem}h2{font-size:1.2rem}.story-text{font-size:1.05rem}}
+  html{scroll-behavior:smooth;scroll-snap-type:y mandatory}
+</style>
+</head>
+<body>
+
+<div class="book">
+
+<!-- PAGE 1: COVER -->
+<div class="page page-cover">
+  <div class="illustration floating">
+    <svg viewBox="0 0 400 300" width="350">
+      <defs><radialGradient id="glow"><stop offset="0%" stop-color="#5dade2" stop-opacity="0.3"/><stop offset="100%" stop-color="#0a1628" stop-opacity="0"/></radialGradient></defs>
+      <circle cx="200" cy="140" r="130" fill="url(#glow)"/>
+      <!-- Factory/Key Maker workshop -->
+      <rect x="60" y="70" width="70" height="50" rx="6" fill="#34d399" stroke="#85c1e9" stroke-width="2"/>
+      <rect x="75" y="55" width="40" height="15" rx="3" fill="#34d399"/>
+      <text x="95" y="66" fill="#0a1628" font-size="6" text-anchor="middle">FACTORY</text>
+      <text x="95" y="100" fill="#e8eef5" font-size="7" text-anchor="middle">Key Maker</text>
+      <!-- Package traveling through tube -->
+      <g transform="translate(160,90)">
+        <rect x="0" y="0" width="80" height="16" rx="8" fill="#1b3a5c" stroke="#5dade2" stroke-width="1.5"/>
+        <rect x="30" y="2" width="20" height="12" rx="3" fill="#fbbf24" class="sparkle"/>
+      </g>
+      <!-- Phone receiving -->
+      <rect x="270" y="75" width="70" height="100" rx="8" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2"/>
+      <rect x="280" y="88" width="50" height="55" rx="3" fill="#0d1b2a"/>
+      <!-- Key on screen -->
+      <g class="sparkle" transform="translate(305,118)">
+        <circle cx="0" cy="0" r="5" fill="none" stroke="#fbbf24" stroke-width="2"/>
+        <rect x="-2" y="5" width="4" height="10" rx="1" fill="#fbbf24"/>
+      </g>
+      <!-- Sparkles along tube -->
+      <circle cx="180" cy="80" r="1.5" fill="#85c1e9" class="sparkle"/>
+      <circle cx="210" cy="85" r="1.5" fill="#fbbf24" class="sparkle"/>
+      <circle cx="240" cy="82" r="2" fill="#5dade2" class="sparkle"/>
+      <text x="200" y="255" fill="#5a6d80" font-size="10" text-anchor="middle">Article 60 · SGP.22 v3.x</text>
+    </svg>
+  </div>
+  <h1>📦 The Great Key Delivery</h1>
+  <h2>How Your Phone Gets Its Secret Internet Key</h2>
+  <p class="story-text" style="color:#5a6d80">A story of QR codes, identity checks, secure tunnels, and the magical three-phase delivery</p>
+  <div class="page-num">📖 Page 1</div>
+</div>
+
+<!-- PAGE 2: YOU ORDERED A KEY -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 230" width="350">
+      <!-- QR code -->
+      <g transform="translate(30,30)">
+        <rect x="0" y="0" width="80" height="80" rx="4" fill="none" stroke="#fbbf24" stroke-width="2"/>
+        <rect x="6" y="6" width="10" height="10" fill="#fbbf24"/>
+        <rect x="22" y="6" width="10" height="10" fill="#fbbf24"/>
+        <rect x="38" y="6" width="10" height="10" fill="#fbbf24"/>
+        <rect x="54" y="6" width="10" height="10" fill="#fbbf24"/>
+        <rect x="6" y="22" width="10" height="10" fill="#fbbf24"/>
+        <rect x="38" y="22" width="10" height="10" fill="#fbbf24"/>
+        <rect x="54" y="22" width="10" height="10" fill="#fbbf24"/>
+        <rect x="6" y="38" width="10" height="10" fill="#fbbf24"/>
+        <rect x="22" y="38" width="10" height="10" fill="#fbbf24"/>
+        <rect x="54" y="38" width="10" height="10" fill="#fbbf24"/>
+        <rect x="6" y="54" width="10" height="10" fill="#fbbf24"/>
+        <rect x="22" y="54" width="10" height="10" fill="#fbbf24"/>
+        <rect x="38" y="54" width="10" height="10" fill="#fbbf24"/>
+        <text x="40" y="100" fill="#fbbf24" font-size="8" text-anchor="middle">QR Code</text>
+      </g>
+      <!-- Arrow -->
+      <text x="160" y="70" font-size="24" text-anchor="middle" fill="#5dade2">→</text>
+      <!-- Key Maker getting order -->
+      <g transform="translate(200,20)">
+        <rect x="0" y="0" width="90" height="70" rx="8" fill="#34d399" stroke="#85c1e9" stroke-width="2"/>
+        <text x="45" y="18" fill="#e8eef5" font-size="8" text-anchor="middle">🏭 Key Maker</text>
+        <text x="45" y="35" fill="#e8eef5" font-size="7" text-anchor="middle">"One key for</text>
+        <text x="45" y="47" fill="#e8eef5" font-size="7" text-anchor="middle">EID 890123..."</text>
+        <text x="45" y="63" fill="#fbbf24" font-size="7" text-anchor="middle">Order received!</text>
+      </g>
+      <!-- Carrier -->
+      <g transform="translate(320,20)">
+        <rect x="0" y="0" width="60" height="50" rx="6" fill="#fbbf24" stroke="#85c1e9" stroke-width="1.5"/>
+        <text x="30" y="20" fill="#0a1628" font-size="8" text-anchor="middle">📡 Carrier</text>
+        <text x="30" y="38" fill="#0a1628" font-size="7" text-anchor="middle">Approved</text>
+      </g>
+      <!-- Claim ticket -->
+      <g transform="translate(120,140)">
+        <rect x="0" y="0" width="160" height="50" rx="6" fill="#1b3a5c" stroke="#fbbf24" stroke-width="1.5"/>
+        <text x="80" y="18" fill="#fbbf24" font-size="9" text-anchor="middle" font-weight="bold">CLAIM TICKET</text>
+        <text x="80" y="35" fill="#c8d6e5" font-size="8" text-anchor="middle">MatchingID: 7A3F-9B2C</text>
+      </g>
+    </svg>
+  </div>
+  <h3>🎫 You Ordered a Key</h3>
+  <p class="story-text">You sign up with a carrier, they place an order with the <strong>Key Maker</strong>: "One profile for this phone, please!" The Key Maker reserves a key and issues a <strong>claim ticket</strong> (MatchingID) — that's what's inside the QR code you scan. "I'm here to pick up my key!"</p>
+  <div class="page-num">📖 Page 2</div>
+</div>
+
+<!-- PAGE 3: THE KEY MAKER GETS TO WORK -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 230" width="350">
+      <!-- Key Maker workshop -->
+      <g transform="translate(30,15)">
+        <rect x="0" y="0" width="120" height="100" rx="8" fill="#1b3a5c" stroke="#34d399" stroke-width="2"/>
+        <text x="60" y="18" fill="#34d399" font-size="8" text-anchor="middle" font-weight="bold">🏭 Key Maker Workshop</text>
+        <!-- Conveyor belt with keys -->
+        <rect x="8" y="30" width="104" height="4" rx="2" fill="#5a6d80"/>
+        <g class="sparkle" transform="translate(20,22)">
+          <circle cx="0" cy="0" r="5" fill="none" stroke="#fbbf24" stroke-width="1.5"/>
+          <rect x="-1.5" y="5" width="3" height="8" rx="0.5" fill="#fbbf24"/>
+        </g>
+        <g class="sparkle" transform="translate(45,22)">
+          <circle cx="0" cy="0" r="5" fill="none" stroke="#85c1e9" stroke-width="1.5"/>
+          <rect x="-1.5" y="5" width="3" height="8" rx="0.5" fill="#85c1e9"/>
+        </g>
+        <g class="sparkle" transform="translate(70,22)">
+          <circle cx="0" cy="0" r="5" fill="none" stroke="#fbbf24" stroke-width="1.5"/>
+          <rect x="-1.5" y="5" width="3" height="8" rx="0.5" fill="#fbbf24"/>
+        </g>
+        <text x="60" y="55" fill="#c8d6e5" font-size="7" text-anchor="middle">Pre-made or</text>
+        <text x="60" y="67" fill="#c8d6e5" font-size="7" text-anchor="middle">freshly crafted</text>
+        <!-- Reserve stamp -->
+        <rect x="35" y="75" width="50" height="18" rx="3" fill="#fbbf24"/>
+        <text x="60" y="88" fill="#0a1628" font-size="7" text-anchor="middle">RESERVED</text>
+      </g>
+      <!-- Pre-generation warehouse -->
+      <g transform="translate(210,15)">
+        <rect x="0" y="0" width="100" height="100" rx="8" fill="#1b3a5c" stroke="#5dade2" stroke-width="1.5"/>
+        <text x="50" y="18" fill="#5dade2" font-size="8" text-anchor="middle" font-weight="bold">📦 Warehouse</text>
+        <!-- Shelves of keys -->
+        <rect x="8" y="25" width="84" height="12" rx="2" fill="#0d1b2a"/>
+        <rect x="8" y="42" width="84" height="12" rx="2" fill="#0d1b2a"/>
+        <rect x="8" y="59" width="84" height="12" rx="2" fill="#0d1b2a"/>
+        <text x="50" y="35" fill="#5a6d80" font-size="6" text-anchor="middle">🔑 🔑 🔑 🔑 🔑</text>
+        <text x="50" y="52" fill="#5a6d80" font-size="6" text-anchor="middle">🔑 🔑 🔑 🔑 🔑</text>
+        <text x="50" y="69" fill="#5a6d80" font-size="6" text-anchor="middle">🔑 🔑 🔑 🔑 🔑</text>
+        <text x="50" y="88" fill="#85c1e9" font-size="7" text-anchor="middle">Thousands ready!</text>
+      </g>
+      <text x="200" y="170" fill="#85c1e9" font-size="10" text-anchor="middle">Pre-generated keys — bound to you in seconds!</text>
+    </svg>
+  </div>
+  <h3>🔨 The Key Maker Gets to Work</h3>
+  <p class="story-text">The Key Maker can <strong>pre-generate thousands</strong> of protected profiles in advance using random encryption keys — without knowing which vault will receive them! When you show up with your claim ticket, your specific key is <em>bound to YOUR vault</em> in seconds. Like a warehouse of wrapped gifts, ready for the right person!</p>
+  <div class="page-num">📖 Page 3</div>
+</div>
+
+<!-- PAGE 4: WRAPPING THE KEY -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 240" width="350">
+      <!-- Three wrapping layers -->
+      <g transform="translate(30,30)">
+        <!-- Raw key -->
+        <g transform="translate(30,50)">
+          <circle cx="0" cy="0" r="12" fill="none" stroke="#fbbf24" stroke-width="2.5"/>
+          <rect x="-3" y="12" width="6" height="16" rx="1" fill="#fbbf24"/>
+          <text x="0" y="40" fill="#5a6d80" font-size="7" text-anchor="middle">Raw Key</text>
+        </g>
+        <!-- Layer 1 -->
+        <rect x="0" y="0" width="70" height="55" rx="6" fill="none" stroke="#5dade2" stroke-width="2" stroke-dasharray="5,3"/>
+        <text x="35" y="10" fill="#5dade2" font-size="7" text-anchor="middle">Encrypted</text>
+      </g>
+      <!-- Arrow -->
+      <text x="140" y="70" font-size="20" text-anchor="middle" fill="#5dade2">→</text>
+      <!-- Layer 2 -->
+      <g transform="translate(165,15)">
+        <rect x="0" y="0" width="85" height="75" rx="7" fill="none" stroke="#85c1e9" stroke-width="2" stroke-dasharray="4,2"/>
+        <text x="42" y="10" fill="#85c1e9" font-size="7" text-anchor="middle">Locked to you</text>
+      </g>
+      <!-- Arrow -->
+      <text x="280" y="70" font-size="20" text-anchor="middle" fill="#5dade2">→</text>
+      <!-- Layer 3 -->
+      <g transform="translate(305,5)">
+        <rect x="0" y="0" width="85" height="90" rx="8" fill="none" stroke="#fbbf24" stroke-width="2.5"/>
+        <rect x="4" y="4" width="77" height="82" rx="6" fill="none" stroke="#fbbf24" stroke-width="1" stroke-dasharray="3,3"/>
+        <text x="42" y="12" fill="#fbbf24" font-size="7" text-anchor="middle">Segmented</text>
+        <text x="42" y="24" fill="#fbbf24" font-size="6" text-anchor="middle">(255 bytes each)</text>
+      </g>
+      <!-- Labels -->
+      <text x="65" y="170" fill="#5dade2" font-size="8" text-anchor="middle">Layer 1</text>
+      <text x="210" y="170" fill="#85c1e9" font-size="8" text-anchor="middle">Layer 2</text>
+      <text x="345" y="170" fill="#fbbf24" font-size="8" text-anchor="middle">Layer 3</text>
+    </svg>
+  </div>
+  <h3>🎁 Wrapping the Key in Unbreakable Layers</h3>
+  <p class="story-text">The key passes through <strong>three layers of protection</strong>: first encrypted with a secret code, then <em>locked to your specific vault</em> using a one-time mathematical handshake, and finally chopped into tiny 255-byte pieces so even memory-tiny vaults can handle it. Nobody but your vault can unwrap all three layers!</p>
+  <div class="page-num">📖 Page 4</div>
+</div>
+
+<!-- PAGE 5: THE THREE-PHASE DELIVERY -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 240" width="350">
+      <!-- Phase 1 -->
+      <g transform="translate(20,20)">
+        <rect x="0" y="0" width="110" height="55" rx="6" fill="#1b3a5c" stroke="#5dade2" stroke-width="1.5"/>
+        <text x="55" y="16" fill="#5dade2" font-size="8" text-anchor="middle" font-weight="bold">🔍 Phase 1</text>
+        <text x="55" y="30" fill="#c8d6e5" font-size="7" text-anchor="middle">Identity Check</text>
+        <text x="55" y="44" fill="#5a6d80" font-size="7" text-anchor="middle">"Are you EID 890123?"</text>
+      </g>
+      <!-- Phase 2 -->
+      <g transform="translate(145,20)">
+        <rect x="0" y="0" width="110" height="55" rx="6" fill="#1b3a5c" stroke="#85c1e9" stroke-width="1.5"/>
+        <text x="55" y="16" fill="#85c1e9" font-size="8" text-anchor="middle" font-weight="bold">🤝 Phase 2</text>
+        <text x="55" y="30" fill="#c8d6e5" font-size="7" text-anchor="middle">Handshake</text>
+        <text x="55" y="44" fill="#5a6d80" font-size="7" text-anchor="middle">Rules checked + consent</text>
+      </g>
+      <!-- Phase 3 -->
+      <g transform="translate(270,20)">
+        <rect x="0" y="0" width="110" height="55" rx="6" fill="#1b3a5c" stroke="#fbbf24" stroke-width="1.5"/>
+        <text x="55" y="16" fill="#fbbf24" font-size="8" text-anchor="middle" font-weight="bold">🎁 Phase 3</text>
+        <text x="55" y="30" fill="#c8d6e5" font-size="7" text-anchor="middle">Unwrapping</text>
+        <text x="55" y="44" fill="#5a6d80" font-size="7" text-anchor="middle">Install + receipt</text>
+      </g>
+      <!-- Arrows between phases -->
+      <text x="133" y="50" font-size="14" fill="#5dade2" text-anchor="middle">→</text>
+      <text x="258" y="50" font-size="14" fill="#5dade2" text-anchor="middle">→</text>
+      <!-- Delivery sequence below -->
+      <g transform="translate(60,100)">
+        <!-- Vault and Key Maker handshake -->
+        <g transform="translate(0,0)">
+          <rect x="0" y="0" width="60" height="40" rx="5" fill="#4a90d9" stroke="#85c1e9" stroke-width="1"/>
+          <text x="30" y="18" fill="#e8eef5" font-size="7" text-anchor="middle">Vault</text>
+          <text x="30" y="32" fill="#85c1e9" font-size="6" text-anchor="middle">💡"Here's a lock"</text>
+        </g>
+        <g transform="translate(80,0)">
+          <rect x="0" y="0" width="60" height="40" rx="5" fill="#34d399" stroke="#85c1e9" stroke-width="1"/>
+          <text x="30" y="18" fill="#e8eef5" font-size="7" text-anchor="middle">K. Maker</text>
+          <text x="30" y="32" fill="#fbbf24" font-size="6" text-anchor="middle">🔒"Locking now"</text>
+        </g>
+        <!-- BBP pieces -->
+        <g transform="translate(180,5)">
+          <rect x="0" y="0" width="12" height="8" rx="2" fill="#85c1e9" class="sparkle"/>
+          <rect x="15" y="0" width="12" height="8" rx="2" fill="#fbbf24" class="sparkle"/>
+          <rect x="30" y="0" width="12" height="8" rx="2" fill="#85c1e9" class="sparkle"/>
+          <rect x="45" y="0" width="12" height="8" rx="2" fill="#fbbf24" class="sparkle"/>
+          <rect x="0" y="12" width="12" height="8" rx="2" fill="#fbbf24" class="sparkle"/>
+          <rect x="15" y="12" width="12" height="8" rx="2" fill="#85c1e9" class="sparkle"/>
+          <text x="28" y="32" fill="#5a6d80" font-size="6" text-anchor="middle">255-byte pieces</text>
+        </g>
+      </g>
+      <text x="200" y="195" fill="#85c1e9" font-size="9" text-anchor="middle">One-time lock — destroyed right after use!</text>
+    </svg>
+  </div>
+  <h3>🚚 The Three-Phase Delivery</h3>
+  <p class="story-text"><strong>Phase 1:</strong> Identity check — both sides verify each other's digital certificates. <strong>Phase 2:</strong> Handshake — rules checked, user consents, vault creates a one-time lock. <strong>Phase 3:</strong> Unwrapping — the BPP arrives in tiny pieces, vault decrypts and installs everything, then signs a <em>cryptographic receipt</em>!</p>
+  <div class="page-num">📖 Page 5</div>
+</div>
+
+<!-- PAGE 6: WHAT IF SOMETHING GOES WRONG -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 230" width="350">
+      <!-- Three error scenarios -->
+      <g transform="translate(20,20)">
+        <rect x="0" y="0" width="110" height="48" rx="6" fill="#fbbf24" opacity="0.2" stroke="#fbbf24" stroke-width="1"/>
+        <text x="55" y="18" fill="#fbbf24" font-size="8" text-anchor="middle">⚡ Power loss?</text>
+        <text x="55" y="34" fill="#c8d6e5" font-size="7" text-anchor="middle">Result saved to</text>
+        <text x="55" y="45" fill="#c8d6e5" font-size="7" text-anchor="middle">permanent memory!</text>
+      </g>
+      <g transform="translate(145,20)">
+        <rect x="0" y="0" width="110" height="48" rx="6" fill="#85c1e9" opacity="0.15" stroke="#85c1e9" stroke-width="1"/>
+        <text x="55" y="18" fill="#85c1e9" font-size="8" text-anchor="middle">🔄 Interrupted?</text>
+        <text x="55" y="34" fill="#c8d6e5" font-size="7" text-anchor="middle">Pick up where</text>
+        <text x="55" y="45" fill="#c8d6e5" font-size="7" text-anchor="middle">you left off!</text>
+      </g>
+      <g transform="translate(270,20)">
+        <rect x="0" y="0" width="110" height="48" rx="6" fill="#ac4142" opacity="0.15" stroke="#ac4142" stroke-width="1"/>
+        <text x="55" y="18" fill="#ac4142" font-size="8" text-anchor="middle">🔒 Too many tries?</text>
+        <text x="55" y="34" fill="#c8d6e5" font-size="7" text-anchor="middle">Profile locks</text>
+        <text x="55" y="45" fill="#c8d6e5" font-size="7" text-anchor="middle">out safely!</text>
+      </g>
+      <!-- Shield icon -->
+      <text x="200" y="140" font-size="30" text-anchor="middle" fill="#34d399">🛡️</text>
+      <text x="200" y="175" fill="#85c1e9" font-size="10" text-anchor="middle">Built to handle failures gracefully</text>
+    </svg>
+  </div>
+  <h3>⚠️ Opening the Package — What If Something Goes Wrong?</h3>
+  <p class="story-text">The delivery system is <strong>built to handle failures</strong>. Power loss? The vault saves results to permanent memory. Interrupted download? Pick up where you left off. Wrong confirmation code too many times? The profile <em>locks out safely</em> instead of being corrupted. Every outcome is tracked and provable!</p>
+  <div class="page-num">📖 Page 6</div>
+</div>
+
+<!-- PAGE 7: DID YOU KNOW + NAV -->
+<div class="page page-cover">
+  <div class="illustration floating">
+    <svg viewBox="0 0 400 240" width="350">
+      <!-- Phone with key inside -->
+      <rect x="130" y="40" width="140" height="160" rx="12" fill="#1b3a5c" stroke="#5dade2" stroke-width="2"/>
+      <rect x="148" y="60" width="104" height="80" rx="4" fill="#0d1b2a"/>
+      <!-- Glowing key -->
+      <g class="sparkle" transform="translate(200,105)">
+        <circle cx="0" cy="0" r="14" fill="none" stroke="#fbbf24" stroke-width="3"/>
+        <rect x="-4" y="14" width="8" height="22" rx="1.5" fill="#fbbf24"/>
+        <rect x="-10" y="10" width="5" height="5" rx="1" fill="#fbbf24"/>
+        <rect x="5" y="20" width="5" height="5" rx="1" fill="#fbbf24"/>
+      </g>
+      <!-- Receipt -->
+      <g transform="translate(140,160)">
+        <rect x="0" y="0" width="120" height="25" rx="3" fill="#34d399" opacity="0.6"/>
+        <text x="60" y="17" fill="#0a1628" font-size="8" text-anchor="middle">✓ Installed on ISD-P 1234</text>
+      </g>
+      <text x="200" y="225" fill="#fbbf24" font-size="11" text-anchor="middle">🧠 Your key is ready!</text>
+    </svg>
+  </div>
+  <h3>🧠 Did You Know?</h3>
+  <p class="story-text">The Key Maker can pre-generate thousands of protected profiles using random encryption keys — without knowing which vault will receive them! When you arrive with your claim ticket, the Key Maker binds the pre-made key to YOUR specific vault in seconds. It's like a <em>warehouse of wrapped gifts</em>, and the wrapping paper only sticks to the right person!</p>
+  <h2 style="margin-top:2rem">📚 Read the Next Story!</h2>
+  <p style="text-align:center;margin-bottom:1rem">
+    <a href="storybook-61.html" style="display:inline-block;padding:.8rem 2rem;background:rgba(93,173,226,0.15);color:#5dade2;text-decoration:none;border-radius:8px;font-size:1.1rem">✉️ Next: The Unbreakable Envelope →</a>
+  </p>
+  <p style="text-align:center">
+    <a href="index.html" style="color:#5a6d80;text-decoration:none;font-size:.9rem">📖 Back to All Stories</a>
+  </p>
+  <div class="page-num">📖 Page 7 — The End ✨</div>
+</div>
+
+</div>
+
+<div class="nav">
+  <a href="#" onclick="window.scrollBy({top:-window.innerHeight,behavior:'smooth'});return false">⬆</a>
+  <a href="#" onclick="window.scrollBy({top:window.innerHeight,behavior:'smooth'});return false">⬇</a>
+  <a href="storybook-59.html">← Prev</a>
+  <a href="storybook-61.html">Next →</a>
+</div>
+
+</body>
+</html>

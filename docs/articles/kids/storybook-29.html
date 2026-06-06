@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Name Librarian — An eSIM Story</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Georgia',serif;background:#0a1628;color:#c8d6e5;overflow-x:hidden}
+  .book{max-width:800px;margin:0 auto;min-height:100vh}
+  .page{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;page-break-after:always;scroll-snap-align:start}
+  .page-cover{background:linear-gradient(135deg,#0d1b2a 0%,#0a1628 50%,#0d1b2a 100%)}
+  h1{font-size:2.8rem;color:#e8eef5;text-align:center;margin-bottom:.5rem}
+  h2{font-size:1.6rem;color:#85c1e9;text-align:center;font-weight:400;margin-bottom:1.5rem}
+  h3{font-size:1.3rem;color:#5dade2;text-align:center;margin-bottom:1rem}
+  .story-text{font-size:1.2rem;line-height:1.8;text-align:center;max-width:550px;margin:0 auto}
+  .story-text em{color:#85c1e9;font-style:italic}
+  .story-text strong{color:#e8eef5}
+  .illustration{margin:1.5rem 0}
+  .illustration svg{max-width:100%;height:auto}
+  .page-num{color:#5a6d80;font-size:.85rem;margin-top:2rem}
+  .nav{position:fixed;bottom:1rem;right:1rem;z-index:100}
+  .nav a{display:inline-block;padding:.5rem 1rem;background:rgba(93,173,226,.15);color:#5dade2;text-decoration:none;border-radius:6px;margin-left:.5rem;font-size:.9rem}
+  .nav a:hover{background:rgba(93,173,226,.3)}
+  .sparkle{animation:twinkle 2s infinite}
+  @keyframes twinkle{0%,100%{opacity:.3}50%{opacity:1}}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  .floating{animation:float 3s ease-in-out infinite}
+  @keyframes slideIn{from{transform:translateX(-20px);opacity:0}to{transform:translateX(0);opacity:1}}
+  .slide-in{animation:slideIn .8s ease-out}
+  @media(max-width:600px){h1{font-size:2rem}h2{font-size:1.2rem}.story-text{font-size:1.05rem}}
+  html{scroll-behavior:smooth;scroll-snap-type:y mandatory}
+</style>
+</head>
+<body>
+
+<div class="book">
+
+<!-- PAGE 1: COVER -->
+<div class="page page-cover">
+  <div class="illustration floating">
+    <svg viewBox="0 0 400 300" width="350">
+      <defs><radialGradient id="glow"><stop offset="0%" stop-color="#5dade2" stop-opacity="0.3"/><stop offset="100%" stop-color="#0a1628" stop-opacity="0"/></radialGradient></defs>
+      <circle cx="200" cy="140" r="130" fill="url(#glow)"/>
+      <!-- Giant book / ledger -->
+      <g transform="translate(120,80)">
+        <rect x="0" y="0" width="160" height="120" rx="6" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2.5"/>
+        <!-- Spine -->
+        <rect x="0" y="0" width="12" height="120" rx="3" fill="#4a90d9"/>
+        <!-- Pages -->
+        <rect x="20" y="10" width="120" height="8" rx="2" fill="#5a6d80"/>
+        <rect x="20" y="25" width="120" height="8" rx="2" fill="#5a6d80"/>
+        <rect x="20" y="40" width="120" height="8" rx="2" fill="#5a6d80"/>
+        <rect x="20" y="55" width="120" height="8" rx="2" fill="#5a6d80"/>
+        <rect x="20" y="70" width="120" height="8" rx="2" fill="#5a6d80"/>
+        <rect x="20" y="85" width="120" height="8" rx="2" fill="#5a6d80"/>
+        <!-- Title on cover -->
+        <text x="80" y="108" fill="#fbbf24" font-size="9" text-anchor="middle">📖 BOOK OF NAMES</text>
+      </g>
+      <!-- Sparkles -->
+      <circle cx="100" cy="70" r="2" fill="#85c1e9" class="sparkle"/>
+      <circle cx="300" cy="90" r="2" fill="#fbbf24" class="sparkle"/>
+      <circle cx="110" cy="200" r="2" fill="#5dade2" class="sparkle"/>
+      <circle cx="290" cy="210" r="1.5" fill="#85c1e9" class="sparkle"/>
+      <!-- Glasses on book -->
+      <g transform="translate(200,75)" class="sparkle">
+        <circle cx="-12" cy="0" r="10" fill="none" stroke="#fbbf24" stroke-width="1.5"/>
+        <circle cx="12" cy="0" r="10" fill="none" stroke="#fbbf24" stroke-width="1.5"/>
+        <line x1="-2" y1="0" x2="2" y2="0" stroke="#fbbf24" stroke-width="1.5"/>
+      </g>
+    </svg>
+  </div>
+  <h1>📚 The Name Librarian</h1>
+  <h2>Who Hands Out Chip Names</h2>
+  <p class="story-text" style="color:#5a6d80">A story of giant ledger books, careful record-keepers, and the librarian who never sleeps</p>
+  <div class="page-num">📖 Page 1</div>
+</div>
+
+<!-- PAGE 2: SOMEONE KEEPS TRACK -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 230" width="350">
+      <!-- Question -->
+      <text x="200" y="40" fill="#5a6d80" font-size="40" text-anchor="middle">❓</text>
+      <text x="200" y="75" fill="#c8d6e5" font-size="13" text-anchor="middle">If every chip needs a unique name...</text>
+      <text x="200" y="100" fill="#fbbf24" font-size="14" text-anchor="middle">Who makes sure no two are alike?</text>
+      <!-- Chip factory -->
+      <g transform="translate(130,120)">
+        <rect x="0" y="0" width="140" height="60" rx="6" fill="#1b3a5c" stroke="#30363d" stroke-width="1.5"/>
+        <text x="70" y="18" fill="#5a6d80" font-size="9" text-anchor="middle">🏭 Chip Factory</text>
+        <!-- Chips on conveyor -->
+        <rect x="10" y="28" width="18" height="14" rx="3" fill="#fbbf24" opacity="0.7"/>
+        <rect x="40" y="28" width="18" height="14" rx="3" fill="#85c1e9" opacity="0.7"/>
+        <rect x="70" y="28" width="18" height="14" rx="3" fill="#5dade2" opacity="0.7"/>
+        <rect x="100" y="28" width="18" height="14" rx="3" fill="#fbbf24" opacity="0.7"/>
+      </g>
+      <!-- Question mark big -->
+      <text x="340" y="155" fill="#5a6d80" font-size="30" text-anchor="middle">?</text>
+      <!-- Labels on chips -->
+      <text x="37" y="150" fill="#5a6d80" font-size="6" text-anchor="middle">Name?</text>
+      <text x="67" y="150" fill="#5a6d80" font-size="6" text-anchor="middle">Name?</text>
+      <text x="97" y="150" fill="#5a6d80" font-size="6" text-anchor="middle">Name?</text>
+      <text x="137" y="150" fill="#5a6d80" font-size="6" text-anchor="middle">Name?</text>
+    </svg>
+  </div>
+  <h3>🤔 Someone Has to Keep Track!</h3>
+  <p class="story-text">Imagine a world where everyone had to have a unique name — and there were <strong>billions</strong> of people. You'd need a very careful librarian to make sure nobody got the same name twice! That's exactly what happens with EIDs. Every chip needs a name, and <em>someone</em> must keep it all straight.</p>
+  <div class="page-num">📖 Page 2</div>
+</div>
+
+<!-- PAGE 3: GSMA THE LIBRARIAN -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 240" width="350">
+      <!-- GSMA as librarian -->
+      <g transform="translate(140,20)">
+        <!-- Librarian figure -->
+        <circle cx="60" cy="8" r="12" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2"/>
+        <text x="60" y="12" fill="#fbbf24" font-size="12" text-anchor="middle">🦉</text>
+        <!-- Body -->
+        <rect x="45" y="22" width="30" height="40" rx="6" fill="#1b3a5c" stroke="#fbbf24" stroke-width="1.5"/>
+        <text x="60" y="40" fill="#c8d6e5" font-size="8" text-anchor="middle">GSMA</text>
+        <text x="60" y="52" fill="#5a6d80" font-size="6" text-anchor="middle">Librarian</text>
+      </g>
+      <!-- Bookshelves -->
+      <g transform="translate(20,80)">
+        <rect x="0" y="0" width="100" height="100" rx="4" fill="#0d1b2a" stroke="#30363d" stroke-width="1"/>
+        <!-- Shelf rows -->
+        <line x1="0" y1="25" x2="100" y2="25" stroke="#30363d" stroke-width="1"/>
+        <line x1="0" y1="50" x2="100" y2="50" stroke="#30363d" stroke-width="1"/>
+        <line x1="0" y1="75" x2="100" y2="75" stroke="#30363d" stroke-width="1"/>
+        <!-- Books -->
+        <rect x="5" y="5" width="10" height="18" rx="1" fill="#fbbf24" opacity="0.8"/>
+        <rect x="18" y="8" width="8" height="15" rx="1" fill="#85c1e9" opacity="0.8"/>
+        <rect x="30" y="5" width="10" height="18" rx="1" fill="#5dade2" opacity="0.8"/>
+        <rect x="44" y="6" width="8" height="17" rx="1" fill="#fbbf24" opacity="0.8"/>
+        <rect x="56" y="5" width="10" height="18" rx="1" fill="#85c1e9" opacity="0.8"/>
+        <rect x="5" y="30" width="10" height="18" rx="1" fill="#5dade2" opacity="0.8"/>
+        <rect x="18" y="32" width="8" height="16" rx="1" fill="#fbbf24" opacity="0.8"/>
+        <rect x="30" y="30" width="10" height="18" rx="1" fill="#85c1e9" opacity="0.8"/>
+        <rect x="56" y="30" width="10" height="18" rx="1" fill="#fbbf24" opacity="0.8"/>
+        <rect x="5" y="55" width="10" height="18" rx="1" fill="#85c1e9" opacity="0.8"/>
+        <rect x="30" y="55" width="10" height="18" rx="1" fill="#fbbf24" opacity="0.8"/>
+        <rect x="44" y="57" width="8" height="16" rx="1" fill="#5dade2" opacity="0.8"/>
+        <rect x="18" y="80" width="8" height="16" rx="1" fill="#5dade2" opacity="0.8"/>
+        <rect x="44" y="80" width="10" height="16" rx="1" fill="#85c1e9" opacity="0.8"/>
+      </g>
+      <!-- Right side: assignment cards -->
+      <g transform="translate(240,80)">
+        <rect x="0" y="0" width="140" height="100" rx="6" fill="#1b3a5c" stroke="#5dade2" stroke-width="1.5"/>
+        <!-- Cards -->
+        <g transform="translate(10,10)">
+          <rect x="0" y="0" width="55" height="25" rx="3" fill="#0d1b2a" stroke="#34d399" stroke-width="1"/>
+          <text x="27" y="15" fill="#34d399" font-size="7" text-anchor="middle">8901-A</text>
+          <rect x="65" y="0" width="55" height="25" rx="3" fill="#0d1b2a" stroke="#34d399" stroke-width="1"/>
+          <text x="92" y="15" fill="#34d399" font-size="7" text-anchor="middle">8901-B</text>
+        </g>
+        <g transform="translate(10,42)">
+          <rect x="0" y="0" width="55" height="25" rx="3" fill="#0d1b2a" stroke="#85c1e9" stroke-width="1"/>
+          <text x="27" y="15" fill="#85c1e9" font-size="7" text-anchor="middle">8901-C</text>
+          <rect x="65" y="0" width="55" height="25" rx="3" fill="#0d1b2a" stroke="#85c1e9" stroke-width="1"/>
+          <text x="92" y="15" fill="#85c1e9" font-size="7" text-anchor="middle">8901-D</text>
+        </g>
+        <text x="70" y="92" fill="#5a6d80" font-size="7" text-anchor="middle">Official EID assignments</text>
+      </g>
+      <!-- Connecting lines -->
+      <line x1="120" y1="140" x2="240" y2="140" stroke="#5a6d80" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="180" y="135" fill="#5a6d80" font-size="8" text-anchor="middle">assigns →</text>
+    </svg>
+  </div>
+  <h3>🏛️ The GSMA — The World's Name Librarian</h3>
+  <p class="story-text">Meet the <strong>GSMA</strong> — the Global System for Mobile Communications Association. They're like the world's head librarian for chip names. Every manufacturer who wants to make eSIM chips must register with the GSMA. The GSMA gives each manufacturer a <em>unique ID code</em> — the first part of every EID!</p>
+  <div class="page-num">📖 Page 3</div>
+</div>
+
+<!-- PAGE 4: HOW MANUFACTURERS REQUEST -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 240" width="350">
+      <!-- Flow: Manufacturer → GSMA → Chip names -->
+      <!-- Step 1: Request -->
+      <g transform="translate(30,30)">
+        <rect x="0" y="0" width="100" height="60" rx="8" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2"/>
+        <text x="50" y="20" fill="#fbbf24" font-size="9" text-anchor="middle" font-weight="bold">Step 1</text>
+        <text x="50" y="38" fill="#c8d6e5" font-size="9" text-anchor="middle">Manufacturer</text>
+        <text x="50" y="52" fill="#5a6d80" font-size="7" text-anchor="middle">"May I make chips?"</text>
+      </g>
+      <!-- Arrow 1 -->
+      <text x="150" y="65" fill="#5dade2" font-size="18" text-anchor="middle">→</text>
+      <!-- Step 2: GSMA assigns -->
+      <g transform="translate(170,30)">
+        <rect x="0" y="0" width="100" height="60" rx="8" fill="#1b3a5c" stroke="#85c1e9" stroke-width="2"/>
+        <text x="50" y="20" fill="#85c1e9" font-size="9" text-anchor="middle" font-weight="bold">Step 2</text>
+        <text x="50" y="38" fill="#c8d6e5" font-size="9" text-anchor="middle">GSMA</text>
+        <text x="50" y="52" fill="#5a6d80" font-size="7" text-anchor="middle">"Here's your prefix"</text>
+      </g>
+      <!-- Arrow 2 -->
+      <text x="290" y="65" fill="#5dade2" font-size="18" text-anchor="middle">→</text>
+      <!-- Step 3: Make chips -->
+      <g transform="translate(310,30)">
+        <rect x="0" y="0" width="80" height="60" rx="8" fill="#1b3a5c" stroke="#34d399" stroke-width="2"/>
+        <text x="40" y="20" fill="#34d399" font-size="9" text-anchor="middle" font-weight="bold">Step 3</text>
+        <text x="40" y="38" fill="#c8d6e5" font-size="9" text-anchor="middle">Make Chips</text>
+        <text x="40" y="52" fill="#5a6d80" font-size="7" text-anchor="middle">With unique IDs</text>
+      </g>
+      <!-- Bottom: The prefix + serial idea -->
+      <g transform="translate(60,120)">
+        <rect x="0" y="0" width="120" height="14" rx="3" fill="#fbbf24" opacity="0.2"/>
+        <text x="60" y="11" fill="#fbbf24" font-size="9" text-anchor="middle">GSMA prefix: 8901</text>
+      </g>
+      <text x="190" y="130" fill="#c8d6e5" font-size="20" text-anchor="middle">+</text>
+      <g transform="translate(220,120)">
+        <rect x="0" y="0" width="120" height="14" rx="3" fill="#85c1e9" opacity="0.2"/>
+        <text x="60" y="11" fill="#85c1e9" font-size="9" text-anchor="middle">Serial: 2345...F</text>
+      </g>
+      <text x="200" y="165" fill="#c8d6e5" font-size="12" text-anchor="middle">= Complete Unique EID!</text>
+      <!-- Checkmark -->
+      <text x="200" y="195" fill="#34d399" font-size="16" text-anchor="middle">✅ Every name unique forever</text>
+    </svg>
+  </div>
+  <h3>📝 How Manufacturers Get Their Names</h3>
+  <p class="story-text">When a chip maker wants to build eSIMs, they <strong>apply to the GSMA</strong>. The GSMA checks their credentials — are they a real company making real chips? Then they issue a <em>unique prefix</em> — like "8901". The manufacturer adds their own serial numbers after the prefix, making sure every single chip has a completely unique full EID!</p>
+  <div class="page-num">📖 Page 4</div>
+</div>
+
+<!-- PAGE 5: THE BOOK OF NAMES -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 250" width="350">
+      <!-- Giant ledger -->
+      <g transform="translate(60,10)">
+        <rect x="0" y="0" width="280" height="200" rx="8" fill="#0d1b2a" stroke="#fbbf24" stroke-width="2.5"/>
+        <rect x="0" y="0" width="20" height="200" rx="4" fill="#4a90d9"/>
+        <!-- Header -->
+        <rect x="25" y="10" width="245" height="25" rx="3" fill="#1b3a5c"/>
+        <text x="147" y="28" fill="#fbbf24" font-size="9" text-anchor="middle">📖 THE BOOK OF CHIP NAMES</text>
+        <!-- Column headers -->
+        <text x="55" y="55" fill="#5a6d80" font-size="7">Manufacturer</text>
+        <text x="145" y="55" fill="#5a6d80" font-size="7">Prefix</text>
+        <text x="230" y="55" fill="#5a6d80" font-size="7">Chips Made</text>
+        <line x1="25" y1="60" x2="270" y2="60" stroke="#30363d" stroke-width="1"/>
+        <!-- Row 1 -->
+        <text x="55" y="76" fill="#c8d6e5" font-size="7">Infineon</text>
+        <text x="145" y="76" fill="#fbbf24" font-size="7" font-family="monospace">8901</text>
+        <text x="230" y="76" fill="#34d399" font-size="7">Millions</text>
+        <!-- Row 2 -->
+        <text x="55" y="94" fill="#c8d6e5" font-size="7">STMicro</text>
+        <text x="145" y="94" fill="#85c1e9" font-size="7" font-family="monospace">8902</text>
+        <text x="230" y="94" fill="#34d399" font-size="7">Millions</text>
+        <!-- Row 3 -->
+        <text x="55" y="112" fill="#c8d6e5" font-size="7">Thales</text>
+        <text x="145" y="112" fill="#5dade2" font-size="7" font-family="monospace">8903</text>
+        <text x="230" y="112" fill="#34d399" font-size="7">Millions</text>
+        <!-- Row 4 -->
+        <text x="55" y="130" fill="#c8d6e5" font-size="7">G+D</text>
+        <text x="145" y="130" fill="#fbbf24" font-size="7" font-family="monospace">8904</text>
+        <text x="230" y="130" fill="#34d399" font-size="7">Millions</text>
+        <!-- Row 5 -->
+        <text x="55" y="148" fill="#c8d6e5" font-size="7">Valid</text>
+        <text x="145" y="148" fill="#85c1e9" font-size="7" font-family="monospace">8905</text>
+        <text x="230" y="148" fill="#34d399" font-size="7">Millions</text>
+        <!-- Row 6 -->
+        <text x="55" y="166" fill="#c8d6e5" font-size="7">Truphone</text>
+        <text x="145" y="166" fill="#5dade2" font-size="7" font-family="monospace">8906</text>
+        <text x="230" y="166" fill="#34d399" font-size="7">Millions</text>
+        <!-- More rows ... -->
+        <text x="147" y="190" fill="#5a6d80" font-size="7" text-anchor="middle">... and many more</text>
+      </g>
+    </svg>
+  </div>
+  <h3>📖 The Book of Chip Names</h3>
+  <p class="story-text">The GSMA keeps a giant <strong>master record</strong> — like a magical book — of every manufacturer's prefix. Each prefix is given to only <em>one</em> manufacturer. And each manufacturer promises to never reuse serial numbers. Between the unique prefix and unique serial number, no two chips can ever have the same name. It's mathematically impossible!</p>
+  <div class="page-num">📖 Page 5</div>
+</div>
+
+<!-- PAGE 6: NEVER SLEEPS -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 240" width="350">
+      <!-- 24/7 Globe -->
+      <g transform="translate(200,50)">
+        <!-- Globe -->
+        <circle cx="0" cy="0" r="50" fill="#1b3a5c" stroke="#5dade2" stroke-width="2"/>
+        <!-- Continents -->
+        <ellipse cx="-10" cy="-10" rx="18" ry="12" fill="#85c1e9" opacity="0.3"/>
+        <ellipse cx="15" cy="-5" rx="10" ry="8" fill="#85c1e9" opacity="0.3"/>
+        <ellipse cx="5" cy="15" rx="12" ry="10" fill="#85c1e9" opacity="0.3"/>
+        <ellipse cx="-20" cy="5" rx="8" ry="6" fill="#85c1e9" opacity="0.3"/>
+        <!-- Sun/Moon indicators -->
+        <text x="-60" y="-5" fill="#fbbf24" font-size="16">☀️</text>
+        <text x="55" y="5" fill="#c8d6e5" font-size="14">🌙</text>
+        <!-- Clock -->
+        <circle cx="0" cy="0" r="55" fill="none" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="6,4"/>
+      </g>
+      <!-- Text -->
+      <text x="200" y="135" fill="#c8d6e5" font-size="13" text-anchor="middle">The GSMA's system</text>
+      <text x="200" y="155" fill="#fbbf24" font-size="13" text-anchor="middle" class="sparkle">never sleeps!</text>
+      <!-- Chips being made 24/7 -->
+      <g transform="translate(50,180)">
+        <rect x="0" y="0" width="12" height="12" rx="2" fill="#fbbf24" opacity="0.6"/>
+        <text x="6" y="10" fill="#0a1628" font-size="6" text-anchor="middle">ID</text>
+      </g>
+      <g transform="translate(80,180)">
+        <rect x="0" y="0" width="12" height="12" rx="2" fill="#85c1e9" opacity="0.6"/>
+        <text x="6" y="10" fill="#0a1628" font-size="6" text-anchor="middle">ID</text>
+      </g>
+      <g transform="translate(130,180)">
+        <rect x="0" y="0" width="12" height="12" rx="2" fill="#5dade2" opacity="0.6"/>
+        <text x="6" y="10" fill="#0a1628" font-size="6" text-anchor="middle">ID</text>
+      </g>
+      <g transform="translate(230,180)">
+        <rect x="0" y="0" width="12" height="12" rx="2" fill="#fbbf24" opacity="0.6"/>
+        <text x="6" y="10" fill="#0a1628" font-size="6" text-anchor="middle">ID</text>
+      </g>
+      <g transform="translate(280,180)">
+        <rect x="0" y="0" width="12" height="12" rx="2" fill="#85c1e9" opacity="0.6"/>
+        <text x="6" y="10" fill="#0a1628" font-size="6" text-anchor="middle">ID</text>
+      </g>
+      <g transform="translate(340,180)">
+        <rect x="0" y="0" width="12" height="12" rx="2" fill="#5dade2" opacity="0.6"/>
+        <text x="6" y="10" fill="#0a1628" font-size="6" text-anchor="middle">ID</text>
+      </g>
+      <text x="200" y="210" fill="#5a6d80" font-size="9" text-anchor="middle">Chips made worldwide, names assigned 24/7/365</text>
+    </svg>
+  </div>
+  <h3>🌍 The Librarian Never Sleeps</h3>
+  <p class="story-text">Chips are made in factories all around the world, <strong>24 hours a day, 7 days a week</strong>. But the naming system never gets confused because each manufacturer works within its own assigned prefix range. Whether it's day or night, Tokyo or Berlin, every new chip gets a name that's never been used before!</p>
+  <div class="page-num">📖 Page 6</div>
+</div>
+
+<!-- PAGE 7: DID YOU KNOW + NAV -->
+<div class="page page-cover">
+  <div class="illustration floating">
+    <svg viewBox="0 0 400 240" width="350">
+      <!-- Million/billion chips -->
+      <circle cx="200" cy="90" r="60" fill="none" stroke="#5dade2" stroke-width="1.5"/>
+      <circle cx="200" cy="90" r="45" fill="none" stroke="#30363d" stroke-width="1"/>
+      <circle cx="200" cy="90" r="30" fill="none" stroke="#5a6d80" stroke-width="1"/>
+      <!-- Chips scattered -->
+      <rect x="175" y="50" width="10" height="10" rx="2" fill="#fbbf24" class="sparkle"/>
+      <rect x="210" y="55" width="10" height="10" rx="2" fill="#85c1e9" class="sparkle"/>
+      <rect x="160" y="80" width="10" height="10" rx="2" fill="#5dade2" class="sparkle"/>
+      <rect x="230" y="75" width="10" height="10" rx="2" fill="#fbbf24" class="sparkle"/>
+      <rect x="185" y="105" width="10" height="10" rx="2" fill="#85c1e9" class="sparkle"/>
+      <rect x="220" y="100" width="10" height="10" rx="2" fill="#5dade2" class="sparkle"/>
+      <rect x="170" y="120" width="10" height="10" rx="2" fill="#fbbf24" class="sparkle"/>
+      <rect x="215" y="125" width="10" height="10" rx="2" fill="#85c1e9" class="sparkle"/>
+      <!-- Centre -->
+      <text x="200" y="95" fill="#e8eef5" font-size="9" text-anchor="middle">All</text>
+      <text x="200" y="106" fill="#e8eef5" font-size="9" text-anchor="middle">Unique</text>
+      <!-- Fact -->
+      <text x="200" y="185" fill="#fbbf24" font-size="11" text-anchor="middle">🦉 Billions of chips, zero duplicates!</text>
+      <!-- Building -->
+      <g transform="translate(345,20)">
+        <rect x="0" y="0" width="35" height="30" rx="3" fill="#1b3a5c" stroke="#fbbf24" stroke-width="1"/>
+        <text x="17" y="20" fill="#fbbf24" font-size="7" text-anchor="middle">GSMA</text>
+      </g>
+    </svg>
+  </div>
+  <h3>🧠 Did You Know?</h3>
+  <p class="story-text">The GSMA has been assigning manufacturer codes for decades — long before eSIM existed! The same careful naming system that keeps track of traditional SIM cards now handles <strong>billions</strong> of eSIM chips too. It's one of the quietest, most reliable systems on the planet!</p>
+  <h2 style="margin-top:2rem">📚 Read the Next Story!</h2>
+  <p style="text-align:center;margin-bottom:1rem">
+    <a href="storybook-30.html" style="display:inline-block;padding:.8rem 2rem;background:rgba(93,173,226,0.15);color:#5dade2;text-decoration:none;border-radius:8px;font-size:1.1rem">🪪 Next: Show Your ID, Please →</a>
+  </p>
+  <p style="text-align:center">
+    <a href="index.html" style="color:#5a6d80;text-decoration:none;font-size:.9rem">📖 Back to All Stories</a>
+  </p>
+  <div class="page-num">📖 Page 7 — The End ✨</div>
+</div>
+
+</div>
+
+<div class="nav">
+  <a href="#" onclick="window.scrollBy({top:-window.innerHeight,behavior:'smooth'});return false">⬆</a>
+  <a href="#" onclick="window.scrollBy({top:window.innerHeight,behavior:'smooth'});return false">⬇</a>
+</div>
+
+</body>
+</html>

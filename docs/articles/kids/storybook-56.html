@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Old Magic Meets New Magic — A Version Interop eSIM Story</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Georgia',serif;background:#0a1628;color:#c8d6e5;overflow-x:hidden}
+  .book{max-width:800px;margin:0 auto;min-height:100vh}
+  .page{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;page-break-after:always;scroll-snap-align:start}
+  .page-cover{background:linear-gradient(135deg,#0d1b2a 0%,#0a1628 50%,#0d1b2a 100%)}
+  h1{font-size:2.8rem;color:#e8eef5;text-align:center;margin-bottom:.5rem}
+  h2{font-size:1.6rem;color:#85c1e9;text-align:center;font-weight:400;margin-bottom:1.5rem}
+  h3{font-size:1.3rem;color:#5dade2;text-align:center;margin-bottom:1rem}
+  .story-text{font-size:1.2rem;line-height:1.8;text-align:center;max-width:550px;margin:0 auto}
+  .story-text em{color:#85c1e9;font-style:italic}
+  .story-text strong{color:#e8eef5}
+  .illustration{margin:1.5rem 0}
+  .illustration svg{max-width:100%;height:auto}
+  .page-num{color:#5a6d80;font-size:.85rem;margin-top:2rem}
+  .nav{position:fixed;bottom:1rem;right:1rem;z-index:100}
+  .nav a{display:inline-block;padding:.5rem 1rem;background:rgba(93,173,226,.15);color:#5dade2;text-decoration:none;border-radius:6px;margin-left:.5rem;font-size:.9rem}
+  .nav a:hover{background:rgba(93,173,226,.3)}
+  .sparkle{animation:twinkle 2s infinite}
+  @keyframes twinkle{0%,100%{opacity:.3}50%{opacity:1}}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  .floating{animation:float 3s ease-in-out infinite}
+  @keyframes slideIn{from{transform:translateX(-20px);opacity:0}to{transform:translateX(0);opacity:1}}
+  .slide-in{animation:slideIn .8s ease-out}
+  @media(max-width:600px){h1{font-size:2rem}h2{font-size:1.2rem}.story-text{font-size:1.05rem}}
+  html{scroll-behavior:smooth;scroll-snap-type:y mandatory}
+</style>
+</head>
+<body>
+
+<div class="book">
+
+<!-- PAGE 1: COVER -->
+<div class="page page-cover">
+  <div class="illustration floating">
+    <svg viewBox="0 0 400 300" width="350">
+      <defs><radialGradient id="glow"><stop offset="0%" stop-color="#5dade2" stop-opacity="0.3"/><stop offset="100%" stop-color="#0a1628" stop-opacity="0"/></radialGradient></defs>
+      <circle cx="200" cy="140" r="130" fill="url(#glow)"/>
+      <!-- Old wizard (left) -->
+      <g transform="translate(80,60)">
+        <circle cx="30" cy="15" r="18" fill="#1b3a5c" stroke="#5dade2" stroke-width="1.5"/>
+        <text x="30" y="20" font-size="14" text-anchor="middle">🧙‍♂️</text>
+        <path d="M12,33 Q30,55 48,33" fill="#5dade2" opacity="0.5"/>
+        <text x="30" y="65" fill="#5dade2" font-size="9" text-anchor="middle">Old Magic</text>
+        <text x="30" y="80" fill="#85c1e9" font-size="8" text-anchor="middle">v2.x</text>
+      </g>
+      <!-- New wizard (right) -->
+      <g transform="translate(260,50)">
+        <circle cx="35" cy="15" r="22" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2"/>
+        <text x="35" y="20" font-size="18" text-anchor="middle">🧙‍♀️</text>
+        <path d="M13,37 Q35,60 57,37" fill="#fbbf24" opacity="0.5" class="sparkle"/>
+        <text x="35" y="82" fill="#fbbf24" font-size="9" text-anchor="middle">New Magic</text>
+        <text x="35" y="97" fill="#85c1e9" font-size="8" text-anchor="middle">v3.x</text>
+      </g>
+      <!-- Shaking hands in center -->
+      <g transform="translate(200,140)">
+        <path d="M-30,-10 Q-15,-30 0,-15 Q10,-5 5,0 Q-5,-5 -20,-5 Z" fill="#5dade2" stroke="#85c1e9" stroke-width="1.5"/>
+        <path d="M30,-10 Q15,-30 0,-15 Q-10,-5 -5,0 Q5,-5 20,-5 Z" fill="#fbbf24" stroke="#85c1e9" stroke-width="1.5"/>
+      </g>
+      <!-- Sparkles at handshake -->
+      <circle cx="180" cy="110" r="3" fill="#fbbf24" class="sparkle"/>
+      <circle cx="220" cy="110" r="3" fill="#85c1e9" class="sparkle"/>
+      <circle cx="200" cy="100" r="4" fill="#85c1e9" class="sparkle"/>
+      <text x="200" y="250" fill="#5dade2" font-size="12" text-anchor="middle">Version Interoperability — Old + New = Friendship!</text>
+    </svg>
+  </div>
+  <h1>🧙 Old Magic Meets New Magic</h1>
+  <h2>How v3.x and v2.x Work Together</h2>
+  <p class="story-text" style="color:#5a6d80">Some phones have old magic, some have new — but everyone still gets to play together!</p>
+  <div class="page-num">📖 Page 1</div>
+</div>
+
+<!-- PAGE 2: DIFFERENT AGES -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 230" width="350">
+      <!-- Old flip phone vs new smartphone -->
+      <g transform="translate(30,30)">
+        <text x="45" y="15" fill="#5dade2" font-size="10" text-anchor="middle" font-weight="bold">Old Phone</text>
+        <rect x="10" y="25" width="70" height="100" rx="6" fill="#1b3a5c" stroke="#5dade2" stroke-width="1.5"/>
+        <rect x="20" y="35" width="50" height="50" rx="3" fill="#0d1b2a"/>
+        <text x="45" y="65" fill="#c8d6e5" font-size="9" text-anchor="middle">📱</text>
+        <text x="45" y="139" fill="#5dade2" font-size="8" text-anchor="middle">v2.x magic</text>
+      </g>
+      <g transform="translate(155,30)">
+        <text x="75" y="15" fill="#fbbf24" font-size="10" text-anchor="middle" font-weight="bold">New Phone</text>
+        <rect x="15" y="25" width="120" height="100" rx="8" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2"/>
+        <rect x="35" y="40" width="80" height="45" rx="3" fill="#0d1b2a"/>
+        <text x="75" y="67" fill="#c8d6e5" font-size="9" text-anchor="middle">📱</text>
+        <text x="75" y="139" fill="#fbbf24" font-size="8" text-anchor="middle">v3.x magic ✨</text>
+      </g>
+      <!-- Question marks -->
+      <text x="310" y="80" fill="#85c1e9" font-size="24" text-anchor="middle">🤔</text>
+      <text x="310" y="110" fill="#c8d6e5" font-size="10" text-anchor="middle">Can they</text>
+      <text x="310" y="128" fill="#c8d6e5" font-size="10" text-anchor="middle">still talk?</text>
+    </svg>
+  </div>
+  <h3>📅 Some Phones Have Old Magic, Some Have New</h3>
+  <p class="story-text">There are <strong>billions</strong> of older eSIM chips out there running v2.x magic. When SGP.22 v3.x arrived with all its shiny new spells, it had a crucial question to answer: can a brand-new v3.1 phone still talk to a 5-year-old v2.x Key Maker? <em>The answer had to be yes!</em></p>
+  <div class="page-num">📖 Page 2</div>
+</div>
+
+<!-- PAGE 3: FOUR SCENARIOS -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 250" width="350">
+      <!-- 2x2 grid -->
+      <g transform="translate(20,15)">
+        <rect x="0" y="0" width="170" height="80" rx="6" fill="#1b3a5c" stroke="#5dade2" stroke-width="1.5" opacity="0.7"/>
+        <text x="85" y="22" fill="#5dade2" font-size="9" text-anchor="middle">Old Phone + Old Server</text>
+        <text x="85" y="42" fill="#c8d6e5" font-size="8" text-anchor="middle">Both speak old magic</text>
+        <text x="85" y="58" fill="#34d399" font-size="9" text-anchor="middle">✅ Easy!</text>
+      </g>
+      <g transform="translate(210,15)">
+        <rect x="0" y="0" width="170" height="80" rx="6" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2" opacity="0.8"/>
+        <text x="85" y="22" fill="#fbbf24" font-size="9" text-anchor="middle">New Phone + Old Server</text>
+        <text x="85" y="42" fill="#c8d6e5" font-size="8" text-anchor="middle">Phone speaks old for them</text>
+        <text x="85" y="58" fill="#34d399" font-size="9" text-anchor="middle">✅ Polite!</text>
+      </g>
+      <g transform="translate(20,110)">
+        <rect x="0" y="0" width="170" height="80" rx="6" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2" opacity="0.8"/>
+        <text x="85" y="22" fill="#fbbf24" font-size="9" text-anchor="middle">Old Phone + New Server</text>
+        <text x="85" y="42" fill="#c8d6e5" font-size="8" text-anchor="middle">Server speaks old for them</text>
+        <text x="85" y="58" fill="#34d399" font-size="9" text-anchor="middle">✅ Gracious!</text>
+      </g>
+      <g transform="translate(210,110)">
+        <rect x="0" y="0" width="170" height="80" rx="6" fill="#0d1b2a" stroke="#34d399" stroke-width="2.5"/>
+        <text x="85" y="22" fill="#34d399" font-size="9" text-anchor="middle">New Phone + New Server</text>
+        <text x="85" y="42" fill="#c8d6e5" font-size="8" text-anchor="middle">Full v3.x party!</text>
+        <text x="85" y="58" fill="#34d399" font-size="9" text-anchor="middle">✅ All features! ✨</text>
+      </g>
+      <text x="200" y="220" fill="#85c1e9" font-size="10" text-anchor="middle">All four scenarios work — by design!</text>
+    </svg>
+  </div>
+  <h3>🌍 Four Possible Combinations</h3>
+  <p class="story-text">Not everyone upgrades at the same time. You could have <strong>old phone + old server</strong> (easy!), <strong>new phone + old server</strong> (phone adapts!), <strong>old phone + new server</strong> (server adapts!), or <strong>new + new</strong> (full v3.x party!). v3.x was designed for <em>all four scenarios</em> from day one.</p>
+  <div class="page-num">📖 Page 3</div>
+</div>
+
+<!-- PAGE 4: THE NEGOTIATION -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 240" width="350">
+      <!-- Speech bubbles -->
+      <g transform="translate(20,20)">
+        <rect x="0" y="0" width="160" height="60" rx="12" fill="#1b3a5c" stroke="#5dade2" stroke-width="2"/>
+        <text x="80" y="22" fill="#5dade2" font-size="9" text-anchor="middle">Phone (v3.x):</text>
+        <text x="80" y="42" fill="#c8d6e5" font-size="9" text-anchor="middle">"I can speak v3.1!"</text>
+      </g>
+      <g transform="translate(220,100)">
+        <rect x="0" y="0" width="160" height="60" rx="12" fill="#1b3a5c" stroke="#5dade2" stroke-width="2"/>
+        <text x="80" y="22" fill="#5dade2" font-size="9" text-anchor="middle">Server (v2.7):</text>
+        <text x="80" y="42" fill="#c8d6e5" font-size="9" text-anchor="middle">(sends no capability)</text>
+      </g>
+      <g transform="translate(20,160)">
+        <rect x="0" y="0" width="360" height="50" rx="10" fill="#34d399" stroke="#85c1e9" stroke-width="2" class="sparkle"/>
+        <text x="180" y="22" fill="#0a1628" font-size="10" text-anchor="middle" font-weight="bold">Phone thinks: "No card? Old magic! I'll speak v2.x"</text>
+        <text x="180" y="40" fill="#0a1628" font-size="9" text-anchor="middle">Negotiation complete — both use v2.7 spells! ✅</text>
+      </g>
+      <!-- Arrow -->
+      <text x="190" y="50" fill="#85c1e9" font-size="16" text-anchor="middle">↓</text>
+      <text x="290" y="95" fill="#85c1e9" font-size="12" text-anchor="middle">↗</text>
+    </svg>
+  </div>
+  <h3>🗣️ The Negotiation: "I Can Do v2.7"</h3>
+  <p class="story-text">The secret is beautifully simple. A v3.x phone shares its capability card saying "I can do v3.1." A v2.x server sends <strong>no capability card at all</strong>. The phone sees the missing card and instantly knows: "Old magic! I'll speak v2.x." The negotiation takes one exchange, and everything just works.</p>
+  <div class="page-num">📖 Page 4</div>
+</div>
+
+<!-- PAGE 5: WHEN ONLY ONE IS V3 -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 240" width="350">
+      <!-- New phone calling old server -->
+      <g transform="translate(20,20)">
+        <rect x="0" y="0" width="80" height="100" rx="8" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2"/>
+        <text x="40" y="30" fill="#fbbf24" font-size="9" text-anchor="middle">New Phone</text>
+        <text x="40" y="48" fill="#85c1e9" font-size="8" text-anchor="middle">v3.x</text>
+        <text x="40" y="65" fill="#c8d6e5" font-size="8" text-anchor="middle">Knows:</text>
+        <text x="40" y="80" fill="#5dade2" font-size="8" text-anchor="middle">v3.x spells</text>
+        <text x="40" y="93" fill="#5dade2" font-size="8" text-anchor="middle">+ v2.x spells</text>
+      </g>
+      <text x="115" y="70" fill="#85c1e9" font-size="20" text-anchor="middle">→</text>
+      <g transform="translate(140,20)">
+        <rect x="0" y="0" width="80" height="100" rx="8" fill="#1b3a5c" stroke="#5dade2" stroke-width="2" opacity="0.7"/>
+        <text x="40" y="30" fill="#5dade2" font-size="9" text-anchor="middle">Old Server</text>
+        <text x="40" y="48" fill="#85c1e9" font-size="8" text-anchor="middle">v2.x</text>
+        <text x="40" y="65" fill="#c8d6e5" font-size="8" text-anchor="middle">Knows:</text>
+        <text x="40" y="80" fill="#5dade2" font-size="8" text-anchor="middle">v2.x only</text>
+      </g>
+      <text x="235" y="70" fill="#85c1e9" font-size="20" text-anchor="middle">→</text>
+      <!-- Result -->
+      <g transform="translate(260,20)">
+        <rect x="0" y="0" width="120" height="100" rx="8" fill="#0d1b2a" stroke="#34d399" stroke-width="2"/>
+        <text x="60" y="25" fill="#34d399" font-size="9" text-anchor="middle">Result:</text>
+        <text x="60" y="45" fill="#c8d6e5" font-size="8" text-anchor="middle">Phone becomes</text>
+        <text x="60" y="60" fill="#c8d6e5" font-size="8" text-anchor="middle">a well-behaved</text>
+        <text x="60" y="75" fill="#fbbf24" font-size="9" text-anchor="middle">v2.x phone!</text>
+      </g>
+      <!-- Profile package -->
+      <g transform="translate(100,150)">
+        <rect x="0" y="0" width="200" height="60" rx="8" fill="#1b3a5c" stroke="#85c1e9" stroke-width="1.5"/>
+        <text x="100" y="22" fill="#85c1e9" font-size="9" text-anchor="middle">Profile Package Picker says:</text>
+        <text x="100" y="40" fill="#c8d6e5" font-size="9" text-anchor="middle">"Send v2.x format — they'll understand!"</text>
+      </g>
+    </svg>
+  </div>
+  <h3>🎭 What Happens When Only One Side Is v3.x</h3>
+  <p class="story-text">When a new v3.x phone calls an old v2.x server, the phone <strong>becomes a v2.x phone</strong> for that conversation — using only the spells the old server knows. The server never even realises it's talking to a newer device! It's like being <em>fluent in both modern slang and old-fashioned language</em>.</p>
+  <div class="page-num">📖 Page 5</div>
+</div>
+
+<!-- PAGE 6: THE BRIDGE -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 240" width="350">
+      <!-- Bridge connecting two worlds -->
+      <g transform="translate(30,50)">
+        <rect x="0" y="0" width="140" height="100" rx="10" fill="#1b3a5c" stroke="#5dade2" stroke-width="1.5"/>
+        <text x="70" y="30" fill="#5dade2" font-size="10" text-anchor="middle">🏚️ Old World</text>
+        <text x="70" y="48" fill="#85c1e9" font-size="9" text-anchor="middle">v2.x magic</text>
+        <text x="70" y="64" fill="#c8d6e5" font-size="8" text-anchor="middle">Billions of</text>
+        <text x="70" y="80" fill="#c8d6e5" font-size="8" text-anchor="middle">devices out there</text>
+      </g>
+      <g transform="translate(230,50)">
+        <rect x="0" y="0" width="140" height="100" rx="10" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2"/>
+        <text x="70" y="30" fill="#fbbf24" font-size="10" text-anchor="middle">✨ New World</text>
+        <text x="70" y="48" fill="#fbbf24" font-size="9" text-anchor="middle">v3.x magic</text>
+        <text x="70" y="64" fill="#c8d6e5" font-size="8" text-anchor="middle">RPM, MEP, Push</text>
+        <text x="70" y="80" fill="#c8d6e5" font-size="8" text-anchor="middle">All the features!</text>
+      </g>
+      <!-- Bridge -->
+      <g transform="translate(170,100)">
+        <rect x="0" y="0" width="60" height="30" rx="6" fill="#fbbf24" stroke="#85c1e9" stroke-width="2" class="sparkle"/>
+        <text x="30" y="20" fill="#0a1628" font-size="9" text-anchor="middle" font-weight="bold">🌉</text>
+      </g>
+      <text x="200" y="175" fill="#85c1e9" font-size="11" text-anchor="middle">The Capability Card Bridge</text>
+      <text x="200" y="195" fill="#c8d6e5" font-size="9" text-anchor="middle">Missing card = "I speak the old tongue"</text>
+    </svg>
+  </div>
+  <h3>🌉 The Bridge That Connects Both Worlds</h3>
+  <p class="story-text">The bridge between old and new magic is <strong>remarkably simple</strong>: a missing capability card. When a server doesn't send <em>rspCapability</em>, it means "I'm pre-v3." That's it — one simple rule bridges billions of old devices with all the new ones. No complex version tables, no negotiation protocols, just a <strong>missing card</strong> that says everything!</p>
+  <div class="page-num">📖 Page 6</div>
+</div>
+
+<!-- PAGE 7: POLITENESS RULES -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 240" width="350">
+      <!-- Four politeness rules -->
+      <g transform="translate(20,10)">
+        <rect x="0" y="0" width="175" height="45" rx="6" fill="#1b3a5c" stroke="#34d399" stroke-width="1.5"/>
+        <text x="87" y="17" fill="#34d399" font-size="9" text-anchor="middle">✅ Always send rspCapability</text>
+        <text x="87" y="33" fill="#c8d6e5" font-size="8" text-anchor="middle">(if you're v3.x)</text>
+      </g>
+      <g transform="translate(205,10)">
+        <rect x="0" y="0" width="175" height="45" rx="6" fill="#1b3a5c" stroke="#34d399" stroke-width="1.5"/>
+        <text x="87" y="17" fill="#34d399" font-size="9" text-anchor="middle">✅ Never crash on old-style</text>
+        <text x="87" y="33" fill="#c8d6e5" font-size="8" text-anchor="middle">requests without cap info</text>
+      </g>
+      <g transform="translate(20,70)">
+        <rect x="0" y="0" width="175" height="45" rx="6" fill="#1b3a5c" stroke="#34d399" stroke-width="1.5"/>
+        <text x="87" y="17" fill="#34d399" font-size="9" text-anchor="middle">✅ Never reject extra fields</text>
+        <text x="87" y="33" fill="#c8d6e5" font-size="8" text-anchor="middle">you don't understand</text>
+      </g>
+      <g transform="translate(205,70)">
+        <rect x="0" y="0" width="175" height="45" rx="6" fill="#1b3a5c" stroke="#34d399" stroke-width="1.5"/>
+        <text x="87" y="17" fill="#34d399" font-size="9" text-anchor="middle">✅ Pick the right package</text>
+        <text x="87" y="33" fill="#c8d6e5" font-size="8" text-anchor="middle">for the chip's version</text>
+      </g>
+      <!-- Central golden rule -->
+      <rect x="70" y="145" width="260" height="60" rx="10" fill="#0d1b2a" stroke="#fbbf24" stroke-width="2"/>
+      <text x="200" y="167" fill="#fbbf24" font-size="10" text-anchor="middle">These are the "politeness rules"</text>
+      <text x="200" y="187" fill="#85c1e9" font-size="9" text-anchor="middle">Every v3.x server MUST follow them!</text>
+    </svg>
+  </div>
+  <h3>📜 Everyone Gets to Play Together</h3>
+  <p class="story-text">The v3.x rulebook includes <strong>politeness rules</strong> every server must follow: always include your capability card, never crash on old requests, never reject extra fields you don't understand, and always pick the right profile package version. These rules ensure that old and new devices <em>play together harmoniously</em>, no matter what combinations arise!</p>
+  <div class="page-num">📖 Page 7</div>
+</div>
+
+<!-- PAGE 8: DID YOU KNOW + NAV -->
+<div class="page page-cover">
+  <div class="illustration floating">
+    <svg viewBox="0 0 400 240" width="350">
+      <!-- Phone as translator -->
+      <g transform="translate(200,30)">
+        <rect x="-30" y="0" width="60" height="85" rx="8" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2"/>
+        <text x="0" y="30" font-size="12" text-anchor="middle">📱</text>
+        <text x="0" y="50" fill="#85c1e9" font-size="7" text-anchor="middle">Translator</text>
+      </g>
+      <!-- Old speech -->
+      <g transform="translate(60,100)">
+        <rect x="0" y="0" width="90" height="25" rx="8" fill="#5dade2" opacity="0.6"/>
+        <text x="45" y="17" fill="#0a1628" font-size="8" text-anchor="middle">Old language</text>
+      </g>
+      <line x1="150" y1="112" x2="170" y2="72" stroke="#5a6d80" stroke-width="1"/>
+      <!-- New speech -->
+      <g transform="translate(250,100)">
+        <rect x="0" y="0" width="90" height="25" rx="8" fill="#fbbf24" opacity="0.6"/>
+        <text x="45" y="17" fill="#0a1628" font-size="8" text-anchor="middle">New language</text>
+      </g>
+      <line x1="250" y1="112" x2="230" y2="72" stroke="#5a6d80" stroke-width="1"/>
+      <text x="200" y="165" fill="#fbbf24" font-size="11" text-anchor="middle">Fluent in both modern and ancient!</text>
+    </svg>
+  </div>
+  <h3>🧠 Did You Know?</h3>
+  <p class="story-text">This backwards-compatibility means you could take a brand-new v3.1 phone to a mobile company running a <strong>5-year-old v2.x Key Maker</strong> — and everything would work perfectly. The phone simply becomes a well-behaved v2.x phone for that conversation. It's like being fluent in <em>both modern slang and old-fashioned language</em>, switching effortlessly!</p>
+  <h2 style="margin-top:2rem">📚 Read the Next Story!</h2>
+  <p style="text-align:center;margin-bottom:1rem">
+    <a href="storybook-57.html" style="display:inline-block;padding:.8rem 2rem;background:rgba(93,173,226,0.15);color:#5dade2;text-decoration:none;border-radius:8px;font-size:1.1rem">🎮 Next: The Magic Remote Control →</a>
+  </p>
+  <p style="text-align:center">
+    <a href="index.html" style="color:#5a6d80;text-decoration:none;font-size:.9rem">📖 Back to All Stories</a>
+  </p>
+  <div class="page-num">📖 Page 8 — The End ✨</div>
+</div>
+
+</div>
+
+<div class="nav">
+  <a href="#" onclick="window.scrollBy({top:-window.innerHeight,behavior:'smooth'});return false">⬆</a>
+  <a href="#" onclick="window.scrollBy({top:window.innerHeight,behavior:'smooth'});return false">⬇</a>
+  <a href="storybook-55.html">← Prev</a>
+  <a href="storybook-57.html">Next →</a>
+</div>
+
+</body>
+</html>

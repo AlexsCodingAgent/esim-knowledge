@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teaching Old Vaults New Tricks — An eSIM Story</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Georgia',serif;background:#0a1628;color:#c8d6e5;overflow-x:hidden}
+  .book{max-width:800px;margin:0 auto;min-height:100vh}
+  .page{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;page-break-after:always;scroll-snap-align:start}
+  .page-cover{background:linear-gradient(135deg,#0d1b2a 0%,#0a1628 50%,#0d1b2a 100%)}
+  h1{font-size:2.8rem;color:#e8eef5;text-align:center;margin-bottom:.5rem}
+  h2{font-size:1.6rem;color:#85c1e9;text-align:center;font-weight:400;margin-bottom:1.5rem}
+  h3{font-size:1.3rem;color:#5dade2;text-align:center;margin-bottom:1rem}
+  .story-text{font-size:1.2rem;line-height:1.8;text-align:center;max-width:550px;margin:0 auto}
+  .story-text em{color:#85c1e9;font-style:italic}
+  .story-text strong{color:#e8eef5}
+  .illustration{margin:1.5rem 0}
+  .illustration svg{max-width:100%;height:auto}
+  .page-num{color:#5a6d80;font-size:.85rem;margin-top:2rem}
+  .nav{position:fixed;bottom:1rem;right:1rem;z-index:100}
+  .nav a{display:inline-block;padding:.5rem 1rem;background:rgba(93,173,226,.15);color:#5dade2;text-decoration:none;border-radius:6px;margin-left:.5rem;font-size:.9rem}
+  .nav a:hover{background:rgba(93,173,226,.3)}
+  .sparkle{animation:twinkle 2s infinite}
+  @keyframes twinkle{0%,100%{opacity:.3}50%{opacity:1}}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  .floating{animation:float 3s ease-in-out infinite}
+  @keyframes gear{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+  .gear-turn{animation:gear 6s linear infinite;transform-origin:center}
+  @keyframes slideIn{from{transform:translateX(-20px);opacity:0}to{transform:translateX(0);opacity:1}}
+  .slide-in{animation:slideIn .8s ease-out}
+  @media(max-width:600px){h1{font-size:2rem}h2{font-size:1.2rem}.story-text{font-size:1.05rem}}
+  html{scroll-behavior:smooth;scroll-snap-type:y mandatory}
+</style>
+</head>
+<body>
+
+<div class="book">
+
+<!-- PAGE 1: COVER -->
+<div class="page page-cover">
+  <div class="illustration floating">
+    <svg viewBox="0 0 400 300" width="350">
+      <defs><radialGradient id="glow"><stop offset="0%" stop-color="#5dade2" stop-opacity="0.3"/><stop offset="100%" stop-color="#0a1628" stop-opacity="0"/></radialGradient></defs>
+      <circle cx="200" cy="140" r="130" fill="url(#glow)"/>
+      <!-- Vault with "learning" sign -->
+      <rect x="130" y="60" width="140" height="140" rx="12" fill="#1b3a5c" stroke="#5dade2" stroke-width="2.5"/>
+      <rect x="150" y="80" width="100" height="60" rx="5" fill="#0d1b2a"/>
+      <!-- Learning sign -->
+      <rect x="155" y="75" width="90" height="22" rx="4" fill="#fbbf24"/>
+      <text x="200" y="90" fill="#0a1628" font-size="9" text-anchor="middle" font-weight="bold">🧠 LEARNING IN PROGRESS</text>
+      <!-- Gears inside -->
+      <g class="gear-turn" transform="translate(180,120)">
+        <circle cx="0" cy="0" r="10" fill="none" stroke="#85c1e9" stroke-width="3" stroke-dasharray="5,3"/>
+        <circle cx="0" cy="0" r="3" fill="#85c1e9"/>
+      </g>
+      <g class="gear-turn" transform="translate(215,130)">
+        <circle cx="0" cy="0" r="8" fill="none" stroke="#5dade2" stroke-width="2.5" stroke-dasharray="4,3"/>
+        <circle cx="0" cy="0" r="2.5" fill="#5dade2"/>
+      </g>
+      <!-- Update packets floating in -->
+      <g transform="translate(60,100)" class="sparkle">
+        <rect x="0" y="0" width="20" height="16" rx="3" fill="#34d399" stroke="#85c1e9" stroke-width="1"/>
+        <text x="10" y="11" fill="#0a1628" font-size="6" text-anchor="middle">v3</text>
+      </g>
+      <g transform="translate(320,80)" class="sparkle">
+        <rect x="0" y="0" width="20" height="16" rx="3" fill="#fbbf24" stroke="#85c1e9" stroke-width="1"/>
+        <text x="10" y="11" fill="#0a1628" font-size="6" text-anchor="middle">🔐</text>
+      </g>
+      <text x="200" y="245" fill="#5a6d80" font-size="10" text-anchor="middle">Article 59 · SGP.22 v3.x</text>
+    </svg>
+  </div>
+  <h1>🧠 Teaching Old Vaults New Tricks</h1>
+  <h2>How eSIM Chips Learn and Grow Over Time</h2>
+  <p class="story-text" style="color:#5a6d80">A story of software updates for your chip, new master keys, and vaults that never stop learning</p>
+  <div class="page-num">📖 Page 1</div>
+</div>
+
+<!-- PAGE 2: EVEN VAULTS CAN LEARN -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 230" width="350">
+      <!-- Old vault -->
+      <g transform="translate(30,40)">
+        <rect x="0" y="0" width="80" height="80" rx="8" fill="#1b3a5c" stroke="#5a6d80" stroke-width="2"/>
+        <rect x="15" y="15" width="50" height="35" rx="3" fill="#0d1b2a"/>
+        <text x="40" y="35" fill="#5a6d80" font-size="8" text-anchor="middle">v2.0</text>
+        <text x="40" y="105" fill="#5a6d80" font-size="8" text-anchor="middle">Old tricks only</text>
+      </g>
+      <!-- Arrow with update -->
+      <text x="155" y="80" font-size="20" text-anchor="middle" fill="#5dade2">→</text>
+      <!-- New vault -->
+      <g transform="translate(210,40)">
+        <rect x="0" y="0" width="80" height="80" rx="8" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2.5"/>
+        <rect x="15" y="15" width="50" height="35" rx="3" fill="#0d1b2a"/>
+        <text x="40" y="35" fill="#fbbf24" font-size="8" text-anchor="middle">v3.1</text>
+        <text x="40" y="105" fill="#fbbf24" font-size="8" text-anchor="middle">New superpowers!</text>
+      </g>
+      <!-- Update packet between -->
+      <g transform="translate(160,50)" class="floating">
+        <rect x="0" y="0" width="28" height="22" rx="4" fill="#34d399" stroke="#85c1e9" stroke-width="1.5"/>
+        <text x="14" y="14" fill="#0a1628" font-size="7" text-anchor="middle">⚡</text>
+      </g>
+      <text x="200" y="175" fill="#85c1e9" font-size="10" text-anchor="middle">Same chip — new tricks!</text>
+    </svg>
+  </div>
+  <h3>🏦 Even Vaults Can Learn</h3>
+  <p class="story-text">Your phone's magic vault chip isn't frozen in time. With <strong>v3.x</strong>, it can learn new tricks — security updates, new key types, even entirely new capabilities — delivered <em>over the air</em>. No need to rip out the old chip and solder in a new one!</p>
+  <div class="page-num">📖 Page 2</div>
+</div>
+
+<!-- PAGE 3: WHAT NEEDS UPDATING -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 230" width="350">
+      <!-- Three update types -->
+      <g transform="translate(20,20)">
+        <rect x="0" y="0" width="110" height="55" rx="6" fill="#1b3a5c" stroke="#fbbf24" stroke-width="1.5"/>
+        <text x="55" y="18" fill="#fbbf24" font-size="8" text-anchor="middle" font-weight="bold">🔐 Master Key</text>
+        <text x="55" y="34" fill="#c8d6e5" font-size="7" text-anchor="middle">New root of trust</text>
+        <text x="55" y="47" fill="#5a6d80" font-size="7" text-anchor="middle">Signed by old key</text>
+      </g>
+      <g transform="translate(145,20)">
+        <rect x="0" y="0" width="110" height="55" rx="6" fill="#1b3a5c" stroke="#85c1e9" stroke-width="1.5"/>
+        <text x="55" y="18" fill="#85c1e9" font-size="8" text-anchor="middle" font-weight="bold">📦 Content</text>
+        <text x="55" y="34" fill="#c8d6e5" font-size="7" text-anchor="middle">Add/remove applets</text>
+        <text x="55" y="47" fill="#5a6d80" font-size="7" text-anchor="middle">No full re-download</text>
+      </g>
+      <g transform="translate(270,20)">
+        <rect x="0" y="0" width="110" height="55" rx="6" fill="#1b3a5c" stroke="#34d399" stroke-width="1.5"/>
+        <text x="55" y="18" fill="#34d399" font-size="8" text-anchor="middle" font-weight="bold">🏷️ Metadata</text>
+        <text x="55" y="34" fill="#c8d6e5" font-size="7" text-anchor="middle">Rename profiles</text>
+        <text x="55" y="47" fill="#5a6d80" font-size="7" text-anchor="middle">Change icons</text>
+      </g>
+      <!-- Vault receiving -->
+      <g transform="translate(140,100)">
+        <rect x="0" y="0" width="120" height="70" rx="8" fill="#4a90d9" stroke="#85c1e9" stroke-width="2"/>
+        <rect x="20" y="15" width="80" height="25" rx="3" fill="#0d1b2a"/>
+        <text x="60" y="32" fill="#85c1e9" font-size="8" text-anchor="middle">NEW FEATURES</text>
+        <text x="60" y="55" fill="#34d399" font-size="7" text-anchor="middle">Installing update...</text>
+      </g>
+      <!-- Arrows from updates to vault -->
+      <line x1="75" y1="75" x2="150" y2="110" stroke="#fbbf24" stroke-width="1" stroke-dasharray="3,3"/>
+      <line x1="200" y1="75" x2="190" y2="100" stroke="#85c1e9" stroke-width="1" stroke-dasharray="3,3"/>
+      <line x1="325" y1="75" x2="250" y2="110" stroke="#34d399" stroke-width="1" stroke-dasharray="3,3"/>
+    </svg>
+  </div>
+  <h3>🔄 What Needs Updating?</h3>
+  <p class="story-text">Three things can be updated: the <strong>Master Key</strong> (the vault's root of trust), <strong>Profile Content</strong> (add or remove applets without deleting the whole key), and <strong>Metadata</strong> (rename profiles, change carrier names or icons). All delivered securely, signed by trusted authorities!</p>
+  <div class="page-num">📖 Page 3</div>
+</div>
+
+<!-- PAGE 4: THE UPDATE DELIVERY -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 240" width="350">
+      <!-- Key Maker -->
+      <g transform="translate(30,30)">
+        <rect x="0" y="0" width="70" height="50" rx="6" fill="#34d399" stroke="#85c1e9" stroke-width="1.5"/>
+        <text x="35" y="20" fill="#e8eef5" font-size="8" text-anchor="middle">Key Maker</text>
+        <text x="35" y="35" fill="#e8eef5" font-size="7" text-anchor="middle">Signs update</text>
+      </g>
+      <!-- Secure tunnel -->
+      <g transform="translate(130,30)">
+        <rect x="0" y="0" width="100" height="20" rx="4" fill="#1b3a5c" stroke="#5dade2" stroke-width="1.5" stroke-dasharray="3,2"/>
+        <text x="50" y="14" fill="#5dade2" font-size="7" text-anchor="middle">Encrypted tunnel</text>
+        <!-- Pills inside tunnel -->
+        <rect x="10" y="28" width="15" height="10" rx="3" fill="#85c1e9" class="sparkle"/>
+        <rect x="35" y="28" width="15" height="10" rx="3" fill="#34d399" class="sparkle"/>
+        <rect x="60" y="28" width="15" height="10" rx="3" fill="#fbbf24" class="sparkle"/>
+      </g>
+      <!-- Assistant -->
+      <g transform="translate(270,30)">
+        <rect x="0" y="0" width="70" height="50" rx="6" fill="#85c1e9" stroke="#5dade2" stroke-width="1.5"/>
+        <text x="35" y="20" fill="#0a1628" font-size="8" text-anchor="middle">Assistant</text>
+        <text x="35" y="35" fill="#0a1628" font-size="7" text-anchor="middle">Carries it</text>
+      </g>
+      <!-- Vault -->
+      <g transform="translate(150,120)">
+        <rect x="0" y="0" width="100" height="70" rx="8" fill="#4a90d9" stroke="#85c1e9" stroke-width="2"/>
+        <rect x="20" y="15" width="60" height="25" rx="3" fill="#0d1b2a"/>
+        <text x="50" y="32" fill="#85c1e9" font-size="7" text-anchor="middle">Verifying</text>
+        <!-- Checkmark -->
+        <text x="50" y="55" fill="#34d399" font-size="14" text-anchor="middle">✓</text>
+      </g>
+      <!-- Lines -->
+      <line x1="100" y1="55" x2="140" y2="40" stroke="#5a6d80" stroke-width="1"/>
+      <line x1="290" y1="55" x2="220" y2="40" stroke="#5a6d80" stroke-width="1"/>
+      <line x1="270" y1="80" x2="200" y2="120" stroke="#5a6d80" stroke-width="1"/>
+      <text x="200" y="215" fill="#85c1e9" font-size="9" text-anchor="middle">🦸 Like a software update — but for your chip!</text>
+    </svg>
+  </div>
+  <h3>📡 The Update Delivery</h3>
+  <p class="story-text">Updates flow just like profile downloads: the <strong>Key Maker</strong> signs the update package, it travels through an <em>encrypted tunnel</em> nobody can peek into, your <strong>Assistant</strong> carries it to the vault, and the vault verifies the signature before installing. Even the assistant can't tamper with the contents!</p>
+  <div class="page-num">📖 Page 4</div>
+</div>
+
+<!-- PAGE 5: SAFETY FIRST -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 230" width="350">
+      <!-- Teacher with credentials -->
+      <g transform="translate(30,30)">
+        <rect x="0" y="0" width="70" height="70" rx="6" fill="#1b3a5c" stroke="#5dade2" stroke-width="1.5"/>
+        <text x="35" y="20" fill="#85c1e9" font-size="8" text-anchor="middle">🧑‍🏫</text>
+        <text x="35" y="38" fill="#c8d6e5" font-size="7" text-anchor="middle">Teacher</text>
+        <!-- Credential badge -->
+        <rect x="15" y="45" width="40" height="18" rx="3" fill="#fbbf24"/>
+        <text x="35" y="57" fill="#0a1628" font-size="6" text-anchor="middle">SIGNED ✓</text>
+      </g>
+      <!-- Vault checking credentials -->
+      <g transform="translate(200,30)">
+        <rect x="0" y="0" width="70" height="70" rx="6" fill="#4a90d9" stroke="#5dade2" stroke-width="2"/>
+        <!-- Magnifying glass -->
+        <g transform="translate(35,40)">
+          <circle cx="0" cy="0" r="8" fill="none" stroke="#fbbf24" stroke-width="1.5"/>
+          <line x1="6" y1="6" x2="12" y2="12" stroke="#fbbf24" stroke-width="1.5"/>
+        </g>
+        <text x="35" y="18" fill="#85c1e9" font-size="7" text-anchor="middle">Checking...</text>
+      </g>
+      <!-- Rejected teacher (bad) -->
+      <g transform="translate(310,30)">
+        <rect x="0" y="0" width="70" height="70" rx="6" fill="#ac4142" opacity="0.3" stroke="#ac4142" stroke-width="1.5"/>
+        <text x="35" y="20" fill="#ac4142" font-size="8" text-anchor="middle">🦹</text>
+        <text x="35" y="38" fill="#ac4142" font-size="7" text-anchor="middle">Fake!</text>
+        <text x="35" y="55" fill="#ac4142" font-size="10" text-anchor="middle">✗</text>
+      </g>
+      <!-- Lock icon -->
+      <text x="200" y="150" font-size="24" text-anchor="middle" fill="#fbbf24">🔒</text>
+      <text x="200" y="180" fill="#85c1e9" font-size="10" text-anchor="middle">Only trusted teachers can update the vault</text>
+    </svg>
+  </div>
+  <h3>🛡️ Safety First: Checking the Teacher's Credentials</h3>
+  <p class="story-text">Not just anyone can teach the vault new tricks! Every update must be <strong>digitally signed</strong> by a trusted authority. The vault checks the signature against its master key — if it doesn't match, the update is <em>rejected immediately</em>. Even a rogue IT admin can't push a fake update!</p>
+  <div class="page-num">📖 Page 5</div>
+</div>
+
+<!-- PAGE 6: DURING THE UPDATE -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 230" width="350">
+      <!-- Profile Content Management operations -->
+      <g transform="translate(20,20)">
+        <rect x="0" y="0" width="110" height="45" rx="6" fill="#34d399" opacity="0.7"/>
+        <text x="55" y="18" fill="#e8eef5" font-size="8" text-anchor="middle">📥 Load</text>
+        <text x="55" y="33" fill="#c8d6e5" font-size="7" text-anchor="middle">Add new room</text>
+      </g>
+      <g transform="translate(145,20)">
+        <rect x="0" y="0" width="110" height="45" rx="6" fill="#85c1e9" opacity="0.7"/>
+        <text x="55" y="18" fill="#e8eef5" font-size="8" text-anchor="middle">⚡ Install</text>
+        <text x="55" y="33" fill="#c8d6e5" font-size="7" text-anchor="middle">Turn on lights</text>
+      </g>
+      <g transform="translate(270,20)">
+        <rect x="0" y="0" width="110" height="45" rx="6" fill="#fbbf24" opacity="0.7"/>
+        <text x="55" y="18" fill="#0a1628" font-size="8" text-anchor="middle">🔄 Update</text>
+        <text x="55" y="33" fill="#0a1628" font-size="7" text-anchor="middle">Swap old lock</text>
+      </g>
+      <g transform="translate(20,80)">
+        <rect x="0" y="0" width="110" height="45" rx="6" fill="#ac4142" opacity="0.3"/>
+        <text x="55" y="18" fill="#ac4142" font-size="8" text-anchor="middle">🗑️ Remove</text>
+        <text x="55" y="33" fill="#ac4142" font-size="7" text-anchor="middle">Take down shelf</text>
+      </g>
+      <g transform="translate(145,80)">
+        <rect x="0" y="0" width="110" height="45" rx="6" fill="#5a6d80" opacity="0.5"/>
+        <text x="55" y="18" fill="#e8eef5" font-size="8" text-anchor="middle">🔒 Lock</text>
+        <text x="55" y="33" fill="#c8d6e5" font-size="7" text-anchor="middle">Do Not Disturb</text>
+      </g>
+      <g transform="translate(270,80)">
+        <rect x="0" y="0" width="110" height="45" rx="6" fill="#5dade2" opacity="0.4"/>
+        <text x="55" y="18" fill="#e8eef5" font-size="8" text-anchor="middle">🔓 Unlock</text>
+        <text x="55" y="33" fill="#c8d6e5" font-size="7" text-anchor="middle">Re-enable room</text>
+      </g>
+      <text x="200" y="170" fill="#85c1e9" font-size="10" text-anchor="middle">Granular control — no full re-download needed!</text>
+      <text x="200" y="195" fill="#5a6d80" font-size="8" text-anchor="middle">PCM: Profile Content Management</text>
+    </svg>
+  </div>
+  <h3>🔧 What Happens During the Update</h3>
+  <p class="story-text">With <strong>Profile Content Management (PCM)</strong>, you can add, remove, update, lock, or unlock individual features <em>without deleting the whole profile</em>. It's like renovating one room in your house instead of rebuilding the whole thing — much faster and safer!</p>
+  <div class="page-num">📖 Page 6</div>
+</div>
+
+<!-- PAGE 7: DID YOU KNOW + NAV -->
+<div class="page page-cover">
+  <div class="illustration floating">
+    <svg viewBox="0 0 400 240" width="350">
+      <!-- Timeline vault growing -->
+      <g transform="translate(30,60)">
+        <rect x="0" y="0" width="55" height="55" rx="6" fill="#1b3a5c" stroke="#5a6d80" stroke-width="1.5"/>
+        <text x="27" y="30" fill="#5a6d80" font-size="7" text-anchor="middle">2020</text>
+        <text x="27" y="42" fill="#5a6d80" font-size="6" text-anchor="middle">v2.x</text>
+      </g>
+      <g transform="translate(120,50)">
+        <rect x="0" y="0" width="65" height="65" rx="7" fill="#1b3a5c" stroke="#85c1e9" stroke-width="1.5"/>
+        <text x="32" y="32" fill="#85c1e9" font-size="7" text-anchor="middle">2023</text>
+        <text x="32" y="46" fill="#85c1e9" font-size="6" text-anchor="middle">v3.0</text>
+      </g>
+      <g transform="translate(220,40)">
+        <rect x="0" y="0" width="75" height="75" rx="8" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2"/>
+        <text x="37" y="35" fill="#fbbf24" font-size="7" text-anchor="middle">2025+</text>
+        <text x="37" y="50" fill="#fbbf24" font-size="6" text-anchor="middle">v3.x+</text>
+      </g>
+      <g transform="translate(335,30)">
+        <rect x="0" y="0" width="45" height="45" rx="5" fill="#1b3a5c" stroke="#34d399" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="22" y="26" fill="#34d399" font-size="7" text-anchor="middle">2035?</text>
+      </g>
+      <!-- Sparkles growing -->
+      <circle cx="120" cy="80" r="1.5" fill="#fbbf24" class="sparkle"/>
+      <circle cx="250" cy="70" r="2" fill="#85c1e9" class="sparkle"/>
+      <circle cx="350" cy="60" r="2.5" fill="#34d399" class="sparkle"/>
+      <text x="200" y="180" fill="#fbbf24" font-size="12" text-anchor="middle">🧠 20-year vault lifespan!</text>
+    </svg>
+  </div>
+  <h3>🧠 Did You Know?</h3>
+  <p class="story-text">These update mechanisms mean an eSIM chip made today could stay secure for <strong>10, 15, or even 20 years</strong> — adapting to new cryptographic standards as they're invented. Your phone's vault is no longer frozen in time — it can <em>learn and grow</em> with the future!</p>
+  <h2 style="margin-top:2rem">📚 Read the Next Story!</h2>
+  <p style="text-align:center;margin-bottom:1rem">
+    <a href="storybook-60.html" style="display:inline-block;padding:.8rem 2rem;background:rgba(93,173,226,0.15);color:#5dade2;text-decoration:none;border-radius:8px;font-size:1.1rem">📦 Next: The Great Key Delivery →</a>
+  </p>
+  <p style="text-align:center">
+    <a href="index.html" style="color:#5a6d80;text-decoration:none;font-size:.9rem">📖 Back to All Stories</a>
+  </p>
+  <div class="page-num">📖 Page 7 — The End ✨</div>
+</div>
+
+</div>
+
+<div class="nav">
+  <a href="#" onclick="window.scrollBy({top:-window.innerHeight,behavior:'smooth'});return false">⬆</a>
+  <a href="#" onclick="window.scrollBy({top:window.innerHeight,behavior:'smooth'});return false">⬇</a>
+  <a href="storybook-58.html">← Prev</a>
+  <a href="storybook-60.html">Next →</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Show Your ID, Please — An eSIM Story</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Georgia',serif;background:#0a1628;color:#c8d6e5;overflow-x:hidden}
+  .book{max-width:800px;margin:0 auto;min-height:100vh}
+  .page{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;page-break-after:always;scroll-snap-align:start}
+  .page-cover{background:linear-gradient(135deg,#0d1b2a 0%,#0a1628 50%,#0d1b2a 100%)}
+  h1{font-size:2.8rem;color:#e8eef5;text-align:center;margin-bottom:.5rem}
+  h2{font-size:1.6rem;color:#85c1e9;text-align:center;font-weight:400;margin-bottom:1.5rem}
+  h3{font-size:1.3rem;color:#5dade2;text-align:center;margin-bottom:1rem}
+  .story-text{font-size:1.2rem;line-height:1.8;text-align:center;max-width:550px;margin:0 auto}
+  .story-text em{color:#85c1e9;font-style:italic}
+  .story-text strong{color:#e8eef5}
+  .illustration{margin:1.5rem 0}
+  .illustration svg{max-width:100%;height:auto}
+  .page-num{color:#5a6d80;font-size:.85rem;margin-top:2rem}
+  .nav{position:fixed;bottom:1rem;right:1rem;z-index:100}
+  .nav a{display:inline-block;padding:.5rem 1rem;background:rgba(93,173,226,.15);color:#5dade2;text-decoration:none;border-radius:6px;margin-left:.5rem;font-size:.9rem}
+  .nav a:hover{background:rgba(93,173,226,.3)}
+  .sparkle{animation:twinkle 2s infinite}
+  @keyframes twinkle{0%,100%{opacity:.3}50%{opacity:1}}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  .floating{animation:float 3s ease-in-out infinite}
+  @keyframes slideIn{from{transform:translateX(-20px);opacity:0}to{transform:translateX(0);opacity:1}}
+  .slide-in{animation:slideIn .8s ease-out}
+  @media(max-width:600px){h1{font-size:2rem}h2{font-size:1.2rem}.story-text{font-size:1.05rem}}
+  html{scroll-behavior:smooth;scroll-snap-type:y mandatory}
+</style>
+</head>
+<body>
+
+<div class="book">
+
+<!-- PAGE 1: COVER -->
+<div class="page page-cover">
+  <div class="illustration floating">
+    <svg viewBox="0 0 400 300" width="350">
+      <defs><radialGradient id="glow"><stop offset="0%" stop-color="#5dade2" stop-opacity="0.3"/><stop offset="100%" stop-color="#0a1628" stop-opacity="0"/></radialGradient></defs>
+      <circle cx="200" cy="140" r="130" fill="url(#glow)"/>
+      <!-- ID card -->
+      <g transform="translate(150,70)">
+        <rect x="0" y="0" width="100" height="140" rx="8" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2.5"/>
+        <!-- Photo area -->
+        <rect x="20" y="15" width="60" height="55" rx="4" fill="#0d1b2a" stroke="#30363d" stroke-width="1"/>
+        <!-- Chip icon as photo -->
+        <rect x="33" y="28" width="34" height="34" rx="5" fill="#4a90d9" stroke="#85c1e9" stroke-width="1.5"/>
+        <text x="50" y="50" fill="#e8eef5" font-size="9" text-anchor="middle">CHIP</text>
+        <!-- ID details -->
+        <text x="50" y="88" fill="#fbbf24" font-size="7" text-anchor="middle">Name: 8901-2345</text>
+        <text x="50" y="100" fill="#c8d6e5" font-size="7" text-anchor="middle">Type: eUICC</text>
+        <text x="50" y="112" fill="#5a6d80" font-size="7" text-anchor="middle">Valid: Forever</text>
+        <!-- Barcode at bottom -->
+        <g transform="translate(15,118)">
+          <rect x="0" y="0" width="3" height="12" fill="#fbbf24"/>
+          <rect x="5" y="0" width="2" height="12" fill="#fbbf24"/>
+          <rect x="9" y="0" width="4" height="12" fill="#fbbf24"/>
+          <rect x="15" y="0" width="2" height="12" fill="#fbbf24"/>
+          <rect x="19" y="0" width="3" height="12" fill="#fbbf24"/>
+          <rect x="24" y="0" width="1" height="12" fill="#fbbf24"/>
+          <rect x="27" y="0" width="4" height="12" fill="#fbbf24"/>
+          <rect x="33" y="0" width="2" height="12" fill="#fbbf24"/>
+          <rect x="37" y="0" width="3" height="12" fill="#fbbf24"/>
+          <rect x="42" y="0" width="4" height="12" fill="#fbbf24"/>
+          <rect x="48" y="0" width="2" height="12" fill="#fbbf24"/>
+          <rect x="52" y="0" width="3" height="12" fill="#fbbf24"/>
+          <rect x="57" y="0" width="1" height="12" fill="#fbbf24"/>
+          <rect x="60" y="0" width="4" height="12" fill="#fbbf24"/>
+        </g>
+      </g>
+      <!-- Sparkles around ID -->
+      <circle cx="130" cy="80" r="2" fill="#85c1e9" class="sparkle"/>
+      <circle cx="270" cy="90" r="2" fill="#fbbf24" class="sparkle"/>
+      <circle cx="120" cy="180" r="1.5" fill="#5dade2" class="sparkle"/>
+      <circle cx="280" cy="200" r="2" fill="#85c1e9" class="sparkle"/>
+      <!-- Guard hat -->
+      <text x="200" y="240" fill="#5a6d80" font-size="20" text-anchor="middle">🛡️</text>
+    </svg>
+  </div>
+  <h1>🪪 Show Your ID, Please</h1>
+  <h2>How Chips Prove Who They Are</h2>
+  <p class="story-text" style="color:#5a6d80">A story of identity checks, secret handshakes, and why every chip must carry its name</p>
+  <div class="page-num">📖 Page 1</div>
+</div>
+
+<!-- PAGE 2: PROVING WHO YOU ARE -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 230" width="350">
+      <!-- Guard at door -->
+      <g transform="translate(60,30)">
+        <!-- Door -->
+        <rect x="30" y="0" width="70" height="120" rx="6" fill="#0d1b2a" stroke="#5dade2" stroke-width="2"/>
+        <text x="65" y="65" fill="#5dade2" font-size="9" text-anchor="middle">NETWORK</text>
+        <text x="65" y="80" fill="#5a6d80" font-size="7" text-anchor="middle">ACCESS</text>
+        <!-- Guard -->
+        <circle cx="0" cy="60" r="12" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2"/>
+        <text x="0" y="64" fill="#fbbf24" font-size="12" text-anchor="middle">🛡️</text>
+      </g>
+      <!-- Speech bubble -->
+      <g transform="translate(160,45)">
+        <rect x="0" y="0" width="160" height="45" rx="10" fill="#1b3a5c" stroke="#fbbf24" stroke-width="1.5"/>
+        <text x="80" y="20" fill="#fbbf24" font-size="9" text-anchor="middle">"Halt! Who goes there?"</text>
+        <text x="80" y="36" fill="#c8d6e5" font-size="8" text-anchor="middle">"Show me your EID!"</text>
+        <polygon points="10,45 20,55 30,45" fill="#1b3a5c" stroke="#fbbf24" stroke-width="1.5"/>
+      </g>
+      <!-- Chip approaching -->
+      <g transform="translate(200,110)">
+        <rect x="0" y="0" width="40" height="30" rx="5" fill="#4a90d9" stroke="#85c1e9" stroke-width="1.5"/>
+        <text x="20" y="19" fill="#e8eef5" font-size="8" text-anchor="middle">eSIM</text>
+      </g>
+      <!-- ID card held up -->
+      <g transform="translate(260,100)">
+        <rect x="0" y="0" width="45" height="55" rx="4" fill="#1b3a5c" stroke="#34d399" stroke-width="1.5"/>
+        <text x="22" y="20" fill="#34d399" font-size="6" text-anchor="middle">EID</text>
+        <text x="22" y="32" fill="#fbbf24" font-size="6" text-anchor="middle">8901-...</text>
+        <text x="22" y="44" fill="#85c1e9" font-size="6" text-anchor="middle">2345-F</text>
+      </g>
+      <text x="200" y="180" fill="#5a6d80" font-size="10" text-anchor="middle">Every network wants to know who's knocking!</text>
+    </svg>
+  </div>
+  <h3>🛡️ Proving Who You Are</h3>
+  <p class="story-text">Every time your eSIM connects to a mobile network, there's a <strong>digital guard</strong> at the door. Before any profile is downloaded or activated, the network asks: <em>"Who are you?"</em> And your chip must answer with its unique name — its <strong>EID</strong>. No ID? No entry!</p>
+  <div class="page-num">📖 Page 2</div>
+</div>
+
+<!-- PAGE 3: "WHAT'S YOUR NAME?" -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 240" width="350">
+      <!-- Conversation flow -->
+      <!-- Phone -->
+      <g transform="translate(30,30)">
+        <rect x="0" y="0" width="80" height="130" rx="10" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2"/>
+        <rect x="10" y="15" width="60" height="75" rx="4" fill="#0d1b2a"/>
+        <text x="40" y="55" fill="#fbbf24" font-size="7" text-anchor="middle">EID:</text>
+        <text x="40" y="68" fill="#85c1e9" font-size="7" text-anchor="middle">8901-2345</text>
+        <text x="40" y="80" fill="#85c1e9" font-size="7" text-anchor="middle">6789-0123</text>
+        <circle cx="40" cy="110" r="8" fill="#30363d"/>
+        <text x="40" y="113" fill="#5a6d80" font-size="7" text-anchor="middle">📱</text>
+      </g>
+      <!-- Arrow for message -->
+      <text x="130" y="80" fill="#5dade2" font-size="16" text-anchor="middle">→</text>
+      <g transform="translate(115,65)">
+        <rect x="0" y="0" width="140" height="25" rx="6" fill="#34d399" opacity="0.15"/>
+        <text x="70" y="16" fill="#34d399" font-size="8" text-anchor="middle">"My EID is 8901-2345-6789..."</text>
+      </g>
+      <!-- Server -->
+      <g transform="translate(270,30)">
+        <rect x="0" y="0" width="100" height="130" rx="8" fill="#1b3a5c" stroke="#85c1e9" stroke-width="2"/>
+        <!-- Server rack lines -->
+        <line x1="10" y1="20" x2="90" y2="20" stroke="#30363d" stroke-width="1"/>
+        <line x1="10" y1="35" x2="90" y2="35" stroke="#30363d" stroke-width="1"/>
+        <line x1="10" y1="50" x2="90" y2="50" stroke="#30363d" stroke-width="1"/>
+        <!-- Blinking lights -->
+        <circle cx="20" cy="70" r="3" fill="#34d399" class="sparkle"/>
+        <circle cx="40" cy="70" r="3" fill="#5dade2" class="sparkle"/>
+        <circle cx="60" cy="70" r="3" fill="#fbbf24" class="sparkle"/>
+        <circle cx="80" cy="70" r="3" fill="#34d399" class="sparkle"/>
+        <text x="50" y="95" fill="#85c1e9" font-size="8" text-anchor="middle">SM-DP+</text>
+        <text x="50" y="108" fill="#5a6d80" font-size="7" text-anchor="middle">Key Maker</text>
+      </g>
+      <!-- Return arrow -->
+      <text x="250" y="170" fill="#5dade2" font-size="16" text-anchor="middle">←</text>
+      <g transform="translate(100,155)">
+        <rect x="0" y="0" width="140" height="25" rx="6" fill="#fbbf24" opacity="0.15"/>
+        <text x="70" y="16" fill="#fbbf24" font-size="8" text-anchor="middle">"Identity verified! Welcome!"</text>
+      </g>
+    </svg>
+  </div>
+  <h3>💬 "What's Your Name?"</h3>
+  <p class="story-text">When you scan a QR code to get a new eSIM profile, your phone sends the EID to the <strong>SM-DP+</strong> (the "Key Maker" server). It's like introducing yourself: <em>"Hello, I'm chip 8901-2345-6789-0123-4567-8901-2345-F, and I'd like a profile please!"</em> The server checks who you are before creating your key.</p>
+  <div class="page-num">📖 Page 3</div>
+</div>
+
+<!-- PAGE 4: THE ID CHECK -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 240" width="350">
+      <!-- Verification flow -->
+      <g transform="translate(40,30)">
+        <text x="100" y="0" fill="#c8d6e5" font-size="11" text-anchor="middle" font-weight="bold">The ID Check:</text>
+        <!-- Step 1 -->
+        <g transform="translate(0,20)">
+          <circle cx="0" cy="0" r="10" fill="#fbbf24"/>
+          <text x="0" y="4" fill="#0a1628" font-size="9" text-anchor="middle">1</text>
+          <text x="20" y="4" fill="#c8d6e5" font-size="9">Phone says: "Here's my EID"</text>
+        </g>
+        <!-- Step 2 -->
+        <g transform="translate(0,50)">
+          <circle cx="0" cy="0" r="10" fill="#85c1e9"/>
+          <text x="0" y="4" fill="#0a1628" font-size="9" text-anchor="middle">2</text>
+          <text x="20" y="4" fill="#c8d6e5" font-size="9">Server checks: "Is this EID real?"</text>
+        </g>
+        <!-- Step 3 -->
+        <g transform="translate(0,80)">
+          <circle cx="0" cy="0" r="10" fill="#5dade2"/>
+          <text x="0" y="4" fill="#0a1628" font-size="9" text-anchor="middle">3</text>
+          <text x="20" y="4" fill="#c8d6e5" font-size="9">Server checks: "Does EID match certificate?"</text>
+        </g>
+        <!-- Step 4 -->
+        <g transform="translate(0,110)">
+          <circle cx="0" cy="0" r="10" fill="#34d399"/>
+          <text x="0" y="4" fill="#0a1628" font-size="9" text-anchor="middle">4</text>
+          <text x="20" y="4" fill="#c8d6e5" font-size="9">Match? → Build key for this EID!</text>
+        </g>
+      </g>
+      <!-- Right: lock and key -->
+      <g transform="translate(290,60)" class="sparkle">
+        <rect x="-8" y="-15" width="16" height="20" rx="3" fill="#fbbf24"/>
+        <circle cx="0" cy="5" r="6" fill="none" stroke="#fbbf24" stroke-width="2"/>
+        <rect x="-2" y="8" width="4" height="15" rx="1" fill="#fbbf24"/>
+        <rect x="-6" y="18" width="12" height="4" rx="1" fill="#fbbf24"/>
+      </g>
+      <text x="290" y="120" fill="#5a6d80" font-size="8" text-anchor="middle">Custom key</text>
+      <!-- Checkmark -->
+      <g transform="translate(200,190)">
+        <circle cx="0" cy="0" r="18" fill="none" stroke="#34d399" stroke-width="2.5"/>
+        <polyline points="-8,0 -3,6 8,-6" stroke="#34d399" stroke-width="2.5" fill="none"/>
+      </g>
+      <text x="200" y="225" fill="#34d399" font-size="10" text-anchor="middle">Identity verified! ✅</text>
+    </svg>
+  </div>
+  <h3>✅ The ID Check</h3>
+  <p class="story-text">The server performs a careful <strong>four-step ID check</strong>: it confirms the EID format is valid, checks that the EID belongs to a real manufacturer, verifies the chip's <em>digital certificate</em> matches the EID, and — only if everything matches — builds a custom key <strong>locked to that specific EID</strong>. No imposters allowed!</p>
+  <div class="page-num">📖 Page 4</div>
+</div>
+
+<!-- PAGE 5: MATCHING TO KEYS -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 240" width="350">
+      <!-- Key matched to chip -->
+      <g transform="translate(40,30)">
+        <!-- Chip -->
+        <rect x="0" y="0" width="80" height="100" rx="8" fill="#4a90d9" stroke="#85c1e9" stroke-width="2"/>
+        <text x="40" y="30" fill="#e8eef5" font-size="8" text-anchor="middle">eUICC</text>
+        <rect x="15" y="40" width="50" height="15" rx="3" fill="#0d1b2a"/>
+        <text x="40" y="51" fill="#fbbf24" font-size="7" text-anchor="middle">EID: 8901-...</text>
+        <!-- Lock -->
+        <circle cx="40" cy="75" r="8" fill="none" stroke="#fbbf24" stroke-width="2"/>
+        <text x="40" y="79" fill="#fbbf24" font-size="9" text-anchor="middle">🔒</text>
+      </g>
+      <!-- Arrow -->
+      <text x="150" y="80" fill="#5dade2" font-size="18" text-anchor="middle">←→</text>
+      <text x="150" y="100" fill="#5a6d80" font-size="7" text-anchor="middle">protected</text>
+      <text x="150" y="110" fill="#5a6d80" font-size="7" text-anchor="middle">binding</text>
+      <!-- Key -->
+      <g transform="translate(230,50)">
+        <!-- Profile/key -->
+        <rect x="0" y="0" width="80" height="60" rx="6" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2"/>
+        <text x="40" y="18" fill="#fbbf24" font-size="8" text-anchor="middle">Profile Key</text>
+        <text x="40" y="33" fill="#c8d6e5" font-size="7" text-anchor="middle">"Only for chip:</text>
+        <text x="40" y="48" fill="#85c1e9" font-size="7" text-anchor="middle">8901-2345-...-F"</text>
+      </g>
+      <!-- Wrong chip -->
+      <g transform="translate(320,70)">
+        <rect x="0" y="0" width="40" height="30" rx="5" fill="#1b3a5c" stroke="#ac4142" stroke-width="1.5"/>
+        <text x="20" y="19" fill="#ac4142" font-size="7" text-anchor="middle">8902-...</text>
+      </g>
+      <text x="350" y="120" fill="#ac4142" font-size="8" text-anchor="middle">❌ No!</text>
+      <!-- Bottom explanation -->
+      <rect x="60" y="150" width="280" height="35" rx="6" fill="#1b3a5c" stroke="#30363d" stroke-width="1"/>
+      <text x="200" y="170" fill="#c8d6e5" font-size="9" text-anchor="middle">The key only works for the chip it was built for!</text>
+      <text x="200" y="185" fill="#5a6d80" font-size="8" text-anchor="middle">Copy the key? Useless — it won't unlock another chip.</text>
+    </svg>
+  </div>
+  <h3>🔑 Matching Keys to Chips</h3>
+  <p class="story-text">Here's the clever part: the profile key is <strong>cryptographically locked</strong> to your specific EID. If someone copied your key and tried to use it on a different chip, it simply <em>would not work</em>. The key and the chip are like a lock and a key that were made for each other — and only each other!</p>
+  <div class="page-num">📖 Page 5</div>
+</div>
+
+<!-- PAGE 6: KEEPING IMPOSTERS OUT -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 240" width="350">
+      <!-- Good vs Bad -->
+      <g transform="translate(30,20)">
+        <text x="65" y="15" fill="#34d399" font-size="11" text-anchor="middle" font-weight="bold">✅ REAL CHIP</text>
+        <!-- Real chip -->
+        <rect x="15" y="25" width="100" height="60" rx="8" fill="#1b3a5c" stroke="#34d399" stroke-width="2"/>
+        <text x="65" y="45" fill="#34d399" font-size="9" text-anchor="middle">EID: 8901-...</text>
+        <text x="65" y="62" fill="#c8d6e5" font-size="8" text-anchor="middle">+ Valid Cert</text>
+        <text x="65" y="78" fill="#34d399" font-size="8" text-anchor="middle">✓ Access granted</text>
+      </g>
+      <text x="200" y="65" fill="#5a6d80" font-size="20" text-anchor="middle">VS</text>
+      <g transform="translate(260,20)">
+        <text x="55" y="15" fill="#ac4142" font-size="11" text-anchor="middle" font-weight="bold">❌ IMPOSTER</text>
+        <!-- Fake chip -->
+        <rect x="10" y="25" width="90" height="60" rx="8" fill="#1b3a5c" stroke="#ac4142" stroke-width="2"/>
+        <text x="55" y="45" fill="#ac4142" font-size="9" text-anchor="middle">EID: Fake?</text>
+        <text x="55" y="62" fill="#c8d6e5" font-size="8" text-anchor="middle">Bad cert</text>
+        <text x="55" y="78" fill="#ac4142" font-size="8" text-anchor="middle">✗ Blocked!</text>
+      </g>
+      <!-- Shield in middle below -->
+      <g transform="translate(200,130)">
+        <path d="M-25,-30 L0,-45 L25,-30 L25,5 Q0,20 -25,5 Z" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2"/>
+        <text x="0" y="-5" fill="#fbbf24" font-size="10" text-anchor="middle">🛡️</text>
+        <text x="0" y="10" fill="#fbbf24" font-size="7" text-anchor="middle">EID +</text>
+        <text x="0" y="20" fill="#fbbf24" font-size="7" text-anchor="middle">CERT</text>
+      </g>
+      <text x="200" y="190" fill="#c8d6e5" font-size="10" text-anchor="middle">EID + Certificate = unbreakable identity proof</text>
+      <text x="200" y="210" fill="#5a6d80" font-size="8" text-anchor="middle">Imposters can't fake both at the same time!</text>
+    </svg>
+  </div>
+  <h3>🚫 Keeping Imposters Out</h3>
+  <p class="story-text">The EID alone isn't enough — it works together with a <strong>digital certificate</strong> (a cryptographically signed document from the manufacturer) that proves the chip is genuine. An imposter might guess an EID, but they can't forge the certificate. The combination is like having both a passport and a fingerprint — <em>uncrackable</em>!</p>
+  <div class="page-num">📖 Page 6</div>
+</div>
+
+<!-- PAGE 7: DID YOU KNOW + NAV -->
+<div class="page page-cover">
+  <div class="illustration floating">
+    <svg viewBox="0 0 400 240" width="350">
+      <!-- Identity chain -->
+      <g transform="translate(200,30)">
+        <!-- Chain links: EID → Cert → Key → Network -->
+        <circle cx="0" cy="0" r="16" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2.5"/>
+        <text x="0" y="5" fill="#fbbf24" font-size="8" text-anchor="middle">EID</text>
+        <text x="0" y="-25" fill="#c8d6e5" font-size="7" text-anchor="middle">1</text>
+      </g>
+      <line x1="210" y1="50" x2="210" y2="70" stroke="#5a6d80" stroke-width="1.5"/>
+      <g transform="translate(200,85)">
+        <circle cx="0" cy="0" r="16" fill="#1b3a5c" stroke="#85c1e9" stroke-width="2.5"/>
+        <text x="0" y="5" fill="#85c1e9" font-size="8" text-anchor="middle">CERT</text>
+        <text x="0" y="-25" fill="#c8d6e5" font-size="7" text-anchor="middle">2</text>
+      </g>
+      <line x1="210" y1="105" x2="210" y2="125" stroke="#5a6d80" stroke-width="1.5"/>
+      <g transform="translate(200,140)">
+        <circle cx="0" cy="0" r="16" fill="#1b3a5c" stroke="#5dade2" stroke-width="2.5"/>
+        <text x="0" y="5" fill="#5dade2" font-size="8" text-anchor="middle">KEY</text>
+        <text x="0" y="-25" fill="#c8d6e5" font-size="7" text-anchor="middle">3</text>
+      </g>
+      <line x1="210" y1="160" x2="210" y2="180" stroke="#5a6d80" stroke-width="1.5"/>
+      <g transform="translate(200,195)">
+        <circle cx="0" cy="0" r="16" fill="#1b3a5c" stroke="#34d399" stroke-width="2.5"/>
+        <text x="0" y="5" fill="#34d399" font-size="8" text-anchor="middle">NET</text>
+        <text x="0" y="-25" fill="#c8d6e5" font-size="7" text-anchor="middle">4</text>
+      </g>
+      <!-- Side labels -->
+      <text x="290" y="50" fill="#c8d6e5" font-size="10">Who are you?</text>
+      <text x="290" y="105" fill="#c8d6e5" font-size="10">Prove it!</text>
+      <text x="290" y="160" fill="#c8d6e5" font-size="10">Here's your key</text>
+      <text x="290" y="215" fill="#c8d6e5" font-size="10">You're on!</text>
+    </svg>
+  </div>
+  <h3>🧠 Did You Know?</h3>
+  <p class="story-text">The EID is used in <strong>every single eSIM transaction</strong> — downloading a profile, enabling it, disabling it, deleting it. Think of it like your name appearing on every form you ever fill out. Without the EID, the system wouldn't know <em>which</em> chip to send the right key to. Identity matters!</p>
+  <h2 style="margin-top:2rem">📚 Read the Next Story!</h2>
+  <p style="text-align:center;margin-bottom:1rem">
+    <a href="storybook-31.html" style="display:inline-block;padding:.8rem 2rem;background:rgba(93,173,226,0.15);color:#5dade2;text-decoration:none;border-radius:8px;font-size:1.1rem">🔒 Next: Keeping Your Chip Name Secret →</a>
+  </p>
+  <p style="text-align:center">
+    <a href="index.html" style="color:#5a6d80;text-decoration:none;font-size:.9rem">📖 Back to All Stories</a>
+  </p>
+  <div class="page-num">📖 Page 7 — The End ✨</div>
+</div>
+
+</div>
+
+<div class="nav">
+  <a href="#" onclick="window.scrollBy({top:-window.innerHeight,behavior:'smooth'});return false">⬆</a>
+  <a href="#" onclick="window.scrollBy({top:window.innerHeight,behavior:'smooth'});return false">⬇</a>
+</div>
+
+</body>
+</html>

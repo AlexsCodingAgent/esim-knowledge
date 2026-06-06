@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Magic Keys Built Right In — An SGP.41 IFPP Story</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Georgia',serif;background:#0a1628;color:#c8d6e5;overflow-x:hidden}
+  .book{max-width:800px;margin:0 auto;min-height:100vh}
+  .page{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;page-break-after:always;scroll-snap-align:start}
+  .page-cover{background:linear-gradient(135deg,#0d1b2a 0%,#0a1628 50%,#0d1b2a 100%)}
+  h1{font-size:2.8rem;color:#e8eef5;text-align:center;margin-bottom:.5rem}
+  h2{font-size:1.6rem;color:#85c1e9;text-align:center;font-weight:400;margin-bottom:1.5rem}
+  h3{font-size:1.3rem;color:#5dade2;text-align:center;margin-bottom:1rem}
+  .story-text{font-size:1.2rem;line-height:1.8;text-align:center;max-width:550px;margin:0 auto}
+  .story-text em{color:#85c1e9;font-style:italic}
+  .story-text strong{color:#e8eef5}
+  .illustration{margin:1.5rem 0}
+  .illustration svg{max-width:100%;height:auto}
+  .page-num{color:#5a6d80;font-size:.85rem;margin-top:2rem}
+  .nav{position:fixed;bottom:1rem;right:1rem;z-index:100}
+  .nav a{display:inline-block;padding:.5rem 1rem;background:rgba(93,173,226,.15);color:#5dade2;text-decoration:none;border-radius:6px;margin-left:.5rem;font-size:.9rem}
+  .nav a:hover{background:rgba(93,173,226,.3)}
+  .sparkle{animation:twinkle 2s infinite}
+  @keyframes twinkle{0%,100%{opacity:.3}50%{opacity:1}}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  .floating{animation:float 3s ease-in-out infinite}
+  @keyframes slideIn{from{transform:translateX(-20px);opacity:0}to{transform:translateX(0);opacity:1}}
+  .slide-in{animation:slideIn .8s ease-out}
+  @media(max-width:600px){h1{font-size:2rem}h2{font-size:1.2rem}.story-text{font-size:1.05rem}}
+  html{scroll-behavior:smooth;scroll-snap-type:y mandatory}
+</style>
+</head>
+<body>
+
+<div class="book">
+
+<!-- PAGE 1: COVER -->
+<div class="page page-cover">
+  <div class="illustration floating">
+    <svg viewBox="0 0 400 300" width="350">
+      <defs><radialGradient id="g1"><stop offset="0%" stop-color="#5dade2" stop-opacity="0.3"/><stop offset="100%" stop-color="#0a1628" stop-opacity="0"/></radialGradient></defs>
+      <circle cx="200" cy="140" r="130" fill="url(#g1)"/>
+      <!-- Factory building -->
+      <rect x="100" y="170" width="200" height="90" rx="4" fill="#1b3a5c" stroke="#5dade2" stroke-width="1.5"/>
+      <rect x="80" y="155" width="240" height="20" rx="3" fill="#2a4a6c"/>
+      <!-- Chimney -->
+      <rect x="240" y="100" width="16" height="55" fill="#1b3a5c" stroke="#5dade2" stroke-width="1"/>
+      <!-- Smoke -->
+      <circle cx="248" cy="92" r="8" fill="none" stroke="#85c1e9" stroke-width="1" opacity="0.6"/>
+      <circle cx="258" cy="78" r="10" fill="none" stroke="#85c1e9" stroke-width="1" opacity="0.4"/>
+      <circle cx="252" cy="60" r="7" fill="none" stroke="#85c1e9" stroke-width="1" opacity="0.3"/>
+      <!-- Conveyor belt -->
+      <line x1="110" y1="205" x2="290" y2="205" stroke="#fbbf24" stroke-width="3"/>
+      <circle cx="115" cy="205" r="6" fill="#fbbf24"/>
+      <circle cx="285" cy="205" r="6" fill="#fbbf24"/>
+      <!-- Phone on conveyor -->
+      <g transform="translate(160,175)">
+        <rect x="0" y="0" width="30" height="45" rx="4" fill="#4a90d9" stroke="#85c1e9" stroke-width="1.5"/>
+        <rect x="4" y="6" width="22" height="28" rx="2" fill="#0d1b2a"/>
+      </g>
+      <!-- Glowing key being inserted -->
+      <g class="sparkle" transform="translate(175,162)">
+        <circle cx="0" cy="0" r="5" fill="none" stroke="#fbbf24" stroke-width="2"/>
+        <rect x="-2" y="5" width="4" height="10" rx="1" fill="#fbbf24"/>
+      </g>
+      <!-- Second phone -->
+      <g transform="translate(220,175)">
+        <rect x="0" y="0" width="30" height="45" rx="4" fill="#4a90d9" stroke="#85c1e9" stroke-width="1.5"/>
+        <rect x="4" y="6" width="22" height="28" rx="2" fill="#0d1b2a"/>
+      </g>
+      <!-- Glowing key being inserted -->
+      <g class="sparkle" transform="translate(235,162)">
+        <circle cx="0" cy="0" r="5" fill="none" stroke="#fbbf24" stroke-width="2"/>
+        <rect x="-2" y="5" width="4" height="10" rx="1" fill="#fbbf24"/>
+      </g>
+      <!-- Sparkles -->
+      <circle cx="130" cy="140" r="2" fill="#85c1e9" class="sparkle"/>
+      <circle cx="270" cy="130" r="2" fill="#5dade2" class="sparkle"/>
+      <circle cx="200" cy="80" r="2" fill="#fbbf24" class="sparkle"/>
+    </svg>
+  </div>
+  <h1>🏭 Magic Keys Built Right In</h1>
+  <h2>How eSIM Keys Are Loaded at the Factory</h2>
+  <p class="story-text" style="color:#5a6d80">A story of assembly lines, pre-made keys, and phones that connect right out of the box</p>
+  <div class="page-num">📖 Page 1</div>
+</div>
+
+<!-- PAGE 2: TOYS WITH BATTERIES -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 230" width="350">
+      <!-- Toy box -->
+      <g transform="translate(40,40)">
+        <rect x="0" y="20" width="90" height="70" rx="8" fill="#1b3a5c" stroke="#5dade2" stroke-width="1.5"/>
+        <rect x="0" y="0" width="90" height="25" rx="8" fill="#2a4a6c" stroke="#5dade2" stroke-width="1.5"/>
+        <rect x="12" y="5" width="66" height="15" rx="3" fill="#0d1b2a"/>
+        <text x="45" y="16" fill="#fbbf24" font-size="9" text-anchor="middle">🔋🔋 BATTERIES INSIDE</text>
+      </g>
+      <!-- Arrow -->
+      <text x="165" y="85" font-size="28" fill="#5dade2" text-anchor="middle">→</text>
+      <!-- Phone box -->
+      <g transform="translate(210,30)">
+        <rect x="0" y="20" width="100" height="80" rx="8" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2"/>
+        <rect x="0" y="0" width="100" height="25" rx="8" fill="#2a4a6c" stroke="#fbbf24" stroke-width="1.5"/>
+        <rect x="12" y="5" width="76" height="15" rx="3" fill="#0d1b2a"/>
+        <!-- Phone icon -->
+        <rect x="28" y="32" width="44" height="58" rx="6" fill="#4a90d9" stroke="#85c1e9" stroke-width="1.5"/>
+        <rect x="34" y="42" width="32" height="40" rx="3" fill="#0d1b2a"/>
+        <!-- Key icon -->
+        <g class="sparkle" transform="translate(50,68)">
+          <circle cx="0" cy="0" r="5" fill="#fbbf24"/>
+          <rect x="-2" y="5" width="4" height="8" rx="1" fill="#fbbf24"/>
+        </g>
+        <text x="50" y="82" fill="#fbbf24" font-size="7" text-anchor="middle">🔑 KEY INSIDE</text>
+      </g>
+      <!-- Question -->
+      <g transform="translate(350,50)">
+        <text x="0" y="0" font-size="24" fill="#85c1e9" text-anchor="middle">🤔</text>
+        <text x="0" y="18" fill="#85c1e9" font-size="8" text-anchor="middle">What if</text>
+        <text x="0" y="28" fill="#85c1e9" font-size="8" text-anchor="middle">phones...</text>
+      </g>
+      <!-- Label -->
+      <text x="65" y="140" fill="#c8d6e5" font-size="9" text-anchor="middle">Toys come with</text>
+      <text x="65" y="152" fill="#fbbf24" font-size="9" text-anchor="middle">batteries inside</text>
+      <text x="260" y="140" fill="#c8d6e5" font-size="9" text-anchor="middle">Phones come with</text>
+      <text x="260" y="152" fill="#fbbf24" font-size="9" text-anchor="middle">internet keys inside!</text>
+    </svg>
+  </div>
+  <h3>🔋 Toys That Come with Batteries</h3>
+  <p class="story-text">You know how some toys come with <strong>batteries already inside</strong>? You open the box, flip the switch, and it just works. What if phones could do the same thing — come with their <em>internet keys</em> already loaded at the factory?</p>
+  <div class="page-num">📖 Page 2</div>
+</div>
+
+<!-- PAGE 3: THE FACTORY APPROACH -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 220" width="350">
+      <!-- Three columns: Normal Way vs Factory Way -->
+      <!-- Normal Way -->
+      <g transform="translate(20,30)">
+        <rect x="0" y="0" width="110" height="160" rx="8" fill="#1b3a5c" stroke="#ac4142" stroke-width="1.5"/>
+        <text x="55" y="20" fill="#ac4142" font-size="10" text-anchor="middle" font-weight="bold">OLD WAY</text>
+        <!-- Box 1 -->
+        <rect x="10" y="30" width="90" height="28" rx="4" fill="#0d1b2a"/>
+        <text x="55" y="48" fill="#c8d6e5" font-size="8" text-anchor="middle">📱 Phone ships</text>
+        <text x="55" y="54" fill="#5a6d80" font-size="7" text-anchor="middle">with NO key</text>
+        <!-- Arrow -->
+        <text x="55" y="76" fill="#ac4142" font-size="12" text-anchor="middle">↓</text>
+        <!-- Box 2 -->
+        <rect x="10" y="82" width="90" height="28" rx="4" fill="#0d1b2a"/>
+        <text x="55" y="100" fill="#c8d6e5" font-size="8" text-anchor="middle">📶 Connect to Wi-Fi</text>
+        <text x="55" y="106" fill="#5a6d80" font-size="7" text-anchor="middle">need internet</text>
+        <!-- Arrow -->
+        <text x="55" y="128" fill="#ac4142" font-size="12" text-anchor="middle">↓</text>
+        <!-- Box 3 -->
+        <rect x="10" y="134" width="90" height="28" rx="4" fill="#0d1b2a"/>
+        <text x="55" y="148" fill="#c8d6e5" font-size="8" text-anchor="middle">📥 Download key</text>
+        <text x="55" y="154" fill="#5a6d80" font-size="7" text-anchor="middle">slow, multi-step</text>
+      </g>
+      <!-- X mark -->
+      <g transform="translate(148,70)">
+        <line x1="-10" y1="-10" x2="10" y2="10" stroke="#ac4142" stroke-width="2.5"/>
+        <line x1="10" y1="-10" x2="-10" y2="10" stroke="#ac4142" stroke-width="2.5"/>
+      </g>
+      <!-- Arrow -->
+      <text x="180" y="115" font-size="28" fill="#5dade2" text-anchor="middle">→</text>
+      <!-- Factory Way -->
+      <g transform="translate(210,30)">
+        <rect x="0" y="0" width="170" height="160" rx="8" fill="#1b3a5c" stroke="#34d399" stroke-width="2"/>
+        <text x="85" y="20" fill="#34d399" font-size="10" text-anchor="middle" font-weight="bold">FACTORY WAY ✨</text>
+        <!-- Factory icon -->
+        <text x="85" y="50" font-size="28" text-anchor="middle">🏭</text>
+        <!-- Box -->
+        <rect x="15" y="62" width="140" height="28" rx="4" fill="#0d1b2a"/>
+        <text x="85" y="79" fill="#34d399" font-size="9" text-anchor="middle">Key loaded on assembly line</text>
+        <!-- Arrow -->
+        <text x="85" y="104" fill="#34d399" font-size="12" text-anchor="middle">↓</text>
+        <!-- Box -->
+        <rect x="15" y="112" width="140" height="28" rx="4" fill="#0d1b2a"/>
+        <text x="85" y="126" fill="#34d399" font-size="9" text-anchor="middle">📦 Ships ready-to-connect!</text>
+        <text x="85" y="138" fill="#fbbf24" font-size="8" text-anchor="middle">No Wi-Fi needed!</text>
+      </g>
+    </svg>
+  </div>
+  <h3>🏭 Old Way vs Factory Way</h3>
+  <p class="story-text">The normal way: phone ships empty, you connect to Wi-Fi, <em>then</em> download a key. But factories have <strong>no internet</strong> on the assembly line — and at millions of devices per month, multi-step downloads are way too slow! SGP.41 does all the hard work <strong>ahead of time</strong> so the key is already waiting.</p>
+  <div class="page-num">📖 Page 3</div>
+</div>
+
+<!-- PAGE 4: THE PRE-BOUND KEY CONCEPT -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 230" width="350">
+      <!-- Key Maker on left -->
+      <g transform="translate(40,40)">
+        <rect x="0" y="0" width="80" height="80" rx="10" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2"/>
+        <text x="40" y="22" fill="#fbbf24" font-size="10" text-anchor="middle" font-weight="bold">KEY MAKER</text>
+        <text x="40" y="38" fill="#c8d6e5" font-size="8" text-anchor="middle">Creates locked</text>
+        <text x="40" y="50" fill="#c8d6e5" font-size="8" text-anchor="middle">key packages</text>
+        <text x="40" y="65" fill="#fbbf24" font-size="7" text-anchor="middle">IN ADVANCE!</text>
+        <!-- Key packages -->
+        <rect x="15" y="90" width="12" height="18" rx="2" fill="#fbbf24" class="sparkle"/>
+        <rect x="32" y="90" width="12" height="18" rx="2" fill="#fbbf24"/>
+        <rect x="49" y="90" width="12" height="18" rx="2" fill="#fbbf24" class="sparkle"/>
+      </g>
+      <!-- Arrow / delivery -->
+      <g transform="translate(140,80)">
+        <text x="0" y="-5" fill="#5dade2" font-size="9" text-anchor="middle">ship</text>
+        <text x="0" y="10" font-size="24" text-anchor="middle" fill="#5dade2">→</text>
+        <text x="0" y="25" fill="#5dade2" font-size="9" text-anchor="middle">packages</text>
+      </g>
+      <!-- Factory receiving -->
+      <g transform="translate(200,40)">
+        <rect x="0" y="0" width="80" height="70" rx="10" fill="#1b3a5c" stroke="#5dade2" stroke-width="2"/>
+        <text x="40" y="22" fill="#5dade2" font-size="10" text-anchor="middle" font-weight="bold">FACTORY</text>
+        <text x="40" y="38" fill="#c8d6e5" font-size="8" text-anchor="middle">Stores locked</text>
+        <text x="40" y="50" fill="#c8d6e5" font-size="8" text-anchor="middle">packages</text>
+        <text x="40" y="62" fill="#5a6d80" font-size="7" text-anchor="middle">🔒 can't open them</text>
+        <!-- Storage shelves -->
+        <rect x="15" y="78" width="50" height="30" rx="3" fill="#0d1b2a"/>
+        <line x1="15" y1="88" x2="65" y2="88" stroke="#5a6d80" stroke-width="0.5"/>
+        <rect x="18" y="80" width="10" height="6" rx="1" fill="#fbbf24" opacity="0.7"/>
+        <rect x="31" y="80" width="10" height="6" rx="1" fill="#fbbf24" opacity="0.7"/>
+        <rect x="44" y="80" width="10" height="6" rx="1" fill="#fbbf24" opacity="0.7"/>
+        <rect x="18" y="91" width="10" height="6" rx="1" fill="#fbbf24" opacity="0.7"/>
+        <rect x="31" y="91" width="10" height="6" rx="1" fill="#fbbf24" opacity="0.7"/>
+      </g>
+      <!-- Arrow to phone -->
+      <text x="290" y="80" font-size="24" fill="#5dade2" text-anchor="middle">→</text>
+      <!-- Phone receiving -->
+      <g transform="translate(315,40)">
+        <rect x="0" y="0" width="60" height="85" rx="8" fill="#2a4a6c" stroke="#34d399" stroke-width="2"/>
+        <text x="30" y="20" fill="#34d399" font-size="8" text-anchor="middle" font-weight="bold">📱 PHONE</text>
+        <text x="30" y="35" fill="#c8d6e5" font-size="7" text-anchor="middle">Unlocks &amp;</text>
+        <text x="30" y="45" fill="#c8d6e5" font-size="7" text-anchor="middle">installs key</text>
+        <g class="sparkle" transform="translate(30,65)">
+          <circle cx="0" cy="0" r="6" fill="#34d399"/>
+          <rect x="-3" y="6" width="6" height="12" rx="1.5" fill="#34d399"/>
+        </g>
+      </g>
+      <!-- Label -->
+      <text x="200" y="170" fill="#85c1e9" font-size="12" text-anchor="middle">The key is pre-made and pre-locked — ready when the phone is!</text>
+      <text x="200" y="190" fill="#5a6d80" font-size="9" text-anchor="middle">Key Maker → Factory (locked boxes) → Phone (unlocks)</text>
+    </svg>
+  </div>
+  <h3>🔐 Pre-Bound Keys: The Big Idea</h3>
+  <p class="story-text">In the normal eSIM world, the Key Maker builds a key <em>during</em> the download. With IFPP, the Key Maker builds all the keys <strong>in advance</strong>, locks each one to a specific chip, and ships the locked packages to the factory. On the assembly line, it's a single, lightning-fast push!</p>
+  <div class="page-num">📖 Page 4</div>
+</div>
+
+<!-- PAGE 5: SGP.41 AND SGP.22 AS PARTNERS -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 250" width="350">
+      <!-- Timeline -->
+      <line x1="30" y1="120" x2="370" y2="120" stroke="#5a6d80" stroke-width="2"/>
+      <circle cx="30" cy="120" r="6" fill="#5dade2"/>
+      <circle cx="370" cy="120" r="6" fill="#5dade2"/>
+      <!-- Stage 1: Factory -->
+      <g transform="translate(30,30)">
+        <rect x="0" y="0" width="150" height="80" rx="10" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2"/>
+        <text x="75" y="22" fill="#fbbf24" font-size="10" text-anchor="middle" font-weight="bold">🏭 Factory Stage</text>
+        <text x="75" y="40" fill="#c8d6e5" font-size="8" text-anchor="middle">SGP.41 IFPP</text>
+        <text x="75" y="54" fill="#5a6d80" font-size="8" text-anchor="middle">First key loaded</text>
+        <text x="75" y="68" fill="#5a6d80" font-size="7" text-anchor="middle">before boxing</text>
+        <!-- Key icon -->
+        <g class="sparkle" transform="translate(75,76)">
+          <circle cx="0" cy="0" r="3" fill="#fbbf24"/>
+          <rect x="-1.5" y="3" width="3" height="5" rx="0.5" fill="#fbbf24"/>
+        </g>
+      </g>
+      <!-- Arrow between stages -->
+      <text x="215" y="75" font-size="24" fill="#5dade2" text-anchor="middle">➡️</text>
+      <!-- Stage 2: Field -->
+      <g transform="translate(230,30)">
+        <rect x="0" y="0" width="140" height="80" rx="10" fill="#1b3a5c" stroke="#85c1e9" stroke-width="2"/>
+        <text x="70" y="22" fill="#85c1e9" font-size="10" text-anchor="middle" font-weight="bold">🌍 Field Stage</text>
+        <text x="70" y="40" fill="#c8d6e5" font-size="8" text-anchor="middle">SGP.22 Consumer</text>
+        <text x="70" y="54" fill="#5a6d80" font-size="8" text-anchor="middle">More keys later</text>
+        <text x="70" y="68" fill="#5a6d80" font-size="7" text-anchor="middle">Travel, work, etc.</text>
+        <!-- Keys -->
+        <g class="sparkle" transform="translate(55,73)">
+          <circle cx="0" cy="0" r="3" fill="#85c1e9"/>
+          <rect x="-1.5" y="3" width="3" height="5" rx="0.5" fill="#85c1e9"/>
+        </g>
+        <g class="sparkle" transform="translate(70,71)">
+          <circle cx="0" cy="0" r="3" fill="#34d399"/>
+          <rect x="-1.5" y="3" width="3" height="5" rx="0.5" fill="#34d399"/>
+        </g>
+        <g class="sparkle" transform="translate(85,73)">
+          <circle cx="0" cy="0" r="3" fill="#85c1e9"/>
+          <rect x="-1.5" y="3" width="3" height="5" rx="0.5" fill="#85c1e9"/>
+        </g>
+      </g>
+      <!-- Bottom explanation -->
+      <text x="200" y="170" fill="#c8d6e5" font-size="10" text-anchor="middle">Partners, Not Rivals!</text>
+      <text x="200" y="190" fill="#5a6d80" font-size="9" text-anchor="middle">SGP.41 loads first key → SGP.22 adds more later</text>
+      <text x="200" y="210" fill="#5a6d80" font-size="9" text-anchor="middle">Same chip, two chapters of its life!</text>
+    </svg>
+  </div>
+  <h3>🤝 Two Stages, One Chip</h3>
+  <p class="story-text">Think of <strong>SGP.41</strong> and <strong>SGP.22</strong> as two stages in a phone's life. At the factory, SGP.41 loads the <em>first</em> key before the device is boxed. Later, when you're using the device, SGP.22 lets you add more keys — like a travel eSIM. Same chip, two different chapters!</p>
+  <div class="page-num">📖 Page 5</div>
+</div>
+
+<!-- PAGE 6: WHY IT MATTERS -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 230" width="350">
+      <!-- Scale illustration -->
+      <g transform="translate(30,40)">
+        <text x="50" y="0" fill="#34d399" font-size="22" text-anchor="middle">📊</text>
+        <text x="50" y="20" fill="#e8eef5" font-size="10" text-anchor="middle">Without IFPP:</text>
+        <text x="50" y="35" fill="#ac4142" font-size="10" text-anchor="middle">One device</text>
+        <text x="50" y="48" fill="#5a6d80" font-size="8" text-anchor="middle">= internet needed</text>
+        <text x="50" y="60" fill="#5a6d80" font-size="8" text-anchor="middle">= multi-step</text>
+        <text x="50" y="72" fill="#5a6d80" font-size="8" text-anchor="middle">= must have user</text>
+      </g>
+      <!-- Times a million -->
+      <g transform="translate(160,60)">
+        <text x="0" y="0" fill="#fbbf24" font-size="36" text-anchor="middle">×</text>
+        <text x="0" y="20" fill="#fbbf24" font-size="14" text-anchor="middle">1,000,000</text>
+        <text x="0" y="35" fill="#5a6d80" font-size="9" text-anchor="middle">devices per month</text>
+      </g>
+      <!-- Arrow -->
+      <text x="240" y="90" font-size="28" fill="#5dade2" text-anchor="middle">→</text>
+      <!-- With IFPP -->
+      <g transform="translate(280,40)">
+        <text x="50" y="0" fill="#34d399" font-size="22" text-anchor="middle">🏭</text>
+        <text x="50" y="20" fill="#e8eef5" font-size="10" text-anchor="middle">With IFPP:</text>
+        <text x="50" y="35" fill="#34d399" font-size="10" text-anchor="middle">One push</text>
+        <text x="50" y="48" fill="#5a6d80" font-size="8" text-anchor="middle">= milliseconds</text>
+        <text x="50" y="60" fill="#5a6d80" font-size="8" text-anchor="middle">= offline</text>
+        <text x="50" y="72" fill="#5a6d80" font-size="8" text-anchor="middle">= no user needed</text>
+      </g>
+      <!-- Bottom row: devices -->
+      <g transform="translate(80,140)">
+        <text x="20" y="0" font-size="20" fill="#85c1e9" text-anchor="middle">💻</text>
+        <text x="80" y="0" font-size="20" fill="#85c1e9" text-anchor="middle">🚗</text>
+        <text x="140" y="0" font-size="20" fill="#85c1e9" text-anchor="middle">⌚</text>
+        <text x="200" y="0" font-size="20" fill="#85c1e9" text-anchor="middle">📡</text>
+      </g>
+      <text x="200" y="170" fill="#e8eef5" font-size="11" text-anchor="middle">Laptops, cars, watches, sensors —</text>
+      <text x="200" y="188" fill="#fbbf24" font-size="11" text-anchor="middle">all connected from day zero!</text>
+    </svg>
+  </div>
+  <h3>🎯 Why IFPP Matters</h3>
+  <p class="story-text">At <strong>millions of devices per month</strong>, the normal download approach breaks. Multiply seconds of waiting by millions of devices, and you get <em>weeks</em> of delay. SGP.41 makes eSIM work at the speed and scale of a real factory floor — single push, milliseconds, done!</p>
+  <div class="page-num">📖 Page 6</div>
+</div>
+
+<!-- PAGE 7: DID YOU KNOW -->
+<div class="page page-cover">
+  <div class="illustration floating">
+    <svg viewBox="0 0 400 240" width="350">
+      <!-- Factory outline -->
+      <rect x="100" y="120" width="200" height="90" rx="6" fill="#1b3a5c" stroke="#5dade2" stroke-width="1.5"/>
+      <rect x="80" y="100" width="240" height="24" rx="4" fill="#2a4a6c"/>
+      <rect x="240" y="60" width="18" height="40" fill="#1b3a5c" stroke="#5dade2" stroke-width="1"/>
+      <!-- Calendar icon -->
+      <g transform="translate(120,60)">
+        <rect x="0" y="0" width="50" height="50" rx="6" fill="#0d1b2a" stroke="#fbbf24" stroke-width="2"/>
+        <rect x="0" y="0" width="50" height="14" rx="6" fill="#fbbf24"/>
+        <text x="25" y="34" fill="#e8eef5" font-size="18" text-anchor="middle">28</text>
+        <text x="25" y="46" fill="#fbbf24" font-size="7" text-anchor="middle">FEB</text>
+      </g>
+      <!-- 2025 -->
+      <g transform="translate(250,60)">
+        <rect x="0" y="0" width="60" height="50" rx="6" fill="#0d1b2a" stroke="#34d399" stroke-width="2"/>
+        <text x="30" y="32" fill="#34d399" font-size="18" text-anchor="middle">2025</text>
+        <text x="30" y="44" fill="#5a6d80" font-size="7" text-anchor="middle">v1.0</text>
+      </g>
+      <!-- Lightbulb -->
+      <text x="200" y="80" font-size="30" text-anchor="middle">💡</text>
+      <text x="200" y="190" fill="#fbbf24" font-size="11" text-anchor="middle">SGP.41: brand new — published 28 Feb 2025!</text>
+    </svg>
+  </div>
+  <h3>🧠 Did You Know?</h3>
+  <p class="story-text">The IFPP specification (SGP.41 v1.0) was published on <strong>28 February 2025</strong> — it's one of the newest members of the GSMA eSIM family! It reuses security tricks from older eSIM specs, so it doesn't reinvent the wheel — it just makes those wheels turn on the factory floor.</p>
+  <h2 style="margin-top:2rem">📚 Read the Next Story!</h2>
+  <p style="text-align:center;margin-bottom:1rem">
+    <a href="storybook-48.html" style="display:inline-block;padding:.8rem 2rem;background:rgba(93,173,226,0.15);color:#5dade2;text-decoration:none;border-radius:8px;font-size:1.1rem">🤖 Next: The Factory Team →</a>
+  </p>
+  <p style="text-align:center">
+    <a href="index.html" style="color:#5a6d80;text-decoration:none;font-size:.9rem">📖 Back to All Stories</a>
+  </p>
+  <div class="page-num">📖 Page 7 — The End ✨</div>
+</div>
+
+</div>
+
+<div class="nav">
+  <a href="#" onclick="window.scrollBy({top:-window.innerHeight,behavior:'smooth'});return false">⬆</a>
+  <a href="#" onclick="window.scrollBy({top:window.innerHeight,behavior:'smooth'});return false">⬇</a>
+</div>
+
+</body>
+</html>

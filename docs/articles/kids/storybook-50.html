@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Factory Secrets — An SGP.41 IFPP Story</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Georgia',serif;background:#0a1628;color:#c8d6e5;overflow-x:hidden}
+  .book{max-width:800px;margin:0 auto;min-height:100vh}
+  .page{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;page-break-after:always;scroll-snap-align:start}
+  .page-cover{background:linear-gradient(135deg,#0d1b2a 0%,#0a1628 50%,#0d1b2a 100%)}
+  h1{font-size:2.8rem;color:#e8eef5;text-align:center;margin-bottom:.5rem}
+  h2{font-size:1.6rem;color:#85c1e9;text-align:center;font-weight:400;margin-bottom:1.5rem}
+  h3{font-size:1.3rem;color:#5dade2;text-align:center;margin-bottom:1rem}
+  .story-text{font-size:1.2rem;line-height:1.8;text-align:center;max-width:550px;margin:0 auto}
+  .story-text em{color:#85c1e9;font-style:italic}
+  .story-text strong{color:#e8eef5}
+  .illustration{margin:1.5rem 0}
+  .illustration svg{max-width:100%;height:auto}
+  .page-num{color:#5a6d80;font-size:.85rem;margin-top:2rem}
+  .nav{position:fixed;bottom:1rem;right:1rem;z-index:100}
+  .nav a{display:inline-block;padding:.5rem 1rem;background:rgba(93,173,226,.15);color:#5dade2;text-decoration:none;border-radius:6px;margin-left:.5rem;font-size:.9rem}
+  .nav a:hover{background:rgba(93,173,226,.3)}
+  .sparkle{animation:twinkle 2s infinite}
+  @keyframes twinkle{0%,100%{opacity:.3}50%{opacity:1}}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  .floating{animation:float 3s ease-in-out infinite}
+  @keyframes slideIn{from{transform:translateX(-20px);opacity:0}to{transform:translateX(0);opacity:1}}
+  .slide-in{animation:slideIn .8s ease-out}
+  @media(max-width:600px){h1{font-size:2rem}h2{font-size:1.2rem}.story-text{font-size:1.05rem}}
+  html{scroll-behavior:smooth;scroll-snap-type:y mandatory}
+</style>
+</head>
+<body>
+
+<div class="book">
+
+<!-- PAGE 1: COVER -->
+<div class="page page-cover">
+  <div class="illustration floating">
+    <svg viewBox="0 0 400 300" width="350">
+      <defs><radialGradient id="g1"><stop offset="0%" stop-color="#5dade2" stop-opacity="0.3"/><stop offset="100%" stop-color="#0a1628" stop-opacity="0"/></radialGradient></defs>
+      <circle cx="200" cy="140" r="130" fill="url(#g1)"/>
+      <!-- Safe in factory -->
+      <g transform="translate(130,100)">
+        <rect x="0" y="0" width="140" height="110" rx="10" fill="#1b3a5c" stroke="#fbbf24" stroke-width="3"/>
+        <rect x="20" y="15" width="100" height="80" rx="8" fill="#0d1b2a" stroke="#fbbf24" stroke-width="2"/>
+        <circle cx="70" cy="55" r="14" fill="none" stroke="#fbbf24" stroke-width="2.5"/>
+        <circle cx="70" cy="55" r="5" fill="#fbbf24"/>
+        <!-- Lock -->
+        <rect x="64" y="28" width="12" height="18" rx="2" fill="#fbbf24"/>
+        <text x="70" y="20" fill="#0a1628" font-size="10" text-anchor="middle">🔒</text>
+      </g>
+      <!-- Laser beams -->
+      <line x1="80" y1="80" x2="140" y2="40" stroke="#ac4142" stroke-width="1.5" opacity="0.6"/>
+      <line x1="100" y1="40" x2="180" y2="80" stroke="#ac4142" stroke-width="1.5" opacity="0.6"/>
+      <line x1="200" y1="40" x2="320" y2="80" stroke="#ac4142" stroke-width="1.5" opacity="0.6"/>
+      <line x1="260" y1="80" x2="320" y2="40" stroke="#ac4142" stroke-width="1.5" opacity="0.6"/>
+      <!-- Sparkles -->
+      <circle cx="50" cy="50" r="2" fill="#fbbf24" class="sparkle"/>
+      <circle cx="350" cy="60" r="2" fill="#fbbf24" class="sparkle"/>
+    </svg>
+  </div>
+  <h1>🔒 Factory Secrets</h1>
+  <h2>How Keys Stay Safe on the Assembly Line</h2>
+  <p class="story-text" style="color:#5a6d80">The factory is a courier, not a custodian — it moves locked boxes but never sees inside</p>
+  <div class="page-num">📖 Page 1</div>
+</div>
+
+<!-- PAGE 2: THE GOLDEN RULE -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 240" width="350">
+      <!-- Factory building with question marks -->
+      <g transform="translate(30,40)">
+        <rect x="0" y="0" width="130" height="160" rx="8" fill="#1b3a5c" stroke="#5dade2" stroke-width="1.5"/>
+        <rect x="-5" y="-10" width="140" height="30" rx="6" fill="#2a4a6c"/>
+        <text x="65" y="10" fill="#c8d6e5" font-size="10" text-anchor="middle">🏭 FACTORY</text>
+        <text x="65" y="50" fill="#ac4142" font-size="22" text-anchor="middle">⚠️</text>
+        <text x="65" y="72" fill="#e8eef5" font-size="10" text-anchor="middle">NOT SECURE</text>
+        <text x="65" y="90" fill="#5a6d80" font-size="8" text-anchor="middle">Workers</text>
+        <text x="65" y="104" fill="#5a6d80" font-size="8" text-anchor="middle">Computers</text>
+        <text x="65" y="118" fill="#5a6d80" font-size="8" text-anchor="middle">Robot</text>
+        <text x="65" y="138" fill="#ac4142" font-size="9" text-anchor="middle">— None should see keys!</text>
+      </g>
+      <!-- Rule boxes -->
+      <g transform="translate(190,40)">
+        <rect x="0" y="0" width="180" height="50" rx="6" fill="#0d1b2a" stroke="#fbbf24" stroke-width="1.5"/>
+        <text x="90" y="18" fill="#fbbf24" font-size="10" text-anchor="middle">Rule GENS09:</text>
+        <text x="90" y="36" fill="#c8d6e5" font-size="9" text-anchor="middle">Plain keys exist ONLY inside the chip</text>
+      </g>
+      <g transform="translate(190,100)">
+        <rect x="0" y="0" width="180" height="50" rx="6" fill="#0d1b2a" stroke="#fbbf24" stroke-width="1.5"/>
+        <text x="90" y="18" fill="#fbbf24" font-size="10" text-anchor="middle">Rule GENS10:</text>
+        <text x="90" y="36" fill="#c8d6e5" font-size="9" text-anchor="middle">Factory never gets secret keys</text>
+      </g>
+      <!-- Bottom -->
+      <text x="200" y="190" fill="#85c1e9" font-size="11" text-anchor="middle">The Factory = A Courier, Not a Custodian</text>
+    </svg>
+  </div>
+  <h3>👀 The Golden Rule: Factory = Untrusted</h3>
+  <p class="story-text">SGP.41 starts from one blunt principle: factory floors are <strong>not secure enough</strong> to hold secrets. Assembly line workers, production computers, even the Robot — none should see a real key. Two rules enforce this: plain keys exist <em>only inside the chip</em>, and the factory never gets the secret keys.</p>
+  <div class="page-num">📖 Page 2</div>
+</div>
+
+<!-- PAGE 3: WHERE KEY LIVES -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 240" width="350">
+      <!-- Key Maker's Vault -->
+      <g transform="translate(15,40)">
+        <rect x="0" y="0" width="100" height="160" rx="10" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2"/>
+        <text x="50" y="22" fill="#fbbf24" font-size="9" text-anchor="middle" font-weight="bold">Key Maker</text>
+        <text x="50" y="38" fill="#5a6d80" font-size="7" text-anchor="middle">SAS Vault</text>
+        <!-- Plain key -->
+        <g transform="translate(50,72)">
+          <circle cx="0" cy="0" r="10" fill="#34d399"/>
+          <rect x="-4" y="10" width="8" height="18" rx="2" fill="#34d399"/>
+        </g>
+        <text x="50" y="108" fill="#34d399" font-size="10" text-anchor="middle">PLAIN KEY</text>
+        <text x="50" y="122" fill="#5a6d80" font-size="7" text-anchor="middle">✅ Safe here</text>
+        <!-- Arrow -->
+        <text x="50" y="148" fill="#5dade2" font-size="14" text-anchor="middle">↓</text>
+      </g>
+      <!-- Factory (middle) -->
+      <g transform="translate(150,40)">
+        <rect x="0" y="0" width="100" height="160" rx="10" fill="#1b3a5c" stroke="#ac4142" stroke-width="2"/>
+        <text x="50" y="22" fill="#ac4142" font-size="9" text-anchor="middle" font-weight="bold">Factory</text>
+        <text x="50" y="38" fill="#5a6d80" font-size="7" text-anchor="middle">Untrusted</text>
+        <!-- Locked package -->
+        <g transform="translate(50,72)">
+          <rect x="-15" y="-15" width="30" height="30" rx="4" fill="#fbbf24" opacity="0.5"/>
+          <text x="0" y="4" fill="#0a1628" font-size="14" text-anchor="middle">🔒</text>
+        </g>
+        <text x="50" y="108" fill="#fbbf24" font-size="10" text-anchor="middle">LOCKED</text>
+        <text x="50" y="122" fill="#5a6d80" font-size="7" text-anchor="middle">⚠️ Can't read</text>
+        <!-- Arrow -->
+        <text x="50" y="148" fill="#5dade2" font-size="14" text-anchor="middle">↓</text>
+      </g>
+      <!-- eSIM Chip -->
+      <g transform="translate(285,40)">
+        <rect x="0" y="0" width="100" height="160" rx="10" fill="#1b3a5c" stroke="#34d399" stroke-width="2"/>
+        <text x="50" y="22" fill="#34d399" font-size="9" text-anchor="middle" font-weight="bold">eSIM Chip</text>
+        <!-- Unlocked key -->
+        <g transform="translate(50,72)">
+          <circle cx="0" cy="0" r="10" fill="#34d399"/>
+          <rect x="-4" y="10" width="8" height="18" rx="2" fill="#34d399"/>
+        </g>
+        <text x="50" y="108" fill="#34d399" font-size="10" text-anchor="middle">PLAIN KEY</text>
+        <text x="50" y="122" fill="#5a6d80" font-size="7" text-anchor="middle">✅ Installed!</text>
+      </g>
+      <!-- Arrows at top -->
+      <text x="125" y="65" font-size="14" fill="#5dade2" text-anchor="middle">→</text>
+      <text x="260" y="65" font-size="14" fill="#5dade2" text-anchor="middle">→</text>
+      <text x="200" y="210" fill="#85c1e9" font-size="10" text-anchor="middle">Key in plain form at only TWO places: Key Maker vault &amp; eSIM chip</text>
+    </svg>
+  </div>
+  <h3>🗺️ Where the Key Actually Lives</h3>
+  <p class="story-text">The key exists in <strong>plain form at exactly two places</strong>: inside the Key Maker's SAS-certified vault, and inside the eSIM chip after installation. At every point in between — in transit, in storage, on the assembly line — it's a <em>locked, scrambled, unreadable package</em>.</p>
+  <div class="page-num">📖 Page 3</div>
+</div>
+
+<!-- PAGE 4: ONE-TIME KEYS -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 240" width="350">
+      <!-- One-time key lifecycle -->
+      <g transform="translate(20,20)">
+        <rect x="0" y="0" width="80" height="90" rx="8" fill="#1b3a5c" stroke="#85c1e9" stroke-width="1.5"/>
+        <text x="40" y="20" fill="#85c1e9" font-size="9" text-anchor="middle">1. Born in</text>
+        <text x="40" y="34" fill="#85c1e9" font-size="9" text-anchor="middle">Secure Vault</text>
+        <text x="40" y="54" fill="#5a6d80" font-size="7" text-anchor="middle">SAS-UP certified</text>
+        <text x="40" y="66" fill="#5a6d80" font-size="7" text-anchor="middle">Like hospital</text>
+        <text x="40" y="78" fill="#5a6d80" font-size="7" text-anchor="middle">with guards</text>
+      </g>
+      <text x="110" y="65" font-size="18" fill="#5dade2" text-anchor="middle">→</text>
+      <g transform="translate(130,20)">
+        <rect x="0" y="0" width="80" height="90" rx="8" fill="#1b3a5c" stroke="#fbbf24" stroke-width="1.5"/>
+        <text x="40" y="20" fill="#fbbf24" font-size="9" text-anchor="middle">2. One Lock</text>
+        <text x="40" y="34" fill="#fbbf24" font-size="9" text-anchor="middle">One Profile</text>
+        <text x="40" y="54" fill="#5a6d80" font-size="7" text-anchor="middle">Used once</text>
+        <text x="40" y="66" fill="#5a6d80" font-size="7" text-anchor="middle">Then destroyed</text>
+        <text x="40" y="78" fill="#5a6d80" font-size="7" text-anchor="middle">No cloning!</text>
+      </g>
+      <text x="220" y="65" font-size="18" fill="#5dade2" text-anchor="middle">→</text>
+      <g transform="translate(240,20)">
+        <rect x="0" y="0" width="80" height="90" rx="8" fill="#1b3a5c" stroke="#34d399" stroke-width="1.5"/>
+        <text x="40" y="20" fill="#34d399" font-size="9" text-anchor="middle">3. Secret</text>
+        <text x="40" y="34" fill="#34d399" font-size="9" text-anchor="middle">Never Leaves</text>
+        <text x="40" y="54" fill="#5a6d80" font-size="7" text-anchor="middle">Private key</text>
+        <text x="40" y="66" fill="#5a6d80" font-size="7" text-anchor="middle">buried in chip</text>
+        <text x="40" y="78" fill="#5a6d80" font-size="7" text-anchor="middle">forever</text>
+      </g>
+      <text x="330" y="65" font-size="18" fill="#5dade2" text-anchor="middle">→</text>
+      <g transform="translate(350,20)">
+        <rect x="0" y="0" width="40" height="90" rx="8" fill="#1b3a5c" stroke="#ac4142" stroke-width="1.5"/>
+        <text x="20" y="45" fill="#ac4142" font-size="8" text-anchor="middle">GONE</text>
+      </g>
+      <!-- Security guarantee -->
+      <g transform="translate(40,140)">
+        <rect x="0" y="0" width="320" height="60" rx="8" fill="#0d1b2a" stroke="#34d399" stroke-width="1.5"/>
+        <text x="160" y="22" fill="#34d399" font-size="12" text-anchor="middle">🛡️ Secret Weapon: One-Time Keys</text>
+        <text x="160" y="40" fill="#c8d6e5" font-size="9" text-anchor="middle">Stealing one locked package reveals nothing about others</text>
+        <text x="160" y="54" fill="#5a6d80" font-size="8" text-anchor="middle">Each key is unique. Each key is used once. Each key is destroyed.</text>
+      </g>
+    </svg>
+  </div>
+  <h3>🔑 One-Time Keys: The Secret Weapon</h3>
+  <p class="story-text">The foundation of IFPP security is <strong>one-time keys</strong> — disposable, single-use padlocks. Born in a SAS-UP certified environment, used for exactly one profile, then destroyed forever. The private part never leaves the chip. Stealing one locked package reveals <em>nothing</em> about any other!</p>
+  <div class="page-num">📖 Page 4</div>
+</div>
+
+<!-- PAGE 5: WHAT FACTORY DOESN'T NEED -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 230" width="350">
+      <!-- SAS and HSM -->
+      <g transform="translate(30,30)">
+        <rect x="0" y="0" width="150" height="60" rx="8" fill="#1b3a5c" stroke="#ac4142" stroke-width="2"/>
+        <text x="75" y="18" fill="#ac4142" font-size="10" text-anchor="middle">🚫 NOT Needed:</text>
+        <text x="75" y="38" fill="#e8eef5" font-size="10" text-anchor="middle">SAS Accreditation</text>
+        <text x="75" y="52" fill="#5a6d80" font-size="8" text-anchor="middle">All security at Key Maker</text>
+      </g>
+      <g transform="translate(220,30)">
+        <rect x="0" y="0" width="150" height="60" rx="8" fill="#1b3a5c" stroke="#ac4142" stroke-width="2"/>
+        <text x="75" y="18" fill="#ac4142" font-size="10" text-anchor="middle">🚫 NOT Needed:</text>
+        <text x="75" y="38" fill="#e8eef5" font-size="10" text-anchor="middle">HSM Hardware</text>
+        <text x="75" y="52" fill="#5a6d80" font-size="8" text-anchor="middle">No secret keys to protect</text>
+      </g>
+      <!-- Happy factory -->
+      <g transform="translate(80,120)">
+        <rect x="0" y="0" width="240" height="80" rx="10" fill="#0d1b2a" stroke="#34d399" stroke-width="2"/>
+        <text x="120" y="28" fill="#34d399" font-size="14" text-anchor="middle">🏭 Low-cost factory</text>
+        <text x="120" y="48" fill="#c8d6e5" font-size="10" text-anchor="middle">No expensive security certification!</text>
+        <text x="120" y="66" fill="#5a6d80" font-size="9" text-anchor="middle">Just passes through encrypted packages</text>
+      </g>
+    </svg>
+  </div>
+  <h3>🚫 What the Factory Does NOT Need</h3>
+  <p class="story-text">This is the best part for manufacturers: they <strong>don't need SAS accreditation</strong> and they <strong>don't need an HSM</strong> (Hardware Security Module). All security work happens at the Key Maker. A high-volume IoT factory making cheap sensors just passes through encrypted packages — no expensive certification required!</p>
+  <div class="page-num">📖 Page 5</div>
+</div>
+
+<!-- PAGE 6: FORWARD SECRECY + LOCKS -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 240" width="350">
+      <!-- Forward secrecy -->
+      <g transform="translate(20,20)">
+        <rect x="0" y="0" width="360" height="80" rx="8" fill="#1b3a5c" stroke="#fbbf24" stroke-width="1.5"/>
+        <text x="180" y="22" fill="#fbbf24" font-size="11" text-anchor="middle" font-weight="bold">⏪ Perfect Forward Secrecy</text>
+        <text x="180" y="42" fill="#c8d6e5" font-size="9" text-anchor="middle">Even if master key is stolen in the FUTURE...</text>
+        <text x="180" y="58" fill="#34d399" font-size="10" text-anchor="middle">...all old locked packages from the PAST stay safe!</text>
+        <text x="180" y="72" fill="#5a6d80" font-size="8" text-anchor="middle">Each binding uses fresh key material — thrown away after use</text>
+      </g>
+      <!-- Lock after hours -->
+      <g transform="translate(20,120)">
+        <rect x="0" y="0" width="170" height="80" rx="8" fill="#1b3a5c" stroke="#85c1e9" stroke-width="1.5"/>
+        <text x="85" y="20" fill="#85c1e9" font-size="10" text-anchor="middle" font-weight="bold">🚪 FPA Services Lock</text>
+        <text x="85" y="36" fill="#c8d6e5" font-size="8" text-anchor="middle">Factory interface on chip</text>
+        <text x="85" y="50" fill="#c8d6e5" font-size="8" text-anchor="middle">deactivates permanently</text>
+        <text x="85" y="66" fill="#ac4142" font-size="8" text-anchor="middle">NO back door!</text>
+      </g>
+      <!-- No overlap -->
+      <g transform="translate(210,120)">
+        <rect x="0" y="0" width="170" height="80" rx="8" fill="#1b3a5c" stroke="#5dade2" stroke-width="1.5"/>
+        <text x="85" y="20" fill="#5dade2" font-size="10" text-anchor="middle" font-weight="bold">🛡️ No Overlap</text>
+        <text x="85" y="36" fill="#c8d6e5" font-size="8" text-anchor="middle">Factory mode and consumer</text>
+        <text x="85" y="50" fill="#c8d6e5" font-size="8" text-anchor="middle">mode can never run</text>
+        <text x="85" y="66" fill="#34d399" font-size="8" text-anchor="middle">at the same time!</text>
+      </g>
+    </svg>
+  </div>
+  <h3>⏪ Forward Secrecy &amp; Locking the Door</h3>
+  <p class="story-text"><strong>Perfect Forward Secrecy</strong> means even if someone steals the Key Maker's master key in the future, old packages from the past stay safe. Plus, the factory-only interfaces on the chip <em>lock forever</em> after production — no "factory back door" for attackers!</p>
+  <div class="page-num">📖 Page 6</div>
+</div>
+
+<!-- PAGE 7: DID YOU KNOW -->
+<div class="page page-cover">
+  <div class="illustration floating">
+    <svg viewBox="0 0 400 240" width="350">
+      <!-- Lock and key puzzle -->
+      <g transform="translate(200,80)">
+        <rect x="-40" y="-30" width="80" height="60" rx="8" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2"/>
+        <circle cx="0" cy="0" r="15" fill="none" stroke="#fbbf24" stroke-width="3"/>
+        <circle cx="0" cy="0" r="5" fill="#fbbf24"/>
+        <!-- Wrong key (red X) -->
+        <g transform="translate(-70,-20)">
+          <circle cx="0" cy="0" r="6" fill="#ac4142"/>
+          <rect x="-3" y="6" width="6" height="12" rx="1" fill="#ac4142"/>
+        </g>
+        <line x1="-55" y1="-10" x2="-35" y2="-5" stroke="#ac4142" stroke-width="2"/>
+        <line x1="-35" y1="-10" x2="-55" y2="-5" stroke="#ac4142" stroke-width="2"/>
+        <!-- Right key (green check) -->
+        <g transform="translate(70,-20)">
+          <circle cx="0" cy="0" r="6" fill="#34d399"/>
+          <rect x="-3" y="6" width="6" height="12" rx="1" fill="#34d399"/>
+        </g>
+        <line x1="55" y1="-10" x2="35" y2="-5" stroke="#34d399" stroke-width="2"/>
+        <line x1="35" y1="-10" x2="55" y2="-5" stroke="#34d399" stroke-width="2"/>
+        <text x="55" y="-25" fill="#34d399" font-size="8" text-anchor="middle">✅</text>
+        <text x="-55" y="-25" fill="#ac4142" font-size="8" text-anchor="middle">❌</text>
+      </g>
+      <text x="200" y="170" fill="#fbbf24" font-size="12" text-anchor="middle">One lock. One key. One chip.</text>
+      <text x="200" y="192" fill="#c8d6e5" font-size="10" text-anchor="middle">Try a different chip? It fails instantly!</text>
+    </svg>
+  </div>
+  <h3>🧠 Did You Know?</h3>
+  <p class="story-text">If someone on the assembly line copied a locked key package and tried to install it on a different chip, it would <strong>fail instantly</strong>. The one-time key binding means the package is cryptographically tied to one specific chip's private key. It's like a lock that only opens for one specific key <em>in the entire universe</em>!</p>
+  <h2 style="margin-top:2rem">📚 Keep Exploring!</h2>
+  <p style="text-align:center;margin-bottom:1rem">
+    <a href="storybook-51.html" style="display:inline-block;padding:.8rem 2rem;background:rgba(93,173,226,0.15);color:#5dade2;text-decoration:none;border-radius:8px;font-size:1.1rem">🚗 Next: Who Uses Factory Keys? →</a>
+  </p>
+  <p style="text-align:center">
+    <a href="index.html" style="color:#5a6d80;text-decoration:none;font-size:.9rem">📖 Back to All Stories</a>
+  </p>
+  <div class="page-num">📖 Page 7 — The End ✨</div>
+</div>
+
+</div>
+
+<div class="nav">
+  <a href="#" onclick="window.scrollBy({top:-window.innerHeight,behavior:'smooth'});return false">⬆</a>
+  <a href="#" onclick="window.scrollBy({top:window.innerHeight,behavior:'smooth'});return false">⬇</a>
+</div>
+
+</body>
+</html>

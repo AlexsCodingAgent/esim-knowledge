@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cracking the Secret Code — An eSIM Story</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Georgia',serif;background:#0a1628;color:#c8d6e5;overflow-x:hidden}
+  .book{max-width:800px;margin:0 auto;min-height:100vh}
+  .page{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;page-break-after:always;scroll-snap-align:start}
+  .page-cover{background:linear-gradient(135deg,#0d1b2a 0%,#0a1628 50%,#0d1b2a 100%)}
+  h1{font-size:2.8rem;color:#e8eef5;text-align:center;margin-bottom:.5rem}
+  h2{font-size:1.6rem;color:#85c1e9;text-align:center;font-weight:400;margin-bottom:1.5rem}
+  h3{font-size:1.3rem;color:#5dade2;text-align:center;margin-bottom:1rem}
+  .story-text{font-size:1.2rem;line-height:1.8;text-align:center;max-width:550px;margin:0 auto}
+  .story-text em{color:#85c1e9;font-style:italic}
+  .story-text strong{color:#e8eef5}
+  .illustration{margin:1.5rem 0}
+  .illustration svg{max-width:100%;height:auto}
+  .page-num{color:#5a6d80;font-size:.85rem;margin-top:2rem}
+  .nav{position:fixed;bottom:1rem;right:1rem;z-index:100}
+  .nav a{display:inline-block;padding:.5rem 1rem;background:rgba(93,173,226,.15);color:#5dade2;text-decoration:none;border-radius:6px;margin-left:.5rem;font-size:.9rem}
+  .nav a:hover{background:rgba(93,173,226,.3)}
+  .sparkle{animation:twinkle 2s infinite}
+  @keyframes twinkle{0%,100%{opacity:.3}50%{opacity:1}}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  .floating{animation:float 3s ease-in-out infinite}
+  @keyframes slideIn{from{transform:translateX(-20px);opacity:0}to{transform:translateX(0);opacity:1}}
+  .slide-in{animation:slideIn .8s ease-out}
+  @keyframes appear{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
+  .appear{animation:appear .6s ease-out}
+  @media(max-width:600px){h1{font-size:2rem}h2{font-size:1.2rem}.story-text{font-size:1.05rem}}
+  html{scroll-behavior:smooth;scroll-snap-type:y mandatory}
+</style>
+</head>
+<body>
+
+<div class="book">
+
+<!-- PAGE 1: COVER -->
+<div class="page page-cover">
+  <div class="illustration floating">
+    <svg viewBox="0 0 400 300" width="350">
+      <defs><radialGradient id="glow"><stop offset="0%" stop-color="#5dade2" stop-opacity="0.3"/><stop offset="100%" stop-color="#0a1628" stop-opacity="0"/></radialGradient></defs>
+      <circle cx="200" cy="140" r="130" fill="url(#glow)"/>
+      <!-- Chip at centre -->
+      <rect x="160" y="80" width="80" height="100" rx="8" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2.5"/>
+      <!-- 32 digits as tiny blocks -->
+      <g transform="translate(175,100)">
+        <rect x="0" y="0" width="5" height="5" rx="1" fill="#fbbf24" class="sparkle"/>
+        <rect x="7" y="0" width="5" height="5" rx="1" fill="#85c1e9" class="sparkle"/>
+        <rect x="14" y="0" width="5" height="5" rx="1" fill="#5dade2" class="sparkle"/>
+        <rect x="21" y="0" width="5" height="5" rx="1" fill="#fbbf24" class="sparkle"/>
+        <rect x="28" y="0" width="5" height="5" rx="1" fill="#85c1e9" class="sparkle"/>
+        <rect x="0" y="8" width="5" height="5" rx="1" fill="#5dade2" class="sparkle"/>
+        <rect x="7" y="8" width="5" height="5" rx="1" fill="#fbbf24" class="sparkle"/>
+        <rect x="14" y="8" width="5" height="5" rx="1" fill="#85c1e9" class="sparkle"/>
+        <rect x="21" y="8" width="5" height="5" rx="1" fill="#fbbf24" class="sparkle"/>
+        <rect x="28" y="8" width="5" height="5" rx="1" fill="#5dade2" class="sparkle"/>
+        <rect x="0" y="16" width="5" height="5" rx="1" fill="#5dade2" class="sparkle"/>
+        <rect x="7" y="16" width="5" height="5" rx="1" fill="#85c1e9" class="sparkle"/>
+        <rect x="14" y="16" width="5" height="5" rx="1" fill="#fbbf24" class="sparkle"/>
+        <rect x="21" y="16" width="5" height="5" rx="1" fill="#5dade2" class="sparkle"/>
+        <rect x="28" y="16" width="5" height="5" rx="1" fill="#85c1e9" class="sparkle"/>
+        <rect x="0" y="24" width="5" height="5" rx="1" fill="#fbbf24" class="sparkle"/>
+        <rect x="7" y="24" width="5" height="5" rx="1" fill="#fbbf24" class="sparkle"/>
+        <rect x="14" y="24" width="5" height="5" rx="1" fill="#85c1e9" class="sparkle"/>
+        <rect x="21" y="24" width="5" height="5" rx="1" fill="#fbbf24" class="sparkle"/>
+        <rect x="28" y="24" width="5" height="5" rx="1" fill="#5dade2" class="sparkle"/>
+        <rect x="0" y="32" width="5" height="5" rx="1" fill="#85c1e9" class="sparkle"/>
+        <rect x="7" y="32" width="5" height="5" rx="1" fill="#5dade2" class="sparkle"/>
+        <rect x="14" y="32" width="5" height="5" rx="1" fill="#fbbf24" class="sparkle"/>
+        <rect x="21" y="32" width="5" height="5" rx="1" fill="#5dade2" class="sparkle"/>
+        <rect x="28" y="32" width="5" height="5" rx="1" fill="#fbbf24" class="sparkle"/>
+        <rect x="0" y="40" width="5" height="5" rx="1" fill="#fbbf24" class="sparkle"/>
+        <rect x="7" y="40" width="5" height="5" rx="1" fill="#85c1e9" class="sparkle"/>
+        <rect x="14" y="40" width="5" height="5" rx="1" fill="#5dade2" class="sparkle"/>
+        <rect x="21" y="40" width="5" height="5" rx="1" fill="#85c1e9" class="sparkle"/>
+        <rect x="28" y="40" width="5" height="5" rx="1" fill="#fbbf24" class="sparkle"/>
+        <rect x="0" y="48" width="5" height="5" rx="1" fill="#5dade2" class="sparkle"/>
+        <rect x="7" y="48" width="5" height="5" rx="1" fill="#fbbf24" class="sparkle"/>
+      </g>
+      <!-- Magnifying glass -->
+      <g transform="translate(300,60)" class="sparkle">
+        <circle cx="0" cy="0" r="20" fill="none" stroke="#fbbf24" stroke-width="2.5"/>
+        <line x1="15" y1="15" x2="30" y2="30" stroke="#fbbf24" stroke-width="3" stroke-linecap="round"/>
+      </g>
+      <!-- Sparkles -->
+      <circle cx="80" cy="80" r="2" fill="#85c1e9" class="sparkle"/>
+      <circle cx="320" cy="180" r="2" fill="#fbbf24" class="sparkle"/>
+      <circle cx="90" cy="200" r="1.5" fill="#5dade2" class="sparkle"/>
+    </svg>
+  </div>
+  <h1>🔍 Cracking the Secret Code</h1>
+  <h2>What Those 32 Digits Really Mean</h2>
+  <p class="story-text" style="color:#5a6d80">A story of secret names, hidden clues, and the fingerprint that every chip carries</p>
+  <div class="page-num">📖 Page 1</div>
+</div>
+
+<!-- PAGE 2: 32 DIGITS IS A LOT -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 230" width="350">
+      <!-- Big "?" character -->
+      <text x="200" y="60" fill="#5a6d80" font-size="60" text-anchor="middle">🤔</text>
+      <text x="200" y="100" fill="#5a6d80" font-size="14" text-anchor="middle">Wait... 32 digits?!</text>
+      <!-- Chip with big number -->
+      <rect x="120" y="120" width="160" height="60" rx="8" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2"/>
+      <text x="200" y="145" fill="#fbbf24" font-size="12" text-anchor="middle" font-family="monospace">8901-2345-6789-0123-4567-</text>
+      <text x="200" y="163" fill="#fbbf24" font-size="12" text-anchor="middle" font-family="monospace">8901-2345-F</text>
+      <!-- Thinking bubble -->
+      <ellipse cx="350" cy="100" rx="40" ry="25" fill="#1b3a5c" stroke="#30363d" stroke-width="1"/>
+      <text x="350" y="105" fill="#c8d6e5" font-size="20" text-anchor="middle">EID?</text>
+      <!-- Little stick figure confused -->
+      <circle cx="55" cy="115" r="8" fill="none" stroke="#c8d6e5" stroke-width="1.5"/>
+      <line x1="55" y1="123" x2="55" y2="155" stroke="#c8d6e5" stroke-width="1.5"/>
+      <line x1="55" y1="140" x2="40" y2="155" stroke="#c8d6e5" stroke-width="1.5"/>
+      <line x1="55" y1="140" x2="70" y2="155" stroke="#c8d6e5" stroke-width="1.5"/>
+    </svg>
+  </div>
+  <h3>🤔 32 Digits Is a Lot!</h3>
+  <p class="story-text">Every eSIM chip has a secret name called an <strong>EID</strong> — short for <em>eUICC Identifier</em>. It's 32 digits long! That's like having a 32-letter name. Imagine introducing yourself: \"Hello, my name is 8901-2345-6789-0123-4567-8901-2345-F!\" That would be quite a mouthful, wouldn't it?</p>
+  <div class="page-num">📖 Page 2</div>
+</div>
+
+<!-- PAGE 3: IT'S A CODE -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 240" width="350">
+      <!-- Code being decoded -->
+      <g transform="translate(20,30)">
+        <text x="60" y="0" fill="#5a6d80" font-size="10" text-anchor="middle">But it's not random!</text>
+        <!-- 32 digit string at top -->
+        <rect x="0" y="10" width="120" height="100" rx="8" fill="#1b3a5c" stroke="#5dade2" stroke-width="1.5"/>
+        <text x="60" y="35" fill="#fbbf24" font-size="14" text-anchor="middle" font-family="monospace">8901...</text>
+        <text x="60" y="55" fill="#c8d6e5" font-size="11" text-anchor="middle">...2345...</text>
+        <text x="60" y="75" fill="#85c1e9" font-size="11" text-anchor="middle">...6789...</text>
+        <text x="60" y="95" fill="#c8d6e5" font-size="11" text-anchor="middle">...0123-F</text>
+      </g>
+      <!-- Arrow -->
+      <text x="160" y="80" fill="#fbbf24" font-size="24" text-anchor="middle">→</text>
+      <!-- Decoded parts -->
+      <g transform="translate(200,20)">
+        <rect x="0" y="0" width="180" height="90" rx="6" fill="#1b3a5c" stroke="#34d399" stroke-width="1.5"/>
+        <text x="90" y="18" fill="#34d399" font-size="9" text-anchor="middle">Decoded:</text>
+        <!-- Part 1 -->
+        <circle cx="12" cy="38" r="5" fill="#fbbf24"/>
+        <text x="24" y="42" fill="#c8d6e5" font-size="8">Who made the chip</text>
+        <!-- Part 2 -->
+        <circle cx="12" cy="55" r="5" fill="#85c1e9"/>
+        <text x="24" y="59" fill="#c8d6e5" font-size="8">What type of chip</text>
+        <!-- Part 3 -->
+        <circle cx="12" cy="72" r="5" fill="#5dade2"/>
+        <text x="24" y="76" fill="#c8d6e5" font-size="8">Unique serial number</text>
+      </g>
+      <!-- Magic wand -->
+      <g transform="translate(150,130)" class="sparkle">
+        <rect x="-2" y="0" width="4" height="30" rx="2" fill="#fbbf24"/>
+        <polygon points="0,-15 -8,-5 8,-5" fill="#fbbf24"/>
+      </g>
+      <text x="200" y="185" fill="#85c1e9" font-size="10" text-anchor="middle">✨ Like a secret decoder ring!</text>
+    </svg>
+  </div>
+  <h3>🔐 It's Not Random — It's a Code!</h3>
+  <p class="story-text">But those 32 digits aren't random at all! They're a clever <strong>code</strong> — like a secret message that tells you exactly which chip it is. Every section of digits means something specific. It's like a puzzle where each piece reveals a different clue about the chip's identity!</p>
+  <div class="page-num">📖 Page 3</div>
+</div>
+
+<!-- PAGE 4: THE FOUR PARTS -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 250" width="350">
+      <!-- Four colour-coded sections -->
+      <!-- Section 1: Manufacturer -->
+      <g transform="translate(20,20)">
+        <rect x="0" y="0" width="85" height="90" rx="6" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2"/>
+        <text x="42" y="22" fill="#fbbf24" font-size="10" text-anchor="middle" font-weight="bold">Part 1</text>
+        <text x="42" y="42" fill="#e8eef5" font-size="9" text-anchor="middle">Who Made It</text>
+        <text x="42" y="58" fill="#fbbf24" font-size="18" text-anchor="middle" font-family="monospace">89</text>
+        <text x="42" y="78" fill="#5a6d80" font-size="7" text-anchor="middle">Industry prefix</text>
+      </g>
+      <!-- Section 2: Country + Manufacturer -->
+      <g transform="translate(115,20)">
+        <rect x="0" y="0" width="85" height="90" rx="6" fill="#1b3a5c" stroke="#85c1e9" stroke-width="2"/>
+        <text x="42" y="22" fill="#85c1e9" font-size="10" text-anchor="middle" font-weight="bold">Part 2</text>
+        <text x="42" y="42" fill="#e8eef5" font-size="9" text-anchor="middle">Manufacturer ID</text>
+        <text x="42" y="58" fill="#85c1e9" font-size="18" text-anchor="middle" font-family="monospace">01</text>
+        <text x="42" y="78" fill="#5a6d80" font-size="7" text-anchor="middle">Country + company</text>
+      </g>
+      <!-- Section 3: Serial Number -->
+      <g transform="translate(210,20)">
+        <rect x="0" y="0" width="85" height="90" rx="6" fill="#1b3a5c" stroke="#5dade2" stroke-width="2"/>
+        <text x="42" y="22" fill="#5dade2" font-size="10" text-anchor="middle" font-weight="bold">Part 3</text>
+        <text x="42" y="42" fill="#e8eef5" font-size="9" text-anchor="middle">Serial Number</text>
+        <text x="42" y="58" fill="#5dade2" font-size="18" text-anchor="middle" font-family="monospace">2345...</text>
+        <text x="42" y="78" fill="#5a6d80" font-size="7" text-anchor="middle">Unique per chip</text>
+      </g>
+      <!-- Section 4: Check digit -->
+      <g transform="translate(305,20)">
+        <rect x="0" y="0" width="75" height="90" rx="6" fill="#1b3a5c" stroke="#34d399" stroke-width="2"/>
+        <text x="37" y="22" fill="#34d399" font-size="10" text-anchor="middle" font-weight="bold">Part 4</text>
+        <text x="37" y="42" fill="#e8eef5" font-size="9" text-anchor="middle">Check Digit</text>
+        <text x="37" y="58" fill="#34d399" font-size="18" text-anchor="middle" font-family="monospace">F</text>
+        <text x="37" y="78" fill="#5a6d80" font-size="7" text-anchor="middle">Verification</text>
+      </g>
+      <!-- Connecting line at bottom -->
+      <rect x="20" y="130" width="360" height="4" rx="2" fill="#30363d"/>
+      <text x="200" y="160" fill="#5a6d80" font-size="11" text-anchor="middle">All together: the EID fingerprint!</text>
+      <!-- Chip illustration below -->
+      <rect x="155" y="175" width="90" height="55" rx="8" fill="#1b3a5c" stroke="#fbbf24" stroke-width="1.5"/>
+      <text x="200" y="205" fill="#fbbf24" font-size="20" text-anchor="middle" font-family="monospace">EID</text>
+      <text x="200" y="222" fill="#5a6d80" font-size="8" text-anchor="middle">32 digits of identity</text>
+    </svg>
+  </div>
+  <h3>🧩 The Four Parts of the Secret Code</h3>
+  <p class="story-text">The EID has <strong>four parts</strong>: an industry prefix (identifies it as telecom), a <em>manufacturer ID</em> (who built the chip), a <strong>serial number</strong> (unique to this exact chip), and a <em>check digit</em> (proves the code wasn't mistyped). Each part tells a piece of the story!</p>
+  <div class="page-num">📖 Page 4</div>
+</div>
+
+<!-- PAGE 5: CHECK DIGIT MAGIC -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 230" width="350">
+      <!-- Calculator with check digit -->
+      <rect x="120" y="30" width="160" height="80" rx="8" fill="#1b3a5c" stroke="#5dade2" stroke-width="2"/>
+      <text x="200" y="55" fill="#c8d6e5" font-size="10" text-anchor="middle">Math formula:</text>
+      <text x="200" y="78" fill="#fbbf24" font-size="12" text-anchor="middle">(digits × weights) mod 16</text>
+      <text x="200" y="100" fill="#34d399" font-size="11" text-anchor="middle">= Check Digit "F"</text>
+      <!-- Luhn-like equation -->
+      <g transform="translate(80,130)">
+        <text x="0" y="0" fill="#5a6d80" font-size="9">Each digit gets multiplied by a weight</text>
+        <!-- Digit pairs -->
+        <rect x="0" y="10" width="20" height="20" rx="4" fill="#1b3a5c" stroke="#fbbf24" stroke-width="1"/>
+        <text x="10" y="24" fill="#fbbf24" font-size="10" text-anchor="middle">8</text>
+        <text x="28" y="24" fill="#c8d6e5" font-size="14">×</text>
+        <text x="40" y="24" fill="#85c1e9" font-size="10">1</text>
+        <text x="52" y="24" fill="#c8d6e5" font-size="14">+</text>
+        <rect x="60" y="10" width="20" height="20" rx="4" fill="#1b3a5c" stroke="#85c1e9" stroke-width="1"/>
+        <text x="70" y="24" fill="#85c1e9" font-size="10" text-anchor="middle">9</text>
+        <text x="88" y="24" fill="#c8d6e5" font-size="14">×</text>
+        <text x="100" y="24" fill="#5dade2" font-size="10">2</text>
+        <text x="112" y="24" fill="#c8d6e5" font-size="14">+ ...</text>
+      </g>
+      <!-- Result -->
+      <text x="200" y="185" fill="#34d399" font-size="11" text-anchor="middle">✨ If someone mistypes one digit, the check fails!</text>
+      <!-- Shield -->
+      <g transform="translate(340,160)" class="sparkle">
+        <path d="M-15,-10 L0,-20 L15,-10 L15,5 Q0,15 -15,5 Z" fill="none" stroke="#34d399" stroke-width="2"/>
+        <text x="0" y="2" fill="#34d399" font-size="8" text-anchor="middle">✓</text>
+      </g>
+    </svg>
+  </div>
+  <h3>🧮 The Magic Check Digit</h3>
+  <p class="story-text">The last digit is the <strong>check digit</strong> — a guard against typos! It's calculated with a special math formula using all the other digits. If anyone types the EID wrong (even by one digit!), the check digit won't match. This is how computers instantly spot mistakes!</p>
+  <div class="page-num">📖 Page 5</div>
+</div>
+
+<!-- PAGE 6: READING THE CODE -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 240" width="350">
+      <!-- Magnified EID -->
+      <g transform="translate(50,30)">
+        <!-- QR code with EID inside -->
+        <rect x="0" y="0" width="100" height="100" rx="6" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2"/>
+        <rect x="10" y="10" width="15" height="15" fill="#fbbf24"/>
+        <rect x="35" y="10" width="15" height="15" fill="#fbbf24"/>
+        <rect x="60" y="10" width="15" height="15" fill="#fbbf24"/>
+        <rect x="10" y="35" width="15" height="15" fill="#fbbf24"/>
+        <rect x="60" y="35" width="15" height="15" fill="#fbbf24"/>
+        <rect x="10" y="60" width="15" height="15" fill="#fbbf24"/>
+        <rect x="35" y="60" width="15" height="15" fill="#fbbf24"/>
+        <rect x="60" y="60" width="15" height="15" fill="#fbbf24"/>
+        <rect x="35" y="35" width="15" height="15" fill="#5dade2"/>
+        <text x="50" y="45" fill="#e8eef5" font-size="8" text-anchor="middle">EID</text>
+        <text x="50" y="85" fill="#5a6d80" font-size="7" text-anchor="middle">QR encoded</text>
+      </g>
+      <!-- Arrow -->
+      <text x="170" y="80" fill="#5dade2" font-size="20" text-anchor="middle">→</text>
+      <!-- Chip with label -->
+      <g transform="translate(200,40)">
+        <rect x="0" y="0" width="160" height="90" rx="8" fill="#1b3a5c" stroke="#34d399" stroke-width="2"/>
+        <text x="80" y="20" fill="#34d399" font-size="10" text-anchor="middle">Printed on chip:</text>
+        <text x="80" y="45" fill="#fbbf24" font-size="14" text-anchor="middle" font-family="monospace">8901-2345-6789</text>
+        <text x="80" y="63" fill="#fbbf24" font-size="14" text-anchor="middle" font-family="monospace">0123-4567-8901</text>
+        <text x="80" y="83" fill="#fbbf24" font-size="14" text-anchor="middle" font-family="monospace">2345-F</text>
+      </g>
+      <!-- Ways to find EID -->
+      <g transform="translate(40,160)">
+        <circle cx="0" cy="0" r="8" fill="#fbbf24"/>
+        <text x="0" y="4" fill="#0a1628" font-size="9" text-anchor="middle">1</text>
+        <text x="15" y="4" fill="#c8d6e5" font-size="10">QR code on box</text>
+      </g>
+      <g transform="translate(40,185)">
+        <circle cx="0" cy="0" r="8" fill="#85c1e9"/>
+        <text x="0" y="4" fill="#0a1628" font-size="9" text-anchor="middle">2</text>
+        <text x="15" y="4" fill="#c8d6e5" font-size="10">Phone settings menu</text>
+      </g>
+      <g transform="translate(40,210)">
+        <circle cx="0" cy="0" r="8" fill="#5dade2"/>
+        <text x="0" y="4" fill="#0a1628" font-size="9" text-anchor="middle">3</text>
+        <text x="15" y="4" fill="#c8d6e5" font-size="10">Printed on the chip itself</text>
+      </g>
+    </svg>
+  </div>
+  <h3>📖 Reading the Secret Code</h3>
+  <p class="story-text">You can find your chip's EID in three places: the <strong>QR code</strong> on the box, in your phone's <em>settings menu</em>, or printed right on the chip! When you scan an eSIM QR code, you're really reading this 32-digit fingerprint — telling the network exactly who you are!</p>
+  <div class="page-num">📖 Page 6</div>
+</div>
+
+<!-- PAGE 7: DID YOU KNOW + NAV -->
+<div class="page page-cover">
+  <div class="illustration floating">
+    <svg viewBox="0 0 400 240" width="350">
+      <!-- World of EIDs -->
+      <circle cx="200" cy="100" r="70" fill="none" stroke="#5a6d80" stroke-width="1"/>
+      <!-- Chips orbiting -->
+      <g transform="translate(200,30)">
+        <rect x="-15" y="-12" width="30" height="24" rx="4" fill="#1b3a5c" stroke="#fbbf24" stroke-width="1.5"/>
+        <text x="0" y="3" fill="#fbbf24" font-size="8" text-anchor="middle">8901...</text>
+      </g>
+      <g transform="translate(280,70)">
+        <rect x="-15" y="-12" width="30" height="24" rx="4" fill="#1b3a5c" stroke="#85c1e9" stroke-width="1.5"/>
+        <text x="0" y="3" fill="#85c1e9" font-size="8" text-anchor="middle">8902...</text>
+      </g>
+      <g transform="translate(120,70)">
+        <rect x="-15" y="-12" width="30" height="24" rx="4" fill="#1b3a5c" stroke="#5dade2" stroke-width="1.5"/>
+        <text x="0" y="3" fill="#5dade2" font-size="8" text-anchor="middle">8903...</text>
+      </g>
+      <g transform="translate(200,170)">
+        <rect x="-15" y="-12" width="30" height="24" rx="4" fill="#1b3a5c" stroke="#34d399" stroke-width="1.5"/>
+        <text x="0" y="3" fill="#34d399" font-size="8" text-anchor="middle">8904...</text>
+      </g>
+      <!-- Centre glow -->
+      <circle cx="200" cy="100" r="12" fill="#fbbf24" class="sparkle"/>
+      <text x="200" y="105" fill="#0a1628" font-size="8" text-anchor="middle">EID</text>
+      <!-- Fact text -->
+      <text x="200" y="210" fill="#fbbf24" font-size="10" text-anchor="middle">🌍 Billions of chips, every one with a unique EID!</text>
+    </svg>
+  </div>
+  <h3>🧠 Did You Know?</h3>
+  <p class="story-text">There are enough possible EID combinations for <strong>billions and billions</strong> of chips — every eSIM chip ever made has a completely unique 32-digit name. No two chips on the entire planet share the same EID. It's the ultimate digital fingerprint!</p>
+  <h2 style="margin-top:2rem">📚 Read the Next Story!</h2>
+  <p style="text-align:center;margin-bottom:1rem">
+    <a href="storybook-29.html" style="display:inline-block;padding:.8rem 2rem;background:rgba(93,173,226,0.15);color:#5dade2;text-decoration:none;border-radius:8px;font-size:1.1rem">📚 Next: The Name Librarian →</a>
+  </p>
+  <p style="text-align:center">
+    <a href="index.html" style="color:#5a6d80;text-decoration:none;font-size:.9rem">📖 Back to All Stories</a>
+  </p>
+  <div class="page-num">📖 Page 7 — The End ✨</div>
+</div>
+
+</div>
+
+<div class="nav">
+  <a href="#" onclick="window.scrollBy({top:-window.innerHeight,behavior:'smooth'});return false">⬆</a>
+  <a href="#" onclick="window.scrollBy({top:window.innerHeight,behavior:'smooth'});return false">⬇</a>
+</div>
+
+</body>
+</html>

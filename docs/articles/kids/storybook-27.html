@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Every Chip's Secret Name — An SGP.29 EID Story</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Georgia',serif;background:#0a1628;color:#c8d6e5;overflow-x:hidden}
+  .book{max-width:800px;margin:0 auto;min-height:100vh}
+  .page{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;page-break-after:always;scroll-snap-align:start}
+  .page-cover{background:linear-gradient(135deg,#0d1b2a 0%,#0a1628 50%,#0d1b2a 100%)}
+  h1{font-size:2.8rem;color:#e8eef5;text-align:center;margin-bottom:.5rem}
+  h2{font-size:1.6rem;color:#85c1e9;text-align:center;font-weight:400;margin-bottom:1.5rem}
+  h3{font-size:1.3rem;color:#5dade2;text-align:center;margin-bottom:1rem}
+  .story-text{font-size:1.2rem;line-height:1.8;text-align:center;max-width:550px;margin:0 auto}
+  .story-text em{color:#85c1e9;font-style:italic}
+  .story-text strong{color:#e8eef5}
+  .illustration{margin:1.5rem 0}
+  .illustration svg{max-width:100%;height:auto}
+  .page-num{color:#5a6d80;font-size:.85rem;margin-top:2rem}
+  .nav{position:fixed;bottom:1rem;right:1rem;z-index:100}
+  .nav a{display:inline-block;padding:.5rem 1rem;background:rgba(93,173,226,.15);color:#5dade2;text-decoration:none;border-radius:6px;margin-left:.5rem;font-size:.9rem}
+  .nav a:hover{background:rgba(93,173,226,.3)}
+  .sparkle{animation:twinkle 2s infinite}
+  @keyframes twinkle{0%,100%{opacity:.3}50%{opacity:1}}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  .floating{animation:float 3s ease-in-out infinite}
+  @keyframes slideIn{from{transform:translateX(-20px);opacity:0}to{transform:translateX(0);opacity:1}}
+  .slide-in{animation:slideIn .8s ease-out}
+  @media(max-width:600px){h1{font-size:2rem}h2{font-size:1.2rem}.story-text{font-size:1.05rem}}
+  html{scroll-behavior:smooth;scroll-snap-type:y mandatory}
+</style>
+</head>
+<body>
+
+<div class="book">
+
+<!-- PAGE 1: COVER -->
+<div class="page page-cover">
+  <div class="illustration floating">
+    <svg viewBox="0 0 400 300" width="350">
+      <defs><radialGradient id="g1"><stop offset="0%" stop-color="#5dade2" stop-opacity="0.3"/><stop offset="100%" stop-color="#0a1628" stop-opacity="0"/></radialGradient></defs>
+      <circle cx="200" cy="140" r="130" fill="url(#g1)"/>
+      <!-- Chip -->
+      <rect x="145" y="80" width="110" height="80" rx="10" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2.5"/>
+      <rect x="160" y="95" width="80" height="50" rx="5" fill="#0d1b2a"/>
+      <!-- 32-digit number -->
+      <text x="200" y="115" fill="#fbbf24" font-size="9" text-anchor="middle" font-family="monospace">8901 2345 6789 0123</text>
+      <text x="200" y="128" fill="#fbbf24" font-size="9" text-anchor="middle" font-family="monospace">4567 8901 2345 6789</text>
+      <text x="200" y="141" fill="#fbbf24" font-size="9" text-anchor="middle" font-family="monospace">0123 4567 8901 2333</text>
+      <!-- Glow around numbers -->
+      <g class="sparkle">
+        <rect x="155" y="90" width="90" height="60" rx="5" fill="none" stroke="#fbbf24" stroke-width="0.5" opacity="0.5"/>
+      </g>
+      <!-- Sparkles -->
+      <circle cx="120" cy="130" r="2" fill="#85c1e9" class="sparkle"/>
+      <circle cx="280" cy="100" r="2" fill="#5dade2" class="sparkle"/>
+      <circle cx="130" cy="170" r="2" fill="#fbbf24" class="sparkle"/>
+      <circle cx="270" cy="160" r="2" fill="#85c1e9" class="sparkle"/>
+    </svg>
+  </div>
+  <h1>🔢 Every Chip's Secret Name</h1>
+  <h2>The 32-Digit Fingerprint of Every eSIM</h2>
+  <p class="story-text" style="color:#5a6d80">Every eSIM chip on Earth has a unique, 32-digit name — and SGP.29 is the rulebook that keeps them straight</p>
+  <div class="page-num">📖 Page 1</div>
+</div>
+
+<!-- PAGE 2: EVERYTHING NEEDS A NAME -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 240" width="350">
+      <!-- Dollar bill -->
+      <g transform="translate(40,40)">
+        <rect x="0" y="0" width="120" height="55" rx="4" fill="#34d399" opacity="0.15" stroke="#34d399" stroke-width="1.5"/>
+        <text x="60" y="25" fill="#34d399" font-size="10" text-anchor="middle" font-weight="bold">💵 Dollar Bill</text>
+        <text x="60" y="42" fill="#c8d6e5" font-size="8" text-anchor="middle">Serial: AB12345678C</text>
+      </g>
+      <!-- Book ISBN -->
+      <g transform="translate(240,40)">
+        <rect x="0" y="0" width="120" height="55" rx="4" fill="#85c1e9" opacity="0.15" stroke="#85c1e9" stroke-width="1.5"/>
+        <text x="60" y="25" fill="#85c1e9" font-size="10" text-anchor="middle" font-weight="bold">📚 Book</text>
+        <text x="60" y="42" fill="#c8d6e5" font-size="8" text-anchor="middle">ISBN: 978-0-12345</text>
+      </g>
+      <!-- eSIM chip -->
+      <g transform="translate(120,130)">
+        <rect x="0" y="0" width="160" height="80" rx="10" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2.5"/>
+        <text x="80" y="25" fill="#fbbf24" font-size="11" text-anchor="middle" font-weight="bold">💎 eSIM Chip</text>
+        <text x="80" y="48" fill="#fbbf24" font-size="9" text-anchor="middle" font-family="monospace">EID: 8901...2333</text>
+        <text x="80" y="66" fill="#c8d6e5" font-size="8" text-anchor="middle">32-digit fingerprint</text>
+      </g>
+      <!-- Connecting arrows -->
+      <text x="180" y="110" fill="#5dade2" font-size="10" text-anchor="middle">Just like serial numbers...</text>
+    </svg>
+  </div>
+  <h3>💰 Everything Needs a Unique Name</h3>
+  <p class="story-text">Every dollar bill has a unique serial number. Every book has a unique ISBN. And every eSIM chip has a unique <strong>EID</strong> — a 32-digit fingerprint. No two chips on the entire planet share the same EID. It's how the eSIM world knows <em>exactly</em> which chip it's talking to!</p>
+  <div class="page-num">📖 Page 2</div>
+</div>
+
+<!-- PAGE 3: WHY EIDS NEEDED A RULEBOOK -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 240" width="350">
+      <!-- Before -->
+      <g transform="translate(20,30)">
+        <rect x="0" y="0" width="170" height="180" rx="10" fill="#1b3a5c" stroke="#ac4142" stroke-width="2"/>
+        <text x="85" y="24" fill="#ac4142" font-size="11" text-anchor="middle" font-weight="bold">😰 Before SGP.29</text>
+        <line x1="15" y1="32" x2="155" y2="32" stroke="#5a6d80" stroke-width="0.5"/>
+        <text x="85" y="56" fill="#c8d6e5" font-size="9" text-anchor="middle">Wrong tool for chips</text>
+        <text x="85" y="72" fill="#5a6d80" font-size="7" text-anchor="middle">Used credit-card-style</text>
+        <text x="85" y="84" fill="#5a6d80" font-size="7" text-anchor="middle">ICCID numbering</text>
+        <text x="85" y="106" fill="#c8d6e5" font-size="9" text-anchor="middle">Too many bosses</text>
+        <text x="85" y="122" fill="#5a6d80" font-size="7" text-anchor="middle">Different rules per country</text>
+        <text x="85" y="140" fill="#c8d6e5" font-size="9" text-anchor="middle">No central referee</text>
+        <text x="85" y="156" fill="#5a6d80" font-size="7" text-anchor="middle">No guarantee of</text>
+        <text x="85" y="168" fill="#5a6d80" font-size="7" text-anchor="middle">worldwide uniqueness</text>
+      </g>
+      <!-- Arrow -->
+      <g transform="translate(210,100)">
+        <text x="0" y="0" font-size="28" fill="#5dade2" text-anchor="middle">→</text>
+      </g>
+      <!-- After -->
+      <g transform="translate(230,30)">
+        <rect x="0" y="0" width="150" height="180" rx="10" fill="#1b3a5c" stroke="#34d399" stroke-width="2"/>
+        <text x="75" y="24" fill="#34d399" font-size="11" text-anchor="middle" font-weight="bold">✅ After SGP.29</text>
+        <line x1="15" y1="32" x2="135" y2="32" stroke="#5a6d80" stroke-width="0.5"/>
+        <text x="75" y="56" fill="#34d399" font-size="9" text-anchor="middle">Built for chips</text>
+        <text x="75" y="78" fill="#34d399" font-size="9" text-anchor="middle">One authority: GSMA</text>
+        <text x="75" y="100" fill="#34d399" font-size="9" text-anchor="middle">Global uniqueness</text>
+        <text x="75" y="128" fill="#fbbf24" font-size="9" text-anchor="middle">Published</text>
+        <text x="75" y="146" fill="#fbbf24" font-size="10" text-anchor="middle">31 July 2020</text>
+        <text x="75" y="164" fill="#5a6d80" font-size="7" text-anchor="middle">SGP.29 v1.0</text>
+      </g>
+    </svg>
+  </div>
+  <h3>📖 Why Did EIDs Need Their Own Rulebook?</h3>
+  <p class="story-text">Before SGP.29, EIDs were a <strong>mess</strong>. They used a credit-card numbering system, different countries had different rules, and nobody could guarantee names were truly unique worldwide. In 2019, they said "Enough!" and made the GSMA the <em>central librarian</em> for all EIDs.</p>
+  <div class="page-num">📖 Page 3</div>
+</div>
+
+<!-- PAGE 4: THE SIX GOLDEN RULES -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 260" width="350">
+      <text x="200" y="22" fill="#fbbf24" font-size="12" text-anchor="middle" font-weight="bold">The Six Golden Rules of EIDs</text>
+      <!-- Rule 1 -->
+      <g transform="translate(30,40)">
+        <rect x="0" y="0" width="165" height="45" rx="6" fill="#0d1b2a" stroke="#fbbf24" stroke-width="1"/>
+        <text x="15" y="16" fill="#fbbf24" font-size="8" font-weight="bold">EID.P02:</text>
+        <text x="82" y="16" fill="#c8d6e5" font-size="8">One job: identify one chip</text>
+        <text x="82" y="32" fill="#5a6d80" font-size="7">— period.</text>
+      </g>
+      <!-- Rule 2 -->
+      <g transform="translate(205,40)">
+        <rect x="0" y="0" width="165" height="45" rx="6" fill="#0d1b2a" stroke="#85c1e9" stroke-width="1"/>
+        <text x="15" y="16" fill="#85c1e9" font-size="8" font-weight="bold">EID.P03:</text>
+        <text x="82" y="16" fill="#c8d6e5" font-size="8">NOT a payment number!</text>
+        <text x="82" y="32" fill="#5a6d80" font-size="7">Can't charge money to it</text>
+      </g>
+      <!-- Rule 3 -->
+      <g transform="translate(30,95)">
+        <rect x="0" y="0" width="165" height="45" rx="6" fill="#0d1b2a" stroke="#5dade2" stroke-width="1"/>
+        <text x="15" y="16" fill="#5dade2" font-size="8" font-weight="bold">EID.P04:</text>
+        <text x="82" y="16" fill="#c8d6e5" font-size="8">NOT for billing!</text>
+        <text x="82" y="32" fill="#5a6d80" font-size="7">Phone bill ≠ EID</text>
+      </g>
+      <!-- Rule 4 -->
+      <g transform="translate(205,95)">
+        <rect x="0" y="0" width="165" height="45" rx="6" fill="#0d1b2a" stroke="#34d399" stroke-width="1"/>
+        <text x="15" y="16" fill="#34d399" font-size="8" font-weight="bold">EID.P05:</text>
+        <text x="82" y="16" fill="#c8d6e5" font-size="8">Separate from old SIMs</text>
+        <text x="82" y="32" fill="#5a6d80" font-size="7">No ICCID confusion</text>
+      </g>
+      <!-- Rule 5 + 6 -->
+      <g transform="translate(120,155)">
+        <rect x="0" y="0" width="160" height="45" rx="6" fill="#0d1b2a" stroke="#fbbf24" stroke-width="1.5"/>
+        <text x="12" y="16" fill="#fbbf24" font-size="8" font-weight="bold">EID.P06:</text>
+        <text x="78" y="16" fill="#c8d6e5" font-size="8">Never starts with "89"</text>
+        <text x="78" y="32" fill="#5a6d80" font-size="7">(reserved for old SIM cards)</text>
+      </g>
+      <!-- Bottom message -->
+      <text x="200" y="228" fill="#85c1e9" font-size="10" text-anchor="middle">EID identifies hardware, not people!</text>
+    </svg>
+  </div>
+  <h3>📋 The Six Golden Rules</h3>
+  <p class="story-text">SGP.29 sets six golden rules for EIDs. The most important: an EID's one job is to <strong>uniquely identify one chip</strong> — period. It's NOT a payment account, NOT for billing, and definitely NOT linked to old SIM cards. The EID says "I am Chip #12345..." — it does NOT say who owns it.</p>
+  <div class="page-num">📖 Page 4</div>
+</div>
+
+<!-- PAGE 5: YOUR CHIP'S NAME IS FOREVER -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 240" width="350">
+      <!-- Lifecycle -->
+      <!-- Factory -->
+      <g transform="translate(30,50)">
+        <circle cx="35" cy="0" r="20" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2"/>
+        <text x="35" y="5" fill="#fbbf24" font-size="12" text-anchor="middle">🏭</text>
+        <text x="35" y="30" fill="#c8d6e5" font-size="8" text-anchor="middle">Factory</text>
+        <text x="35" y="42" fill="#5a6d80" font-size="7" text-anchor="middle">EID stamped</text>
+      </g>
+      <text x="100" y="55" font-size="18" fill="#5dade2" text-anchor="middle">→</text>
+      <!-- In use -->
+      <g transform="translate(130,50)">
+        <circle cx="35" cy="0" r="20" fill="#1b3a5c" stroke="#85c1e9" stroke-width="2"/>
+        <text x="35" y="5" fill="#85c1e9" font-size="12" text-anchor="middle">📱</text>
+        <text x="35" y="30" fill="#c8d6e5" font-size="8" text-anchor="middle">In Use</text>
+        <text x="35" y="42" fill="#5a6d80" font-size="7" text-anchor="middle">Years</text>
+      </g>
+      <text x="200" y="55" font-size="18" fill="#5dade2" text-anchor="middle">→</text>
+      <!-- Recycled -->
+      <g transform="translate(230,50)">
+        <circle cx="35" cy="0" r="20" fill="#1b3a5c" stroke="#ac4142" stroke-width="2"/>
+        <text x="35" y="5" fill="#ac4142" font-size="12" text-anchor="middle">♻️</text>
+        <text x="35" y="30" fill="#c8d6e5" font-size="8" text-anchor="middle">Recycled</text>
+        <text x="35" y="42" fill="#5a6d80" font-size="7" text-anchor="middle">EID retired</text>
+      </g>
+      <text x="300" y="55" font-size="18" fill="#5dade2" text-anchor="middle">→</text>
+      <!-- Forever -->
+      <g transform="translate(330,50)">
+        <circle cx="35" cy="0" r="20" fill="#1b3a5c" stroke="#34d399" stroke-width="2"/>
+        <text x="35" y="5" fill="#34d399" font-size="12" text-anchor="middle">📜</text>
+        <text x="35" y="30" fill="#c8d6e5" font-size="8" text-anchor="middle">Archived</text>
+        <text x="35" y="42" fill="#5a6d80" font-size="7" text-anchor="middle">Forever</text>
+      </g>
+      <!-- Key message -->
+      <g transform="translate(40,140)">
+        <rect x="0" y="0" width="320" height="60" rx="10" fill="#0d1b2a" stroke="#fbbf24" stroke-width="2"/>
+        <text x="160" y="22" fill="#fbbf24" font-size="12" text-anchor="middle">🔒 Your Chip's Name is FOREVER</text>
+        <text x="160" y="40" fill="#c8d6e5" font-size="9" text-anchor="middle">EID survives resets, profile changes, and factory wipes</text>
+        <text x="160" y="54" fill="#5a6d80" font-size="8" text-anchor="middle">One of the few truly permanent digital identities</text>
+      </g>
+    </svg>
+  </div>
+  <h3>🏷️ Your Chip's Name Is Forever</h3>
+  <p class="story-text">Your phone number changes when you switch carriers. Your IMEI changes when you get a new phone. But the EID? It stays the <strong>same forever</strong> — from the factory floor to the recycling center. It survives resets, profile changes, even factory wipes. That's why SGP.29 takes it so seriously!</p>
+  <div class="page-num">📖 Page 5</div>
+</div>
+
+<!-- PAGE 6: DID YOU KNOW -->
+<div class="page page-cover">
+  <div class="illustration floating">
+    <svg viewBox="0 0 400 240" width="350">
+      <!-- Earth with grains -->
+      <g transform="translate(200,80)">
+        <circle cx="0" cy="0" r="50" fill="none" stroke="#85c1e9" stroke-width="2"/>
+        <!-- Continents -->
+        <ellipse cx="-15" cy="-10" rx="12" ry="15" fill="#34d399" opacity="0.5"/>
+        <ellipse cx="12" cy="8" rx="10" ry="12" fill="#34d399" opacity="0.5"/>
+        <ellipse cx="-8" cy="12" rx="8" ry="10" fill="#34d399" opacity="0.5"/>
+        <text x="0" y="5" fill="#e8eef5" font-size="14" text-anchor="middle">🌍</text>
+      </g>
+      <!-- Multiplication -->
+      <g transform="translate(180,160)">
+        <text x="0" y="0" fill="#fbbf24" font-size="20" text-anchor="middle">× billions!</text>
+      </g>
+      <!-- Number space -->
+      <text x="200" y="190" fill="#fbbf24" font-size="11" text-anchor="middle">Enough 32-digit EIDs for every grain of sand on Earth!</text>
+      <text x="200" y="210" fill="#5a6d80" font-size="9" text-anchor="middle">We'll never, ever run out.</text>
+    </svg>
+  </div>
+  <h3>🧠 Did You Know?</h3>
+  <p class="story-text">There are enough possible 32-digit EIDs to give a unique name to <strong>every grain of sand on Earth</strong> — billions of times over! The numbering space is deliberately enormous so we'll never, ever run out. SGP.29 thinks ahead!</p>
+  <h2 style="margin-top:2rem">📚 Read the Next Story!</h2>
+  <p style="text-align:center;margin-bottom:1rem">
+    <a href="storybook-28.html" style="display:inline-block;padding:.8rem 2rem;background:rgba(93,173,226,0.15);color:#5dade2;text-decoration:none;border-radius:8px;font-size:1.1rem">🔍 Next: Cracking the Secret Code →</a>
+  </p>
+  <p style="text-align:center">
+    <a href="index.html" style="color:#5a6d80;text-decoration:none;font-size:.9rem">📖 Back to All Stories</a>
+  </p>
+  <div class="page-num">📖 Page 6 — The End ✨</div>
+</div>
+
+</div>
+
+<div class="nav">
+  <a href="#" onclick="window.scrollBy({top:-window.innerHeight,behavior:'smooth'});return false">⬆</a>
+  <a href="#" onclick="window.scrollBy({top:window.innerHeight,behavior:'smooth'});return false">⬇</a>
+</div>
+
+</body>
+</html>

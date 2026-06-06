@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Unbreakable Envelope — An eSIM Story</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Georgia',serif;background:#0a1628;color:#c8d6e5;overflow-x:hidden}
+  .book{max-width:800px;margin:0 auto;min-height:100vh}
+  .page{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;page-break-after:always;scroll-snap-align:start}
+  .page-cover{background:linear-gradient(135deg,#0d1b2a 0%,#0a1628 50%,#0d1b2a 100%)}
+  h1{font-size:2.8rem;color:#e8eef5;text-align:center;margin-bottom:.5rem}
+  h2{font-size:1.6rem;color:#85c1e9;text-align:center;font-weight:400;margin-bottom:1.5rem}
+  h3{font-size:1.3rem;color:#5dade2;text-align:center;margin-bottom:1rem}
+  .story-text{font-size:1.2rem;line-height:1.8;text-align:center;max-width:550px;margin:0 auto}
+  .story-text em{color:#85c1e9;font-style:italic}
+  .story-text strong{color:#e8eef5}
+  .illustration{margin:1.5rem 0}
+  .illustration svg{max-width:100%;height:auto}
+  .page-num{color:#5a6d80;font-size:.85rem;margin-top:2rem}
+  .nav{position:fixed;bottom:1rem;right:1rem;z-index:100}
+  .nav a{display:inline-block;padding:.5rem 1rem;background:rgba(93,173,226,.15);color:#5dade2;text-decoration:none;border-radius:6px;margin-left:.5rem;font-size:.9rem}
+  .nav a:hover{background:rgba(93,173,226,.3)}
+  .sparkle{animation:twinkle 2s infinite}
+  @keyframes twinkle{0%,100%{opacity:.3}50%{opacity:1}}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  .floating{animation:float 3s ease-in-out infinite}
+  @keyframes slideIn{from{transform:translateX(-20px);opacity:0}to{transform:translateX(0);opacity:1}}
+  .slide-in{animation:slideIn .8s ease-out}
+  @media(max-width:600px){h1{font-size:2rem}h2{font-size:1.2rem}.story-text{font-size:1.05rem}}
+  html{scroll-behavior:smooth;scroll-snap-type:y mandatory}
+</style>
+</head>
+<body>
+
+<div class="book">
+
+<!-- PAGE 1: COVER -->
+<div class="page page-cover">
+  <div class="illustration floating">
+    <svg viewBox="0 0 400 300" width="350">
+      <defs><radialGradient id="glow"><stop offset="0%" stop-color="#5dade2" stop-opacity="0.3"/><stop offset="100%" stop-color="#0a1628" stop-opacity="0"/></radialGradient></defs>
+      <circle cx="200" cy="140" r="130" fill="url(#glow)"/>
+      <!-- Envelope in center -->
+      <g transform="translate(200,140)">
+        <!-- Outer envelope -->
+        <rect x="-50" y="-35" width="100" height="70" rx="6" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2.5"/>
+        <path d="M-50 -35 L0 5 L50 -35" fill="#0d1b2a" stroke="#fbbf24" stroke-width="2"/>
+        <!-- Inner layers visible -->
+        <rect x="-38" y="-22" width="76" height="44" rx="4" fill="none" stroke="#85c1e9" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <rect x="-28" y="-12" width="56" height="24" rx="3" fill="none" stroke="#5dade2" stroke-width="1.5" stroke-dasharray="3,2"/>
+        <!-- Key inside -->
+        <g class="sparkle" transform="translate(0,0)">
+          <circle cx="0" cy="0" r="6" fill="none" stroke="#fbbf24" stroke-width="2"/>
+          <rect x="-2" y="6" width="4" height="8" rx="1" fill="#fbbf24"/>
+        </g>
+        <!-- Locks on envelope -->
+        <circle cx="-30" cy="-15" r="5" fill="none" stroke="#fbbf24" stroke-width="1.5" class="sparkle"/>
+        <circle cx="30" cy="-15" r="5" fill="none" stroke="#85c1e9" stroke-width="1.5" class="sparkle"/>
+        <circle cx="0" cy="-30" r="5" fill="none" stroke="#fbbf24" stroke-width="1.5" class="sparkle"/>
+      </g>
+      <!-- Sparkles around -->
+      <circle cx="100" cy="80" r="2" fill="#fbbf24" class="sparkle"/>
+      <circle cx="300" cy="90" r="2" fill="#85c1e9" class="sparkle"/>
+      <circle cx="80" cy="180" r="2" fill="#5dade2" class="sparkle"/>
+      <circle cx="320" cy="170" r="2" fill="#fbbf24" class="sparkle"/>
+      <text x="200" y="255" fill="#5a6d80" font-size="10" text-anchor="middle">Article 61 · SGP.22 v3.x</text>
+    </svg>
+  </div>
+  <h1>✉️ The Unbreakable Envelope</h1>
+  <h2>How Your Secret Key Stays Safe While Travelling</h2>
+  <p class="story-text" style="color:#5a6d80">A story of four protection layers, secret handshakes, and envelopes that burn after reading</p>
+  <div class="page-num">📖 Page 1</div>
+</div>
+
+<!-- PAGE 2: WHY KEYS NEED SPECIAL PACKAGING -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 230" width="350">
+      <!-- Internet with snoops -->
+      <g transform="translate(30,20)">
+        <rect x="0" y="0" width="100" height="60" rx="6" fill="#ac4142" opacity="0.15" stroke="#ac4142" stroke-width="1"/>
+        <text x="50" y="18" fill="#ac4142" font-size="8" text-anchor="middle">⚠️ The Internet</text>
+        <text x="50" y="32" fill="#ac4142" font-size="7" text-anchor="middle">👀 Snoops</text>
+        <text x="50" y="45" fill="#ac4142" font-size="7" text-anchor="middle">🦹 Thieves</text>
+      </g>
+      <!-- Arrow -->
+      <text x="160" y="50" font-size="20" text-anchor="middle" fill="#5dade2">→</text>
+      <!-- Protected package -->
+      <g transform="translate(210,10)">
+        <rect x="0" y="0" width="120" height="80" rx="8" fill="#1b3a5c" stroke="#34d399" stroke-width="2.5"/>
+        <!-- Layers -->
+        <rect x="8" y="8" width="104" height="64" rx="5" fill="none" stroke="#fbbf24" stroke-width="1.5"/>
+        <rect x="16" y="16" width="88" height="48" rx="4" fill="none" stroke="#85c1e9" stroke-width="1.5"/>
+        <rect x="24" y="24" width="72" height="32" rx="3" fill="none" stroke="#5dade2" stroke-width="1"/>
+        <!-- Key at center -->
+        <g transform="translate(60,40)">
+          <circle cx="0" cy="0" r="5" fill="#fbbf24" class="sparkle"/>
+          <rect x="-1.5" y="5" width="3" height="6" rx="0.5" fill="#fbbf24"/>
+        </g>
+        <text x="60" y="72" fill="#34d399" font-size="6" text-anchor="middle">FOUR LAYERS OF ARMOUR</text>
+      </g>
+      <!-- Snoop trying to look -->
+      <g transform="translate(350,10)">
+        <circle cx="0" cy="15" r="15" fill="#1b3a5c" stroke="#ac4142" stroke-width="1"/>
+        <text x="0" y="12" fill="#ac4142" font-size="8" text-anchor="middle">👀</text>
+        <text x="0" y="30" fill="#ac4142" font-size="6" text-anchor="middle">???</text>
+      </g>
+      <text x="200" y="180" fill="#85c1e9" font-size="10" text-anchor="middle">Even a snoop gets only gibberish!</text>
+    </svg>
+  </div>
+  <h3>🔒 Why Keys Need Special Packaging</h3>
+  <p class="story-text">The internet is full of snoops, thieves, and nosy neighbours! You can't just send a key in a plain envelope. It needs <strong>four layers of protection</strong>: encryption, vault-specific binding, and segmentation into tiny pieces. Anyone who grabs the package mid-transit gets <em>nothing but gibberish</em>!</p>
+  <div class="page-num">📖 Page 2</div>
+</div>
+
+<!-- PAGE 3: THE FOUR LAYERS -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 240" width="350">
+      <!-- Layer 1: UPP -->
+      <g transform="translate(20,20)">
+        <rect x="0" y="0" width="80" height="60" rx="6" fill="#1b3a5c" stroke="#5a6d80" stroke-width="1.5"/>
+        <text x="40" y="18" fill="#5a6d80" font-size="8" text-anchor="middle" font-weight="bold">UPP</text>
+        <text x="40" y="32" fill="#c8d6e5" font-size="7" text-anchor="middle">Unprotected</text>
+        <text x="40" y="46" fill="#5a6d80" font-size="6" text-anchor="middle">Raw blueprint</text>
+        <text x="40" y="56" fill="#ac4142" font-size="6" text-anchor="middle">Never leaves</text>
+      </g>
+      <!-- Arrow -->
+      <text x="115" y="50" font-size="16" fill="#5dade2" text-anchor="middle">→</text>
+      <!-- Layer 2: PPP -->
+      <g transform="translate(115,20)">
+        <rect x="0" y="0" width="80" height="60" rx="6" fill="#1b3a5c" stroke="#5dade2" stroke-width="1.5"/>
+        <text x="40" y="18" fill="#5dade2" font-size="8" text-anchor="middle" font-weight="bold">PPP</text>
+        <text x="40" y="32" fill="#c8d6e5" font-size="7" text-anchor="middle">Protected</text>
+        <text x="40" y="46" fill="#5a6d80" font-size="6" text-anchor="middle">Encrypted</text>
+      </g>
+      <!-- Arrow -->
+      <text x="208" y="50" font-size="16" fill="#5dade2" text-anchor="middle">→</text>
+      <!-- Layer 3: BPP -->
+      <g transform="translate(210,20)">
+        <rect x="0" y="0" width="80" height="60" rx="6" fill="#1b3a5c" stroke="#85c1e9" stroke-width="2"/>
+        <text x="40" y="18" fill="#85c1e9" font-size="8" text-anchor="middle" font-weight="bold">BPP</text>
+        <text x="40" y="32" fill="#c8d6e5" font-size="7" text-anchor="middle">Bound</text>
+        <text x="40" y="46" fill="#5a6d80" font-size="6" text-anchor="middle">Locked to YOU</text>
+      </g>
+      <!-- Arrow -->
+      <text x="300" y="50" font-size="16" fill="#5dade2" text-anchor="middle">→</text>
+      <!-- Layer 4: SBPP -->
+      <g transform="translate(305,20)">
+        <rect x="0" y="0" width="75" height="60" rx="6" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2"/>
+        <text x="37" y="18" fill="#fbbf24" font-size="8" text-anchor="middle" font-weight="bold">SBPP</text>
+        <text x="37" y="32" fill="#c8d6e5" font-size="7" text-anchor="middle">Segmented</text>
+        <text x="37" y="46" fill="#5a6d80" font-size="6" text-anchor="middle">255 bytes</text>
+      </g>
+      <!-- Detail view of layers -->
+      <g transform="translate(90,110)">
+        <rect x="0" y="0" width="220" height="80" rx="8" fill="#0d1b2a" stroke="#5a6d80" stroke-width="1"/>
+        <!-- Nested boxes -->
+        <rect x="10" y="10" width="200" height="60" rx="5" fill="none" stroke="#fbbf24" stroke-width="1.5"/>
+        <text x="15" y="22" fill="#fbbf24" font-size="6">SBPP: 255-byte slices</text>
+        <rect x="20" y="27" width="180" height="36" rx="4" fill="none" stroke="#85c1e9" stroke-width="1.5"/>
+        <text x="25" y="38" fill="#85c1e9" font-size="6">BPP: Bound to your vault</text>
+        <rect x="30" y="42" width="160" height="16" rx="3" fill="none" stroke="#5dade2" stroke-width="1"/>
+        <text x="35" y="54" fill="#5dade2" font-size="6">PPP: Scrambled encryption</text>
+      </g>
+    </svg>
+  </div>
+  <h3>🧅 The Four Layers of Protection</h3>
+  <p class="story-text"><strong>UPP</strong>: The raw key blueprint — never leaves the Key Maker's workshop. <strong>PPP</strong>: Wrapped in encryption, scrambled with a secret code. <strong>BPP</strong>: Bound to YOUR vault — only your chip can unlock it. <strong>SBPP</strong>: Chopped into 255-byte pieces so even memory-tiny vaults can handle the delivery!</p>
+  <div class="page-num">📖 Page 3</div>
+</div>
+
+<!-- PAGE 4: THE SECRET HANDSHAKE -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 240" width="350">
+      <!-- Paint mixing analogy -->
+      <g transform="translate(20,20)">
+        <rect x="0" y="0" width="80" height="50" rx="6" fill="#1b3a5c" stroke="#5dade2" stroke-width="1.5"/>
+        <text x="40" y="16" fill="#5dade2" font-size="7" text-anchor="middle">Secret Color A</text>
+        <circle cx="40" cy="35" r="8" fill="#ac4142" opacity="0.6"/>
+      </g>
+      <g transform="translate(300,20)">
+        <rect x="0" y="0" width="80" height="50" rx="6" fill="#1b3a5c" stroke="#5dade2" stroke-width="1.5"/>
+        <text x="40" y="16" fill="#5dade2" font-size="7" text-anchor="middle">Secret Color B</text>
+        <circle cx="40" cy="35" r="8" fill="#5dade2" opacity="0.6"/>
+      </g>
+      <!-- Mix -->
+      <g transform="translate(160,30)">
+        <text x="0" y="0" fill="#85c1e9" font-size="8" text-anchor="middle">Mix publicly</text>
+        <circle cx="0" cy="20" r="10" fill="#7b4a8a" opacity="0.7"/>
+        <text x="0" y="42" fill="#fbbf24" font-size="8" text-anchor="middle">Same final color!</text>
+      </g>
+      <!-- Arrows -->
+      <line x1="100" y1="45" x2="150" y2="45" stroke="#5a6d80" stroke-width="1"/>
+      <line x1="250" y1="45" x2="170" y2="45" stroke="#5a6d80" stroke-width="1"/>
+      <!-- Mathematical part -->
+      <g transform="translate(80,110)">
+        <rect x="0" y="0" width="240" height="60" rx="8" fill="#1b3a5c" stroke="#fbbf24" stroke-width="1.5"/>
+        <text x="120" y="18" fill="#fbbf24" font-size="8" text-anchor="middle">Elliptic Curve Diffie-Hellman</text>
+        <text x="120" y="34" fill="#85c1e9" font-size="7" text-anchor="middle">Each side calculates the SAME shared secret</text>
+        <text x="120" y="50" fill="#5a6d80" font-size="7" text-anchor="middle">Nobody watching can figure it out!</text>
+      </g>
+    </svg>
+  </div>
+  <h3>🤝 The Secret Handshake</h3>
+  <p class="story-text">At the heart of the protection is a <strong>mathematical magic trick</strong>. Both your vault and the Key Maker create one-time key pairs, exchange public halves, then independently calculate the <em>same shared secret</em>. It's like two people mixing paint — both end up with the same final colour, but an observer only saw the public mixes!</p>
+  <div class="page-num">📖 Page 4</div>
+</div>
+
+<!-- PAGE 5: ONLY YOUR VAULT HAS THE KEY -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 230" width="350">
+      <!-- Two locking strategies -->
+      <g transform="translate(10,20)">
+        <rect x="0" y="0" width="180" height="80" rx="8" fill="#1b3a5c" stroke="#85c1e9" stroke-width="1.5"/>
+        <text x="90" y="18" fill="#85c1e9" font-size="9" text-anchor="middle" font-weight="bold">🔐 Lock on Demand</text>
+        <text x="15" y="36" fill="#c8d6e5" font-size="7">Key Maker encrypts just-in-time</text>
+        <text x="15" y="50" fill="#c8d6e5" font-size="7">using your session keys</text>
+        <text x="15" y="68" fill="#5dade2" font-size="7">Best for: One-off profiles</text>
+      </g>
+      <g transform="translate(210,20)">
+        <rect x="0" y="0" width="180" height="80" rx="8" fill="#1b3a5c" stroke="#34d399" stroke-width="1.5"/>
+        <text x="90" y="18" fill="#34d399" font-size="9" text-anchor="middle" font-weight="bold">📦 Pre-Locked</text>
+        <text x="15" y="36" fill="#c8d6e5" font-size="7">Key Maker bulk-produces</text>
+        <text x="15" y="50" fill="#c8d6e5" font-size="7">protected profiles with random keys</text>
+        <text x="15" y="68" fill="#5dade2" font-size="7">Best for: Thousands of profiles</text>
+      </g>
+      <!-- Vault and key -->
+      <g transform="translate(120,125)">
+        <rect x="0" y="0" width="60" height="50" rx="6" fill="#4a90d9" stroke="#5dade2" stroke-width="1.5"/>
+        <circle cx="30" cy="25" r="8" fill="none" stroke="#fbbf24" stroke-width="2"/>
+        <text x="30" y="42" fill="#e8eef5" font-size="7" text-anchor="middle">VAULT</text>
+      </g>
+      <!-- Key connecting -->
+      <g transform="translate(220,135)" class="floating">
+        <circle cx="0" cy="0" r="5" fill="none" stroke="#fbbf24" stroke-width="2"/>
+        <rect x="-2" y="5" width="4" height="8" rx="1" fill="#fbbf24"/>
+      </g>
+      <line x1="180" y1="150" x2="215" y2="140" stroke="#5a6d80" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="200" y="200" fill="#fbbf24" font-size="9" text-anchor="middle">🧠 Perfect Forward Secrecy: keys destroyed after use!</text>
+    </svg>
+  </div>
+  <h3>🔑 Only YOUR Vault Has the Key</h3>
+  <p class="story-text">Two locking strategies exist: <strong>Lock on Demand</strong> (encrypt just-in-time with your session keys) and <strong>Pre-Locked</strong> (bulk-produce protected profiles, wrap in your session later). Both use <em>Perfect Forward Secrecy</em> — even if someone steals the vault's master key years later, they STILL can't decrypt old profiles!</p>
+  <div class="page-num">📖 Page 5</div>
+</div>
+
+<!-- PAGE 6: SEGMENTED BOXES FOR TINY VAULTS -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 230" width="350">
+      <!-- Big package being chopped -->
+      <g transform="translate(20,20)">
+        <rect x="0" y="0" width="70" height="70" rx="6" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2"/>
+        <text x="35" y="30" fill="#fbbf24" font-size="8" text-anchor="middle">Big</text>
+        <text x="35" y="42" fill="#fbbf24" font-size="8" text-anchor="middle">Package</text>
+      </g>
+      <!-- Scissors -->
+      <text x="120" y="55" font-size="20" text-anchor="middle" fill="#5dade2">✂️</text>
+      <!-- Small pieces -->
+      <g transform="translate(160,20)">
+        <rect x="0" y="0" width="20" height="14" rx="3" fill="#85c1e9" opacity="0.6"/>
+        <rect x="25" y="0" width="20" height="14" rx="3" fill="#fbbf24" opacity="0.6"/>
+        <rect x="50" y="0" width="20" height="14" rx="3" fill="#85c1e9" opacity="0.6"/>
+        <rect x="0" y="20" width="20" height="14" rx="3" fill="#fbbf24" opacity="0.6"/>
+        <rect x="25" y="20" width="20" height="14" rx="3" fill="#85c1e9" opacity="0.6"/>
+        <rect x="50" y="20" width="20" height="14" rx="3" fill="#fbbf24" opacity="0.6"/>
+        <rect x="0" y="40" width="20" height="14" rx="3" fill="#85c1e9" opacity="0.6"/>
+        <rect x="25" y="40" width="20" height="14" rx="3" fill="#fbbf24" opacity="0.6"/>
+        <rect x="50" y="40" width="20" height="14" rx="3" fill="#85c1e9" opacity="0.6"/>
+      </g>
+      <!-- Tiny vault receiving -->
+      <g transform="translate(260,20)">
+        <rect x="0" y="0" width="120" height="70" rx="6" fill="#4a90d9" stroke="#5dade2" stroke-width="2"/>
+        <text x="60" y="18" fill="#e8eef5" font-size="7" text-anchor="middle">Tiny Vault</text>
+        <rect x="15" y="28" width="90" height="30" rx="3" fill="#0d1b2a"/>
+        <!-- Pieces arriving -->
+        <circle cx="30" cy="43" r="3" fill="#fbbf24" class="sparkle"/>
+        <circle cx="45" cy="43" r="3" fill="#85c1e9" class="sparkle"/>
+        <circle cx="60" cy="43" r="3" fill="#fbbf24" class="sparkle"/>
+        <circle cx="75" cy="43" r="3" fill="#85c1e9" class="sparkle"/>
+      </g>
+      <!-- Unforgeable receipt -->
+      <g transform="translate(80,130)">
+        <rect x="0" y="0" width="240" height="55" rx="8" fill="#1b3a5c" stroke="#34d399" stroke-width="1.5"/>
+        <text x="120" y="18" fill="#34d399" font-size="9" text-anchor="middle" font-weight="bold">✍️ Unforgeable Receipt</text>
+        <text x="120" y="34" fill="#c8d6e5" font-size="7" text-anchor="middle">"Profile installed successfully" — signed by vault, saved to permanent memory</text>
+        <text x="120" y="48" fill="#5a6d80" font-size="6" text-anchor="middle">No "he said, she said" — mathematical certainty</text>
+      </g>
+    </svg>
+  </div>
+  <h3>📦 The Special Segmented Boxes</h3>
+  <p class="story-text">The final layer is <strong>Segmented BPP</strong>: the package is chopped into 255-byte pieces so even the tiniest vaults can handle it. Piece by piece, your Assistant feeds it to the vault. After installation, the vault signs an <em>unforgeable receipt</em> — cryptographic proof that's saved to permanent memory, surviving even power loss!</p>
+  <div class="page-num">📖 Page 6</div>
+</div>
+
+<!-- PAGE 7: DID YOU KNOW + NAV -->
+<div class="page page-cover">
+  <div class="illustration floating">
+    <svg viewBox="0 0 400 240" width="350">
+      <!-- Burning envelope -->
+      <g transform="translate(160,60)">
+        <rect x="0" y="0" width="80" height="55" rx="5" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2"/>
+        <path d="M0 0 L40 -20 L80 0" fill="none" stroke="#fbbf24" stroke-width="1.5"/>
+        <!-- Fire emoji -->
+        <text x="40" y="32" font-size="18" text-anchor="middle">🔥</text>
+      </g>
+      <!-- Key safe inside vault -->
+      <g transform="translate(120,140)">
+        <rect x="0" y="0" width="70" height="45" rx="6" fill="#4a90d9" stroke="#5dade2" stroke-width="1.5"/>
+        <circle cx="35" cy="22" r="6" fill="#fbbf24" class="sparkle"/>
+        <text x="35" y="38" fill="#e8eef5" font-size="7" text-anchor="middle">SAFE</text>
+      </g>
+      <!-- Arrow down -->
+      <text x="160" y="130" font-size="16" fill="#5dade2" text-anchor="middle">↓</text>
+      <text x="200" y="220" fill="#fbbf24" font-size="12" text-anchor="middle">🧠 Envelope burns after reading!</text>
+    </svg>
+  </div>
+  <h3>🧠 Did You Know?</h3>
+  <p class="story-text">The encryption has <strong>Perfect Forward Secrecy</strong>. Even if someone steals the vault's long-term master key years later, they STILL can't decrypt profiles downloaded in the past. Each download session creates fresh, <em>disposable keys destroyed right after use</em>. It's like burning the envelope after reading the letter — no trace left behind!</p>
+  <h2 style="margin-top:2rem">📚 Read the Next Story!</h2>
+  <p style="text-align:center;margin-bottom:1rem">
+    <a href="storybook-62.html" style="display:inline-block;padding:.8rem 2rem;background:rgba(93,173,226,0.15);color:#5dade2;text-decoration:none;border-radius:8px;font-size:1.1rem">📋 Next: The Vault's Rulebook →</a>
+  </p>
+  <p style="text-align:center">
+    <a href="index.html" style="color:#5a6d80;text-decoration:none;font-size:.9rem">📖 Back to All Stories</a>
+  </p>
+  <div class="page-num">📖 Page 7 — The End ✨</div>
+</div>
+
+</div>
+
+<div class="nav">
+  <a href="#" onclick="window.scrollBy({top:-window.innerHeight,behavior:'smooth'});return false">⬆</a>
+  <a href="#" onclick="window.scrollBy({top:window.innerHeight,behavior:'smooth'});return false">⬇</a>
+  <a href="storybook-60.html">← Prev</a>
+  <a href="storybook-62.html">Next →</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Vault's Rulebook — An eSIM Story</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Georgia',serif;background:#0a1628;color:#c8d6e5;overflow-x:hidden}
+  .book{max-width:800px;margin:0 auto;min-height:100vh}
+  .page{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;page-break-after:always;scroll-snap-align:start}
+  .page-cover{background:linear-gradient(135deg,#0d1b2a 0%,#0a1628 50%,#0d1b2a 100%)}
+  h1{font-size:2.8rem;color:#e8eef5;text-align:center;margin-bottom:.5rem}
+  h2{font-size:1.6rem;color:#85c1e9;text-align:center;font-weight:400;margin-bottom:1.5rem}
+  h3{font-size:1.3rem;color:#5dade2;text-align:center;margin-bottom:1rem}
+  .story-text{font-size:1.2rem;line-height:1.8;text-align:center;max-width:550px;margin:0 auto}
+  .story-text em{color:#85c1e9;font-style:italic}
+  .story-text strong{color:#e8eef5}
+  .illustration{margin:1.5rem 0}
+  .illustration svg{max-width:100%;height:auto}
+  .page-num{color:#5a6d80;font-size:.85rem;margin-top:2rem}
+  .nav{position:fixed;bottom:1rem;right:1rem;z-index:100}
+  .nav a{display:inline-block;padding:.5rem 1rem;background:rgba(93,173,226,.15);color:#5dade2;text-decoration:none;border-radius:6px;margin-left:.5rem;font-size:.9rem}
+  .nav a:hover{background:rgba(93,173,226,.3)}
+  .sparkle{animation:twinkle 2s infinite}
+  @keyframes twinkle{0%,100%{opacity:.3}50%{opacity:1}}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  .floating{animation:float 3s ease-in-out infinite}
+  @keyframes slideIn{from{transform:translateX(-20px);opacity:0}to{transform:translateX(0);opacity:1}}
+  .slide-in{animation:slideIn .8s ease-out}
+  @media(max-width:600px){h1{font-size:2rem}h2{font-size:1.2rem}.story-text{font-size:1.05rem}}
+  html{scroll-behavior:smooth;scroll-snap-type:y mandatory}
+</style>
+</head>
+<body>
+
+<div class="book">
+
+<!-- PAGE 1: COVER -->
+<div class="page page-cover">
+  <div class="illustration floating">
+    <svg viewBox="0 0 400 300" width="350">
+      <defs><radialGradient id="glow"><stop offset="0%" stop-color="#5dade2" stop-opacity="0.3"/><stop offset="100%" stop-color="#0a1628" stop-opacity="0"/></radialGradient></defs>
+      <circle cx="200" cy="140" r="130" fill="url(#glow)"/>
+      <!-- Rulebook floating -->
+      <g transform="translate(160,60)">
+        <!-- Open book -->
+        <rect x="0" y="0" width="80" height="100" rx="5" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2"/>
+        <line x1="40" y1="0" x2="40" y2="100" stroke="#fbbf24" stroke-width="1.5"/>
+        <!-- Glowing text lines -->
+        <line x1="8" y1="20" x2="32" y2="20" stroke="#85c1e9" stroke-width="2" class="sparkle"/>
+        <line x1="8" y1="32" x2="28" y2="32" stroke="#5dade2" stroke-width="2" class="sparkle"/>
+        <line x1="8" y1="44" x2="35" y2="44" stroke="#85c1e9" stroke-width="2" class="sparkle"/>
+        <line x1="48" y1="20" x2="72" y2="20" stroke="#fbbf24" stroke-width="2" class="sparkle"/>
+        <line x1="48" y1="32" x2="68" y2="32" stroke="#85c1e9" stroke-width="2" class="sparkle"/>
+        <line x1="48" y1="44" x2="75" y2="44" stroke="#5dade2" stroke-width="2" class="sparkle"/>
+      </g>
+      <!-- Vault below -->
+      <g transform="translate(150,190)">
+        <rect x="0" y="0" width="100" height="40" rx="6" fill="#4a90d9" stroke="#85c1e9" stroke-width="1.5"/>
+        <text x="50" y="25" fill="#e8eef5" font-size="9" text-anchor="middle">VAULT</text>
+      </g>
+      <!-- Sparkles -->
+      <circle cx="100" cy="80" r="2" fill="#fbbf24" class="sparkle"/>
+      <circle cx="300" cy="100" r="2" fill="#85c1e9" class="sparkle"/>
+      <circle cx="80" cy="160" r="2" fill="#5dade2" class="sparkle"/>
+      <circle cx="320" cy="200" r="2" fill="#fbbf24" class="sparkle"/>
+      <text x="200" y="265" fill="#5a6d80" font-size="10" text-anchor="middle">Article 62 · SGP.22 v3.x</text>
+    </svg>
+  </div>
+  <h1>📋 The Vault's Rulebook</h1>
+  <h2>Who Can Do What to Your Secret Keys</h2>
+  <p class="story-text" style="color:#5a6d80">A story of sticky notes, rule enforcers, and rules etched in stone that even factory reset can't erase</p>
+  <div class="page-num">📖 Page 1</div>
+</div>
+
+<!-- PAGE 2: EVERY VAULT HAS RULES -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 230" width="350">
+      <!-- Three pillars -->
+      <g transform="translate(20,30)">
+        <rect x="0" y="0" width="110" height="80" rx="8" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2"/>
+        <text x="55" y="18" fill="#fbbf24" font-size="9" text-anchor="middle" font-weight="bold">🏷️ PPRs</text>
+        <text x="55" y="34" fill="#c8d6e5" font-size="7" text-anchor="middle">Sticky Notes</text>
+        <text x="55" y="48" fill="#5a6d80" font-size="7" text-anchor="middle">"Don't delete"</text>
+        <text x="55" y="62" fill="#5a6d80" font-size="7" text-anchor="middle">"Don't disable"</text>
+      </g>
+      <g transform="translate(145,30)">
+        <rect x="0" y="0" width="110" height="80" rx="8" fill="#1b3a5c" stroke="#85c1e9" stroke-width="2"/>
+        <text x="55" y="18" fill="#85c1e9" font-size="9" text-anchor="middle" font-weight="bold">📖 RAT</text>
+        <text x="55" y="34" fill="#c8d6e5" font-size="7" text-anchor="middle">The Rulebook</text>
+        <text x="55" y="48" fill="#5a6d80" font-size="7" text-anchor="middle">Who can use</text>
+        <text x="55" y="62" fill="#5a6d80" font-size="7" text-anchor="middle">which rules</text>
+      </g>
+      <g transform="translate(270,30)">
+        <rect x="0" y="0" width="110" height="80" rx="8" fill="#1b3a5c" stroke="#34d399" stroke-width="2"/>
+        <text x="55" y="18" fill="#34d399" font-size="9" text-anchor="middle" font-weight="bold">🛡️ PPE</text>
+        <text x="55" y="34" fill="#c8d6e5" font-size="7" text-anchor="middle">The Enforcer</text>
+        <text x="55" y="48" fill="#5a6d80" font-size="7" text-anchor="middle">Bouncer at</text>
+        <text x="55" y="62" fill="#5a6d80" font-size="7" text-anchor="middle">the door</text>
+      </g>
+      <!-- Connected -->
+      <line x1="130" y1="70" x2="145" y2="70" stroke="#5a6d80" stroke-width="1"/>
+      <line x1="255" y1="70" x2="270" y2="70" stroke="#5a6d80" stroke-width="1"/>
+      <text x="200" y="160" fill="#85c1e9" font-size="10" text-anchor="middle">Three pillars protecting your keys</text>
+    </svg>
+  </div>
+  <h3>📜 Every Vault Has Rules</h3>
+  <p class="story-text">What if you accidentally deleted your work key? What if you disabled a key your carrier requires? That's why every vault has three pillars of protection: <strong>PPRs</strong> (sticky notes on individual keys), the <strong>RAT</strong> (the rulebook — who can use which rules), and the <strong>PPE</strong> (the bouncer that enforces everything).</p>
+  <div class="page-num">📖 Page 2</div>
+</div>
+
+<!-- PAGE 3: RULE 1 — YOU CANNOT TURN OFF THIS KEY -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 230" width="350">
+      <!-- Key with PPR1 sticky note -->
+      <g transform="translate(60,40)">
+        <g>
+          <circle cx="0" cy="0" r="12" fill="none" stroke="#fbbf24" stroke-width="2.5"/>
+          <rect x="-3" y="12" width="6" height="18" rx="1.5" fill="#fbbf24"/>
+          <rect x="-9" y="9" width="5" height="5" rx="1" fill="#fbbf24"/>
+          <rect x="4" y="18" width="5" height="5" rx="1" fill="#fbbf24"/>
+        </g>
+        <!-- Sticky note -->
+        <rect x="-35" y="-15" width="70" height="22" rx="3" fill="#fbbf24" transform="rotate(-10,-35,-15)"/>
+        <text x="10" y="2" fill="#0a1628" font-size="7" text-anchor="middle" font-weight="bold" transform="rotate(-10,-25,-5)">PPR1: STAY ON</text>
+      </g>
+      <!-- Disabled attempt -->
+      <g transform="translate(280,30)">
+        <rect x="0" y="0" width="60" height="50" rx="6" fill="#ac4142" opacity="0.2" stroke="#ac4142" stroke-width="1.5"/>
+        <text x="30" y="20" fill="#ac4142" font-size="8" text-anchor="middle">OFF</text>
+        <text x="30" y="35" fill="#ac4142" font-size="16" text-anchor="middle">🚫</text>
+      </g>
+      <!-- Arrow from key to reject -->
+      <text x="190" y="55" font-size="20" text-anchor="middle" fill="#ac4142">→</text>
+      <!-- Enforcer -->
+      <g transform="translate(140,110)">
+        <rect x="0" y="0" width="120" height="55" rx="8" fill="#1b3a5c" stroke="#34d399" stroke-width="2"/>
+        <text x="60" y="18" fill="#34d399" font-size="8" text-anchor="middle">🛡️ Enforcer says:</text>
+        <text x="60" y="34" fill="#e8eef5" font-size="9" text-anchor="middle" font-weight="bold">"NOT ALLOWED!"</text>
+        <text x="60" y="48" fill="#5a6d80" font-size="6" text-anchor="middle">Hardware-enforced, cannot bypass</text>
+      </g>
+    </svg>
+  </div>
+  <h3>🚫 Rule 1: "You Cannot Turn Off This Key"</h3>
+  <p class="story-text"><strong>PPR1</strong> is the "always active" rule — the key must stay ON. This is critical for contract phones, work keys, or emergency profiles. The <strong>Profile Policy Enabler (PPE)</strong> — the hardware bouncer inside the vault — blocks any attempt to disable it. No app, no operating system, no hacking can bypass this!</p>
+  <div class="page-num">📖 Page 3</div>
+</div>
+
+<!-- PAGE 4: RULE 2 — YOU CANNOT DELETE THIS KEY -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 230" width="350">
+      <!-- Key glued to vault -->
+      <g transform="translate(100,30)">
+        <rect x="0" y="0" width="80" height="80" rx="8" fill="#4a90d9" stroke="#5dade2" stroke-width="2"/>
+        <!-- Key inside -->
+        <g transform="translate(40,40)">
+          <circle cx="0" cy="0" r="8" fill="none" stroke="#fbbf24" stroke-width="2.5"/>
+          <rect x="-2" y="8" width="4" height="14" rx="1" fill="#fbbf24"/>
+        </g>
+        <!-- Glue drops -->
+        <circle cx="20" cy="25" r="3" fill="#fbbf24" opacity="0.5"/>
+        <circle cx="60" cy="55" r="3" fill="#fbbf24" opacity="0.5"/>
+        <circle cx="30" cy="60" r="2" fill="#fbbf24" opacity="0.5"/>
+      </g>
+      <!-- Delete attempt -->
+      <g transform="translate(250,30)">
+        <circle cx="45" cy="35" r="30" fill="none" stroke="#ac4142" stroke-width="2"/>
+        <line x1="25" y1="20" x2="65" y2="50" stroke="#ac4142" stroke-width="2.5"/>
+        <text x="45" y="78" fill="#ac4142" font-size="8" text-anchor="middle">DELETE 🚫</text>
+      </g>
+      <!-- Sticky note -->
+      <g transform="translate(130,135)">
+        <rect x="0" y="0" width="140" height="35" rx="4" fill="#fbbf24" transform="rotate(-5,70,17)"/>
+        <text x="70" y="22" fill="#0a1628" font-size="9" text-anchor="middle" font-weight="bold">PPR2: CANNOT DELETE</text>
+      </g>
+      <text x="200" y="195" fill="#85c1e9" font-size="10" text-anchor="middle">Key glued into the vault — permanent!</text>
+    </svg>
+  </div>
+  <h3>🗑️ Rule 2: "You Cannot Delete This Key"</h3>
+  <p class="story-text"><strong>PPR2</strong> is the "undeletable" rule — the key is glued into the vault. This is perfect for work profiles, contract keys, or any profile the carrier or employer needs to keep. Combine PPR1 and PPR2 — the key can't be disabled <em>and</em> can't be deleted. Double protection!</p>
+  <div class="page-num">📖 Page 4</div>
+</div>
+
+<!-- PAGE 5: WHO WRITES THE RULES + THE ENFORCER -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 240" width="350">
+      <!-- RAT: Rules Authorisation Table -->
+      <g transform="translate(20,15)">
+        <rect x="0" y="0" width="170" height="100" rx="8" fill="#1b3a5c" stroke="#85c1e9" stroke-width="2"/>
+        <text x="85" y="18" fill="#85c1e9" font-size="9" text-anchor="middle" font-weight="bold">📖 RAT (Rulebook)</text>
+        <line x1="8" y1="24" x2="162" y2="24" stroke="#5a6d80" stroke-width="0.5"/>
+        <text x="10" y="40" fill="#c8d6e5" font-size="7">Operator Alpha → PPR1 only</text>
+        <text x="10" y="54" fill="#c8d6e5" font-size="7">Operator Beta → PPR2 only</text>
+        <text x="10" y="68" fill="#c8d6e5" font-size="7">ANY operator → PPR1+PPR2</text>
+        <text x="10" y="82" fill="#ac4142" font-size="7">⚠️ User must agree!</text>
+        <text x="10" y="95" fill="#5a6d80" font-size="6">Written at factory, NEVER erasable</text>
+      </g>
+      <!-- Written-at-factory stamp -->
+      <g transform="translate(220,15)">
+        <rect x="0" y="0" width="80" height="50" rx="6" fill="#1b3a5c" stroke="#fbbf24" stroke-width="1.5"/>
+        <text x="40" y="18" fill="#fbbf24" font-size="7" text-anchor="middle">ETCHED</text>
+        <text x="40" y="30" fill="#fbbf24" font-size="7" text-anchor="middle">IN</text>
+        <text x="40" y="42" fill="#fbbf24" font-size="7" text-anchor="middle">STONE</text>
+      </g>
+      <!-- PPE Enforcer -->
+      <g transform="translate(220,85)">
+        <rect x="0" y="0" width="160" height="50" rx="8" fill="#1b3a5c" stroke="#34d399" stroke-width="2"/>
+        <text x="80" y="18" fill="#34d399" font-size="9" text-anchor="middle" font-weight="bold">🛡️ PPE: The Enforcer</text>
+        <text x="80" y="34" fill="#c8d6e5" font-size="7" text-anchor="middle">Lives inside vault hardware</text>
+        <text x="80" y="46" fill="#5a6d80" font-size="6" text-anchor="middle">No bypass possible</text>
+      </g>
+      <!-- Double check -->
+      <g transform="translate(60,140)">
+        <rect x="0" y="0" width="280" height="45" rx="6" fill="#1b3a5c" stroke="#5dade2" stroke-width="1"/>
+        <text x="140" y="16" fill="#5dade2" font-size="8" text-anchor="middle">🔍 Double-Check: Assistant verifies BEFORE download</text>
+        <text x="140" y="32" fill="#5a6d80" font-size="7" text-anchor="middle">Vault independently re-verifies DURING installation</text>
+      </g>
+    </svg>
+  </div>
+  <h3>📝 Who Writes the Rules? The Enforcer Inside</h3>
+  <p class="story-text">The <strong>Rules Authorisation Table (RAT)</strong> is written when the vault is built — and it <em>cannot be erased</em>, even by a factory reset! It says which operators can use which rules, and whether you must consent. The <strong>PPE</strong> enforces everything in hardware. Both the Assistant and the Vault independently verify — double protection!</p>
+  <div class="page-num">📖 Page 5</div>
+</div>
+
+<!-- PAGE 6: MEP AND EXCEPTIONS -->
+<div class="page">
+  <div class="illustration slide-in">
+    <svg viewBox="0 0 400 230" width="350">
+      <!-- SEP vault -->
+      <g transform="translate(20,30)">
+        <rect x="0" y="0" width="90" height="80" rx="8" fill="#4a90d9" stroke="#5dade2" stroke-width="1.5"/>
+        <text x="45" y="18" fill="#e8eef5" font-size="8" text-anchor="middle">SEP</text>
+        <text x="45" y="32" fill="#c8d6e5" font-size="7" text-anchor="middle">Single Key</text>
+        <circle cx="45" cy="55" r="8" fill="#fbbf24" class="sparkle"/>
+        <text x="45" y="72" fill="#34d399" font-size="6" text-anchor="middle">PPR1 ✅ OK</text>
+      </g>
+      <!-- MEP vault -->
+      <g transform="translate(155,30)">
+        <rect x="0" y="0" width="90" height="80" rx="8" fill="#4a90d9" stroke="#fbbf24" stroke-width="2"/>
+        <text x="45" y="18" fill="#e8eef5" font-size="8" text-anchor="middle">MEP</text>
+        <text x="45" y="32" fill="#c8d6e5" font-size="7" text-anchor="middle">Multi-Key</text>
+        <circle cx="30" cy="55" r="6" fill="#fbbf24" class="sparkle"/>
+        <circle cx="45" cy="60" r="6" fill="#85c1e9" class="sparkle"/>
+        <circle cx="60" cy="55" r="6" fill="#fbbf24" class="sparkle"/>
+        <text x="45" y="72" fill="#ac4142" font-size="6" text-anchor="middle">PPR1 ❌ No</text>
+      </g>
+      <!-- Explanation -->
+      <g transform="translate(290,30)">
+        <rect x="0" y="0" width="90" height="80" rx="6" fill="#1b3a5c" stroke="#5a6d80" stroke-width="1"/>
+        <text x="45" y="18" fill="#85c1e9" font-size="7" text-anchor="middle">Why?</text>
+        <text x="45" y="35" fill="#c8d6e5" font-size="7" text-anchor="middle">MEP has</text>
+        <text x="45" y="48" fill="#c8d6e5" font-size="7" text-anchor="middle">multiple</text>
+        <text x="45" y="61" fill="#c8d6e5" font-size="7" text-anchor="middle">active keys</text>
+      </g>
+      <!-- Exceptions -->
+      <g transform="translate(50,135)">
+        <rect x="0" y="0" width="300" height="45" rx="6" fill="#1b3a5c" stroke="#fbbf24" stroke-width="1"/>
+        <text x="150" y="16" fill="#fbbf24" font-size="8" text-anchor="middle">🎭 Exceptions: Test keys temporarily override PPR1</text>
+        <text x="150" y="32" fill="#5a6d80" font-size="7" text-anchor="middle">Provisioning profiles can enable even with PPR1 active (for initial setup)</text>
+      </g>
+    </svg>
+  </div>
+  <h3>⚖️ The MEP Problem & Smart Exceptions</h3>
+  <p class="story-text">On <strong>MEP vaults</strong> (multiple enabled profiles), PPR1 ("can't disable") doesn't make sense — multiple keys can be active at once! So PPR1 is <em>banned on MEP vaults</em>. Smart exceptions exist too: test keys temporarily override PPR1, and provisioning profiles work during initial setup even with rules active.</p>
+  <div class="page-num">📖 Page 6</div>
+</div>
+
+<!-- PAGE 7: DID YOU KNOW + NAV -->
+<div class="page page-cover">
+  <div class="illustration floating">
+    <svg viewBox="0 0 400 240" width="350">
+      <!-- Stone tablet (RAT) -->
+      <g transform="translate(130,40)">
+        <rect x="0" y="0" width="140" height="100" rx="8" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2"/>
+        <text x="70" y="20" fill="#fbbf24" font-size="9" text-anchor="middle" font-weight="bold">RAT</text>
+        <line x1="15" y1="28" x2="125" y2="28" stroke="#fbbf24" stroke-width="0.5"/>
+        <text x="30" y="44" fill="#c8d6e5" font-size="7">Op Alpha → PPR1</text>
+        <text x="30" y="58" fill="#c8d6e5" font-size="7">Op Beta → PPR2</text>
+        <text x="30" y="72" fill="#c8d6e5" font-size="7">ANY → PPR1+PPR2</text>
+        <text x="30" y="90" fill="#ac4142" font-size="7">⚠️ Requires consent</text>
+      </g>
+      <!-- Factory reset icon -->
+      <g transform="translate(180,165)">
+        <circle cx="0" cy="0" r="18" fill="none" stroke="#ac4142" stroke-width="2"/>
+        <text x="0" y="-5" fill="#ac4142" font-size="12" text-anchor="middle">⟳</text>
+        <text x="0" y="28" fill="#ac4142" font-size="7" text-anchor="middle">RESET?</text>
+      </g>
+      <text x="200" y="225" fill="#fbbf24" font-size="12" text-anchor="middle">🧠 RAT survives even factory reset!</text>
+    </svg>
+  </div>
+  <h3>🧠 Did You Know?</h3>
+  <p class="story-text">The <strong>RAT is written into the vault at the factory</strong> and survives even a complete memory wipe. It's the one thing on your eSIM chip that can <em>NEVER be changed</em> by anyone — not by you, not by your carrier, not even by the phone manufacturer. It's the technological equivalent of "etched in stone"!</p>
+  <h2 style="margin-top:2rem">📚 Read the Next Story!</h2>
+  <p style="text-align:center;margin-bottom:1rem">
+    <a href="storybook-63.html" style="display:inline-block;padding:.8rem 2rem;background:rgba(93,173,226,0.15);color:#5dade2;text-decoration:none;border-radius:8px;font-size:1.1rem">🏢 Next: Your Work Keycard →</a>
+  </p>
+  <p style="text-align:center">
+    <a href="index.html" style="color:#5a6d80;text-decoration:none;font-size:.9rem">📖 Back to All Stories</a>
+  </p>
+  <div class="page-num">📖 Page 7 — The End ✨</div>
+</div>
+
+</div>
+
+<div class="nav">
+  <a href="#" onclick="window.scrollBy({top:-window.innerHeight,behavior:'smooth'});return false">⬆</a>
+  <a href="#" onclick="window.scrollBy({top:window.innerHeight,behavior:'smooth'});return false">⬇</a>
+  <a href="storybook-61.html">← Prev</a>
+  <a href="storybook-63.html">Next →</a>
+</div>
+
+</body>
+</html>
