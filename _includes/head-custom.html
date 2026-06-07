@@ -1,5 +1,8 @@
+<link rel="stylesheet" href="{{ '/assets/css/navy.css' | relative_url }}">
+
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+  // Make title link to homepage
   var title = document.querySelector('#title h1');
   if (title && !title.querySelector('a')) {
     var link = document.createElement('a');
@@ -9,6 +12,13 @@ document.addEventListener('DOMContentLoaded', function() {
     link.textContent = title.textContent;
     title.textContent = '';
     title.appendChild(link);
+  }
+
+  // Replace theme credits with custom footer
+  var credits = document.querySelector('#title .credits');
+  if (credits) {
+    credits.innerHTML = 'Created by <a href="https://tuddenham.info">Alex Tuddenham</a>';
+    credits.className = 'credits right';
   }
 });
 </script>
