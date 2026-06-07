@@ -1,4 +1,5 @@
 ---
+description: "The detailed security checklist for eUICC chips — four security policies, identity checks for every actor, and sealed communication channels that keep messages secret and tamper-proof."
 title: "The Security Checklist: Steel Doors, Alarms, and Guards"
 date: 2026-06-07
 ---

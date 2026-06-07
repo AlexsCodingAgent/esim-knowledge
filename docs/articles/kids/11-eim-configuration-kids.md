@@ -1,4 +1,5 @@
 ---
+description: "How IoT eSIM chips keep a trusted contact list of remote managers — adding, updating, and removing them with signed commands, plus ticket counters that block old replayed orders."
 title: "eIM Configuration: Associating Remote Managers with Your eUICC"
 date: 2026-06-02
 ---

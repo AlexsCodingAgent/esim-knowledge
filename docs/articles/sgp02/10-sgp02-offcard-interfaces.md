@@ -1,4 +1,5 @@
 ---
+description: "Documents all seven SGP.02 off-card interfaces — ES1 through ES7 — covering their functions, message flows, ASN.1 definitions, and the SOAP/HTTP binding for server-to-server communication in the M2M RSP ecosystem."
 date: 2026-06-07
 layout: default
 title: "Off-Card Interfaces: ES1–ES7 and the SOAP Binding"

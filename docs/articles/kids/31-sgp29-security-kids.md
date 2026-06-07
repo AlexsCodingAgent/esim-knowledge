@@ -1,4 +1,5 @@
 ---
+description: "What the EID does and doesn't reveal — it identifies hardware, not people — and how the GSMA's central registry, governance rules, and cryptographic proofs keep chip names private and secure."
 title: "Privacy and Secrets: Keeping Your Chip Name Safe"
 date: 2026-06-07
 ---

@@ -1,4 +1,5 @@
 ---
+description: "How a remote control centre can enable, disable, delete, and roll back profiles on IoT eSIM chips — using signed commands that the chip verifies before executing any operation."
 title: "Profile State Management via the eIM: Remote Enable, Disable, Delete"
 date: 2026-06-05
 ---

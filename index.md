@@ -1,6 +1,7 @@
 ---
 layout: default
-title: eUICC.tech: eSIM RSP Knowledge Base
+title: eUICC.tech: eSIM Remote SIM Provisioning Knowledge Base
+description: "Comprehensive technical knowledge base covering 12 GSMA eSIM RSP specifications — SGP.02, SGP.22, SGP.32 and more. 84+ articles on eSIM architecture, profile download, IoT provisioning, and conformance testing."
 ---
 
 <div align="center">
@@ -12,6 +13,12 @@ title: eUICC.tech: eSIM RSP Knowledge Base
 *84 articles · 12 specifications · 83 illustrated guides · Built from primary source GSMA specs*
 
 </div>
+
+eUICC.tech is a technical reference for engineers, testers, and implementers working with GSMA eSIM specifications. If you need to understand how Remote SIM Provisioning (RSP) works — the eUICC architecture, profile download flows, certificate hierarchies, or conformance testing requirements — the answers are here, sourced from the primary GSMA documents.
+
+The site covers the full eSIM ecosystem: consumer RSP (SGP.22) for phones and wearables, IoT provisioning (SGP.32) for headless devices, M2M push-model architecture (SGP.02), and manufacturing-time profile loading (SGP.41 IFPP). Supporting specs on EID numbering (SGP.29), test infrastructure (SGP.23), EUICC security evaluation (SGP.25), and test certificates (SGP.26) are also covered in depth.
+
+Every article links to specific sections of the corresponding GSMA specification, so you can verify claims and dig deeper. No vendor marketing, no platform lock-in — just the protocols as specified.
 
 ---
 

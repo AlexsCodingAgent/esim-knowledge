@@ -1,4 +1,5 @@
 ---
+description: "An introduction to SGP.33, the IoT eSIM testing family — three coordinated test specs that verify remote command centres, key makers, and on-board helpers work before robots go live."
 title: "Testing Mission Control: The IoT Test Family"
 date: 2026-06-07
 ---

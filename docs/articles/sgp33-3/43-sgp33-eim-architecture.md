@@ -1,5 +1,6 @@
 ---
 title: "eIM Test Architecture: Simulated eIM and Reference IPA"
+description: "Describes SGP.33-3's simulated eIM test environment with five simulator types — S_SM-DP+, S_SM-DS, S_eUICC, S_IPA, and S_CLIENT — surrounding the eIM IUT across four IoT-specific interfaces."
 date: 2026-06-05
 ---
 

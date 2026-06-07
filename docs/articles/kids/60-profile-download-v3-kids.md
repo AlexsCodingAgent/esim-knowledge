@@ -1,4 +1,5 @@
 ---
+description: "The complete v3.x profile download journey — from carrier order and QR code scan through identity checks and one-time lock handshake to the final encrypted package delivery."
 title: "The Great Key Delivery"
 date: 2026-06-07
 ---

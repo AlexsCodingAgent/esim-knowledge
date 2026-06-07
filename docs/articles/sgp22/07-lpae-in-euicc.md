@@ -1,4 +1,5 @@
 ---
+description: "Explains the LPAe architecture in SGP.22 v2.7 — how the Local Profile Assistant runs inside the eUICC itself, with LDSe, LPDe, and LUIe sub-components and CAT Toolkit or SCWS user interface options for companion devices."
 title: "SGP.22 v2.7: LPAe: The In-eUICC Local Profile Assistant"
 date: 2026-06-07
 ---

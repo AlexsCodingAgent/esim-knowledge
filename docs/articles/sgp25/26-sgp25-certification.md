@@ -1,5 +1,6 @@
 ---
 title: "SGP.25 Certification: SAS-UP and the Evaluation Process"
+description: "Traces SGP.25's certification process — Common Criteria evaluation through accredited labs, GSMA SAS-UP site audits, three evaluation models (composite/unified/hybrid), and the Security Target for product-specific assessment."
 date: 2026-06-05
 ---
 

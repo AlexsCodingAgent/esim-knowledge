@@ -1,5 +1,6 @@
 ---
 title: "IFPP Security: Factory Trust Models and Certificate Chains"
+description: "Explains SGP.41's factory trust model: one-time keys, perfect forward secrecy, SAS-certified HSM protection, and pre-encrypted BPPs that treat the factory as a courier rather than a custodian of profile secrets."
 date: 2026-06-06
 ---
 

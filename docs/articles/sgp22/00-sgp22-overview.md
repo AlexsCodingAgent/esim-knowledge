@@ -1,4 +1,5 @@
 ---
+description: "A comprehensive overview of GSMA SGP.22 Remote SIM Provisioning — covering the five RSP roles, thirteen interfaces, and the three-phase profile download process that powers every consumer eSIM."
 date: 2026-06-05
 ---
 

@@ -1,4 +1,5 @@
 ---
+description: "Inside the eSIM testing lab — nine different simulators pretend to be every part of the ecosystem so that the one real component under test can be checked in perfect isolation."
 title: "The Testing Lab: Crash-Test Dummies and Safety Inspectors"
 date: 2026-06-07
 ---

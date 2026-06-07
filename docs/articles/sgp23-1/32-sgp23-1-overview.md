@@ -1,5 +1,6 @@
 ---
 title: "SGP.23-1 Overview: Testing the eUICC Itself"
+description: "Introduces the 797-page SGP.23-1 test specification — dedicated exclusively to eUICC conformance with 30-plus optional feature declarations, ES6/ES8+/ES10 interface coverage, and feed-in to SAS-UP certification."
 date: 2026-06-05
 ---
 

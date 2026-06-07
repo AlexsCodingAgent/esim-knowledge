@@ -1,5 +1,6 @@
 ---
 title: "EID in RSP Protocols: Discovery, Matching, and Events"
+description: "Traces how the EID operates across RSP protocols — from SM-DS profile discovery and ES11 polling to ES8+ profile download and event registration — in both consumer and IoT architectures."
 date: 2026-06-05
 ---
 

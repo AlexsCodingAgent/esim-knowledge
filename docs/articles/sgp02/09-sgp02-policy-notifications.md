@@ -1,4 +1,5 @@
 ---
+description: "Explains SGP.02 policy enforcement — the dual POL1/POL2 rule framework, PLMA for operator delegation, the Default Notification mechanism, and how the ONC keeps operators informed of profile lifecycle events."
 date: 2026-06-07
 layout: default
 title: "Policy Rules & Notifications: POL1, POL2, and the Default Notification"

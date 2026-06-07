@@ -1,5 +1,6 @@
 ---
 title: "IFPP in Practice: PC OEMs, Automotive, and IoT Manufacturing"
+description: "Covers SGP.41 IFPP deployment scenarios for PC OEMs, automotive assembly, and large-scale IoT manufacturing — including two-stage production, region-specific provisioning, and just-in-time profile loading at the factory."
 date: 2026-06-06
 ---
 

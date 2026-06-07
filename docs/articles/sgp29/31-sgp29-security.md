@@ -1,5 +1,6 @@
 ---
 title: "EID Security: Privacy, Tracking, and GSMA Governance"
+description: "Examines SGP.29's EID privacy and governance controls: separation from subscriber identity, GSMA registry enforcement against fraudulent ERHI1 acquisition, non-reassignment of cancelled ranges, and modulo-97 check digit verification."
 date: 2026-06-05
 ---
 

@@ -1,4 +1,5 @@
 ---
+description: "Follow the three-stage spy mission of downloading an eSIM profile: placing the order, the cryptographic handshake proving identities, and the encrypted key delivery."
 title: "Mission: Download a Digital Key"
 date: 2026-05-29
 ---

@@ -1,5 +1,6 @@
 ---
 title: "CRL and Certificate Management in the Test Ecosystem"
+description: "Explains the SGP.26 CRL infrastructure with distribution points at every CA level, 3-year validity windows, and issuingDistributionPoint controls — plus certificate expiry and rotation schedules."
 date: 2026-06-06
 ---
 

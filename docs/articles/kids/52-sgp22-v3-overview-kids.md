@@ -1,4 +1,5 @@
 ---
+description: "How SGP.22 v3.x merged phone and machine eSIM rulebooks into one — bringing MEP, Push Service, and Remote Profile Management to both consumer and IoT worlds."
 title: "SGP.22 v3.x: The Big Team-Up"
 date: 2026-06-07
 ---

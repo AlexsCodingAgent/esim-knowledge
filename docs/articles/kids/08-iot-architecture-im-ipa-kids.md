@@ -1,4 +1,5 @@
 ---
+description: "How the IoT eSIM system connects a cloud-based remote control centre to an on-device translator, using four communication bridges that carry signed commands to thousands of devices at once."
 title: "The eSIM IoT Architecture: eIM, IPA, and the New Interfaces"
 date: 2026-05-26
 ---

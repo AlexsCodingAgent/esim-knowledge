@@ -1,5 +1,6 @@
 ---
 title: "eUICC Security Functional Requirements"
+description: "Unpacks SGP.25's Security Functional Requirements — four Security Function Policies and the FIA, FTP, FDP, and FMT families that define identification, communication, domain isolation, and management controls."
 date: 2026-06-05
 ---
 

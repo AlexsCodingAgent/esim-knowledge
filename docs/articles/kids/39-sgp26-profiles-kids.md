@@ -1,4 +1,5 @@
 ---
+description: "What's printed on every SGP.26 test badge — the fields, policy OIDs, and role tags that tell an eSIM chip whether to trust or reject a certificate during verification."
 title: "What Makes a Valid Practice Badge?"
 date: 2026-06-07
 ---

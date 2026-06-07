@@ -1,4 +1,5 @@
 ---
+description: "The discovery server message board where IoT profiles wait for sleeping devices — with two paths to check for deliveries and a cascading network of regional boards for faster global access."
 title: "SM-DS Operations in IoT eSIM: Event Registration and Retrieval"
 date: 2026-06-06
 ---

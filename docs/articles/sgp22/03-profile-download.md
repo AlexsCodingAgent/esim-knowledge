@@ -1,4 +1,5 @@
 ---
+description: "Walks through the complete SGP.22 profile download flow — from ES2+ ordering through ES9+ mutual authentication to ES8+ encrypted installation, covering UPP-to-SBPP profile packaging and the SCP03t secure channel."
 title: "How a Profile Gets Delivered: The eSIM Download Process"
 date: 2026-05-29
 ---

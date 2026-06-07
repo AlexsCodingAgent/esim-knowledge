@@ -1,4 +1,5 @@
 ---
+description: "How SGP.22 v3.x devices talk to older v2.x servers — the simple 'missing card' rule that lets billions of existing eSIM chips keep working while new features stay hidden."
 title: "Version Interop: When Old and New Magic Work Together"
 date: 2026-06-07
 ---

@@ -1,4 +1,5 @@
 ---
+description: "Covers the SGP.22 v3.x Push Service — how push notifications replace SM-DS polling, leveraging platform push infrastructure to deliver Event Record alerts immediately, reducing battery drain and provisioning latency for consumer devices."
 layout: default
 title: "Push Service: How eSIMs Get Notified Without Polling"
 date: 2026-06-06

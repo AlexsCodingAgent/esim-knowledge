@@ -1,4 +1,5 @@
 ---
+description: "Documents the SGP.22 interface families — ES2+ and ES9+ HTTP/JSON endpoints, ES8+ ASN.1 TLV with SCP03t transport, and ES10x APDU-level commands over ISO 7816 — for developers implementing RSP components."
 title: "The Developer's View: RSP Interfaces and Protocol Binding"
 date: 2026-06-05
 ---

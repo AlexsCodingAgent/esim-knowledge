@@ -1,4 +1,5 @@
 ---
+description: "How eUICC chips pass their final factory inspection — the SAS-UP security accreditation that verifies the production line matches the tested design, from declaration through accredited manufacturing."
 title: "The Ultimate Safety Inspection: SAS-UP"
 date: 2026-06-07
 ---

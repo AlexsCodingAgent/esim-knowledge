@@ -1,4 +1,5 @@
 ---
+description: "Why IoT eIM certification matters in a multi-vendor world — how passing SGP.33-3 tests transforms a lab prototype into a trusted remote management server ready for real robot fleets."
 title: "From Practice Drills to Real Missions: Getting Certified"
 date: 2026-06-07
 ---

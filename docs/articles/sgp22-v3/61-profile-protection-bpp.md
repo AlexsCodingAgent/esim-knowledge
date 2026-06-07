@@ -1,4 +1,5 @@
 ---
+description: "Examines the SGP.22 profile protection chain — UPP-to-SBPP transformation layers, the BPP Security Protocol derived from GlobalPlatform SCP11a, AES-CBC and SM4 encryption, and AES-CMAC and SM4-CMAC authentication."
 layout: default
 title: "Profile Protection & BPP Security: How eSIM Profiles Stay Secret"
 date: 2026-06-07

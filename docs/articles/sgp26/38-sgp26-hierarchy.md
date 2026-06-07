@@ -1,5 +1,6 @@
 ---
 title: "Test Certificate Hierarchy: CI, EUM, DP, DS, and eUICC"
+description: "Explains the SGP.26 test certificate hierarchy spanning CI root through EUM, SM-DP+, SM-DS, and eUICC — with five chain variants, name constraints, and role-specific policy OIDs at each level."
 date: 2026-06-06
 ---
 

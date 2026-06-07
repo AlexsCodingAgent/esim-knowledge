@@ -1,4 +1,5 @@
 ---
+description: "How Multiple Enabled Profiles (MEP) lets your phone use two mobile plans at once — eSIM Ports act as separate doors, each with its own active key, eliminating awkward switching."
 title: "MEP: Wearing Two Invisible Cloaks at Once"
 date: 2026-06-07
 ---

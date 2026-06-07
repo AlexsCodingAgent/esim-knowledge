@@ -1,5 +1,6 @@
 ---
 title: "EID Format Decoded: The 32-Digit Structure"
+description: "Decodes the SGP.29 EID's 32-digit hierarchical structure — EIN delegation chain, ESIN assignment, and modulo-97 check digits — showing how to validate any EID with simple arithmetic."
 date: 2026-06-05
 ---
 

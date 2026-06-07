@@ -1,5 +1,6 @@
 ---
 title: "Profile State Management via the eIM: Remote Enable, Disable, Delete"
+description: "Explains the PSMO lifecycle — Enable, Disable, Delete, Rollback, SetFallbackAttribute, UnsetFallbackAttribute — where the eIM signs commands and the eUICC verifies and executes them remotely."
 date: 2026-06-05
 ---
 

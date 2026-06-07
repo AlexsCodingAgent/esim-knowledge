@@ -1,4 +1,5 @@
 ---
+description: "How to set up an SGP.26 testing lab from scratch — loading test certificates onto eSIM chips, configuring simulated servers, and baking new badges with the included OpenSSL recipes."
 title: "Setting Up Your Testing Lab with Practice Badges"
 date: 2026-06-07
 ---

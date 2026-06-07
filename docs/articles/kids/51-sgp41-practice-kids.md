@@ -1,4 +1,5 @@
 ---
+description: "Real-world SGP.41 use cases — laptops that connect instantly out of the box, cars live from the factory floor, and millions of IoT sensors provisioned at production speed."
 title: "Who Uses Factory Keys? Cars, Laptops, and Smart Gadgets"
 date: 2026-06-07
 ---

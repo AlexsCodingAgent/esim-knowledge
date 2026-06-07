@@ -1,4 +1,5 @@
 ---
+description: "Explains the SGP.22 v2.7 notification framework — immediate Profile Installation Results and deferred Other Notifications, the globally incrementing Sequence Number, ES9+ HandleNotification delivery, and Activation Code Retrieval."
 title: "SGP.22 v2.7: Notifications and Post-Install: Keeping Operators in the Loop"
 date: 2026-06-07
 ---

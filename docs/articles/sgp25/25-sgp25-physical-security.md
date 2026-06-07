@@ -1,5 +1,6 @@
 ---
 title: "Physical Security: Side-Channel and Fault Injection Defenses"
+description: "Examines SGP.25's physical security requirements — resistance to side-channel analysis, fault injection, and tampering — plus the secure IC platform certification and trusted manufacturing lifecycle phases."
 date: 2026-06-05
 ---
 

@@ -1,4 +1,5 @@
 ---
+description: "Covers the GSMA SGP.02 M2M RSP architecture — the push model for headless unattended devices, the SM-DP, SM-SR, and Operator roles, and the ES1–ES8 interface framework that connects them."
 date: 2026-06-07
 ---
 

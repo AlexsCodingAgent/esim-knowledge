@@ -1,5 +1,6 @@
 ---
 title: "The GSMA eSIM Test Infrastructure"
+description: "Details the GSMA eSIM conformance test infrastructure — a parallel PKI of test certificates and keys, six test profiles, nine simulator types, and numbered test environments that isolate each IUT."
 date: 2026-06-05
 ---
 

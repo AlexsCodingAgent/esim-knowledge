@@ -1,4 +1,5 @@
 ---
+description: "What you can do with your phone's eSIM settings: enable and disable profiles with a tap, give them nicknames, delete old plans, and understand the rules carriers can enforce."
 title: "Your eSIM Remote Control: Switching, Naming, and Tidying Up"
 date: 2026-06-03
 ---

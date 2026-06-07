@@ -1,4 +1,5 @@
 ---
+description: "A tour through SGP.33-3's actual test cases — sending profile orders to robots, managing fleet membership, handling errors, and verifying that Mission Control talks to every helper correctly."
 title: "What They Test: Sending Orders, Getting Reports, Setting Up"
 date: 2026-06-07
 ---

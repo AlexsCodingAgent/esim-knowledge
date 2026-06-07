@@ -1,4 +1,5 @@
 ---
+description: "Explains capability negotiation in SGP.22 v3.x — the tagged-acronym Feature Support system that lets eUICCs, LPAs, and SM-DP+ servers declare supported features and conditionally include or omit version-specific data elements."
 layout: default
 title: "Feature Support: Capability Negotiation in v3.x"
 date: 2026-06-06

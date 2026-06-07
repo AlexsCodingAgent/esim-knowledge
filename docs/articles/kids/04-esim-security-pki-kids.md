@@ -1,4 +1,5 @@
 ---
+description: "How eSIM's public key infrastructure creates a chain of trust — with digital ID badges, mathematical handshakes, and one-time envelopes that keep every profile download safe."
 title: "The Invisible Bodyguards: How eSIM Keeps Secrets Safe"
 date: 2026-06-01
 ---

@@ -1,4 +1,5 @@
 ---
+description: "The SAS-UP security audit that inspects eUICC chip factories — verifying physical and procedural security, examining three evaluation models, and granting the final seal of production approval."
 title: "Passing the Ultimate Security Audit: SAS-UP"
 date: 2026-06-07
 ---

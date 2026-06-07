@@ -20,5 +20,59 @@ document.addEventListener('DOMContentLoaded', function() {
     credits.innerHTML = 'Created by <a href="https://tuddenham.info">Alex Tuddenham</a>';
     credits.className = 'credits right';
   }
+
+  // Build JSON-LD BreadcrumbList from URL path
+  var path = window.location.pathname.replace(/\/$/, '');
+  var segments = path.split('/').filter(function(s) { return s.length > 0; });
+  var url = 'https://euicc.tech';
+  var items = [{ '@type': 'ListItem', 'position': 1, 'name': 'eUICC.tech', 'item': url + '/' }];
+
+  // Map directory segments to readable names
+  var dirNames = {
+    'docs': 'Documentation',
+    'articles': 'Articles',
+    'sgp02': 'SGP.02 M2M eSIM',
+    'sgp22': 'SGP.22 Consumer RSP',
+    'sgp22-v3': 'SGP.22 v3 Unified RSP',
+    'sgp23': 'SGP.23 RSP Testing',
+    'sgp23-1': 'SGP.23-1 eUICC Testing',
+    'sgp25': 'SGP.25 eUICC Security',
+    'sgp26': 'SGP.26 Test Certificates',
+    'sgp29': 'SGP.29 EID',
+    'sgp32': 'SGP.32 IoT eSIM',
+    'sgp33-3': 'SGP.33 eIM Testing',
+    'sgp41': 'SGP.41 IFPP',
+    'kids': 'Illustrated Guides'
+  };
+
+  for (var i = 0; i < segments.length; i++) {
+    var seg = segments[i];
+    // Skip if it's the final .html or .md file (the article itself)
+    if (i === segments.length - 1 && (seg.endsWith('.html') || seg.endsWith('.md'))) {
+      // Use the page title or H1 as the last breadcrumb name
+      var h1 = document.querySelector('h1');
+      var pageName = h1 ? h1.textContent.trim() : seg.replace(/\.(html|md)$/, '').replace(/-/g, ' ');
+      // Truncate long titles
+      if (pageName.length > 80) pageName = pageName.substring(0, 77) + '...';
+      url += '/' + seg;
+      items.push({ '@type': 'ListItem', 'position': i + 2, 'name': pageName, 'item': url });
+    } else if (dirNames[seg]) {
+      url += '/' + seg;
+      items.push({ '@type': 'ListItem', 'position': i + 2, 'name': dirNames[seg], 'item': url });
+    }
+  }
+
+  // Only inject if we have more than just the home item
+  if (items.length > 1) {
+    var ld = {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      'itemListElement': items
+    };
+    var script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.textContent = JSON.stringify(ld);
+    document.head.appendChild(script);
+  }
 });
 </script>

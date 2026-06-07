@@ -1,4 +1,5 @@
 ---
+description: "How Certificate Revocation Lists work as 'WANTED posters' for cancelled eSIM badges — why every phone checks the CRL before trusting any certificate, and the SGP.26 twist of deliberately empty lists."
 title: "WANTED: The List of Bad Badges"
 date: 2026-06-07
 ---

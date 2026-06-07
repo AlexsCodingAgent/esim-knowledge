@@ -1,4 +1,5 @@
 ---
+description: "Explains Enterprise Profiles in SGP.22 v3.x — the v3.x-only profile class with enforceable corporate restrictions including priority enforcement, installation limits, and non-deletable and non-disablable rules that survive end-user actions."
 layout: default
 title: "Enterprise Profiles in SGP.22 v3.x: Corporate Control of eSIMs"
 date: 2026-06-07

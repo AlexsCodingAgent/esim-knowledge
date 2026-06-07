@@ -1,5 +1,6 @@
 ---
 title: "IoT eSIM Functions Reference: ESipa, ES9+', ES11', ESep"
+description: "Catalogues SGP.32's four IoT interfaces — ESipa, ES9+', ES11', ESep — with function signatures, parameters, and transport bindings, serving as an API reference for eIM and IPA implementers."
 date: 2026-06-07
 ---
 

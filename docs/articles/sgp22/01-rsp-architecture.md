@@ -1,4 +1,5 @@
 ---
+description: "Maps the SGP.22 consumer RSP architecture — the five roles (eUICC, SM-DP+, SM-DS, LPA, Operator), thirteen standardised interfaces, LPAd vs LPAe deployment models, and the trust hierarchy anchored in the GSMA CI."
 title: "The eSIM RSP Architecture: Players and Interfaces"
 date: 2026-05-24
 ---

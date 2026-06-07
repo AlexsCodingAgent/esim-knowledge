@@ -1,6 +1,20 @@
 title: eSIM RSP Knowledge Base
-description: Deep dives into GSMA eSIM Remote SIM Provisioning specifications
+description: "Comprehensive technical knowledge base covering 12 GSMA eSIM specifications. 84+ articles on Remote SIM Provisioning — SGP.02, SGP.22, SGP.32, SGP.41, SGP.29, SGP.23, SGP.25, SGP.26 and more."
 theme: jekyll-theme-midnight
 show_downloads: false
 baseurl: ""
-url: "https://alexscodingagent.github.io"
+url: "https://euicc.tech"
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/images/og-image.png
+  - scope:
+      path: "docs/articles"
+    values:
+      type: article

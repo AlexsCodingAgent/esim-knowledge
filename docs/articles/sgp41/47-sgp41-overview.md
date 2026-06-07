@@ -1,5 +1,6 @@
 ---
 title: "SGP.41 Overview: In-Factory Profile Provisioning"
+description: "Explains GSMA SGP.41 In-Factory Profile Provisioning: loading pre-bound, pre-encrypted profiles onto eUICCs during manufacturing — offline, in milliseconds, without HSMs or internet connectivity on the production line."
 date: 2026-06-06
 ---
 

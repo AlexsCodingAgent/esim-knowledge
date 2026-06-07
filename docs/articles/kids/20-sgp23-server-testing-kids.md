@@ -1,4 +1,5 @@
 ---
+description: "Putting the Key Maker and Post Office servers through quality control — verifying order handling, secure profile delivery tubes, and the public-facing interfaces any phone can connect to."
 title: "Testing the Key Maker and Post Office"
 date: 2026-06-07
 ---

@@ -1,5 +1,6 @@
 ---
 title: "SGP.26 Overview: The GSMA RSP Test Certificate Infrastructure"
+description: "Covers GSMA SGP.26's publicly documented test certificate infrastructure: a complete PKI with known private keys enabling RSP interoperability testing of eUICCs, SM-DP+, and SM-DS components."
 date: 2026-06-06
 ---
 

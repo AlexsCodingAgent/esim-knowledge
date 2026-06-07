@@ -1,5 +1,6 @@
 ---
 title: "SGP.23 Overview: How eSIM Interoperability Is Tested"
+description: "Introduces the 913-page SGP.23 test specification — four IUT types (eUICC, LPAd, SM-DP+, SM-DS), simulator-based test environments, and the DLOA certification pathway for consumer eSIM conformance."
 date: 2026-06-05
 ---
 

@@ -1,4 +1,5 @@
 ---
+description: "Explains Multiple Enabled Profiles in SGP.22 v3.x — how several profiles run simultaneously, each bound to a distinct eSIM Port as a logical SE interface, enabling true multi-SIM eSIM devices with per-port policy enforcement."
 layout: default
 title: "Multiple Enabled Profiles: Running Several eSIMs at Once"
 date: 2026-06-06

@@ -1,4 +1,5 @@
 ---
+description: "Details SGP.22 version interoperability — how v3.x devices discover v2.x servers via rspCapability fields, the X-Admin-Protocol HTTP header for server-to-server versioning, and backward-compatible protocol design principles."
 layout: default
 title: "Version Interoperability: How v2.x and v3.x Coexist"
 date: 2026-06-06

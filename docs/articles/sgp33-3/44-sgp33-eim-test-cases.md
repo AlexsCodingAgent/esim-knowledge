@@ -1,5 +1,6 @@
 ---
 title: "Key eIM Test Cases: PSMO, Notifications, and Configuration"
+description: "Covers key SGP.33-3 eIM test cases: Profile State Management Operations via ESep, eIM Configuration management, notification handling across ES9+', and ESipa profile download orchestration."
 date: 2026-06-05
 ---
 

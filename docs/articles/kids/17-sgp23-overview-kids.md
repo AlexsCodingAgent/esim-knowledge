@@ -1,4 +1,5 @@
 ---
+description: "How eSIM components get crash-tested before going on sale — with interface tests checking every command, behaviour tests running full scenarios, and simulators creating a controlled testing world."
 title: "Crash-Testing eSIMs Before They Go on Sale"
 date: 2026-06-07
 ---

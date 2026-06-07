@@ -1,4 +1,5 @@
 ---
+description: "How chip makers, device manufacturers, and national authorities apply to the GSMA for EID number ranges — with a formal five-stage process and qualification checks before assignment."
 title: "The Librarian: Who Hands Out Chip Names"
 date: 2026-06-07
 ---

@@ -1,5 +1,6 @@
 ---
 title: "SGP.23 Certification: From Test Cases to DLOA"
+description: "Traces the SGP.23 certification workflow — from vendor readiness through GSMA Test Events and SAS-accredited labs to the GlobalPlatform Digital Letter of Approval for production eSIM deployment."
 date: 2026-06-05
 ---
 

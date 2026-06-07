@@ -1,4 +1,5 @@
 ---
+description: "How the phone's profile assistant gets tested across three jobs — discovering waiting deliveries, running the full download pipeline, and managing the profile keychain through every edge case."
 title: "Testing the Phone's Assistant"
 date: 2026-06-07
 ---

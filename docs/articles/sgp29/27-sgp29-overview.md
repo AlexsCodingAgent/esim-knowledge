@@ -1,5 +1,6 @@
 ---
 title: "SGP.29 Overview: The eUICC Identifier (EID)"
+description: "Explains GSMA SGP.29's definition of the eUICC Identifier (EID): a 32-digit globally unique numbering system for eSIM chips, replacing ICCID-based identifiers with a cryptographically verifiable format."
 date: 2026-06-05
 ---
 

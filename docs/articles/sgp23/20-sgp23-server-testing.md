@@ -1,5 +1,6 @@
 ---
 title: "Testing the SM-DP+ and SM-DS"
+description: "Explores SGP.23's server-side testing — the SM-DP+ across ES2+, ES8+, and ES9+ interfaces, the SM-DS across ES12, ES11, and ES15, with independent TLS interface verification."
 date: 2026-06-05
 ---
 

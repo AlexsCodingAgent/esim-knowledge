@@ -1,5 +1,6 @@
 ---
 title: "eUICC Certification: From SGP.23-1 Tests to SAS-UP Approval"
+description: "Traces the eUICC certification path — from declaring optional features and IUT settings through the Applicability Table to SAS-UP accreditation, DLOA issuance, and GSMA Test Event participation."
 date: 2026-06-05
 ---
 

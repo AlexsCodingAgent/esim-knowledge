@@ -1,4 +1,5 @@
 ---
+description: "Moving eSIM profiles to a new phone without calling your carrier — SGP.22 v3's Device Change standardises the process, with a built-in safety net so keys are never lost."
 title: "Moving Your Secret Keys to a New Vault"
 date: 2026-06-07
 ---

@@ -1,5 +1,6 @@
 ---
 title: "eIM Security Testing: DTLS, Certificates, and Signed Packages"
+description: "Explains SGP.33-3's eIM security testing: TLS v1.2 server authentication, DTLS certificates, signed eUICC Packages with anti-replay counters, and cryptographic validation across ESep, ES9+', and ESipa interfaces."
 date: 2026-06-05
 ---
 

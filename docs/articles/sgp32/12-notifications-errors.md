@@ -1,5 +1,6 @@
 ---
 title: "Notifications and Error Handling in IoT eSIM"
+description: "Covers SGP.32's notification system for profile state transitions and the three-level error architecture spanning IPA, eUICC Package, and PSMO/eCO execution errors."
 date: 2026-06-03
 ---
 

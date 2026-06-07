@@ -1,4 +1,5 @@
 ---
+description: "Walks through Remote Profile Management in SGP.22 v3.x — how operators issue RPM Commands via the Managing SM-DP+, which packages them into RPM Packages for delivery and execution on the eUICC without requiring user interaction."
 layout: default
 title: "Remote Profile Management: RPM Initiation, Download, and Execution"
 date: 2026-06-06

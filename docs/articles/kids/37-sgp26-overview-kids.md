@@ -1,4 +1,5 @@
 ---
+description: "Why eSIM testing needs practice ID badges instead of real ones — SGP.26 test certificates come with published secrets and 'RSPTEST' stamps so labs can verify everything safely."
 title: "Practice ID Badges: The Test Certificate System"
 date: 2026-06-07
 ---

@@ -1,4 +1,5 @@
 ---
+description: "Documents the SM-DS discovery service in SGP.22 v2.7 — Event Registration and Retrieval via ES11 and ES12, the cascading SM-DS architecture, and how companion devices are provisioned alongside primary devices."
 title: "SGP.22 v2.7: SM-DS and Companion Devices: Discovery, Cascading, and Multi-Device Provisioning"
 date: 2026-06-07
 ---

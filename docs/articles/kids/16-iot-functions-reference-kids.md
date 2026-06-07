@@ -1,4 +1,5 @@
 ---
+description: "A reference guide to the four IoT eSIM interfaces — the main highway for commands, the factory hotline for profile downloads, the message board checker, and the secret signed tunnel."
 title: "IoT eSIM Functions Reference: ESipa, ES9+', ES11', ESep"
 date: 2026-06-07
 ---

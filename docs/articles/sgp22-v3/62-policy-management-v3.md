@@ -1,4 +1,5 @@
 ---
+description: "Details SGP.22 v3.x policy management — PPR1 and PPR2 rules extended with MEP-aware enforcement, the manufacturer-set Rules Authorisation Table, and the Profile Policy Enabler with groundwork for Enterprise Rules."
 layout: default
 title: "Policy Management in SGP.22 v3.x: PPR, RAT, and the Policy Enforcer"
 date: 2026-06-07

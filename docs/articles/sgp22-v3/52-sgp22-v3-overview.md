@@ -1,4 +1,5 @@
 ---
+description: "Introduces SGP.22 v3.x — the GSMA's unified RSP specification merging consumer and M2M architectures, covering Multiple Enabled Profiles, Push Service, Remote Profile Management, Device Change, and enterprise controls."
 layout: default
 title: "SGP.22 v3.x Overview: The Unified eSIM Specification"
 date: 2026-06-06

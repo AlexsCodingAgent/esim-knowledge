@@ -1,5 +1,6 @@
 ---
 title: "Key eUICC Test Cases: ISD-R, ECASD, and Profile Lifecycle"
+description: "Examines key SGP.23-1 test cases — ISD-R selection across nine sequences, ES8+ secure channel testing, ES10b profile download pipeline, ES10c local management, and MEP multi-profile handling."
 date: 2026-06-05
 ---
 

@@ -1,4 +1,5 @@
 ---
+description: "Examines the SGP.22 eUICC internal architecture — the ECASD as factory-installed root of trust, ISD-R for platform management, ISD-Ps with GlobalPlatform isolation, and the Profile Policy Enabler for hardware-enforced rules."
 title: "Inside the eUICC: The Secure Element That Powers Your eSIM"
 date: 2026-05-27
 ---

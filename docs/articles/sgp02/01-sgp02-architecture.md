@@ -1,4 +1,5 @@
 ---
+description: "Explains the SGP.02 M2M ecosystem — the five entity roles (EUM, SM-DP, SM-SR, Operator, M2M SP), their ES1–ES8 interfaces, and how push provisioning distributes trust across the system."
 date: 2026-06-07
 ---
 

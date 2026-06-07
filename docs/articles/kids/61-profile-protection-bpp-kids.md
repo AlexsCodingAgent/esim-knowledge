@@ -1,4 +1,5 @@
 ---
+description: "The four protective layers that wrap an eSIM profile — unprotected blueprint to segmented delivery — and the mathematical handshake that ensures only your chip can unwrap the key."
 title: "The Unbreakable Envelope"
 date: 2026-06-07
 ---

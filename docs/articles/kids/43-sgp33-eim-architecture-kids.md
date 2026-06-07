@@ -1,4 +1,5 @@
 ---
+description: "How SGP.33-3 builds a complete simulated IoT world — five pretend characters surround the real eIM, testing it across four channels without needing a single physical robot."
 title: "Practice Drills: Fake Mission Control and Test Robots"
 date: 2026-06-07
 ---

@@ -1,4 +1,5 @@
 ---
+description: "Where the EID appears across eSIM protocols — from discovery service lookups and profile matching to the mutual handshake that proves a chip's identity before any secret key is delivered."
 title: "Show Your ID! How Chips Prove Who They Are"
 date: 2026-06-07
 ---

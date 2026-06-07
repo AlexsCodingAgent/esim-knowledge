@@ -1,4 +1,5 @@
 ---
+description: "The physical test setup for eUICC chips — card readers, USB probes, five simulators, and a two-channel system that keeps profile management commands separate from normal phone operation."
 title: "The Chip Test Lab: Readers, Probes, and Poking Tools"
 date: 2026-06-07
 ---

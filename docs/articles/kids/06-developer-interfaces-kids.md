@@ -1,4 +1,5 @@
 ---
+description: "The four communication languages that eSIM helpers speak — from the ordering language between carriers and key makers to the chip-whispering commands used inside your phone."
 title: "The Secret Languages of eSIM: How the Helpers Talk"
 date: 2026-06-05
 ---
