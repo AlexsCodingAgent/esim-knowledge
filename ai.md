@@ -169,4 +169,4 @@ title: "eSIM RSP Knowledge Base: AI-Optimized Index"
 
 ---
 
-*[📖 Illustrated Edition](docs/articles/kids/) · [📋 Full Technical Index](docs/articles/) · [📖 Glossary](docs/glossary) · [🗺️ Standards Map](docs/standards-map)*
+*[📖 Illustrated Edition](/docs/articles/kids/) · [📋 Full Technical Index](/docs/articles/) · [📖 Glossary](/docs/glossary) · [🗺️ Standards Map](/docs/standards-map)*
