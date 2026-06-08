@@ -19,6 +19,8 @@ date: 2026-06-06
 
 The Subscription Manager Discovery Server (SM-DS) bridges the gap between "profile is ready" and "device is awake to receive it." In IoT, this gap can span hours, days, or weeks: and the retrieval path can go through either the `IPA` or the `eIM`. SGP.32 defines both options.
 
+<img src="../../diagrams/15-smds-retrieval-paths.svg" alt="SM-DS event retrieval: Path A (IPA → SM-DS via ES11 for IP-connected devices) vs Path B (eIM → SM-DS via ES11' for constrained devices), plus SM-DS cascading via ES15" style="width:100%;max-width:800px;display:block;margin:20px auto;border-radius:8px;">
+
 ---
 
 ## The SM-DS Role in IoT

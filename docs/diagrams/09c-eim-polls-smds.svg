@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 580">
+<style>text { font-family: system-ui, sans-serif; }</style>
+<defs>
+<marker id="eb-a" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#94a3b8"/></marker>
+<marker id="eb-ag" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#34d399"/></marker>
+<marker id="eb-ao" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#fb923c"/></marker>
+<marker id="eb-av" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#a78bfa"/></marker>
+<marker id="eb-ay" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#fbbf24"/></marker>
+<marker id="eb-acy" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#22d3ee"/></marker>
+<pattern id="eb-grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/></pattern>
+</defs>
+<rect width="100%" height="100%" fill="url(#eb-grid)"/>
+
+<!-- Title -->
+<text x="525" y="30" fill="white" font-size="14" font-weight="700" text-anchor="middle">Direct Download — Option B: eIM Polls SM-DS</text>
+<text x="525" y="48" fill="#94a3b8" font-size="9" text-anchor="middle">eIM polls SM-DS server-side → forwards Event Record to IPA via ESipa</text>
+<line x1="30" y1="58" x2="1020" y2="58" stroke="#1e293b" stroke-width="1"/>
+
+<!-- ===== Server Side (dominant in this pattern) ===== -->
+<text x="525" y="78" fill="#94a3b8" font-size="9" text-anchor="middle">Server Side — Heavy Lifting</text>
+
+<!-- eIM -->
+<rect x="40" y="95" width="200" height="55" rx="6" fill="rgba(251,146,60,0.35)" stroke="#fb923c" stroke-width="2"/>
+<text x="140" y="120" fill="white" font-size="11" font-weight="600" text-anchor="middle">eIM</text>
+<text x="140" y="136" fill="#fb923c" font-size="8" text-anchor="middle">Polls SM-DS, Forwards to IPA</text>
+
+<!-- SM-DS -->
+<rect x="320" y="95" width="160" height="55" rx="6" fill="rgba(120,53,15,0.3)" stroke="#fbbf24" stroke-width="1.5"/>
+<text x="400" y="120" fill="white" font-size="11" font-weight="600" text-anchor="middle">SM-DS</text>
+<text x="400" y="136" fill="#fbbf24" font-size="8" text-anchor="middle">Event Registry</text>
+
+<!-- SM-DP+ -->
+<rect x="565" y="95" width="160" height="55" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+<text x="645" y="120" fill="white" font-size="11" font-weight="600" text-anchor="middle">SM-DP+</text>
+<text x="645" y="136" fill="#34d399" font-size="8" text-anchor="middle">Profile Factory</text>
+
+<!-- ===== Server-side arrows ===== -->
+<!-- eIM → SM-DS: ES11' poll -->
+<line x1="240" y1="122" x2="318" y2="122" stroke="#fbbf24" stroke-width="1.5" marker-end="url(#eb-ay)"/>
+<text x="279" y="114" fill="#fbbf24" font-size="8">ES11' poll</text>
+
+<!-- SM-DS → eIM: Event Record -->
+<line x1="320" y1="140" x2="240" y2="140" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#eb-ay)"/>
+<text x="279" y="153" fill="#fbbf24" font-size="8">Event Record</text>
+
+<!-- ===== Divider ===== -->
+<line x1="30" y1="170" x2="1020" y2="170" stroke="#1e293b" stroke-width="1" stroke-dasharray="8,4"/>
+<text x="525" y="190" fill="#64748b" font-size="9" text-anchor="middle">ESipa Boundary — eIM forwards Event Record to IPA</text>
+
+<!-- ===== ESipa transfer ===== -->
+<rect x="100" y="205" width="750" height="30" rx="6" fill="rgba(251,146,60,0.12)" stroke="#fb923c" stroke-width="1" stroke-dasharray="4,2"/>
+<text x="475" y="225" fill="#fb923c" font-size="9" text-anchor="middle">ESipa: Event Record forwarded (SM-DP+ address + EventID) — device never touches SM-DS</text>
+
+<!-- ===== Device Side ===== -->
+<text x="525" y="260" fill="#94a3b8" font-size="9" text-anchor="middle">Device Side — Lightweight</text>
+
+<!-- IPA -->
+<rect x="40" y="275" width="220" height="65" rx="8" fill="rgba(8,51,68,0.4)" stroke="#22d3ee" stroke-width="1.5"/>
+<text x="150" y="302" fill="white" font-size="12" font-weight="600" text-anchor="middle">IPA</text>
+<text x="150" y="318" fill="#94a3b8" font-size="8" text-anchor="middle">IoT Profile Assistant</text>
+<text x="150" y="334" fill="#22d3ee" font-size="8" text-anchor="middle">Receives Event via ESipa</text>
+
+<!-- eUICC -->
+<rect x="340" y="275" width="160" height="65" rx="8" fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="1.5"/>
+<text x="420" y="302" fill="white" font-size="12" font-weight="600" text-anchor="middle">eUICC</text>
+<text x="420" y="318" fill="#94a3b8" font-size="8" text-anchor="middle">ISD-R | ISD-P</text>
+<text x="420" y="334" fill="#a78bfa" font-size="8" text-anchor="middle">Receives BPP</text>
+
+<!-- ===== Device-side arrows ===== -->
+<!-- IPA → SM-DP+: ES9+ (up, right) -->
+<path d="M 150 275 L 150 170 L 645 170 L 645 148" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#eb-acy)"/>
+<text x="400" y="163" fill="#22d3ee" font-size="8">ES9+: Initiate Auth</text>
+
+<!-- SM-DP+ → IPA: ES8+ BPP (down, left) -->
+<path d="M 645 170 L 645 200 L 200 200 L 200 275 L 203 275" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#eb-av)"/>
+<text x="400" y="215" fill="#a78bfa" font-size="8">ES8+: BPP</text>
+
+<!-- IPA → eUICC: ES10b -->
+<line x1="260" y1="307" x2="338" y2="307" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#eb-acy)"/>
+<text x="299" y="300" fill="#22d3ee" font-size="8">ES10b</text>
+
+<!-- ===== Network Constrained note ===== -->
+<rect x="580" y="275" width="440" height="140" rx="8" fill="rgba(136,19,55,0.08)" stroke="#fb7185" stroke-width="1" stroke-dasharray="4,2"/>
+<text x="800" y="298" fill="#fb7185" font-size="11" font-weight="600" text-anchor="middle">Network Constrained Devices</text>
+<line x1="600" y1="306" x2="1000" y2="306" stroke="#1e293b" stroke-width="0.5"/>
+
+<text x="600" y="325" fill="#94a3b8" font-size="9">• LPWA networks (NB-IoT, LTE-M w/o IP)</text>
+<text x="600" y="343" fill="#94a3b8" font-size="9">• Polling SM-DS directly = expensive airtime</text>
+<text x="600" y="361" fill="#94a3b8" font-size="9">• eIM polls server-side where bandwidth is free</text>
+<text x="600" y="379" fill="#94a3b8" font-size="9">• IPA only receives result via efficient ESipa</text>
+<text x="600" y="397" fill="#22d3ee" font-size="9" font-weight="600">✓ No device-to-SM-DS traffic required</text>
+
+<!-- ===== Key difference ===== -->
+<rect x="40" y="370" width="520" height="60" rx="6" fill="rgba(251,146,60,0.08)" stroke="#fb923c" stroke-width="0.8" stroke-dasharray="4,2"/>
+<text x="300" y="392" fill="#fb923c" font-size="10" font-weight="600" text-anchor="middle">Key Difference from Option A</text>
+<text x="300" y="410" fill="#94a3b8" font-size="9" text-anchor="middle">SM-DS polling stays server-side. ES11' (eIM→SM-DS) replaces ES11 (IPA→SM-DS).</text>
+<text x="300" y="426" fill="#94a3b8" font-size="9" text-anchor="middle">Event Record is relayed over ESipa — not pulled by the device.</text>
+
+<!-- Footer -->
+<text x="525" y="560" fill="#64748b" font-size="8" text-anchor="middle">Option B: Best for constrained LPWA devices — SM-DS traffic stays on the server side</text>
+
+</svg>

@@ -18,6 +18,8 @@ date: 2026-06-02
 
 A unique innovation in IoT eSIM is the concept of **Associated eIMs** : cryptographically trusted remote managers whose credentials are stored directly on the eUICC. This article covers how eIMs are added, updated, listed, and removed through **eIM Configuration Operations (`eCOs`)** .
 
+<img src="../../diagrams/11-eim-configuration-lifecycle.svg" alt="eIM Configuration lifecycle showing four eCO operations (addEim, updateEim, deleteEim, listEim), EimConfigurationData fields, and two bootstrap paths (eIM-managed signed eCO vs IPA-managed unsigned)" style="width:100%;max-width:800px;display:block;margin:20px auto;border-radius:8px;">
+
 ---
 
 ## Why eIM Association Matters

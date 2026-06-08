@@ -27,7 +27,7 @@ The `IPA` handles the download directly with the SM-DP+. Two triggers exist:
 
 ### Triggered by eIM with Activation Code
 
-<img src="../../diagrams/06-profile-package-stages.svg" alt="Profile package stages and download flow" style="width:100%;max-width:800px;display:block;margin:20px auto;border-radius:8px;">
+<img src="../../diagrams/09a-activation-code-flow.svg" alt="Direct download triggered by eIM with Activation Code — flow from Operator through eIM/ESipa to IPA via ES9+/ES8+ to SM-DP+" style="width:100%;max-width:800px;display:block;margin:20px auto;border-radius:8px;">
 
 The Activation Code is pushed from the operator's backend to the `eIM` : no QR code, no user. The `IPA`'s job is to identify the SM-DP+ from the AC and relay the `ES8+` messages.
 
@@ -38,10 +38,10 @@ The Activation Code is pushed from the operator's backend to the `eIM` : no QR c
 Two options exist for who retrieves the Event Record:
 
 **Option A: IPA polls SM-DS:**
-<img src="../../diagrams/06-profile-package-stages.svg" alt="Profile package stages and download flow" style="width:100%;max-width:800px;display:block;margin:20px auto;border-radius:8px;">
+<img src="../../diagrams/09b-ipa-polls-smds.svg" alt="Option A: IPA polls SM-DS via ES11 — IPA retrieves Event Record and contacts SM-DP+ directly" style="width:100%;max-width:800px;display:block;margin:20px auto;border-radius:8px;">
 
 **Option B: eIM polls SM-DS:**
-<img src="../../diagrams/06-profile-package-stages.svg" alt="Profile package stages and download flow" style="width:100%;max-width:800px;display:block;margin:20px auto;border-radius:8px;">
+<img src="../../diagrams/09c-eim-polls-smds.svg" alt="Option B: eIM polls SM-DS via ES11' — server-side polling, Event Record forwarded via ESipa to IPA" style="width:100%;max-width:800px;display:block;margin:20px auto;border-radius:8px;">
 
 Option B is designed for **Network Constrained Devices** : devices on LPWA networks where the airtime cost of polling the SM-DS directly would be prohibitive. The `eIM` does the heavy lifting on the server side, where bandwidth is free.
 
@@ -55,7 +55,7 @@ In Indirect mode, the `eIM` handles the entire SM-DP+ interaction. The `IPA` nev
 - The `eIM` acts as a security gateway, terminating TLS and re-encrypting
 - The device uses a non-IP protocol that only the `eIM` understands
 
-<img src="../../diagrams/06-profile-package-stages.svg" alt="Profile package stages and download flow" style="width:100%;max-width:800px;display:block;margin:20px auto;border-radius:8px;">
+<img src="../../diagrams/09d-indirect-download.svg" alt="Indirect Profile Download — eIM handles all SM-DP+ interaction, IPA never connects to SM-DP+" style="width:100%;max-width:800px;display:block;margin:20px auto;border-radius:8px;">
 
 The `eIM` can also cancel an in-progress Indirect session using `CancelSession`, which propagates to both the SM-DP+ and the eUICC.
 
@@ -161,7 +161,7 @@ Both the eUICC Package and the IPA level have structured error codes:
 
 Between eIM operations, the `IPA` and `eIM` synchronise:
 
-<img src="../../diagrams/06-profile-package-stages.svg" alt="Profile package stages and download flow" style="width:100%;max-width:800px;display:block;margin:20px auto;border-radius:8px;">
+<img src="../../diagrams/09e-eim-ipa-exchange.svg" alt="eIM-IPA Data Exchange heartbeat cycle — IpaEuiccDataRequest/Response → eIM Package → Signed Result" style="width:100%;max-width:800px;display:block;margin:20px auto;border-radius:8px;">
 
 This is the heartbeat of the IoT eSIM system: the `IPA` periodically fetches state from the eUICC and delivers it to the `eIM`, along with any pending results from previous operations. The `eIM` uses this data to decide what to do next.
 

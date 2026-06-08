@@ -19,6 +19,8 @@ date: 2026-06-01
 
 The IoT eSIM security model extends the consumer PKI with a new certificate class: the **`eIM` Certificate** : and adapts transport security for constrained networks. Where consumer devices use TLS over TCP, IoT devices need DTLS over UDP, CoAP instead of HTTP, and certificate pinning for devices that can't validate full PKI chains.
 
+<img src="../../diagrams/10-extended-pki-trust-models.svg" alt="SGP.32 Extended PKI chain showing CI → EUM/DP/DS/eIM branches, three device trust models (Full PKI, Certificate Pinning, Raw Public Key), and DTLS features" style="width:100%;max-width:800px;display:block;margin:20px auto;border-radius:8px;">
+
 ---
 
 ## The Extended PKI

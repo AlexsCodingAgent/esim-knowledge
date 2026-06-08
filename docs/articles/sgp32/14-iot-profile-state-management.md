@@ -19,6 +19,8 @@ date: 2026-06-05
 
 In consumer eSIM, you tap "Enable" in Settings. In IoT, a server sends a signed binary blob across the internet and the eUICC executes it without any human involvement. This article covers the full lifecycle of **PSMO (Profile State Management Operations)** as executed through the eIM Package protocol.
 
+<img src="../../diagrams/14-psmo-state-machine.svg" alt="PSMO state machine: Profile states (Disabled → Enabled → Removed), execution flow (eIM signs → IPA delivers → eUICC verifies → executes), and six PSMO types" style="width:100%;max-width:800px;display:block;margin:20px auto;border-radius:8px;">
+
 ---
 
 ## The PSMO Model

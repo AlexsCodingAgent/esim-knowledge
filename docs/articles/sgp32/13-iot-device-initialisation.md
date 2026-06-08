@@ -18,6 +18,8 @@ date: 2026-06-04
 
 When an IoT device powers on for the first time: or wakes from deep sleep: the eUICC must be initialised, the `IPA` must be activated, and the device must establish its connectivity posture. This article covers the boot sequence, device capability reporting, and the eUICC file structure that underpins it all.
 
+<img src="../../diagrams/13-iot-boot-sequence.svg" alt="IoT device boot sequence: six stages from power-on reset through connectivity assessment, IPAd/IPAe fork, post-boot connectivity decision, and IPAe wake-up triggers" style="width:100%;max-width:800px;display:block;margin:20px auto;border-radius:8px;">
+
 ---
 
 ## eUICC Initialisation

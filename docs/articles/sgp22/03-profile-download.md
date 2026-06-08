@@ -23,6 +23,8 @@ date: 2026-05-29
 
 Downloading an eSIM profile is a multi-party cryptographic protocol involving the end user, the operator's backend, the SM-DP+ profile factory, the SM-DS discovery server, the LPA on-device software, and the eUICC chip itself. The process is defined in SGP.22 Section 3 and spans three distinct phases, each with its own interfaces, security guarantees, and error-recovery mechanisms.
 
+<img src="../../diagrams/05-profile-download-sequence.svg" alt="Consumer RSP profile download sequence: End User, Operator, SM-DP+, LPA+eUICC, and SM-DS across three phases — Initiation (ES2+/ES12), Mutual Authentication (ES9+/ES10b), and Installation (ES8+)" style="width:100%;max-width:800px;display:block;margin:20px auto;border-radius:8px;">
+
 ---
 
 ## Phase 1: Initiation: Making the Order

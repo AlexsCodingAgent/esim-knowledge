@@ -1,90 +1,90 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620">
-    11|<defs>
-    12|<marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/></marker>
-    13|<pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/></pattern>
-    14|</defs>
-    15|<rect width="100%" height="100%" fill="url(#grid)"/>
-    16|
-    17|<!-- eUICC outer boundary -->
-    18|<rect x="60" y="30" width="880" height="560" rx="12" fill="rgba(76,29,149,0.05)" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="12,6"/>
-    19|<text x="80" y="52" fill="#a78bfa" font-size="11" font-weight="600">eUICC — Java Card 3.0.4 Classic</text>
-    20|
-    21|<!-- ECASD -->
-    22|<rect x="100" y="80" width="280" height="180" rx="8" fill="rgba(136,19,55,0.35)" stroke="#fb7185" stroke-width="1.5"/>
-    23|<text x="240" y="105" fill="white" font-size="12" font-weight="600" text-anchor="middle">ECASD</text>
-    24|<text x="240" y="123" fill="#94a3b8" font-size="9" text-anchor="middle">Root of Trust</text>
-    25|<line x1="120" y1="133" x2="360" y2="133" stroke="#fb7185" stroke-width="0.5" opacity="0.4"/>
-    26|<text x="240" y="152" fill="#fb7185" font-size="8" text-anchor="middle">SK.EUICC.ECDSA — Private Key</text>
-    27|<text x="240" y="168" fill="#fb7185" font-size="8" text-anchor="middle">CERT.EUICC.ECDSA — Chip Identity</text>
-    28|<text x="240" y="184" fill="#fb7185" font-size="8" text-anchor="middle">PK.CI.ECDSA — GSMA CI Public Key</text>
-    29|<text x="240" y="200" fill="#fb7185" font-size="8" text-anchor="middle">CERT.EUM.ECDSA — Manufacturer Cert</text>
-    30|<text x="240" y="222" fill="#94a3b8" font-size="7" text-anchor="middle">Installed at manufacture • Never modified</text>
-    31|
-    32|<!-- ISD-R -->
-    33|<rect x="100" y="290" width="280" height="140" rx="8" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
-    34|<text x="240" y="315" fill="white" font-size="12" font-weight="600" text-anchor="middle">ISD-R</text>
-    35|<text x="240" y="333" fill="#94a3b8" font-size="9" text-anchor="middle">Profile Manager</text>
-    36|<line x1="120" y1="343" x2="360" y2="343" stroke="#34d399" stroke-width="0.5" opacity="0.4"/>
-    37|<text x="240" y="362" fill="#34d399" font-size="8" text-anchor="middle">Creates ISD-P containers</text>
-    38|<text x="240" y="378" fill="#34d399" font-size="8" text-anchor="middle">Enforces Profile Policy Rules</text>
-    39|<text x="240" y="394" fill="#34d399" font-size="8" text-anchor="middle">Reads Profile Metadata</text>
-    40|<text x="240" y="416" fill="#94a3b8" font-size="7" text-anchor="middle">One per eUICC • Cannot be deleted</text>
-    41|
-    42|<!-- ECASD → ISD-R arrow -->
-    43|<line x1="240" y1="260" x2="240" y2="288" stroke="#fb7185" stroke-width="1.5" marker-end="url(#arrowhead)"/>
-    44|<text x="255" y="279" fill="#fb7185" font-size="8">Sign + Verify</text>
-    45|
-    46|<!-- ISD-P containers -->
-    47|<rect x="440" y="80" width="220" height="160" rx="8" fill="rgba(8,51,68,0.35)" stroke="#22d3ee" stroke-width="1.5"/>
-    48|<text x="550" y="105" fill="white" font-size="11" font-weight="600" text-anchor="middle">ISD-P (Profile A)</text>
-    49|<text x="550" y="121" fill="#94a3b8" font-size="8" text-anchor="middle">Enabled ✓</text>
-    50|<line x1="458" y1="131" x2="642" y2="131" stroke="#22d3ee" stroke-width="0.5" opacity="0.3"/>
-    51|<text x="550" y="148" fill="#22d3ee" font-size="8" text-anchor="middle">MNO-SD — OTA Keys</text>
-    52|<text x="550" y="164" fill="#22d3ee" font-size="8" text-anchor="middle">NAA — USIM/ISIM</text>
-    53|<text x="550" y="180" fill="#22d3ee" font-size="8" text-anchor="middle">File System — EF_ICCID</text>
-    54|<text x="550" y="196" fill="#22d3ee" font-size="8" text-anchor="middle">Applets, SSDs, CASD</text>
-    55|<text x="550" y="218" fill="#22d3ee" font-size="7" text-anchor="middle">Isolated — cannot see other ISD-Ps</text>
-    56|
-    57|<rect x="440" y="270" width="220" height="160" rx="8" fill="rgba(8,51,68,0.2)" stroke="#22d3ee" stroke-width="1" stroke-dasharray="4,2"/>
-    58|<text x="550" y="295" fill="#64748b" font-size="11" font-weight="600" text-anchor="middle">ISD-P (Profile B)</text>
-    59|<text x="550" y="311" fill="#64748b" font-size="8" text-anchor="middle">Disabled</text>
-    60|<line x1="458" y1="321" x2="642" y2="321" stroke="#22d3ee" stroke-width="0.5" opacity="0.2"/>
-    61|<text x="550" y="338" fill="#475569" font-size="8" text-anchor="middle">MNO-SD — dormant</text>
-    62|<text x="550" y="354" fill="#475569" font-size="8" text-anchor="middle">NAA — not selectable</text>
-    63|<text x="550" y="370" fill="#475569" font-size="8" text-anchor="middle">File System — hidden</text>
-    64|<text x="550" y="400" fill="#64748b" font-size="7" text-anchor="middle">One ISD-P per Profile</text>
-    65|
-    66|<!-- ISD-R → ISD-P arrows -->
-    67|<line x1="380" y1="320" x2="438" y2="180" stroke="#34d399" stroke-width="1" marker-end="url(#arrowhead)"/>
-    68|<text x="400" y="255" fill="#34d399" font-size="7">Create/Manage</text>
-    69|<line x1="380" y1="360" x2="438" y2="340" stroke="#34d399" stroke-width="1" marker-end="url(#arrowhead)"/>
-    70|
-    71|<!-- Profile Policy Enabler -->
-    72|<rect x="100" y="460" width="280" height="55" rx="6" fill="rgba(120,53,15,0.3)" stroke="#fbbf24" stroke-width="1.5"/>
-    73|<text x="240" y="485" fill="white" font-size="11" font-weight="600" text-anchor="middle">Profile Policy Enabler (PPE)</text>
-    74|<text x="240" y="502" fill="#94a3b8" font-size="8" text-anchor="middle">Enforces ppr1/ppr2/ppr3 rules</text>
-    75|
-    76|<!-- Telecom Framework -->
-    77|<rect x="700" y="80" width="210" height="55" rx="6" fill="rgba(30,41,59,0.5)" stroke="#94a3b8" stroke-width="1.5"/>
-    78|<text x="805" y="105" fill="white" font-size="11" font-weight="600" text-anchor="middle">Telecom Framework</text>
-    79|<text x="805" y="122" fill="#94a3b8" font-size="8" text-anchor="middle">REFRESH, File Selection, NAA</text>
-    80|
-    81|<!-- Profile Package Interpreter -->
-    82|<rect x="700" y="170" width="210" height="55" rx="6" fill="rgba(30,41,59,0.5)" stroke="#94a3b8" stroke-width="1.5"/>
-    83|<text x="805" y="195" fill="white" font-size="11" font-weight="600" text-anchor="middle">Profile Package Interp.</text>
-    84|<text x="805" y="212" fill="#94a3b8" font-size="8" text-anchor="middle">Decodes BPP → installs Profile</text>
-    85|
-    86|<!-- LPA Services -->
-    87|<rect x="700" y="260" width="210" height="55" rx="6" fill="rgba(30,41,59,0.5)" stroke="#94a3b8" stroke-width="1.5"/>
-    88|<text x="805" y="285" fill="white" font-size="11" font-weight="600" text-anchor="middle">LPA Services</text>
-    89|<text x="805" y="302" fill="#94a3b8" font-size="8" text-anchor="middle">ES10a/b/c interface endpoints</text>
-    90|
-    91|<!-- ISD-R → framework components -->
-    92|<line x1="380" y1="360" x2="698" y2="110" stroke="#64748b" stroke-width="0.8" opacity="0.5"/>
-    93|<line x1="380" y1="370" x2="698" y2="197" stroke="#64748b" stroke-width="0.8" opacity="0.5"/>
-    94|
-    95|<!-- eUICC OS label -->
-    96|<text x="920" y="555" fill="#475569" font-size="9" text-anchor="end">eUICC Operating System</text>
-    97|
-    98|<text x="100" y="555" fill="#64748b" font-size="8">Isolation: GlobalPlatform Security Domains • Certified GSMA SAS-UP manufacturing</text>
-    99|</svg>
+<defs>
+<marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/></marker>
+<pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/></pattern>
+</defs>
+<rect width="100%" height="100%" fill="url(#grid)"/>
+
+<!-- eUICC outer boundary -->
+<rect x="60" y="30" width="880" height="560" rx="12" fill="rgba(76,29,149,0.05)" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="12,6"/>
+<text x="80" y="52" fill="#a78bfa" font-size="11" font-weight="600">eUICC — Java Card 3.0.4 Classic</text>
+
+<!-- ECASD -->
+<rect x="100" y="80" width="280" height="180" rx="8" fill="rgba(136,19,55,0.35)" stroke="#fb7185" stroke-width="1.5"/>
+<text x="240" y="105" fill="white" font-size="12" font-weight="600" text-anchor="middle">ECASD</text>
+<text x="240" y="123" fill="#94a3b8" font-size="9" text-anchor="middle">Root of Trust</text>
+<line x1="120" y1="133" x2="360" y2="133" stroke="#fb7185" stroke-width="0.5" opacity="0.4"/>
+<text x="240" y="152" fill="#fb7185" font-size="8" text-anchor="middle">SK.EUICC.ECDSA — Private Key</text>
+<text x="240" y="168" fill="#fb7185" font-size="8" text-anchor="middle">CERT.EUICC.ECDSA — Chip Identity</text>
+<text x="240" y="184" fill="#fb7185" font-size="8" text-anchor="middle">PK.CI.ECDSA — GSMA CI Public Key</text>
+<text x="240" y="200" fill="#fb7185" font-size="8" text-anchor="middle">CERT.EUM.ECDSA — Manufacturer Cert</text>
+<text x="240" y="222" fill="#94a3b8" font-size="7" text-anchor="middle">Installed at manufacture • Never modified</text>
+
+<!-- ISD-R -->
+<rect x="100" y="290" width="280" height="140" rx="8" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+<text x="240" y="315" fill="white" font-size="12" font-weight="600" text-anchor="middle">ISD-R</text>
+<text x="240" y="333" fill="#94a3b8" font-size="9" text-anchor="middle">Profile Manager</text>
+<line x1="120" y1="343" x2="360" y2="343" stroke="#34d399" stroke-width="0.5" opacity="0.4"/>
+<text x="240" y="362" fill="#34d399" font-size="8" text-anchor="middle">Creates ISD-P containers</text>
+<text x="240" y="378" fill="#34d399" font-size="8" text-anchor="middle">Enforces Profile Policy Rules</text>
+<text x="240" y="394" fill="#34d399" font-size="8" text-anchor="middle">Reads Profile Metadata</text>
+<text x="240" y="416" fill="#94a3b8" font-size="7" text-anchor="middle">One per eUICC • Cannot be deleted</text>
+
+<!-- ECASD → ISD-R arrow -->
+<line x1="240" y1="260" x2="240" y2="288" stroke="#fb7185" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+<text x="255" y="279" fill="#fb7185" font-size="8">Sign + Verify</text>
+
+<!-- ISD-P containers -->
+<rect x="440" y="80" width="220" height="160" rx="8" fill="rgba(8,51,68,0.35)" stroke="#22d3ee" stroke-width="1.5"/>
+<text x="550" y="105" fill="white" font-size="11" font-weight="600" text-anchor="middle">ISD-P (Profile A)</text>
+<text x="550" y="121" fill="#94a3b8" font-size="8" text-anchor="middle">Enabled ✓</text>
+<line x1="458" y1="131" x2="642" y2="131" stroke="#22d3ee" stroke-width="0.5" opacity="0.3"/>
+<text x="550" y="148" fill="#22d3ee" font-size="8" text-anchor="middle">MNO-SD — OTA Keys</text>
+<text x="550" y="164" fill="#22d3ee" font-size="8" text-anchor="middle">NAA — USIM/ISIM</text>
+<text x="550" y="180" fill="#22d3ee" font-size="8" text-anchor="middle">File System — EF_ICCID</text>
+<text x="550" y="196" fill="#22d3ee" font-size="8" text-anchor="middle">Applets, SSDs, CASD</text>
+<text x="550" y="218" fill="#22d3ee" font-size="7" text-anchor="middle">Isolated — cannot see other ISD-Ps</text>
+
+<rect x="440" y="270" width="220" height="160" rx="8" fill="rgba(8,51,68,0.2)" stroke="#22d3ee" stroke-width="1" stroke-dasharray="4,2"/>
+<text x="550" y="295" fill="#64748b" font-size="11" font-weight="600" text-anchor="middle">ISD-P (Profile B)</text>
+<text x="550" y="311" fill="#64748b" font-size="8" text-anchor="middle">Disabled</text>
+<line x1="458" y1="321" x2="642" y2="321" stroke="#22d3ee" stroke-width="0.5" opacity="0.2"/>
+<text x="550" y="338" fill="#475569" font-size="8" text-anchor="middle">MNO-SD — dormant</text>
+<text x="550" y="354" fill="#475569" font-size="8" text-anchor="middle">NAA — not selectable</text>
+<text x="550" y="370" fill="#475569" font-size="8" text-anchor="middle">File System — hidden</text>
+<text x="550" y="400" fill="#64748b" font-size="7" text-anchor="middle">One ISD-P per Profile</text>
+
+<!-- ISD-R → ISD-P arrows -->
+<line x1="380" y1="320" x2="438" y2="180" stroke="#34d399" stroke-width="1" marker-end="url(#arrowhead)"/>
+<text x="400" y="255" fill="#34d399" font-size="7">Create/Manage</text>
+<line x1="380" y1="360" x2="438" y2="340" stroke="#34d399" stroke-width="1" marker-end="url(#arrowhead)"/>
+
+<!-- Profile Policy Enabler -->
+<rect x="100" y="460" width="280" height="55" rx="6" fill="rgba(120,53,15,0.3)" stroke="#fbbf24" stroke-width="1.5"/>
+<text x="240" y="485" fill="white" font-size="11" font-weight="600" text-anchor="middle">Profile Policy Enabler (PPE)</text>
+<text x="240" y="502" fill="#94a3b8" font-size="8" text-anchor="middle">Enforces ppr1/ppr2/ppr3 rules</text>
+
+<!-- Telecom Framework -->
+<rect x="700" y="80" width="210" height="55" rx="6" fill="rgba(30,41,59,0.5)" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="805" y="105" fill="white" font-size="11" font-weight="600" text-anchor="middle">Telecom Framework</text>
+<text x="805" y="122" fill="#94a3b8" font-size="8" text-anchor="middle">REFRESH, File Selection, NAA</text>
+
+<!-- Profile Package Interpreter -->
+<rect x="700" y="170" width="210" height="55" rx="6" fill="rgba(30,41,59,0.5)" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="805" y="195" fill="white" font-size="11" font-weight="600" text-anchor="middle">Profile Package Interp.</text>
+<text x="805" y="212" fill="#94a3b8" font-size="8" text-anchor="middle">Decodes BPP → installs Profile</text>
+
+<!-- LPA Services -->
+<rect x="700" y="260" width="210" height="55" rx="6" fill="rgba(30,41,59,0.5)" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="805" y="285" fill="white" font-size="11" font-weight="600" text-anchor="middle">LPA Services</text>
+<text x="805" y="302" fill="#94a3b8" font-size="8" text-anchor="middle">ES10a/b/c interface endpoints</text>
+
+<!-- ISD-R → framework components -->
+<line x1="380" y1="360" x2="698" y2="110" stroke="#64748b" stroke-width="0.8" opacity="0.5"/>
+<line x1="380" y1="370" x2="698" y2="197" stroke="#64748b" stroke-width="0.8" opacity="0.5"/>
+
+<!-- eUICC OS label -->
+<text x="920" y="555" fill="#475569" font-size="9" text-anchor="end">eUICC Operating System</text>
+
+<text x="100" y="555" fill="#64748b" font-size="8">Isolation: GlobalPlatform Security Domains • Certified GSMA SAS-UP manufacturing</text>
+</svg>

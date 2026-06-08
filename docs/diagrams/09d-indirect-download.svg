@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 580">
+<style>text { font-family: system-ui, sans-serif; }</style>
+<defs>
+<marker id="id-a" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#94a3b8"/></marker>
+<marker id="id-ag" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#34d399"/></marker>
+<marker id="id-ao" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#fb923c"/></marker>
+<marker id="id-av" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#a78bfa"/></marker>
+<marker id="id-acy" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#22d3ee"/></marker>
+<pattern id="id-grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/></pattern>
+</defs>
+<rect width="100%" height="100%" fill="url(#id-grid)"/>
+
+<!-- Title -->
+<text x="525" y="30" fill="white" font-size="14" font-weight="700" text-anchor="middle">Indirect Profile Download — eIM-Mediated</text>
+<text x="525" y="48" fill="#94a3b8" font-size="9" text-anchor="middle">eIM handles all SM-DP+ interaction — IPA never connects to SM-DP+</text>
+<line x1="30" y1="58" x2="1020" y2="58" stroke="#1e293b" stroke-width="1"/>
+
+<!-- ===== Server Side ===== -->
+<text x="525" y="78" fill="#94a3b8" font-size="9" text-anchor="middle">Server Side</text>
+
+<!-- Operator -->
+<rect x="40" y="95" width="130" height="50" rx="6" fill="rgba(30,41,59,0.5)" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="105" y="116" fill="white" font-size="10" font-weight="600" text-anchor="middle">Operator</text>
+<text x="105" y="132" fill="#94a3b8" font-size="7" text-anchor="middle">Backend</text>
+
+<!-- SM-DP+ -->
+<rect x="250" y="95" width="160" height="50" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+<text x="330" y="116" fill="white" font-size="11" font-weight="600" text-anchor="middle">SM-DP+</text>
+<text x="330" y="132" fill="#34d399" font-size="8" text-anchor="middle">Profile Factory</text>
+
+<!-- eIM (key role in indirect) -->
+<rect x="500" y="90" width="200" height="60" rx="8" fill="rgba(251,146,60,0.4)" stroke="#fb923c" stroke-width="2.5"/>
+<text x="600" y="116" fill="white" font-size="12" font-weight="700" text-anchor="middle">eIM</text>
+<text x="600" y="133" fill="#fb923c" font-size="8" text-anchor="middle">Handles All SM-DP+ Traffic</text>
+<text x="600" y="145" fill="#64748b" font-size="7" text-anchor="middle">ES9+' ←→ ES9+</text>
+
+<!-- ===== Server-side arrows ===== -->
+<!-- Operator → SM-DP+: ES2+ -->
+<line x1="170" y1="120" x2="248" y2="120" stroke="#34d399" stroke-width="1.5" marker-end="url(#id-ag)"/>
+<text x="209" y="112" fill="#34d399" font-size="8">ES2+</text>
+
+<!-- SM-DP+ ↔ eIM: ES9+' (bidirectional) -->
+<line x1="410" y1="120" x2="498" y2="120" stroke="#fb923c" stroke-width="2" marker-end="url(#id-ao)"/>
+<text x="454" y="112" fill="#fb923c" font-size="8" font-weight="600">ES9+'</text>
+<line x1="498" y1="135" x2="410" y2="135" stroke="#fb923c" stroke-width="1.5" stroke-dasharray="4,3"/>
+<text x="454" y="148" fill="#64748b" font-size="7">BPP returned</text>
+
+<!-- ===== eIM annotation ===== -->
+<rect x="750" y="90" width="270" height="55" rx="6" fill="rgba(251,146,60,0.06)" stroke="#fb923c" stroke-width="0.8" stroke-dasharray="4,2"/>
+<text x="885" y="112" fill="#fb923c" font-size="9" font-weight="600" text-anchor="middle">eIM as Security Gateway</text>
+<text x="885" y="128" fill="#94a3b8" font-size="8" text-anchor="middle">• Terminates TLS to SM-DP+</text>
+<text x="885" y="142" fill="#94a3b8" font-size="8" text-anchor="middle">• Re-encrypts for IPA transport</text>
+
+<!-- ===== Divider ===== -->
+<line x1="30" y1="175" x2="1020" y2="175" stroke="#1e293b" stroke-width="1" stroke-dasharray="8,4"/>
+<text x="525" y="195" fill="#64748b" font-size="9" text-anchor="middle">ESipa Boundary — eIM relays bound profile package to device</text>
+
+<!-- ===== ESipa relay ===== -->
+<rect x="150" y="210" width="700" height="28" rx="6" fill="rgba(251,146,60,0.12)" stroke="#fb923c" stroke-width="1" stroke-dasharray="4,2"/>
+<text x="500" y="229" fill="#fb923c" font-size="9" text-anchor="middle">ESipa: eIM relays Bound Profile Package (BPP) to IPA — IPA has NO direct SM-DP+ connection</text>
+
+<!-- ===== Device Side ===== -->
+<text x="525" y="265" fill="#94a3b8" font-size="9" text-anchor="middle">Device Side — IPA Only Sees eIM</text>
+
+<!-- IPA -->
+<rect x="40" y="285" width="240" height="70" rx="8" fill="rgba(8,51,68,0.4)" stroke="#22d3ee" stroke-width="1.5"/>
+<text x="160" y="312" fill="white" font-size="12" font-weight="600" text-anchor="middle">IPA</text>
+<text x="160" y="328" fill="#94a3b8" font-size="8" text-anchor="middle">IoT Profile Assistant</text>
+<text x="160" y="344" fill="#22d3ee" font-size="8" text-anchor="middle">Receives BPP via ESipa only</text>
+
+<!-- eUICC -->
+<rect x="380" y="285" width="180" height="70" rx="8" fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="1.5"/>
+<text x="470" y="312" fill="white" font-size="12" font-weight="600" text-anchor="middle">eUICC</text>
+<text x="470" y="328" fill="#94a3b8" font-size="8" text-anchor="middle">ISD-R | ISD-P</text>
+<text x="470" y="344" fill="#a78bfa" font-size="8" text-anchor="middle">Profile Installed</text>
+
+<!-- ===== Device arrows ===== -->
+<!-- IPA → eUICC: ES10b -->
+<line x1="280" y1="320" x2="378" y2="320" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#id-acy)"/>
+<text x="329" y="313" fill="#22d3ee" font-size="8">ES10b</text>
+
+<!-- ===== Why Indirect box ===== -->
+<rect x="610" y="285" width="410" height="150" rx="8" fill="rgba(30,41,59,0.3)" stroke="#475569" stroke-width="1"/>
+<text x="815" y="310" fill="white" font-size="10" font-weight="600" text-anchor="middle">When to Use Indirect Download</text>
+<line x1="630" y1="318" x2="1000" y2="318" stroke="#1e293b" stroke-width="0.5"/>
+
+<rect x="630" y="328" width="370" height="20" rx="3" fill="rgba(251,146,60,0.1)"/>
+<text x="815" y="343" fill="#fb923c" font-size="9" text-anchor="middle">Device can only reach eIM (no internet access)</text>
+
+<rect x="630" y="353" width="370" height="20" rx="3" fill="rgba(251,146,60,0.1)"/>
+<text x="815" y="368" fill="#fb923c" font-size="9" text-anchor="middle">eIM terminates TLS — device doesn't need certs</text>
+
+<rect x="630" y="378" width="370" height="20" rx="3" fill="rgba(251,146,60,0.1)"/>
+<text x="815" y="393" fill="#fb923c" font-size="9" text-anchor="middle">Non-IP protocol that only eIM understands</text>
+
+<rect x="630" y="403" width="370" height="20" rx="3" fill="rgba(251,146,60,0.1)"/>
+<text x="815" y="418" fill="#fb923c" font-size="9" text-anchor="middle">eIM can CancelSession (propagates to SM-DP+)</text>
+
+<!-- ===== No SM-DP+ connection ===== -->
+<rect x="40" y="385" width="520" height="55" rx="6" fill="rgba(136,19,55,0.1)" stroke="#fb7185" stroke-width="1.5" stroke-dasharray="6,3"/>
+<text x="300" y="407" fill="#fb7185" font-size="11" font-weight="600" text-anchor="middle">✗ No Direct IPA↔SM-DP+ Connection</text>
+<text x="300" y="425" fill="#94a3b8" font-size="9" text-anchor="middle">The IPA has zero knowledge of the SM-DP+. It only communicates with the eIM via ESipa.</text>
+<text x="300" y="437" fill="#64748b" font-size="8" text-anchor="middle">ESrp (RSP) or proprietary transport between eIM and IPA</text>
+
+<!-- Footer -->
+<text x="525" y="560" fill="#64748b" font-size="8" text-anchor="middle">Indirect Download: eIM is the sole mediator between SM-DP+ and device</text>
+
+</svg>
