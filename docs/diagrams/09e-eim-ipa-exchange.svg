@@ -1,124 +1,124 @@
-     1|     1|<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 650">
-     2|     2|<style>text { font-family: system-ui, sans-serif; }</style>
-     3|     3|<defs>
-     4|     4|
-     5|5|
-     6|6|
-     7|7|
-     8|8|
-     9|9|
-    10|10|<pattern id="eie-grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/></pattern>
-    11|    11|</defs>
-    12|    12|<rect width="100%" height="100%" fill="#0a1628"/>
-    13|    13|
-    14|    14|<!-- Title -->
-    15|    15|<text x="525" y="30" fill="white" font-size="14" font-weight="700" text-anchor="middle">The eIM–IPA Data Exchange — Heartbeat Cycle</text>
-    16|    16|<text x="525" y="48" fill="#94a3b8" font-size="9" text-anchor="middle">IPA synchronises eUICC state with eIM between eIM Package operations</text>
-    17|    17|<line x1="30" y1="58" x2="1020" y2="58" stroke="#1e293b" stroke-width="1"/>
-    18|    18|
-    19|    19|<!-- ===== Actors ===== -->
-    20|    20|<!-- eIM (left) -->
-    21|    21|<rect x="40" y="80" width="210" height="70" rx="8" fill="rgba(251,146,60,0.35)" stroke="#fb923c" stroke-width="2"/>
-    22|    22|<text x="145" y="108" fill="white" font-size="13" font-weight="700" text-anchor="middle">eIM</text>
-    23|    23|<text x="145" y="126" fill="#94a3b8" font-size="8" text-anchor="middle">eSIM IoT Remote Manager</text>
-    24|    24|<text x="145" y="140" fill="#fb923c" font-size="7" text-anchor="middle">Decides next PSMO/eCO</text>
-    25|    25|
-    26|    26|<!-- IPA (center) -->
-    27|    27|<rect x="385" y="80" width="230" height="70" rx="8" fill="rgba(8,51,68,0.5)" stroke="#22d3ee" stroke-width="2"/>
-    28|    28|<text x="500" y="108" fill="white" font-size="13" font-weight="700" text-anchor="middle">IPA</text>
-    29|    29|<text x="500" y="126" fill="#94a3b8" font-size="8" text-anchor="middle">IoT Profile Assistant</text>
-    30|    30|<text x="500" y="140" fill="#22d3ee" font-size="7" text-anchor="middle">Proxy · Proxy · Proxy</text>
-    31|    31|
-    32|    32|<!-- eUICC (right) -->
-    33|    33|<rect x="750" y="80" width="200" height="70" rx="8" fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="1.5"/>
-    34|    34|<text x="850" y="108" fill="white" font-size="13" font-weight="700" text-anchor="middle">eUICC</text>
-    35|    35|<text x="850" y="126" fill="#94a3b8" font-size="8" text-anchor="middle">ISD-R | ISD-P</text>
-    36|    36|<text x="850" y="140" fill="#a78bfa" font-size="7" text-anchor="middle">Signs results</text>
-    37|    37|
-    38|    38|<!-- ===== The Cycle ===== -->
-    39|    39|
-    40|    40|<!-- PHASE 1: IpaEuiccDataRequest -->
-    41|    41|<rect x="30" y="175" width="170" height="24" rx="4" fill="rgba(22,78,99,0.4)" stroke="#22d3ee" stroke-width="1"/>
-    42|    42|<text x="115" y="192" fill="#22d3ee" font-size="10" font-weight="600" text-anchor="middle">1. Data Request</text>
-    43|    43|
-    44|    44|<!-- IPA → eUICC: IpaEuiccDataRequest -->
-    45|    45|<path d="M 500 150 L 500 210 L 850 210 L 850 148" stroke="#22d3ee" stroke-width="1.5"/>
-    46|    46|<text x="675" y="203" fill="#22d3ee" font-size="9" text-anchor="middle">IpaEuiccDataRequest</text>
-    47|    47|<text x="675" y="218" fill="#64748b" font-size="7" text-anchor="middle">Fetch eUICC state: profiles, pending results, notifications</text>
-    48|    48|
-    49|    49|<!-- PHASE 2: IpaEuiccDataResponse -->
-    50|    50|<rect x="30" y="245" width="170" height="24" rx="4" fill="rgba(22,78,99,0.4)" stroke="#22d3ee" stroke-width="1"/>
-    51|    51|<text x="115" y="262" fill="#22d3ee" font-size="10" font-weight="600" text-anchor="middle">2. Data Response</text>
-    52|    52|
-    53|    53|<!-- eUICC → IPA: IpaEuiccDataResponse -->
-    54|    54|<path d="M 850 210 L 850 250 L 500 250 L 500 148" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="5,3"/>
-    55|    55|<text x="675" y="243" fill="#a78bfa" font-size="9" text-anchor="middle">IpaEuiccDataResponse</text>
-    56|    56|<text x="675" y="258" fill="#64748b" font-size="7" text-anchor="middle">eUICC state + pending results from prior operations</text>
-    57|    57|
-    58|    58|<!-- PHASE 3: IPA forwards to eIM -->
-    59|    59|<rect x="30" y="295" width="170" height="24" rx="4" fill="rgba(22,78,99,0.4)" stroke="#22d3ee" stroke-width="1"/>
-    60|    60|<text x="115" y="312" fill="#22d3ee" font-size="10" font-weight="600" text-anchor="middle">3. Forward to eIM</text>
-    61|    61|
-    62|    62|<!-- IPA → eIM: ESipa deliver state -->
-    63|    63|<path d="M 385 250 L 300 250 L 300 330 L 385 330" stroke="#22d3ee" stroke-width="1.5"/>
-    64|    64|<text x="310" y="295" fill="#22d3ee" font-size="8">ESipa</text>
-    65|    65|<text x="310" y="307" fill="#64748b" font-size="7">Deliver state</text>
-    66|    66|
-    67|    67|<!-- PHASE 4: eIM processes -->
-    68|    68|<rect x="30" y="345" width="170" height="24" rx="4" fill="rgba(251,146,60,0.3)" stroke="#fb923c" stroke-width="1"/>
-    69|    69|<text x="115" y="362" fill="#fb923c" font-size="10" font-weight="600" text-anchor="middle">4. eIM Processes</text>
-    70|    70|
-    71|    71|<!-- eIM processing box -->
-    72|    72|<rect x="40" y="380" width="280" height="50" rx="6" fill="rgba(251,146,60,0.08)" stroke="#fb923c" stroke-width="0.8" stroke-dasharray="4,2"/>
-    73|    73|<text x="180" y="400" fill="#fb923c" font-size="9" text-anchor="middle">eIM evaluates eUICC state</text>
-    74|    74|<text x="180" y="416" fill="#94a3b8" font-size="8" text-anchor="middle">Decides: Enable? Disable? Delete? Reconfigure?</text>
-    75|    75|<text x="180" y="428" fill="#64748b" font-size="7" text-anchor="middle">Builds signed eIM Package (PSMO/eCO)</text>
-    76|    76|
-    77|    77|<!-- PHASE 5: eIM Package to IPA -->
-    78|    78|<rect x="430" y="345" width="190" height="24" rx="4" fill="rgba(120,53,15,0.3)" stroke="#fb923c" stroke-width="1"/>
-    79|    79|<text x="525" y="362" fill="#fb923c" font-size="10" font-weight="600" text-anchor="middle">5. eIM Package</text>
-    80|    80|
-    81|    81|<!-- eIM → IPA: ESipa eIM Package -->
-    82|    82|<path d="M 250 150 L 250 400 L 385 400" stroke="#fb923c" stroke-width="2"/>
-    83|    83|<text x="300" y="390" fill="#fb923c" font-size="9" font-weight="600">ESipa</text>
-    84|    84|<text x="300" y="405" fill="#64748b" font-size="7">eIM Package</text>
-    85|    85|
-    86|    86|<!-- PHASE 6: IPA forwards to eUICC -->
-    87|    87|<rect x="430" y="415" width="190" height="24" rx="4" fill="rgba(120,53,15,0.3)" stroke="#fb923c" stroke-width="1"/>
-    88|    88|<text x="525" y="432" fill="#fb923c" font-size="10" font-weight="600" text-anchor="middle">6. Forward to eUICC</text>
-    89|    89|
-    90|    90|<!-- IPA → eUICC: ES10b eIM Package -->
-    91|    91|<path d="M 615 400 L 750 400 L 750 148" stroke="#fb923c" stroke-width="1.5"/>
-    92|    92|<text x="682" y="390" fill="#fb923c" font-size="8">ES10b</text>
-    93|    93|<text x="682" y="402" fill="#64748b" font-size="7">eIM Package</text>
-    94|    94|
-    95|    95|<!-- eUICC: Verify & Execute -->
-    96|    96|<rect x="750" y="480" width="200" height="50" rx="6" fill="rgba(76,29,149,0.25)" stroke="#a78bfa" stroke-width="1.5"/>
-    97|    97|<text x="850" y="500" fill="white" font-size="10" font-weight="600" text-anchor="middle">eUICC Executes</text>
-    98|    98|<text x="850" y="516" fill="#a78bfa" font-size="8" text-anchor="middle">Verify eIM signature → Execute</text>
-    99|    99|<text x="850" y="528" fill="#64748b" font-size="7" text-anchor="middle">PSMO / eCO operations</text>
-   100|   100|
-   101|   101|<line x1="850" y1="400" x2="850" y2="478" stroke="#a78bfa" stroke-width="1.5"/>
-   102|   102|
-   103|   103|<!-- PHASE 7: Signed result -->
-   104|   104|<rect x="430" y="485" width="190" height="24" rx="4" fill="rgba(120,53,15,0.3)" stroke="#fb923c" stroke-width="1"/>
-   105|   105|<text x="525" y="502" fill="#fb923c" font-size="10" font-weight="600" text-anchor="middle">7. Signed Result</text>
-   106|   106|
-   107|   107|<!-- eUICC → IPA: signed result -->
-   108|   108|<path d="M 750 505 L 615 505" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="5,3"/>
-   109|   109|<text x="682" y="497" fill="#a78bfa" font-size="8">EuiccPackageResult</text>
-   110|   110|
-   111|   111|<!-- IPA → eIM: return result -->
-   112|   112|<path d="M 385 505 L 250 505" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="5,3"/>
-   113|   113|<text x="317" y="497" fill="#a78bfa" font-size="8">ESipa: result</text>
-   114|   114|
-   115|   115|<!-- ===== Cycle back arrow ===== -->
-   116|   116|<path d="M 145 430 L 145 190" stroke="#34d399" stroke-width="1.5" stroke-dasharray="6,3"/>
-   117|   117|<text x="25" y="310" fill="#34d399" font-size="8" transform="rotate(-90 25 315)">Loop: next fetch cycle</text>
-   118|   118|
-   119|   119|<!-- ===== Heartbeat label ===== -->
-   120|   120|<rect x="40" y="560" width="960" height="50" rx="8" fill="rgba(6,78,59,0.08)" stroke="#34d399" stroke-width="1" stroke-dasharray="6,3"/>
-   121|   121|<text x="520" y="580" fill="#34d399" font-size="10" text-anchor="middle">💓 Heartbeat: IpaEuiccDataRequest → IpaEuiccDataResponse → ESipa delivery → eIM decides → eIM Package → Execute → Signed Result</text>
-   122|   122|<text x="520" y="598" fill="#64748b" font-size="8" text-anchor="middle">The IPA periodically drives this cycle — it's the bridge between eUICC state and eIM decisions. No user interaction required.</text>
-   123|   123|
-   124|   124|</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 650">
+<style>text { font-family: system-ui, sans-serif; }</style>
+<defs>
+
+
+
+
+
+
+<pattern id="eie-grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/></pattern>
+</defs>
+<rect width="100%" height="100%" fill="#0a1628"/>
+
+<!-- Title -->
+<text x="525" y="30" fill="white" font-size="14" font-weight="700" text-anchor="middle">The eIM–IPA Data Exchange — Heartbeat Cycle</text>
+<text x="525" y="48" fill="#94a3b8" font-size="9" text-anchor="middle">IPA synchronises eUICC state with eIM between eIM Package operations</text>
+<line x1="30" y1="58" x2="1020" y2="58" stroke="#1e293b" stroke-width="1"/>
+
+<!-- ===== Actors ===== -->
+<!-- eIM (left) -->
+<rect x="40" y="80" width="210" height="70" rx="8" fill="rgba(251,146,60,0.35)" stroke="#fb923c" stroke-width="2"/>
+<text x="145" y="108" fill="white" font-size="13" font-weight="700" text-anchor="middle">eIM</text>
+<text x="145" y="126" fill="#94a3b8" font-size="8" text-anchor="middle">eSIM IoT Remote Manager</text>
+<text x="145" y="140" fill="#fb923c" font-size="7" text-anchor="middle">Decides next PSMO/eCO</text>
+
+<!-- IPA (center) -->
+<rect x="385" y="80" width="230" height="70" rx="8" fill="rgba(8,51,68,0.5)" stroke="#22d3ee" stroke-width="2"/>
+<text x="500" y="108" fill="white" font-size="13" font-weight="700" text-anchor="middle">IPA</text>
+<text x="500" y="126" fill="#94a3b8" font-size="8" text-anchor="middle">IoT Profile Assistant</text>
+<text x="500" y="140" fill="#22d3ee" font-size="7" text-anchor="middle">Proxy · Proxy · Proxy</text>
+
+<!-- eUICC (right) -->
+<rect x="750" y="80" width="200" height="70" rx="8" fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="1.5"/>
+<text x="850" y="108" fill="white" font-size="13" font-weight="700" text-anchor="middle">eUICC</text>
+<text x="850" y="126" fill="#94a3b8" font-size="8" text-anchor="middle">ISD-R | ISD-P</text>
+<text x="850" y="140" fill="#a78bfa" font-size="7" text-anchor="middle">Signs results</text>
+
+<!-- ===== The Cycle ===== -->
+
+<!-- PHASE 1: IpaEuiccDataRequest -->
+<rect x="30" y="175" width="170" height="24" rx="4" fill="rgba(22,78,99,0.4)" stroke="#22d3ee" stroke-width="1"/>
+<text x="115" y="192" fill="#22d3ee" font-size="10" font-weight="600" text-anchor="middle">1. Data Request</text>
+
+<!-- IPA → eUICC: IpaEuiccDataRequest -->
+<path d="M 500 150 L 500 210 L 850 210 L 850 148" stroke="#22d3ee" stroke-width="1.5"/>
+<text x="675" y="203" fill="#22d3ee" font-size="9" text-anchor="middle">IpaEuiccDataRequest</text>
+<text x="675" y="218" fill="#64748b" font-size="7" text-anchor="middle">Fetch eUICC state: profiles, pending results, notifications</text>
+
+<!-- PHASE 2: IpaEuiccDataResponse -->
+<rect x="30" y="245" width="170" height="24" rx="4" fill="rgba(22,78,99,0.4)" stroke="#22d3ee" stroke-width="1"/>
+<text x="115" y="262" fill="#22d3ee" font-size="10" font-weight="600" text-anchor="middle">2. Data Response</text>
+
+<!-- eUICC → IPA: IpaEuiccDataResponse -->
+<path d="M 850 210 L 850 250 L 500 250 L 500 148" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="5,3"/>
+<text x="675" y="243" fill="#a78bfa" font-size="9" text-anchor="middle">IpaEuiccDataResponse</text>
+<text x="675" y="258" fill="#64748b" font-size="7" text-anchor="middle">eUICC state + pending results from prior operations</text>
+
+<!-- PHASE 3: IPA forwards to eIM -->
+<rect x="30" y="295" width="170" height="24" rx="4" fill="rgba(22,78,99,0.4)" stroke="#22d3ee" stroke-width="1"/>
+<text x="115" y="312" fill="#22d3ee" font-size="10" font-weight="600" text-anchor="middle">3. Forward to eIM</text>
+
+<!-- IPA → eIM: ESipa deliver state -->
+<path d="M 385 250 L 300 250 L 300 330 L 385 330" stroke="#22d3ee" stroke-width="1.5"/>
+<text x="310" y="295" fill="#22d3ee" font-size="8">ESipa</text>
+<text x="310" y="307" fill="#64748b" font-size="7">Deliver state</text>
+
+<!-- PHASE 4: eIM processes -->
+<rect x="30" y="345" width="170" height="24" rx="4" fill="rgba(251,146,60,0.3)" stroke="#fb923c" stroke-width="1"/>
+<text x="115" y="362" fill="#fb923c" font-size="10" font-weight="600" text-anchor="middle">4. eIM Processes</text>
+
+<!-- eIM processing box -->
+<rect x="40" y="380" width="280" height="50" rx="6" fill="rgba(251,146,60,0.08)" stroke="#fb923c" stroke-width="0.8" stroke-dasharray="4,2"/>
+<text x="180" y="400" fill="#fb923c" font-size="9" text-anchor="middle">eIM evaluates eUICC state</text>
+<text x="180" y="416" fill="#94a3b8" font-size="8" text-anchor="middle">Decides: Enable? Disable? Delete? Reconfigure?</text>
+<text x="180" y="428" fill="#64748b" font-size="7" text-anchor="middle">Builds signed eIM Package (PSMO/eCO)</text>
+
+<!-- PHASE 5: eIM Package to IPA -->
+<rect x="430" y="345" width="190" height="24" rx="4" fill="rgba(120,53,15,0.3)" stroke="#fb923c" stroke-width="1"/>
+<text x="525" y="362" fill="#fb923c" font-size="10" font-weight="600" text-anchor="middle">5. eIM Package</text>
+
+<!-- eIM → IPA: ESipa eIM Package -->
+<path d="M 250 150 L 250 400 L 385 400" stroke="#fb923c" stroke-width="2"/>
+<text x="300" y="390" fill="#fb923c" font-size="9" font-weight="600">ESipa</text>
+<text x="300" y="405" fill="#64748b" font-size="7">eIM Package</text>
+
+<!-- PHASE 6: IPA forwards to eUICC -->
+<rect x="430" y="415" width="190" height="24" rx="4" fill="rgba(120,53,15,0.3)" stroke="#fb923c" stroke-width="1"/>
+<text x="525" y="432" fill="#fb923c" font-size="10" font-weight="600" text-anchor="middle">6. Forward to eUICC</text>
+
+<!-- IPA → eUICC: ES10b eIM Package -->
+<path d="M 615 400 L 750 400 L 750 148" stroke="#fb923c" stroke-width="1.5"/>
+<text x="682" y="390" fill="#fb923c" font-size="8">ES10b</text>
+<text x="682" y="402" fill="#64748b" font-size="7">eIM Package</text>
+
+<!-- eUICC: Verify & Execute -->
+<rect x="750" y="480" width="200" height="50" rx="6" fill="rgba(76,29,149,0.25)" stroke="#a78bfa" stroke-width="1.5"/>
+<text x="850" y="500" fill="white" font-size="10" font-weight="600" text-anchor="middle">eUICC Executes</text>
+<text x="850" y="516" fill="#a78bfa" font-size="8" text-anchor="middle">Verify eIM signature → Execute</text>
+<text x="850" y="528" fill="#64748b" font-size="7" text-anchor="middle">PSMO / eCO operations</text>
+
+<line x1="850" y1="400" x2="850" y2="478" stroke="#a78bfa" stroke-width="1.5"/>
+
+<!-- PHASE 7: Signed result -->
+<rect x="430" y="485" width="190" height="24" rx="4" fill="rgba(120,53,15,0.3)" stroke="#fb923c" stroke-width="1"/>
+<text x="525" y="502" fill="#fb923c" font-size="10" font-weight="600" text-anchor="middle">7. Signed Result</text>
+
+<!-- eUICC → IPA: signed result -->
+<path d="M 750 505 L 615 505" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="5,3"/>
+<text x="682" y="497" fill="#a78bfa" font-size="8">EuiccPackageResult</text>
+
+<!-- IPA → eIM: return result -->
+<path d="M 385 505 L 250 505" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="5,3"/>
+<text x="317" y="497" fill="#a78bfa" font-size="8">ESipa: result</text>
+
+<!-- ===== Cycle back arrow ===== -->
+<path d="M 145 430 L 145 190" stroke="#34d399" stroke-width="1.5" stroke-dasharray="6,3"/>
+<text x="25" y="310" fill="#34d399" font-size="8" transform="rotate(-90 25 315)">Loop: next fetch cycle</text>
+
+<!-- ===== Heartbeat label ===== -->
+<rect x="40" y="560" width="960" height="50" rx="8" fill="rgba(6,78,59,0.08)" stroke="#34d399" stroke-width="1" stroke-dasharray="6,3"/>
+<text x="520" y="580" fill="#34d399" font-size="10" text-anchor="middle">💓 Heartbeat: IpaEuiccDataRequest → IpaEuiccDataResponse → ESipa delivery → eIM decides → eIM Package → Execute → Signed Result</text>
+<text x="520" y="598" fill="#64748b" font-size="8" text-anchor="middle">The IPA periodically drives this cycle — it's the bridge between eUICC state and eIM decisions. No user interaction required.</text>
+
+</svg>
