@@ -1,13 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 650">
 <style>text { font-family: system-ui, sans-serif; }</style>
 <defs>
-
-
-
-
-
-
-<pattern id="eie-grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/></pattern>
 </defs>
 <rect width="100%" height="100%" fill="#0a1628"/>
 
@@ -42,7 +35,7 @@
 <text x="115" y="192" fill="#22d3ee" font-size="10" font-weight="600" text-anchor="middle">1. Data Request</text>
 
 <!-- IPA → eUICC: IpaEuiccDataRequest -->
-<path d="M 500 150 L 500 210 L 850 210 L 850 148" stroke="#22d3ee" stroke-width="1.5"/>
+<path fill="none" d="M 500 150 L 500 210 L 850 210 L 850 148" stroke="#22d3ee" stroke-width="1.5"/>
 <text x="675" y="203" fill="#22d3ee" font-size="9" text-anchor="middle">IpaEuiccDataRequest</text>
 <text x="675" y="218" fill="#64748b" font-size="7" text-anchor="middle">Fetch eUICC state: profiles, pending results, notifications</text>
 
@@ -51,7 +44,7 @@
 <text x="115" y="262" fill="#22d3ee" font-size="10" font-weight="600" text-anchor="middle">2. Data Response</text>
 
 <!-- eUICC → IPA: IpaEuiccDataResponse -->
-<path d="M 850 210 L 850 250 L 500 250 L 500 148" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="5,3"/>
+<path fill="none" d="M 850 210 L 850 250 L 500 250 L 500 148" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="5,3"/>
 <text x="675" y="243" fill="#a78bfa" font-size="9" text-anchor="middle">IpaEuiccDataResponse</text>
 <text x="675" y="258" fill="#64748b" font-size="7" text-anchor="middle">eUICC state + pending results from prior operations</text>
 
@@ -60,7 +53,7 @@
 <text x="115" y="312" fill="#22d3ee" font-size="10" font-weight="600" text-anchor="middle">3. Forward to eIM</text>
 
 <!-- IPA → eIM: ESipa deliver state -->
-<path d="M 385 250 L 300 250 L 300 330 L 385 330" stroke="#22d3ee" stroke-width="1.5"/>
+<path fill="none" d="M 385 250 L 300 250 L 300 330 L 385 330" stroke="#22d3ee" stroke-width="1.5"/>
 <text x="310" y="295" fill="#22d3ee" font-size="8">ESipa</text>
 <text x="310" y="307" fill="#64748b" font-size="7">Deliver state</text>
 
@@ -79,7 +72,7 @@
 <text x="525" y="362" fill="#fb923c" font-size="10" font-weight="600" text-anchor="middle">5. eIM Package</text>
 
 <!-- eIM → IPA: ESipa eIM Package -->
-<path d="M 250 150 L 250 400 L 385 400" stroke="#fb923c" stroke-width="2"/>
+<path fill="none" d="M 250 150 L 250 400 L 385 400" stroke="#fb923c" stroke-width="2"/>
 <text x="300" y="390" fill="#fb923c" font-size="9" font-weight="600">ESipa</text>
 <text x="300" y="405" fill="#64748b" font-size="7">eIM Package</text>
 
@@ -88,7 +81,7 @@
 <text x="525" y="432" fill="#fb923c" font-size="10" font-weight="600" text-anchor="middle">6. Forward to eUICC</text>
 
 <!-- IPA → eUICC: ES10b eIM Package -->
-<path d="M 615 400 L 750 400 L 750 148" stroke="#fb923c" stroke-width="1.5"/>
+<path fill="none" d="M 615 400 L 750 400 L 750 148" stroke="#fb923c" stroke-width="1.5"/>
 <text x="682" y="390" fill="#fb923c" font-size="8">ES10b</text>
 <text x="682" y="402" fill="#64748b" font-size="7">eIM Package</text>
 
@@ -105,15 +98,15 @@
 <text x="525" y="502" fill="#fb923c" font-size="10" font-weight="600" text-anchor="middle">7. Signed Result</text>
 
 <!-- eUICC → IPA: signed result -->
-<path d="M 750 505 L 615 505" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="5,3"/>
+<path fill="none" d="M 750 505 L 615 505" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="5,3"/>
 <text x="682" y="497" fill="#a78bfa" font-size="8">EuiccPackageResult</text>
 
 <!-- IPA → eIM: return result -->
-<path d="M 385 505 L 250 505" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="5,3"/>
+<path fill="none" d="M 385 505 L 250 505" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="5,3"/>
 <text x="317" y="497" fill="#a78bfa" font-size="8">ESipa: result</text>
 
 <!-- ===== Cycle back arrow ===== -->
-<path d="M 145 430 L 145 190" stroke="#34d399" stroke-width="1.5" stroke-dasharray="6,3"/>
+<path fill="none" d="M 145 430 L 145 190" stroke="#34d399" stroke-width="1.5" stroke-dasharray="6,3"/>
 <text x="25" y="310" fill="#34d399" font-size="8" transform="rotate(-90 25 315)">Loop: next fetch cycle</text>
 
 <!-- ===== Heartbeat label ===== -->
