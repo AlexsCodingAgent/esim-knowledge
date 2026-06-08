@@ -1,119 +1,120 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 640">
-<defs>
-<marker id="a11o" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#fb923c"/></marker>
-<marker id="a11g" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#34d399"/></marker>
-<marker id="a11c" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#22d3ee"/></marker>
-<marker id="a11v" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#a78bfa"/></marker>
-<pattern id="g11" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/></pattern>
-</defs>
-<rect width="100%" height="100%" fill="url(#g11)"/>
-
-<!-- Title -->
-<text x="500" y="28" fill="white" font-size="14" font-weight="600" text-anchor="middle">eIM Configuration Lifecycle and Bootstrap Paths</text>
-
-<!-- ===== LIFECYCLE SECTION ===== -->
-<rect x="30" y="42" width="220" height="22" rx="4" fill="rgba(251,146,60,0.3)" stroke="#fb923c" stroke-width="1"/>
-<text x="140" y="57" fill="#fb923c" font-size="10" font-weight="600" text-anchor="middle">eIM Configuration Lifecycle</text>
-
-<!-- eCO Operations circle -->
-<!-- addEim -->
-<rect x="100" y="80" width="200" height="80" rx="8" fill="rgba(6,78,59,0.35)" stroke="#34d399" stroke-width="1.5"/>
-<text x="200" y="108" fill="white" font-size="12" font-weight="600" text-anchor="middle">addEim</text>
-<text x="200" y="126" fill="#94a3b8" font-size="8" text-anchor="middle">Associate new eIM</text>
-<text x="200" y="144" fill="#64748b" font-size="7" text-anchor="middle">Set counterValue, public key, TLS trust</text>
-
-<!-- updateEim -->
-<rect x="380" y="80" width="200" height="80" rx="8" fill="rgba(251,146,60,0.25)" stroke="#fb923c" stroke-width="1.5"/>
-<text x="480" y="108" fill="white" font-size="12" font-weight="600" text-anchor="middle">updateEim</text>
-<text x="480" y="126" fill="#94a3b8" font-size="8" text-anchor="middle">Rotate keys, change config</text>
-<text x="480" y="144" fill="#64748b" font-size="7" text-anchor="middle">Key rotation, TLS anchor, protocol update</text>
-
-<!-- deleteEim -->
-<rect x="660" y="80" width="200" height="80" rx="8" fill="rgba(136,19,55,0.3)" stroke="#fb7185" stroke-width="1.5"/>
-<text x="760" y="108" fill="white" font-size="12" font-weight="600" text-anchor="middle">deleteEim</text>
-<text x="760" y="126" fill="#94a3b8" font-size="8" text-anchor="middle">Remove eIM association</text>
-<text x="760" y="144" fill="#64748b" font-size="7" text-anchor="middle">Last eIM → returns lastEimDeleted(2)</text>
-
-<!-- listEim -->
-<rect x="380" y="185" width="200" height="55" rx="6" fill="rgba(34,211,238,0.15)" stroke="#22d3ee" stroke-width="1"/>
-<text x="480" y="210" fill="white" font-size="11" font-weight="600" text-anchor="middle">listEim</text>
-<text x="480" y="228" fill="#94a3b8" font-size="8" text-anchor="middle">Enumerate associated eIMs</text>
-
-<!-- Arrows between lifecycle operations -->
-<line x1="300" y1="120" x2="378" y2="120" stroke="#fb923c" stroke-width="1.5" marker-end="url(#a11o)"/>
-<line x1="580" y1="120" x2="658" y2="120" stroke="#fb923c" stroke-width="1.5" marker-end="url(#a11o)"/>
-
-<text x="340" y="112" fill="#fb923c" font-size="8" text-anchor="middle">signed eCO</text>
-<text x="620" y="112" fill="#fb923c" font-size="8" text-anchor="middle">signed eCO</text>
-
-<!-- Counter overflow loop — routed below listEim -->
-<path d="M 760 160 Q 760 258 600 258 Q 480 258 480 160" fill="none" stroke="#a78bfa" stroke-width="1" stroke-dasharray="5,3"/>
-<text x="650" y="272" fill="#a78bfa" font-size="7" text-anchor="middle">counter overflow → delete + re-add with fresh associationToken</text>
-
-<!-- ===== eIM Configuration Data ===== -->
-<rect x="30" y="265" width="240" height="22" rx="4" fill="rgba(76,29,149,0.3)" stroke="#a78bfa" stroke-width="1"/>
-<text x="150" y="280" fill="#a78bfa" font-size="10" font-weight="600" text-anchor="middle">EimConfigurationData (on eUICC)</text>
-
-<rect x="30" y="295" width="940" height="80" rx="8" fill="rgba(30,41,59,0.3)" stroke="#64748b" stroke-width="1"/>
-<text x="60" y="320" fill="#94a3b8" font-size="9">Key fields:</text>
-
-<rect x="60" y="332" width="130" height="20" rx="3" fill="rgba(34,211,238,0.15)"/>
-<text x="125" y="346" fill="#22d3ee" font-size="8" text-anchor="middle">eimId</text>
-
-<rect x="200" y="332" width="150" height="20" rx="3" fill="rgba(34,211,238,0.15)"/>
-<text x="275" y="346" fill="#22d3ee" font-size="8" text-anchor="middle">eimPublicKeyData</text>
-
-<rect x="360" y="332" width="140" height="20" rx="3" fill="rgba(34,211,238,0.15)"/>
-<text x="430" y="346" fill="#22d3ee" font-size="8" text-anchor="middle">counterValue</text>
-
-<rect x="510" y="332" width="170" height="20" rx="3" fill="rgba(34,211,238,0.15)"/>
-<text x="595" y="346" fill="#22d3ee" font-size="8" text-anchor="middle">trustedPublicKeyDataTls</text>
-
-<rect x="690" y="332" width="140" height="20" rx="3" fill="rgba(34,211,238,0.15)"/>
-<text x="760" y="346" fill="#22d3ee" font-size="8" text-anchor="middle">associationToken</text>
-
-<rect x="840" y="332" width="110" height="20" rx="3" fill="rgba(34,211,238,0.15)"/>
-<text x="895" y="346" fill="#22d3ee" font-size="8" text-anchor="middle">eimFqdn</text>
-
-<rect x="60" y="358" width="170" height="10" rx="3" fill="rgba(34,211,238,0.1)"/>
-<text x="145" y="366" fill="#64748b" font-size="7" text-anchor="middle">eimSupportedProtocol</text>
-
-<!-- ===== TWO BOOTSTRAP PATHS ===== -->
-<rect x="30" y="395" width="200" height="22" rx="4" fill="rgba(8,51,68,0.3)" stroke="#22d3ee" stroke-width="1"/>
-<text x="130" y="410" fill="#22d3ee" font-size="10" font-weight="600" text-anchor="middle">Two Bootstrap Paths</text>
-
-<!-- Path 2: eIM-managed -->
-<rect x="30" y="430" width="455" height="175" rx="10" fill="rgba(251,146,60,0.08)" stroke="#fb923c" stroke-width="1.5"/>
-<text x="257" y="452" fill="#fb923c" font-size="12" font-weight="600" text-anchor="middle">Path 1: eIM-Managed (signed eCO)</text>
-
-<rect x="55" y="465" width="120" height="35" rx="5" fill="rgba(251,146,60,0.3)" stroke="#fb923c" stroke-width="1"/>
-<text x="115" y="487" fill="white" font-size="9" text-anchor="middle">Associated eIM</text>
-<text x="210" y="482" fill="#fb923c" font-size="12">→</text>
-<rect x="230" y="465" width="235" height="35" rx="5" fill="rgba(34,211,238,0.2)" stroke="#22d3ee" stroke-width="1"/>
-<text x="347" y="482" fill="white" font-size="9" text-anchor="middle">sends addEim eCO in signed</text>
-<text x="347" y="494" fill="white" font-size="9" text-anchor="middle">EuiccPackageRequest</text>
-
-<text x="257" y="525" fill="#94a3b8" font-size="9" text-anchor="middle">The primary path: existing eIM adds another eIM</text>
-<text x="257" y="545" fill="#94a3b8" font-size="9" text-anchor="middle">Used when device management platform adds itself alongside provisioning eIM</text>
-
-<rect x="120" y="560" width="270" height="30" rx="4" fill="rgba(6,78,59,0.2)"/>
-<text x="255" y="579" fill="#34d399" font-size="9" text-anchor="middle">✓ Requires at least one already-associated eIM</text>
-
-<!-- Path 1: IPA-managed -->
-<rect x="510" y="430" width="460" height="175" rx="10" fill="rgba(34,211,238,0.08)" stroke="#22d3ee" stroke-width="1.5"/>
-<text x="740" y="452" fill="#22d3ee" font-size="12" font-weight="600" text-anchor="middle">Path 2: IPA-Managed (unsigned — Bootstrap)</text>
-
-<rect x="535" y="465" width="120" height="35" rx="5" fill="rgba(34,211,238,0.3)" stroke="#22d3ee" stroke-width="1"/>
-<text x="595" y="487" fill="white" font-size="9" text-anchor="middle">IPA (IPAd)</text>
-<text x="690" y="482" fill="#22d3ee" font-size="12">→</text>
-<rect x="710" y="465" width="240" height="35" rx="5" fill="rgba(76,29,149,0.3)" stroke="#a78bfa" stroke-width="1"/>
-<text x="830" y="482" fill="white" font-size="9" text-anchor="middle">ES10b.AddInitialEimConfiguration</text>
-<text x="830" y="494" fill="white" font-size="9" text-anchor="middle">(unsigned, very first eIM only)</text>
-
-<text x="740" y="525" fill="#94a3b8" font-size="9" text-anchor="middle">For the very first eIM: no associated eIM exists yet to sign</text>
-<text x="740" y="545" fill="#94a3b8" font-size="9" text-anchor="middle">Typically done during manufacturing or initial provisioning</text>
-
-<rect x="600" y="560" width="280" height="30" rx="4" fill="rgba(6,78,59,0.2)"/>
-<text x="740" y="579" fill="#34d399" font-size="9" text-anchor="middle">✓ Used when no eIM is yet associated</text>
-
-</svg>
+     1|<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 640">
+     2|<defs>
+     3|
+4|
+5|
+6|
+7|<pattern id="g11" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/></pattern>
+     8|</defs>
+     9|<rect width="100%" height="100%" fill="url(#g11)"/>
+    10|
+    11|<!-- Title -->
+    12|<text x="500" y="28" fill="white" font-size="14" font-weight="600" text-anchor="middle">eIM Configuration Lifecycle and Bootstrap Paths</text>
+    13|
+    14|<!-- ===== LIFECYCLE SECTION ===== -->
+    15|<rect x="30" y="42" width="220" height="22" rx="4" fill="rgba(251,146,60,0.3)" stroke="#fb923c" stroke-width="1"/>
+    16|<text x="140" y="57" fill="#fb923c" font-size="10" font-weight="600" text-anchor="middle">eIM Configuration Lifecycle</text>
+    17|
+    18|<!-- eCO Operations circle -->
+    19|<!-- addEim -->
+    20|<rect x="100" y="80" width="200" height="80" rx="8" fill="rgba(6,78,59,0.35)" stroke="#34d399" stroke-width="1.5"/>
+    21|<text x="200" y="108" fill="white" font-size="12" font-weight="600" text-anchor="middle">addEim</text>
+    22|<text x="200" y="126" fill="#94a3b8" font-size="8" text-anchor="middle">Associate new eIM</text>
+    23|<text x="200" y="144" fill="#64748b" font-size="7" text-anchor="middle">Set counterValue, public key, TLS trust</text>
+    24|
+    25|<!-- updateEim -->
+    26|<rect x="380" y="80" width="200" height="80" rx="8" fill="rgba(251,146,60,0.25)" stroke="#fb923c" stroke-width="1.5"/>
+    27|<text x="480" y="108" fill="white" font-size="12" font-weight="600" text-anchor="middle">updateEim</text>
+    28|<text x="480" y="126" fill="#94a3b8" font-size="8" text-anchor="middle">Rotate keys, change config</text>
+    29|<text x="480" y="144" fill="#64748b" font-size="7" text-anchor="middle">Key rotation, TLS anchor, protocol update</text>
+    30|
+    31|<!-- deleteEim -->
+    32|<rect x="660" y="80" width="200" height="80" rx="8" fill="rgba(136,19,55,0.3)" stroke="#fb7185" stroke-width="1.5"/>
+    33|<text x="760" y="108" fill="white" font-size="12" font-weight="600" text-anchor="middle">deleteEim</text>
+    34|<text x="760" y="126" fill="#94a3b8" font-size="8" text-anchor="middle">Remove eIM association</text>
+    35|<text x="760" y="144" fill="#64748b" font-size="7" text-anchor="middle">Last eIM → returns lastEimDeleted(2)</text>
+    36|
+    37|<!-- listEim -->
+    38|<rect x="380" y="185" width="200" height="55" rx="6" fill="rgba(34,211,238,0.15)" stroke="#22d3ee" stroke-width="1"/>
+    39|<text x="480" y="210" fill="white" font-size="11" font-weight="600" text-anchor="middle">listEim</text>
+    40|<text x="480" y="228" fill="#94a3b8" font-size="8" text-anchor="middle">Enumerate associated eIMs</text>
+    41|
+    42|<!-- Arrows between lifecycle operations -->
+    43|<line x1="300" y1="120" x2="378" y2="120" stroke="#fb923c" stroke-width="1.5"/>
+    44|<line x1="580" y1="120" x2="658" y2="120" stroke="#fb923c" stroke-width="1.5"/>
+    45|
+    46|<text x="340" y="112" fill="#fb923c" font-size="8" text-anchor="middle">signed eCO</text>
+    47|<text x="620" y="112" fill="#fb923c" font-size="8" text-anchor="middle">signed eCO</text>
+    48|
+    49|<!-- Counter overflow loop — routed below listEim -->
+    50|<path d="M 760 160 Q 760 258 600 258 Q 480 258 480 160" fill="none" stroke="#a78bfa" stroke-width="1" stroke-dasharray="5,3"/>
+    51|<text x="650" y="272" fill="#a78bfa" font-size="7" text-anchor="middle">counter overflow → delete + re-add with fresh associationToken</text>
+    52|
+    53|<!-- ===== eIM Configuration Data ===== -->
+    54|<rect x="30" y="265" width="240" height="22" rx="4" fill="rgba(76,29,149,0.3)" stroke="#a78bfa" stroke-width="1"/>
+    55|<text x="150" y="280" fill="#a78bfa" font-size="10" font-weight="600" text-anchor="middle">EimConfigurationData (on eUICC)</text>
+    56|
+    57|<rect x="30" y="295" width="940" height="80" rx="8" fill="rgba(30,41,59,0.3)" stroke="#64748b" stroke-width="1"/>
+    58|<text x="60" y="320" fill="#94a3b8" font-size="9">Key fields:</text>
+    59|
+    60|<rect x="60" y="332" width="130" height="20" rx="3" fill="rgba(34,211,238,0.15)"/>
+    61|<text x="125" y="346" fill="#22d3ee" font-size="8" text-anchor="middle">eimId</text>
+    62|
+    63|<rect x="200" y="332" width="150" height="20" rx="3" fill="rgba(34,211,238,0.15)"/>
+    64|<text x="275" y="346" fill="#22d3ee" font-size="8" text-anchor="middle">eimPublicKeyData</text>
+    65|
+    66|<rect x="360" y="332" width="140" height="20" rx="3" fill="rgba(34,211,238,0.15)"/>
+    67|<text x="430" y="346" fill="#22d3ee" font-size="8" text-anchor="middle">counterValue</text>
+    68|
+    69|<rect x="510" y="332" width="170" height="20" rx="3" fill="rgba(34,211,238,0.15)"/>
+    70|<text x="595" y="346" fill="#22d3ee" font-size="8" text-anchor="middle">trustedPublicKeyDataTls</text>
+    71|
+    72|<rect x="690" y="332" width="140" height="20" rx="3" fill="rgba(34,211,238,0.15)"/>
+    73|<text x="760" y="346" fill="#22d3ee" font-size="8" text-anchor="middle">associationToken</text>
+    74|
+    75|<rect x="840" y="332" width="110" height="20" rx="3" fill="rgba(34,211,238,0.15)"/>
+    76|<text x="895" y="346" fill="#22d3ee" font-size="8" text-anchor="middle">eimFqdn</text>
+    77|
+    78|<rect x="60" y="358" width="170" height="10" rx="3" fill="rgba(34,211,238,0.1)"/>
+    79|<text x="145" y="366" fill="#64748b" font-size="7" text-anchor="middle">eimSupportedProtocol</text>
+    80|
+    81|<!-- ===== TWO BOOTSTRAP PATHS ===== -->
+    82|<rect x="30" y="395" width="200" height="22" rx="4" fill="rgba(8,51,68,0.3)" stroke="#22d3ee" stroke-width="1"/>
+    83|<text x="130" y="410" fill="#22d3ee" font-size="10" font-weight="600" text-anchor="middle">Two Bootstrap Paths</text>
+    84|
+    85|<!-- Path 2: eIM-managed -->
+    86|<rect x="30" y="430" width="455" height="175" rx="10" fill="rgba(251,146,60,0.08)" stroke="#fb923c" stroke-width="1.5"/>
+    87|<text x="257" y="452" fill="#fb923c" font-size="12" font-weight="600" text-anchor="middle">Path 1: eIM-Managed (signed eCO)</text>
+    88|
+    89|<rect x="55" y="465" width="120" height="35" rx="5" fill="rgba(251,146,60,0.3)" stroke="#fb923c" stroke-width="1"/>
+    90|<text x="115" y="487" fill="white" font-size="9" text-anchor="middle">Associated eIM</text>
+    91|<text x="210" y="482" fill="#fb923c" font-size="12">→</text>
+    92|<rect x="230" y="465" width="235" height="35" rx="5" fill="rgba(34,211,238,0.2)" stroke="#22d3ee" stroke-width="1"/>
+    93|<text x="347" y="482" fill="white" font-size="9" text-anchor="middle">sends addEim eCO in signed</text>
+    94|<text x="347" y="494" fill="white" font-size="9" text-anchor="middle">EuiccPackageRequest</text>
+    95|
+    96|<text x="257" y="525" fill="#94a3b8" font-size="9" text-anchor="middle">The primary path: existing eIM adds another eIM</text>
+    97|<text x="257" y="545" fill="#94a3b8" font-size="9" text-anchor="middle">Used when device management platform adds itself alongside provisioning eIM</text>
+    98|
+    99|<rect x="120" y="560" width="270" height="30" rx="4" fill="rgba(6,78,59,0.2)"/>
+   100|<text x="255" y="579" fill="#34d399" font-size="9" text-anchor="middle">✓ Requires at least one already-associated eIM</text>
+   101|
+   102|<!-- Path 1: IPA-managed -->
+   103|<rect x="510" y="430" width="460" height="175" rx="10" fill="rgba(34,211,238,0.08)" stroke="#22d3ee" stroke-width="1.5"/>
+   104|<text x="740" y="452" fill="#22d3ee" font-size="12" font-weight="600" text-anchor="middle">Path 2: IPA-Managed (unsigned — Bootstrap)</text>
+   105|
+   106|<rect x="535" y="465" width="120" height="35" rx="5" fill="rgba(34,211,238,0.3)" stroke="#22d3ee" stroke-width="1"/>
+   107|<text x="595" y="487" fill="white" font-size="9" text-anchor="middle">IPA (IPAd)</text>
+   108|<text x="690" y="482" fill="#22d3ee" font-size="12">→</text>
+   109|<rect x="710" y="465" width="240" height="35" rx="5" fill="rgba(76,29,149,0.3)" stroke="#a78bfa" stroke-width="1"/>
+   110|<text x="830" y="482" fill="white" font-size="9" text-anchor="middle">ES10b.AddInitialEimConfiguration</text>
+   111|<text x="830" y="494" fill="white" font-size="9" text-anchor="middle">(unsigned, very first eIM only)</text>
+   112|
+   113|<text x="740" y="525" fill="#94a3b8" font-size="9" text-anchor="middle">For the very first eIM: no associated eIM exists yet to sign</text>
+   114|<text x="740" y="545" fill="#94a3b8" font-size="9" text-anchor="middle">Typically done during manufacturing or initial provisioning</text>
+   115|
+   116|<rect x="600" y="560" width="280" height="30" rx="4" fill="rgba(6,78,59,0.2)"/>
+   117|<text x="740" y="579" fill="#34d399" font-size="9" text-anchor="middle">✓ Used when no eIM is yet associated</text>
+   118|
+   119|</svg>
+   120|

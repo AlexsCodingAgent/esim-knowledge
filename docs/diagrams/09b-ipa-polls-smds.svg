@@ -1,109 +1,109 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 630">
-<style>text { font-family: system-ui, sans-serif; }</style>
-<defs>
-<marker id="ipaa-a" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#94a3b8"/></marker>
-<marker id="ipaa-ag" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#34d399"/></marker>
-<marker id="ipaa-ao" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#fb923c"/></marker>
-<marker id="ipaa-av" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#a78bfa"/></marker>
-<marker id="ipaa-ay" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#fbbf24"/></marker>
-<marker id="ipaa-acy" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#22d3ee"/></marker>
-<pattern id="ipaa-grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/></pattern>
-</defs>
-<rect width="100%" height="100%" fill="url(#ipaa-grid)"/>
-
-<!-- Title -->
-<text x="525" y="30" fill="white" font-size="14" font-weight="700" text-anchor="middle">Direct Download — Option A: IPA Polls SM-DS</text>
-<text x="525" y="48" fill="#94a3b8" font-size="9" text-anchor="middle">IPA retrieves Event Record from SM-DS via ES11, then contacts SM-DP+</text>
-<line x1="30" y1="58" x2="1020" y2="58" stroke="#1e293b" stroke-width="1"/>
-
-<!-- ===== Server Side ===== -->
-<text x="525" y="78" fill="#94a3b8" font-size="9" text-anchor="middle">Server Side</text>
-
-<!-- eIM -->
-<rect x="40" y="90" width="180" height="50" rx="6" fill="rgba(251,146,60,0.3)" stroke="#fb923c" stroke-width="2"/>
-<text x="130" y="114" fill="white" font-size="11" font-weight="600" text-anchor="middle">eIM</text>
-<text x="130" y="130" fill="#fb923c" font-size="8" text-anchor="middle">eSIM IoT Remote Manager</text>
-
-<!-- SM-DS -->
-<rect x="300" y="90" width="160" height="50" rx="6" fill="rgba(120,53,15,0.3)" stroke="#fbbf24" stroke-width="1.5"/>
-<text x="380" y="114" fill="white" font-size="11" font-weight="600" text-anchor="middle">SM-DS</text>
-<text x="380" y="130" fill="#fbbf24" font-size="8" text-anchor="middle">Event Registry</text>
-
-<!-- SM-DP+ -->
-<rect x="545" y="90" width="160" height="50" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
-<text x="625" y="114" fill="white" font-size="11" font-weight="600" text-anchor="middle">SM-DP+</text>
-<text x="625" y="130" fill="#34d399" font-size="8" text-anchor="middle">Profile Factory</text>
-
-<!-- ===== eIM → eIM tells IPA to poll ===== -->
-<!-- eIM down arrow to ESipa label -->
-<path d="M 130 140 L 130 195" stroke="#fb923c" stroke-width="1.5" marker-end="url(#ipaa-ao)"/>
-<text x="115" y="170" fill="#fb923c" font-size="8">ESipa</text>
-<text x="115" y="180" fill="#64748b" font-size="7">poll trigger</text>
-
-<!-- ===== Device Side ===== -->
-<text x="525" y="220" fill="#94a3b8" font-size="9" text-anchor="middle">Device Side</text>
-
-<!-- IPA -->
-<rect x="40" y="240" width="220" height="70" rx="8" fill="rgba(8,51,68,0.4)" stroke="#22d3ee" stroke-width="1.5"/>
-<text x="150" y="268" fill="white" font-size="12" font-weight="600" text-anchor="middle">IPA</text>
-<text x="150" y="284" fill="#94a3b8" font-size="8" text-anchor="middle">IoT Profile Assistant</text>
-<text x="150" y="300" fill="#22d3ee" font-size="8" text-anchor="middle">Polls SM-DS directly</text>
-
-<!-- eUICC -->
-<rect x="340" y="240" width="160" height="70" rx="8" fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="1.5"/>
-<text x="420" y="268" fill="white" font-size="12" font-weight="600" text-anchor="middle">eUICC</text>
-<text x="420" y="284" fill="#94a3b8" font-size="8" text-anchor="middle">ISD-R | ISD-P</text>
-<text x="420" y="300" fill="#a78bfa" font-size="8" text-anchor="middle">Receives BPP</text>
-
-<!-- ===== Flow Arrows ===== -->
-
-<!-- IPA → SM-DS: ES11 poll (up) -->
-<path d="M 230 270 L 230 170 L 380 170 L 380 138" stroke="#fbbf24" stroke-width="1.5" marker-end="url(#ipaa-ay)"/>
-<text x="320" y="163" fill="#fbbf24" font-size="8">ES11: Poll for Events</text>
-
-<!-- SM-DS → IPA: ES11 response (down) -->
-<path d="M 380 170 L 380 200 L 260 200 L 260 270 L 263 270" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#ipaa-ay)"/>
-<text x="300" y="215" fill="#fbbf24" font-size="8">ES11: Event Record</text>
-
-<!-- IPA → SM-DP+: ES9+ (up, right) -->
-<path d="M 150 240 L 150 170 L 625 170 L 625 138" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#ipaa-acy)"/>
-<text x="400" y="163" fill="#22d3ee" font-size="8">ES9+: Initiate Auth (using Event data)</text>
-
-<!-- SM-DP+ → IPA: ES8+ BPP (down, left) -->
-<path d="M 625 170 L 625 210 L 200 210 L 200 270 L 203 270" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#ipaa-av)"/>
-<text x="390" y="225" fill="#a78bfa" font-size="8">ES8+: Bound Profile Package (BPP)</text>
-
-<!-- IPA → eUICC: ES10b -->
-<line x1="260" y1="275" x2="338" y2="275" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#ipaa-acy)"/>
-<text x="299" y="268" fill="#22d3ee" font-size="8">ES10b</text>
-
-<!-- ===== Sequence steps ===== -->
-<rect x="580" y="320" width="440" height="145" rx="8" fill="rgba(30,41,59,0.3)" stroke="#475569" stroke-width="1"/>
-<text x="800" y="343" fill="white" font-size="10" font-weight="600" text-anchor="middle">Option A Sequence</text>
-<line x1="600" y1="351" x2="1000" y2="351" stroke="#1e293b" stroke-width="0.5"/>
-
-<text x="600" y="370" fill="#94a3b8" font-size="9">1.</text>
-<text x="618" y="370" fill="#fb923c" font-size="9">eIM instructs IPA to poll SM-DS (ESipa)</text>
-
-<text x="600" y="388" fill="#94a3b8" font-size="9">2.</text>
-<text x="618" y="388" fill="#fbbf24" font-size="9">IPA → SM-DS: ES11 InitiateAuthentication</text>
-
-<text x="600" y="406" fill="#94a3b8" font-size="9">3.</text>
-<text x="618" y="406" fill="#fbbf24" font-size="9">SM-DS returns Event Record (SM-DP+ addr)</text>
-
-<text x="600" y="424" fill="#94a3b8" font-size="9">4.</text>
-<text x="618" y="424" fill="#22d3ee" font-size="9">IPA → SM-DP+: ES9+ with Event data</text>
-
-<text x="600" y="442" fill="#94a3b8" font-size="9">5.</text>
-<text x="618" y="442" fill="#a78bfa" font-size="9">SM-DP+ returns BPP → IPA → eUICC ✓</text>
-
-<!-- ===== Design note ===== -->
-<rect x="40" y="375" width="520" height="60" rx="6" fill="rgba(120,53,15,0.08)" stroke="#fbbf24" stroke-width="0.8" stroke-dasharray="4,2"/>
-<text x="300" y="395" fill="#fbbf24" font-size="10" font-weight="600" text-anchor="middle">Designed for IP-Connected Devices</text>
-<text x="300" y="413" fill="#94a3b8" font-size="9" text-anchor="middle">IPA has its own IP connection — polling SM-DS is cheap.</text>
-<text x="300" y="429" fill="#94a3b8" font-size="9" text-anchor="middle">eIM only triggers; all SM-DS + SM-DP+ traffic is device-side.</text>
-
-<!-- ===== Bottom label ===== -->
-<text x="525" y="600" fill="#64748b" font-size="8" text-anchor="middle">Option A: Best for IP-capable IoT devices (WiFi, Ethernet, LTE-M with IP)</text>
-
-</svg>
+     1|<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 630">
+     2|<style>text { font-family: system-ui, sans-serif; }</style>
+     3|<defs>
+     4|
+5|
+6|
+7|
+8|
+9|
+10|<pattern id="ipaa-grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/></pattern>
+    11|</defs>
+    12|<rect width="100%" height="100%" fill="url(#ipaa-grid)"/>
+    13|
+    14|<!-- Title -->
+    15|<text x="525" y="30" fill="white" font-size="14" font-weight="700" text-anchor="middle">Direct Download — Option A: IPA Polls SM-DS</text>
+    16|<text x="525" y="48" fill="#94a3b8" font-size="9" text-anchor="middle">IPA retrieves Event Record from SM-DS via ES11, then contacts SM-DP+</text>
+    17|<line x1="30" y1="58" x2="1020" y2="58" stroke="#1e293b" stroke-width="1"/>
+    18|
+    19|<!-- ===== Server Side ===== -->
+    20|<text x="525" y="78" fill="#94a3b8" font-size="9" text-anchor="middle">Server Side</text>
+    21|
+    22|<!-- eIM -->
+    23|<rect x="40" y="90" width="180" height="50" rx="6" fill="rgba(251,146,60,0.3)" stroke="#fb923c" stroke-width="2"/>
+    24|<text x="130" y="114" fill="white" font-size="11" font-weight="600" text-anchor="middle">eIM</text>
+    25|<text x="130" y="130" fill="#fb923c" font-size="8" text-anchor="middle">eSIM IoT Remote Manager</text>
+    26|
+    27|<!-- SM-DS -->
+    28|<rect x="300" y="90" width="160" height="50" rx="6" fill="rgba(120,53,15,0.3)" stroke="#fbbf24" stroke-width="1.5"/>
+    29|<text x="380" y="114" fill="white" font-size="11" font-weight="600" text-anchor="middle">SM-DS</text>
+    30|<text x="380" y="130" fill="#fbbf24" font-size="8" text-anchor="middle">Event Registry</text>
+    31|
+    32|<!-- SM-DP+ -->
+    33|<rect x="545" y="90" width="160" height="50" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+    34|<text x="625" y="114" fill="white" font-size="11" font-weight="600" text-anchor="middle">SM-DP+</text>
+    35|<text x="625" y="130" fill="#34d399" font-size="8" text-anchor="middle">Profile Factory</text>
+    36|
+    37|<!-- ===== eIM → eIM tells IPA to poll ===== -->
+    38|<!-- eIM down arrow to ESipa label -->
+    39|<path d="M 130 140 L 130 195" stroke="#fb923c" stroke-width="1.5"/>
+    40|<text x="115" y="170" fill="#fb923c" font-size="8">ESipa</text>
+    41|<text x="115" y="180" fill="#64748b" font-size="7">poll trigger</text>
+    42|
+    43|<!-- ===== Device Side ===== -->
+    44|<text x="525" y="220" fill="#94a3b8" font-size="9" text-anchor="middle">Device Side</text>
+    45|
+    46|<!-- IPA -->
+    47|<rect x="40" y="240" width="220" height="70" rx="8" fill="rgba(8,51,68,0.4)" stroke="#22d3ee" stroke-width="1.5"/>
+    48|<text x="150" y="268" fill="white" font-size="12" font-weight="600" text-anchor="middle">IPA</text>
+    49|<text x="150" y="284" fill="#94a3b8" font-size="8" text-anchor="middle">IoT Profile Assistant</text>
+    50|<text x="150" y="300" fill="#22d3ee" font-size="8" text-anchor="middle">Polls SM-DS directly</text>
+    51|
+    52|<!-- eUICC -->
+    53|<rect x="340" y="240" width="160" height="70" rx="8" fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="1.5"/>
+    54|<text x="420" y="268" fill="white" font-size="12" font-weight="600" text-anchor="middle">eUICC</text>
+    55|<text x="420" y="284" fill="#94a3b8" font-size="8" text-anchor="middle">ISD-R | ISD-P</text>
+    56|<text x="420" y="300" fill="#a78bfa" font-size="8" text-anchor="middle">Receives BPP</text>
+    57|
+    58|<!-- ===== Flow Arrows ===== -->
+    59|
+    60|<!-- IPA → SM-DS: ES11 poll (up) -->
+    61|<path d="M 230 270 L 230 170 L 380 170 L 380 138" stroke="#fbbf24" stroke-width="1.5"/>
+    62|<text x="320" y="163" fill="#fbbf24" font-size="8">ES11: Poll for Events</text>
+    63|
+    64|<!-- SM-DS → IPA: ES11 response (down) -->
+    65|<path d="M 380 170 L 380 200 L 260 200 L 260 270 L 263 270" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="4,3"/>
+    66|<text x="300" y="215" fill="#fbbf24" font-size="8">ES11: Event Record</text>
+    67|
+    68|<!-- IPA → SM-DP+: ES9+ (up, right) -->
+    69|<path d="M 150 240 L 150 170 L 625 170 L 625 138" stroke="#22d3ee" stroke-width="1.5"/>
+    70|<text x="400" y="163" fill="#22d3ee" font-size="8">ES9+: Initiate Auth (using Event data)</text>
+    71|
+    72|<!-- SM-DP+ → IPA: ES8+ BPP (down, left) -->
+    73|<path d="M 625 170 L 625 210 L 200 210 L 200 270 L 203 270" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="5,3"/>
+    74|<text x="390" y="225" fill="#a78bfa" font-size="8">ES8+: Bound Profile Package (BPP)</text>
+    75|
+    76|<!-- IPA → eUICC: ES10b -->
+    77|<line x1="260" y1="275" x2="338" y2="275" stroke="#22d3ee" stroke-width="1.5"/>
+    78|<text x="299" y="268" fill="#22d3ee" font-size="8">ES10b</text>
+    79|
+    80|<!-- ===== Sequence steps ===== -->
+    81|<rect x="580" y="320" width="440" height="145" rx="8" fill="rgba(30,41,59,0.3)" stroke="#475569" stroke-width="1"/>
+    82|<text x="800" y="343" fill="white" font-size="10" font-weight="600" text-anchor="middle">Option A Sequence</text>
+    83|<line x1="600" y1="351" x2="1000" y2="351" stroke="#1e293b" stroke-width="0.5"/>
+    84|
+    85|<text x="600" y="370" fill="#94a3b8" font-size="9">1.</text>
+    86|<text x="618" y="370" fill="#fb923c" font-size="9">eIM instructs IPA to poll SM-DS (ESipa)</text>
+    87|
+    88|<text x="600" y="388" fill="#94a3b8" font-size="9">2.</text>
+    89|<text x="618" y="388" fill="#fbbf24" font-size="9">IPA → SM-DS: ES11 InitiateAuthentication</text>
+    90|
+    91|<text x="600" y="406" fill="#94a3b8" font-size="9">3.</text>
+    92|<text x="618" y="406" fill="#fbbf24" font-size="9">SM-DS returns Event Record (SM-DP+ addr)</text>
+    93|
+    94|<text x="600" y="424" fill="#94a3b8" font-size="9">4.</text>
+    95|<text x="618" y="424" fill="#22d3ee" font-size="9">IPA → SM-DP+: ES9+ with Event data</text>
+    96|
+    97|<text x="600" y="442" fill="#94a3b8" font-size="9">5.</text>
+    98|<text x="618" y="442" fill="#a78bfa" font-size="9">SM-DP+ returns BPP → IPA → eUICC ✓</text>
+    99|
+   100|<!-- ===== Design note ===== -->
+   101|<rect x="40" y="375" width="520" height="60" rx="6" fill="rgba(120,53,15,0.08)" stroke="#fbbf24" stroke-width="0.8" stroke-dasharray="4,2"/>
+   102|<text x="300" y="395" fill="#fbbf24" font-size="10" font-weight="600" text-anchor="middle">Designed for IP-Connected Devices</text>
+   103|<text x="300" y="413" fill="#94a3b8" font-size="9" text-anchor="middle">IPA has its own IP connection — polling SM-DS is cheap.</text>
+   104|<text x="300" y="429" fill="#94a3b8" font-size="9" text-anchor="middle">eIM only triggers; all SM-DS + SM-DP+ traffic is device-side.</text>
+   105|
+   106|<!-- ===== Bottom label ===== -->
+   107|<text x="525" y="600" fill="#64748b" font-size="8" text-anchor="middle">Option A: Best for IP-capable IoT devices (WiFi, Ethernet, LTE-M with IP)</text>
+   108|
+   109|</svg>

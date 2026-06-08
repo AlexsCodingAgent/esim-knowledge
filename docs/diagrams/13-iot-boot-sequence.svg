@@ -1,141 +1,142 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 760">
-<defs>
-<marker id="a13c" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#22d3ee"/></marker>
-<marker id="a13v" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#a78bfa"/></marker>
-<marker id="a13o" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#fb923c"/></marker>
-<marker id="a13g" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#34d399"/></marker>
-<pattern id="g13" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/></pattern>
-</defs>
-<rect width="100%" height="100%" fill="url(#g13)"/>
-
-<text x="500" y="28" fill="white" font-size="14" font-weight="600" text-anchor="middle">IoT Device Boot Sequence (SGP.32)</text>
-
-<!-- Stage boxes along top -->
-<rect x="30" y="48" width="130" height="50" rx="6" fill="rgba(6,78,59,0.35)" stroke="#34d399" stroke-width="1.5"/>
-<text x="95" y="70" fill="white" font-size="10" font-weight="600" text-anchor="middle">Stage 1</text>
-<text x="95" y="86" fill="#94a3b8" font-size="7" text-anchor="middle">Power-On Reset</text>
-
-<rect x="175" y="48" width="130" height="50" rx="6" fill="rgba(76,29,149,0.35)" stroke="#a78bfa" stroke-width="1.5"/>
-<text x="240" y="70" fill="white" font-size="10" font-weight="600" text-anchor="middle">Stage 2</text>
-<text x="240" y="86" fill="#94a3b8" font-size="7" text-anchor="middle">Profile Discovery</text>
-
-<rect x="320" y="48" width="130" height="50" rx="6" fill="rgba(8,51,68,0.35)" stroke="#22d3ee" stroke-width="1.5"/>
-<text x="385" y="70" fill="white" font-size="10" font-weight="600" text-anchor="middle">Stage 3</text>
-<text x="385" y="86" fill="#94a3b8" font-size="7" text-anchor="middle">ISD-R Selection</text>
-
-<rect x="465" y="48" width="130" height="50" rx="6" fill="rgba(251,146,60,0.35)" stroke="#fb923c" stroke-width="1.5"/>
-<text x="530" y="70" fill="white" font-size="10" font-weight="600" text-anchor="middle">Stage 4</text>
-<text x="530" y="86" fill="#94a3b8" font-size="7" text-anchor="middle">IPA Activation</text>
-
-<rect x="610" y="48" width="130" height="50" rx="6" fill="rgba(120,53,15,0.35)" stroke="#fbbf24" stroke-width="1.5"/>
-<text x="675" y="70" fill="white" font-size="10" font-weight="600" text-anchor="middle">Stage 5</text>
-<text x="675" y="86" fill="#94a3b8" font-size="7" text-anchor="middle">eIM Discovery</text>
-
-<rect x="755" y="48" width="130" height="50" rx="6" fill="rgba(136,19,55,0.35)" stroke="#fb7185" stroke-width="1.5"/>
-<text x="820" y="70" fill="white" font-size="10" font-weight="600" text-anchor="middle">Stage 6</text>
-<text x="820" y="86" fill="#94a3b8" font-size="7" text-anchor="middle">Connectivity Assess</text>
-
-<!-- Flow arrows between stages -->
-<line x1="160" y1="73" x2="173" y2="73" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#a13c)"/>
-<line x1="305" y1="73" x2="318" y2="73" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#a13c)"/>
-<line x1="450" y1="73" x2="463" y2="73" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#a13c)"/>
-<line x1="595" y1="73" x2="608" y2="73" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#a13c)"/>
-<line x1="740" y1="73" x2="753" y2="73" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#a13c)"/>
-
-<!-- ===== DETAILED FLOW ===== -->
-
-<!-- Stage 1 details -->
-<rect x="30" y="115" width="160" height="55" rx="6" fill="rgba(30,41,59,0.4)" stroke="#34d399" stroke-width="1"/>
-<text x="110" y="136" fill="#34d399" font-size="9" font-weight="600" text-anchor="middle">eUICC OS boots</text>
-<text x="110" y="152" fill="#94a3b8" font-size="8" text-anchor="middle">ISD-R becomes active</text>
-<text x="110" y="164" fill="#64748b" font-size="7" text-anchor="middle">Physical power-on / wake</text>
-
-<!-- Stage 2 details -->
-<rect x="210" y="115" width="160" height="55" rx="6" fill="rgba(30,41,59,0.4)" stroke="#a78bfa" stroke-width="1"/>
-<text x="290" y="136" fill="#a78bfa" font-size="9" font-weight="600" text-anchor="middle">ISD-R scans profiles</text>
-<text x="290" y="152" fill="#94a3b8" font-size="8" text-anchor="middle">Enabled/Disabled/Test</text>
-<text x="290" y="164" fill="#64748b" font-size="7" text-anchor="middle">Read EF.DIR, EF.ICCID</text>
-
-<!-- Stage 3 details -->
-<rect x="390" y="115" width="160" height="55" rx="6" fill="rgba(30,41,59,0.4)" stroke="#22d3ee" stroke-width="1"/>
-<text x="470" y="136" fill="#22d3ee" font-size="9" font-weight="600" text-anchor="middle">Device SELECT by AID</text>
-<text x="470" y="152" fill="#94a3b8" font-size="8" text-anchor="middle">ISD-R responds with FCI</text>
-<text x="470" y="164" fill="#64748b" font-size="7" text-anchor="middle">Check lifecycle state</text>
-
-<!-- Stage 4 - Fork -->
-<rect x="30" y="190" width="940" height="110" rx="10" fill="rgba(251,146,60,0.04)" stroke="#fb923c" stroke-width="1" stroke-dasharray="6,3"/>
-<text x="50" y="208" fill="#fb923c" font-size="10" font-weight="600">Stage 4: IPA Activation (two modes)</text>
-
-<!-- IPAd path -->
-<rect x="50" y="225" width="420" height="60" rx="8" fill="rgba(8,51,68,0.3)" stroke="#22d3ee" stroke-width="1.5"/>
-<text x="260" y="248" fill="#22d3ee" font-size="11" font-weight="600" text-anchor="middle">IPAd (IPA in Device)</text>
-<text x="260" y="266" fill="#94a3b8" font-size="8" text-anchor="middle">IPA initialises separately → reads EimConfigurationData from eUICC</text>
-<text x="260" y="280" fill="#64748b" font-size="7" text-anchor="middle">Full OS process on device application processor</text>
-
-<!-- IPAe path -->
-<rect x="510" y="225" width="440" height="60" rx="8" fill="rgba(76,29,149,0.3)" stroke="#a78bfa" stroke-width="1.5"/>
-<text x="730" y="248" fill="#a78bfa" font-size="11" font-weight="600" text-anchor="middle">IPAe (IPA in eUICC)</text>
-<text x="730" y="266" fill="#94a3b8" font-size="8" text-anchor="middle">Device triggers IPAe via ISD-R → IPAe reads EimConfigurationData</text>
-<text x="730" y="280" fill="#64748b" font-size="7" text-anchor="middle">Runs inside eUICC secure element, no external processor needed</text>
-
-<!-- Stage 5 -->
-<rect x="30" y="320" width="460" height="65" rx="8" fill="rgba(30,41,59,0.4)" stroke="#fbbf24" stroke-width="1.5"/>
-<text x="260" y="343" fill="#fbbf24" font-size="10" font-weight="600" text-anchor="middle">Stage 5: eIM Discovery</text>
-<text x="260" y="360" fill="#94a3b8" font-size="8" text-anchor="middle">IPA reads EF.EIMCFG → finds associated eIMs</text>
-<text x="260" y="376" fill="#94a3b8" font-size="8" text-anchor="middle">Establishes secure connection (TLS/DTLS) to eIM using trustedPublicKeyDataTls</text>
-
-<!-- Stage 6 -->
-<rect x="510" y="320" width="460" height="65" rx="8" fill="rgba(30,41,59,0.4)" stroke="#fb7185" stroke-width="1.5"/>
-<text x="740" y="343" fill="#fb7185" font-size="10" font-weight="600" text-anchor="middle">Stage 6: Connectivity Assessment</text>
-<text x="740" y="360" fill="#94a3b8" font-size="8" text-anchor="middle">If enabled profile exists → baseband attempts network attach</text>
-<text x="740" y="376" fill="#94a3b8" font-size="8" text-anchor="middle">If no profile → wait for ProfileDownloadTrigger OR fallback</text>
-
-<!-- ===== CONNECTIVITY DECISION ===== -->
-<rect x="30" y="405" width="940" height="28" rx="4" fill="rgba(34,211,238,0.08)" stroke="#22d3ee" stroke-width="0.8"/>
-<text x="500" y="423" fill="#22d3ee" font-size="9" font-weight="600" text-anchor="middle">Post-Boot Decision: Does the device have a working network connection?</text>
-
-<!-- YES path -->
-<rect x="70" y="450" width="400" height="110" rx="10" fill="rgba(6,78,59,0.1)" stroke="#34d399" stroke-width="1.5"/>
-<text x="270" y="475" fill="#34d399" font-size="12" font-weight="600" text-anchor="middle">✓ Profile Enabled — Network Available</text>
-<rect x="100" y="490" width="340" height="25" rx="4" fill="rgba(6,78,59,0.25)"/>
-<text x="270" y="507" fill="white" font-size="9" text-anchor="middle">IPA sends IpaEuiccDataRequest (polls eIM for pending ops)</text>
-<rect x="100" y="520" width="340" height="25" rx="4" fill="rgba(6,78,59,0.25)"/>
-<text x="270" y="537" fill="white" font-size="9" text-anchor="middle">IPA delivers pending notifications to eIM + SM-DS</text>
-
-<!-- NO path -->
-<rect x="530" y="450" width="400" height="110" rx="10" fill="rgba(136,19,55,0.1)" stroke="#fb7185" stroke-width="1.5"/>
-<text x="730" y="475" fill="#fb7185" font-size="12" font-weight="600" text-anchor="middle">✗ No Enabled Profile</text>
-<rect x="560" y="490" width="340" height="50" rx="4" fill="rgba(136,19,55,0.2)"/>
-<text x="730" y="510" fill="white" font-size="9" text-anchor="middle">Fallback Profile configured?</text>
-<text x="730" y="526" fill="white" font-size="9" text-anchor="middle">→ YES: eUICC enables Fallback Profile</text>
-<text x="730" y="538" fill="#94a3b8" font-size="9" text-anchor="middle">→ NO: wait for eIM to push ProfileDownloadTrigger</text>
-
-<!-- ===== IPAe WAKE-UP TRIGGERS ===== -->
-<rect x="30" y="580" width="940" height="75" rx="10" fill="rgba(76,29,149,0.06)" stroke="#a78bfa" stroke-width="1"/>
-<text x="60" y="602" fill="#a78bfa" font-size="10" font-weight="600">IPAe Wake-Up Triggers</text>
-
-<rect x="60" y="612" width="155" height="30" rx="4" fill="rgba(76,29,149,0.2)" stroke="#a78bfa" stroke-width="0.8"/>
-<text x="137" y="631" fill="white" font-size="9" text-anchor="middle">1. Power-On</text>
-
-<rect x="228" y="612" width="155" height="30" rx="4" fill="rgba(76,29,149,0.2)" stroke="#a78bfa" stroke-width="0.8"/>
-<text x="305" y="631" fill="white" font-size="9" text-anchor="middle">2. Timer Interval</text>
-
-<rect x="396" y="612" width="155" height="30" rx="4" fill="rgba(76,29,149,0.2)" stroke="#a78bfa" stroke-width="0.8"/>
-<text x="473" y="631" fill="white" font-size="9" text-anchor="middle">3. Network Event</text>
-
-<rect x="564" y="612" width="185" height="30" rx="4" fill="rgba(76,29,149,0.2)" stroke="#a78bfa" stroke-width="0.8"/>
-<text x="656" y="631" fill="white" font-size="9" text-anchor="middle">4. Profile State Change</text>
-
-<rect x="762" y="612" width="180" height="30" rx="4" fill="rgba(76,29,149,0.2)" stroke="#a78bfa" stroke-width="0.8"/>
-<text x="852" y="631" fill="white" font-size="9" text-anchor="middle">5. Poll Interval</text>
-
-<!-- New SGP.32 files -->
-<rect x="30" y="670" width="940" height="50" rx="8" fill="rgba(30,41,59,0.3)" stroke="#64748b" stroke-width="1"/>
-<text x="60" y="694" fill="#94a3b8" font-size="9">New SGP.32 eUICC Files:</text>
-<rect x="280" y="681" width="120" height="24" rx="3" fill="rgba(34,211,238,0.15)"/>
-<text x="340" y="697" fill="#22d3ee" font-size="9" text-anchor="middle">EF.EIMCFG</text>
-<rect x="415" y="681" width="120" height="24" rx="3" fill="rgba(34,211,238,0.15)"/>
-<text x="475" y="697" fill="#22d3ee" font-size="9" text-anchor="middle">EF.NOTIF</text>
-<rect x="550" y="681" width="120" height="24" rx="3" fill="rgba(34,211,238,0.15)"/>
-<text x="610" y="697" fill="#22d3ee" font-size="9" text-anchor="middle">EF.RAT</text>
-</svg>
+     1|<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 760">
+     2|<defs>
+     3|
+4|
+5|
+6|
+7|<pattern id="g13" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/></pattern>
+     8|</defs>
+     9|<rect width="100%" height="100%" fill="url(#g13)"/>
+    10|
+    11|<text x="500" y="28" fill="white" font-size="14" font-weight="600" text-anchor="middle">IoT Device Boot Sequence (SGP.32)</text>
+    12|
+    13|<!-- Stage boxes along top -->
+    14|<rect x="30" y="48" width="130" height="50" rx="6" fill="rgba(6,78,59,0.35)" stroke="#34d399" stroke-width="1.5"/>
+    15|<text x="95" y="70" fill="white" font-size="10" font-weight="600" text-anchor="middle">Stage 1</text>
+    16|<text x="95" y="86" fill="#94a3b8" font-size="7" text-anchor="middle">Power-On Reset</text>
+    17|
+    18|<rect x="175" y="48" width="130" height="50" rx="6" fill="rgba(76,29,149,0.35)" stroke="#a78bfa" stroke-width="1.5"/>
+    19|<text x="240" y="70" fill="white" font-size="10" font-weight="600" text-anchor="middle">Stage 2</text>
+    20|<text x="240" y="86" fill="#94a3b8" font-size="7" text-anchor="middle">Profile Discovery</text>
+    21|
+    22|<rect x="320" y="48" width="130" height="50" rx="6" fill="rgba(8,51,68,0.35)" stroke="#22d3ee" stroke-width="1.5"/>
+    23|<text x="385" y="70" fill="white" font-size="10" font-weight="600" text-anchor="middle">Stage 3</text>
+    24|<text x="385" y="86" fill="#94a3b8" font-size="7" text-anchor="middle">ISD-R Selection</text>
+    25|
+    26|<rect x="465" y="48" width="130" height="50" rx="6" fill="rgba(251,146,60,0.35)" stroke="#fb923c" stroke-width="1.5"/>
+    27|<text x="530" y="70" fill="white" font-size="10" font-weight="600" text-anchor="middle">Stage 4</text>
+    28|<text x="530" y="86" fill="#94a3b8" font-size="7" text-anchor="middle">IPA Activation</text>
+    29|
+    30|<rect x="610" y="48" width="130" height="50" rx="6" fill="rgba(120,53,15,0.35)" stroke="#fbbf24" stroke-width="1.5"/>
+    31|<text x="675" y="70" fill="white" font-size="10" font-weight="600" text-anchor="middle">Stage 5</text>
+    32|<text x="675" y="86" fill="#94a3b8" font-size="7" text-anchor="middle">eIM Discovery</text>
+    33|
+    34|<rect x="755" y="48" width="130" height="50" rx="6" fill="rgba(136,19,55,0.35)" stroke="#fb7185" stroke-width="1.5"/>
+    35|<text x="820" y="70" fill="white" font-size="10" font-weight="600" text-anchor="middle">Stage 6</text>
+    36|<text x="820" y="86" fill="#94a3b8" font-size="7" text-anchor="middle">Connectivity Assess</text>
+    37|
+    38|<!-- Flow arrows between stages -->
+    39|<line x1="160" y1="73" x2="173" y2="73" stroke="#22d3ee" stroke-width="1.5"/>
+    40|<line x1="305" y1="73" x2="318" y2="73" stroke="#22d3ee" stroke-width="1.5"/>
+    41|<line x1="450" y1="73" x2="463" y2="73" stroke="#22d3ee" stroke-width="1.5"/>
+    42|<line x1="595" y1="73" x2="608" y2="73" stroke="#22d3ee" stroke-width="1.5"/>
+    43|<line x1="740" y1="73" x2="753" y2="73" stroke="#22d3ee" stroke-width="1.5"/>
+    44|
+    45|<!-- ===== DETAILED FLOW ===== -->
+    46|
+    47|<!-- Stage 1 details -->
+    48|<rect x="30" y="115" width="160" height="55" rx="6" fill="rgba(30,41,59,0.4)" stroke="#34d399" stroke-width="1"/>
+    49|<text x="110" y="136" fill="#34d399" font-size="9" font-weight="600" text-anchor="middle">eUICC OS boots</text>
+    50|<text x="110" y="152" fill="#94a3b8" font-size="8" text-anchor="middle">ISD-R becomes active</text>
+    51|<text x="110" y="164" fill="#64748b" font-size="7" text-anchor="middle">Physical power-on / wake</text>
+    52|
+    53|<!-- Stage 2 details -->
+    54|<rect x="210" y="115" width="160" height="55" rx="6" fill="rgba(30,41,59,0.4)" stroke="#a78bfa" stroke-width="1"/>
+    55|<text x="290" y="136" fill="#a78bfa" font-size="9" font-weight="600" text-anchor="middle">ISD-R scans profiles</text>
+    56|<text x="290" y="152" fill="#94a3b8" font-size="8" text-anchor="middle">Enabled/Disabled/Test</text>
+    57|<text x="290" y="164" fill="#64748b" font-size="7" text-anchor="middle">Read EF.DIR, EF.ICCID</text>
+    58|
+    59|<!-- Stage 3 details -->
+    60|<rect x="390" y="115" width="160" height="55" rx="6" fill="rgba(30,41,59,0.4)" stroke="#22d3ee" stroke-width="1"/>
+    61|<text x="470" y="136" fill="#22d3ee" font-size="9" font-weight="600" text-anchor="middle">Device SELECT by AID</text>
+    62|<text x="470" y="152" fill="#94a3b8" font-size="8" text-anchor="middle">ISD-R responds with FCI</text>
+    63|<text x="470" y="164" fill="#64748b" font-size="7" text-anchor="middle">Check lifecycle state</text>
+    64|
+    65|<!-- Stage 4 - Fork -->
+    66|<rect x="30" y="190" width="940" height="110" rx="10" fill="rgba(251,146,60,0.04)" stroke="#fb923c" stroke-width="1" stroke-dasharray="6,3"/>
+    67|<text x="50" y="208" fill="#fb923c" font-size="10" font-weight="600">Stage 4: IPA Activation (two modes)</text>
+    68|
+    69|<!-- IPAd path -->
+    70|<rect x="50" y="225" width="420" height="60" rx="8" fill="rgba(8,51,68,0.3)" stroke="#22d3ee" stroke-width="1.5"/>
+    71|<text x="260" y="248" fill="#22d3ee" font-size="11" font-weight="600" text-anchor="middle">IPAd (IPA in Device)</text>
+    72|<text x="260" y="266" fill="#94a3b8" font-size="8" text-anchor="middle">IPA initialises separately → reads EimConfigurationData from eUICC</text>
+    73|<text x="260" y="280" fill="#64748b" font-size="7" text-anchor="middle">Full OS process on device application processor</text>
+    74|
+    75|<!-- IPAe path -->
+    76|<rect x="510" y="225" width="440" height="60" rx="8" fill="rgba(76,29,149,0.3)" stroke="#a78bfa" stroke-width="1.5"/>
+    77|<text x="730" y="248" fill="#a78bfa" font-size="11" font-weight="600" text-anchor="middle">IPAe (IPA in eUICC)</text>
+    78|<text x="730" y="266" fill="#94a3b8" font-size="8" text-anchor="middle">Device triggers IPAe via ISD-R → IPAe reads EimConfigurationData</text>
+    79|<text x="730" y="280" fill="#64748b" font-size="7" text-anchor="middle">Runs inside eUICC secure element, no external processor needed</text>
+    80|
+    81|<!-- Stage 5 -->
+    82|<rect x="30" y="320" width="460" height="65" rx="8" fill="rgba(30,41,59,0.4)" stroke="#fbbf24" stroke-width="1.5"/>
+    83|<text x="260" y="343" fill="#fbbf24" font-size="10" font-weight="600" text-anchor="middle">Stage 5: eIM Discovery</text>
+    84|<text x="260" y="360" fill="#94a3b8" font-size="8" text-anchor="middle">IPA reads EF.EIMCFG → finds associated eIMs</text>
+    85|<text x="260" y="376" fill="#94a3b8" font-size="8" text-anchor="middle">Establishes secure connection (TLS/DTLS) to eIM using trustedPublicKeyDataTls</text>
+    86|
+    87|<!-- Stage 6 -->
+    88|<rect x="510" y="320" width="460" height="65" rx="8" fill="rgba(30,41,59,0.4)" stroke="#fb7185" stroke-width="1.5"/>
+    89|<text x="740" y="343" fill="#fb7185" font-size="10" font-weight="600" text-anchor="middle">Stage 6: Connectivity Assessment</text>
+    90|<text x="740" y="360" fill="#94a3b8" font-size="8" text-anchor="middle">If enabled profile exists → baseband attempts network attach</text>
+    91|<text x="740" y="376" fill="#94a3b8" font-size="8" text-anchor="middle">If no profile → wait for ProfileDownloadTrigger OR fallback</text>
+    92|
+    93|<!-- ===== CONNECTIVITY DECISION ===== -->
+    94|<rect x="30" y="405" width="940" height="28" rx="4" fill="rgba(34,211,238,0.08)" stroke="#22d3ee" stroke-width="0.8"/>
+    95|<text x="500" y="423" fill="#22d3ee" font-size="9" font-weight="600" text-anchor="middle">Post-Boot Decision: Does the device have a working network connection?</text>
+    96|
+    97|<!-- YES path -->
+    98|<rect x="70" y="450" width="400" height="110" rx="10" fill="rgba(6,78,59,0.1)" stroke="#34d399" stroke-width="1.5"/>
+    99|<text x="270" y="475" fill="#34d399" font-size="12" font-weight="600" text-anchor="middle">✓ Profile Enabled — Network Available</text>
+   100|<rect x="100" y="490" width="340" height="25" rx="4" fill="rgba(6,78,59,0.25)"/>
+   101|<text x="270" y="507" fill="white" font-size="9" text-anchor="middle">IPA sends IpaEuiccDataRequest (polls eIM for pending ops)</text>
+   102|<rect x="100" y="520" width="340" height="25" rx="4" fill="rgba(6,78,59,0.25)"/>
+   103|<text x="270" y="537" fill="white" font-size="9" text-anchor="middle">IPA delivers pending notifications to eIM + SM-DS</text>
+   104|
+   105|<!-- NO path -->
+   106|<rect x="530" y="450" width="400" height="110" rx="10" fill="rgba(136,19,55,0.1)" stroke="#fb7185" stroke-width="1.5"/>
+   107|<text x="730" y="475" fill="#fb7185" font-size="12" font-weight="600" text-anchor="middle">✗ No Enabled Profile</text>
+   108|<rect x="560" y="490" width="340" height="50" rx="4" fill="rgba(136,19,55,0.2)"/>
+   109|<text x="730" y="510" fill="white" font-size="9" text-anchor="middle">Fallback Profile configured?</text>
+   110|<text x="730" y="526" fill="white" font-size="9" text-anchor="middle">→ YES: eUICC enables Fallback Profile</text>
+   111|<text x="730" y="538" fill="#94a3b8" font-size="9" text-anchor="middle">→ NO: wait for eIM to push ProfileDownloadTrigger</text>
+   112|
+   113|<!-- ===== IPAe WAKE-UP TRIGGERS ===== -->
+   114|<rect x="30" y="580" width="940" height="75" rx="10" fill="rgba(76,29,149,0.06)" stroke="#a78bfa" stroke-width="1"/>
+   115|<text x="60" y="602" fill="#a78bfa" font-size="10" font-weight="600">IPAe Wake-Up Triggers</text>
+   116|
+   117|<rect x="60" y="612" width="155" height="30" rx="4" fill="rgba(76,29,149,0.2)" stroke="#a78bfa" stroke-width="0.8"/>
+   118|<text x="137" y="631" fill="white" font-size="9" text-anchor="middle">1. Power-On</text>
+   119|
+   120|<rect x="228" y="612" width="155" height="30" rx="4" fill="rgba(76,29,149,0.2)" stroke="#a78bfa" stroke-width="0.8"/>
+   121|<text x="305" y="631" fill="white" font-size="9" text-anchor="middle">2. Timer Interval</text>
+   122|
+   123|<rect x="396" y="612" width="155" height="30" rx="4" fill="rgba(76,29,149,0.2)" stroke="#a78bfa" stroke-width="0.8"/>
+   124|<text x="473" y="631" fill="white" font-size="9" text-anchor="middle">3. Network Event</text>
+   125|
+   126|<rect x="564" y="612" width="185" height="30" rx="4" fill="rgba(76,29,149,0.2)" stroke="#a78bfa" stroke-width="0.8"/>
+   127|<text x="656" y="631" fill="white" font-size="9" text-anchor="middle">4. Profile State Change</text>
+   128|
+   129|<rect x="762" y="612" width="180" height="30" rx="4" fill="rgba(76,29,149,0.2)" stroke="#a78bfa" stroke-width="0.8"/>
+   130|<text x="852" y="631" fill="white" font-size="9" text-anchor="middle">5. Poll Interval</text>
+   131|
+   132|<!-- New SGP.32 files -->
+   133|<rect x="30" y="670" width="940" height="50" rx="8" fill="rgba(30,41,59,0.3)" stroke="#64748b" stroke-width="1"/>
+   134|<text x="60" y="694" fill="#94a3b8" font-size="9">New SGP.32 eUICC Files:</text>
+   135|<rect x="280" y="681" width="120" height="24" rx="3" fill="rgba(34,211,238,0.15)"/>
+   136|<text x="340" y="697" fill="#22d3ee" font-size="9" text-anchor="middle">EF.EIMCFG</text>
+   137|<rect x="415" y="681" width="120" height="24" rx="3" fill="rgba(34,211,238,0.15)"/>
+   138|<text x="475" y="697" fill="#22d3ee" font-size="9" text-anchor="middle">EF.NOTIF</text>
+   139|<rect x="550" y="681" width="120" height="24" rx="3" fill="rgba(34,211,238,0.15)"/>
+   140|<text x="610" y="697" fill="#22d3ee" font-size="9" text-anchor="middle">EF.RAT</text>
+   141|</svg>
+   142|
