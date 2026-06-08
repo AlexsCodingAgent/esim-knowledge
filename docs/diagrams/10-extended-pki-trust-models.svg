@@ -1,126 +1,126 @@
-     1|<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 700">
-     2|<defs>
-     3|
-4|
-5|
-6|
-7|
-8|
-9|<pattern id="g10" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/></pattern>
-    10|</defs>
-    11|<rect width="100%" height="100%" fill="url(#g10)"/>
-    12|
-    13|<!-- Title -->
-    14|<text x="550" y="28" fill="white" font-size="14" font-weight="600" text-anchor="middle">SGP.32 Extended PKI and IoT Trust Models</text>
-    15|
-    16|<!-- ===== EXTENDED PKI SECTION ===== -->
-    17|<rect x="30" y="42" width="200" height="22" rx="4" fill="rgba(136,19,55,0.3)" stroke="#fb7185" stroke-width="1"/>
-    18|<text x="130" y="57" fill="#fb7185" font-size="10" font-weight="600" text-anchor="middle">Extended PKI Chain</text>
-    19|
-    20|<!-- CI Root -->
-    21|<rect x="380" y="80" width="240" height="50" rx="8" fill="rgba(136,19,55,0.45)" stroke="#fb7185" stroke-width="2"/>
-    22|<text x="500" y="102" fill="white" font-size="12" font-weight="600" text-anchor="middle">GSMA Certificate Issuer (CI)</text>
-    23|<text x="500" y="120" fill="#fb7185" font-size="8" text-anchor="middle">Root CA — PK.CI.ECDSA</text>
-    24|
-    25|<!-- EUM -->
-    26|<rect x="100" y="190" width="180" height="50" rx="6" fill="rgba(120,53,15,0.35)" stroke="#fbbf24" stroke-width="1.5"/>
-    27|<text x="190" y="212" fill="white" font-size="11" font-weight="600" text-anchor="middle">CERT.EUM.ECDSA</text>
-    28|<text x="190" y="230" fill="#94a3b8" font-size="8" text-anchor="middle">EUM (SAS-UP)</text>
-    29|
-    30|<!-- DP/DS -->
-    31|<rect x="360" y="190" width="220" height="50" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
-    32|<text x="470" y="212" fill="white" font-size="11" font-weight="600" text-anchor="middle">CERT.DPauth / CERT.DSauth</text>
-    33|<text x="470" y="230" fill="#94a3b8" font-size="8" text-anchor="middle">SM-DP+ / SM-DS Auth (SAS-SM)</text>
-    34|
-    35|<!-- eUICC -->
-    36|<rect x="100" y="300" width="180" height="50" rx="6" fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="1.5"/>
-    37|<text x="190" y="322" fill="white" font-size="11" font-weight="600" text-anchor="middle">CERT.EUICC.ECDSA</text>
-    38|<text x="190" y="340" fill="#94a3b8" font-size="8" text-anchor="middle">eUICC (per chip)</text>
-    39|
-    40|<!-- CI → EUM -->
-    41|<line x1="420" y1="130" x2="250" y2="188" stroke="#fb7185" stroke-width="1.5"/>
-    42|<text x="330" y="165" fill="#fb7185" font-size="8">signs</text>
-    43|
-    44|<!-- CI → DP/DS -->
-    45|<line x1="500" y1="130" x2="470" y2="188" stroke="#fb7185" stroke-width="1.5"/>
-    46|<text x="510" y="165" fill="#fb7185" font-size="8">signs</text>
-    47|
-    48|<!-- EUM → eUICC -->
-    49|<line x1="190" y1="240" x2="190" y2="298" stroke="#fbbf24" stroke-width="1.5"/>
-    50|<text x="205" y="268" fill="#fbbf24" font-size="8">signs</text>
-    51|
-    52|<!-- eIM Signing -->
-    53|<rect x="660" y="190" width="220" height="50" rx="6" fill="rgba(251,146,60,0.4)" stroke="#fb923c" stroke-width="1.5"/>
-    54|<text x="770" y="212" fill="white" font-size="11" font-weight="600" text-anchor="middle">CERT.EIM.ECDSA</text>
-    55|<text x="770" y="230" fill="#94a3b8" font-size="8" text-anchor="middle">eIM Signing (SAS-SM)</text>
-    56|
-    57|<!-- CI → eIM Signing -->
-    58|<line x1="550" y1="130" x2="710" y2="188" stroke="#fb7185" stroke-width="1.5"/>
-    59|
-    60|<!-- eIM TLS (separate from CI) -->
-    61|<rect x="660" y="300" width="220" height="50" rx="6" fill="rgba(251,146,60,0.25)" stroke="#fb923c" stroke-width="1.5" stroke-dasharray="5,3"/>
-    62|<text x="770" y="322" fill="white" font-size="11" font-weight="600" text-anchor="middle">CERT.EIM.TLS</text>
-    63|<text x="770" y="340" fill="#94a3b8" font-size="8" text-anchor="middle">eIM Transport (any CA)</text>
-    64|
-    65|<!-- Label: NOT signed by CI -->
-    66|<text x="770" y="370" fill="#fb923c" font-size="8" text-anchor="middle">Not signed by GSMA CI — Standard X.509 PKI</text>
-    67|<line x1="600" y1="375" x2="940" y2="375" stroke="#fb923c" stroke-width="0.5" opacity="0.3"/>
-    68|
-    69|<!-- ===== TRUST MODELS SECTION ===== -->
-    70|<rect x="30" y="400" width="200" height="22" rx="4" fill="rgba(8,51,68,0.3)" stroke="#22d3ee" stroke-width="1"/>
-    71|<text x="130" y="415" fill="#22d3ee" font-size="10" font-weight="600" text-anchor="middle">Device Trust Models</text>
-    72|
-    73|<!-- Model 1: Full PKI -->
-    74|<rect x="80" y="435" width="290" height="130" rx="8" fill="rgba(6,78,59,0.15)" stroke="#34d399" stroke-width="1"/>
-    75|<text x="225" y="458" fill="#34d399" font-size="12" font-weight="600" text-anchor="middle">Full PKI Validation</text>
-    76|<text x="225" y="476" fill="#94a3b8" font-size="9" text-anchor="middle">Rich Devices (Linux Gateways)</text>
-    77|<line x1="110" y1="486" x2="340" y2="486" stroke="#34d399" stroke-width="0.5" opacity="0.3"/>
-    78|<text x="225" y="505" fill="#94a3b8" font-size="8" text-anchor="middle">Full TLS stack validates</text>
-    79|<text x="225" y="521" fill="#94a3b8" font-size="8" text-anchor="middle">CERT.EIM.TLS against OS trust store</text>
-    80|<text x="225" y="537" fill="#94a3b8" font-size="8" text-anchor="middle">No special eUICC config needed</text>
-    81|<rect x="160" y="548" width="130" height="10" rx="3" fill="rgba(34,211,238,0.2)"/>
-    82|<text x="225" y="556" fill="#22d3ee" font-size="7" text-anchor="middle">TLS/DTLS standard</text>
-    83|
-    84|<!-- Model 2: Certificate Pinning -->
-    85|<rect x="400" y="435" width="290" height="130" rx="8" fill="rgba(251,146,60,0.15)" stroke="#fb923c" stroke-width="1"/>
-    86|<text x="545" y="458" fill="#fb923c" font-size="12" font-weight="600" text-anchor="middle">Certificate Pinning</text>
-    87|<text x="545" y="476" fill="#94a3b8" font-size="9" text-anchor="middle">Constrained Devices (MCU RTOS)</text>
-    88|<line x1="430" y1="486" x2="660" y2="486" stroke="#fb923c" stroke-width="0.5" opacity="0.3"/>
-    89|<text x="545" y="505" fill="#94a3b8" font-size="8" text-anchor="middle">IPA stores trustedCertificateTls</text>
-    90|<text x="545" y="521" fill="#94a3b8" font-size="8" text-anchor="middle">Pins to specific cert or CA</text>
-    91|<text x="545" y="537" fill="#94a3b8" font-size="8" text-anchor="middle">No online CA validation needed</text>
-    92|<rect x="475" y="548" width="140" height="10" rx="3" fill="rgba(251,146,60,0.2)"/>
-    93|<text x="545" y="556" fill="#fb923c" font-size="7" text-anchor="middle">Most common IoT model</text>
-    94|
-    95|<!-- Model 3: Raw PK -->
-    96|<rect x="720" y="435" width="290" height="130" rx="8" fill="rgba(76,29,149,0.15)" stroke="#a78bfa" stroke-width="1"/>
-    97|<text x="865" y="458" fill="#a78bfa" font-size="12" font-weight="600" text-anchor="middle">Raw Public Key (RFC 7250)</text>
-    98|<text x="865" y="476" fill="#94a3b8" font-size="9" text-anchor="middle">Ultra-Constrained (Bare-Metal)</text>
-    99|<line x1="750" y1="486" x2="980" y2="486" stroke="#a78bfa" stroke-width="0.5" opacity="0.3"/>
-   100|<text x="865" y="505" fill="#94a3b8" font-size="8" text-anchor="middle">IPA stores trustedEimPkTls</text>
-   101|<text x="865" y="521" fill="#94a3b8" font-size="8" text-anchor="middle">Raw ECDSA public key only</text>
-   102|<text x="865" y="537" fill="#94a3b8" font-size="8" text-anchor="middle">No X.509 parsing required</text>
-   103|<rect x="800" y="548" width="130" height="10" rx="3" fill="rgba(76,29,149,0.2)"/>
-   104|<text x="865" y="556" fill="#a78bfa" font-size="7" text-anchor="middle">Bare-metal RTOS</text>
-   105|
-   106|<!-- ===== DTLS FEATURES ===== -->
-   107|<rect x="30" y="582" width="200" height="22" rx="4" fill="rgba(120,53,15,0.3)" stroke="#fbbf24" stroke-width="1"/>
-   108|<text x="130" y="597" fill="#fbbf24" font-size="10" font-weight="600" text-anchor="middle">DTLS Key Features</text>
-   109|
-   110|<rect x="80" y="615" width="240" height="52" rx="6" fill="rgba(30,41,59,0.4)" stroke="#64748b" stroke-width="1"/>
-   111|<text x="200" y="636" fill="white" font-size="10" font-weight="600" text-anchor="middle">Connection ID (RFC 9146)</text>
-   112|<text x="200" y="654" fill="#94a3b8" font-size="8" text-anchor="middle">Session survives IP changes across PSM sleep</text>
-   113|
-   114|<rect x="350" y="615" width="240" height="52" rx="6" fill="rgba(30,41,59,0.4)" stroke="#64748b" stroke-width="1"/>
-   115|<text x="470" y="636" fill="white" font-size="10" font-weight="600" text-anchor="middle">UDP-Based Transport</text>
-   116|<text x="470" y="654" fill="#94a3b8" font-size="8" text-anchor="middle">CoAP/DTLS for NB-IoT, LTE-M, LoRaWAN</text>
-   117|
-   118|<rect x="620" y="615" width="240" height="52" rx="6" fill="rgba(30,41,59,0.4)" stroke="#64748b" stroke-width="1"/>
-   119|<text x="740" y="636" fill="white" font-size="10" font-weight="600" text-anchor="middle">Mandatory Cipher Suites</text>
-   120|<text x="740" y="654" fill="#94a3b8" font-size="8" text-anchor="middle">ECDHE-ECDSA-AES-128/256-GCM</text>
-   121|
-   122|<rect x="890" y="615" width="140" height="52" rx="6" fill="rgba(30,41,59,0.4)" stroke="#64748b" stroke-width="1"/>
-   123|<text x="960" y="636" fill="white" font-size="10" font-weight="600" text-anchor="middle">SNI Required</text>
-   124|<text x="960" y="654" fill="#94a3b8" font-size="8" text-anchor="middle">RFC 6066 ClientHello</text>
-   125|</svg>
-   126|
+     1|     1|<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 700">
+     2|     2|<defs>
+     3|     3|
+     4|4|
+     5|5|
+     6|6|
+     7|7|
+     8|8|
+     9|9|<pattern id="g10" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/></pattern>
+    10|    10|</defs>
+    11|    11|<rect width="100%" height="100%" fill="url(#g10)"/>
+    12|    12|
+    13|    13|<!-- Title -->
+    14|    14|<text x="550" y="28" fill="white" font-size="14" font-weight="600" text-anchor="middle">SGP.32 Extended PKI and IoT Trust Models</text>
+    15|    15|
+    16|    16|<!-- ===== EXTENDED PKI SECTION ===== -->
+    17|    17|<rect x="30" y="42" width="200" height="22" rx="4" fill="rgba(136,19,55,0.3)" stroke="#fb7185" stroke-width="1"/>
+    18|    18|<text x="130" y="57" fill="#fb7185" font-size="10" font-weight="600" text-anchor="middle">Extended PKI Chain</text>
+    19|    19|
+    20|    20|<!-- CI Root -->
+    21|    21|<rect x="380" y="80" width="240" height="50" rx="8" fill="rgba(136,19,55,0.45)" stroke="#fb7185" stroke-width="2"/>
+    22|    22|<text x="500" y="102" fill="white" font-size="12" font-weight="600" text-anchor="middle">GSMA Certificate Issuer (CI)</text>
+    23|    23|<text x="500" y="120" fill="#fb7185" font-size="8" text-anchor="middle">Root CA — PK.CI.ECDSA</text>
+    24|    24|
+    25|    25|<!-- EUM -->
+    26|    26|<rect x="100" y="190" width="180" height="50" rx="6" fill="rgba(120,53,15,0.35)" stroke="#fbbf24" stroke-width="1.5"/>
+    27|    27|<text x="190" y="212" fill="white" font-size="11" font-weight="600" text-anchor="middle">CERT.EUM.ECDSA</text>
+    28|    28|<text x="190" y="230" fill="#94a3b8" font-size="8" text-anchor="middle">EUM (SAS-UP)</text>
+    29|    29|
+    30|    30|<!-- DP/DS -->
+    31|    31|<rect x="360" y="190" width="220" height="50" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+    32|    32|<text x="470" y="212" fill="white" font-size="11" font-weight="600" text-anchor="middle">CERT.DPauth / CERT.DSauth</text>
+    33|    33|<text x="470" y="230" fill="#94a3b8" font-size="8" text-anchor="middle">SM-DP+ / SM-DS Auth (SAS-SM)</text>
+    34|    34|
+    35|    35|<!-- eUICC -->
+    36|    36|<rect x="100" y="300" width="180" height="50" rx="6" fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="1.5"/>
+    37|    37|<text x="190" y="322" fill="white" font-size="11" font-weight="600" text-anchor="middle">CERT.EUICC.ECDSA</text>
+    38|    38|<text x="190" y="340" fill="#94a3b8" font-size="8" text-anchor="middle">eUICC (per chip)</text>
+    39|    39|
+    40|    40|<!-- CI → EUM -->
+    41|    41|<line x1="420" y1="130" x2="250" y2="188" stroke="#fb7185" stroke-width="1.5"/>
+    42|    42|<text x="330" y="165" fill="#fb7185" font-size="8">signs</text>
+    43|    43|
+    44|    44|<!-- CI → DP/DS -->
+    45|    45|<line x1="500" y1="130" x2="470" y2="188" stroke="#fb7185" stroke-width="1.5"/>
+    46|    46|<text x="510" y="165" fill="#fb7185" font-size="8">signs</text>
+    47|    47|
+    48|    48|<!-- EUM → eUICC -->
+    49|    49|<line x1="190" y1="240" x2="190" y2="298" stroke="#fbbf24" stroke-width="1.5"/>
+    50|    50|<text x="205" y="268" fill="#fbbf24" font-size="8">signs</text>
+    51|    51|
+    52|    52|<!-- eIM Signing -->
+    53|    53|<rect x="660" y="190" width="220" height="50" rx="6" fill="rgba(251,146,60,0.4)" stroke="#fb923c" stroke-width="1.5"/>
+    54|    54|<text x="770" y="212" fill="white" font-size="11" font-weight="600" text-anchor="middle">CERT.EIM.ECDSA</text>
+    55|    55|<text x="770" y="230" fill="#94a3b8" font-size="8" text-anchor="middle">eIM Signing (SAS-SM)</text>
+    56|    56|
+    57|    57|<!-- CI → eIM Signing -->
+    58|    58|<line x1="550" y1="130" x2="710" y2="188" stroke="#fb7185" stroke-width="1.5"/>
+    59|    59|
+    60|    60|<!-- eIM TLS (separate from CI) -->
+    61|    61|<rect x="660" y="300" width="220" height="50" rx="6" fill="rgba(251,146,60,0.25)" stroke="#fb923c" stroke-width="1.5" stroke-dasharray="5,3"/>
+    62|    62|<text x="770" y="322" fill="white" font-size="11" font-weight="600" text-anchor="middle">CERT.EIM.TLS</text>
+    63|    63|<text x="770" y="340" fill="#94a3b8" font-size="8" text-anchor="middle">eIM Transport (any CA)</text>
+    64|    64|
+    65|    65|<!-- Label: NOT signed by CI -->
+    66|    66|<text x="770" y="370" fill="#fb923c" font-size="8" text-anchor="middle">Not signed by GSMA CI — Standard X.509 PKI</text>
+    67|    67|<line x1="600" y1="375" x2="940" y2="375" stroke="#fb923c" stroke-width="0.5" opacity="0.3"/>
+    68|    68|
+    69|    69|<!-- ===== TRUST MODELS SECTION ===== -->
+    70|    70|<rect x="30" y="400" width="200" height="22" rx="4" fill="rgba(8,51,68,0.3)" stroke="#22d3ee" stroke-width="1"/>
+    71|    71|<text x="130" y="415" fill="#22d3ee" font-size="10" font-weight="600" text-anchor="middle">Device Trust Models</text>
+    72|    72|
+    73|    73|<!-- Model 1: Full PKI -->
+    74|    74|<rect x="80" y="435" width="290" height="130" rx="8" fill="rgba(6,78,59,0.15)" stroke="#34d399" stroke-width="1"/>
+    75|    75|<text x="225" y="458" fill="#34d399" font-size="12" font-weight="600" text-anchor="middle">Full PKI Validation</text>
+    76|    76|<text x="225" y="476" fill="#94a3b8" font-size="9" text-anchor="middle">Rich Devices (Linux Gateways)</text>
+    77|    77|<line x1="110" y1="486" x2="340" y2="486" stroke="#34d399" stroke-width="0.5" opacity="0.3"/>
+    78|    78|<text x="225" y="505" fill="#94a3b8" font-size="8" text-anchor="middle">Full TLS stack validates</text>
+    79|    79|<text x="225" y="521" fill="#94a3b8" font-size="8" text-anchor="middle">CERT.EIM.TLS against OS trust store</text>
+    80|    80|<text x="225" y="537" fill="#94a3b8" font-size="8" text-anchor="middle">No special eUICC config needed</text>
+    81|    81|<rect x="160" y="548" width="130" height="10" rx="3" fill="rgba(34,211,238,0.2)"/>
+    82|    82|<text x="225" y="556" fill="#22d3ee" font-size="7" text-anchor="middle">TLS/DTLS standard</text>
+    83|    83|
+    84|    84|<!-- Model 2: Certificate Pinning -->
+    85|    85|<rect x="400" y="435" width="290" height="130" rx="8" fill="rgba(251,146,60,0.15)" stroke="#fb923c" stroke-width="1"/>
+    86|    86|<text x="545" y="458" fill="#fb923c" font-size="12" font-weight="600" text-anchor="middle">Certificate Pinning</text>
+    87|    87|<text x="545" y="476" fill="#94a3b8" font-size="9" text-anchor="middle">Constrained Devices (MCU RTOS)</text>
+    88|    88|<line x1="430" y1="486" x2="660" y2="486" stroke="#fb923c" stroke-width="0.5" opacity="0.3"/>
+    89|    89|<text x="545" y="505" fill="#94a3b8" font-size="8" text-anchor="middle">IPA stores trustedCertificateTls</text>
+    90|    90|<text x="545" y="521" fill="#94a3b8" font-size="8" text-anchor="middle">Pins to specific cert or CA</text>
+    91|    91|<text x="545" y="537" fill="#94a3b8" font-size="8" text-anchor="middle">No online CA validation needed</text>
+    92|    92|<rect x="475" y="548" width="140" height="10" rx="3" fill="rgba(251,146,60,0.2)"/>
+    93|    93|<text x="545" y="556" fill="#fb923c" font-size="7" text-anchor="middle">Most common IoT model</text>
+    94|    94|
+    95|    95|<!-- Model 3: Raw PK -->
+    96|    96|<rect x="720" y="435" width="290" height="130" rx="8" fill="rgba(76,29,149,0.15)" stroke="#a78bfa" stroke-width="1"/>
+    97|    97|<text x="865" y="458" fill="#a78bfa" font-size="12" font-weight="600" text-anchor="middle">Raw Public Key (RFC 7250)</text>
+    98|    98|<text x="865" y="476" fill="#94a3b8" font-size="9" text-anchor="middle">Ultra-Constrained (Bare-Metal)</text>
+    99|    99|<line x1="750" y1="486" x2="980" y2="486" stroke="#a78bfa" stroke-width="0.5" opacity="0.3"/>
+   100|   100|<text x="865" y="505" fill="#94a3b8" font-size="8" text-anchor="middle">IPA stores trustedEimPkTls</text>
+   101|   101|<text x="865" y="521" fill="#94a3b8" font-size="8" text-anchor="middle">Raw ECDSA public key only</text>
+   102|   102|<text x="865" y="537" fill="#94a3b8" font-size="8" text-anchor="middle">No X.509 parsing required</text>
+   103|   103|<rect x="800" y="548" width="130" height="10" rx="3" fill="rgba(76,29,149,0.2)"/>
+   104|   104|<text x="865" y="556" fill="#a78bfa" font-size="7" text-anchor="middle">Bare-metal RTOS</text>
+   105|   105|
+   106|   106|<!-- ===== DTLS FEATURES ===== -->
+   107|   107|<rect x="30" y="582" width="200" height="22" rx="4" fill="rgba(120,53,15,0.3)" stroke="#fbbf24" stroke-width="1"/>
+   108|   108|<text x="130" y="597" fill="#fbbf24" font-size="10" font-weight="600" text-anchor="middle">DTLS Key Features</text>
+   109|   109|
+   110|   110|<rect x="80" y="615" width="240" height="52" rx="6" fill="rgba(30,41,59,0.4)" stroke="#64748b" stroke-width="1"/>
+   111|   111|<text x="200" y="636" fill="white" font-size="10" font-weight="600" text-anchor="middle">Connection ID (RFC 9146)</text>
+   112|   112|<text x="200" y="654" fill="#94a3b8" font-size="8" text-anchor="middle">Session survives IP changes across PSM sleep</text>
+   113|   113|
+   114|   114|<rect x="350" y="615" width="240" height="52" rx="6" fill="rgba(30,41,59,0.4)" stroke="#64748b" stroke-width="1"/>
+   115|   115|<text x="470" y="636" fill="white" font-size="10" font-weight="600" text-anchor="middle">UDP-Based Transport</text>
+   116|   116|<text x="470" y="654" fill="#94a3b8" font-size="8" text-anchor="middle">CoAP/DTLS for NB-IoT, LTE-M, LoRaWAN</text>
+   117|   117|
+   118|   118|<rect x="620" y="615" width="240" height="52" rx="6" fill="rgba(30,41,59,0.4)" stroke="#64748b" stroke-width="1"/>
+   119|   119|<text x="740" y="636" fill="white" font-size="10" font-weight="600" text-anchor="middle">Mandatory Cipher Suites</text>
+   120|   120|<text x="740" y="654" fill="#94a3b8" font-size="8" text-anchor="middle">ECDHE-ECDSA-AES-128/256-GCM</text>
+   121|   121|
+   122|   122|<rect x="890" y="615" width="140" height="52" rx="6" fill="rgba(30,41,59,0.4)" stroke="#64748b" stroke-width="1"/>
+   123|   123|<text x="960" y="636" fill="white" font-size="10" font-weight="600" text-anchor="middle">SNI Required</text>
+   124|   124|<text x="960" y="654" fill="#94a3b8" font-size="8" text-anchor="middle">RFC 6066 ClientHello</text>
+   125|   125|</svg>
+   126|   126|
