@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 580">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 620">
 <style>text { font-family: system-ui, sans-serif; }</style>
 <defs>
 <marker id="acf-a" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#94a3b8"/></marker>
@@ -64,9 +64,9 @@
 <text x="520" y="372" fill="#a78bfa" font-size="8" text-anchor="middle">Profile Installed</text>
 
 <!-- ===== Flow Arrows ===== -->
-<!-- ESipa path: eIM down to IPA level -->
-<path d="M 355 200 L 310 200 L 310 347 L 315 347" stroke="#fb923c" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#acf-ao)"/>
-<text x="310" y="195" fill="#fb923c" font-size="7" text-anchor="middle">ESipa</text>
+<!-- ESipa path: eIM down to IPA level — routed LEFT of AC box -->
+<path d="M 355 200 L 290 200 L 290 347 L 315 347" stroke="#fb923c" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#acf-ao)"/>
+<text x="290" y="195" fill="#fb923c" font-size="7" text-anchor="middle">ESipa</text>
 
 <!-- IPA → SM-DP+: ES9+ (up and right) -->
 <path d="M 230 315 L 230 160 L 615 160 L 615 138" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#acf-acy)"/>
@@ -107,10 +107,10 @@
 <text x="728" y="478" fill="#34d399" font-size="9">✓ Profile installed on eUICC</text>
 
 <!-- ===== Key insight ===== -->
-<rect x="40" y="410" width="620" height="40" rx="6" fill="rgba(136,19,55,0.08)" stroke="#fb7185" stroke-width="0.8" stroke-dasharray="4,2"/>
-<text x="350" y="434" fill="#fb7185" font-size="9" text-anchor="middle">No QR code, no user. The Activation Code is pushed server-to-server (Operator → eIM → IPA)</text>
+<rect x="40" y="445" width="620" height="40" rx="6" fill="rgba(136,19,55,0.08)" stroke="#fb7185" stroke-width="0.8" stroke-dasharray="4,2"/>
+<text x="350" y="469" fill="#fb7185" font-size="9" text-anchor="middle">No QR code, no user. The Activation Code is pushed server-to-server (Operator → eIM → IPA)</text>
 
 <!-- Footer -->
-<text x="525" y="560" fill="#64748b" font-size="8" text-anchor="middle">Direct Download Path: Device has IP connectivity — IPA contacts SM-DP+ on its own</text>
+<text x="525" y="600" fill="#64748b" font-size="8" text-anchor="middle">Direct Download Path: Device has IP connectivity — IPA contacts SM-DP+ on its own</text>
 
 </svg>

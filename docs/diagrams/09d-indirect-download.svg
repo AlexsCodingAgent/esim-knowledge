@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 580">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 620">
 <style>text { font-family: system-ui, sans-serif; }</style>
 <defs>
 <marker id="id-a" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#94a3b8"/></marker>
@@ -97,12 +97,12 @@
 <text x="815" y="418" fill="#fb923c" font-size="9" text-anchor="middle">eIM can CancelSession (propagates to SM-DP+)</text>
 
 <!-- ===== No SM-DP+ connection ===== -->
-<rect x="40" y="385" width="520" height="55" rx="6" fill="rgba(136,19,55,0.1)" stroke="#fb7185" stroke-width="1.5" stroke-dasharray="6,3"/>
-<text x="300" y="407" fill="#fb7185" font-size="11" font-weight="600" text-anchor="middle">✗ No Direct IPA↔SM-DP+ Connection</text>
-<text x="300" y="425" fill="#94a3b8" font-size="9" text-anchor="middle">The IPA has zero knowledge of the SM-DP+. It only communicates with the eIM via ESipa.</text>
-<text x="300" y="437" fill="#64748b" font-size="8" text-anchor="middle">ESrp (RSP) or proprietary transport between eIM and IPA</text>
+<rect x="40" y="455" width="520" height="55" rx="6" fill="rgba(136,19,55,0.1)" stroke="#fb7185" stroke-width="1.5" stroke-dasharray="6,3"/>
+<text x="300" y="477" fill="#fb7185" font-size="11" font-weight="600" text-anchor="middle">✗ No Direct IPA↔SM-DP+ Connection</text>
+<text x="300" y="495" fill="#94a3b8" font-size="9" text-anchor="middle">The IPA has zero knowledge of the SM-DP+. It only communicates with the eIM via ESipa.</text>
+<text x="300" y="507" fill="#64748b" font-size="8" text-anchor="middle">ESrp (RSP) or proprietary transport between eIM and IPA</text>
 
 <!-- Footer -->
-<text x="525" y="560" fill="#64748b" font-size="8" text-anchor="middle">Indirect Download: eIM is the sole mediator between SM-DP+ and device</text>
+<text x="525" y="600" fill="#64748b" font-size="8" text-anchor="middle">Indirect Download: eIM is the sole mediator between SM-DP+ and device</text>
 
 </svg>

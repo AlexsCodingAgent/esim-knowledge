@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 580">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 630">
 <style>text { font-family: system-ui, sans-serif; }</style>
 <defs>
 <marker id="eb-a" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#94a3b8"/></marker>
@@ -67,13 +67,13 @@
 <text x="420" y="334" fill="#a78bfa" font-size="8" text-anchor="middle">Receives BPP</text>
 
 <!-- ===== Device-side arrows ===== -->
-<!-- IPA → SM-DP+: ES9+ (up, right) -->
-<path d="M 150 275 L 150 170 L 645 170 L 645 148" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#eb-acy)"/>
-<text x="400" y="163" fill="#22d3ee" font-size="8">ES9+: Initiate Auth</text>
+<!-- IPA → SM-DP+: ES9+ (up, right) — routed above divider at y=155 -->
+<path d="M 150 275 L 150 155 L 645 155 L 645 148" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#eb-acy)"/>
+<text x="400" y="148" fill="#22d3ee" font-size="8">ES9+: Initiate Auth</text>
 
-<!-- SM-DP+ → IPA: ES8+ BPP (down, left) -->
-<path d="M 645 170 L 645 200 L 200 200 L 200 275 L 203 275" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#eb-av)"/>
-<text x="400" y="215" fill="#a78bfa" font-size="8">ES8+: BPP</text>
+<!-- SM-DP+ → IPA: ES8+ BPP (down, left) — routed below ESipa rect at y=250 -->
+<path d="M 645 170 L 645 250 L 200 250 L 200 275 L 203 275" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#eb-av)"/>
+<text x="400" y="243" fill="#a78bfa" font-size="8">ES8+: BPP</text>
 
 <!-- IPA → eUICC: ES10b -->
 <line x1="260" y1="307" x2="338" y2="307" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#eb-acy)"/>
@@ -91,12 +91,12 @@
 <text x="600" y="397" fill="#22d3ee" font-size="9" font-weight="600">✓ No device-to-SM-DS traffic required</text>
 
 <!-- ===== Key difference ===== -->
-<rect x="40" y="370" width="520" height="60" rx="6" fill="rgba(251,146,60,0.08)" stroke="#fb923c" stroke-width="0.8" stroke-dasharray="4,2"/>
-<text x="300" y="392" fill="#fb923c" font-size="10" font-weight="600" text-anchor="middle">Key Difference from Option A</text>
-<text x="300" y="410" fill="#94a3b8" font-size="9" text-anchor="middle">SM-DS polling stays server-side. ES11' (eIM→SM-DS) replaces ES11 (IPA→SM-DS).</text>
-<text x="300" y="426" fill="#94a3b8" font-size="9" text-anchor="middle">Event Record is relayed over ESipa — not pulled by the device.</text>
+<rect x="40" y="440" width="520" height="60" rx="6" fill="rgba(251,146,60,0.08)" stroke="#fb923c" stroke-width="0.8" stroke-dasharray="4,2"/>
+<text x="300" y="462" fill="#fb923c" font-size="10" font-weight="600" text-anchor="middle">Key Difference from Option A</text>
+<text x="300" y="480" fill="#94a3b8" font-size="9" text-anchor="middle">SM-DS polling stays server-side. ES11' (eIM→SM-DS) replaces ES11 (IPA→SM-DS).</text>
+<text x="300" y="496" fill="#94a3b8" font-size="9" text-anchor="middle">Event Record is relayed over ESipa — not pulled by the device.</text>
 
 <!-- Footer -->
-<text x="525" y="560" fill="#64748b" font-size="8" text-anchor="middle">Option B: Best for constrained LPWA devices — SM-DS traffic stays on the server side</text>
+<text x="525" y="610" fill="#64748b" font-size="8" text-anchor="middle">Option B: Best for constrained LPWA devices — SM-DS traffic stays on the server side</text>
 
 </svg>
