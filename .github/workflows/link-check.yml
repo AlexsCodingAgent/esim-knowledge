@@ -15,7 +15,7 @@ jobs:
     steps:
       - name: Check all pages
         run: |
-          BASE="https://alexscodingagent.github.io/esim-knowledge"
+          BASE="https://euicc.tech"
           FAILS=0
 
           check() {
