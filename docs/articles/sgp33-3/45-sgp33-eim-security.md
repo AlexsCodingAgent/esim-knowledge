@@ -242,11 +242,11 @@ The specification notes that *"SGP.26 [25] contains test keys, valid test certif
 
 ---
 
-<div align="center" markdown="1">
+<div align="center">
 
-← Previous: [Key eIM Test Cases: PSMO, Notifications, and Configuration]({{ site.baseurl }}/docs/articles/sgp33-3/44-sgp33-eim-test-cases) · [🏠 Home]({{ site.baseurl }}/)
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp33-3/44-sgp33-eim-test-cases">Key eIM Test Cases: PSMO, Notifications, and Configuration</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
 
-Next: [IoT eSIM Certification Path: From Test Cases to Production]({{ site.baseurl }}/docs/articles/sgp33-3/46-sgp33-certification) →
+Next: <a href="{{ site.baseurl }}/docs/articles/sgp33-3/46-sgp33-certification">IoT eSIM Certification Path: From Test Cases to Production</a> →
 
 </div>
 

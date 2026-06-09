@@ -174,11 +174,11 @@ Beyond interface-level testing, Section 5.4 tests complete workflows:
 
 ---
 
-<div align="center" markdown="1">
+<div align="center">
 
-← Previous: [The GSMA eSIM Test Infrastructure]({{ site.baseurl }}/docs/articles/sgp23/18-sgp23-test-infrastructure) · [🏠 Home]({{ site.baseurl }}/)
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp23/18-sgp23-test-infrastructure">The GSMA eSIM Test Infrastructure</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
 
-Next: [Testing the SM-DP+ and SM-DS]({{ site.baseurl }}/docs/articles/sgp23/20-sgp23-server-testing) →
+Next: <a href="{{ site.baseurl }}/docs/articles/sgp23/20-sgp23-server-testing">Testing the SM-DP+ and SM-DS</a> →
 
 </div>
 

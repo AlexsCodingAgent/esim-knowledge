@@ -186,11 +186,11 @@ Remote Profile Management (RPM) commands must respect PPRs: an RPM Disable comma
 
 ---
 
-<div align="center" markdown="1">
+<div align="center">
 
-← Previous: [Profile Protection & BPP Security]({{ site.baseurl }}/docs/articles/sgp22-v3/61-profile-protection-bpp)
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp22-v3/61-profile-protection-bpp">Profile Protection & BPP Security</a>
 
-Next: [Enterprise Profiles in SGP.22 v3.x]({{ site.baseurl }}/docs/articles/sgp22-v3/63-enterprise-profiles) →
+Next: <a href="{{ site.baseurl }}/docs/articles/sgp22-v3/63-enterprise-profiles">Enterprise Profiles in SGP.22 v3.x</a> →
 
 </div>
 

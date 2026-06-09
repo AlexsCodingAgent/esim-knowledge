@@ -169,11 +169,11 @@ The Device Change procedure involves both devices, the SM-DP+, and the Service P
 
 ---
 
-<div align="center" markdown="1">
+<div align="center">
 
-← Previous: [Remote Profile Management: RPM Initiation, Download, and Execution]({{ site.baseurl }}/docs/articles/sgp22-v3/57-remote-profile-management)
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp22-v3/57-remote-profile-management">Remote Profile Management: RPM Initiation, Download, and Execution</a>
 
-Next: [eUICC Updates and Profile Content Management: Lifecycle Beyond Download]({{ site.baseurl }}/docs/articles/sgp22-v3/59-euicc-updates-pcm) →
+Next: <a href="{{ site.baseurl }}/docs/articles/sgp22-v3/59-euicc-updates-pcm">eUICC Updates and Profile Content Management: Lifecycle Beyond Download</a> →
 
 </div>
 

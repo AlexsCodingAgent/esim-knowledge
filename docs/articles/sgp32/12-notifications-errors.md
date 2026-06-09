@@ -174,11 +174,11 @@ Individual operations within a package can fail independently:
 
 ---
 
-<div align="center" markdown="1">
+<div align="center">
 
-← Previous: [eIM Configuration: Associating Remote Managers with Your eUICC]({{ site.baseurl }}/docs/articles/sgp32/11-eim-configuration) · [🏠 Home]({{ site.baseurl }}/)
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp32/11-eim-configuration">eIM Configuration: Associating Remote Managers with Your eUICC</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
 
-Next: [IoT Device Initialisation and the eUICC File Structure]({{ site.baseurl }}/docs/articles/sgp32/13-iot-device-initialisation) →
+Next: <a href="{{ site.baseurl }}/docs/articles/sgp32/13-iot-device-initialisation">IoT Device Initialisation and the eUICC File Structure</a> →
 
 </div>
 

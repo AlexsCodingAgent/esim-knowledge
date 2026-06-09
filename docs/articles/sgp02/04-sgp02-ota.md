@@ -173,11 +173,11 @@ Two more interfaces round out the picture:
 
 ---
 
-<div align="center" markdown="1">
+<div align="center">
 
-[🏠 Home]({{ site.baseurl }}/)
+<a href="{{ site.baseurl }}/">🏠 Home</a>
 
-← Previous: [M2M Certificate Hierarchy]({{ site.baseurl }}/docs/articles/sgp02/03-sgp02-pki) | Next: [Profile Download]({{ site.baseurl }}/docs/articles/sgp02/05-sgp02-download) →
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp02/03-sgp02-pki">M2M Certificate Hierarchy</a> | Next: <a href="{{ site.baseurl }}/docs/articles/sgp02/05-sgp02-download">Profile Download</a> →
 
 </div>
 

@@ -197,11 +197,11 @@ That's it. The device extracts the SM-DP+ URL and the Matching ID, then begins t
 
 ---
 
-<div align="center" markdown="1">
+<div align="center">
 
-[🏠 Home]({{ site.baseurl }}/)
+<a href="{{ site.baseurl }}/">🏠 Home</a>
 
-Next: [SGP.22 v2.x vs v3.x: The Specification Split]({{ site.baseurl }}/docs/articles/sgp22/00b-sgp22-v2-v3-split) →
+Next: <a href="{{ site.baseurl }}/docs/articles/sgp22/00b-sgp22-v2-v3-split">SGP.22 v2.x vs v3.x: The Specification Split</a> →
 
 </div>
 

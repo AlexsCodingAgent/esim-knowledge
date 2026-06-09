@@ -178,11 +178,11 @@ Three Security Domains. One immutable identity in the ECASD. One platform manage
 
 ---
 
-<div align="center" markdown="1">
+<div align="center">
 
-[🏠 Home]({{ site.baseurl }}/)
+<a href="{{ site.baseurl }}/">🏠 Home</a>
 
-← Previous: [M2M Ecosystem]({{ site.baseurl }}/docs/articles/sgp02/01-sgp02-architecture) | Next: [M2M Certificate Hierarchy]({{ site.baseurl }}/docs/articles/sgp02/03-sgp02-pki) →
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp02/01-sgp02-architecture">M2M Ecosystem</a> | Next: <a href="{{ site.baseurl }}/docs/articles/sgp02/03-sgp02-pki">M2M Certificate Hierarchy</a> →
 
 </div>
 

@@ -183,11 +183,11 @@ For Integrated eUICCs using USB CCID (Annex J), the test interface specification
 
 ---
 
-<div align="center" markdown="1">
+<div align="center">
 
-← Previous: [Key eUICC Test Cases: ISD-R, ECASD, and Profile Lifecycle]({{ site.baseurl }}/docs/articles/sgp23-1/34-sgp23-1-test-cases) · [🏠 Home]({{ site.baseurl }}/)
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp23-1/34-sgp23-1-test-cases">Key eUICC Test Cases: ISD-R, ECASD, and Profile Lifecycle</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
 
-Next: [eUICC Certification: From SGP.23-1 Tests to SAS-UP Approval]({{ site.baseurl }}/docs/articles/sgp23-1/36-sgp23-1-certification) →
+Next: <a href="{{ site.baseurl }}/docs/articles/sgp23-1/36-sgp23-1-certification">eUICC Certification: From SGP.23-1 Tests to SAS-UP Approval</a> →
 
 </div>
 

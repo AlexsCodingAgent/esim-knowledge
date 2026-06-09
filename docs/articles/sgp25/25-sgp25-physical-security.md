@@ -211,11 +211,11 @@ This means the eUICC software architecture must include self-protection mechanis
 
 ---
 
-<div align="center" markdown="1">
+<div align="center">
 
-← Previous: [eUICC Assurance Requirements: EAL4+ and Penetration Testing]({{ site.baseurl }}/docs/articles/sgp25/24-sgp25-assurance) · [🏠 Home]({{ site.baseurl }}/)
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp25/24-sgp25-assurance">eUICC Assurance Requirements: EAL4+ and Penetration Testing</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
 
-Next: [SGP.25 Certification: SAS-UP and the Evaluation Process]({{ site.baseurl }}/docs/articles/sgp25/26-sgp25-certification) →
+Next: <a href="{{ site.baseurl }}/docs/articles/sgp25/26-sgp25-certification">SGP.25 Certification: SAS-UP and the Evaluation Process</a> →
 
 </div>
 

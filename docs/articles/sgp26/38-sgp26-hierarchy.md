@@ -245,11 +245,11 @@ Both curves produce 64-byte signatures (two 32-byte integers, r and s, DER-encod
 
 ---
 
-<div align="center" markdown="1">
+<div align="center">
 
-← Previous: [SGP.26 Overview: The GSMA RSP Test Certificate Infrastructure]({{ site.baseurl }}/docs/articles/sgp26/37-sgp26-overview) · [🏠 Home]({{ site.baseurl }}/)
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp26/37-sgp26-overview">SGP.26 Overview: The GSMA RSP Test Certificate Infrastructure</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
 
-Next: [Certificate Profiles: What Makes a Valid Test Certificate]({{ site.baseurl }}/docs/articles/sgp26/39-sgp26-profiles) →
+Next: <a href="{{ site.baseurl }}/docs/articles/sgp26/39-sgp26-profiles">Certificate Profiles: What Makes a Valid Test Certificate</a> →
 
 </div>
 

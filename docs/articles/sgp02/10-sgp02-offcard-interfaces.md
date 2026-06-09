@@ -252,12 +252,12 @@ Every on-card operation flows through ES5. Every server-side operation flows thr
 
 ---
 
-<div align="center" markdown="1">
+<div align="center">
 
-[🏠 Home]({{ site.baseurl }}/)
+<a href="{{ site.baseurl }}/">🏠 Home</a>
 
-Previous: [Policy Rules & Notifications: POL1, POL2, and the Default Notification](09-sgp02-policy-notifications) →
-Next: [SGP.02 vs SGP.22 vs SGP.32: Push, Pull, and the Evolution of eSIM](11-sgp02-comparison) →
+Previous: <a href="09-sgp02-policy-notifications">Policy Rules & Notifications: POL1, POL2, and the Default Notification</a> →
+Next: <a href="11-sgp02-comparison">SGP.02 vs SGP.22 vs SGP.32: Push, Pull, and the Evolution of eSIM</a> →
 
 </div>
 

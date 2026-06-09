@@ -189,11 +189,11 @@ After RPM execution, the Operator receives the Load RPM Package Result. Based on
 
 ---
 
-<div align="center" markdown="1">
+<div align="center">
 
-← Previous: [Version Interoperability: How v2.x and v3.x Coexist]({{ site.baseurl }}/docs/articles/sgp22-v3/56-version-interoperability)
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp22-v3/56-version-interoperability">Version Interoperability: How v2.x and v3.x Coexist</a>
 
-Next: [Device Change and Profile Recovery: Moving eSIMs Between Devices]({{ site.baseurl }}/docs/articles/sgp22-v3/58-device-change-and-profile-recovery) →
+Next: <a href="{{ site.baseurl }}/docs/articles/sgp22-v3/58-device-change-and-profile-recovery">Device Change and Profile Recovery: Moving eSIMs Between Devices</a> →
 
 </div>
 

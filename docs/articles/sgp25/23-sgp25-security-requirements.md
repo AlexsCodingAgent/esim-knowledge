@@ -212,11 +212,11 @@ What SGP.25 SFRs explicitly do **NOT** cover:
 
 ---
 
-<div align="center" markdown="1">
+<div align="center">
 
-← Previous: [SGP.25 Overview: The eUICC Common Criteria Protection Profile]({{ site.baseurl }}/docs/articles/sgp25/22-sgp25-overview) · [🏠 Home]({{ site.baseurl }}/)
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp25/22-sgp25-overview">SGP.25 Overview: The eUICC Common Criteria Protection Profile</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
 
-Next: [eUICC Assurance Requirements: EAL4+ and Penetration Testing]({{ site.baseurl }}/docs/articles/sgp25/24-sgp25-assurance) →
+Next: <a href="{{ site.baseurl }}/docs/articles/sgp25/24-sgp25-assurance">eUICC Assurance Requirements: EAL4+ and Penetration Testing</a> →
 
 </div>
 

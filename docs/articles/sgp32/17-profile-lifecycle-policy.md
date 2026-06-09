@@ -160,11 +160,11 @@ When a PSMO arrives via eUICC Package:
 
 ---
 
-<div align="center" markdown="1">
+<div align="center">
 
-← Previous: [IoT eSIM Functions Reference: ESipa, ES9+', ES11', ESep]({{ site.baseurl }}/docs/articles/sgp32/16-iot-functions-reference) · [🏠 Home]({{ site.baseurl }}/)
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp32/16-iot-functions-reference">IoT eSIM Functions Reference: ESipa, ES9+', ES11', ESep</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
 
-Next: [Advanced IoT Security & Lifecycle]({{ site.baseurl }}/docs/articles/sgp32/18-advanced-security-lifecycle) →
+Next: <a href="{{ site.baseurl }}/docs/articles/sgp32/18-advanced-security-lifecycle">Advanced IoT Security & Lifecycle</a> →
 
 </div>
 

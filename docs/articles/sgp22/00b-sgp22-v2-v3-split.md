@@ -135,11 +135,11 @@ The fundamental difference is scope:
 
 ---
 
-<div align="center" markdown="1">
+<div align="center">
 
-← Previous: [eSIM Remote SIM Provisioning (RSP) : How It Works]({{ site.baseurl }}/docs/articles/sgp22/00-sgp22-overview) · [🏠 Home]({{ site.baseurl }}/)
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp22/00-sgp22-overview">eSIM Remote SIM Provisioning (RSP) : How It Works</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
 
-Next: [The eSIM RSP Architecture: Players and Interfaces]({{ site.baseurl }}/docs/articles/sgp22/01-rsp-architecture) →
+Next: <a href="{{ site.baseurl }}/docs/articles/sgp22/01-rsp-architecture">The eSIM RSP Architecture: Players and Interfaces</a> →
 
 </div>
 

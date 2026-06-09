@@ -212,9 +212,9 @@ This means enterprises can use RPM for fleet management operations (enable, disa
 
 ---
 
-<div align="center" markdown="1">
+<div align="center">
 
-← Previous: [Policy Management in SGP.22 v3.x]({{ site.baseurl }}/docs/articles/sgp22-v3/62-policy-management-v3)
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp22-v3/62-policy-management-v3">Policy Management in SGP.22 v3.x</a>
 
 </div>
 

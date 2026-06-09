@@ -210,9 +210,9 @@ This is significantly stronger than the Luhn MOD 10 algorithm (used for credit c
 
 ---
 
-<div align="center" markdown="1">
+<div align="center">
 
-← Previous: [EID in RSP Protocols: Discovery, Matching, and Events]({{ site.baseurl }}/docs/articles/sgp29/30-sgp29-in-protocols) · [🏠 Home]({{ site.baseurl }}/)
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp29/30-sgp29-in-protocols">EID in RSP Protocols: Discovery, Matching, and Events</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
 
 </div>
 

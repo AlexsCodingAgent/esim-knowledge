@@ -104,11 +104,11 @@ SGP.41 unlocks use cases that SGP.22 alone cannot address:
 
 ---
 
-<div align="center" markdown="1">
+<div align="center">
 
-[🏠 Home]({{ site.baseurl }}/)
+<a href="{{ site.baseurl }}/">🏠 Home</a>
 
-Next: [The IFPP Architecture: SM-DPf, FPA, and Device Manufacturer]({{ site.baseurl }}/docs/articles/sgp41/48-sgp41-architecture) →
+Next: <a href="{{ site.baseurl }}/docs/articles/sgp41/48-sgp41-architecture">The IFPP Architecture: SM-DPf, FPA, and Device Manufacturer</a> →
 
 </div>
 

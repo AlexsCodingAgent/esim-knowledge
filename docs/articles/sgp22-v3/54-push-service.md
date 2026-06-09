@@ -128,11 +128,11 @@ The registration can be re-triggered when:
 
 ---
 
-<div align="center" markdown="1">
+<div align="center">
 
-← Previous: [Multiple Enabled Profiles: Running Several eSIMs at Once]({{ site.baseurl }}/docs/articles/sgp22-v3/53-multiple-enabled-profiles)
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp22-v3/53-multiple-enabled-profiles">Multiple Enabled Profiles: Running Several eSIMs at Once</a>
 
-Next: [Feature Support: Capability Negotiation in v3.x]({{ site.baseurl }}/docs/articles/sgp22-v3/55-feature-support) →
+Next: <a href="{{ site.baseurl }}/docs/articles/sgp22-v3/55-feature-support">Feature Support: Capability Negotiation in v3.x</a> →
 
 </div>
 

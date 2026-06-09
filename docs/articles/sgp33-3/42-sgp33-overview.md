@@ -108,11 +108,11 @@ SGP.33-3 v1.2 was published on 27 January 2025, but this is effectively the firs
 
 ---
 
-<div align="center" markdown="1">
+<div align="center">
 
-[🏠 Home]({{ site.baseurl }}/)
+<a href="{{ site.baseurl }}/">🏠 Home</a>
 
-Next: [eIM Test Architecture: Simulated eIM and Reference IPA]({{ site.baseurl }}/docs/articles/sgp33-3/43-sgp33-eim-architecture) →
+Next: <a href="{{ site.baseurl }}/docs/articles/sgp33-3/43-sgp33-eim-architecture">eIM Test Architecture: Simulated eIM and Reference IPA</a> →
 
 </div>
 

@@ -139,12 +139,12 @@ The three-path architecture is what makes SGP.02 flexible enough for diverse M2M
 
 ---
 
-<div align="center" markdown="1">
+<div align="center">
 
-[🏠 Home]({{ site.baseurl }}/)
+<a href="{{ site.baseurl }}/">🏠 Home</a>
 
-Previous: [Profile Download: ISD-P Creation, SCP03, and Encrypted Delivery](05-sgp02-download) →
-Next: [SM-SR Change: Handover, ES7 Interface, and EIS Migration](07-sgp02-sm-sr-change) →
+Previous: <a href="05-sgp02-download">Profile Download: ISD-P Creation, SCP03, and Encrypted Delivery</a> →
+Next: <a href="07-sgp02-sm-sr-change">SM-SR Change: Handover, ES7 Interface, and EIS Migration</a> →
 
 </div>
 

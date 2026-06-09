@@ -181,11 +181,11 @@ SGP.02 and SGP.22 share the same CI root concept and three-tier structure, but t
 
 ---
 
-<div align="center" markdown="1">
+<div align="center">
 
-[🏠 Home]({{ site.baseurl }}/)
+<a href="{{ site.baseurl }}/">🏠 Home</a>
 
-← Previous: [Inside the M2M eUICC]({{ site.baseurl }}/docs/articles/sgp02/02-sgp02-euicc-internals) | Next: [OTA Communication]({{ site.baseurl }}/docs/articles/sgp02/04-sgp02-ota) →
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp02/02-sgp02-euicc-internals">Inside the M2M eUICC</a> | Next: <a href="{{ site.baseurl }}/docs/articles/sgp02/04-sgp02-ota">OTA Communication</a> →
 
 </div>
 

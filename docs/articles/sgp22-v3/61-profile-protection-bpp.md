@@ -196,11 +196,11 @@ This signed result serves as cryptographic proof: the Operator can verify that a
 
 ---
 
-<div align="center" markdown="1">
+<div align="center">
 
-← Previous: [Profile Download & Installation in v3.x]({{ site.baseurl }}/docs/articles/sgp22-v3/60-profile-download-v3)
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp22-v3/60-profile-download-v3">Profile Download & Installation in v3.x</a>
 
-Next: [Policy Management in SGP.22 v3.x]({{ site.baseurl }}/docs/articles/sgp22-v3/62-policy-management-v3) →
+Next: <a href="{{ site.baseurl }}/docs/articles/sgp22-v3/62-policy-management-v3">Policy Management in SGP.22 v3.x</a> →
 
 </div>
 

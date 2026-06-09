@@ -187,11 +187,11 @@ The fallback mechanism is triggered by the eUICC autonomously: no eIM involvemen
 
 ---
 
-<div align="center" markdown="1">
+<div align="center">
 
-← Previous: [IoT Profile Download: Direct, Indirect, and eIM Package Handling]({{ site.baseurl }}/docs/articles/sgp32/09-iot-profile-download-packages) · [🏠 Home]({{ site.baseurl }}/)
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp32/09-iot-profile-download-packages">IoT Profile Download: Direct, Indirect, and eIM Package Handling</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
 
-Next: [eIM Configuration: Associating Remote Managers with Your eUICC]({{ site.baseurl }}/docs/articles/sgp32/11-eim-configuration) →
+Next: <a href="{{ site.baseurl }}/docs/articles/sgp32/11-eim-configuration">eIM Configuration: Associating Remote Managers with Your eUICC</a> →
 
 </div>
 

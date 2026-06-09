@@ -131,11 +131,11 @@ Test profiles (Annex E) use known ICCIDs (`89019990001234567893`), known USIM AI
 
 ---
 
-<div align="center" markdown="1">
+<div align="center">
 
-← Previous: [SGP.23-1 Overview: Testing the eUICC Itself]({{ site.baseurl }}/docs/articles/sgp23-1/32-sgp23-1-overview) · [🏠 Home]({{ site.baseurl }}/)
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp23-1/32-sgp23-1-overview">SGP.23-1 Overview: Testing the eUICC Itself</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
 
-Next: [Key eUICC Test Cases: ISD-R, ECASD, and Profile Lifecycle]({{ site.baseurl }}/docs/articles/sgp23-1/34-sgp23-1-test-cases) →
+Next: <a href="{{ site.baseurl }}/docs/articles/sgp23-1/34-sgp23-1-test-cases">Key eUICC Test Cases: ISD-R, ECASD, and Profile Lifecycle</a> →
 
 </div>
 

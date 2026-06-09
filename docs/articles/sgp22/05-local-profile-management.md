@@ -231,11 +231,11 @@ For development and testing, SGP.22 defines a **Device Test Mode** : a hidden mo
 
 ---
 
-<div align="center" markdown="1">
+<div align="center">
 
-← Previous: [eSIM Security: The PKI and Certificate Model]({{ site.baseurl }}/docs/articles/sgp22/04-esim-security-pki) · [🏠 Home]({{ site.baseurl }}/)
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp22/04-esim-security-pki">eSIM Security: The PKI and Certificate Model</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
 
-Next: [The Developer's View: RSP Interfaces and Protocol Binding]({{ site.baseurl }}/docs/articles/sgp22/06-developer-interfaces) →
+Next: <a href="{{ site.baseurl }}/docs/articles/sgp22/06-developer-interfaces">The Developer's View: RSP Interfaces and Protocol Binding</a> →
 
 </div>
 

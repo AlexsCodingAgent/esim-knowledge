@@ -143,11 +143,11 @@ The protocol choice is configured per-eIM in the eIM Configuration Data via the 
 
 ---
 
-<div align="center" markdown="1">
+<div align="center">
 
-← Previous: [eSIM for IoT: Why It Needed Its Own Architecture]({{ site.baseurl }}/docs/articles/sgp32/07-iot-esim-why) · [🏠 Home]({{ site.baseurl }}/)
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp32/07-iot-esim-why">eSIM for IoT: Why It Needed Its Own Architecture</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
 
-Next: [IoT Profile Download: Direct, Indirect, and eIM Package Handling]({{ site.baseurl }}/docs/articles/sgp32/09-iot-profile-download-packages) →
+Next: <a href="{{ site.baseurl }}/docs/articles/sgp32/09-iot-profile-download-packages">IoT Profile Download: Direct, Indirect, and eIM Package Handling</a> →
 
 </div>
 

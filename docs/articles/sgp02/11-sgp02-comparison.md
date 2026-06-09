@@ -163,11 +163,11 @@ The spec's longevity isn't a sign that it's outdated. The M2M world moves slowly
 
 ---
 
-<div align="center" markdown="1">
+<div align="center">
 
-[🏠 Home]({{ site.baseurl }}/)
+<a href="{{ site.baseurl }}/">🏠 Home</a>
 
-← Previous: [Off-Card Interfaces: ES1–ES7 and the SOAP Binding]({{ site.baseurl }}/docs/articles/sgp02/10-sgp02-offcard-interfaces)
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp02/10-sgp02-offcard-interfaces">Off-Card Interfaces: ES1–ES7 and the SOAP Binding</a>
 
 </div>
 

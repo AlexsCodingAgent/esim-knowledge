@@ -170,12 +170,12 @@ In an industry where 15-year device lifecycles are routine and vendor relationsh
 
 ---
 
-<div align="center" markdown="1">
+<div align="center">
 
-[🏠 Home]({{ site.baseurl }}/)
+<a href="{{ site.baseurl }}/">🏠 Home</a>
 
-Previous: [Profile Lifecycle: Enable, Disable, Delete, and Fall-Back](06-sgp02-lifecycle) →
-Next: [Resilience: Fall-Back Mechanism, Emergency Profiles, and Test Profiles](08-sgp02-resilience) →
+Previous: <a href="06-sgp02-lifecycle">Profile Lifecycle: Enable, Disable, Delete, and Fall-Back</a> →
+Next: <a href="08-sgp02-resilience">Resilience: Fall-Back Mechanism, Emergency Profiles, and Test Profiles</a> →
 
 </div>
 

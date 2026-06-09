@@ -187,11 +187,11 @@ SGP.41 Annex B identifies four categories of threats:
 
 ---
 
-<div align="center" markdown="1">
+<div align="center">
 
-← Previous: [IFPP Flow: Manufacturing Step to Configuration Step]({{ site.baseurl }}/docs/articles/sgp41/49-sgp41-flow) · [🏠 Home]({{ site.baseurl }}/)
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp41/49-sgp41-flow">IFPP Flow: Manufacturing Step to Configuration Step</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
 
-Next: [IFPP in Practice: PC OEMs, Automotive, and IoT Manufacturing]({{ site.baseurl }}/docs/articles/sgp41/51-sgp41-practice) →
+Next: <a href="{{ site.baseurl }}/docs/articles/sgp41/51-sgp41-practice">IFPP in Practice: PC OEMs, Automotive, and IoT Manufacturing</a> →
 
 </div>
 

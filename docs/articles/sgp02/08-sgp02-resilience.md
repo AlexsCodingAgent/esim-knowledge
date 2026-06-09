@@ -167,12 +167,12 @@ These three mechanisms (Fall-Back, Emergency, and Test) are what make the "embed
 
 ---
 
-<div align="center" markdown="1">
+<div align="center">
 
-[🏠 Home]({{ site.baseurl }}/)
+<a href="{{ site.baseurl }}/">🏠 Home</a>
 
-Previous: [SM-SR Change: Handover, ES7 Interface, and EIS Migration](07-sgp02-sm-sr-change) →
-Next: [Policy Rules & Notifications: POL1, POL2, and the Default Notification](09-sgp02-policy-notifications) →
+Previous: <a href="07-sgp02-sm-sr-change">SM-SR Change: Handover, ES7 Interface, and EIS Migration</a> →
+Next: <a href="09-sgp02-policy-notifications">Policy Rules & Notifications: POL1, POL2, and the Default Notification</a> →
 
 </div>
 

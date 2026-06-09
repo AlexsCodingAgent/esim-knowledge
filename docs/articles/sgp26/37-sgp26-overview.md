@@ -116,11 +116,11 @@ The invalid test cases are particularly valuable. SGP.26 provides certificates w
 
 ---
 
-<div align="center" markdown="1">
+<div align="center">
 
-[🏠 Home]({{ site.baseurl }}/)
+<a href="{{ site.baseurl }}/">🏠 Home</a>
 
-Next: [Test Certificate Hierarchy: CI, EUM, DP, DS, and eUICC]({{ site.baseurl }}/docs/articles/sgp26/38-sgp26-hierarchy) →
+Next: <a href="{{ site.baseurl }}/docs/articles/sgp26/38-sgp26-hierarchy">Test Certificate Hierarchy: CI, EUM, DP, DS, and eUICC</a> →
 
 </div>
 

@@ -166,11 +166,11 @@ Each sequence includes conditional branching on `O_S_TRID` (whether a Transactio
 
 ---
 
-<div align="center" markdown="1">
+<div align="center">
 
-← Previous: [eIM Test Architecture: Simulated eIM and Reference IPA]({{ site.baseurl }}/docs/articles/sgp33-3/43-sgp33-eim-architecture) · [🏠 Home]({{ site.baseurl }}/)
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp33-3/43-sgp33-eim-architecture">eIM Test Architecture: Simulated eIM and Reference IPA</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
 
-Next: [eIM Security Testing: DTLS, Certificates, and Signed Packages]({{ site.baseurl }}/docs/articles/sgp33-3/45-sgp33-eim-security) →
+Next: <a href="{{ site.baseurl }}/docs/articles/sgp33-3/45-sgp33-eim-security">eIM Security Testing: DTLS, Certificates, and Signed Packages</a> →
 
 </div>
 

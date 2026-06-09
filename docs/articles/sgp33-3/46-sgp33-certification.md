@@ -213,9 +213,9 @@ SGP.33-3 does not exist in isolation. It connects to:
 
 ---
 
-<div align="center" markdown="1">
+<div align="center">
 
-← Previous: [eIM Security Testing: DTLS, Certificates, and Signed Packages]({{ site.baseurl }}/docs/articles/sgp33-3/45-sgp33-eim-security) · [🏠 Home]({{ site.baseurl }}/)
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp33-3/45-sgp33-eim-security">eIM Security Testing: DTLS, Certificates, and Signed Packages</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
 
 </div>
 

@@ -154,11 +154,11 @@ The simulated eUICC (S_eUICC) must be pre-configured for eIM testing (Annex G):
 
 ---
 
-<div align="center" markdown="1">
+<div align="center">
 
-← Previous: [SGP.33 Overview: The IoT eSIM Test Family]({{ site.baseurl }}/docs/articles/sgp33-3/42-sgp33-overview) · [🏠 Home]({{ site.baseurl }}/)
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp33-3/42-sgp33-overview">SGP.33 Overview: The IoT eSIM Test Family</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
 
-Next: [Key eIM Test Cases: PSMO, Notifications, and Configuration]({{ site.baseurl }}/docs/articles/sgp33-3/44-sgp33-eim-test-cases) →
+Next: <a href="{{ site.baseurl }}/docs/articles/sgp33-3/44-sgp33-eim-test-cases">Key eIM Test Cases: PSMO, Notifications, and Configuration</a> →
 
 </div>
 

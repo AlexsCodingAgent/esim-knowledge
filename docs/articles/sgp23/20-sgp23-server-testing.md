@@ -201,11 +201,11 @@ Test cases verify: supported cipher suites, certificate chain validation, OID ma
 
 ---
 
-<div align="center" markdown="1">
+<div align="center">
 
-← Previous: [Testing the LPA: LDS, LPD, and LUI Conformance]({{ site.baseurl }}/docs/articles/sgp23/19-sgp23-lpa-testing) · [🏠 Home]({{ site.baseurl }}/)
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp23/19-sgp23-lpa-testing">Testing the LPA: LDS, LPD, and LUI Conformance</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
 
-Next: [SGP.23 Certification: From Test Cases to DLOA]({{ site.baseurl }}/docs/articles/sgp23/21-sgp23-certification) →
+Next: <a href="{{ site.baseurl }}/docs/articles/sgp23/21-sgp23-certification">SGP.23 Certification: From Test Cases to DLOA</a> →
 
 </div>
 

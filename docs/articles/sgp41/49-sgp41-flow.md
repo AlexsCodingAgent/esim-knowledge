@@ -182,11 +182,11 @@ The IFPP flow is designed for real manufacturing environments with several pract
 
 ---
 
-<div align="center" markdown="1">
+<div align="center">
 
-← Previous: [The IFPP Architecture: SM-DPf, FPA, and Device Manufacturer]({{ site.baseurl }}/docs/articles/sgp41/48-sgp41-architecture) · [🏠 Home]({{ site.baseurl }}/)
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp41/48-sgp41-architecture">The IFPP Architecture: SM-DPf, FPA, and Device Manufacturer</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
 
-Next: [IFPP Security: Factory Trust Models and Certificate Chains]({{ site.baseurl }}/docs/articles/sgp41/50-sgp41-security) →
+Next: <a href="{{ site.baseurl }}/docs/articles/sgp41/50-sgp41-security">IFPP Security: Factory Trust Models and Certificate Chains</a> →
 
 </div>
 

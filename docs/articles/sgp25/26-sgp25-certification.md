@@ -224,9 +224,9 @@ A secure application embedded into a certified eUICC can itself be certified in 
 
 ---
 
-<div align="center" markdown="1">
+<div align="center">
 
-← Previous: [Physical Security: Side-Channel and Fault Injection Defenses]({{ site.baseurl }}/docs/articles/sgp25/25-sgp25-physical-security) · [🏠 Home]({{ site.baseurl }}/)
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp25/25-sgp25-physical-security">Physical Security: Side-Channel and Fault Injection Defenses</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
 
 </div>
 

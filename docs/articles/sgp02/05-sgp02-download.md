@@ -271,11 +271,11 @@ Every stakeholder who needs to know the profile is live gets the signal.
 
 ---
 
-<div align="center" markdown="1">
+<div align="center">
 
-[🏠 Home]({{ site.baseurl }}/)
+<a href="{{ site.baseurl }}/">🏠 Home</a>
 
-← Previous: [OTA Communication]({{ site.baseurl }}/docs/articles/sgp02/04-sgp02-ota) | Next: [Profile Lifecycle]({{ site.baseurl }}/docs/articles/sgp02/06-sgp02-lifecycle) →
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp02/04-sgp02-ota">OTA Communication</a> | Next: <a href="{{ site.baseurl }}/docs/articles/sgp02/06-sgp02-lifecycle">Profile Lifecycle</a> →
 
 </div>
 

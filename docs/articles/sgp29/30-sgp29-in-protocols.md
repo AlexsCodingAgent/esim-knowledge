@@ -214,11 +214,11 @@ The EID's role spans all four core RSP specifications:
 
 ---
 
-<div align="center" markdown="1">
+<div align="center">
 
-← Previous: [EID Assignment: How Manufacturers Get Their Allocations]({{ site.baseurl }}/docs/articles/sgp29/29-sgp29-assignment) · [🏠 Home]({{ site.baseurl }}/)
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp29/29-sgp29-assignment">EID Assignment: How Manufacturers Get Their Allocations</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
 
-Next: [EID Security: Privacy, Tracking, and GSMA Governance]({{ site.baseurl }}/docs/articles/sgp29/31-sgp29-security) →
+Next: <a href="{{ site.baseurl }}/docs/articles/sgp29/31-sgp29-security">EID Security: Privacy, Tracking, and GSMA Governance</a> →
 
 </div>
 

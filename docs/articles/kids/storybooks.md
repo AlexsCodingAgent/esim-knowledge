@@ -38,10 +38,10 @@ title: "Illustrated Storybooks: eUICC.tech"
 
 ---
 
-<div align="center" markdown="1">
+<div align="center">
 
 *Read in order or jump to any story: each one stands alone!*
 
-[📚 Back to Kids Articles](index.html) · [🏠 eUICC.tech Home]({{ site.baseurl }}/)
+<a href="index.html">📚 Back to Kids Articles</a> · <a href="{{ site.baseurl }}/">🏠 eUICC.tech Home</a>
 
 </div>

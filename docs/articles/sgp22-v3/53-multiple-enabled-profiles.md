@@ -143,11 +143,11 @@ For profile switching in MEP mode, the same PPR logic applies as in v2.x: a prof
 
 ---
 
-<div align="center" markdown="1">
+<div align="center">
 
-← Previous: [SGP.22 v3.x Overview: The Unified eSIM Specification]({{ site.baseurl }}/docs/articles/sgp22-v3/52-sgp22-v3-overview)
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp22-v3/52-sgp22-v3-overview">SGP.22 v3.x Overview: The Unified eSIM Specification</a>
 
-Next: [Push Service: How eSIMs Get Notified Without Polling]({{ site.baseurl }}/docs/articles/sgp22-v3/54-push-service) →
+Next: <a href="{{ site.baseurl }}/docs/articles/sgp22-v3/54-push-service">Push Service: How eSIMs Get Notified Without Polling</a> →
 
 </div>
 

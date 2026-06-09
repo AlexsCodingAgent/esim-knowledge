@@ -155,11 +155,11 @@ This prevents errors and keeps messages lean.
 
 ---
 
-<div align="center" markdown="1">
+<div align="center">
 
-← Previous: [Push Service: How eSIMs Get Notified Without Polling]({{ site.baseurl }}/docs/articles/sgp22-v3/54-push-service)
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp22-v3/54-push-service">Push Service: How eSIMs Get Notified Without Polling</a>
 
-Next: [Version Interoperability: How v2.x and v3.x Coexist]({{ site.baseurl }}/docs/articles/sgp22-v3/56-version-interoperability) →
+Next: <a href="{{ site.baseurl }}/docs/articles/sgp22-v3/56-version-interoperability">Version Interoperability: How v2.x and v3.x Coexist</a> →
 
 </div>
 
