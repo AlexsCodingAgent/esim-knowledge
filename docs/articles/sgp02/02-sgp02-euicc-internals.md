@@ -1,4 +1,5 @@
 ---
+title: "Inside the M2M eUICC: ISD-R, ISD-P, ECASD, and EID"
 description: "Walks through the M2M eUICC's internal security domain architecture — ISD-R for platform management, ISD-P containers for operator profiles, the ECASD as hardware root of trust, and the EID as unique chip identity."
 date: 2026-06-07
 ---

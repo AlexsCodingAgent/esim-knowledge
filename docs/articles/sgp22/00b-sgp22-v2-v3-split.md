@@ -1,4 +1,5 @@
 ---
+title: "SGP.22 v2.x vs v3.x: The Specification Split Explained"
 description: "Explains the GSMA's bifurcation of SGP.22 into parallel v2.x and v3.x tracks — covering the v2.2.2 baseline, the v3.x unified architecture merging consumer and M2M, and what the split means for eUICC procurement and platform planning."
 date: 2026-06-06
 ---

@@ -1,4 +1,5 @@
 ---
+title: "OTA Communication: SMS, PSK-TLS, CAT_TP, and DNS"
 description: "Examines the SGP.02 over-the-air communication stack — how the SM-SR uses SMS, PSK-TLS, and CAT_TP transports wrapped in SCP80/SCP81 secure channels to deliver commands to the ISD-R on the eUICC."
 date: 2026-06-07
 ---
