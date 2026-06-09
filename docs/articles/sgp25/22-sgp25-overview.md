@@ -142,7 +142,7 @@ SGP.25 structures threats in two tiers:
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 [🏠 Home]({{ site.baseurl }}/)
 

@@ -128,7 +128,7 @@ The registration can be re-triggered when:
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 ← Previous: [Multiple Enabled Profiles: Running Several eSIMs at Once]({{ site.baseurl }}/docs/articles/sgp22-v3/53-multiple-enabled-profiles)
 

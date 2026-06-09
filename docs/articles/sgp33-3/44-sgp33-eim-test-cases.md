@@ -166,7 +166,7 @@ Each sequence includes conditional branching on `O_S_TRID` (whether a Transactio
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 ← Previous: [eIM Test Architecture: Simulated eIM and Reference IPA]({{ site.baseurl }}/docs/articles/sgp33-3/43-sgp33-eim-architecture) · [🏠 Home]({{ site.baseurl }}/)
 

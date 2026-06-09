@@ -281,7 +281,7 @@ Every function call includes a `functionCallIdentifier` : a unique ID that enabl
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 ← Previous: [Managing Your eSIM: Local Profile Operations]({{ site.baseurl }}/docs/articles/sgp22/05-local-profile-management) · [🏠 Home]({{ site.baseurl }}/)
 

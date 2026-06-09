@@ -118,7 +118,7 @@ The key difference is **scope**: v2.x targets consumer devices with pull-based p
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 [🏠 Home]({{ site.baseurl }}/)
 

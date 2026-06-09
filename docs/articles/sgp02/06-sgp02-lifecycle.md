@@ -139,7 +139,7 @@ The three-path architecture is what makes SGP.02 flexible enough for diverse M2M
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 [🏠 Home]({{ site.baseurl }}/)
 

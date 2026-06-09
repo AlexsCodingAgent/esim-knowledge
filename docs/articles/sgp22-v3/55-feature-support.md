@@ -155,7 +155,7 @@ This prevents errors and keeps messages lean.
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 ← Previous: [Push Service: How eSIMs Get Notified Without Polling]({{ site.baseurl }}/docs/articles/sgp22-v3/54-push-service)
 

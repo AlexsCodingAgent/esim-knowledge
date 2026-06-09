@@ -108,7 +108,7 @@ The DLOA serves as a portable certificate of compliance: a product that holds a 
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 [🏠 Home]({{ site.baseurl }}/)
 

@@ -174,7 +174,7 @@ Beyond interface-level testing, Section 5.4 tests complete workflows:
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 ← Previous: [The GSMA eSIM Test Infrastructure]({{ site.baseurl }}/docs/articles/sgp23/18-sgp23-test-infrastructure) · [🏠 Home]({{ site.baseurl }}/)
 

@@ -160,7 +160,7 @@ When a PSMO arrives via eUICC Package:
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 ← Previous: [IoT eSIM Functions Reference: ESipa, ES9+', ES11', ESep]({{ site.baseurl }}/docs/articles/sgp32/16-iot-functions-reference) · [🏠 Home]({{ site.baseurl }}/)
 

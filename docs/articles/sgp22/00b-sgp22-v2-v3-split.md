@@ -135,7 +135,7 @@ The fundamental difference is scope:
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 ← Previous: [eSIM Remote SIM Provisioning (RSP) : How It Works]({{ site.baseurl }}/docs/articles/sgp22/00-sgp22-overview) · [🏠 Home]({{ site.baseurl }}/)
 

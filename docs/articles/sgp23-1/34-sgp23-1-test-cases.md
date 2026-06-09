@@ -207,7 +207,7 @@ Beyond interface compliance, these behaviour tests verify the full process lifec
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 ← Previous: [eUICC Test Architecture: Readers, Scripts, and GSMA Tools]({{ site.baseurl }}/docs/articles/sgp23-1/33-sgp23-1-architecture) · [🏠 Home]({{ site.baseurl }}/)
 

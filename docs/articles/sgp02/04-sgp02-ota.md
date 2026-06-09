@@ -173,7 +173,7 @@ Two more interfaces round out the picture:
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 [🏠 Home]({{ site.baseurl }}/)
 

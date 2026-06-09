@@ -48,7 +48,7 @@ Also added in v1.1 (CR11001R02). A collection of Device Manufacturers represente
 
 All applicants must satisfy three mandatory criteria:
 
-<div align="center">
+<div align="center" markdown="1">
 
 <svg width="620" height="300" viewBox="0 0 620 300" xmlns="http://www.w3.org/2000/svg">
   <defs>
@@ -121,7 +121,7 @@ The GSMA verifies two things:
 
 The entire verification process is estimated to take **no more than 5 working days** after receipt of the correctly completed form.
 
-<div align="center">
+<div align="center" markdown="1">
 
 <svg width="500" height="200" viewBox="0 0 500 200" xmlns="http://www.w3.org/2000/svg">
   <defs>
@@ -176,7 +176,7 @@ The GSMA notifies the applicant of the assigned ERHI1 by returning the completed
 
 ## Process Diagram
 
-<div align="center">
+<div align="center" markdown="1">
 
 <svg width="640" height="520" viewBox="0 0 640 520" xmlns="http://www.w3.org/2000/svg">
   <defs>
@@ -342,7 +342,7 @@ Any Level X EIN Assignment Authority (where X ≥ 2) : e.g., a National Authorit
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 ← Previous: [EID Format Decoded: The 32-Digit Structure]({{ site.baseurl }}/docs/articles/sgp29/28-sgp29-eid-format) · [🏠 Home]({{ site.baseurl }}/)
 

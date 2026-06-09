@@ -245,7 +245,7 @@ Both curves produce 64-byte signatures (two 32-byte integers, r and s, DER-encod
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 ← Previous: [SGP.26 Overview: The GSMA RSP Test Certificate Infrastructure]({{ site.baseurl }}/docs/articles/sgp26/37-sgp26-overview) · [🏠 Home]({{ site.baseurl }}/)
 

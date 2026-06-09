@@ -181,7 +181,7 @@ SGP.02 and SGP.22 share the same CI root concept and three-tier structure, but t
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 [🏠 Home]({{ site.baseurl }}/)
 

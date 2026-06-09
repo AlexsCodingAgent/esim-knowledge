@@ -141,7 +141,7 @@ SGP.23 explicitly marks certain areas as **FFS (For Future Study)** or out of sc
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 ← Previous: [Testing the SM-DP+ and SM-DS]({{ site.baseurl }}/docs/articles/sgp23/20-sgp23-server-testing) · [🏠 Home]({{ site.baseurl }}/)
 

@@ -242,7 +242,7 @@ The specification notes that *"SGP.26 [25] contains test keys, valid test certif
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 ← Previous: [Key eIM Test Cases: PSMO, Notifications, and Configuration]({{ site.baseurl }}/docs/articles/sgp33-3/44-sgp33-eim-test-cases) · [🏠 Home]({{ site.baseurl }}/)
 

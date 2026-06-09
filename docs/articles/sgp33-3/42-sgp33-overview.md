@@ -108,7 +108,7 @@ SGP.33-3 v1.2 was published on 27 January 2025, but this is effectively the firs
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 [🏠 Home]({{ site.baseurl }}/)
 

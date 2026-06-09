@@ -174,7 +174,7 @@ Individual operations within a package can fail independently:
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 ← Previous: [eIM Configuration: Associating Remote Managers with Your eUICC]({{ site.baseurl }}/docs/articles/sgp32/11-eim-configuration) · [🏠 Home]({{ site.baseurl }}/)
 

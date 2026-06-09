@@ -179,7 +179,7 @@ The assurance requirements validate the functional requirements by proving:
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 ← Previous: [eUICC Security Functional Requirements]({{ site.baseurl }}/docs/articles/sgp25/23-sgp25-security-requirements) · [🏠 Home]({{ site.baseurl }}/)
 

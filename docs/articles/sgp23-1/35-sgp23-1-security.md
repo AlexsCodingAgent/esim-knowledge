@@ -183,7 +183,7 @@ For Integrated eUICCs using USB CCID (Annex J), the test interface specification
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 ← Previous: [Key eUICC Test Cases: ISD-R, ECASD, and Profile Lifecycle]({{ site.baseurl }}/docs/articles/sgp23-1/34-sgp23-1-test-cases) · [🏠 Home]({{ site.baseurl }}/)
 

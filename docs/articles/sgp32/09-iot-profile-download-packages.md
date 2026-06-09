@@ -189,7 +189,7 @@ This lets the `eIM` adapt its behaviour to the specific `IPA` implementation: a 
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 ← Previous: [The eSIM IoT Architecture: eIM, IPA, and the New Interfaces]({{ site.baseurl }}/docs/articles/sgp32/08-iot-architecture-im-ipa) · [🏠 Home]({{ site.baseurl }}/)
 

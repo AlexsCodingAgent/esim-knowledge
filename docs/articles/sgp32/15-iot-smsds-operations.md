@@ -184,7 +184,7 @@ This consolidates what would be three separate exchanges into one wake cycle: cr
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 ← Previous: [Profile State Management via the eIM: Remote Enable, Disable, Delete]({{ site.baseurl }}/docs/articles/sgp32/14-iot-profile-state-management) · [🏠 Home]({{ site.baseurl }}/)
 

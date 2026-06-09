@@ -118,7 +118,7 @@ However, it is important to note: **EIDs assigned under the ITU-T E.118 based sc
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 [🏠 Home]({{ site.baseurl }}/)
 

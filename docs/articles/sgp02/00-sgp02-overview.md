@@ -106,7 +106,7 @@ SGP.02 was the first eSIM standard, written for devices that can't ask for help.
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 [🏠 Home]({{ site.baseurl }}/)
 

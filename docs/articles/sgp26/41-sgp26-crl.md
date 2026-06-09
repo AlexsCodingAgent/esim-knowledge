@@ -232,7 +232,7 @@ Until then, the CRL infrastructure exists for structural validation: verifying t
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 ← Previous: [Using Test Certificates: Developer Setup and Integration]({{ site.baseurl }}/docs/articles/sgp26/40-sgp26-development) · [🏠 Home]({{ site.baseurl }}/)
 

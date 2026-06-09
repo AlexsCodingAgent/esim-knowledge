@@ -167,7 +167,7 @@ These three mechanisms (Fall-Back, Emergency, and Test) are what make the "embed
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 [🏠 Home]({{ site.baseurl }}/)
 

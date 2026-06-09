@@ -130,7 +130,7 @@ IUT settings (Annex F) cover product-specific information that test tool provide
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 ← Previous: [SGP.23 Overview: How eSIM Interoperability Is Tested]({{ site.baseurl }}/docs/articles/sgp23/17-sgp23-overview) · [🏠 Home]({{ site.baseurl }}/)
 

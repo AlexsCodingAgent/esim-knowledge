@@ -123,7 +123,7 @@ What PLMA explicitly cannot do: hand over POL2 management. That stays with the O
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 [🏠 Home]({{ site.baseurl }}/)
 

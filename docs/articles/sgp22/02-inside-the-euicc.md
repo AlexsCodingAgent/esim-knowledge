@@ -160,7 +160,7 @@ The eUICC must implement **Java Card 3.0.4 Classic Edition** (or higher) with sp
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 ← Previous: [The eSIM RSP Architecture: Players and Interfaces]({{ site.baseurl }}/docs/articles/sgp22/01-rsp-architecture) · [🏠 Home]({{ site.baseurl }}/)
 

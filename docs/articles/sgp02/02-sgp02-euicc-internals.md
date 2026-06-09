@@ -178,7 +178,7 @@ Three Security Domains. One immutable identity in the ECASD. One platform manage
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 [🏠 Home]({{ site.baseurl }}/)
 

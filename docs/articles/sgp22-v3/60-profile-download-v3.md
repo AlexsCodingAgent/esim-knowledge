@@ -218,7 +218,7 @@ While the core download flow is inherited from v2.x, v3.1 adds several important
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 ← Previous: [eUICC Updates and Profile Content Management]({{ site.baseurl }}/docs/articles/sgp22-v3/59-euicc-updates-pcm)
 

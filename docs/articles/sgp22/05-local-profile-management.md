@@ -231,7 +231,7 @@ For development and testing, SGP.22 defines a **Device Test Mode** : a hidden mo
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 ← Previous: [eSIM Security: The PKI and Certificate Model]({{ site.baseurl }}/docs/articles/sgp22/04-esim-security-pki) · [🏠 Home]({{ site.baseurl }}/)
 

@@ -111,7 +111,7 @@ Together they form the complete IoT eSIM specification stack, sitting alongside 
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 [🏠 Home]({{ site.baseurl }}/)
 

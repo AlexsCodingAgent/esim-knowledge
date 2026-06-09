@@ -182,7 +182,7 @@ The IFPP flow is designed for real manufacturing environments with several pract
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 ← Previous: [The IFPP Architecture: SM-DPf, FPA, and Device Manufacturer]({{ site.baseurl }}/docs/articles/sgp41/48-sgp41-architecture) · [🏠 Home]({{ site.baseurl }}/)
 

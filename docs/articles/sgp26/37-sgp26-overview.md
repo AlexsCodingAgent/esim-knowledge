@@ -116,7 +116,7 @@ The invalid test cases are particularly valuable. SGP.26 provides certificates w
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 [🏠 Home]({{ site.baseurl }}/)
 

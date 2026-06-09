@@ -111,7 +111,7 @@ A device that supports a non-removable eUICC without an LPAe must provide an LPA
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 ← Previous: [SGP.22 v2.x vs v3.x: The Specification Split]({{ site.baseurl }}/docs/articles/sgp22/00b-sgp22-v2-v3-split) · [🏠 Home]({{ site.baseurl }}/)
 

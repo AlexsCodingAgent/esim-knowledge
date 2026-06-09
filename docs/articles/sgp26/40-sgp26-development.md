@@ -314,7 +314,7 @@ The eUICC checks the `certificatePolicies` extension. If an SM-DP+ presents a TL
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 ← Previous: [Certificate Profiles: What Makes a Valid Test Certificate]({{ site.baseurl }}/docs/articles/sgp26/39-sgp26-profiles) · [🏠 Home]({{ site.baseurl }}/)
 

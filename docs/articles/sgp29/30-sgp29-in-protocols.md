@@ -214,7 +214,7 @@ The EID's role spans all four core RSP specifications:
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 ← Previous: [EID Assignment: How Manufacturers Get Their Allocations]({{ site.baseurl }}/docs/articles/sgp29/29-sgp29-assignment) · [🏠 Home]({{ site.baseurl }}/)
 

@@ -196,7 +196,7 @@ This signed result serves as cryptographic proof: the Operator can verify that a
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 ← Previous: [Profile Download & Installation in v3.x]({{ site.baseurl }}/docs/articles/sgp22-v3/60-profile-download-v3)
 

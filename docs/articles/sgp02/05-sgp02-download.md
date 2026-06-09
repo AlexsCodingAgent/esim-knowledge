@@ -271,7 +271,7 @@ Every stakeholder who needs to know the profile is live gets the signal.
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 [🏠 Home]({{ site.baseurl }}/)
 

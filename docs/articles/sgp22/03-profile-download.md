@@ -690,7 +690,7 @@ Test profiles are marked with Profile Class = Test. They have relaxed security r
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 ← Previous: [Inside the eUICC: The Secure Element That Powers Your eSIM]({{ site.baseurl }}/docs/articles/sgp22/02-inside-the-euicc) · [🏠 Home]({{ site.baseurl }}/)
 

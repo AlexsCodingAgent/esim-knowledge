@@ -187,7 +187,7 @@ The fallback mechanism is triggered by the eUICC autonomously: no eIM involvemen
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 ← Previous: [IoT Profile Download: Direct, Indirect, and eIM Package Handling]({{ site.baseurl }}/docs/articles/sgp32/09-iot-profile-download-packages) · [🏠 Home]({{ site.baseurl }}/)
 

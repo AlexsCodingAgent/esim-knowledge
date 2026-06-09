@@ -238,7 +238,7 @@ These invalid certificates are generated from the same templates as valid certif
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 ← Previous: [Test Certificate Hierarchy: CI, EUM, DP, DS, and eUICC]({{ site.baseurl }}/docs/articles/sgp26/38-sgp26-hierarchy) · [🏠 Home]({{ site.baseurl }}/)
 

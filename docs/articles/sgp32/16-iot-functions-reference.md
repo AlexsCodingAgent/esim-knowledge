@@ -271,7 +271,7 @@ SGP.32 extends SGP.22's ES10 functions with IoT-specific additions:
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 ← Previous: [SM-DS Operations in IoT eSIM: Event Registration and Retrieval]({{ site.baseurl }}/docs/articles/sgp32/15-iot-smsds-operations) · [🏠 Home]({{ site.baseurl }}/)
 

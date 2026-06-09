@@ -201,7 +201,7 @@ Test cases verify: supported cipher suites, certificate chain validation, OID ma
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 ← Previous: [Testing the LPA: LDS, LPD, and LUI Conformance]({{ site.baseurl }}/docs/articles/sgp23/19-sgp23-lpa-testing) · [🏠 Home]({{ site.baseurl }}/)
 

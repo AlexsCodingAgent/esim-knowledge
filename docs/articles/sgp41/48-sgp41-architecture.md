@@ -164,7 +164,7 @@ The eUICC architecture in SGP.41 is fundamentally the same as SGP.21's: same ISD
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 ← Previous: [SGP.41 Overview: In-Factory Profile Provisioning]({{ site.baseurl }}/docs/articles/sgp41/47-sgp41-overview) · [🏠 Home]({{ site.baseurl }}/)
 

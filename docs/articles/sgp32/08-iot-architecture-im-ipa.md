@@ -143,7 +143,7 @@ The protocol choice is configured per-eIM in the eIM Configuration Data via the 
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 ← Previous: [eSIM for IoT: Why It Needed Its Own Architecture]({{ site.baseurl }}/docs/articles/sgp32/07-iot-esim-why) · [🏠 Home]({{ site.baseurl }}/)
 

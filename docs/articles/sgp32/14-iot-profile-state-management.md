@@ -246,7 +246,7 @@ The `eIM` can pre-configure whether downloaded profiles should be immediately en
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 ← Previous: [IoT Device Initialisation and the eUICC File Structure]({{ site.baseurl }}/docs/articles/sgp32/13-iot-device-initialisation) · [🏠 Home]({{ site.baseurl }}/)
 

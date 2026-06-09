@@ -38,7 +38,7 @@ title: "Illustrated Storybooks: eUICC.tech"
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 *Read in order or jump to any story: each one stands alone!*
 

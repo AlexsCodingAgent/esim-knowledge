@@ -189,7 +189,7 @@ After RPM execution, the Operator receives the Load RPM Package Result. Based on
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 ← Previous: [Version Interoperability: How v2.x and v3.x Coexist]({{ site.baseurl }}/docs/articles/sgp22-v3/56-version-interoperability)
 

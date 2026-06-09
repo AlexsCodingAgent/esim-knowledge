@@ -104,7 +104,7 @@ SGP.41 unlocks use cases that SGP.22 alone cannot address:
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 [🏠 Home]({{ site.baseurl }}/)
 

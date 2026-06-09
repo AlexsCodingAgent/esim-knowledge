@@ -111,7 +111,7 @@ SGP.23-1 sits in a broader certification ecosystem:
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 [🏠 Home]({{ site.baseurl }}/)
 

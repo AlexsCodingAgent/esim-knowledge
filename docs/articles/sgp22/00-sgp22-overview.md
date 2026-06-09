@@ -197,7 +197,7 @@ That's it. The device extracts the SM-DP+ URL and the Matching ID, then begins t
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 [🏠 Home]({{ site.baseurl }}/)
 

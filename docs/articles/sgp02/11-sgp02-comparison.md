@@ -163,7 +163,7 @@ The spec's longevity isn't a sign that it's outdated. The M2M world moves slowly
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 [🏠 Home]({{ site.baseurl }}/)
 

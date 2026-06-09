@@ -211,7 +211,7 @@ This means the eUICC software architecture must include self-protection mechanis
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 ← Previous: [eUICC Assurance Requirements: EAL4+ and Penetration Testing]({{ site.baseurl }}/docs/articles/sgp25/24-sgp25-assurance) · [🏠 Home]({{ site.baseurl }}/)
 

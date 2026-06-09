@@ -139,7 +139,7 @@ The SGP.02 ecosystem is built around the SM-SR: the hub that connects every othe
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 [🏠 Home]({{ site.baseurl }}/)
 

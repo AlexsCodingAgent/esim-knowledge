@@ -170,7 +170,7 @@ In an industry where 15-year device lifecycles are routine and vendor relationsh
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 [🏠 Home]({{ site.baseurl }}/)
 

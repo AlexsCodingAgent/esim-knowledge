@@ -212,7 +212,7 @@ What SGP.25 SFRs explicitly do **NOT** cover:
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 ← Previous: [SGP.25 Overview: The eUICC Common Criteria Protection Profile]({{ site.baseurl }}/docs/articles/sgp25/22-sgp25-overview) · [🏠 Home]({{ site.baseurl }}/)
 

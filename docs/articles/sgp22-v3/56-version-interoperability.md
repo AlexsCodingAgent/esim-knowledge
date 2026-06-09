@@ -140,7 +140,7 @@ v3.x servers (SM-DP+, SM-DS) are required to:
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 ← Previous: [Feature Support: Capability Negotiation in v3.x]({{ site.baseurl }}/docs/articles/sgp22-v3/55-feature-support)
 

@@ -194,7 +194,7 @@ These certifications are verified through **Digital Letters of Approval (DLOAs)*
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 ← Previous: [How a Profile Gets Delivered: The eSIM Download Process]({{ site.baseurl }}/docs/articles/sgp22/03-profile-download) · [🏠 Home]({{ site.baseurl }}/)
 

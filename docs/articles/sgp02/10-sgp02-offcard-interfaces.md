@@ -252,7 +252,7 @@ Every on-card operation flows through ES5. Every server-side operation flows thr
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 [🏠 Home]({{ site.baseurl }}/)
 

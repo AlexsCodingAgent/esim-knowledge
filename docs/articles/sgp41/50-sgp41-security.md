@@ -187,7 +187,7 @@ SGP.41 Annex B identifies four categories of threats:
 
 ---
 
-<div align="center">
+<div align="center" markdown="1">
 
 ← Previous: [IFPP Flow: Manufacturing Step to Configuration Step]({{ site.baseurl }}/docs/articles/sgp41/49-sgp41-flow) · [🏠 Home]({{ site.baseurl }}/)
 
