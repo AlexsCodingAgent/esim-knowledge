@@ -16,10 +16,10 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Replace theme credits with custom footer
-  var credits = document.querySelector('#title .credits');
-  if (credits) {
-    credits.innerHTML = 'Created by <a href="https://tuddenham.info">Alex Tuddenham</a>';
-    credits.className = 'credits right';
+  var credits = document.querySelectorAll('#title .credits');
+  if (credits.length >= 2) {
+    credits[0].textContent = '';
+    credits[1].innerHTML = 'Created by <a href="https://tuddenham.info">Alex Tuddenham</a>';
   }
 
   // Build JSON-LD BreadcrumbList from URL path
