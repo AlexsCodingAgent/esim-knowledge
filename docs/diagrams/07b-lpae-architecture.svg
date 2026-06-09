@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 580">
+  <!-- Background -->
+  <rect width="1000" height="580" fill="#0a1628"/>
+
+  <!-- Title -->
+  <text x="500" y="32" fill="#e2e8f0" font-family="monospace" font-size="18" font-weight="bold" text-anchor="middle">LPAe Architecture — LPA inside the eUICC</text>
+
+  <!-- ===== SM-DP+ (top center-right, green) ===== -->
+  <rect x="470" y="50" width="180" height="55" rx="4" fill="none" stroke="#34d399" stroke-width="2"/>
+  <text x="560" y="72" fill="#34d399" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">SM-DP+</text>
+  <text x="560" y="92" fill="#94a3b8" font-family="monospace" font-size="10" text-anchor="middle">Subscription Manager</text>
+
+  <!-- ===== SM-DS (top right, amber) ===== -->
+  <rect x="720" y="50" width="180" height="55" rx="4" fill="none" stroke="#fbbf24" stroke-width="2"/>
+  <text x="810" y="72" fill="#fbbf24" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">SM-DS</text>
+  <text x="810" y="92" fill="#94a3b8" font-family="monospace" font-size="10" text-anchor="middle">Discovery Server</text>
+
+  <!-- ===== Device (thin conduit, left, cyan) ===== -->
+  <rect x="40" y="80" width="50" height="460" rx="3" fill="none" stroke="#22d3ee" stroke-width="2"/>
+  <text x="65" y="555" fill="#22d3ee" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle">Device</text>
+  <!-- Device label rotated -->
+  <text x="65" y="320" fill="#22d3ee" font-family="monospace" font-size="10" text-anchor="middle" transform="rotate(-90,65,320)">LPA / Modem</text>
+
+  <!-- ===== eUICC (big box, right, purple) ===== -->
+  <rect x="170" y="60" width="770" height="495" rx="6" fill="none" stroke="#a78bfa" stroke-width="2.5"/>
+  <text x="190" y="82" fill="#a78bfa" font-family="monospace" font-size="14" font-weight="bold" text-anchor="start">eUICC</text>
+
+  <!-- ===== Components inside eUICC (top row) ===== -->
+  <!-- ECASD -->
+  <rect x="190" y="90" width="100" height="38" rx="3" fill="none" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="240" y="106" fill="#c4b5fd" font-family="monospace" font-size="11" font-weight="bold" text-anchor="middle">ECASD</text>
+  <text x="240" y="120" fill="#94a3b8" font-family="monospace" font-size="9" text-anchor="middle">eUICC Cert</text>
+
+  <!-- ISD-R -->
+  <rect x="310" y="90" width="100" height="38" rx="3" fill="none" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="360" y="106" fill="#c4b5fd" font-family="monospace" font-size="11" font-weight="bold" text-anchor="middle">ISD-R</text>
+  <text x="360" y="120" fill="#94a3b8" font-family="monospace" font-size="9" text-anchor="middle">Root Domain</text>
+
+  <!-- ISD-P 1 -->
+  <rect x="430" y="90" width="100" height="38" rx="3" fill="none" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="480" y="106" fill="#c4b5fd" font-family="monospace" font-size="11" font-weight="bold" text-anchor="middle">ISD-P</text>
+  <text x="480" y="120" fill="#94a3b8" font-family="monospace" font-size="9" text-anchor="middle">Profile 1</text>
+
+  <!-- ISD-P 2 -->
+  <rect x="550" y="90" width="100" height="38" rx="3" fill="none" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="600" y="106" fill="#c4b5fd" font-family="monospace" font-size="11" font-weight="bold" text-anchor="middle">ISD-P</text>
+  <text x="600" y="120" fill="#94a3b8" font-family="monospace" font-size="9" text-anchor="middle">Profile 2</text>
+
+  <!-- ISD-P 3 -->
+  <rect x="670" y="90" width="100" height="38" rx="3" fill="none" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="720" y="106" fill="#c4b5fd" font-family="monospace" font-size="11" font-weight="bold" text-anchor="middle">ISD-P</text>
+  <text x="720" y="120" fill="#94a3b8" font-family="monospace" font-size="9" text-anchor="middle">Profile N</text>
+
+  <!-- ===== LPAe sub-box (inside eUICC, orange) ===== -->
+  <rect x="190" y="150" width="650" height="270" rx="5" fill="none" stroke="#fb923c" stroke-width="2"/>
+  <text x="210" y="172" fill="#fb923c" font-family="monospace" font-size="13" font-weight="bold" text-anchor="start">LPAe (Local Profile Assistant embedded)</text>
+
+  <!-- LDSe -->
+  <rect x="210" y="190" width="170" height="65" rx="4" fill="none" stroke="#fb923c" stroke-width="1.5"/>
+  <text x="295" y="214" fill="#fdba74" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle">LDSe</text>
+  <text x="295" y="232" fill="#94a3b8" font-family="monospace" font-size="9" text-anchor="middle">Local Discovery</text>
+  <text x="295" y="246" fill="#94a3b8" font-family="monospace" font-size="9" text-anchor="middle">Service (eUICC)</text>
+
+  <!-- LPDe -->
+  <rect x="410" y="190" width="170" height="65" rx="4" fill="none" stroke="#fb923c" stroke-width="1.5"/>
+  <text x="495" y="214" fill="#fdba74" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle">LPDe</text>
+  <text x="495" y="232" fill="#94a3b8" font-family="monospace" font-size="9" text-anchor="middle">Local Profile</text>
+  <text x="495" y="246" fill="#94a3b8" font-family="monospace" font-size="9" text-anchor="middle">Download (eUICC)</text>
+
+  <!-- LUIe -->
+  <rect x="610" y="190" width="170" height="65" rx="4" fill="none" stroke="#fb923c" stroke-width="1.5"/>
+  <text x="695" y="214" fill="#fdba74" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle">LUIe</text>
+  <text x="695" y="232" fill="#94a3b8" font-family="monospace" font-size="9" text-anchor="middle">Local User</text>
+  <text x="695" y="246" fill="#94a3b8" font-family="monospace" font-size="9" text-anchor="middle">Interface (eUICC)</text>
+
+  <!-- ===== Internal connections inside LPAe ===== -->
+  <!-- LDSe - LPDe connection -->
+  <path d="M 380,222 L 410,222" fill="none" stroke="#fbbf24" stroke-width="1" stroke-dasharray="3,3"/>
+  <!-- LPDe - LUIe connection -->
+  <path d="M 580,222 L 610,222" fill="none" stroke="#fbbf24" stroke-width="1" stroke-dasharray="3,3"/>
+
+  <!-- ===== ARROWS ===== -->
+
+  <!-- Arrow 1: BIP/TCP — ISD-R → Device → SM-DP+ -->
+  <path d="M 360,128 L 170,128 L 90,128 L 90,77 L 510,77 L 510,105" fill="none" stroke="#94a3b8" stroke-width="1.8"/>
+  <!-- Arrowhead 1 at (510,105) pointing down -->
+  <path d="M 510,105 L 505.5,97.5" fill="none" stroke="#94a3b8" stroke-width="1.8"/>
+  <path d="M 510,105 L 514.5,97.5" fill="none" stroke="#94a3b8" stroke-width="1.8"/>
+  <!-- BIP/TCP label -->
+  <text x="330" y="142" fill="#94a3b8" font-family="monospace" font-size="9" text-anchor="middle">BIP / TCP</text>
+
+  <!-- Arrow 2: BIP/TCP — ISD-R → Device → SM-DS -->
+  <path d="M 360,128 L 170,143 L 90,143 L 90,77 L 770,77 L 770,105" fill="none" stroke="#94a3b8" stroke-width="1.8"/>
+  <!-- Arrowhead 2 at (770,105) pointing down -->
+  <path d="M 770,105 L 765.5,97.5" fill="none" stroke="#94a3b8" stroke-width="1.8"/>
+  <path d="M 770,105 L 774.5,97.5" fill="none" stroke="#94a3b8" stroke-width="1.8"/>
+
+  <!-- Arrow 3: CAT/SCWS — ISD-R → Device (terminates at Device) -->
+  <path d="M 310,128 L 170,160 L 90,160" fill="none" stroke="#22d3ee" stroke-width="1.8"/>
+  <!-- Arrowhead 3 at (90,160) pointing left into Device -->
+  <path d="M 90,160 L 97,155.5" fill="none" stroke="#22d3ee" stroke-width="1.8"/>
+  <path d="M 90,160 L 97,164.5" fill="none" stroke="#22d3ee" stroke-width="1.8"/>
+  <!-- CAT/SCWS label -->
+  <text x="200" y="174" fill="#22d3ee" font-family="monospace" font-size="9" text-anchor="middle">CAT / SCWS</text>
+
+  <!-- Arrow 4: ES9+ — LPDe → SM-DP+ via Device -->
+  <path d="M 495,190 L 495,170 L 170,170 L 90,170 L 90,77 L 530,77 L 530,105" fill="none" stroke="#34d399" stroke-width="1.8"/>
+  <!-- Arrowhead 4 at (530,105) pointing down -->
+  <path d="M 530,105 L 525.5,97.5" fill="none" stroke="#34d399" stroke-width="1.8"/>
+  <path d="M 530,105 L 534.5,97.5" fill="none" stroke="#34d399" stroke-width="1.8"/>
+  <!-- ES9+ label -->
+  <text x="350" y="185" fill="#34d399" font-family="monospace" font-size="9" text-anchor="middle">ES9+ (Profile Download)</text>
+
+  <!-- Arrow 5: ES11 — LDSe → SM-DS via Device -->
+  <path d="M 295,190 L 295,178 L 170,178 L 90,178 L 90,77 L 790,77 L 790,105" fill="none" stroke="#fbbf24" stroke-width="1.8"/>
+  <!-- Arrowhead 5 at (790,105) pointing down -->
+  <path d="M 790,105 L 785.5,97.5" fill="none" stroke="#fbbf24" stroke-width="1.8"/>
+  <path d="M 790,105 L 794.5,97.5" fill="none" stroke="#fbbf24" stroke-width="1.8"/>
+  <!-- ES11 label -->
+  <text x="230" y="193" fill="#fbbf24" font-family="monospace" font-size="9" text-anchor="middle">ES11 (Discovery)</text>
+
+  <!-- ===== Protocol Legend ===== -->
+  <rect x="190" y="440" width="650" height="95" rx="4" fill="none" stroke="#334155" stroke-width="1"/>
+  <text x="210" y="460" fill="#94a3b8" font-family="monospace" font-size="11" font-weight="bold" text-anchor="start">Protocol Interfaces</text>
+
+  <!-- Legend items -->
+  <line x1="210" y1="475" x2="260" y2="475" stroke="#94a3b8" stroke-width="2"/>
+  <text x="270" y="479" fill="#94a3b8" font-family="monospace" font-size="10" text-anchor="start">BIP/TCP — Bearer Independent Protocol (eUICC ↔ Device ↔ SM-DP+ / SM-DS)</text>
+
+  <line x1="210" y1="493" x2="260" y2="493" stroke="#22d3ee" stroke-width="2"/>
+  <text x="270" y="497" fill="#22d3ee" font-family="monospace" font-size="10" text-anchor="start">CAT/SCWS — Card Application Toolkit / Smart Card Web Server (eUICC → Device)</text>
+
+  <line x1="210" y1="511" x2="260" y2="511" stroke="#34d399" stroke-width="2"/>
+  <text x="270" y="515" fill="#34d399" font-family="monospace" font-size="10" text-anchor="start">ES9+ — Profile download interface (LPDe → SM-DP+ via Device)</text>
+
+  <line x1="210" y1="529" x2="260" y2="529" stroke="#fbbf24" stroke-width="2"/>
+  <text x="270" y="533" fill="#fbbf24" font-family="monospace" font-size="10" text-anchor="start">ES11 — Discovery interface (LDSe → SM-DS via Device)</text>
+
+</svg>

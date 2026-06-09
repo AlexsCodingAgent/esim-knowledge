@@ -22,6 +22,8 @@ date: 2026-06-07
 
 When an eSIM device powers on for the very first time: fresh out of the box: there's no profile installed, no network connectivity, and no operator relationship. Yet the device must boot, present a functional interface, and guide the user through downloading their first profile. This article traces the complete boot and initialisation sequence defined in SGP.22 section 3.4.
 
+<img src="../../diagrams/08a-boot-sequence.svg" alt="eUICC Boot & Initialisation Sequence — 4 phases from ATR/CAT init through Terminal Capability and ISD-R Selection to Profile Discovery fallback" style="width:100%;max-width:800px;display:block;margin:20px auto;border-radius:8px;">
+
 ---
 
 ## Phase 1: eUICC Initialisation (3.4.1)

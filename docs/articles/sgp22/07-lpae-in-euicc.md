@@ -38,7 +38,15 @@ The specification uses "LPA", "LPD", "LDS", "LUI" without the "d" or "e" suffix 
 
 ### Architecture Diagrams
 
+**LPAd Architecture (figure 1, section 2.1):**
+
+<img src="../../diagrams/07a-lpad-architecture.svg" alt="LPAd Architecture — LPA components (LDSd, LPDd, LUId) sit in the Device, communicating with eUICC (ECASD, ISD-R, ISD-Ps) over ES10a/b/c" style="width:100%;max-width:800px;display:block;margin:20px auto;border-radius:8px;">
+
 The LPAd architecture shows the three LPA components sitting inside the Device, communicating with the eUICC over **ES10a**, **ES10b**, and **ES10c** (figure 1, section 2.1). The eUICC contains ECASD, ISD-R, ISD-Ps, and the Telecom Framework: but no LPA logic.
+
+**LPAe Architecture (figure 2, section 2.1):**
+
+<img src="../../diagrams/07b-lpae-architecture.svg" alt="LPAe Architecture — LPA components (LDSe, LPDe, LUIe) run inside the eUICC itself, Device acts as IP and UI conduit via BIP/TCP and CAT/SCWS" style="width:100%;max-width:800px;display:block;margin:20px auto;border-radius:8px;">
 
 The LPAe architecture (figure 2, section 2.1) moves the LPA components *inside* the eUICC. The Device becomes a conduit: it still provides IP connectivity (the LPAe uses **BIP over TCP** to reach SM-DP+ and SM-DS over HTTPS), and it still renders the UI (via CAT or SCWS: more on that below). But the decision-making logic, the profile download orchestration, and the discovery service all execute on the eUICC's Java Card runtime.
 

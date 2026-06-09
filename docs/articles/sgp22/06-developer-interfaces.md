@@ -23,6 +23,8 @@ date: 2026-06-05
 
 For developers implementing eSIM support: whether building an LPA, an SM-DP+, or integrating with an eUICC: understanding the function-level API and wire protocol is essential. SGP.22 defines every function call, every TLV structure, and both JSON and ASN.1 serialisation formats.
 
+<img src="../../diagrams/06a-interfaces-overview.svg" alt="RSP Interface Architecture — ES2+, ES8+, ES9+, ES10x, ES11, and ES12 mapped between Operator, SM-DP+, SM-DS, LPA, and eUICC with protocol bindings" style="width:100%;max-width:800px;display:block;margin:20px auto;border-radius:8px;">
+
 ---
 
 ## The `ES2+` Interface: Operator to SM-DP+
