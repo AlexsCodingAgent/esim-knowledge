@@ -1,6 +1,32 @@
 <link rel="icon" type="image/svg+xml" href="{{ '/favicon.svg' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/navy.css' | relative_url }}">
 
+{% if page.date %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "{{ page.title | escape }}",
+  "description": "{{ page.description | default: page.excerpt | strip_html | escape }}",
+  "datePublished": "{{ page.date | date: '%Y-%m-%d' }}",
+  "author": {
+    "@type": "Person",
+    "name": "Alex Tuddenham",
+    "url": "https://tuddenham.info"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "eUICC.tech",
+    "url": "https://euicc.tech"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ site.url }}{{ page.url }}"
+  }
+}
+</script>
+{% endif %}
+
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   // Make title link to homepage
