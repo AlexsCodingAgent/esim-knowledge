@@ -151,3 +151,8 @@ em {
 footer, .credits {
   color: #5a6d80;
 }
+
+/* ── Desktop-only / Mobile-only helpers ── */
+@media (min-width: 769px) {
+  .mobile-only { display: none; }
+}
