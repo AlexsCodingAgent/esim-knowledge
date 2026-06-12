@@ -1,0 +1,170 @@
+/* ══════════════════════════════════════════════
+   Light Theme — mirror of navy.css
+   Activated via [data-theme="light"] on <html>
+   ══════════════════════════════════════════════ */
+
+/* ── Body & Background ── */
+[data-theme="light"] body {
+  background: #ffffff !important;
+  background: linear-gradient(#f7f8fa, #ffffff) fixed !important;
+  color: #2d3748 !important;
+}
+
+/* ── Header / Navigation ── */
+[data-theme="light"] #header {
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+[data-theme="light"] #header nav ul li a {
+  color: #2b6cb0;
+}
+
+[data-theme="light"] #header nav ul li a:hover {
+  color: #3182ce;
+}
+
+/* ── Title Area ── */
+[data-theme="light"] #title h1 {
+  color: #1a202c;
+  text-shadow: none;
+}
+
+[data-theme="light"] #title p {
+  color: #4a5568;
+}
+
+[data-theme="light"] #title .credits {
+  color: #718096;
+}
+
+[data-theme="light"] #title .credits a {
+  color: #2b6cb0;
+}
+
+[data-theme="light"] #title {
+  border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+
+/* ── Headings ── */
+[data-theme="light"] h1,
+[data-theme="light"] h2,
+[data-theme="light"] h3,
+[data-theme="light"] h4,
+[data-theme="light"] h5,
+[data-theme="light"] h6 {
+  color: #1a202c !important;
+}
+
+[data-theme="light"] section h1,
+[data-theme="light"] section h2 {
+  border-bottom-color: #e2e8f0 !important;
+}
+
+/* ── Links ── */
+[data-theme="light"] a {
+  color: #2b6cb0 !important;
+}
+
+[data-theme="light"] a:hover {
+  color: #3182ce !important;
+}
+
+/* ── Blockquotes (callouts) ── */
+[data-theme="light"] blockquote {
+  border-left: 3px solid #3182ce !important;
+  background: rgba(49, 130, 206, 0.06) !important;
+  color: #4a5568 !important;
+  padding: 12px 18px;
+  border-radius: 6px;
+}
+
+[data-theme="light"] blockquote strong {
+  color: #2b6cb0;
+}
+
+/* ── Code ── */
+[data-theme="light"] code {
+  background: rgba(49, 130, 206, 0.08) !important;
+  color: #2b6cb0 !important;
+  border-radius: 4px;
+  padding: 0.2em 0.5em;
+}
+
+[data-theme="light"] pre {
+  background: #f7f8fa !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 8px;
+}
+
+[data-theme="light"] pre code {
+  background: transparent !important;
+  color: #2d3748 !important;
+}
+
+/* ── Tables ── */
+[data-theme="light"] table {
+  border-collapse: collapse;
+}
+
+[data-theme="light"] th {
+  background: #edf2f7 !important;
+  color: #2d3748 !important;
+  border-color: #e2e8f0 !important;
+}
+
+[data-theme="light"] td {
+  border-color: #e2e8f0 !important;
+  color: #2d3748 !important;
+}
+
+[data-theme="light"] tr:nth-child(even) td {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+/* ── Horizontal Rules ── */
+[data-theme="light"] hr {
+  background: #e2e8f0 !important;
+  border-color: #e2e8f0 !important;
+  height: 1px;
+}
+
+/* ── Mobile Responsive Tables ── */
+[data-theme="light"] section table,
+[data-theme="light"] .wrapper table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 640px) {
+  [data-theme="light"] table {
+    font-size: 0.8em;
+  }
+  [data-theme="light"] table th,
+  [data-theme="light"] table td {
+    padding: 4px 8px;
+    white-space: nowrap;
+  }
+}
+
+/* ── Emphasis elements ── */
+[data-theme="light"] strong {
+  color: #1a202c;
+}
+
+[data-theme="light"] em {
+  color: #2b6cb0;
+}
+
+/* ── Footer area ── */
+[data-theme="light"] footer,
+[data-theme="light"] .credits {
+  color: #718096;
+}
+
+/* ── Desktop-only / Mobile-only helpers ── */
+@media (min-width: 769px) {
+  [data-theme="light"] .mobile-only { display: none; }
+}

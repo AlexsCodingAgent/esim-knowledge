@@ -1,5 +1,6 @@
 <link rel="icon" type="image/svg+xml" href="{{ '/favicon.svg' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/navy.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/light.css' | relative_url }}">
 
 {% if page.date %}
 <script type="application/ld+json">
@@ -26,6 +27,105 @@
 }
 </script>
 {% endif %}
+
+<!-- Theme Toggle Button -->
+<button id="theme-toggle" aria-label="Toggle light/dark mode" title="Toggle theme">☀️</button>
+<style>
+#theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
+  background: rgba(93, 173, 226, 0.1);
+  border: 1px solid rgba(93, 173, 226, 0.2);
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, transform 0.2s;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+#theme-toggle:hover {
+  background: rgba(93, 173, 226, 0.2);
+  transform: scale(1.08);
+}
+[data-theme="light"] #theme-toggle {
+  background: rgba(0, 0, 0, 0.06);
+  border-color: rgba(0, 0, 0, 0.12);
+}
+[data-theme="light"] #theme-toggle:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+@media (max-width: 640px) {
+  #theme-toggle {
+    top: 0.75rem;
+    right: 0.75rem;
+    width: 38px;
+    height: 38px;
+    font-size: 1.1rem;
+  }
+}
+</style>
+
+<script>
+(function() {
+  var STORAGE_KEY = 'euicc-theme';
+
+  function getSavedTheme() {
+    try { return localStorage.getItem(STORAGE_KEY); } catch(e) { return null; }
+  }
+
+  function getSystemTheme() {
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+      return 'light';
+    }
+    return 'dark';
+  }
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    var btn = document.getElementById('theme-toggle');
+    if (btn) {
+      btn.textContent = theme === 'light' ? '🌙' : '☀️';
+      btn.setAttribute('aria-label', theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode');
+    }
+  }
+
+  function toggleTheme() {
+    var current = document.documentElement.getAttribute('data-theme') || 'dark';
+    var next = current === 'light' ? 'dark' : 'light';
+    applyTheme(next);
+    try { localStorage.setItem(STORAGE_KEY, next); } catch(e) {}
+  }
+
+  // Init
+  var saved = getSavedTheme();
+  var theme = saved || getSystemTheme();
+  applyTheme(theme);
+
+  // Wire toggle button
+  document.addEventListener('DOMContentLoaded', function() {
+    var btn = document.getElementById('theme-toggle');
+    if (btn) {
+      btn.addEventListener('click', toggleTheme);
+    }
+  });
+
+  // Listen for system theme changes (if no user preference saved)
+  if (!saved && window.matchMedia) {
+    window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', function(e) {
+      if (!getSavedTheme()) {
+        applyTheme(e.matches ? 'light' : 'dark');
+      }
+    });
+  }
+})();
+</script>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
