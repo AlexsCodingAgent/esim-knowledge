@@ -72,6 +72,6 @@ Stories, analogies, and emojis. For visual learners, newcomers, or anyone who wa
 
 *Sources: GSMA SGP.02 v4.2 · SGP.22 v2.7 · SGP.22 v3.1 · SGP.23 v1.16 · SGP.23-1 v3.1.3 · SGP.25 v2.1 · SGP.26 v3.0.2 · SGP.29 v1.1 · SGP.31 v1.3 · SGP.32 v1.3 · SGP.33-3 v1.2 · SGP.41 v1.0*
 
-<span class="mobile-only"><a href="https://github.com/AlexsCodingAgent/esim-knowledge">View on GitHub</a> · </span><a href="/docs/glossary">📖 Glossary</a> · <a href="/docs/prerequisites">📚 Prerequisites</a> · <a href="/docs/standards-map">🗺️ Standards Map</a> · <a href="/ai">🤖 AI Index</a>
+<a href="/docs/glossary">📖 Glossary</a> · <a href="/docs/prerequisites">📚 Prerequisites</a> · <a href="/docs/standards-map">🗺️ Standards Map</a> · <a href="/ai">🤖 AI Index</a>
 
 </div>
