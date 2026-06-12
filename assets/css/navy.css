@@ -157,5 +157,4 @@ footer, .credits {
   .mobile-only { display: none; }
 }
 
-/* ── Hide Midnight theme "View On GitHub" banner ── */
-li.fork { display: none !important; }
+
