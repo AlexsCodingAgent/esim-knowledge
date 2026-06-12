@@ -156,3 +156,6 @@ footer, .credits {
 @media (min-width: 769px) {
   .mobile-only { display: none; }
 }
+
+/* ── Hide Midnight theme "View On GitHub" banner ── */
+li.fork { display: none !important; }
