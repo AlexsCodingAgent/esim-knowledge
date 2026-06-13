@@ -1,0 +1,122 @@
+# eUICC.tech — GSMA eSIM RSP Knowledge Base
+> 84+ technical articles across 12 GSMA eSIM specifications. Remote SIM Provisioning: consumer, M2M, IoT, and in-factory profile provisioning.
+
+## Core Reference
+- [Standards Map](https://euicc.tech/docs/standards-map): Complete GSMA SGP specification landscape — timeline, relationships, and what each spec does
+- [eSIM Ecosystem Careers](https://euicc.tech/careers/): Filterable job board of 400+ technical roles across G+D, Thales, Idemia, 1NCE, KORE, Soracom, and more
+
+## Specifications — Technical Articles
+
+### SGP.02 — M2M RSP Architecture
+- [Overview](https://euicc.tech/docs/articles/sgp02/): Push-based remote provisioning for machine-to-machine devices
+- [eUICC Internals](https://euicc.tech/docs/articles/sgp02/02-sgp02-euicc-internals): ISD-R, ISD-P, and Security Domain hierarchy
+- [PKI & Certificates](https://euicc.tech/docs/articles/sgp02/03-sgp02-pki): CI, EUM, SM-DP certificates and key management
+- [OTA Communication](https://euicc.tech/docs/articles/sgp02/04-sgp02-ota): SMS-based profile download and management
+- [Profile Download](https://euicc.tech/docs/articles/sgp02/05-sgp02-download): Full profile download flow end-to-end
+- [Lifecycle Management](https://euicc.tech/docs/articles/sgp02/06-sgp02-lifecycle): Profile states, enable, disable, delete
+- [SM-SR Change](https://euicc.tech/docs/articles/sgp02/07-sgp02-sm-sr-change): Switching Subscription Manager - Secure Routing
+- [Resilience](https://euicc.tech/docs/articles/sgp02/08-sgp02-resilience): Fallback, retry, and error recovery
+- [Policy & Notifications](https://euicc.tech/docs/articles/sgp02/09-sgp02-policy-notifications): Profile policy rules and notification framework
+- [Off-Card Interfaces](https://euicc.tech/docs/articles/sgp02/10-sgp02-offcard-interfaces): ES2+, ES3, ES4, ES5 interfaces
+- [Comparison](https://euicc.tech/docs/articles/sgp02/11-sgp02-comparison): SGP.02 vs SGP.22 — M2M vs Consumer
+
+### SGP.22 — Consumer eSIM RSP (v2)
+- [Overview](https://euicc.tech/docs/articles/sgp22/): Consumer eSIM for phones, tablets, wearables, laptops
+- [v2/v3 Split](https://euicc.tech/docs/articles/sgp22/00b-sgp22-v2-v3-split): What changed between v2 and v3
+- [RSP Architecture](https://euicc.tech/docs/articles/sgp22/01-rsp-architecture): SM-DP+, LPA (LPAe, LPAd), eUICC
+- [Inside the eUICC](https://euicc.tech/docs/articles/sgp22/02-inside-the-euicc): ISD-R, ISD-P, ECASD, security domains
+- [Profile Download](https://euicc.tech/docs/articles/sgp22/03-profile-download): ES9+, ES8+, ES10b — step by step
+- [PKI Security](https://euicc.tech/docs/articles/sgp22/04-esim-security-pki): Certificate chain, EUM, CI, GSMA CI
+- [Local Profile Management](https://euicc.tech/docs/articles/sgp22/05-local-profile-management): Enable, disable, delete, set nickname
+- [Developer Interfaces](https://euicc.tech/docs/articles/sgp22/06-developer-interfaces): ES10a/b/c APIs for LPA developers
+- [LPA in eUICC](https://euicc.tech/docs/articles/sgp22/07-lpae-in-euicc): LPAe architecture and functionality
+- [Boot & Initialisation](https://euicc.tech/docs/articles/sgp22/08-boot-initialisation): eUICC bootstrap and provisioning profile
+- [Policy Management](https://euicc.tech/docs/articles/sgp22/09-policy-management): Profile policy rules (PPR) and enforcement
+- [Notifications](https://euicc.tech/docs/articles/sgp22/10-notifications-postinstall): Post-install notifications and handset events
+- [SM-DS Companion](https://euicc.tech/docs/articles/sgp22/11-smds-companion): Subscription Manager Discovery Service
+
+### SGP.22 v3 — Consumer RSP Enhancements
+- [Overview](https://euicc.tech/docs/articles/sgp22-v3/52-sgp22-v3-overview): What's new in SGP.22 v3
+- [Multiple Enabled Profiles](https://euicc.tech/docs/articles/sgp22-v3/53-multiple-enabled-profiles): MEP — concurrent active profiles
+- [Push Service](https://euicc.tech/docs/articles/sgp22-v3/54-push-service): SM-DP+ initiated profile operations
+- [Feature Support](https://euicc.tech/docs/articles/sgp22-v3/55-feature-support): Capability negotiation
+- [Version Interoperability](https://euicc.tech/docs/articles/sgp22-v3/56-version-interoperability): v2 ↔ v3 compatibility
+- [Remote Profile Management](https://euicc.tech/docs/articles/sgp22-v3/57-remote-profile-management): Remote enable/disable/delete
+- [Device Change & Recovery](https://euicc.tech/docs/articles/sgp22-v3/58-device-change-and-profile-recovery): Profile transfer and recovery
+- [eUICC Updates](https://euicc.tech/docs/articles/sgp22-v3/59-euicc-updates-pcm): Platform Configuration Management
+- [Profile Download v3](https://euicc.tech/docs/articles/sgp22-v3/60-profile-download-v3): Enhanced download flows
+- [Profile Protection](https://euicc.tech/docs/articles/sgp22-v3/61-profile-protection-bpp): Bound Profile Package (BPP)
+- [Policy Management v3](https://euicc.tech/docs/articles/sgp22-v3/62-policy-management-v3): Enhanced PPR framework
+- [Enterprise Profiles](https://euicc.tech/docs/articles/sgp22-v3/63-enterprise-profiles): Enterprise use cases
+
+### SGP.23 — RSP Test Specification
+- [Overview](https://euicc.tech/docs/articles/sgp23/17-sgp23-overview): GSMA compliance testing framework
+- [Test Infrastructure](https://euicc.tech/docs/articles/sgp23/18-sgp23-test-infrastructure): Test lab setup and tools
+- [LPA Testing](https://euicc.tech/docs/articles/sgp23/19-sgp23-lpa-testing): Local Profile Assistant test cases
+- [Server Testing](https://euicc.tech/docs/articles/sgp23/20-sgp23-server-testing): SM-DP+ compliance test cases
+- [Certification](https://euicc.tech/docs/articles/sgp23/21-sgp23-certification): SAS certification process
+
+### SGP.23-1 — Test Specification v3.0
+- [Overview](https://euicc.tech/docs/articles/sgp23-1/32-sgp23-1-overview): Test framework for SGP.22 v3
+- [Architecture](https://euicc.tech/docs/articles/sgp23-1/33-sgp23-1-architecture): Test architecture updates
+- [Test Cases](https://euicc.tech/docs/articles/sgp23-1/34-sgp23-1-test-cases): v3-specific test scenarios
+- [Security](https://euicc.tech/docs/articles/sgp23-1/35-sgp23-1-security): Security test requirements
+- [Certification](https://euicc.tech/docs/articles/sgp23-1/36-sgp23-1-certification): v3 certification process
+
+### SGP.25 — eUICC Protection Profile
+- [Overview](https://euicc.tech/docs/articles/sgp25/22-sgp25-overview): Common Criteria security certification
+- [Security Requirements](https://euicc.tech/docs/articles/sgp25/23-sgp25-security-requirements): SARs and SFRs
+- [Assurance](https://euicc.tech/docs/articles/sgp25/24-sgp25-assurance): EAL4+ assurance requirements
+- [Physical Security](https://euicc.tech/docs/articles/sgp25/25-sgp25-physical-security): Tamper resistance and side-channel protection
+- [Certification](https://euicc.tech/docs/articles/sgp25/26-sgp25-certification): Certification process and bodies
+
+### SGP.26 — RSP Test Certificates
+- [Overview](https://euicc.tech/docs/articles/sgp26/37-sgp26-overview): GSMA test certificate definition
+- [Hierarchy](https://euicc.tech/docs/articles/sgp26/38-sgp26-hierarchy): Test CI, test EUM, test SM-DP+ certificates
+- [Profiles](https://euicc.tech/docs/articles/sgp26/39-sgp26-profiles): Test profile packages and configuration
+- [Development](https://euicc.tech/docs/articles/sgp26/40-sgp26-development): Using test certs in development
+- [CRL](https://euicc.tech/docs/articles/sgp26/41-sgp26-crl): Certificate Revocation List for test certs
+
+### SGP.29 — EID Definition & Assignment
+- [Overview](https://euicc.tech/docs/articles/sgp29/27-sgp29-overview): eUICC Identifier structure and governance
+- [EID Format](https://euicc.tech/docs/articles/sgp29/28-sgp29-eid-format): 32-digit EID breakdown
+- [Assignment](https://euicc.tech/docs/articles/sgp29/29-sgp29-assignment): How EIDs are issued to manufacturers
+- [In Protocols](https://euicc.tech/docs/articles/sgp29/30-sgp29-in-protocols): EID usage across GSMA specs
+- [Security](https://euicc.tech/docs/articles/sgp29/31-sgp29-security): EID privacy and integrity
+
+### SGP.32 — IoT eSIM RSP
+- [Overview](https://euicc.tech/docs/articles/sgp32/): IoT-optimised eSIM for NB-IoT, LTE-M, LPWA devices
+- [Why IoT eSIM](https://euicc.tech/docs/articles/sgp32/07-iot-esim-why): Problem space and design constraints
+- [Architecture](https://euicc.tech/docs/articles/sgp32/08-iot-architecture-im-ipa): eIM, IPA, and IoT device roles
+- [Profile Packages](https://euicc.tech/docs/articles/sgp32/09-iot-profile-download-packages): IoT profile download package format
+- [DTLS Security](https://euicc.tech/docs/articles/sgp32/10-iot-esim-security-dtls): IoT-optimised security layer
+- [eIM Configuration](https://euicc.tech/docs/articles/sgp32/11-eim-configuration): eIM bootstrap and config
+- [Notifications & Errors](https://euicc.tech/docs/articles/sgp32/12-notifications-errors): IoT notification framework
+- [Device Initialisation](https://euicc.tech/docs/articles/sgp32/13-iot-device-initialisation): Device bootstrap flow
+- [Profile States](https://euicc.tech/docs/articles/sgp32/14-iot-profile-state-management): IoT profile lifecycle states
+- [SM-DS Operations](https://euicc.tech/docs/articles/sgp32/15-iot-smsds-operations): IoT discovery service
+- [Functions Reference](https://euicc.tech/docs/articles/sgp32/16-iot-functions-reference): Complete function catalog
+- [Lifecycle Policy](https://euicc.tech/docs/articles/sgp32/17-profile-lifecycle-policy): Profile policy rules for IoT
+- [Advanced Security](https://euicc.tech/docs/articles/sgp32/18-advanced-security-lifecycle): Key rotation, firmware update
+
+### SGP.33 — IoT Test Specification
+- [Overview](https://euicc.tech/docs/articles/sgp33-3/42-sgp33-overview): IoT compliance testing framework
+- [eIM Architecture](https://euicc.tech/docs/articles/sgp33-3/43-sgp33-eim-architecture): eIM test architecture
+- [Test Cases](https://euicc.tech/docs/articles/sgp33-3/44-sgp33-eim-test-cases): IoT eIM test scenarios
+- [Security](https://euicc.tech/docs/articles/sgp33-3/45-sgp33-eim-security): Security test requirements
+- [Certification](https://euicc.tech/docs/articles/sgp33-3/46-sgp33-certification): IoT certification process
+
+### SGP.41 — In-Factory Profile Provisioning
+- [Overview](https://euicc.tech/docs/articles/sgp41/47-sgp41-overview): Pre-loading profiles during manufacturing
+- [Architecture](https://euicc.tech/docs/articles/sgp41/48-sgp41-architecture): Factory provisioning architecture
+- [Flow](https://euicc.tech/docs/articles/sgp41/49-sgp41-flow): End-to-end factory provisioning flow
+- [Security](https://euicc.tech/docs/articles/sgp41/50-sgp41-security): Factory security requirements
+- [Practice](https://euicc.tech/docs/articles/sgp41/51-sgp41-practice): Implementation guidance
+
+## Illustrated Storybooks
+- [Storybooks Hub](https://euicc.tech/docs/articles/kids/storybooks): 17 illustrated eSIM storybooks — dark navy theme, scroll-through book format
+- [Index](https://euicc.tech/docs/articles/kids/): Complete storybook listing with covers
+
+## Optional
+- [eUICC.tech Home](https://euicc.tech/): Main landing page — two-path split: Technical Edition / Illustrated Edition
+- [GitHub](https://github.com/AlexsCode/esim-knowledge): Source repository
