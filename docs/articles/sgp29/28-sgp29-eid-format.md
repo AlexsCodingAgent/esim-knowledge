@@ -1,6 +1,6 @@
 ---
 title: "EID Format Decoded: The 32-Digit Structure"
-description: "Decodes the SGP.29 EID's 32-digit hierarchical structure — EIN delegation chain, ESIN assignment, and modulo-97 check digits — showing how to validate any EID with simple arithmetic."
+description: "Decodes the SGP.29 EID's 32-digit hierarchical structure : EIN delegation chain, ESIN assignment, and modulo-97 check digits : showing how to validate any EID with simple arithmetic."
 date: 2026-06-05
 ---
 
@@ -178,7 +178,7 @@ GSMA ──ERHI1──▶ Group of Device Mfrs ──ERHI2──▶ Single Devic
 
 - The EID is a 32-digit hierarchical identifier: EIN (N digits) + ESIN (30−N) + 2 check digits
 - The EIN encodes a delegation chain of ERHIs from GSMA down to the EUM
-- Check digits use MOD 97-10 validation: the same algorithm as IBANs: providing strong error detection
+- Check digits use MOD 97-10 validation: the same algorithm as IBANs, providing strong error detection
 - Verification is trivial: compute `EID MOD 97` and check if the result equals 1
 - Three delegation chain patterns support different supply chain structures: GSMA→EAA→DevMfr→EUM, GSMA→DevMfr→EUM, and GSMA→Group→Member→EUM
 - EIDs are explicitly NOT ICCIDs and must not start with "89"

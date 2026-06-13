@@ -1,5 +1,5 @@
 ---
-description: "The EID is every eSIM chip's 32-digit fingerprint — a globally unique identifier that matches profiles to the right chip, with the GSMA as the central librarian assigning these names worldwide."
+description: "The EID is every eSIM chip's 32-digit fingerprint: a globally unique identifier that matches profiles to the right chip, with the GSMA as the central librarian assigning these names worldwide."
 title: "The 32-Digit Fingerprint: Every Chip's Secret Name"
 date: 2026-06-07
 ---

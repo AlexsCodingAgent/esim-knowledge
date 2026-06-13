@@ -1,6 +1,6 @@
 ---
 title: "Profile State Management via the eIM: Remote Enable, Disable, Delete"
-description: "Explains the PSMO lifecycle — Enable, Disable, Delete, Rollback, SetFallbackAttribute, UnsetFallbackAttribute — where the eIM signs commands and the eUICC verifies and executes them remotely."
+3|description: "Explains the PSMO lifecycle : Enable, Disable, Delete, Rollback, SetFallbackAttribute, UnsetFallbackAttribute : where the eIM signs commands and the eUICC verifies and executes them remotely."
 date: 2026-06-05
 ---
 
@@ -149,8 +149,8 @@ eUICC:
     4. Generates a new eUICC Package Result reflecting the rollback
 
 IPA:
-    5. Discards the old eIM Package Result
-    6. Builds new eIM Package Result with the rollback result
+    5. Discards the old eUICC Package Result
+    6. Builds new eUICC Package Result with the rollback result
     7. Attempts delivery again
 ```
 

@@ -1,6 +1,6 @@
 ---
 title: "SGP.33 Overview: The IoT eSIM Test Family"
-description: "Explains the three-part SGP.33 IoT eSIM test specification family — covering IPA, SM-DP+, and eIM testing — built for IoT devices that lack user interfaces and rely on remote management via the eUICC IoT Manager."
+3|description: "Explains the three-part SGP.33 IoT eSIM test specification family : covering IPA, SM-DP+, and eIM testing : built for IoT devices that lack user interfaces and rely on remote management via the eUICC IoT Manager."
 date: 2026-06-05
 ---
 
@@ -11,9 +11,9 @@ date: 2026-06-05
 > **💡 Why this matters:** Consumer eSIM testing (SGP.23) is well-established, but IoT devices operate under fundamentally different constraints: they may lack a user interface, have no local profile assistant, rely on remote management, and must support entirely new architectural elements like the eIM (eUICC IoT Manager). SGP.33 is the three-part test specification family built specifically for the IoT eSIM ecosystem defined by SGP.31 and SGP.32. Without it, there is no standardised path to prove that an IoT eSIM deployment actually works.
 
 > **Key takeaways:**
-> - SGP.33 is a family of three test specifications: SGP.33-1 (IPA), SGP.33-2 (SM-DP+), and SGP.33-3 (eIM) : each testing a different IoT-specific architectural component
+> - SGP.33 is a family of three test specifications: SGP.33-1 (IPA), SGP.33-2 (SM-DP+), and SGP.33-3 (eIM): each testing a different IoT-specific architectural component
 > - IoT devices differ from consumer devices: no End User, remote profile management via the eIM, and new interfaces (ESep, ESipa, ES9+', ES11') that don't exist in consumer eSIM
-> - SGP.33-3 targets the eUICC IoT Manager (eIM) : the remote server that manages profiles and eIM configuration on IoT devices without any device-side user interaction
+> - SGP.33-3 targets the eUICC IoT Manager (eIM): the remote server that manages profiles and eIM configuration on IoT devices without any device-side user interaction
 > - The test family references SGP.22 (consumer RSP Technical Specification) and SGP.32 (IoT eSIM Technical Specification) as its normative baseline
 > - All three documents share a common test methodology: simulator-based isolation, Optional Features Tables for conditional applicability, and conformance testing across interface compliance and system behaviour
 > - As of v1.2 (January 2025), many test sequences: particularly on the ESipa interface: remain marked FFS (For Future Study), reflecting the evolving nature of IoT eSIM testing
@@ -26,7 +26,7 @@ The GSMA's SGP.33 document family was created in 2023 as a companion to the IoT 
 
 ### SGP.33-1: IPA Test Specification
 
-Tests the IoT Profile Assistant (IPA) : the IoT equivalent of the consumer LPA, but designed for devices that may lack a user interface. The IPA handles profile discovery, download initiation, and local profile management on the IoT device side. Tests cover ES10a (profile discovery), ES10b (profile download), ES9+ (SM-DP+ communication), and ES11 (SM-DS discovery).
+Tests the IoT Profile Assistant (IPA): the IoT equivalent of the consumer LPA, but designed for devices that may lack a user interface. The IPA handles profile discovery, download initiation, and local profile management on the IoT device side. Tests cover ES10a (profile discovery), ES10b (profile download), ES9+ (SM-DP+ communication), and ES11 (SM-DS discovery).
 
 ### SGP.33-2: SM-DP+ Test Specification
 
@@ -34,7 +34,7 @@ Tests the SM-DP+ in the IoT context, where the SM-DP+ communicates not only with
 
 ### SGP.33-3: eIM Test Specification (This Document)
 
-Tests the eUICC IoT Manager (eIM) : the defining architectural innovation of IoT eSIM. The eIM is a remote server that:
+Tests the eUICC IoT Manager (eIM): the defining architectural innovation of IoT eSIM. The eIM is a remote server that:
 
 - Manages Profile State Management Operations (Enable, Disable, Delete) via ESep eUICC Packages
 - Handles eIM configuration (AddEim, UpdateEim, DeleteEim, ListEim) on the eUICC
@@ -66,7 +66,7 @@ IoT eSIM (SGP.31/SGP.32) operates differently:
 
 SGP.33-3 follows the same simulator-based testing philosophy as SGP.23:
 
-- The **IUT** is the eUICC IoT Manager (eIM) : the real implementation under test
+- The **IUT** is the eUICC IoT Manager (eIM): the real implementation under test
 - **S_SM-DP+**: Simulated SM-DP+ for ES9+' testing
 - **S_SM-DS**: Simulated SM-DS for ES11' testing
 - **S_eUICC**: Simulated eUICC for ESep testing
@@ -99,7 +99,7 @@ SGP.33-3 v1.2 was published on 27 January 2025, but this is effectively the firs
 
 ## 📋 Summary
 
-- SGP.33 is a three-part IoT-specific test family: SGP.33-1 (IPA), SGP.33-2 (SM-DP+), and SGP.33-3 (eIM) : created as a companion to SGP.31/SGP.32 in 2023
+- SGP.33 is a three-part IoT-specific test family: SGP.33-1 (IPA), SGP.33-2 (SM-DP+), and SGP.33-3 (eIM): created as a companion to SGP.31/SGP.32 in 2023
 - SGP.33-3 targets the eUICC IoT Manager (eIM), the remote server that manages profiles and configuration on IoT devices without End User interaction
 - IoT eSIM introduces new interfaces (ESep, ESipa, ES9+', ES11') and architectural concepts (eIM Configuration, eIM Package Retrieval) not present in consumer eSIM
 - The test environment isolates the eIM using five simulator types (S_SM-DP+, S_SM-DS, S_eUICC, S_IPA, and TLS simulators)
@@ -118,12 +118,7 @@ Next: <a href="{{ site.baseurl }}/docs/articles/sgp33-3/43-sgp33-eim-architectur
 
 ---
 
-*Based on GSMA SGP.33-3 v1.2 (27 January 2025) : eUICC IoT Manager Test Specification, Sections 1–3*
-
-
----
-
-[Section Index](index) | Next: [eIM Test Architecture: Simulated eIM and Reference IPA](43-sgp33-eim-architecture) →
+*Based on GSMA SGP.33-3 v1.2 (27 January 2025): eUICC IoT Manager Test Specification, Sections 1–3*
 
 
 ---

@@ -1,5 +1,5 @@
 ---
-description: "How enterprise eSIM profiles work like a company keycard inside your phone — rules that keep the work key active, limit personal profiles, and survive even a factory reset."
+description: "How enterprise eSIM profiles work like a company keycard inside your phone: rules that keep the work key active, limit personal profiles, and survive even a factory reset."
 title: "Your Work Keycard"
 date: 2026-06-07
 ---

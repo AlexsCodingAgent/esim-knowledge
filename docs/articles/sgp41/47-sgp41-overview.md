@@ -1,6 +1,6 @@
 ---
 title: "SGP.41 Overview: In-Factory Profile Provisioning"
-description: "Explains GSMA SGP.41 In-Factory Profile Provisioning: loading pre-bound, pre-encrypted profiles onto eUICCs during manufacturing — offline, in milliseconds, without HSMs or internet connectivity on the production line."
+3|description: "Explains GSMA SGP.41 In-Factory Profile Provisioning: loading pre-bound, pre-encrypted profiles onto eUICCs during manufacturing : offline, in milliseconds, without HSMs or internet connectivity on the production line."
 date: 2026-06-06
 ---
 
@@ -84,7 +84,7 @@ Both specifications share the same eUICC architecture (ISD-P, ISD-R, ECASD, MNO-
 
 ## Why This Matters for the eSIM Industry
 
-SGP.41 unlocks use cases that SGP.22 alone cannot address:
+SGP.41 enables use cases that SGP.22 alone cannot address:
 
 1. **PC OEMs**: Laptops with eSIM shipped from the factory with a pre-installed bootstrap profile: the user powers on, clicks "Connect," and is immediately online without scanning any QR code.
 2. **Automotive**: Cars with eSIM pre-provisioned during assembly. The connectivity works the moment the car rolls off the line: critical for telematics, emergency calling, and over-the-air updates.
@@ -115,11 +115,6 @@ Next: <a href="{{ site.baseurl }}/docs/articles/sgp41/48-sgp41-architecture">The
 ---
 
 *Based on GSMA SGP.41 v1.0 (28 February 2025) : eSIM In-Factory Profile Provisioning Architecture and Requirements, Sections 1–3*
-
-
----
-
-[Section Index](index) | Next: [The IFPP Architecture: SM-DPf, FPA, and Device Manufacturer](48-sgp41-architecture) →
 
 
 ---

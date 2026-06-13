@@ -1,5 +1,5 @@
 ---
-description: "Decoding the three-part EID structure — the manufacturer's delegation chain, the individual chip serial number, and two check digits that together form a mathematical fingerprint for verification."
+description: "Decoding the three-part EID structure: the manufacturer's delegation chain, the individual chip serial number, and two check digits that together form a mathematical fingerprint for verification."
 title: "Cracking the Code: What Those 32 Digits Mean"
 date: 2026-06-07
 ---

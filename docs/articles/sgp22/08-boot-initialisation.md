@@ -1,5 +1,5 @@
 ---
-description: "Walks through the SGP.22 v2.7 boot sequence — from ATR-based eUICC initialisation per ETSI TS 102 221 through the CAT Terminal Capability handshake to the minimal default file system when no profile is enabled."
+description: "Walks through the SGP.22 v2.7 boot sequence : from ATR-based eUICC initialisation per ETSI TS 102 221 through the CAT Terminal Capability handshake to the minimal default file system when no profile is enabled."
 title: "SGP.22 v2.7: Device and eUICC Boot: First Power-On to Profile Discovery"
 date: 2026-06-07
 ---

@@ -1,5 +1,5 @@
 ---
-description: "The five-stage journey to earning eSIM certification — from preparing capability forms and attending GSMA test events to receiving the Digital Letter of Approval that proves compliance."
+description: "The five-stage journey to earning eSIM certification: from preparing capability forms and attending GSMA test events to receiving the Digital Letter of Approval that proves compliance."
 title: "Getting the Gold Star: The GSMA Stamp of Approval"
 date: 2026-06-07
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Using Test Certificates: Developer Setup and Integration"
-description: "Covers the practical path from downloading the SGP.26 ZIP package to provisioning test certificates onto hardware — including OpenSSL commands, CI root loading, and common integration pitfalls."
+description: "Covers the practical path from downloading the SGP.26 ZIP package to provisioning test certificates onto hardware : including OpenSSL commands, CI root loading, and common integration pitfalls."
 date: 2026-06-06
 ---
 

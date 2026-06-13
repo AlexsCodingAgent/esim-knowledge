@@ -1,5 +1,5 @@
 ---
-description: "Why tiny IoT devices like sensors and trackers needed their own eSIM architecture — with remote control centres, on-device translators, and emergency fallback profiles for managing fleets."
+description: "Why tiny IoT devices like sensors and trackers needed their own eSIM architecture: with remote control centres, on-device translators, and emergency fallback profiles for managing fleets."
 title: "eSIM for IoT: Why It Needed Its Own Architecture"
 date: 2026-05-22
 ---

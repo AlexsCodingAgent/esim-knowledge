@@ -1,5 +1,5 @@
 ---
-description: "The physical attacks that eUICC chips must resist — side-channel analysis, fault injection, electrical probing, and more — plus the hardware shields and countermeasures built into every certified chip."
+description: "The physical attacks that eUICC chips must resist: side-channel analysis, fault injection, electrical probing, and more, plus the hardware shields and countermeasures built into every certified chip."
 title: "Shields Up! Stopping Drills, Spies, and Hackers"
 date: 2026-06-07
 ---

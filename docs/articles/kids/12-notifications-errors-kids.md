@@ -1,5 +1,5 @@
 ---
-description: "The notification system that lets IoT eSIM chips send report cards to their remote control centre — bundling status updates to save battery, plus error handling with an automatic undo feature."
+description: "The notification system that lets IoT eSIM chips send report cards to their remote control centre: bundling status updates to save battery, plus error handling with an automatic undo feature."
 title: "Notifications and Error Handling in IoT eSIM"
 date: 2026-06-03
 ---

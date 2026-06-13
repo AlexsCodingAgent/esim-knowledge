@@ -1,5 +1,5 @@
 ---
-description: "How SGP.41 treats the factory floor as an untrusted courier — plain keys exist only inside the certified vault and the eSIM chip, with everything in between encrypted and unreadable."
+description: "How SGP.41 treats the factory floor as an untrusted courier: plain keys exist only inside the certified vault and the eSIM chip, with everything in between encrypted and unreadable."
 title: "Factory Secrets: How Keys Stay Safe on the Assembly Line"
 date: 2026-06-07
 ---

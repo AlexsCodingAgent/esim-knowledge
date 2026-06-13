@@ -1,5 +1,5 @@
 ---
-description: "Documents profile download in SGP.22 v3.x — the four Operator-side sub-processes from Contract Subscription through Subscription Activation and three eUICC-side sub-procedures, with v3.x additions for enterprise profiles and RPM chaining."
+description: "Documents profile download in SGP.22 v3.x : the four Operator-side sub-processes from Contract Subscription through Subscription Activation and three eUICC-side sub-procedures, with v3.x additions for enterprise profiles and RPM chaining."
 layout: default
 title: "Profile Download & Installation in SGP.22 v3.x"
 date: 2026-06-07

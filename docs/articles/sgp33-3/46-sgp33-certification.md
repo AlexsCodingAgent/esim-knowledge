@@ -1,6 +1,6 @@
 ---
 title: "IoT eSIM Certification Path: From Test Cases to Production"
-description: "Traces the IoT eSIM certification path from SGP.33-3 conformance testing to production deployment — covering multi-vendor test ecosystems, SAS-SM accreditation for eIM platforms, and current FFS limitations."
+3|description: "Traces the IoT eSIM certification path from SGP.33-3 conformance testing to production deployment : covering multi-vendor test ecosystems, SAS-SM accreditation for eIM platforms, and current FFS limitations."
 date: 2026-06-05
 ---
 
@@ -75,9 +75,9 @@ Multi-vendor interoperability is not just desirable: it's the core value proposi
 
 SGP.33-3 tests the eIM in isolation using simulators. But production deployment requires the eIM to work with:
 
-- **Real eUICCs** : not simulated ones. The eUICC must correctly verify eIM signatures, process PSMO/eCO commands, manage eIM Configuration Data, and generate properly signed notifications.
-- **Real IPAs** : the device-side software that orchestrates profile downloads. The IPA must correctly implement ESipa functions: retrieving eIM Packages, delivering results, and forwarding notifications.
-- **Real SM-DP+s and SM-DSs** : production servers that may have different TLS configurations, certificate chains, and behaviour than simulators.
+- **Real eUICCs**: not simulated ones. The eUICC must correctly verify eIM signatures, process PSMO/eCO commands, manage eIM Configuration Data, and generate properly signed notifications.
+- **Real IPAs**: the device-side software that orchestrates profile downloads. The IPA must correctly implement ESipa functions: retrieving eIM Packages, delivering results, and forwarding notifications.
+- **Real SM-DP+s and SM-DSs**: production servers that may have different TLS configurations, certificate chains, and behaviour than simulators.
 
 ### The FFS Gap
 
@@ -87,7 +87,7 @@ SGP.23 Section 7 ("End-to-End Testing") is explicitly marked **FFS (For Future S
 - Simulator-based testing can verify protocol compliance but cannot verify real-world interoperability
 - Vendors must rely on bilateral interoperability testing or consortium test events to validate multi-vendor combinations
 
-This gap is particularly significant for IoT because the eIM-to-IPA interface (ESipa) : the critical bridge between the remote management server and the device: has no standardised test cases at all as of v1.2.
+This gap is particularly significant for IoT because the eIM-to-IPA interface (ESipa): the critical bridge between the remote management server and the device: has no standardised test cases at all as of v1.2.
 
 ---
 
@@ -107,10 +107,10 @@ The eIM vendor prepares:
    - Does the eIM support eIM Package Retrieval mode? (O_S_PKG_RETRIEVAL)
    - Does the eIM use TLS over ESipa? (O_S_ESIPA_HTTPS)
 3. **IUT Settings** (Annex F):
-   - `#IUT_RSP_VERSION` : SGP.22 version supported
-   - `#IUT_EIM_ADDRESS` : FQDN of the eIM
-   - `#IUT_EIM_ID` : Unique identifier (OID, FQDN, or proprietary)
-   - `#IUT_TLS_VERSION` : Highest TLS version supported (at least v1.2)
+   - `#IUT_RSP_VERSION`: SGP.22 version supported
+   - `#IUT_EIM_ADDRESS`: FQDN of the eIM
+   - `#IUT_EIM_ID`: Unique identifier (OID, FQDN, or proprietary)
+   - `#IUT_TLS_VERSION`: Highest TLS version supported (at least v1.2)
 
 #### Step 2: Test Execution
 
@@ -182,10 +182,10 @@ The "For Future Study" annotations throughout SGP.33-3 indicate active developme
 
 For eIM vendors seeking certification today, the pragmatic path is:
 
-1. **Certify ES9+' and ES11' interfaces first** : these are the most mature, with complete test coverage adapted from SGP.23
+1. **Certify ES9+' and ES11' interfaces first**: these are the most mature, with complete test coverage adapted from SGP.23
 2. **Conduct bilateral interoperability testing** for ESipa and ESep with partner IPA and eUICC implementations
 3. **Prepare for SAS-SM audit** with appropriate key management and operational security
-4. **Track SGP.33-3 evolution** : as FFS sections are filled in, expand certification scope
+4. **Track SGP.33-3 evolution**: as FFS sections are filled in, expand certification scope
 
 ---
 
@@ -221,7 +221,7 @@ SGP.33-3 does not exist in isolation. It connects to:
 
 ---
 
-*Based on GSMA SGP.33-3 v1.2 (27 January 2025) : eUICC IoT Manager Test Specification, Sections 1–5, Annexes F–G; GSMA SGP.23 certification framework; GSMA SAS programme*
+*Based on GSMA SGP.33-3 v1.2 (27 January 2025): eUICC IoT Manager Test Specification, Sections 1–5, Annexes F–G; GSMA SGP.23 certification framework; GSMA SAS programme*
 
 
 ---

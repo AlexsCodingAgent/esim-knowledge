@@ -1,6 +1,6 @@
 ---
 title: "SGP.02 v4.2: The M2M eSIM Push Architecture"
-description: "Covers the GSMA SGP.02 M2M RSP architecture — the push model for headless unattended devices, the SM-DP, SM-SR, and Operator roles, and the ES1–ES8 interface framework that connects them."
+3|description: "Covers the GSMA SGP.02 M2M RSP architecture : the push model for headless unattended devices, the SM-DP, SM-SR, and Operator roles, and the ES1–ES8 interface framework that connects them."
 date: 2026-06-07
 ---
 
@@ -12,7 +12,7 @@ Here's the problem SGP.02 was built for.
 
 You've got a gas meter bolted to a basement wall. It's been running since 2018 and it's supposed to keep running until 2038. No screen. No keyboard. No human anywhere near it. And you need to switch its mobile operator.
 
-QR codes? Useless (there's no camera, no user to hold up a phone. A "tap to install" button? There's no screen. Even asking the device to pull a profile from a server is optimistic) it might be in deep sleep, powered down, or sitting in a signal shadow.
+QR codes? Useless (there's no camera, no user to hold up a phone). A "tap to install" button? There's no screen. Asking the device to pull a profile from a server is optimistic — it might be in deep sleep, powered down, or sitting in a signal shadow.
 
 So what do you do?
 

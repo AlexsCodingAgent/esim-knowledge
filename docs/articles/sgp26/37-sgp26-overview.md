@@ -24,9 +24,9 @@ SGP.26 v3.0.2 (66 pages, 27 January 2025) is the GSMA's normative definition of 
 
 ## What Test Certificates Are
 
-In the eSIM ecosystem, certificates are the trust anchors. The eUICC uses its pre-provisioned CI public key to verify that an SM-DP+ is authorized to deliver a profile. The SM-DP+ uses its certificate to sign bound profile packages. The SM-DS uses its certificate to sign discovery responses. Every handshake depends on certificate validation.
+In the eSIM ecosystem, certificates are the trust anchors. The eUICC uses its pre-provisioned CI public key to verify that an SM-DP+ is authorised to deliver a profile. The SM-DP+ uses its certificate to sign bound profile packages. The SM-DS uses its certificate to sign discovery responses. Every handshake depends on certificate validation.
 
-Production certificates are generated and guarded by GSMA-accredited Certificate Issuers (CIs). Their private keys never leave Hardware Security Modules. Nobody outside the CI operator ever sees them: which makes them impossible to use in a test lab.
+Production certificates are generated and guarded by GSMA-accredited Certificate Issuers (CIs). Their private keys never leave Hardware Security Modules. Nobody outside the CI operator ever sees them, which makes them impossible to use in a test lab.
 
 SGP.26 solves this by defining a complete, parallel test PKI:
 
@@ -127,11 +127,6 @@ Next: <a href="{{ site.baseurl }}/docs/articles/sgp26/38-sgp26-hierarchy">Test C
 ---
 
 *Based on GSMA SGP.26 v3.0.2 (27 January 2025) : RSP Test Certificates Definition, Sections 1, 2, and Annex A*
-
-
----
-
-[Section Index](index) | Next: [Test Certificate Hierarchy: CI, EUM, DP, DS, and eUICC](38-sgp26-hierarchy) →
 
 
 ---

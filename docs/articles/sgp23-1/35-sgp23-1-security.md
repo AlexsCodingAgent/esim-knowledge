@@ -1,6 +1,6 @@
 ---
 title: "eUICC Security Testing: Certificates, Keys, and Channels"
-description: "Covers SGP.23-1 cryptographic testing — certificate chain validation, ECDSA across four curves, ECDH key agreement, SCP03t secure channel operations, CRL handling, and the test PKI isolated from production."
+description: "Covers SGP.23-1 cryptographic testing : certificate chain validation, ECDSA across four curves, ECDH key agreement, SCP03t secure channel operations, CRL handling, and the test PKI isolated from production."
 date: 2026-06-05
 ---
 

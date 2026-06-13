@@ -1,6 +1,6 @@
 ---
 title: "Inside the M2M eUICC: ISD-R, ISD-P, ECASD, and EID"
-description: "Walks through the M2M eUICC's internal security domain architecture — ISD-R for platform management, ISD-P containers for operator profiles, the ECASD as hardware root of trust, and the EID as unique chip identity."
+3|description: "Walks through the M2M eUICC's internal security domain architecture : ISD-R for platform management, ISD-P containers for operator profiles, the ECASD as hardware root of trust, and the EID as unique chip identity."
 date: 2026-06-07
 ---
 
@@ -60,7 +60,7 @@ No profile component can access the ECASD directly. Only the ISD-R and ISD-Ps ca
 
 ## ISD-R: the SM-SR's man on the inside
 
-There's exactly one ISD-R (Issuer Security Domain (Root) per chip, and it's the on-card representative of the SM-SR. The EUM installs it during manufacturing and it enters the PERSONALIZED state immediately) no locked state, no transitional phase.
+There's exactly one ISD-R (Issuer Security Domain Root) per chip. It's the on-card representative of the SM-SR. The EUM installs it during manufacturing and it enters the PERSONALIZED state immediately — no locked state, no transitional phase.
 
 The ISD-R is the gatekeeper. When the SM-SR wants something done on the chip, the ISD-R is the one that does it:
 

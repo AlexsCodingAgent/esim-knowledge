@@ -1,5 +1,5 @@
 ---
-description: "Documents the SGP.22 interface families — ES2+ and ES9+ HTTP/JSON endpoints, ES8+ ASN.1 TLV with SCP03t transport, and ES10x APDU-level commands over ISO 7816 — for developers implementing RSP components."
+description: "Documents the SGP.22 interface families : ES2+ and ES9+ HTTP/JSON endpoints, ES8+ ASN.1 TLV with SCP03t transport, and ES10x APDU-level commands over ISO 7816 : for developers implementing RSP components."
 title: "The Developer's View: RSP Interfaces and Protocol Binding"
 date: 2026-06-05
 ---
@@ -283,7 +283,7 @@ Every function call includes a `functionCallIdentifier` : a unique ID that enabl
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp22/05-local-profile-management">Managing Your eSIM: Local Profile Operations</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp22/05-local-profile-management">Managing Your eSIM: Local Profile Operations</a> · Next: <a href="{{ site.baseurl }}/docs/articles/sgp22/07-lpae-in-euicc">LPAe: The In-eUICC Local Profile Assistant</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
 
 </div>
 

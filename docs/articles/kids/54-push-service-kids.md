@@ -1,5 +1,5 @@
 ---
-description: "How the Push Service stops phones from endlessly checking the Post Office — a magic doorbell that rings your device instantly when a new eSIM delivery is waiting."
+description: "How the Push Service stops phones from endlessly checking the Post Office: a magic doorbell that rings your device instantly when a new eSIM delivery is waiting."
 title: "Push Service: The Magic Doorbell"
 date: 2026-06-07
 ---

@@ -1,6 +1,6 @@
 ---
 title: "eSIM for IoT: Why It Needed Its Own Architecture"
-description: "Explains why consumer eSIM assumptions fail in IoT — no SMS, no GUI, constrained devices — and how SGP.31's 30+ Basic Principles shaped the eIM and IPA architecture."
+3|description: "Explains why consumer eSIM assumptions fail in IoT : no SMS, no GUI, constrained devices : and how SGP.31's 30+ Basic Principles shaped the eIM and IPA architecture."
 date: 2026-05-22
 ---
 
@@ -15,7 +15,7 @@ date: 2026-05-22
 > **Key takeaways:**
 > - Consumer eSIM assumptions (SMS, HTTPS, GUI, always-on connectivity) all break down in IoT
 > - SGP.31's 30+ Basic Principles drive every design decision in the IoT eSIM stack
-> - New concepts : `eIM`, `IPA`, `PSMO`, `eCO`, fallback/rollback mechanisms: replace consumer patterns
+> - New concepts: `eIM`, `IPA`, `PSMO`, `eCO`, fallback/rollback mechanisms: replace consumer patterns
 > - The specification is split into SGP.31 (architecture/requirements, 62 pp.) and SGP.32 (technical spec, 231 pp.)
 
 SGP.22's consumer eSIM architecture assumes a smartphone: full TCP/IP stack, an always-on user, a GUI for profile management, and HTTPS transport. IoT devices share none of these properties. The GSMA's **SGP.31** and **SGP.32** specifications define a parallel architecture designed from first principles for constrained devices.
@@ -73,7 +73,7 @@ SGP.31 and SGP.32 introduce concepts that don't exist in the consumer world:
 
 **eIM Configuration Operations (`eCO`):** Adding, updating, removing, and listing eIMs associated with an eUICC: a concept that has no consumer equivalent.
 
-**Fallback Mechanism:** An eUICC-based safety net. If a profile switch fails and the device loses connectivity, the eUICC can automatically enable a designated "fallback profile" : the one with the Fallback Attribute set.
+**Fallback Mechanism:** An eUICC-based safety net. If a profile switch fails and the device loses connectivity, the eUICC can automatically enable a designated "fallback profile", the one with the Fallback Attribute set.
 
 **Rollback Mechanism:** If a profile download fails mid-installation, the eUICC can revert the ISD-P to its pre-installation state rather than leaving a partially corrupted profile.
 
@@ -86,7 +86,7 @@ In consumer eSIM, the LPA decides everything: when to download, which profile to
 - **Decisions are remote.** The `eIM` tells the `IPA` what to do. The `IPA` is a conduit, not a controller.
 - **Profiles have no nicknames.** There's no user to give them names.
 - **No `ES10c` interface.** No Enable/Disable/Delete via a local UI. All management flows through the `eIM`.
-- **No Activation Code scanning.** The `eIM` receives the Activation Code from the operator's backend and pushes it to the `IPA` : no QR codes, no camera.
+- **No Activation Code scanning.** The `eIM` receives the Activation Code from the operator's backend and pushes it to the `IPA`, no QR codes, no camera.
 - **Two download modes.** Direct (`IPA` talks to SM-DP+ directly) and Indirect (`eIM` mediates the entire exchange, useful when the device can't reach the internet).
 
 ---
@@ -95,8 +95,8 @@ In consumer eSIM, the LPA decides everything: when to download, which profile to
 
 SGP.31 and SGP.32 are designed to be used together:
 
-- **SGP.31** (Architecture & Requirements) : the "what": principles, architecture diagrams, functional and security requirements, threat models. 62 pages.
-- **SGP.32** (Technical Specification) : the "how": interface definitions, ASN.1 structures, procedure flows, eIM package formats, certificate profiles. 231 pages.
+- **SGP.31** (Architecture & Requirements), the "what": principles, architecture diagrams, functional and security requirements, threat models. 62 pages.
+- **SGP.32** (Technical Specification), the "how": interface definitions, ASN.1 structures, procedure flows, eIM package formats, certificate profiles. 231 pages.
 
 Together they form the complete IoT eSIM specification stack, sitting alongside SGP.22/SGP.21 for consumer devices and SGP.02 for M2M.
 
@@ -122,11 +122,6 @@ Next: <a href="{{ site.baseurl }}/docs/articles/sgp32/08-iot-architecture-im-ipa
 ---
 
 *Based on GSMA SGP.31 v1.3 and SGP.32 v1.3 (22 May 2026)*
-
-
----
-
-[Section Index](index) | Next: [The eSIM IoT Architecture: eIM, IPA, and the New Interfaces](08-iot-architecture-im-ipa) →
 
 
 ---

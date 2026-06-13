@@ -1,5 +1,5 @@
 ---
-description: "Covers SGP.02 resilience mechanisms — the Fall-Back protocol for connectivity loss, Emergency Profiles for life-critical access, and Test Profiles for manufacturing validation — that enable 15-year M2M field deployments."
+2|description: "Covers SGP.02 resilience mechanisms : the Fall-Back protocol for connectivity loss, Emergency Profiles for life-critical access, and Test Profiles for manufacturing validation : that enable 15-year M2M field deployments."
 date: 2026-06-07
 layout: default
 title: "Resilience: Fall-Back Mechanism, Emergency Profiles, and Test Profiles"

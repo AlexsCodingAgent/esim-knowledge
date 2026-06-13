@@ -1,5 +1,5 @@
 ---
-description: "Meet the SGP.41 factory team — the secure Key Maker that forges profiles, the simple Robot that pushes them into chips, and the Boss that orchestrates production."
+description: "Meet the SGP.41 factory team: the secure Key Maker that forges profiles, the simple Robot that pushes them into chips, and the Boss that orchestrates production."
 title: "The Factory Team: Key Makers and Robots"
 date: 2026-06-07
 ---

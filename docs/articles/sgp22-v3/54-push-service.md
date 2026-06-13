@@ -1,5 +1,5 @@
 ---
-description: "Covers the SGP.22 v3.x Push Service — how push notifications replace SM-DS polling, leveraging platform push infrastructure to deliver Event Record alerts immediately, reducing battery drain and provisioning latency for consumer devices."
+description: "Covers the SGP.22 v3.x Push Service : how push notifications replace SM-DS polling, leveraging platform push infrastructure to deliver Event Record alerts immediately, reducing battery drain and provisioning latency for consumer devices."
 layout: default
 title: "Push Service: How eSIMs Get Notified Without Polling"
 date: 2026-06-06
@@ -12,7 +12,7 @@ date: 2026-06-06
 > **💡 Why this matters:** In SGP.22 v2.x, the only way your device knows a new eSIM profile is waiting is by **polling** the SM-DS. Your phone periodically wakes up, connects to the discovery server, and asks "anything for me?" : even when there's nothing. This drains battery, wastes data, and introduces latency (you might wait minutes between polls). The v3.x Push Service replaces this with **push notifications**: the SM-DS tells your device immediately when an Event Record is pending. It's the difference between checking your mailbox every 15 minutes and getting a notification when mail arrives.
 
 > **Key takeaways:**
-> - Push Service replaces/SM-DS polling with a push-based notification mechanism
+> - Push Service replaces SM-DS polling with a push-based notification mechanism
 > - It leverages **existing push infrastructure** (e.g., platform push services like FCM, APNs) : the push protocol itself is out of scope for SGP.22
 > - The SM-DS advertises which Push Services it supports during Common Mutual Authentication
 > - The LPAd registers a **Push Token** with the SM-DS, associating the token with the eUICC's EID

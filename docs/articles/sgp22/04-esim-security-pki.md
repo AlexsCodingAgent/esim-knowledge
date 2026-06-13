@@ -1,5 +1,5 @@
 ---
-description: "Details the SGP.22 public key infrastructure — the seven certificate types, GSMA CI root trust anchor, ECDSA mutual authentication on NIST P-256, and the server-first authentication rule that protects eUICC private data."
+description: "Details the SGP.22 public key infrastructure : the seven certificate types, GSMA CI root trust anchor, ECDSA mutual authentication on NIST P-256, and the server-first authentication rule that protects eUICC private data."
 title: "eSIM Security: The PKI and Certificate Model"
 date: 2026-06-01
 ---

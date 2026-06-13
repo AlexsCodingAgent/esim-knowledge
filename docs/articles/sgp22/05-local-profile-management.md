@@ -1,5 +1,5 @@
 ---
-description: "Covers local profile management in SGP.22 — all ES10c LPA-to-eUICC operations for enabling, disabling, and deleting profiles, plus how Profile Policy Rules override user intent for corporate-managed devices."
+description: "Covers local profile management in SGP.22 : all ES10c LPA-to-eUICC operations for enabling, disabling, and deleting profiles, plus how Profile Policy Rules override user intent for corporate-managed devices."
 title: "Managing Your eSIM: Local Profile Operations"
 date: 2026-06-03
 ---

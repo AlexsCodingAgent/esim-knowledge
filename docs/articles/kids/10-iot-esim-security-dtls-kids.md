@@ -1,5 +1,5 @@
 ---
-description: "How IoT eSIM devices prove identity and stay secure — from digital certificates for remote managers to lightweight DTLS encryption that survives when battery-saving devices wake up."
+description: "How IoT eSIM devices prove identity and stay secure: from digital certificates for remote managers to lightweight DTLS encryption that survives when battery-saving devices wake up."
 title: "IoT eSIM Security: eIM Certificates, DTLS, and Device Trust"
 date: 2026-06-01
 ---

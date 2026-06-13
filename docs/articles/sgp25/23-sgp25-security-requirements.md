@@ -1,6 +1,6 @@
 ---
 title: "eUICC Security Functional Requirements"
-description: "Unpacks SGP.25's Security Functional Requirements — four Security Function Policies and the FIA, FTP, FDP, and FMT families that define identification, communication, domain isolation, and management controls."
+3|description: "Unpacks SGP.25's Security Functional Requirements : four Security Function Policies and the FIA, FTP, FDP, and FMT families that define identification, communication, domain isolation, and management controls."
 date: 2026-06-05
 ---
 
@@ -39,7 +39,7 @@ This policy governs communication between remote actors (SM-DP+, MNO OTA Platfor
 | **SCP80** | MNO OTA Platform ↔ MNO-SD | ES6 |
 | **SCP81** | MNO OTA Platform ↔ MNO-SD (HTTP-based) | ES6 |
 
-These secure channels are built upon security attributes: keysets (D.MNO_KEYS, D.SECRETS) : that bind user identities to the appropriate subjects on the eUICC.
+These secure channels are built upon security attributes: keysets (D.MNO_KEYS, D.SECRETS) that bind user identities to the appropriate subjects on the eUICC.
 
 ### 2. Platform Services Information Flow Control SFP
 

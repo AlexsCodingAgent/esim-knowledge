@@ -1,5 +1,5 @@
 ---
-description: "The three security layers protecting IoT eSIM commands — encrypted tunnels, digital wax stamps, and anti-replay counters — and the SGP.33-3 tests that verify each one holds."
+description: "The three security layers protecting IoT eSIM commands: encrypted tunnels, digital wax stamps, and anti-replay counters, and the SGP.33-3 tests that verify each one holds."
 title: "Secret Codes and Signed Orders: Security Testing"
 date: 2026-06-07
 ---

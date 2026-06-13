@@ -1,6 +1,6 @@
 ---
 title: "Profile Lifecycle & Policy: Types, PPE, and Enforcement in IoT eSIM"
-description: "Examines the three Profile Types — Operational, Provisioning, Test — and how the Profile Policy Enabler enforces PPR1/PPR2 rules against the Rules Authorisation Table to prevent carrier lock-in."
+3|description: "Examines the three Profile Types : Operational, Provisioning, Test : and how the Profile Policy Enabler enforces PPR1/PPR2 rules against the Rules Authorisation Table to prevent carrier lock-in."
 date: 2026-06-07
 ---
 
@@ -58,7 +58,7 @@ Test Profiles exist for laboratory, certification, and factory QA use. Their key
 
 Test Profiles are hidden from normal LUI view and only become visible when the device enters **Device Test Mode** : triggered by enabling a Test Profile for the first time. While in Test Mode, the regular Profile Policy Rules enforcement is relaxed: even if an Operational Profile has PPR1 set, enabling a Test Profile will implicitly disable it. This prevents test workflows from triggering spurious policy errors.
 
-Crucially, when the Test Profile is disabled, the eUICC re-enables whichever Operational Profile was active before Test Mode was entered. No notifications are generated for enabling or disabling Test Profiles.
+When the Test Profile is disabled, the eUICC re-enables whichever Operational Profile was active before Test Mode was entered. No notifications are generated for enabling or disabling Test Profiles.
 
 ---
 

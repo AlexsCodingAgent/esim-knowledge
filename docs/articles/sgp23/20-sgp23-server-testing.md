@@ -1,6 +1,6 @@
 ---
 title: "Testing the SM-DP+ and SM-DS"
-description: "Explores SGP.23's server-side testing — the SM-DP+ across ES2+, ES8+, and ES9+ interfaces, the SM-DS across ES12, ES11, and ES15, with independent TLS interface verification."
+3|description: "Explores SGP.23's server-side testing : the SM-DP+ across ES2+, ES8+, and ES9+ interfaces, the SM-DS across ES12, ES11, and ES15, with independent TLS interface verification."
 date: 2026-06-05
 ---
 
@@ -131,7 +131,7 @@ The LPA forwards the eUICC's signed challenge, and the SM-DP+ verifies the eUICC
 
 ### GetBoundProfilePackage
 
-The LPA requests the encrypted profile package. The SM-DP+ delivers the `BoundProfilePackage` : encrypted specifically for the target eUICC. Test cases verify:
+The LPA requests the encrypted profile package. The SM-DP+ delivers the `BoundProfilePackage`, encrypted specifically for the target eUICC. Test cases verify:
 - Successful delivery of the bound package
 - That the package is correctly encrypted (the test tool can decrypt it with known test keys to verify)
 - Handling when the transaction ID is invalid or expired

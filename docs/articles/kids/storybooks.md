@@ -5,7 +5,7 @@ title: "Illustrated Storybooks: eUICC.tech"
 
 # 📖 The eSIM Storybook Collection
 
-*17 illustrated children's books explaining eSIM technology: scroll through each one like a real book!*
+*51 illustrated children's books explaining eSIM technology: scroll through each one like a real book!*
 
 ---
 

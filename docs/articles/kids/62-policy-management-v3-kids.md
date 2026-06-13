@@ -1,5 +1,5 @@
 ---
-description: "The vault's built-in rulebook — sticky-note policies on individual profiles, manufacturer-defined authorisation tables, and a hardware enforcer that no app can bypass."
+description: "The vault's built-in rulebook: sticky-note policies on individual profiles, manufacturer-defined authorisation tables, and a hardware enforcer that no app can bypass."
 title: "The Vault's Rulebook"
 date: 2026-06-07
 ---

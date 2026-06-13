@@ -1,6 +1,6 @@
 ---
 title: "Testing the LPA: LDS, LPD, and LUI Conformance"
-description: "Walks through SGP.23's LPA conformance testing — ES10a discovery, ES10b profile download pipeline (12 functions), ES10c local management (8 functions), and LPAd interface verification across two testing chapters."
+3|description: "Walks through SGP.23's LPA conformance testing : ES10a discovery, ES10b profile download pipeline (12 functions), ES10c local management (8 functions), and LPAd interface verification across two testing chapters."
 date: 2026-06-05
 ---
 
@@ -18,7 +18,7 @@ date: 2026-06-05
 > - ES11 (LDS → SM-DS) event retrieval is tested from both the eUICC side (Section 4.2) and the LPAd side (Section 4.4)
 > - Device-level procedure testing (Section 5.4) verifies full workflows: Add Profile, Enable/Disable/Delete, Set Nickname, eUICC Memory Reset
 
-The LPA (Local Profile Assistant) is the most interface-heavy component in the eSIM ecosystem. It has three sub-components: LDS (discovery), LPD (download), and LUI (user interface) : and touches four interfaces: ES10a, ES10b, ES10c (to the eUICC) and ES9+, ES11 (to remote servers). SGP.23 tests both the eUICC's implementation of the LPA services and the LPAd/Device's implementation as a client.
+The LPA (Local Profile Assistant) is the most interface-heavy component in the eSIM ecosystem. It has three sub-components: LDS (discovery), LPD (download), and LUI (user interface), touching four interfaces: ES10a, ES10b, ES10c (to the eUICC) and ES9+, ES11 (to remote servers). SGP.23 tests both the eUICC's implementation of the LPA services and the LPAd/Device's implementation as a client.
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-description: "Walks through the complete SGP.22 profile download flow — from ES2+ ordering through ES9+ mutual authentication to ES8+ encrypted installation, covering UPP-to-SBPP profile packaging and the SCP03t secure channel."
+description: "Walks through the complete SGP.22 profile download flow : from ES2+ ordering through ES9+ mutual authentication to ES8+ encrypted installation, covering UPP-to-SBPP profile packaging and the SCP03t secure channel."
 title: "How a Profile Gets Delivered: The eSIM Download Process"
 date: 2026-05-29
 ---
@@ -603,7 +603,7 @@ The Profile is now installed on the eUICC in the **Disabled** state. It will not
 
 ## Profile Package Stages
 
-The profile data transforms through four stages on its journey from operator data to encrypted eUICC installation:
+The profile data transforms through four stages from raw operator data to encrypted eUICC installation:
 
 | Stage | Name | What Happens | Where | Protection |
 |-------|------|-------------|-------|-----------|

@@ -1,6 +1,6 @@
 ---
 title: "eUICC Certification: From SGP.23-1 Tests to SAS-UP Approval"
-description: "Traces the eUICC certification path — from declaring optional features and IUT settings through the Applicability Table to SAS-UP accreditation, DLOA issuance, and GSMA Test Event participation."
+description: "Traces the eUICC certification path : from declaring optional features and IUT settings through the Applicability Table to SAS-UP accreditation, DLOA issuance, and GSMA Test Event participation."
 date: 2026-06-05
 ---
 
@@ -19,7 +19,7 @@ date: 2026-06-05
 > - SGP.23-1 certification feeds into SGP.23 system-level testing, where the certified eUICC participates as a known-good component
 > - The GSMA runs regular Test Events where vendors bring implementations for formal conformance assessment
 
-The certification path for an eUICC is a multi-stage process that transforms SGP.23-1's test cases from a specification document into a commercial credential. This article traces the journey from a vendor's first declaration through to the DLOA that unlocks production deployment.
+The certification path for an eUICC is a multi-stage process that transforms SGP.23-1's test cases from a specification document into a commercial credential. This article traces the path from a vendor's first declaration through to the DLOA that enables production deployment.
 
 ---
 

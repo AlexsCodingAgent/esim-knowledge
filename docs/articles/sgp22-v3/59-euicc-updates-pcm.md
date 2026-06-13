@@ -1,13 +1,13 @@
 ---
-description: "Covers SGP.22 v3.x eUICC lifecycle extensions — Root Public Key Update for rotating foundational key material, Profile Content Management for post-install content updates, and eUICC OS patch delivery via the PCM Platform."
+description: "Covers SGP.22 v3.x eUICC lifecycle extensions : Root Public Key Update for rotating foundational key material, Profile Content Management for post-install content updates, and eUICC OS patch delivery via the PCM Platform."
 layout: default
 title: "eUICC Updates and Profile Content Management: Lifecycle Beyond Download"
 date: 2026-06-06
 ---
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.22 v3.x Unified RSP]({{ site.baseurl }}/docs/articles/sgp22-v3/) > eUICC Updates and Profile Content Management**
-
 # eUICC Updates and Profile Content Management: Lifecycle Beyond Download
+
+**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.22 v3.x Unified RSP]({{ site.baseurl }}/docs/articles/sgp22-v3/) > eUICC Updates and Profile Content Management**
 
 > **💡 Why this matters:** Downloading a profile is just the beginning. Over a device's 10+ year lifetime, the eUICC OS needs security patches, profiles need content updates, and operators need to manage metadata remotely: all without physical access to the chip. SGP.22 v3.x introduces three mechanisms that transform the eUICC from a static container into a living, updatable platform.
 

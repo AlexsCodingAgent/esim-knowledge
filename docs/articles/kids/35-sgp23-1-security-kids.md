@@ -1,5 +1,5 @@
 ---
-description: "The security tests that deliberately try to break eUICC protections — feeding bad certificates, verifying ECDSA signatures across four curves, and ensuring every cryptographic defence holds firm."
+description: "The security tests that deliberately try to break eUICC protections: feeding bad certificates, verifying ECDSA signatures across four curves, and ensuring every cryptographic defence holds firm."
 title: "Trying to Break Into the Vault on Purpose"
 date: 2026-06-07
 ---

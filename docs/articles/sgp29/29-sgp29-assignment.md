@@ -1,6 +1,6 @@
 ---
 title: "EID Assignment: How Manufacturers Get Their Allocations"
-description: "Walks through the 5-stage ERHI1 assignment process where EUMs and device manufacturers obtain EID ranges from GSMA's DAG — covering eligibility, verification, and cancellation procedures."
+description: "Walks through the 5-stage ERHI1 assignment process where EUMs and device manufacturers obtain EID ranges from GSMA's DAG : covering eligibility, verification, and cancellation procedures."
 date: 2026-06-05
 ---
 

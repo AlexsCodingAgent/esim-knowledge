@@ -1,5 +1,5 @@
 ---
-description: "A tour inside the eUICC security chip — from the factory-sealed permanent room holding its secret identity to the locked boxes that store each mobile plan separately."
+description: "A tour inside the eUICC security chip: from the factory-sealed permanent room holding its secret identity to the locked boxes that store each mobile plan separately."
 title: "Inside the Magic Chip: Your Phone's Digital Vault"
 date: 2026-05-27
 ---

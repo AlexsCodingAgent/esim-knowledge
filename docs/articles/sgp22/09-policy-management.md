@@ -1,5 +1,5 @@
 ---
-description: "Covers SGP.22 v2.7 profile policy management — the PPR1 and PPR2 rules for preventing disable and delete, the manufacturer-set Rules Authorisation Table, and how the Profile Policy Enabler enforces restrictions on the eUICC."
+description: "Covers SGP.22 v2.7 profile policy management : the PPR1 and PPR2 rules for preventing disable and delete, the manufacturer-set Rules Authorisation Table, and how the Profile Policy Enabler enforces restrictions on the eUICC."
 title: "SGP.22 v2.7: Profile Policy Management: PPRs, RAT, and Profile Policy Enabler"
 date: 2026-06-07
 ---

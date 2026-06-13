@@ -1,6 +1,6 @@
 ---
 title: "eSIM Remote SIM Provisioning (RSP): How It Works"
-description: "A comprehensive overview of GSMA SGP.22 Remote SIM Provisioning — covering the five RSP roles, thirteen interfaces, and the three-phase profile download process that powers every consumer eSIM."
+description: "A comprehensive overview of GSMA SGP.22 Remote SIM Provisioning : covering the five RSP roles, thirteen interfaces, and the three-phase profile download process that powers every consumer eSIM."
 date: 2026-06-05
 ---
 
@@ -25,7 +25,7 @@ date: 2026-06-05
 
 **Remote SIM Provisioning** (RSP) is the technology that lets you download a mobile plan directly to your device without inserting a physical SIM card. The GSMA specification **SGP.22** defines exactly how this works for consumer devices: phones, tablets, wearables, and laptops.
 
-At its core, SGP.22 solves one problem: **how do you securely deliver a mobile operator's credentials over the internet into a chip that was manufactured months earlier by someone else?**
+SGP.22 solves one problem: **how do you securely deliver a mobile operator's credentials over the internet into a chip that was manufactured months earlier by someone else?**
 
 ---
 
@@ -213,9 +213,4 @@ Next: <a href="{{ site.baseurl }}/docs/articles/sgp22/00b-sgp22-v2-v3-split">SGP
 
 ---
 
-[Section Index](index) | Next: [The eSIM RSP Architecture: Players and Interfaces](01-rsp-architecture) →
-
-
----
-
-[Section Index](index) | Next: [The eSIM RSP Architecture: Players and Interfaces](01-rsp-architecture) →
+[Section Index](index) | Next: [SGP.22 v2.x vs v3.x: The Specification Split](00b-sgp22-v2-v3-split) →

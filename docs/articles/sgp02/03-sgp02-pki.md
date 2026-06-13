@@ -1,6 +1,6 @@
 ---
 title: "M2M Certificate Hierarchy: CI, EUM, SM-DP, SM-SR, and eUICC"
-description: "Details the SGP.02 three-tier PKI — from the GSMA CI root certificate through EUM, SM-DP, and SM-SR intermediate certificates to eUICC certificates, covering X.509, GlobalPlatform Amendment E, and CRLs."
+3|description: "Details the SGP.02 three-tier PKI : from the GSMA CI root certificate through EUM, SM-DP, and SM-SR intermediate certificates to eUICC certificates, covering X.509, GlobalPlatform Amendment E, and CRLs."
 date: 2026-06-07
 ---
 
@@ -10,7 +10,7 @@ date: 2026-06-07
 
 If you've been following along from [the eUICC Internals article]({{ site.baseurl }}/docs/articles/sgp02/02-sgp02-euicc-internals), you already know the ECASD sits at the cryptographic center of the chip, holding certificates and a private key that never leaves the hardware. And [the Architecture piece]({{ site.baseurl }}/docs/articles/sgp02/01-sgp02-architecture) introduced the CI and EUM as the two entities that make the whole trust system work. Now we get into how those certificates actually chain together, because if you don't understand the trust model, nothing else in SGP.02 clicks.
 
-Here's the shape of it: SGP.02 runs a three-tier PKI, with the CI root certificate at the top (self-signed, burned into every eUICC at the factory), EUM, SM-DP, and SM-SR certificates in the middle (all signed by the CI), and each chip's own eUICC certificate at the bottom (signed by its EUM (not the CI directly). Two certificate formats coexist) X.509 for the server-side pieces, and GlobalPlatform Amendment E for anything the chip itself has to parse. The CRL model follows an operator-informed-decision philosophy rather than automated on-chip revocation, and the ECASD private key (`SK.ECASD.ECKA`) is the one secret in this entire system that must never, under any circumstance, leave the hardware.
+Here's the shape of it: SGP.02 runs a three-tier PKI, with the CI root certificate at the top (self-signed, burned into every eUICC at the factory), EUM, SM-DP, and SM-SR certificates in the middle (all signed by the CI), and each chip's own eUICC certificate at the bottom (signed by its EUM, not the CI directly). Two certificate formats coexist: X.509 for the server-side pieces, and GlobalPlatform Amendment E for anything the chip itself has to parse. The CRL model follows an operator-informed-decision philosophy rather than automated on-chip revocation, and the ECASD private key (`SK.ECASD.ECKA`) is the one secret in this entire system that must never, under any circumstance, leave the hardware.
 
 ---
 

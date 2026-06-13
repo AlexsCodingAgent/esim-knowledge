@@ -1,6 +1,6 @@
 ---
 title: "Key eUICC Test Cases: ISD-R, ECASD, and Profile Lifecycle"
-description: "Examines key SGP.23-1 test cases — ISD-R selection across nine sequences, ES8+ secure channel testing, ES10b profile download pipeline, ES10c local management, and MEP multi-profile handling."
+description: "Examines key SGP.23-1 test cases : ISD-R selection across nine sequences, ES8+ secure channel testing, ES10b profile download pipeline, ES10c local management, and MEP multi-profile handling."
 date: 2026-06-05
 ---
 
@@ -15,7 +15,7 @@ date: 2026-06-05
 > - ES8+ secure channel testing covers `InitialiseSecureChannel` (5 error sequences), `ConfigureISDP`, `StoreMetadata` (11+ sequences), and `LoadProfileElements` (12 sequences)
 > - ES10b profile download pipeline tests span `PrepareDownload` (curve-specific + error), `LoadBoundProfilePackage`, `GetEUICCChallenge`, and `AuthenticateServer`
 > - ES10c local profile management tests `GetProfilesInfo`, `EnableProfile`, `DisableProfile`, `DeleteProfile`, and `eUICCMemoryReset` : the most heavily tested interface with hundreds of pages
-> - Behavior testing covers retry mechanisms (Confirmation Code, one-time key reuse), forbidden PPRs, file structure validation, and notification handling
+> - Behaviour testing covers retry mechanisms (Confirmation Code, one-time key reuse), forbidden PPRs, file structure validation, and notification handling
 > - MEP (Multiple Enabled Profiles) adds extensive test sequences for multi-profile management across LSI multiplexing
 
 * TOC
@@ -168,7 +168,7 @@ Factory-resets the entire eUICC: all profiles and ISD-Ps deleted. Tests verify:
 
 ---
 
-## Behavior Testing: End-to-End eUICC Behaviour
+## Behaviour Testing: End-to-End eUICC Behaviour
 
 Section 5 verifies functional behaviour beyond individual interface calls:
 

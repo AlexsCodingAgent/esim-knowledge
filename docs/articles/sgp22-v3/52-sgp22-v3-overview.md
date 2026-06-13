@@ -1,5 +1,5 @@
 ---
-description: "Introduces SGP.22 v3.x — the GSMA's unified RSP specification merging consumer and M2M architectures, covering Multiple Enabled Profiles, Push Service, Remote Profile Management, Device Change, and enterprise controls."
+description: "Introduces SGP.22 v3.x : the GSMA's unified RSP specification merging consumer and M2M architectures, covering Multiple Enabled Profiles, Push Service, Remote Profile Management, Device Change, and enterprise controls."
 layout: default
 title: "SGP.22 v3.x Overview: The Unified eSIM Specification"
 date: 2026-06-06
@@ -129,11 +129,6 @@ Next: <a href="{{ site.baseurl }}/docs/articles/sgp22-v3/53-multiple-enabled-pro
 ---
 
 *Based on GSMA SGP.22 v3.1 (01 December 2023), Sections 1.1–1.10, 2.1–2.13, and cross-references to SGP.22 v2.7*
-
-
----
-
-[Section Index](index) | Next: [Multiple Enabled Profiles: Running Several eSIMs at Once](53-multiple-enabled-profiles) →
 
 
 ---

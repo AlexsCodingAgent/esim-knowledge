@@ -1,6 +1,6 @@
 ---
 title: "Certificate Profiles: What Makes a Valid Test Certificate"
-description: "Walks through SGP.26 X.509 certificate profiles for each RSP role — covering key usage, certificate policies OIDs, basic constraints, and SKI/AKI chaining required for eUICC certificate validation."
+description: "Walks through SGP.26 X.509 certificate profiles for each RSP role : covering key usage, certificate policies OIDs, basic constraints, and SKI/AKI chaining required for eUICC certificate validation."
 date: 2026-06-06
 ---
 

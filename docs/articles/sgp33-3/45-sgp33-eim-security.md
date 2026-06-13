@@ -12,8 +12,8 @@ date: 2026-06-05
 
 > **Key takeaways:**
 > - All eIM-to-server communication uses TLS v1.2 in **Server Authentication mode** (the eIM authenticates the server, not vice versa), with mandatory cipher suites: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 (preferred) or TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
-> - HTTPS test cases verify TLS certificate validation across ES9+' and ES11' : including invalid certificate signatures, expired certificates, unsupported CI curves, and invalid server signatures
-> - The ESipa interface uses Server Authentication with **Variant O certificate** : the eIM acts as the TLS server and the IPA as client
+> - HTTPS test cases verify TLS certificate validation across ES9+' and ES11': including invalid certificate signatures, expired certificates, unsupported CI curves, and invalid server signatures
+> - The ESipa interface uses Server Authentication with **Variant O certificate**: the eIM acts as the TLS server and the IPA as client
 > - eUICC Packages on ESep are signed by the eIM (`eimSignature`) and include an anti-replay **counterValue** that increments with each package: the eUICC verifies both
 > - Certificate validation is based on SGP.26 test certificates (X.509 format, ECDSA on NIST P-256 or brainpoolP256r1), with CI root keys pre-loaded in the eUICC's ECASD
 > - eIM Configuration updates (UpdateEim) specifically update the public key/certificate and anti-replay counter: making key rotation testable
@@ -48,16 +48,16 @@ Three TLS handshake procedures are defined:
 
 ### HTTPS Test Cases
 
-**ES9+' HTTPS (4.2.15)** : eIM talking to SM-DP+:
+**ES9+' HTTPS (4.2.15)**: eIM talking to SM-DP+:
 - TC_eIM_HTTPS_Nominal:
   - Sequence #01: HTTPS Session Establishment: verifies successful TLS handshake and session creation
   - Sequence #02: Non-reuse of session keys: verifies the eIM uses fresh ephemeral keys for each session, preventing session key reuse attacks
 - TC_eIM_HTTPS_ErrorCases:
   - Sequence #01: Invalid (SM-DP+) TLS Certificate signature: verifies the eIM detects and rejects a tampered server certificate
   - Sequence #02: Expired TLS Certificate: verifies the eIM checks certificate validity period
-  - Sequence #07: Invalid TLS Certificate based on Invalid CI (Invalid Curve) : verifies the eIM validates the certificate chain's cryptographic algorithm
+  - Sequence #07: Invalid TLS Certificate based on Invalid CI (Invalid Curve): verifies the eIM validates the certificate chain's cryptographic algorithm
 
-**ES11' HTTPS (4.2.18)** : eIM talking to SM-DS:
+**ES11' HTTPS (4.2.18)**: eIM talking to SM-DS:
 - TC_eIM_ES11'_HTTPS_Nominal:
   - Sequence #01: HTTPS Session Establishment
   - Sequence #02: Non-reuse of session keys
@@ -103,7 +103,7 @@ For AuthenticateClient (both ES9+' and ES11'):
 
 The test environment pre-loads the eIM and simulated eUICC with specific certificate configurations (Annex G):
 
-- **eIM**: Configured with #CERT_EIM_TLS for NIST (and optionally BRP) : ensures the eIM can act as a TLS server on ESipa
+- **eIM**: Configured with #CERT_EIM_TLS for NIST (and optionally BRP): ensures the eIM can act as a TLS server on ESipa
 - **Test eUICC (ECASD)**: Contains the eUICC Private Key (#SK_EUICC_ECDSA), eUICC Certificate (#CERT_EUICC_ECDSA), CI Public Key (#PK_CI_ECDSA for verifying off-card entity certificates), and EUM Certificate (#CERT_EUM_ECDSA)
 - No CRLs are loaded on the test eUICC: CRL testing is deferred
 - The CI identified as highest priority in `euiccCiPKIdListForSigning` must also be selectable in `euiccCiPKIdListForVerification`
@@ -151,7 +151,7 @@ ProvideEimPackageResult ::= {
 }
 ```
 
-The `euiccSignEPR` is the eUICC's ECDSA signature over `euiccPackageResultDataSigned` : providing non-repudiation that the eUICC actually executed the requested operation.
+The `euiccSignEPR` is the eUICC's ECDSA signature over `euiccPackageResultDataSigned`, providing non-repudiation that the eUICC actually executed the requested operation.
 
 ### Notification Signatures
 
@@ -226,7 +226,7 @@ All test certificates are based on SGP.26 (RSP Test Certificates Definition v3.0
 - Instructions for generating invalid certificates: essential for error case testing (invalid signatures, expired certificates, unsupported curves)
 - X.509 format certificate chains (CI → EUM → eUICC) for certificate validation testing
 
-The specification notes that *"SGP.26 [25] contains test keys, valid test certificates and instructions for how to generate invalid certificates"* : test tool providers use SGP.26 as their certificate generation toolkit.
+The specification notes that *"SGP.26 [25] contains test keys, valid test certificates and instructions for how to generate invalid certificates"*, test tool providers use SGP.26 as their certificate generation toolkit.
 
 ---
 
@@ -252,7 +252,7 @@ Next: <a href="{{ site.baseurl }}/docs/articles/sgp33-3/46-sgp33-certification">
 
 ---
 
-*Based on GSMA SGP.33-3 v1.2 (27 January 2025) : eUICC IoT Manager Test Specification, Sections 4.2.10–4.2.18 (TLS/HTTPS testing), Annexes A–B (Constants, Dynamic Content), Annex G (Initial States)*
+*Based on GSMA SGP.33-3 v1.2 (27 January 2025): eUICC IoT Manager Test Specification, Sections 4.2.10–4.2.18 (TLS/HTTPS testing), Annexes A–B (Constants, Dynamic Content), Annex G (Initial States)*
 
 
 ---

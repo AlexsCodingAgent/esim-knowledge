@@ -1,12 +1,12 @@
 ---
-title: "Physical Security: Side-Channel and Fault Injection Defenses"
-description: "Examines SGP.25's physical security requirements — resistance to side-channel analysis, fault injection, and tampering — plus the secure IC platform certification and trusted manufacturing lifecycle phases."
+title: "Physical Security: Side-Channel and Fault Injection Defences"
+3|description: "Examines SGP.25's physical security requirements : resistance to side-channel analysis, fault injection, and tampering : plus the secure IC platform certification and trusted manufacturing lifecycle phases."
 date: 2026-06-05
 ---
 
-# Physical Security: Side-Channel and Fault Injection Defenses
+# Physical Security: Side-Channel and Fault Injection Defences
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.25 eUICC Security]({{ site.baseurl }}/docs/articles/sgp25/) > Physical Security: Side-Channel and Fault Injection Defenses**
+**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.25 eUICC Security]({{ site.baseurl }}/docs/articles/sgp25/) > Physical Security: Side-Channel and Fault Injection Defences**
 
 > **💡 Why this matters:** An eUICC doesn't just face network-based attacks: it sits inside a device that an adversary can physically hold, probe, and manipulate. Side-channel analysis can extract cryptographic keys from power consumption patterns. Fault injection can flip bits during critical operations. Physical tampering can expose internal buses and memory. SGP.25 explicitly addresses these threats, requiring the TOE and its underlying platform to resist attackers with oscilloscopes, glitching tools, and lab benches.
 
@@ -83,7 +83,7 @@ The evaluator is expected to assess resistance against **state-of-the-art attack
 
 ---
 
-## The Secure IC: Hardware-Level Defenses
+## The Secure IC: Hardware-Level Defences
 
 SGP.25 explicitly delegates first-line physical defense to the underlying secure IC. The IC is not part of the TOE but is a required component of the operational environment:
 

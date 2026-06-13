@@ -1,5 +1,5 @@
 ---
-description: "Covers the SGP.02 profile lifecycle — enable, disable, delete, and master delete operations across three initiation paths (Operator ES4, SM-DP relay, M2M SP), with normal-case and connectivity-failure handling patterns."
+description: "Covers the SGP.02 profile lifecycle : enable, disable, delete, and master delete operations across three initiation paths (Operator ES4, SM-DP relay, M2M SP), with normal-case and connectivity-failure handling patterns."
 date: 2026-06-07
 layout: default
 title: "Profile Lifecycle: Enable, Disable, Delete, and Fall-Back"

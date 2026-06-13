@@ -8,9 +8,9 @@ description: "Complete GSMA SGP.32 IoT eSIM technical reference: eIM and IPA arc
 
 # SGP.32: IoT eSIM RSP
 
-*The GSMA specification for eSIM on constrained devices — NB-IoT, LTE-M, sensors, trackers, and things that have no screen.*
+*The GSMA specification for eSIM on constrained devices: NB-IoT, LTE-M, sensors, trackers, and things that have no screen.*
 
-SGP.32 is the GSMA's eSIM Remote SIM Provisioning architecture purpose-built for the Internet of Things. Unlike the consumer SGP.22 spec (designed for smartphones with screens and user interaction), SGP.32 introduces the **eIM** (eSIM IoT Remote Manager) and **IPA** (IoT Profile Assistant) to handle profile delivery on headless, battery-powered, and network-constrained devices. If you're building or integrating cellular IoT products — asset trackers, smart meters, environmental sensors, industrial gateways — this is the specification that defines how those devices get and manage their eSIM profiles.
+SGP.32 is the GSMA's eSIM Remote SIM Provisioning architecture purpose-built for the Internet of Things. Unlike the consumer SGP.22 spec (designed for smartphones with screens and user interaction), SGP.32 introduces the **eIM** (eSIM IoT Remote Manager) and **IPA** (IoT Profile Assistant) to handle profile delivery on headless, battery-powered, and network-constrained devices. If you're building or integrating cellular IoT products: asset trackers, smart meters, environmental sensors, industrial gateways — this is the specification that defines how those devices get and manage their eSIM profiles.
 
 The articles below walk through every component: the eIM-IPA architecture, direct and indirect profile download paths, the cryptographically-signed eIM Package protocol, SM-DS event-driven discovery, DTLS security for constrained links, device initialisation, and the full IoT eSIM function reference.
 

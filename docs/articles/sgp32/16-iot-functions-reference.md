@@ -1,6 +1,6 @@
 ---
 title: "IoT eSIM Functions Reference: ESipa, ES9+', ES11', ESep"
-description: "Catalogues SGP.32's four IoT interfaces — ESipa, ES9+', ES11', ESep — with function signatures, parameters, and transport bindings, serving as an API reference for eIM and IPA implementers."
+3|description: "Catalogues SGP.32's four IoT interfaces : ESipa, ES9+', ES11', ESep : with function signatures, parameters, and transport bindings, serving as an API reference for eIM and IPA implementers."
 date: 2026-06-07
 ---
 
@@ -273,7 +273,7 @@ SGP.32 extends SGP.22's ES10 functions with IoT-specific additions:
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp32/15-iot-smsds-operations">SM-DS Operations in IoT eSIM: Event Registration and Retrieval</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp32/15-iot-smsds-operations">SM-DS Operations in IoT eSIM: Event Registration and Retrieval</a> · Next: <a href="{{ site.baseurl }}/docs/articles/sgp32/17-profile-lifecycle-policy">Profile Lifecycle Policy: Rules and Enforcement</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
 
 </div>
 

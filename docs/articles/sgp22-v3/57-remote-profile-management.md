@@ -1,5 +1,5 @@
 ---
-description: "Walks through Remote Profile Management in SGP.22 v3.x — how operators issue RPM Commands via the Managing SM-DP+, which packages them into RPM Packages for delivery and execution on the eUICC without requiring user interaction."
+description: "Walks through Remote Profile Management in SGP.22 v3.x : how operators issue RPM Commands via the Managing SM-DP+, which packages them into RPM Packages for delivery and execution on the eUICC without requiring user interaction."
 layout: default
 title: "Remote Profile Management: RPM Initiation, Download, and Execution"
 date: 2026-06-06
@@ -9,7 +9,7 @@ date: 2026-06-06
 
 **🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.22 v3.x Unified RSP]({{ site.baseurl }}/docs/articles/sgp22-v3/) > Remote Profile Management: RPM Initiation, Download, and Execution**
 
-> **💡 Why this matters:** In SGP.22 v2.x, profile lifecycle management (enable, disable, delete, update metadata) is entirely local: the end user must manually trigger every operation through the device UI. There's no way for an operator to remotely manage a profile they own. Remote Profile Management (RPM) changes this: an operator can issue lifecycle commands through the SM-DP+, which packages them into an RPM Package, delivers them to the eUICC, and reports the results back. This unlocks fleet management, operator-initiated profile switches, remote metadata updates, and contact with the Profile Content Management Platform: all without touching the device.
+> **💡 Why this matters:** In SGP.22 v2.x, profile lifecycle management (enable, disable, delete, update metadata) is entirely local: the end user must manually trigger every operation through the device UI. There's no way for an operator to remotely manage a profile they own. Remote Profile Management (RPM) changes this: an operator can issue lifecycle commands through the SM-DP+, which packages them into an RPM Package, delivers them to the eUICC, and reports the results back. This enables fleet management, operator-initiated profile switches, remote metadata updates, and contact with the Profile Content Management Platform: all without touching the device.
 
 > **Key takeaways:**
 > - RPM is a **v3.x-only feature** (`#SupportedForRpmV3.X.Y#`), initiated by the Operator via the ES2+ interface

@@ -1,5 +1,5 @@
 ---
-description: "Compares the three GSMA eSIM specifications — SGP.02 push for M2M, SGP.22 pull for consumer devices, and SGP.32 for IoT orchestration — highlighting provisioning models, device requirements, and deployment trade-offs."
+2|description: "Compares the three GSMA eSIM specifications : SGP.02 push for M2M, SGP.22 pull for consumer devices, and SGP.32 for IoT orchestration : highlighting provisioning models, device requirements, and deployment trade-offs."
 date: 2026-06-07
 layout: default
 title: "SGP.02 vs SGP.22 vs SGP.32: Push, Pull, and the Evolution of eSIM"

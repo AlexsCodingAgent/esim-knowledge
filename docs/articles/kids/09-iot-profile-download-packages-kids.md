@@ -1,5 +1,5 @@
 ---
-description: "The two ways IoT devices get their mobile profiles — fetching directly from the profile factory, or having the remote control centre deliver a signed command package on their behalf."
+description: "The two ways IoT devices get their mobile profiles: fetching directly from the profile factory, or having the remote control centre deliver a signed command package on their behalf."
 title: "IoT Profile Download: Direct, Indirect, and eIM Package Handling"
 date: 2026-05-29
 ---

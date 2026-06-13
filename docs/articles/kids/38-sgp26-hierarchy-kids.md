@@ -1,5 +1,5 @@
 ---
-description: "The family tree of SGP.26 test certificates explained — how trust flows from Grandpa CI down through Parents to Children, and why the hierarchy comes in four different shapes."
+description: "The family tree of SGP.26 test certificates explained: how trust flows from Grandpa CI down through Parents to Children, and why the hierarchy comes in four different shapes."
 title: "The Family Tree: Grandpa, Parents, and Children Badges"
 date: 2026-06-07
 ---

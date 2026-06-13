@@ -1,5 +1,5 @@
 ---
-description: "Maps the SGP.22 consumer RSP architecture — the five roles (eUICC, SM-DP+, SM-DS, LPA, Operator), thirteen standardised interfaces, LPAd vs LPAe deployment models, and the trust hierarchy anchored in the GSMA CI."
+description: "Maps the SGP.22 consumer RSP architecture : the five roles (eUICC, SM-DP+, SM-DS, LPA, Operator), thirteen standardised interfaces, LPAd vs LPAe deployment models, and the trust hierarchy anchored in the GSMA CI."
 title: "The eSIM RSP Architecture: Players and Interfaces"
 date: 2026-05-24
 ---
@@ -39,7 +39,7 @@ The profile factory. This server builds, encrypts, and delivers Profiles to eUIC
 
 ### SM-DS (Subscription Manager: Discovery Server)
 
-The notification service. When an SM-DP+ has a Profile waiting for a specific eUICC, it registers an "Event" on the SM-DS. The device polls the SM-DS periodically to discover pending downloads. Crucially, the SM-DS only stores pointers (Event ID, EID, SM-DP+ address) : never the Profile itself. Multiple SM-DS instances can be cascaded for global scale.
+The notification service. When an SM-DP+ has a Profile waiting for a specific eUICC, it registers an "Event" on the SM-DS. The device polls the SM-DS periodically to discover pending downloads. The SM-DS only stores pointers (Event ID, EID, SM-DP+ address) : never the Profile itself. Multiple SM-DS instances can be cascaded for global scale.
 
 ### LPA (Local Profile Assistant)
 
@@ -103,7 +103,7 @@ A device that supports a non-removable eUICC without an LPAe must provide an LPA
 
 ## 📋 Summary
 
-- The RSP ecosystem has exactly five roles: knowing who does what (and who trusts whom) unlocks every protocol interaction
+- The RSP ecosystem has exactly five roles: knowing who does what (and who trusts whom) is the foundation for every protocol interaction
 - All thirteen interfaces are standardised, with `ES8+` providing the cryptographically critical end-to-end secure channel
 - The LPA is explicitly untrusted by design: it's a transport layer, not a security boundary
 - Two deployment models (`LPAd` and `LPAe`) cover everything from smartphones to headless IoT devices

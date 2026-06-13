@@ -1,5 +1,5 @@
 ---
-description: "Documents all seven SGP.02 off-card interfaces — ES1 through ES7 — covering their functions, message flows, ASN.1 definitions, and the SOAP/HTTP binding for server-to-server communication in the M2M RSP ecosystem."
+2|description: "Documents all seven SGP.02 off-card interfaces : ES1 through ES7 : covering their functions, message flows, ASN.1 definitions, and the SOAP/HTTP binding for server-to-server communication in the M2M RSP ecosystem."
 date: 2026-06-07
 layout: default
 title: "Off-Card Interfaces: ES1–ES7 and the SOAP Binding"
@@ -11,7 +11,7 @@ title: "Off-Card Interfaces: ES1–ES7 and the SOAP Binding"
 
 If you're implementing an SM-DP, integrating with an SM-SR, or debugging a profile operation that's failing somewhere in the chain, this is the article you'll keep coming back to. The off-card interfaces (ES1 through ES7) are the communication fabric that connects every server-side entity in the SGP.02 ecosystem. Together they carry somewhere north of ninety defined functions, and understanding which entity calls which function on which interface is table stakes for any serious implementation work.
 
-The previous articles have used these interfaces constantly (every Profile Download, every lifecyle command, every notification) but always from the perspective of the procedure. Here we flip the lens: what does each interface look like on its own terms, what's on it, and what's the thinking behind each one?
+The previous articles have used these interfaces constantly (every Profile Download, every lifecycle command, every notification) but always from the perspective of the procedure. Here we flip the lens: what does each interface look like on its own terms, what's on it, and what's the thinking behind each one?
 
 Chapter 5 of the spec (§5.1–5.7) is the source material, with ASN.1 definitions in Annex A and the SOAP binding in Annex B. The on-card interfaces (ES5, ES6, ES8, ESx) live in Chapter 4 and aren't covered here.
 

@@ -1,5 +1,5 @@
 ---
-description: "What happens inside an IoT eSIM device when it powers on — from profile discovery and translator activation to reading the chip's filing cabinet of important data files."
+description: "What happens inside an IoT eSIM device when it powers on: from profile discovery and translator activation to reading the chip's filing cabinet of important data files."
 title: "IoT Device Initialisation and the eUICC File Structure"
 date: 2026-06-04
 ---

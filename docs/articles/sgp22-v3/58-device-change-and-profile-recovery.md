@@ -1,5 +1,5 @@
 ---
-description: "Explains Device Change and Profile Recovery in SGP.22 v3.x — the standardised GSMA procedure for transferring subscriptions between devices with the SM-DP+ orchestrating the flow and Profile Recovery restoring profiles on the old device on failure."
+description: "Explains Device Change and Profile Recovery in SGP.22 v3.x : the standardised GSMA procedure for transferring subscriptions between devices with the SM-DP+ orchestrating the flow and Profile Recovery restoring profiles on the old device on failure."
 layout: default
 title: "Device Change and Profile Recovery: Moving eSIMs Between Devices"
 date: 2026-06-06

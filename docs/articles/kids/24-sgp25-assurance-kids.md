@@ -1,5 +1,5 @@
 ---
-description: "How eUICC chips prove they are secure at EAL4+ — the highest practical evaluation level, with six pillars of proof covering design, life-cycle controls, testing, and expert penetration attempts."
+description: "How eUICC chips prove they are secure at EAL4+: the highest practical evaluation level, with six pillars of proof covering design, life-cycle controls, testing, and expert penetration attempts."
 title: "Proving It's Safe: EAL4+ and the Penetration Test"
 date: 2026-06-07
 ---

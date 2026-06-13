@@ -1,6 +1,6 @@
 ---
 title: "eUICC Test Architecture: Readers, Scripts, and GSMA Tools"
-description: "Explains the eUICC test architecture — ISO 7816-4 contact interfaces, APDU-level command chaining, five GSMA simulator types, USB CCID for embedded eUICCs, and logical channel separation rules."
+description: "Explains the eUICC test architecture : ISO 7816-4 contact interfaces, APDU-level command chaining, five GSMA simulator types, USB CCID for embedded eUICCs, and logical channel separation rules."
 date: 2026-06-05
 ---
 

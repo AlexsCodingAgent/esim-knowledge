@@ -1,5 +1,5 @@
 ---
-description: "The 16-step IFPP journey from carrier order to factory installation — how profiles get locked to specific chips in advance and pushed onto the assembly line without internet."
+description: "The 16-step IFPP journey from carrier order to factory installation: how profiles get locked to specific chips in advance and pushed onto the assembly line without internet."
 title: "From Factory Floor to Your Pocket"
 date: 2026-06-07
 ---

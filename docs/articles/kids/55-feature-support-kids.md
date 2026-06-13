@@ -1,5 +1,5 @@
 ---
-description: "The capability handshake that happens before any eSIM magic — how phones, chips, and servers trade 'what I can do' cards so nobody tries a spell the other side doesn't know."
+description: "The capability handshake that happens before any eSIM magic: how phones, chips, and servers trade 'what I can do' cards so nobody tries a spell the other side doesn't know."
 title: "Feature Support: The Handshake Before the Magic Trick"
 date: 2026-06-07
 ---

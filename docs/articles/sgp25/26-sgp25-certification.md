@@ -1,6 +1,6 @@
 ---
 title: "SGP.25 Certification: SAS-UP and the Evaluation Process"
-description: "Traces SGP.25's certification process — Common Criteria evaluation through accredited labs, GSMA SAS-UP site audits, three evaluation models (composite/unified/hybrid), and the Security Target for product-specific assessment."
+3|description: "Traces SGP.25's certification process : Common Criteria evaluation through accredited labs, GSMA SAS-UP site audits, three evaluation models (composite/unified/hybrid), and the Security Target for product-specific assessment."
 date: 2026-06-05
 ---
 
@@ -78,7 +78,7 @@ This is the most common path for established eUICC manufacturers using certified
 
 The Security Target defines SFRs for the IC, OS, and RE in addition to those specified in SGP.25. This is a larger evaluation scope but avoids dependency on third-party certificates. It may be appropriate for vertically integrated manufacturers or novel platform architectures.
 
-### Model 3: Hybrid (IC Certified + OS/RE Uncrtified)
+### Model 3: Hybrid (IC Certified + OS/RE Uncertified)
 
 ```
 ┌──────────────────────┐
@@ -226,7 +226,7 @@ A secure application embedded into a certified eUICC can itself be certified in 
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp25/25-sgp25-physical-security">Physical Security: Side-Channel and Fault Injection Defenses</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp25/25-sgp25-physical-security">Physical Security: Side-Channel and Fault Injection Defences</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
 
 </div>
 
@@ -237,4 +237,4 @@ A secure application embedded into a certified eUICC can itself be certified in 
 
 ---
 
-← Previous: [Physical Security: Side-Channel and Fault Injection Defenses](25-sgp25-physical-security) | [Section Index](index)
+← Previous: [Physical Security: Side-Channel and Fault Injection Defences](25-sgp25-physical-security) | [Section Index](index)

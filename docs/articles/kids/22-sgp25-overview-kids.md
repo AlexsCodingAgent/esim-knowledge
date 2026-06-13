@@ -1,5 +1,5 @@
 ---
-description: "SGP.25 is the security rulebook every eUICC chip must meet — a Common Criteria Protection Profile that defines how tough the vault must be to host multiple operator profiles safely."
+description: "SGP.25 is the security rulebook every eUICC chip must meet: a Common Criteria Protection Profile that defines how tough the vault must be to host multiple operator profiles safely."
 title: "The Vault's Security Rulebook: How Tough Is Tough Enough?"
 date: 2026-06-07
 ---

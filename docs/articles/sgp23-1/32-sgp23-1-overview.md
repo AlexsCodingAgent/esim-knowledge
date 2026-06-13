@@ -1,6 +1,6 @@
 ---
 title: "SGP.23-1 Overview: Testing the eUICC Itself"
-description: "Introduces the 797-page SGP.23-1 test specification — dedicated exclusively to eUICC conformance with 30-plus optional feature declarations, ES6/ES8+/ES10 interface coverage, and feed-in to SAS-UP certification."
+description: "Introduces the 797-page SGP.23-1 test specification : dedicated exclusively to eUICC conformance with 30-plus optional feature declarations, ES6/ES8+/ES10 interface coverage, and feed-in to SAS-UP certification."
 date: 2026-06-05
 ---
 
@@ -122,11 +122,6 @@ Next: <a href="{{ site.baseurl }}/docs/articles/sgp23-1/33-sgp23-1-architecture"
 ---
 
 *Based on GSMA SGP.23-1 v3.1.3 (27 January 2025) : RSP Test Specification for the eUICC, Sections 1–3*
-
-
----
-
-[Section Index](index) | Next: [eUICC Test Architecture: Readers, Scripts, and GSMA Tools](33-sgp23-1-architecture) →
 
 
 ---

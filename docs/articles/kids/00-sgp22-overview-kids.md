@@ -1,5 +1,5 @@
 ---
-description: "A friendly introduction to how your phone's built-in eSIM chip downloads digital carrier keys over the internet — replacing physical SIM cards with secure, invisible profile switching."
+description: "A friendly introduction to how your phone's built-in eSIM chip downloads digital carrier keys over the internet: replacing physical SIM cards with secure, invisible profile switching."
 title: "How Your Phone Gets Its Magic Internet Key"
 date: 2026-05-22
 ---

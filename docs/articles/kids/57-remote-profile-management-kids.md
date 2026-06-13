@@ -1,5 +1,5 @@
 ---
-description: "How Remote Profile Management gives carriers a remote control for your eSIM profiles — six commands delivered over the air, always with the user's consent built into every step."
+description: "How Remote Profile Management gives carriers a remote control for your eSIM profiles: six commands delivered over the air, always with the user's consent built into every step."
 title: "RPM: The Remote Control for Your Secret Keys"
 date: 2026-06-07
 ---

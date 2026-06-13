@@ -134,8 +134,3 @@ Next: <a href="{{ site.baseurl }}/docs/articles/sgp29/28-sgp29-eid-format">EID F
 ---
 
 [Section Index](index) | Next: [EID Format Decoded: The 32-Digit Structure](28-sgp29-eid-format) →
-
-
----
-
-[Section Index](index) | Next: [EID Format Decoded: The 32-Digit Structure](28-sgp29-eid-format) →

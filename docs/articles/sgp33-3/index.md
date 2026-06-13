@@ -9,6 +9,8 @@ title: "SGP.33-3: eIM Test Specification"
 
 *Testing the eSIM IoT Manager for SGP.32 deployments.*
 
+SGP.33-3 is the compliance testing framework for the **eIM** (eSIM IoT Remote Manager), the server-side orchestrator at the heart of SGP.32 IoT eSIM deployments. Where SGP.33-1 covers LPA testing and SGP.33-2 covers SM-DP+ testing, Part 3 zeroes in on the eIM: its architecture in a test context, the test cases that validate its behaviour, the security requirements it must meet, and the certification path that proves it's production-ready. If you are building, deploying, or certifying an eIM implementation, this is the specification that defines what "done" looks like.
+
 | # | Article |
 |---|---------|
 | 42 | [SGP.33 Overview: The IoT eSIM Test Family]({{ site.baseurl }}/docs/articles/sgp33-3/42-sgp33-overview) |

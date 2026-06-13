@@ -1,6 +1,6 @@
 ---
 title: "SGP.23 Certification: From Test Cases to DLOA"
-description: "Traces the SGP.23 certification workflow — from vendor readiness through GSMA Test Events and SAS-accredited labs to the GlobalPlatform Digital Letter of Approval for production eSIM deployment."
+3|description: "Traces the SGP.23 certification workflow : from vendor readiness through GSMA Test Events and SAS-accredited labs to the GlobalPlatform Digital Letter of Approval for production eSIM deployment."
 date: 2026-06-05
 ---
 
@@ -8,7 +8,7 @@ date: 2026-06-05
 
 **🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.23 Test Specifications]({{ site.baseurl }}/docs/articles/sgp23/) > SGP.23 Certification: From Test Cases to DLOA**
 
-> **💡 Why this matters:** Passing 800+ pages of test cases is only the beginning. The journey from a compliant implementation to a certified product involves GSMA Test Events, SAS-accredited labs, mandatory certification audits, and ultimately a GlobalPlatform Digital Letter of Approval (DLOA) : the portable certificate that gatekeeps access to production eSIM deployments.
+> **💡 Why this matters:** Passing 800+ pages of test cases is only the beginning. The path from a compliant implementation to a certified product involves GSMA Test Events, SAS-accredited labs, mandatory certification audits, and ultimately a GlobalPlatform Digital Letter of Approval (DLOA) : the portable certificate that gatekeeps access to production eSIM deployments.
 
 > **Key takeaways:**
 > - Certification follows a structured workflow: vendor readiness → GSMA Test Event → test execution → report → DLOA

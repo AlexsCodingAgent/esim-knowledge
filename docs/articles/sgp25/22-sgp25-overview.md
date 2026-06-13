@@ -1,6 +1,6 @@
 ---
 title: "SGP.25 Overview: The eUICC Common Criteria Protection Profile"
-description: "Introduces the SGP.25 Common Criteria Protection Profile at EAL4+ for eUICC software — a modular Base-PP with optional LPAe, IPAe, and Dual modules, mandated for any eUICC carrying production profiles."
+3|description: "Introduces the SGP.25 Common Criteria Protection Profile at EAL4+ for eUICC software : a modular Base-PP with optional LPAe, IPAe, and Dual modules, mandated for any eUICC carrying production profiles."
 date: 2026-06-05
 ---
 
@@ -153,11 +153,6 @@ Next: <a href="{{ site.baseurl }}/docs/articles/sgp25/23-sgp25-security-requirem
 ---
 
 *Based on GSMA SGP.25 v2.1 (3 February 2025) : eUICC for Consumer and IoT Devices Protection Profile, Sections 1–2, conformant to Common Criteria CC:2022 release 1*
-
-
----
-
-[Section Index](index) | Next: [eUICC Security Functional Requirements](23-sgp25-security-requirements) →
 
 
 ---

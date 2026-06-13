@@ -1,5 +1,5 @@
 ---
-description: "How SGP.41 brings eSIM profiles straight to the factory floor — pre-bound keys loaded offline during assembly so phones, laptops and cars connect the moment they're powered on."
+description: "How SGP.41 brings eSIM profiles straight to the factory floor: pre-bound keys loaded offline during assembly so phones, laptops and cars connect the moment they're powered on."
 title: "Magic Keys Built Right In at the Factory"
 date: 2026-06-07
 ---

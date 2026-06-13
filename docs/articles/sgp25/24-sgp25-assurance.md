@@ -1,6 +1,6 @@
 ---
 title: "eUICC Assurance Requirements: EAL4+ and Penetration Testing"
-description: "Explains the SGP.25 EAL4+ assurance package — six evaluated assurance classes, AVA_VAN.5 advanced penetration testing with elevated attack potential, and why EAL4 is the highest practical level for commercial secure elements."
+3|description: "Explains the SGP.25 EAL4+ assurance package : six evaluated assurance classes, AVA_VAN.5 advanced penetration testing with elevated attack potential, and why EAL4 is the highest practical level for commercial secure elements."
 date: 2026-06-05
 ---
 
@@ -117,7 +117,7 @@ If selected, it must be added to the "Assurance Level" line of the PP identifica
 
 ## AVA_VAN.5: Advanced Methodical Vulnerability Analysis
 
-This is the most significant augmentation: and the most demanding. Standard EAL4 only requires AVA_VAN.3 ("Focused vulnerability analysis"), which involves searching public domain sources for potential vulnerabilities and conducting independent testing based on those findings.
+This is the most significant augmentation — and the most demanding. Standard EAL4 only requires AVA_VAN.3 ("Focused vulnerability analysis"), which involves searching public domain sources for potential vulnerabilities and conducting independent testing based on those findings.
 
 AVA_VAN.5 raises the bar dramatically:
 
@@ -183,7 +183,7 @@ The assurance requirements validate the functional requirements by proving:
 
 ← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp25/23-sgp25-security-requirements">eUICC Security Functional Requirements</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
 
-Next: <a href="{{ site.baseurl }}/docs/articles/sgp25/25-sgp25-physical-security">Physical Security: Side-Channel and Fault Injection Defenses</a> →
+Next: <a href="{{ site.baseurl }}/docs/articles/sgp25/25-sgp25-physical-security">Physical Security: Side-Channel and Fault Injection Defences</a> →
 
 </div>
 
@@ -194,4 +194,4 @@ Next: <a href="{{ site.baseurl }}/docs/articles/sgp25/25-sgp25-physical-security
 
 ---
 
-← Previous: [eUICC Security Functional Requirements](23-sgp25-security-requirements) | [Section Index](index) | Next: [Physical Security: Side-Channel and Fault Injection Defenses](25-sgp25-physical-security) →
+← Previous: [eUICC Security Functional Requirements](23-sgp25-security-requirements) | [Section Index](index) | Next: [Physical Security: Side-Channel and Fault Injection Defences](25-sgp25-physical-security) →

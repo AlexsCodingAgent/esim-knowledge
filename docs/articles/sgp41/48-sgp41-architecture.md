@@ -1,6 +1,6 @@
 ---
 title: "The IFPP Architecture: SM-DPf, FPA, and Device Manufacturer"
-description: "Describes SGP.41's IFPP architecture with three new roles — SM-DPf for pre-binding, FPA for factory loading, and expanded Device Manufacturer — connected by nine factory-specific interfaces."
+3|description: "Describes SGP.41's IFPP architecture with three new roles : SM-DPf for pre-binding, FPA for factory loading, and expanded Device Manufacturer : connected by nine factory-specific interfaces."
 date: 2026-06-06
 ---
 

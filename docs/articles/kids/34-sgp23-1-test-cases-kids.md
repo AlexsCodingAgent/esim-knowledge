@@ -1,5 +1,5 @@
 ---
-description: "What SGP.23-1 actually verifies — the vault manager's first handshake, the encrypted delivery tube, the full download pipeline, and the profile keychain manager across hundreds of test sequences."
+description: "What SGP.23-1 actually verifies: the vault manager's first handshake, the encrypted delivery tube, the full download pipeline, and the profile keychain manager across hundreds of test sequences."
 title: "What They Test: Room Manager, Key Storage, and Key Lifecycle"
 date: 2026-06-07
 ---

@@ -1,5 +1,5 @@
 ---
-description: "Teaching an eSIM vault new tricks without replacing the chip — over-the-air root key rotations and Profile Content Management that can add, update, or remove features inside existing profiles."
+description: "Teaching an eSIM vault new tricks without replacing the chip: over-the-air root key rotations and Profile Content Management that can add, update, or remove features inside existing profiles."
 title: "Teaching the Vault New Tricks"
 date: 2026-06-07
 ---

@@ -34,7 +34,7 @@ title: "GSMA eSIM Standards Map: eUICC.tech"
   │    SGP.32    eSIM IoT Technical Specification v1.0
   │
 2023 ─ SGP.22    v2.5: LPAd/LPAe refinements
-  │    SGP.23-1  RSP Test Specification for the eUICC v3.0
+  │    SGP.23-1  RSP Test Specification for the eUICC v3.1
   │    SGP.33    IoT Test Spec family (33-1 LPA, 33-2 SM-DP+, 33-3 eIM)
   │
 2024 ─ SGP.25    v2.0: Protection Profile for Consumer + IoT unified
@@ -43,7 +43,7 @@ title: "GSMA eSIM Standards Map: eUICC.tech"
 2025 ─ SGP.23    v1.16: latest consumer test spec
   │    SGP.23-1  v3.1.3: latest eUICC test spec
   │    SGP.25    v2.1: Protection Profile
-  │    SGP.26    v3.0.2: Test Certificates
+  │    SGP.26    v3.1.2: Test Certificates
   │    SGP.33-3  v1.2: eIM Test Spec
   │    SGP.41    v1.0: IFPP
   │
@@ -185,7 +185,7 @@ title: "GSMA eSIM Standards Map: eUICC.tech"
   <text x="298" y="570" fill="#fb7185" font-family="system-ui,sans-serif" font-size="7.5" text-anchor="middle">Security Protection Profile</text>
 
   <rect x="395" y="532" width="170" height="50" rx="5" fill="rgba(148,163,184,0.05)" stroke="#64748b" stroke-width="1"/>
-  <text x="480" y="554" fill="#94a3b8" font-family="system-ui,sans-serif" font-size="10.5" font-weight="700" text-anchor="middle">SGP.26 v3.0.2</text>
+  <text x="480" y="554" fill="#94a3b8" font-family="system-ui,sans-serif" font-size="10.5" font-weight="700" text-anchor="middle">SGP.26 v3.1.2</text>
   <text x="480" y="570" fill="#64748b" font-family="system-ui,sans-serif" font-size="7.5" text-anchor="middle">Test Certificates</text>
 
   <rect x="577" y="532" width="170" height="50" rx="5" fill="rgba(148,163,184,0.05)" stroke="#64748b" stroke-width="1"/>
@@ -234,13 +234,13 @@ title: "GSMA eSIM Standards Map: eUICC.tech"
 | SGP.01 | Architecture Overview | — | 0 | Foundational reference |
 | SGP.02 | M2M RSP Architecture | v4.2 | 13 | Covered |
 | SGP.21 | RSP Architecture | — | 0 | Absorbed into SGP.22 |
-| SGP.22 | RSP Technical Spec | v2.2.2 | 13 | Covered · needs v2.7 update |
-| SGP.22 v3.x | Unified RSP Tech Spec | v3.0 | 12 | Covered |
+| SGP.22 | RSP Technical Spec | v2.2.2 | 13 | Covered (v2.7) |
+| SGP.22 v3.x | Unified RSP Tech Spec | v3.1 | 12 | Covered |
 | SGP.23 | RSP Test Spec | v1.16 | 5 | Covered |
 | SGP.23-1 | eUICC Test Spec | v3.1.3 | 5 | Covered |
 | SGP.24 | Compliance Process | — | 0 | Referenced |
 | SGP.25 | eUICC Protection Profile | v2.1 | 5 | Covered |
-| SGP.26 | Test Certificates | v3.0.2 | 5 | Covered |
+| SGP.26 | Test Certificates | v3.1.2 | 5 | Covered |
 | SGP.29 | EID Definition | v1.1 | 5 | Covered |
 | SGP.31 | IoT Architecture | v1.3 | — | Part of SGP.32 series |
 | SGP.32 | IoT Technical Spec | v1.3 | 12 | Covered |
@@ -280,7 +280,7 @@ title: "GSMA eSIM Standards Map: eUICC.tech"
 4. **Physical Security: Side-Channel and Fault Injection** : DPA/SPA countermeasures, fault injection resistance, tamper evidence.
 5. **SGP.25 Certification and SAS-UP** : Evaluation process, accredited labs, certificate maintenance.
 
-### SGP.26 v3.0.2: Test Certificates Definition (NEW)
+### SGP.26 v3.1.2: Test Certificates Definition (NEW)
 1. **SGP.26 Overview: The RSP Test PKI** : Why test certificates exist, how they differ from production, the test CI.
 2. **Test Certificate Hierarchy** : CI root → test EUM, test SM-DP+, test SM-DS, test eUICC certificates.
 3. **Certificate Profiles and Key Sizes** : Algorithm requirements, key usages, extensions specific to testing.
@@ -312,7 +312,7 @@ title: "GSMA eSIM Standards Map: eUICC.tech"
 
 <div align="center">
 
-*Last updated: 2026-06-06 · Sources: GSMA SGP specifications v2.7, v3.2, v1.3, v1.16, v3.1.3, v2.1, v3.0.2, v1.1, v1.2, v1.0*
+*Last updated: 2026-06-06 · Sources: GSMA SGP specifications v2.7, v3.2, v1.3, v1.16, v3.1.3, v2.1, v3.1.2, v1.1, v1.2, v1.0*
 
 [🏠 eUICC.tech Home]({{ site.baseurl }}/)
 

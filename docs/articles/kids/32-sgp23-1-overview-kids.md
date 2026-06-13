@@ -1,5 +1,5 @@
 ---
-description: "SGP.23-1 tests only the eUICC chip in isolation — verifying every interface command across five channels, with optional feature checkboxes that tailor the test plan to each chip's capabilities."
+description: "SGP.23-1 tests only the eUICC chip in isolation: verifying every interface command across five channels, with optional feature checkboxes that tailor the test plan to each chip's capabilities."
 title: "Testing the Magic Vault Itself"
 date: 2026-06-07
 ---

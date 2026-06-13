@@ -1,6 +1,6 @@
 ---
 title: "CRL and Certificate Management in the Test Ecosystem"
-description: "Explains the SGP.26 CRL infrastructure with distribution points at every CA level, 3-year validity windows, and issuingDistributionPoint controls — plus certificate expiry and rotation schedules."
+description: "Explains the SGP.26 CRL infrastructure with distribution points at every CA level, 3-year validity windows, and issuingDistributionPoint controls : plus certificate expiry and rotation schedules."
 date: 2026-06-06
 ---
 
@@ -11,7 +11,7 @@ date: 2026-06-06
 > **💡 Why this matters:** In production, CRLs are the emergency brake: when a certificate is compromised, the CRL tells every eUICC and server to stop trusting it. In testing, you need to verify that this emergency brake actually works. SGP.26 provides a complete CRL infrastructure with distribution points at every CA level, plus deliberately unusual parameters (3-year CRL validity) that ensure test suites don't break from CRL expiry mid-run.
 
 > **Key takeaways:**
-> - The SGP.26 CRL infrastructure covers four CA levels: CI root, CI SubCA, EUM, SM-DP+ SubCA, and SM-DS SubCA: each issues its own CRL
+> - The SGP.26 CRL infrastructure covers five CA levels: CI root, CI SubCA, EUM, SM-DP+ SubCA, and SM-DS SubCA: each issues its own CRL
 > - All CRLs currently contain empty `revokedCertificates` sequences: no certificates have been revoked (certificates with revoked entries are marked "FFS" : For Future Study)
 > - CRL validity is set to 1,095 days (3 years), which SGP.26 notes is "unusual" : chosen deliberately so that no test execution risks failing because the CRL itself expired
 > - CRL Distribution Points (CDPs) are embedded in every certificate, pointing to test URLs like `http://ci.test.example.com/CRL-1.crl` and `http://smdp.test.example.com/CRL.crl`

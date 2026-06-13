@@ -1,6 +1,6 @@
 ---
 title: "SGP.23 Overview: How eSIM Interoperability Is Tested"
-description: "Introduces the 913-page SGP.23 test specification — four IUT types (eUICC, LPAd, SM-DP+, SM-DS), simulator-based test environments, and the DLOA certification pathway for consumer eSIM conformance."
+3|description: "Introduces the 913-page SGP.23 test specification : four IUT types (eUICC, LPAd, SM-DP+, SM-DS), simulator-based test environments, and the DLOA certification pathway for consumer eSIM conformance."
 date: 2026-06-05
 ---
 
@@ -12,7 +12,7 @@ date: 2026-06-05
 
 > **Key takeaways:**
 > - SGP.23 tests four Implementation Under Test (IUT) types: eUICC, LPAd/Device, SM-DP+, and SM-DS
-> - Two testing scopes: interface compliance testing and system behaviour testing: cover every interaction
+> - Two testing scopes: interface compliance testing and system behaviour testing cover every interaction
 > - Test environments use simulators (S_SM-DP+, S_SM-DS, S_LPAd, etc.) to isolate each component under test
 > - An Optional Features Table and Applicability Table let vendors declare capabilities and determine which test cases apply
 > - Certification culminates in a GlobalPlatform Digital Letter of Approval (DLOA), with SAS accreditation numbers embedded in the eUICC
@@ -119,11 +119,6 @@ Next: <a href="{{ site.baseurl }}/docs/articles/sgp23/18-sgp23-test-infrastructu
 ---
 
 *Based on GSMA SGP.23 v1.16 (29 April 2025) : RSP Test Specification*
-
-
----
-
-[Section Index](index) | Next: [The GSMA eSIM Test Infrastructure](18-sgp23-test-infrastructure) →
 
 
 ---
