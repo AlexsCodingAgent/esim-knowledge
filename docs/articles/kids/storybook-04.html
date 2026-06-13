@@ -18,7 +18,6 @@
   .story-text strong{color:#e8eef5}
   .illustration{margin:1.5rem 0}
   .illustration svg{max-width:100%;height:auto}
-  .page-num{color:#5a6d80;font-size:.85rem;align-self:flex-end;margin-top:auto;padding-right:1rem;padding-bottom:0.5rem}
   .nav{position:fixed;bottom:1rem;right:1rem;z-index:100}
   .nav a{display:inline-block;padding:.5rem 1rem;background:rgba(93,173,226,.15);color:#5dade2;text-decoration:none;border-radius:6px;margin-left:.5rem;font-size:.9rem}
   .nav a:hover{background:rgba(93,173,226,.3)}
@@ -46,7 +45,7 @@
 <div class="book">
 
 <!-- PAGE 1: COVER -->
-<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 1 of 14</div>
+<div class="page page-cover" style="padding-top:4rem">
   <div class="illustration floating">
     <svg viewBox="0 0 400 300" width="350">
       <defs><radialGradient id="glow"><stop offset="0%" stop-color="#5dade2" stop-opacity="0.3"/><stop offset="100%" stop-color="#0a1628" stop-opacity="0"/></radialGradient></defs>
@@ -83,10 +82,10 @@
   <h1>🛡️ The ID Badge System</h1>
   <h2>How eSIM Keeps Secrets Safe with Invisible Bodyguards</h2>
   <p class="story-text" style="color:#5a6d80">A story of master keys, digital handshakes, and one-time secret codes</p>
-  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 2 of 14</div>
+  
 
 <!-- PAGE 2: THE MASTER KEY -->
-<div class="page" style="padding-top:3.5rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 3 of 14</div>
+<div class="page" style="padding-top:3.5rem">
   <div class="illustration slide-in">
     <svg viewBox="0 0 400 230" width="350">
       <!-- King / GSMA -->
@@ -115,10 +114,10 @@
   </div>
   <h3>🔑 The Master Key</h3>
   <p class="story-text">Every security system needs a starting point: a root of trust. In the eSIM world, that's the <strong>GSMA Certificate Issuer</strong>. Its public master key is burned into every chip at the factory. It can't be changed, can't be deleted: it's the one thing <em>every chip trusts absolutely</em>.</p>
-  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 4 of 14</div>
+  
 
 <!-- PAGE 3: THE ID BADGE SYSTEM -->
-<div class="page" style="padding-top:3.5rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 5 of 14</div>
+<div class="page" style="padding-top:3.5rem">
   <div class="illustration slide-in">
     <svg viewBox="0 0 400 250" width="350">
       <!-- 7 badges arranged -->
@@ -160,10 +159,10 @@
   </div>
   <h3>🪪 The ID Badge System</h3>
   <p class="story-text">Everyone in the eSIM world carries a special ID badge called a <strong>certificate</strong>. There are seven different types: for chips, factories, key makers, notifiers, secure connections, binding keys, and the King's badge that signs all others. Every badge has a chain of signatures leading back to the GSMA. If the chain breaks anywhere, the badge is rejected!</p>
-  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 6 of 14</div>
+  
 
 <!-- PAGE 4: THE SECRET HANDSHAKE -->
-<div class="page" style="padding-top:3.5rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 7 of 14</div>
+<div class="page" style="padding-top:3.5rem">
   <div class="illustration slide-in">
     <svg viewBox="0 0 400 240" width="350">
       <!-- Handshake sequence -->
@@ -201,10 +200,10 @@
   </div>
   <h3>🤝 The Secret Handshake</h3>
   <p class="story-text">When your phone meets the Key Maker server, they perform a <strong>mutual authentication</strong>. The critical rule: <em>the server goes first</em>. Your chip is forbidden from revealing anything until it has verified the server is legitimate. This prevents fake servers from tricking the chip: both sides get mathematical proof they're talking to the real deal.</p>
-  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 8 of 14</div>
+  
 
 <!-- PAGE 5: ONE-TIME ENVELOPE -->
-<div class="page" style="padding-top:3.5rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 9 of 14</div>
+<div class="page" style="padding-top:3.5rem">
   <div class="illustration slide-in">
     <svg viewBox="0 0 400 230" width="350">
       <!-- ECDH diagram -->
@@ -241,10 +240,10 @@
   </div>
   <h3>✉️ The One-Time Envelope</h3>
   <p class="story-text">After both sides are verified, they create <strong>session keys</strong>: secret codes for one conversation only. Using a math trick called <em>ECDH</em>, both sides combine their temporary secrets to get the same result without ever sending the secrets across the internet. Once the download is done, the session keys are thrown away forever. Even future hacks can't unlock old downloads!</p>
-  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 10 of 14</div>
+  
 
 <!-- PAGE 6: STOLEN BADGES -->
-<div class="page" style="padding-top:3.5rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 11 of 14</div>
+<div class="page" style="padding-top:3.5rem">
   <div class="illustration slide-in">
     <svg viewBox="0 0 400 230" width="350">
       <!-- "Do Not Trust" list -->
@@ -272,10 +271,10 @@
   </div>
   <h3>🚨 What If a Badge Gets Stolen?</h3>
   <p class="story-text">The system has a plan! The GSMA publishes a <strong>Certificate Revocation List</strong>: a "do not trust" list. If a server gets hacked, its badge goes on the list. Every chip checks this list before trusting anyone. It's the eSIM world's most-wanted board, and nobody with a listed badge gets through!</p>
-  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 12 of 14</div>
+  
 
 <!-- PAGE 7: DID YOU KNOW + NAV -->
-<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 13 of 14</div>
+<div class="page page-cover" style="padding-top:4rem">
   <div class="illustration floating">
     <svg viewBox="0 0 400 240" width="350">
       <!-- P-256 curve -->
@@ -305,7 +304,7 @@
   <p style="text-align:center">
     <a href="index.html" style="color:#5a6d80;text-decoration:none;font-size:.9rem">📖 Back to All Stories</a>
   </p>
-  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 14 of 14</div>
+  
 
 </div>
 

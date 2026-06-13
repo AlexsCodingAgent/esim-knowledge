@@ -18,7 +18,6 @@
   .story-text strong{color:#e8eef5}
   .illustration{margin:1.5rem 0}
   .illustration svg{max-width:100%;height:auto}
-  .page-num{color:#5a6d80;font-size:.85rem;align-self:flex-end;margin-top:auto;padding-right:1rem;padding-bottom:0.5rem}
   .nav{position:fixed;bottom:1rem;right:1rem;z-index:100}
   .nav a{display:inline-block;padding:.5rem 1rem;background:rgba(93,173,226,.15);color:#5dade2;text-decoration:none;border-radius:6px;margin-left:.5rem;font-size:.9rem}
   .nav a:hover{background:rgba(93,173,226,.3)}
@@ -46,7 +45,7 @@
 <div class="book">
 
 <!-- PAGE 1: COVER -->
-<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 1 of 14</div>
+<div class="page page-cover" style="padding-top:4rem">
   <div class="illustration floating">
     <svg viewBox="0 0 400 300" width="350">
       <defs><radialGradient id="glow"><stop offset="0%" stop-color="#5dade2" stop-opacity="0.3"/><stop offset="100%" stop-color="#0a1628" stop-opacity="0"/></radialGradient></defs>
@@ -91,10 +90,10 @@
   <h1>🦸‍♀️ The eSIM Dream Team</h1>
   <h2>Meet the Five Helpers Who Deliver Your Digital Key</h2>
   <p class="story-text" style="color:#5a6d80">A story of team members, trust chains, and a carefully choreographed dance</p>
-  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 2 of 14</div>
+  
 
 <!-- PAGE 2: THE VAULT -->
-<div class="page" style="padding-top:3.5rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 3 of 14</div>
+<div class="page" style="padding-top:3.5rem">
   <div class="illustration slide-in">
     <svg viewBox="0 0 400 230" width="350">
       <!-- Tamper-proof chip -->
@@ -123,10 +122,10 @@
   </div>
   <h3>🔒 The Vault (eUICC)</h3>
   <p class="story-text">This is the star of the show: a tiny, <strong>tamper-proof</strong> computer chip soldered inside your phone or smartwatch. If a bad guy tries to poke it open, it <em>self-destructs its secrets</em>! The Vault can hold multiple profiles and check ID badges using math so hard that even the world's fastest computer couldn't crack it.</p>
-  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 4 of 14</div>
+  
 
 <!-- PAGE 3: THE KEY MAKER -->
-<div class="page" style="padding-top:3.5rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 5 of 14</div>
+<div class="page" style="padding-top:3.5rem">
   <div class="illustration slide-in">
     <svg viewBox="0 0 400 230" width="350">
       <!-- Key Maker workshop -->
@@ -161,10 +160,10 @@
   </div>
   <h3>🔑 The Key Maker (SM-DP+)</h3>
   <p class="story-text">A powerful server somewhere on the internet. When your carrier says "make a key for this person," the Key Maker builds one. But here's the cool part: it <strong>locks the key</strong> so it only works in your <em>specific Vault</em>. Even if someone stole the key mid-delivery, it would be useless to them!</p>
-  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 6 of 14</div>
+  
 
 <!-- PAGE 4: NOTIFIER + ASSISTANT -->
-<div class="page" style="padding-top:3.5rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 7 of 14</div>
+<div class="page" style="padding-top:3.5rem">
   <div class="illustration slide-in">
     <svg viewBox="0 0 400 230" width="350">
       <!-- Post office (Notifier) -->
@@ -199,10 +198,10 @@
   </div>
   <h3>📬 The Notifier & 📱 The Assistant</h3>
   <p class="story-text">The <strong>Notifier</strong> is a digital post office: when your key is ready, it leaves a note: "Hey, phone XYZ has a package!" The <strong>Assistant</strong> is the app on your phone that runs messages between everyone. But it can <em>never see</em> the secret codes. It's like a postal worker delivering a sealed, locked box!</p>
-  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 8 of 14</div>
+  
 
 <!-- PAGE 5: CARRIER + CHAIN OF TRUST -->
-<div class="page" style="padding-top:3.5rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 9 of 14</div>
+<div class="page" style="padding-top:3.5rem">
   <div class="illustration slide-in">
     <svg viewBox="0 0 400 230" width="350">
       <!-- Chain of trust -->
@@ -233,10 +232,10 @@
   </div>
   <h3>📡 The Carrier & 🤝 Chain of Trust</h3>
   <p class="story-text">Your mobile <strong>carrier</strong> tells the Key Maker what to build. The trust chain runs top to bottom: the <strong>GSMA</strong> signs the Key Maker's badge, and the Vault checks it. The Vault also has its own badge proving it came from a real factory. The Assistant? Nobody cryptographically trusts it: it's just a delivery person!</p>
-  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 10 of 14</div>
+  
 
 <!-- PAGE 6: TWO WAYS TO SET UP -->
-<div class="page" style="padding-top:3.5rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 11 of 14</div>
+<div class="page" style="padding-top:3.5rem">
   <div class="illustration slide-in">
     <svg viewBox="0 0 400 220" width="350">
       <!-- LPAd: Assistant on phone -->
@@ -268,10 +267,10 @@
   </div>
   <h3>🏗️ Two Ways to Set It Up</h3>
   <p class="story-text"><strong>LPAd:</strong> The Assistant app runs on your phone's main processor. This is how smartphones do it.<br><br><strong>LPAe:</strong> For tiny devices like smart sensors or car modules, the Assistant lives <em>right inside the Vault chip itself</em>! No phone needed.</p>
-  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 12 of 14</div>
+  
 
 <!-- PAGE 7: DID YOU KNOW + NAV -->
-<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 13 of 14</div>
+<div class="page page-cover" style="padding-top:4rem">
   <div class="illustration floating">
     <svg viewBox="0 0 400 240" width="350">
       <!-- Thirteen pathways -->
@@ -305,7 +304,7 @@
   <p style="text-align:center">
     <a href="index.html" style="color:#5a6d80;text-decoration:none;font-size:.9rem">📖 Back to All Stories</a>
   </p>
-  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 14 of 14</div>
+  
 
 </div>
 
