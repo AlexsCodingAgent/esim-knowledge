@@ -792,7 +792,7 @@
     "seniority": "3",
     "source": "B13\\SiteGdcorporate\\JobCentre\\Provider\\SuccessFactors",
     "date": "2026-06-05",
-    "new": false
+    "new": true
   },
   {
     "company": "G+D (Giesecke+Devrient)",
@@ -1512,7 +1512,7 @@
     "seniority": "Full time",
     "source": "phenom",
     "date": "2026-05-25",
-    "new": false
+    "new": true
   },
   {
     "company": "Thales",
@@ -4947,7 +4947,7 @@
     "seniority": "2",
     "source": "B13\\SiteGdcorporate\\JobCentre\\Provider\\SuccessFactors",
     "date": "2025-07-25",
-    "new": false
+    "new": true
   },
   {
     "company": "G+D (Giesecke+Devrient)",
