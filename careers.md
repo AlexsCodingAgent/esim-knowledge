@@ -51,6 +51,19 @@ permalink: /careers/
 .careers-filters select {
   min-width: 140px;
 }
+.filter-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: #85c1e9;
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  user-select: none;
+}
+.filter-toggle input[type="checkbox"] {
+  accent-color: #5dade2;
+}
 .careers-count {
   color: #8b949e;
   font-size: 0.85rem;
@@ -142,6 +155,13 @@ permalink: /careers/
   <select id="countryFilter" onchange="filterJobs()">
     <option value="">All Countries</option>
   </select>
+  <label class="filter-toggle" title="Only show jobs discovered in the latest refresh">
+    <input type="checkbox" id="newFilter" onchange="filterJobs()"> 🆕 Recently Added
+  </label>
+  <select id="sortOrder" onchange="filterJobs()">
+    <option value="newest" selected>Newest First</option>
+    <option value="oldest">Oldest First</option>
+  </select>
 </div>
 
 <div class="careers-count" id="jobCount"></div>
@@ -193,15 +213,24 @@ function filterJobs() {
   const query = document.getElementById('jobSearch').value.toLowerCase().trim();
   const company = document.getElementById('companyFilter').value;
   const country = document.getElementById('countryFilter').value;
+  const newOnly = document.getElementById('newFilter').checked;
+  const sortOrder = document.getElementById('sortOrder').value;
 
   let filtered = JOBS.filter(j => {
     if (company && j.company !== company) return false;
     if (country && j.country !== country) return false;
+    if (newOnly && !j.new) return false;
     if (query) {
       const txt = (j.title + ' ' + j.company + ' ' + j.department + ' ' + j.teaser + ' ' + (j.city || '')).toLowerCase();
       if (!txt.includes(query)) return false;
     }
     return true;
+  });
+
+  // Sort by date
+  filtered.sort((a, b) => {
+    const da = a.date || '', db = b.date || '';
+    return sortOrder === 'newest' ? db.localeCompare(da) : da.localeCompare(db);
   });
 
   document.getElementById('jobCount').textContent = `Showing ${filtered.length} of ${JOBS.length} positions`;
