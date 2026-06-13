@@ -6,9 +6,9 @@ date: 2026-06-06
 
 # SGP.22 v2.x vs v3.x: The Specification Split Explained
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > SGP.22 v2.x vs v3.x: The Specification Split Explained**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > SGP.22 v2.x vs v3.x: The Specification Split Explained**
 
-> **💡 Why this matters:** If you're working with eSIM today, you need to know which version of SGP.22 your components target: v2.x or v3.x. The GSMA has bifurcated the consumer RSP specification into two parallel tracks with different architectures, capabilities, and roadmaps. Understanding the split is essential for platform planning, eUICC procurement, and long-term interoperability.
+> **Why this matters:** If you're working with eSIM today, you need to know which version of SGP.22 your components target: v2.x or v3.x. The GSMA has bifurcated the consumer RSP specification into two parallel tracks with different architectures, capabilities, and roadmaps. Understanding the split is essential for platform planning, eUICC procurement, and long-term interoperability.
 
 > **Key takeaways:**
 > - SGP.22 v2.2.2 (June 2020) was the stable baseline for years: it defined the eSIM ecosystem as we know it
@@ -116,7 +116,7 @@ The fundamental difference is scope:
 - You need the highest profile package version features
 - You want Multiple Enabled Profiles, Push Service, or Device Change
 
-**📂 [Read the full SGP.22 v3.x article series →]({{ site.baseurl }}/docs/articles/sgp22-v3/52-sgp22-v3-overview)** : 8 deep-dive articles covering all v3.x features
+**[Read the full SGP.22 v3.x article series →]({{ site.baseurl }}/docs/articles/sgp22-v3/52-sgp22-v3-overview)** : 8 deep-dive articles covering all v3.x features
 - You're future-proofing a new platform that won't ship for 18+ months
 
 ### Both tracks in parallel:
@@ -126,7 +126,7 @@ The fundamental difference is scope:
 
 ---
 
-## 📋 Summary
+## Summary
 
 - SGP.22 v2.2.2 (2020) was the stable baseline; the GSMA has since split the specification into parallel v2.x (consumer) and v3.x (unified) tracks
 - v2.7 (April 2026) adds significant features: integrated eUICC support, TLS 1.3, profile download retry, multiple profile package versions, bytecode verification, and enhanced test profile security
@@ -138,7 +138,7 @@ The fundamental difference is scope:
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp22/00-sgp22-overview">eSIM Remote SIM Provisioning (RSP) : How It Works</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp22/00-sgp22-overview">eSIM Remote SIM Provisioning (RSP) : How It Works</a> · <a href="{{ site.baseurl }}/"> Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp22/01-rsp-architecture">The eSIM RSP Architecture: Players and Interfaces</a> →
 

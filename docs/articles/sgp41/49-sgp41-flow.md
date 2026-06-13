@@ -6,9 +6,9 @@ date: 2026-06-06
 
 # IFPP Flow: Manufacturing Step to Configuration Step
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.41 IFPP]({{ site.baseurl }}/docs/articles/sgp41/) > IFPP Flow: Manufacturing Step to Configuration Step**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.41 IFPP]({{ site.baseurl }}/docs/articles/sgp41/) > IFPP Flow: Manufacturing Step to Configuration Step**
 
-> **💡 Why this matters:** The IFPP flow is SGP.41's beating heart: 16 steps spanning profile preparation, eUICC key delivery, BPP creation, factory-floor loading, and post-production reporting. Understanding this flow reveals why IFPP works where SGP.22 fails: the heavy cryptographic lifting (binding, encryption) happens *before* the profile reaches the production line, and the factory itself does nothing more complex than pushing pre-packaged data. The two-phase split between the Manufacturing Step and the Configuration Step is what enables the flexible inventory management and region-specific provisioning that consumer RSP cannot offer.
+> **Why this matters:** The IFPP flow is SGP.41's beating heart: 16 steps spanning profile preparation, eUICC key delivery, BPP creation, factory-floor loading, and post-production reporting. Understanding this flow reveals why IFPP works where SGP.22 fails: the heavy cryptographic lifting (binding, encryption) happens *before* the profile reaches the production line, and the factory itself does nothing more complex than pushing pre-packaged data. The two-phase split between the Manufacturing Step and the Configuration Step is what enables the flexible inventory management and region-specific provisioning that consumer RSP cannot offer.
 
 > **Key takeaways:**
 > - 16 sequential steps grouped into four phases: Profile Preparation (step 1), eUICC Delivery (steps 2–4), Profile Delivery (steps 5–7), and Profile Loading + Reporting (steps 8–16)
@@ -46,8 +46,8 @@ EUM ──[2] eUICCs──▶ Device Manufacturer
 Then, one of two paths for eUICC data:
 
 ```
-Path A:  EUM ──[3] eUICC data (keys, certs)──▶ SM-DPf
-Path B:  EUM ──[4] eUICC data (keys, certs)──▶ Device Manufacturer
+Path A: EUM ──[3] eUICC data (keys, certs)──▶ SM-DPf
+Path B: EUM ──[4] eUICC data (keys, certs)──▶ Device Manufacturer
 ```
 
 **Step 3 (Path A)**: The EUM sends eUICC data directly to the SM-DPf via `Esed1`. The data includes one-time public keys, eUICC certificates, eUICC Info 2, and the EUM certificate chain: packaged in an interoperable data structure.
@@ -60,7 +60,7 @@ Path B:  EUM ──[4] eUICC data (keys, certs)──▶ Device Manufacturer
 
 ```
 Dev Mfr ──[5] request for BPPs [with eUICC data]──▶ SM-DPf
-         [6] create BPPs (inside SM-DPf)
+ [6] create BPPs (inside SM-DPf)
 Dev Mfr ◀──[7] send BPPs── SM-DPf
 ```
 
@@ -87,7 +87,7 @@ Steps 8–12 happen *during the Device Production Process*. These are the only s
 
 ```
 Dev Mfr ──[8] BPP──▶ FPA ──[9] BPP──▶ eUICC
-                   [10] Profile installation (inside eUICC)
+ [10] Profile installation (inside eUICC)
 Dev Mfr ◀──[12] Profile Installation Result── FPA ◀──[11] Profile Installation Result── eUICC
 ```
 
@@ -114,7 +114,7 @@ Steps 13–16 handle reporting. Alternatively, the device may defer notification
 ```
 [13] Generate Profile Loading Report (inside Dev Mfr)
 Dev Mfr ──[14] Profile Loading Report──▶ SM-DPf
-         [15] Verify Profile Installation Results (inside SM-DPf)
+ [15] Verify Profile Installation Results (inside SM-DPf)
 SM-DPf ──[16] Report──▶ MSP
 ```
 
@@ -171,7 +171,7 @@ The IFPP flow is designed for real manufacturing environments with several pract
 
 ---
 
-## 📋 Summary
+## Summary
 
 - 16 steps across five phases: Profile Preparation → eUICC Delivery → Profile Delivery → Profile Loading → Post-Production Reporting
 - The factory-floor loading phase (steps 8–12) operates **fully offline** : BPPs are pre-bound and encrypted before ever reaching the production line
@@ -184,7 +184,7 @@ The IFPP flow is designed for real manufacturing environments with several pract
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp41/48-sgp41-architecture">The IFPP Architecture: SM-DPf, FPA, and Device Manufacturer</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp41/48-sgp41-architecture">The IFPP Architecture: SM-DPf, FPA, and Device Manufacturer</a> · <a href="{{ site.baseurl }}/"> Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp41/50-sgp41-security">IFPP Security: Factory Trust Models and Certificate Chains</a> →
 

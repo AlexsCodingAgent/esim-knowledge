@@ -6,9 +6,9 @@ date: 2026-06-05
 
 # eUICC Security Functional Requirements
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.25 eUICC Security]({{ site.baseurl }}/docs/articles/sgp25/) > eUICC Security Functional Requirements**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.25 eUICC Security]({{ site.baseurl }}/docs/articles/sgp25/) > eUICC Security Functional Requirements**
 
-> **💡 Why this matters:** The heart of any Protection Profile is its Security Functional Requirements (SFRs). These are the precise, testable statements that define what the eUICC must *do* to be considered secure: from authenticating remote actors and isolating Profiles to protecting cryptographic keys and enforcing policy rules. Understanding the SFRs reveals exactly what security properties a certified eUICC guarantees.
+> **Why this matters:** The heart of any Protection Profile is its Security Functional Requirements (SFRs). These are the precise, testable statements that define what the eUICC must *do* to be considered secure: from authenticating remote actors and isolating Profiles to protecting cryptographic keys and enforcing policy rules. Understanding the SFRs reveals exactly what security properties a certified eUICC guarantees.
 
 > **Key takeaways:**
 > - SGP.25 defines four Security Function Policies (SFPs): Secure Channel Protocol, Platform Services, ISD-R Content Access Control, and ECASD Access Control
@@ -100,13 +100,13 @@ FIA_ATD.1/Base defines the full list of security attributes maintained by the TS
 The Secure Channel Protocol SFP is enforced through interconnected SFRs that protect data in transit:
 
 ```text
-FTP_ITC.1/SCP  ──► Trusted channel establishment (ES8+, ES6)
-FDP_IFC.1/SCP  ──► Information flow control policy definition
-FDP_IFF.1/SCP  ──► Simple security attribute-based flow rules
-FDP_UCT.1/SCP  ──► Confidentiality of transmitted user data
-FDP_UIT.1/SCP  ──► Integrity of transmitted user data
-FDP_ITC.2/SCP  ──► Import of user data with security attributes
-FPT_TDC.1/SCP  ──► Consistent interpretation of TSF data between TOE and external entities
+FTP_ITC.1/SCP ──► Trusted channel establishment (ES8+, ES6)
+FDP_IFC.1/SCP ──► Information flow control policy definition
+FDP_IFF.1/SCP ──► Simple security attribute-based flow rules
+FDP_UCT.1/SCP ──► Confidentiality of transmitted user data
+FDP_UIT.1/SCP ──► Integrity of transmitted user data
+FDP_ITC.2/SCP ──► Import of user data with security attributes
+FPT_TDC.1/SCP ──► Consistent interpretation of TSF data between TOE and external entities
 ```
 
 Key management for these channels is handled by:
@@ -123,8 +123,8 @@ The access control SFRs enforce the strict separation between Security Domains:
 
 ### ISD-R Access Control
 ```
-FDP_ACC.1/ISDR  ──► Defines which subjects/objects are covered
-FDP_ACF.1/ISDR  ──► Defines the access control rules
+FDP_ACC.1/ISDR ──► Defines which subjects/objects are covered
+FDP_ACF.1/ISDR ──► Defines the access control rules
 ```
 Operations governed by ISD-R state include: profile download and installation, ISD-P creation/deletion, ISD-P state transitions (INSTALLED → SELECTABLE → ENABLED → DISABLED), PPR enforcement, and Enterprise Rule evaluation.
 
@@ -165,26 +165,26 @@ Security management SFRs control who may modify which security attributes:
 
 ### Secure Failure Modes
 ```
-FPT_FLS.1/Base              : Failure with preservation of secure state
+FPT_FLS.1/Base : Failure with preservation of secure state
 FPT_FLS.1/Platform_services: Platform services failure handling
 ```
 These ensure that failures (including memory reset and test memory reset) do not compromise security. The Memory Reset function may override PPRs (disabling/deleting profiles even when PPRs prohibit it), which is an explicit documented exception.
 
 ### Internal Communications and Side Channels
 ```
-FPT_EMS.1/Base  : TOE Emanation of TSF and User data
+FPT_EMS.1/Base : TOE Emanation of TSF and User data
 ```
 Ensures that secret data stored or transmitted within the TOE (shared secrets between ECASD and ISD-R/ISD-P, private keys, session keys) shall not be disclosed through side-channel emissions. This includes resistance to SPA, DPA, timing attacks, and electromagnetic radiation analysis.
 
 ```
-FDP_SDI.1/Base  : Stored data integrity monitoring
-FDP_RIP.1/Base  : Residual information protection
+FDP_SDI.1/Base : Stored data integrity monitoring
+FDP_RIP.1/Base : Residual information protection
 ```
 FDP_SDI.1 ensures integrity monitoring of all integrity-sensitive data (keys, Profile data, management data, identity data). FDP_RIP.1 ensures that deallocated resources do not leak residual confidential data.
 
 ### Random Number Generation
 ```
-FCS_RNG.1/Base  : Random number generation
+FCS_RNG.1/Base : Random number generation
 ```
 The ST author must select RNG classes (NTRG, DRG.2, DRG.3, DRG.4, PTG.2, PTG.3) as defined in AIS 20/31. This underpins all key generation, challenge-response protocols, and session key derivation.
 
@@ -201,7 +201,7 @@ What SGP.25 SFRs explicitly do **NOT** cover:
 
 ---
 
-## 📋 Summary
+## Summary
 
 - SGP.25 defines four SFPs controlling secure channels, platform services, ISD-R content, and ECASD access
 - FIA_* SFRs ensure every actor (remote SM-DP+, MNO-OTA, local MNO-SD) is identified and authenticated before any TSF-mediated action
@@ -214,7 +214,7 @@ What SGP.25 SFRs explicitly do **NOT** cover:
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp25/22-sgp25-overview">SGP.25 Overview: The eUICC Common Criteria Protection Profile</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp25/22-sgp25-overview">SGP.25 Overview: The eUICC Common Criteria Protection Profile</a> · <a href="{{ site.baseurl }}/"> Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp25/24-sgp25-assurance">eUICC Assurance Requirements: EAL4+ and Penetration Testing</a> →
 

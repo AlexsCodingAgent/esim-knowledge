@@ -6,9 +6,9 @@ date: 2026-05-24
 
 # The eSIM RSP Architecture: Players and Interfaces
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > The eSIM RSP Architecture: Players and Interfaces**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > The eSIM RSP Architecture: Players and Interfaces**
 
-> **💡 Why this matters:** Every eSIM interaction: scanning a QR code, switching carriers, provisioning a factory-fresh IoT device: flows through this architecture. Knowing the five players and thirteen interfaces is the map you need before diving into any protocol detail.
+> **Why this matters:** Every eSIM interaction: scanning a QR code, switching carriers, provisioning a factory-fresh IoT device: flows through this architecture. Knowing the five players and thirteen interfaces is the map you need before diving into any protocol detail.
 
 > **Key takeaways:**
 > - SGP.22 defines five roles: eUICC, SM-DP+, SM-DS, LPA, and Operator (MNO)
@@ -101,7 +101,7 @@ A device that supports a non-removable eUICC without an LPAe must provide an LPA
 
 ---
 
-## 📋 Summary
+## Summary
 
 - The RSP ecosystem has exactly five roles: knowing who does what (and who trusts whom) is the foundation for every protocol interaction
 - All thirteen interfaces are standardised, with `ES8+` providing the cryptographically critical end-to-end secure channel
@@ -113,7 +113,7 @@ A device that supports a non-removable eUICC without an LPAe must provide an LPA
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp22/00b-sgp22-v2-v3-split">SGP.22 v2.x vs v3.x: The Specification Split</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp22/00b-sgp22-v2-v3-split">SGP.22 v2.x vs v3.x: The Specification Split</a> · <a href="{{ site.baseurl }}/"> Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp22/02-inside-the-euicc">Inside the eUICC: The Secure Element That Powers Your eSIM</a> →
 

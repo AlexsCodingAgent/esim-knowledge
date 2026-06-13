@@ -6,9 +6,9 @@ date: 2026-05-27
 
 # Inside the eUICC: The Secure Element That Powers Your eSIM
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > Inside the eUICC: The Secure Element That Powers Your eSIM**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > Inside the eUICC: The Secure Element That Powers Your eSIM**
 
-> **💡 Why this matters:** The eUICC is the hardware root of trust for every eSIM. Its internal architecture: ECASD, ISD-R, ISD-Ps, and Profile Policy Enabler: determines what's possible and what's impossible in the eSIM security model.
+> **Why this matters:** The eUICC is the hardware root of trust for every eSIM. Its internal architecture: ECASD, ISD-R, ISD-Ps, and Profile Policy Enabler: determines what's possible and what's impossible in the eSIM security model.
 
 > **Key takeaways:**
 > - The eUICC is a Java Card secure element, not just storage: it actively verifies certificates, enforces policies, and interprets profile packages
@@ -150,7 +150,7 @@ The eUICC must implement **Java Card 3.0.4 Classic Edition** (or higher) with sp
 
 ---
 
-## 📋 Summary
+## Summary
 
 - The eUICC is a tamper-resistant secure computing platform with a permanent root of trust (ECASD) burned in at the factory
 - `ISD-R` manages all profile containers; ISD-Ps provide hardware-enforced isolation between operator profiles
@@ -162,7 +162,7 @@ The eUICC must implement **Java Card 3.0.4 Classic Edition** (or higher) with sp
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp22/01-rsp-architecture">The eSIM RSP Architecture: Players and Interfaces</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp22/01-rsp-architecture">The eSIM RSP Architecture: Players and Interfaces</a> · <a href="{{ site.baseurl }}/"> Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp22/03-profile-download">How a Profile Gets Delivered: The eSIM Download Process</a> →
 

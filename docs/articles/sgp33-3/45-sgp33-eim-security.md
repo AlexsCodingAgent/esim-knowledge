@@ -6,9 +6,9 @@ date: 2026-06-05
 
 # eIM Security Testing: DTLS, Certificates, and Signed Packages
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.33-3 eIM Testing]({{ site.baseurl }}/docs/articles/sgp33-3/) > eIM Security Testing: DTLS, Certificates, and Signed Packages**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.33-3 eIM Testing]({{ site.baseurl }}/docs/articles/sgp33-3/) > eIM Security Testing: DTLS, Certificates, and Signed Packages**
 
-> **💡 Why this matters:** The eUICC IoT Manager (eIM) remotely controls profile state and configuration on IoT devices: often devices deployed in the field for years without physical access. A compromised eIM could enable rogue profiles, disable critical connectivity, or hijack device management. SGP.33-3's security test cases verify the cryptographic foundations that make remote IoT management trustworthy: TLS channel establishment, certificate chain validation, signed package integrity, anti-replay protection, and server authentication. These tests ensure that only authorised eIMs can issue commands, and that those commands cannot be replayed, modified, or forged in transit.
+> **Why this matters:** The eUICC IoT Manager (eIM) remotely controls profile state and configuration on IoT devices: often devices deployed in the field for years without physical access. A compromised eIM could enable rogue profiles, disable critical connectivity, or hijack device management. SGP.33-3's security test cases verify the cryptographic foundations that make remote IoT management trustworthy: TLS channel establishment, certificate chain validation, signed package integrity, anti-replay protection, and server authentication. These tests ensure that only authorised eIMs can issue commands, and that those commands cannot be replayed, modified, or forged in transit.
 
 > **Key takeaways:**
 > - All eIM-to-server communication uses TLS v1.2 in **Server Authentication mode** (the eIM authenticates the server, not vice versa), with mandatory cipher suites: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 (preferred) or TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
@@ -50,21 +50,21 @@ Three TLS handshake procedures are defined:
 
 **ES9+' HTTPS (4.2.15)**: eIM talking to SM-DP+:
 - TC_eIM_HTTPS_Nominal:
-  - Sequence #01: HTTPS Session Establishment: verifies successful TLS handshake and session creation
-  - Sequence #02: Non-reuse of session keys: verifies the eIM uses fresh ephemeral keys for each session, preventing session key reuse attacks
+ - Sequence #01: HTTPS Session Establishment: verifies successful TLS handshake and session creation
+ - Sequence #02: Non-reuse of session keys: verifies the eIM uses fresh ephemeral keys for each session, preventing session key reuse attacks
 - TC_eIM_HTTPS_ErrorCases:
-  - Sequence #01: Invalid (SM-DP+) TLS Certificate signature: verifies the eIM detects and rejects a tampered server certificate
-  - Sequence #02: Expired TLS Certificate: verifies the eIM checks certificate validity period
-  - Sequence #07: Invalid TLS Certificate based on Invalid CI (Invalid Curve): verifies the eIM validates the certificate chain's cryptographic algorithm
+ - Sequence #01: Invalid (SM-DP+) TLS Certificate signature: verifies the eIM detects and rejects a tampered server certificate
+ - Sequence #02: Expired TLS Certificate: verifies the eIM checks certificate validity period
+ - Sequence #07: Invalid TLS Certificate based on Invalid CI (Invalid Curve): verifies the eIM validates the certificate chain's cryptographic algorithm
 
 **ES11' HTTPS (4.2.18)**: eIM talking to SM-DS:
 - TC_eIM_ES11'_HTTPS_Nominal:
-  - Sequence #01: HTTPS Session Establishment
-  - Sequence #02: Non-reuse of session keys
+ - Sequence #01: HTTPS Session Establishment
+ - Sequence #02: Non-reuse of session keys
 - TC_EIM_ES11'_HTTPS_Error:
-  - Sequence #01: Invalid (SM-DS) TLS Certificate signature
-  - Sequence #02: Expired TLS Certificate
-  - Sequence #07: Invalid TLS Certificate based on Invalid CI (Invalid Curve)
+ - Sequence #01: Invalid (SM-DS) TLS Certificate signature
+ - Sequence #02: Expired TLS Certificate
+ - Sequence #07: Invalid TLS Certificate based on Invalid CI (Invalid Curve)
 
 ---
 
@@ -118,14 +118,14 @@ Every eUICC Package Request sent by the eIM over ESep is cryptographically signe
 
 ```
 EuiccPackageRequest ::= {
-    euiccPackageSigned {
-        eimId            #EIM_ID,
-        eidValue         #EID1,
-        counterValue     <COUNTER_EIM>,
-        eimTransactionId <EIM_TRANSACTION_ID>,    -- optional (O_S_TRID)
-        euiccPackage     psmoList : { enable { iccid #ICCID_OP_PROF1 } }
-    },
-    eimSignature <EIM_SIGNATURE>
+ euiccPackageSigned {
+ eimId #EIM_ID,
+ eidValue #EID1,
+ counterValue <COUNTER_EIM>,
+ eimTransactionId <EIM_TRANSACTION_ID>, -- optional (O_S_TRID)
+ euiccPackage psmoList : { enable { iccid #ICCID_OP_PROF1 } }
+ },
+ eimSignature <EIM_SIGNATURE>
 }
 ```
 
@@ -137,17 +137,17 @@ Results flow back with equivalent protection:
 
 ```
 ProvideEimPackageResult ::= {
-    eidValue         #EID1,
-    eimPackageResult euiccPackageResult: euiccPackageResultSigned : {
-        euiccPackageResultDataSigned {
-            eimId        #EIM_ID1,
-            counterValue <COUNTER_EIM>,
-            eimTransactionId <EIM_TRANSACTION_ID>,
-            seqNumber    <SEQ_NUMBER>,
-            euiccResult  { EnableProfileResult: ok }
-        },
-        euiccSignEPR <EUICC_SIGN_EPR_EPR>
-    }
+ eidValue #EID1,
+ eimPackageResult euiccPackageResult: euiccPackageResultSigned : {
+ euiccPackageResultDataSigned {
+ eimId #EIM_ID1,
+ counterValue <COUNTER_EIM>,
+ eimTransactionId <EIM_TRANSACTION_ID>,
+ seqNumber <SEQ_NUMBER>,
+ euiccResult { EnableProfileResult: ok }
+ },
+ euiccSignEPR <EUICC_SIGN_EPR_EPR>
+ }
 }
 ```
 
@@ -159,15 +159,15 @@ Profile state change notifications are also cryptographically signed:
 
 ```
 PendingNotification ::= otherSignedNotification : {
-    tbsOtherNotification {
-        seqNumber                  <SEQ_NUMBER>,
-        profileManagementOperation { notificationEnable },
-        notificationAddress        #TEST_DP_ADDRESS1,
-        iccid                      #ICCID_OP_PROF1
-    },
-    euiccNotificationSignature <TBS_EUICC_NOTIF_SIG>,
-    euiccCertificate           #CERT_EUICC_ECDSA,
-    eumCertificate             #CERT_EUM_ECDSA
+ tbsOtherNotification {
+ seqNumber <SEQ_NUMBER>,
+ profileManagementOperation { notificationEnable },
+ notificationAddress #TEST_DP_ADDRESS1,
+ iccid #ICCID_OP_PROF1
+ },
+ euiccNotificationSignature <TBS_EUICC_NOTIF_SIG>,
+ euiccCertificate #CERT_EUICC_ECDSA,
+ eumCertificate #CERT_EUM_ECDSA
 }
 ```
 
@@ -230,7 +230,7 @@ The specification notes that *"SGP.26 [25] contains test keys, valid test certif
 
 ---
 
-## 📋 Summary
+## Summary
 
 - TLS v1.2 in Server Authentication mode is mandatory on all eIM interfaces, with ECDHE_ECDSA cipher suites on NIST P-256 or brainpoolP256r1
 - HTTPS test cases validate certificate chain checking (invalid signatures, expired certs, unsupported CI curves) and session key non-reuse
@@ -244,7 +244,7 @@ The specification notes that *"SGP.26 [25] contains test keys, valid test certif
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp33-3/44-sgp33-eim-test-cases">Key eIM Test Cases: PSMO, Notifications, and Configuration</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp33-3/44-sgp33-eim-test-cases">Key eIM Test Cases: PSMO, Notifications, and Configuration</a> · <a href="{{ site.baseurl }}/"> Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp33-3/46-sgp33-certification">IoT eSIM Certification Path: From Test Cases to Production</a> →
 

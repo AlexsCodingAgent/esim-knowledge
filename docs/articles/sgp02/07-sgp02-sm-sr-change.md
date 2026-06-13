@@ -7,7 +7,7 @@ title: "SM-SR Change: Handover, ES7 Interface, and EIS Migration"
 
 # SM-SR Change: Handover, ES7 Interface, and EIS Migration
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.02 M2M RSP]({{ site.baseurl }}/docs/articles/sgp02/) > SM-SR Change: Handover, ES7 Interface, and EIS Migration**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.02 M2M RSP]({{ site.baseurl }}/docs/articles/sgp02/) > SM-SR Change: Handover, ES7 Interface, and EIS Migration**
 
 Picture an eUICC shipped in 2024, soldered into a smart meter, deployed in a suburban utility closet. The manufacturer chose SM-SR1 because they had a good deal at the time. Five years later, the utility company switches mobile operators. The new MNO works exclusively with SM-SR2. Now what?
 
@@ -172,7 +172,7 @@ In an industry where 15-year device lifecycles are routine and vendor relationsh
 
 <div align="center">
 
-<a href="{{ site.baseurl }}/">🏠 Home</a>
+<a href="{{ site.baseurl }}/"> Home</a>
 
 Previous: <a href="06-sgp02-lifecycle">Profile Lifecycle: Enable, Disable, Delete, and Fall-Back</a> →
 Next: <a href="08-sgp02-resilience">Resilience: Fall-Back Mechanism, Emergency Profiles, and Test Profiles</a> →

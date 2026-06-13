@@ -7,9 +7,9 @@ date: 2026-06-07
 
 # Policy Management in SGP.22 v3.x: PPR, RAT, and the Policy Enforcer
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.22 v3.x Unified RSP]({{ site.baseurl }}/docs/articles/sgp22-v3/) > Policy Management in SGP.22 v3.x: PPR, RAT, and the Policy Enforcer**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.22 v3.x Unified RSP]({{ site.baseurl }}/docs/articles/sgp22-v3/) > Policy Management in SGP.22 v3.x: PPR, RAT, and the Policy Enforcer**
 
-> **💡 Why this matters:** Without policy management, any profile on your eSIM could be disabled or deleted by anyone: the end user, a malicious app, even a different operator. Profile Policy Management gives Profile Owners (operators) the ability to enforce conditions of use: a corporate-issued profile that can't be deleted by the employee, or a subsidised-device profile that can't be disabled until the contract ends. The system is carefully balanced: the eUICC manufacturer sets the ground rules (RAT), the operator sets per-profile policies (PPRs), and the eUICC enforces them (PPE). v3.x extends this with MEP-aware enforcement and lays groundwork for Enterprise Rules.
+> **Why this matters:** Without policy management, any profile on your eSIM could be disabled or deleted by anyone: the end user, a malicious app, even a different operator. Profile Policy Management gives Profile Owners (operators) the ability to enforce conditions of use: a corporate-issued profile that can't be deleted by the employee, or a subsidised-device profile that can't be disabled until the contract ends. The system is carefully balanced: the eUICC manufacturer sets the ground rules (RAT), the operator sets per-profile policies (PPRs), and the eUICC enforces them (PPE). v3.x extends this with MEP-aware enforcement and lays groundwork for Enterprise Rules.
 
 > **Key takeaways:**
 > - Three components: **Profile Policy Rules (PPRs)** set by operators, **Rules Authorisation Table (RAT)** set by the manufacturer, and **Profile Policy Enabler (PPE)** on the eUICC
@@ -39,9 +39,9 @@ PPRs are encoded as a bit string in the Profile Metadata:
 
 ```
 PprIds ::= BIT STRING {
-    pprUpdateControl(0),  -- controls PPR update mechanism via ES6
-    ppr1(1),              -- 'Disabling of this Profile is not allowed'
-    ppr2(2)               -- 'Deletion of this Profile is not allowed'
+ pprUpdateControl(0), -- controls PPR update mechanism via ES6
+ ppr1(1), -- 'Disabling of this Profile is not allowed'
+ ppr2(2) -- 'Deletion of this Profile is not allowed'
 }
 ```
 

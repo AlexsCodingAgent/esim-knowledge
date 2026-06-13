@@ -6,9 +6,9 @@ date: 2026-05-26
 
 # The eSIM IoT Architecture: eIM, IPA, and the New Interfaces
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.32 IoT eSIM]({{ site.baseurl }}/docs/articles/sgp32/) > The eSIM IoT Architecture: eIM, IPA, and the New Interfaces**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.32 IoT eSIM]({{ site.baseurl }}/docs/articles/sgp32/) > The eSIM IoT Architecture: eIM, IPA, and the New Interfaces**
 
-> **💡 Why this matters:** The IoT eSIM architecture adds two entirely new network players and four new interfaces on top of the consumer RSP model. Understanding how the `eIM` and `IPA` divide responsibilities: and what each interface carries: is the key to understanding the entire IoT provisioning system.
+> **Why this matters:** The IoT eSIM architecture adds two entirely new network players and four new interfaces on top of the consumer RSP model. Understanding how the `eIM` and `IPA` divide responsibilities: and what each interface carries: is the key to understanding the entire IoT provisioning system.
 
 > **Key takeaways:**
 > - Two new components: `eIM` (remote manager) and `IPA` (on-device proxy, in two variants: `IPAd` and `IPAe`)
@@ -134,7 +134,7 @@ The protocol choice is configured per-eIM in the eIM Configuration Data via the 
 
 ---
 
-## 📋 Summary
+## Summary
 
 - The IoT architecture adds `eIM` (remote manager) and `IPA` (on-device proxy) with four new interfaces
 - `IPA` comes in two variants: `IPAd` (in device) for richer hardware, `IPAe` (in eUICC) for ultra-constrained devices
@@ -145,7 +145,7 @@ The protocol choice is configured per-eIM in the eIM Configuration Data via the 
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp32/07-iot-esim-why">eSIM for IoT: Why It Needed Its Own Architecture</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp32/07-iot-esim-why">eSIM for IoT: Why It Needed Its Own Architecture</a> · <a href="{{ site.baseurl }}/"> Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp32/09-iot-profile-download-packages">IoT Profile Download: Direct, Indirect, and eIM Package Handling</a> →
 

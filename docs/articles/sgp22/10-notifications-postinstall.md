@@ -6,9 +6,9 @@ date: 2026-06-07
 
 # SGP.22 v2.7: Notifications and Post-Install: Keeping Operators in the Loop
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > Notifications and Post-Install: Keeping Operators in the Loop**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > Notifications and Post-Install: Keeping Operators in the Loop**
 
-> **💡 Why this matters:** Profile installation is just the beginning. Operators need to know what happened: did it succeed? Was the profile enabled? Was it later deleted? The notification framework is the eUICC's reporting system, and it's what makes eSIM a manageable ecosystem rather than a one-shot download. For companion devices and profile transfers, Activation Code Retrieval closes the loop.
+> **Why this matters:** Profile installation is just the beginning. Operators need to know what happened: did it succeed? Was the profile enabled? Was it later deleted? The notification framework is the eUICC's reporting system, and it's what makes eSIM a manageable ecosystem rather than a one-shot download. For companion devices and profile transfers, Activation Code Retrieval closes the loop.
 
 > **Key takeaways:**
 > - Two types of notifications: **Profile Installation Results** (immediate, SM-DP+) and **Other Notifications** (deferred, configured in profile metadata)
@@ -67,30 +67,30 @@ The flow for Other Notifications is a store-and-forward system:
 
 ```
 Profile Management Operation completes
-         │
-         ▼
+ │
+ ▼
 eUICC generates Notification
 (Sequence Number++, signed)
-         │
-         ▼
+ │
+ ▼
 Notification stored in eUICC NV memory
-         │
-         ▼
+ │
+ ▼
 LPA polls: ES10b.RetrieveNotificationsList
-         │
-         ▼
+ │
+ ▼
 LPA establishes TLS to SM-DP+
-         │
-         ▼
+ │
+ ▼
 LPA sends: ES9+.HandleNotification(Notification)
-         │
-         ▼
+ │
+ ▼
 SM-DP+ acknowledges
-         │
-         ▼
+ │
+ ▼
 LPA calls: ES10b.RemoveNotificationFromList(SeqNumber)
-         │
-         ▼
+ │
+ ▼
 eUICC deletes Notification from storage
 ```
 

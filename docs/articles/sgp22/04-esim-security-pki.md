@@ -6,9 +6,9 @@ date: 2026-06-01
 
 # eSIM Security: The PKI and Certificate Model
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > eSIM Security: The PKI and Certificate Model**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > eSIM Security: The PKI and Certificate Model**
 
-> **💡 Why this matters:** The eSIM security model is what makes it possible to deliver operator credentials over the public internet: through an untrusted device: without anyone in the middle being able to steal or tamper with them. Every eSIM download depends on this PKI.
+> **Why this matters:** The eSIM security model is what makes it possible to deliver operator credentials over the public internet: through an untrusted device: without anyone in the middle being able to steal or tamper with them. Every eSIM download depends on this PKI.
 
 > **Key takeaways:**
 > - All trust chains back to a single root: the **GSMA Certificate Issuer (CI)**, whose public keys are burned into every eUICC at the factory
@@ -86,10 +86,10 @@ The mutual authentication between SM-DP+ and eUICC uses **ECDSA** (Elliptic Curv
 
 ```
 serverSigned1 = {
-    TransactionID,          // Fresh UUID for this session
-    euiccChallenge,         // Echo back the eUICC's random challenge
-    serverChallenge,        // SM-DP+'s own fresh random challenge
-    SM-DP+ Address          // Prevents MITM redirecting to another SM-DP+
+ TransactionID, // Fresh UUID for this session
+ euiccChallenge, // Echo back the eUICC's random challenge
+ serverChallenge, // SM-DP+'s own fresh random challenge
+ SM-DP+ Address // Prevents MITM redirecting to another SM-DP+
 }
 
 serverSignature1 = ECDSA_Sign(SK.DPauth.ECDSA, serverSigned1)
@@ -101,10 +101,10 @@ The eUICC verifies this with `PK.DPauth.ECDSA` from `CERT.DPauth.ECDSA`.
 
 ```
 euiccSigned1 = {
-    TransactionID,          // Must match the server's TransactionID
-    serverChallenge,        // Echo back the server's challenge
-    euiccInfo2,            // eUICC information (version, capabilities)
-    ctxParams1             // Context parameters from the LPA
+ TransactionID, // Must match the server's TransactionID
+ serverChallenge, // Echo back the server's challenge
+ euiccInfo2, // eUICC information (version, capabilities)
+ ctxParams1 // Context parameters from the LPA
 }
 
 euiccSignature1 = ECDSA_Sign(SK.EUICC.ECDSA, euiccSigned1)
@@ -123,9 +123,9 @@ After mutual authentication, the profile download requires session keys with **P
 1. The SM-DP+ generates an ephemeral ECDH key pair for this transaction
 2. The key agreement data is sent in the `InitialiseSecureChannel` block
 3. Both sides derive shared session keys:
-   - **S-ENC** : AES-128-CBC for encryption
-   - **S-MAC** : AES-128 for message authentication (CMAC)
-   - **Initial MAC chaining value** : prevents replay
+ - **S-ENC** : AES-128-CBC for encryption
+ - **S-MAC** : AES-128 for message authentication (CMAC)
+ - **Initial MAC chaining value** : prevents replay
 
 These session keys are discarded after the transaction. Even if the SM-DP+'s long-term private key is stolen years later, past profile downloads cannot be decrypted.
 
@@ -184,7 +184,7 @@ These certifications are verified through **Digital Letters of Approval (DLOAs)*
 
 ---
 
-## 📋 Summary
+## Summary
 
 - The GSMA CI is the single root of trust: all seven certificate types chain back to it, and its public keys live in every eUICC's ECASD
 - Mutual authentication uses ECDSA challenge-response with a strict server-first ordering rule; the eUICC never signs anything before verifying the server
@@ -196,7 +196,7 @@ These certifications are verified through **Digital Letters of Approval (DLOAs)*
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp22/03-profile-download">How a Profile Gets Delivered: The eSIM Download Process</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp22/03-profile-download">How a Profile Gets Delivered: The eSIM Download Process</a> · <a href="{{ site.baseurl }}/"> Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp22/05-local-profile-management">Managing Your eSIM: Local Profile Operations</a> →
 

@@ -6,9 +6,9 @@ date: 2026-06-05
 
 # SGP.23 Certification: From Test Cases to DLOA
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.23 Test Specifications]({{ site.baseurl }}/docs/articles/sgp23/) > SGP.23 Certification: From Test Cases to DLOA**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.23 Test Specifications]({{ site.baseurl }}/docs/articles/sgp23/) > SGP.23 Certification: From Test Cases to DLOA**
 
-> **💡 Why this matters:** Passing 800+ pages of test cases is only the beginning. The path from a compliant implementation to a certified product involves GSMA Test Events, SAS-accredited labs, mandatory certification audits, and ultimately a GlobalPlatform Digital Letter of Approval (DLOA) : the portable certificate that gatekeeps access to production eSIM deployments.
+> **Why this matters:** Passing 800+ pages of test cases is only the beginning. The path from a compliant implementation to a certified product involves GSMA Test Events, SAS-accredited labs, mandatory certification audits, and ultimately a GlobalPlatform Digital Letter of Approval (DLOA) : the portable certificate that gatekeeps access to production eSIM deployments.
 
 > **Key takeaways:**
 > - Certification follows a structured workflow: vendor readiness → GSMA Test Event → test execution → report → DLOA
@@ -53,11 +53,11 @@ Before a Test Event, the vendor:
 2. Completes the **Optional Features Table** : declaring which optional capabilities their product supports
 3. Determines the applicable test cases using the **Applicability Table** (mandatory, conditional, or not applicable based on declared features)
 4. Provides **IUT Settings** (Annex F) : product-specific details needed by the test tools:
-   - `#IUT_RSP_VERSION` : Which SGP.22 version is implemented
-   - `#IUT_SM_DP_ADDRESS` / `#IUT_SM_DS_ADDRESS_ES11` : Server addresses
-   - `#IUT_LPAd_Confirmation` : How user confirmations are performed
-   - `#IUT_DLOA_URL` : Discovery Base URL of the DLOA Registrar
-   - `#SAS_ACREDITATION_NUMBER` : For eUICCs, the GSMA-issued SAS number
+ - `#IUT_RSP_VERSION` : Which SGP.22 version is implemented
+ - `#IUT_SM_DP_ADDRESS` / `#IUT_SM_DS_ADDRESS_ES11` : Server addresses
+ - `#IUT_LPAd_Confirmation` : How user confirmations are performed
+ - `#IUT_DLOA_URL` : Discovery Base URL of the DLOA Registrar
+ - `#SAS_ACREDITATION_NUMBER` : For eUICCs, the GSMA-issued SAS number
 
 ### Step 2: GSMA Test Event
 
@@ -130,7 +130,7 @@ SGP.23 explicitly marks certain areas as **FFS (For Future Study)** or out of sc
 
 ---
 
-## 📋 Summary
+## Summary
 
 - Certification is a structured workflow: implement → declare features → attend Test Event → pass test cases → receive DLOA
 - GSMA Test Events provide standardised, tool-driven validation against SGP.23 test cases
@@ -143,7 +143,7 @@ SGP.23 explicitly marks certain areas as **FFS (For Future Study)** or out of sc
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp23/20-sgp23-server-testing">Testing the SM-DP+ and SM-DS</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp23/20-sgp23-server-testing">Testing the SM-DP+ and SM-DS</a> · <a href="{{ site.baseurl }}/"> Home</a>
 
 </div>
 

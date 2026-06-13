@@ -3,7 +3,7 @@ layout: default
 title: "SGP.41: In-Factory Profile Provisioning"
 ---
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > SGP.41: In-Factory Profile Provisioning**
+**[eUICC.tech]({{ site.baseurl }}/) > SGP.41: In-Factory Profile Provisioning**
 
 # SGP.41: In-Factory Profile Provisioning
 

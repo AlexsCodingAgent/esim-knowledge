@@ -6,9 +6,9 @@ date: 2026-06-05
 
 # SGP.25 Certification: SAS-UP and the Evaluation Process
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.25 eUICC Security]({{ site.baseurl }}/docs/articles/sgp25/) > SGP.25 Certification: SAS-UP and the Evaluation Process**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.25 eUICC Security]({{ site.baseurl }}/docs/articles/sgp25/) > SGP.25 Certification: SAS-UP and the Evaluation Process**
 
-> **💡 Why this matters:** A Protection Profile is only as valuable as the certification process behind it. SGP.25 certification doesn't happen in a vacuum: it's embedded in a broader ecosystem of GSMA security accreditation (SAS), Common Criteria evaluation schemes, accredited laboratories, and the interoperability testing regime defined by SGP.23-1. Understanding the end-to-end certification journey reveals how an eUICC goes from a design document to a trusted component in live operator networks.
+> **Why this matters:** A Protection Profile is only as valuable as the certification process behind it. SGP.25 certification doesn't happen in a vacuum: it's embedded in a broader ecosystem of GSMA security accreditation (SAS), Common Criteria evaluation schemes, accredited laboratories, and the interoperability testing regime defined by SGP.23-1. Understanding the end-to-end certification journey reveals how an eUICC goes from a design document to a trusted component in live operator networks.
 
 > **Key takeaways:**
 > - SGP.25 certification follows Common Criteria evaluation workflows through nationally accredited laboratories under the CCRA mutual recognition framework
@@ -53,13 +53,13 @@ SGP.25's Protection Profile Usage section (1.2.5) defines three distinct paths f
 
 ```
 ┌──────────────────────┐
-│  Certified IC        │ ← Already holds [PP0084]/[PP0117] certificate
+│ Certified IC │ ← Already holds [PP0084]/[PP0117] certificate
 ├──────────────────────┤
-│  Certified OS        │ ← Already holds platform certificate
+│ Certified OS │ ← Already holds platform certificate
 ├──────────────────────┤
-│  Certified RE (JCS)  │ ← Already holds [PP-JCS] certificate
+│ Certified RE (JCS) │ ← Already holds [PP-JCS] certificate
 ├──────────────────────┤
-│  eUICC Software      │ ← NEW evaluation against SGP.25 on top
+│ eUICC Software │ ← NEW evaluation against SGP.25 on top
 └──────────────────────┘
 ```
 
@@ -71,8 +71,8 @@ This is the most common path for established eUICC manufacturers using certified
 
 ```
 ┌──────────────────────┐
-│  IC + OS + RE +      │ ← Single evaluation covering everything
-│  eUICC Software      │     from hardware to application layer
+│ IC + OS + RE + │ ← Single evaluation covering everything
+│ eUICC Software │ from hardware to application layer
 └──────────────────────┘
 ```
 
@@ -82,10 +82,10 @@ The Security Target defines SFRs for the IC, OS, and RE in addition to those spe
 
 ```
 ┌──────────────────────┐
-│  Certified IC        │ ← Already holds certificate
+│ Certified IC │ ← Already holds certificate
 ├──────────────────────┤
-│  OS + RE +           │ ← NEW: composite evaluation of software
-│  eUICC Software      │     on top of certified IC
+│ OS + RE + │ ← NEW: composite evaluation of software
+│ eUICC Software │ on top of certified IC
 └──────────────────────┘
 ```
 
@@ -213,7 +213,7 @@ A secure application embedded into a certified eUICC can itself be certified in 
 
 ---
 
-## 📋 Summary
+## Summary
 
 - SGP.25 certification follows CC evaluation through accredited labs under national schemes, with CCRA mutual recognition across 31 nations
 - Three evaluation models accommodate different starting points: composite (pre-certified platform), unified (all at once), and hybrid (certified IC only)
@@ -226,7 +226,7 @@ A secure application embedded into a certified eUICC can itself be certified in 
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp25/25-sgp25-physical-security">Physical Security: Side-Channel and Fault Injection Defences</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp25/25-sgp25-physical-security">Physical Security: Side-Channel and Fault Injection Defences</a> · <a href="{{ site.baseurl }}/"> Home</a>
 
 </div>
 

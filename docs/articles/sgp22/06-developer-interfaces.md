@@ -6,9 +6,9 @@ date: 2026-06-05
 
 # The Developer's View: RSP Interfaces and Protocol Binding
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > The Developer's View: RSP Interfaces and Protocol Binding**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > The Developer's View: RSP Interfaces and Protocol Binding**
 
-> **💡 Why this matters:** If you're building an LPA, an SM-DP+, or integrating eSIM into a device, this is your reference. Every function signature, HTTP endpoint, ASN.1 structure, and protocol binding rule is standardised: you just need to know where to look.
+> **Why this matters:** If you're building an LPA, an SM-DP+, or integrating eSIM into a device, this is your reference. Every function signature, HTTP endpoint, ASN.1 structure, and protocol binding rule is standardised: you just need to know where to look.
 
 > **Key takeaways:**
 > - Four interface families (`ES2+`, `ES8+`, `ES9+`, `ES10x`) cover ordering, secure delivery, LPA-server communication, and local chip access
@@ -40,16 +40,16 @@ POST /gsma/rsp2/es2plus/downloadOrder
 
 Request:
 {
-  "header": { "functionRequesterIdentifier": "...", "functionCallIdentifier": "..." },
-  "eid": "8901...",           // Optional: required if ICCID not specified
-  "iccid": "8944...",         // Optional
-  "profileType": "..."        // Optional: if ICCID is not present
+ "header": { "functionRequesterIdentifier": "...", "functionCallIdentifier": "..." },
+ "eid": "8901...", // Optional: required if ICCID not specified
+ "iccid": "8944...", // Optional
+ "profileType": "..." // Optional: if ICCID is not present
 }
 
 Response:
 {
-  "header": { "functionExecutionStatus": { "status": "Executed-Success" } },
-  "iccid": "8944..."          // The reserved ICCID
+ "header": { "functionExecutionStatus": { "status": "Executed-Success" } },
+ "iccid": "8944..." // The reserved ICCID
 }
 ```
 
@@ -62,18 +62,18 @@ POST /gsma/rsp2/es2plus/confirmOrder
 
 Request:
 {
-  "header": { ... },
-  "iccid": "8944...",         // Required
-  "eid": "8901...",           // Optional: required if not in DownloadOrder
-  "matchingId": "...",        // If empty, SM-DP+ generates it for Activation Code
-  "confirmationCodeRequired": true,  // Optional: requires user to enter code
-  "smdsAddress": "https://...",  // Required for SM-DS delivery
-  "releaseFlag": true
+ "header": { ... },
+ "iccid": "8944...", // Required
+ "eid": "8901...", // Optional: required if not in DownloadOrder
+ "matchingId": "...", // If empty, SM-DP+ generates it for Activation Code
+ "confirmationCodeRequired": true, // Optional: requires user to enter code
+ "smdsAddress": "https://...", // Required for SM-DS delivery
+ "releaseFlag": true
 }
 
 Response:
 {
-  "header": { ... }
+ "header": { ... }
 }
 ```
 
@@ -89,11 +89,11 @@ Establishes the ECDH key agreement and derives session keys (S-ENC, S-MAC).
 
 ```
 BoundProfilePackage.initialiseSecureChannelRequest ::= [35] SEQUENCE {
-    remoteOpId              INTEGER,        // ID reference
-    transactionId           TransactionId,  // From mutual auth
-    controlRefTemplate      OCTET STRING,   // Key agreement parameters
-    smdpOtpk                OCTET STRING,   // SM-DP+ one-time public key (ECDH)
-    smdpSign                OCTET STRING    // SM-DP+ signature
+ remoteOpId INTEGER, // ID reference
+ transactionId TransactionId, // From mutual auth
+ controlRefTemplate OCTET STRING, // Key agreement parameters
+ smdpOtpk OCTET STRING, // SM-DP+ one-time public key (ECDH)
+ smdpSign OCTET STRING // SM-DP+ signature
 }
 ```
 
@@ -164,29 +164,29 @@ HTTP/JSON interface for the LPA to communicate with the SM-DP+.
 // InitiateAuthentication
 POST /gsma/rsp2/es9plus/initiateAuthentication
 {
-    "euiccChallenge": "base64...",
-    "euiccInfo1": "base64...",
-    "smdpAddress": "example.smdp.com"
+ "euiccChallenge": "base64...",
+ "euiccInfo1": "base64...",
+ "smdpAddress": "example.smdp.com"
 }
 
 // AuthenticateClient
 POST /gsma/rsp2/es9plus/authenticateClient
 {
-    "transactionId": "...",
-    "authenticateServerResponse": "base64...",
-    "authenticateClientRequest": {
-        "euiccSigned1": "base64...",
-        "euiccSignature1": "base64...",
-        "euiccCertificate": "base64...",
-        "eumCertificate": "base64..."
-    }
+ "transactionId": "...",
+ "authenticateServerResponse": "base64...",
+ "authenticateClientRequest": {
+ "euiccSigned1": "base64...",
+ "euiccSignature1": "base64...",
+ "euiccCertificate": "base64...",
+ "eumCertificate": "base64..."
+ }
 }
 
 // GetBoundProfilePackage
 POST /gsma/rsp2/es9plus/getBoundProfilePackage
 {
-    "transactionId": "...",
-    "prepareDownloadResponse": "base64..."
+ "transactionId": "...",
+ "prepareDownloadResponse": "base64..."
 }
 ```
 
@@ -202,14 +202,14 @@ All `ES2+`, `ES9+`, and `ES11` interfaces use JSON. Messages follow a request-re
 
 ```
 {
-    "header": {
-        "functionRequesterIdentifier": "operator-id",
-        "functionCallIdentifier": "uuid",
-        "functionExecutionStatus": {
-            "status": "Executed-Success",
-            "statusCodeData": { ... }
-        }
-    }
+ "header": {
+ "functionRequesterIdentifier": "operator-id",
+ "functionCallIdentifier": "uuid",
+ "functionExecutionStatus": {
+ "status": "Executed-Success",
+ "statusCodeData": { ... }
+ }
+ }
 }
 ```
 
@@ -221,11 +221,11 @@ The `ES8+` interface (SM-DP+ → eUICC) and the Bound Profile Package structure 
 
 ```asn1
 BoundProfilePackage ::= [54] SEQUENCE {
-    initialiseSecureChannelRequest  [35] InitialiseSecureChannelRequest,
-    firstSequenceOf87               [0]  SEQUENCE OF [7] OCTET STRING,
-    sequenceOf88                    [1]  SEQUENCE OF [8] OCTET STRING,
-    secondSequenceOf87              [2]  SEQUENCE OF [7] OCTET STRING OPTIONAL,
-    sequenceOf86                    [3]  SEQUENCE OF [6] OCTET STRING
+ initialiseSecureChannelRequest [35] InitialiseSecureChannelRequest,
+ firstSequenceOf87 [0] SEQUENCE OF [7] OCTET STRING,
+ sequenceOf88 [1] SEQUENCE OF [8] OCTET STRING,
+ secondSequenceOf87 [2] SEQUENCE OF [7] OCTET STRING OPTIONAL,
+ sequenceOf86 [3] SEQUENCE OF [6] OCTET STRING
 }
 ```
 
@@ -241,10 +241,10 @@ All server-to-server and device-to-server communication uses HTTPS with TLS:
 - **Server authentication mode** for `ES9+` and `ES11` (the server presents a certificate, the client does not)
 - **Certificate validation** against the GSMA CI chain
 - **HTTP response codes** standardised:
-  - `200 OK` : function executed
-  - `400 Bad Request` : malformed request
-  - `401 Unauthorized` : authentication failure
-  - `500 Internal Server Error` : unexpected server error
+ - `200 OK` : function executed
+ - `400 Bad Request` : malformed request
+ - `401 Unauthorized` : authentication failure
+ - `500 Internal Server Error` : unexpected server error
 
 ---
 
@@ -271,7 +271,7 @@ Every function call includes a `functionCallIdentifier` : a unique ID that enabl
 
 ---
 
-## 📋 Summary
+## Summary
 
 - Four interface families cover the full eSIM lifecycle: `ES2+` (ordering, JSON), `ES8+` (secure delivery, ASN.1/SCP03t), `ES9+` (LPA-server, JSON), and `ES10x` (local chip access, APDU)
 - The `ES8+` Bound Profile Package uses ASN.1 TLV encoding with SCP03t encryption: five function calls carry the entire profile payload through an untrusted LPA
@@ -283,7 +283,7 @@ Every function call includes a `functionCallIdentifier` : a unique ID that enabl
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp22/05-local-profile-management">Managing Your eSIM: Local Profile Operations</a> · Next: <a href="{{ site.baseurl }}/docs/articles/sgp22/07-lpae-in-euicc">LPAe: The In-eUICC Local Profile Assistant</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp22/05-local-profile-management">Managing Your eSIM: Local Profile Operations</a> · Next: <a href="{{ site.baseurl }}/docs/articles/sgp22/07-lpae-in-euicc">LPAe: The In-eUICC Local Profile Assistant</a> · <a href="{{ site.baseurl }}/"> Home</a>
 
 </div>
 

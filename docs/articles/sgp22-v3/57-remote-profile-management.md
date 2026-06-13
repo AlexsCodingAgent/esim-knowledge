@@ -7,9 +7,9 @@ date: 2026-06-06
 
 # Remote Profile Management: RPM Initiation, Download, and Execution
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.22 v3.x Unified RSP]({{ site.baseurl }}/docs/articles/sgp22-v3/) > Remote Profile Management: RPM Initiation, Download, and Execution**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.22 v3.x Unified RSP]({{ site.baseurl }}/docs/articles/sgp22-v3/) > Remote Profile Management: RPM Initiation, Download, and Execution**
 
-> **💡 Why this matters:** In SGP.22 v2.x, profile lifecycle management (enable, disable, delete, update metadata) is entirely local: the end user must manually trigger every operation through the device UI. There's no way for an operator to remotely manage a profile they own. Remote Profile Management (RPM) changes this: an operator can issue lifecycle commands through the SM-DP+, which packages them into an RPM Package, delivers them to the eUICC, and reports the results back. This enables fleet management, operator-initiated profile switches, remote metadata updates, and contact with the Profile Content Management Platform: all without touching the device.
+> **Why this matters:** In SGP.22 v2.x, profile lifecycle management (enable, disable, delete, update metadata) is entirely local: the end user must manually trigger every operation through the device UI. There's no way for an operator to remotely manage a profile they own. Remote Profile Management (RPM) changes this: an operator can issue lifecycle commands through the SM-DP+, which packages them into an RPM Package, delivers them to the eUICC, and reports the results back. This enables fleet management, operator-initiated profile switches, remote metadata updates, and contact with the Profile Content Management Platform: all without touching the device.
 
 > **Key takeaways:**
 > - RPM is a **v3.x-only feature** (`#SupportedForRpmV3.X.Y#`), initiated by the Operator via the ES2+ interface
@@ -56,15 +56,15 @@ RPM gives operators a direct, standardised path to manage profiles remotely:
 RpmPackage ::= SEQUENCE OF RpmCommand
 
 RpmCommand ::= SEQUENCE {
-    continueOnFailure    NULL OPTIONAL,
-    rpmCommandDetails    CHOICE {
-        enable              SEQUENCE { iccid Iccid },
-        disable             SEQUENCE { iccid Iccid },
-        delete              SEQUENCE { iccid Iccid },
-        listProfileInfo     ListProfileInfo,
-        updateMetadata      SEQUENCE { iccid Iccid, updateMetadataRequest UpdateMetadataRequest },
-        contactPcmp         SEQUENCE { iccid Iccid, dpiRpm UTF8String OPTIONAL }
-    }
+ continueOnFailure NULL OPTIONAL,
+ rpmCommandDetails CHOICE {
+ enable SEQUENCE { iccid Iccid },
+ disable SEQUENCE { iccid Iccid },
+ delete SEQUENCE { iccid Iccid },
+ listProfileInfo ListProfileInfo,
+ updateMetadata SEQUENCE { iccid Iccid, updateMetadataRequest UpdateMetadataRequest },
+ contactPcmp SEQUENCE { iccid Iccid, dpiRpm UTF8String OPTIONAL }
+ }
 }
 ```
 
@@ -78,10 +78,10 @@ The Operator initiates RPM by calling `ES2+.RpmOrder` on a Managing SM-DP+:
 
 1. **Operator optionally generates a MatchingID** : this acts as the activation token the LPA uses to discover the RPM Package
 2. **Operator calls `ES2+.RpmOrder`** with:
-   - `eid` : the target eUICC
-   - `rpmScript` : the RPM Commands to execute
-   - Optional `MatchingID`
-   - Optional Root SM-DS and Alternative SM-DS addresses
+ - `eid` : the target eUICC
+ - `rpmScript` : the RPM Commands to execute
+ - Optional `MatchingID`
+ - Optional Root SM-DS and Alternative SM-DS addresses
 3. **SM-DP+ verifies** that the Operator is the Profile Owner of all targeted Profiles
 4. **SM-DP+ prepares the RPM Package** : building the ASN.1 structure from the rpmScript
 5. **SM-DP+ registers an Event** : either on the specified SM-DS or on a Default SM-DP+ address
@@ -119,15 +119,15 @@ The LPA delivers the RPM Package to the eUICC via `ES10b.LoadRpmPackage`:
 
 1. The eUICC executes RPM Commands **sequentially** in the received order
 2. For each command:
-   - If execution succeeds, the eUICC records the success result
-   - If execution fails:
-     - If `continueOnFailure` is present → the eUICC continues to the next command
-     - If `continueOnFailure` is absent → the eUICC stops processing and returns the error
+ - If execution succeeds, the eUICC records the success result
+ - If execution fails:
+ - If `continueOnFailure` is present → the eUICC continues to the next command
+ - If `continueOnFailure` is absent → the eUICC stops processing and returns the error
 3. **Atomicity is per-command** : each RPM Command is processed atomically, but if power is lost mid-package, the eUICC may be unable to process remaining commands (indicated by `interruption` in the result)
 4. The eUICC generates the **Load RPM Package Result** (`LoadRpmPackageResult`) containing:
-   - Sequence of `RpmCommandResult` for each executed command
-   - Optional `interruption` flag if execution was interrupted
-   - Signatures for integrity verification
+ - Sequence of `RpmCommandResult` for each executed command
+ - Optional `interruption` flag if execution was interrupted
+ - Signatures for integrity verification
 
 ### RPM Command Processing Rules
 

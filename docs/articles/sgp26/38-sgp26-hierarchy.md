@@ -6,9 +6,9 @@ date: 2026-06-06
 
 # Test Certificate Hierarchy: CI, EUM, DP, DS, and eUICC
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.26 Test Certificates]({{ site.baseurl }}/docs/articles/sgp26/) > Test Certificate Hierarchy: CI, EUM, DP, DS, and eUICC**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.26 Test Certificates]({{ site.baseurl }}/docs/articles/sgp26/) > Test Certificate Hierarchy: CI, EUM, DP, DS, and eUICC**
 
-> **💡 Why this matters:** Certificate validation in eSIM is not just about checking a signature: it's about walking a chain of trust from a known root through potentially multiple intermediate CAs, verifying path length constraints, name constraints, and role-specific policy OIDs at every step. SGP.26 gives you the complete chain for every RSP entity, so you can trace exactly how trust flows from the GSMA Test CI down to an individual eUICC or SM-DP+ TLS endpoint.
+> **Why this matters:** Certificate validation in eSIM is not just about checking a signature: it's about walking a chain of trust from a known root through potentially multiple intermediate CAs, verifying path length constraints, name constraints, and role-specific policy OIDs at every step. SGP.26 gives you the complete chain for every RSP entity, so you can trace exactly how trust flows from the GSMA Test CI down to an individual eUICC or SM-DP+ TLS endpoint.
 
 > **Key takeaways:**
 > - The test PKI spans up to 4 levels: Root CI → CI SubCA → Role SubCA → End Entity, depending on the variant
@@ -190,22 +190,22 @@ eIM certificates chain directly to the CI root: they are not scoped by variants 
 ## Trust Relationships Across Variants
 
 ```
-Variant O:          CI ─┬── EUM ── eUICC
-                        ├── SM-DP+ (auth, pb, TLS)
-                        ├── SM-DS (auth, TLS)
-                        └── eIM (sign, TLS)
+Variant O: CI ─┬── EUM ── eUICC
+ ├── SM-DP+ (auth, pb, TLS)
+ ├── SM-DS (auth, TLS)
+ └── eIM (sign, TLS)
 
-Variant B:          CI ── CISubCA ──┬── EUM ── eUICC
-                                   ├── SM-DP+ (auth, pb, TLS)
-                                   └── SM-DS (auth, TLS)
+Variant B: CI ── CISubCA ──┬── EUM ── eUICC
+ ├── SM-DP+ (auth, pb, TLS)
+ └── SM-DS (auth, TLS)
 
-Variant A:          CI ──┬── EUM SubCA ── EUM ── eUICC
-                        ├── DP SubCA ── SM-DP+ (auth, pb, TLS)
-                        └── DS SubCA ── SM-DS (auth, TLS)
+Variant A: CI ──┬── EUM SubCA ── EUM ── eUICC
+ ├── DP SubCA ── SM-DP+ (auth, pb, TLS)
+ └── DS SubCA ── SM-DS (auth, TLS)
 
-Variant C:          CI ── CISubCA ──┬── EUM SubCA ── EUM ── eUICC
-                                   ├── DP SubCA ── SM-DP+ (auth, pb, TLS)
-                                   └── DS SubCA ── SM-DS (auth, TLS)
+Variant C: CI ── CISubCA ──┬── EUM SubCA ── EUM ── eUICC
+ ├── DP SubCA ── SM-DP+ (auth, pb, TLS)
+ └── DS SubCA ── SM-DS (auth, TLS)
 ```
 
 These variants are not arbitrary: they reflect real-world deployment patterns. Variant O represents a legacy model where the CI signs everything directly. Variant B represents a CI that delegates to a single SubCA. Variant A represents a CI that uses role-specific SubCAs. Variant C represents the fully-delegated model with both a CI SubCA and role-specific SubCAs: the deepest hierarchy, exercising the most complex certificate path validation.
@@ -233,7 +233,7 @@ Both curves produce 64-byte signatures (two 32-byte integers, r and s, DER-encod
 
 ---
 
-## 📋 Summary
+## Summary
 
 - The CI root is self-signed, valid for 35 years, carrying `keyCertSign` + `cRLSign` and the `id-rspRole-ci` policy OID
 - Five variants exercise different delegation depths: direct-CI (O), single SubCA (B), role SubCAs (A), and full delegation (C)
@@ -247,7 +247,7 @@ Both curves produce 64-byte signatures (two 32-byte integers, r and s, DER-encod
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp26/37-sgp26-overview">SGP.26 Overview: The GSMA RSP Test Certificate Infrastructure</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp26/37-sgp26-overview">SGP.26 Overview: The GSMA RSP Test Certificate Infrastructure</a> · <a href="{{ site.baseurl }}/"> Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp26/39-sgp26-profiles">Certificate Profiles: What Makes a Valid Test Certificate</a> →
 

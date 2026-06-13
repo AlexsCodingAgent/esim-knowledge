@@ -6,9 +6,9 @@ date: 2026-06-05
 
 # SGP.23-1 Overview: Testing the eUICC Itself
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.23-1 eUICC Testing]({{ site.baseurl }}/docs/articles/sgp23-1/) > SGP.23-1 Overview: Testing the eUICC Itself**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.23-1 eUICC Testing]({{ site.baseurl }}/docs/articles/sgp23-1/) > SGP.23-1 Overview: Testing the eUICC Itself**
 
-> **💡 Why this matters:** SGP.23 tests the entire eSIM ecosystem as an integrated system: but before any of that integration testing can happen, the eUICC chip itself must be proven compliant. SGP.23-1 is the 797-page test bible dedicated exclusively to the eUICC: the embedded chip at the heart of every eSIM device. If your eUICC can't pass these tests, nothing downstream works.
+> **Why this matters:** SGP.23 tests the entire eSIM ecosystem as an integrated system: but before any of that integration testing can happen, the eUICC chip itself must be proven compliant. SGP.23-1 is the 797-page test bible dedicated exclusively to the eUICC: the embedded chip at the heart of every eSIM device. If your eUICC can't pass these tests, nothing downstream works.
 
 > **Key takeaways:**
 > - SGP.23-1 is the eUICC-only companion to SGP.23, developed after SGP.23 was split into three documents (SGP.23-1, -2, -3) in 2018
@@ -100,7 +100,7 @@ SGP.23-1 sits in a broader certification ecosystem:
 
 ---
 
-## 📋 Summary
+## Summary
 
 - SGP.23-1 is the 797-page eUICC-dedicated test specification, split from SGP.23 in 2018 to handle the eUICC's extensive testing requirements independently
 - The only IUT is the eUICC; five simulators (S_Device, S_SM-DP+, S_SM-DS, S_MNO, S_LPAd) wrap it in a controlled test environment
@@ -113,7 +113,7 @@ SGP.23-1 sits in a broader certification ecosystem:
 
 <div align="center">
 
-<a href="{{ site.baseurl }}/">🏠 Home</a>
+<a href="{{ site.baseurl }}/"> Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp23-1/33-sgp23-1-architecture">eUICC Test Architecture: Readers, Scripts, and GSMA Tools</a> →
 

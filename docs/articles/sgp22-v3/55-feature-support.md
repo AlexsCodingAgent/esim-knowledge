@@ -7,9 +7,9 @@ date: 2026-06-06
 
 # Feature Support: Capability Negotiation in v3.x
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.22 v3.x Unified RSP]({{ site.baseurl }}/docs/articles/sgp22-v3/) > Feature Support: Capability Negotiation in v3.x**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.22 v3.x Unified RSP]({{ site.baseurl }}/docs/articles/sgp22-v3/) > Feature Support: Capability Negotiation in v3.x**
 
-> **💡 Why this matters:** When two parties communicate in the eSIM ecosystem: a device and a server, or two servers: they may implement different versions of SGP.22 with different capabilities. How does an SM-DP+ know whether an eUICC supports Remote Profile Management? How does an LPA know whether to include Push Service data in a request? Without a capability negotiation mechanism, either data gets sent that the receiver doesn't understand (causing errors), or features go unused because the sender doesn't dare try. The Feature Support system in v3.x solves this with a tag-based model that lets every party declare exactly what it supports: and limits messages accordingly.
+> **Why this matters:** When two parties communicate in the eSIM ecosystem: a device and a server, or two servers: they may implement different versions of SGP.22 with different capabilities. How does an SM-DP+ know whether an eUICC supports Remote Profile Management? How does an LPA know whether to include Push Service data in a request? Without a capability negotiation mechanism, either data gets sent that the receiver doesn't understand (causing errors), or features go unused because the sender doesn't dare try. The Feature Support system in v3.x solves this with a tag-based model that lets every party declare exactly what it supports: and limits messages accordingly.
 
 > **Key takeaways:**
 > - Feature Support uses **tagged acronyms** (e.g., `#SupportedFromV3.X.Y#`, `#SupportedForRpmV3.X.Y#`) throughout the specification

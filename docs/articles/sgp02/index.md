@@ -5,7 +5,7 @@ date: 2026-06-07
 
 # SGP.02 M2M RSP: Article Series
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > SGP.02 M2M RSP**
+**[eUICC.tech]({{ site.baseurl }}/) > SGP.02 M2M RSP**
 
 The SGP.02 specification defines the GSMA's Remote Provisioning Architecture for Embedded UICC in machine-to-machine devices. This 12-article series covers the complete M2M eSIM "push" architecture: from the ecosystem roles through profile download, lifecycle management, and the SM-SR Change procedure.
 

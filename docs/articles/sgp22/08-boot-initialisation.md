@@ -6,9 +6,9 @@ date: 2026-06-07
 
 # SGP.22 v2.7: Device and eUICC Boot: First Power-On to Profile Discovery
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > Device and eUICC Boot: First Power-On to Profile Discovery**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > Device and eUICC Boot: First Power-On to Profile Discovery**
 
-> **💡 Why this matters:** The boot sequence of an eSIM device is the foundation that everything else builds on. A mistake here means the device can't find profiles, can't connect, and can't be provisioned: turning a "smart" device into a brick. Understanding the initialisation flow is essential for debugging provisioning failures and designing robust device firmware.
+> **Why this matters:** The boot sequence of an eSIM device is the foundation that everything else builds on. A mistake here means the device can't find profiles, can't connect, and can't be provisioned: turning a "smart" device into a brick. Understanding the initialisation flow is essential for debugging provisioning failures and designing robust device firmware.
 
 > **Key takeaways:**
 > - eUICC initialisation follows ETSI TS 102 221: the ATR signals eUICC capability, then CAT initialisation proceeds
@@ -61,7 +61,7 @@ The eUICC-related capabilities are carried in the TLV object under tag **'83'** 
 ```
 b8 b7 b6 b5 b4 b3 b2 b1
 -- -- -- -- -- -- -- --
-           SCWS  LDSd LPDd LUId
+ SCWS LDSd LPDd LUId
 ```
 
 - **b1** (LUId): 1 = Local User Interface in Device supported
@@ -137,38 +137,38 @@ Here's the complete sequence in chronological order:
 
 ```
 Power applied
-  │
-  ▼
+ │
+ ▼
 ATR (Answer To Reset) ─── eUICC signals eSIM capability
-  │
-  ▼
+ │
+ ▼
 UICC Initialisation ─── per ETSI TS 102 221
-  │
-  ▼
+ │
+ ▼
 Default File System ─── MF + EF-ENV-CLASSES + EF-UMPC presented
-  │
-  ▼
+ │
+ ▼
 Terminal Capability ─── Device reports LUId/LPDd/LDSd/SCWS support
-  │
-  ▼
+ │
+ ▼
 SELECT ISD-R ─── LPA mode arbitration (LPAd vs LPAe)
-  │
-  ▼
+ │
+ ▼
 Profile installed? ─── YES → Network attach (normal operation)
-  │
-  NO
-  │
-  ▼
+ │
+ NO
+ │
+ ▼
 Power-on Discovery:
-  ① Default SM-DP+ (empty MatchingID)
-     │
-     ├─ Success → Network attach
-     │
-     └─ No profile → ② Root SM-DS (Event Retrieval)
-                         │
-                         ├─ Success → Network attach
-                         │
-                         └─ No events → ③ Prompt for Activation Code
+ ① Default SM-DP+ (empty MatchingID)
+ │
+ ├─ Success → Network attach
+ │
+ └─ No profile → ② Root SM-DS (Event Retrieval)
+ │
+ ├─ Success → Network attach
+ │
+ └─ No events → ③ Prompt for Activation Code
 ```
 
 ---

@@ -6,9 +6,9 @@ date: 2026-06-05
 
 # Testing the LPA: LDS, LPD, and LUI Conformance
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.23 Test Specifications]({{ site.baseurl }}/docs/articles/sgp23/) > Testing the LPA: LDS, LPD, and LUI Conformance**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.23 Test Specifications]({{ site.baseurl }}/docs/articles/sgp23/) > Testing the LPA: LDS, LPD, and LUI Conformance**
 
-> **💡 Why this matters:** The LPA is the bridge between the user and the eUICC: and between the device and the SM-DP+/SM-DS. Get the LPA wrong, and profile downloads fail, discovery breaks, or users can't switch carriers. SGP.23 dedicates two complete testing chapters (eUICC ES10x and LPAd interfaces) to ensuring this bridge works correctly in every scenario.
+> **Why this matters:** The LPA is the bridge between the user and the eUICC: and between the device and the SM-DP+/SM-DS. Get the LPA wrong, and profile downloads fail, discovery breaks, or users can't switch carriers. SGP.23 dedicates two complete testing chapters (eUICC ES10x and LPAd interfaces) to ensuring this bridge works correctly in every scenario.
 
 > **Key takeaways:**
 > - ES10a (LDS → eUICC) is tested for two functions: discovery address retrieval and default SM-DP+ configuration
@@ -164,7 +164,7 @@ Beyond interface-level testing, Section 5.4 tests complete workflows:
 
 ---
 
-## 📋 Summary
+## Summary
 
 - ES10a (2 functions), ES10b (12 functions), and ES10c (8 functions) are tested from both the eUICC perspective (Section 4.2) and the LPAd perspective (Section 4.4)
 - The profile download pipeline (GetEUICCChallenge → AuthenticateServer → PrepareDownload → LoadBoundProfilePackage) is the most heavily tested sequence
@@ -176,7 +176,7 @@ Beyond interface-level testing, Section 5.4 tests complete workflows:
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp23/18-sgp23-test-infrastructure">The GSMA eSIM Test Infrastructure</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp23/18-sgp23-test-infrastructure">The GSMA eSIM Test Infrastructure</a> · <a href="{{ site.baseurl }}/"> Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp23/20-sgp23-server-testing">Testing the SM-DP+ and SM-DS</a> →
 

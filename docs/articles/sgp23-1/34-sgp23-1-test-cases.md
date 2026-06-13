@@ -6,9 +6,9 @@ date: 2026-06-05
 
 # Key eUICC Test Cases: ISD-R, ECASD, and Profile Lifecycle
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.23-1 eUICC Testing]({{ site.baseurl }}/docs/articles/sgp23-1/) > Key eUICC Test Cases: ISD-R, ECASD, and Profile Lifecycle**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.23-1 eUICC Testing]({{ site.baseurl }}/docs/articles/sgp23-1/) > Key eUICC Test Cases: ISD-R, ECASD, and Profile Lifecycle**
 
-> **💡 Why this matters:** Before any profile can be downloaded, before any carrier switch can happen, the eUICC must correctly handle the fundamental lifecycle of its secure domains and profiles. SGP.23-1's 27 interface test groups and 8 behaviour test groups verify every state transition: from the first ATR byte through ISD-R selection, secure channel establishment, profile installation, enablement, and deletion. These are the tests that catch the bugs which would otherwise surface as "inexplicable" field failures.
+> **Why this matters:** Before any profile can be downloaded, before any carrier switch can happen, the eUICC must correctly handle the fundamental lifecycle of its secure domains and profiles. SGP.23-1's 27 interface test groups and 8 behaviour test groups verify every state transition: from the first ATR byte through ISD-R selection, secure channel establishment, profile installation, enablement, and deletion. These are the tests that catch the bugs which would otherwise surface as "inexplicable" field failures.
 
 > **Key takeaways:**
 > - ISD-R selection is tested across 9 sequences covering nominal cases, enabled/disabled profiles, LPAe support, and MEP configurations (A1, A2, B)
@@ -196,7 +196,7 @@ Beyond interface compliance, these behaviour tests verify the full process lifec
 
 ---
 
-## 📋 Summary
+## Summary
 
 - ISD-R selection (9 sequences) verifies the very first handshake: ATR, logical channel management, and capability advertisement
 - ES8+ testing (4 groups) validates the secure channel for profile delivery: initialisation, ISD-P configuration, metadata storage, and profile element loading
@@ -209,7 +209,7 @@ Beyond interface compliance, these behaviour tests verify the full process lifec
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp23-1/33-sgp23-1-architecture">eUICC Test Architecture: Readers, Scripts, and GSMA Tools</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp23-1/33-sgp23-1-architecture">eUICC Test Architecture: Readers, Scripts, and GSMA Tools</a> · <a href="{{ site.baseurl }}/"> Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp23-1/35-sgp23-1-security">eUICC Security Testing: Certificates, Keys, and Channels</a> →
 

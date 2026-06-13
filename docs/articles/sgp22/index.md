@@ -2,9 +2,9 @@
 layout: default
 title: "SGP.22: Consumer eSIM RSP"
 ---
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > SGP.22 Consumer RSP**
+**[eUICC.tech]({{ site.baseurl }}/) > SGP.22 Consumer RSP**
 
-# 📱 SGP.22: Consumer eSIM RSP
+# SGP.22: Consumer eSIM RSP
 
 *Phones, tablets, wearables, laptops: the eSIM you use every day.*
 

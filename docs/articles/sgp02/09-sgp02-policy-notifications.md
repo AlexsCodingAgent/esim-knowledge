@@ -7,7 +7,7 @@ title: "Policy Rules & Notifications: POL1, POL2, and the Default Notification"
 
 # Policy Rules & Notifications: POL1, POL2, and the Default Notification
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.02 M2M RSP]({{ site.baseurl }}/docs/articles/sgp02/) > Policy Rules & Notifications: POL1, POL2, and the Default Notification**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.02 M2M RSP]({{ site.baseurl }}/docs/articles/sgp02/) > Policy Rules & Notifications: POL1, POL2, and the Default Notification**
 
 You've seen the machinery by now. The eUICC can download Profiles, the SM-SR can push enable/disable commands, the SM-DP can relay operations, and the M2M SP can drive the whole lifecycle on behalf of an Operator. But here's the question that should be nagging at you: *who decides what's actually allowed?*
 
@@ -112,7 +112,7 @@ What PLMA explicitly cannot do: hand over POL2 management. That stays with the O
 
 ---
 
-## 📋 Summary
+## Summary
 
 - POL1 (on-card, in ISD-P) and POL2 (server-side, in EIS) form a belt-and-suspenders policy framework: an attacker has to compromise both the SM-SR and the eUICC to bypass policy
 - POL1 is updated exclusively by the Operator via ES6 OTA; POL2 is updated via ES2/ES3 relay or direct ES4A
@@ -125,7 +125,7 @@ What PLMA explicitly cannot do: hand over POL2 management. That stays with the O
 
 <div align="center">
 
-<a href="{{ site.baseurl }}/">🏠 Home</a>
+<a href="{{ site.baseurl }}/"> Home</a>
 
 Previous: <a href="08-sgp02-resilience">Resilience: Fall-Back Mechanism, Emergency Profiles, and Test Profiles</a> →
 Next: <a href="10-sgp02-offcard-interfaces">Off-Card Interfaces: ES1–ES7 and the SOAP Binding</a> →

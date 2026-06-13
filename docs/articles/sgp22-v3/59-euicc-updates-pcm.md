@@ -7,9 +7,9 @@ date: 2026-06-06
 
 # eUICC Updates and Profile Content Management: Lifecycle Beyond Download
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.22 v3.x Unified RSP]({{ site.baseurl }}/docs/articles/sgp22-v3/) > eUICC Updates and Profile Content Management**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.22 v3.x Unified RSP]({{ site.baseurl }}/docs/articles/sgp22-v3/) > eUICC Updates and Profile Content Management**
 
-> **💡 Why this matters:** Downloading a profile is just the beginning. Over a device's 10+ year lifetime, the eUICC OS needs security patches, profiles need content updates, and operators need to manage metadata remotely: all without physical access to the chip. SGP.22 v3.x introduces three mechanisms that transform the eUICC from a static container into a living, updatable platform.
+> **Why this matters:** Downloading a profile is just the beginning. Over a device's 10+ year lifetime, the eUICC OS needs security patches, profiles need content updates, and operators need to manage metadata remotely: all without physical access to the chip. SGP.22 v3.x introduces three mechanisms that transform the eUICC from a static container into a living, updatable platform.
 
 > **Key takeaways:**
 > - v3.x introduces **eUICC Root Public Key Update** : the ability to rotate the chip's foundational key material without replacing the chip
@@ -86,16 +86,16 @@ All three mechanisms are **v3.x only**:
 
 | Feature | v2.x | v3.x |
 |---------|------|------|
-| Root Public Key Update | ❌ | ✅ Section 3.10 |
-| Profile Content Management | ❌ | ✅ Section 3.9 |
-| Metadata Update via ES6 | ❌ | ✅ Section 3.8.1 |
-| Pending Operation Alerting | ❌ | ✅ Section 3.8.2 |
+| Root Public Key Update | | Section 3.10 |
+| Profile Content Management | | Section 3.9 |
+| Metadata Update via ES6 | | Section 3.8.1 |
+| Pending Operation Alerting | | Section 3.8.2 |
 
 A v2.x eUICC encountering any of these operations would reject them as unsupported. The Feature Support mechanism (see article 55) allows entities to negotiate which lifecycle features are available before attempting them.
 
 ---
 
-## 📋 Summary
+## Summary
 
 - **Root Public Key Update** allows deployed eUICCs to receive new CI keys: essential for cryptographic agility across decades-long device lifetimes
 - **Profile Content Management** enables granular updates to installed profiles without full re-download

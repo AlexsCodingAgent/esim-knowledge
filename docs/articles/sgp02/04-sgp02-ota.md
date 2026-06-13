@@ -6,7 +6,7 @@ date: 2026-06-07
 
 # OTA Communication: SMS, PSK-TLS, CAT_TP, and DNS
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.02 M2M RSP]({{ site.baseurl }}/docs/articles/sgp02/) > OTA Communication: SMS, PSK-TLS, CAT_TP, and DNS**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.02 M2M RSP]({{ site.baseurl }}/docs/articles/sgp02/) > OTA Communication: SMS, PSK-TLS, CAT_TP, and DNS**
 
 The SM-SR has one job nobody else gets to do: talk directly to the eUICC over the air. SGP.02 §2.4 puts it bluntly: "the OTA communication is exclusively handled by the SM-SR." If you're coming from [the Architecture article]({{ site.baseurl }}/docs/articles/sgp02/01-sgp02-architecture), you already know the ES5 interface is where the push model gets physical. And if you've read [the eUICC Internals piece]({{ site.baseurl }}/docs/articles/sgp02/02-sgp02-euicc-internals), you know the ISD-R is the on-chip endpoint that receives these commands.
 
@@ -82,8 +82,8 @@ The HTTPS session follows GlobalPlatform RAM over HTTP (Amendment B). It's a hal
 2. ISD-R verifies SCP80 security
 3. ISD-R performs PSK-TLS handshake with SM-SR
 4. ISD-R sends initial `POST <initial-uri>` with headers:
-   - `X-Admin-Protocol: globalplatform-remote-admin/1.0`
-   - `X-Admin-From: //se-id/eid/<EID>;//aa-id/aid/<ISD-R AID>`
+ - `X-Admin-Protocol: globalplatform-remote-admin/1.0`
+ - `X-Admin-From: //se-id/eid/<EID>;//aa-id/aid/<ISD-R AID>`
 
 **Command delivery** (SM-SR → eUICC):
 - SM-SR responds `HTTP/1.1 200` with `Content-Type: application/vnd.globalplatform.card-content-mgt;version=1.0`
@@ -142,8 +142,8 @@ ES8 connects the SM-DP to the ISD-P, but it has no physical layer. It's a tunnel
 
 ```
 SM-DP ──ES3──▶ SM-SR ──ES5──▶ ISD-R ──▶ ISD-P
-  └── SCP03/SCP03t ────────────┘
-  └──── ES8 logical channel ────┘
+ └── SCP03/SCP03t ────────────┘
+ └──── ES8 logical channel ────┘
 ```
 
 The SM-DP encrypts commands for the ISD-P using SCP03 or SCP03t. That encrypted payload travels over ES3 (SM-DP to SM-SR) using whatever secure transport those two servers have negotiated. The SM-SR then wraps the SCP03 payload inside the SCP80/SCP81-protected ES5 channel to the ISD-R. The ISD-R forwards it to the target ISD-P, which decrypts and processes it.
@@ -176,7 +176,7 @@ Two more interfaces round out the picture:
 
 <div align="center">
 
-<a href="{{ site.baseurl }}/">🏠 Home</a>
+<a href="{{ site.baseurl }}/"> Home</a>
 
 ← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp02/03-sgp02-pki">M2M Certificate Hierarchy</a> | Next: <a href="{{ site.baseurl }}/docs/articles/sgp02/05-sgp02-download">Profile Download</a> →
 

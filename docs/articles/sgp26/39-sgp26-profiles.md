@@ -6,9 +6,9 @@ date: 2026-06-06
 
 # Certificate Profiles: What Makes a Valid Test Certificate
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.26 Test Certificates]({{ site.baseurl }}/docs/articles/sgp26/) > Certificate Profiles: What Makes a Valid Test Certificate**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.26 Test Certificates]({{ site.baseurl }}/docs/articles/sgp26/) > Certificate Profiles: What Makes a Valid Test Certificate**
 
-> **💡 Why this matters:** An eUICC doesn't just verify a signature: it validates the entire certificate profile: key usage, extended key usage, certificate policies, basic constraints, subject key identifier chaining, and CRL distribution points. One wrong extension and the eUICC must reject the certificate. SGP.26 defines the exact extension profile for each certificate type so that testers know precisely what "valid" means: and what deliberate violations trigger which error codes.
+> **Why this matters:** An eUICC doesn't just verify a signature: it validates the entire certificate profile: key usage, extended key usage, certificate policies, basic constraints, subject key identifier chaining, and CRL distribution points. One wrong extension and the eUICC must reject the certificate. SGP.26 defines the exact extension profile for each certificate type so that testers know precisely what "valid" means: and what deliberate violations trigger which error codes.
 
 > **Key takeaways:**
 > - Every test certificate conforms to X.509 v3 (RFC 5280) with ECDSA signatures: the version, serial number, signature algorithm, issuer, validity, subject, and extensions are fully specified for each certificate type
@@ -132,7 +132,7 @@ The EUM certificate carries a Critical `nameConstraints` extension using the GSM
 
 ```
 permittedSubtrees:
-  ein = 89049032
+ ein = 89049032
 ```
 
 This means the EUM may only sign eUICC certificates whose EID begins with `89049032`. The `ein` name form is defined within the GSMA extension: it is not a standard X.509 `directoryName`, `dNSName`, or `rfc822Name`. The constraint is encoded as an ASN.1 SEQUENCE:
@@ -226,7 +226,7 @@ These invalid certificates are generated from the same templates as valid certif
 
 ---
 
-## 📋 Summary
+## Summary
 
 - Certificate Policies OIDs encode the RSP role and are marked Critical on the eUICC, SM-DP+ TLS, SM-DS Auth, and SM-DS TLS certificates
 - CAs use `keyCertSign` + `cRLSign`; end-entities use `digitalSignature`; TLS certs add `serverAuth` + `clientAuth` through extended key usage
@@ -240,7 +240,7 @@ These invalid certificates are generated from the same templates as valid certif
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp26/38-sgp26-hierarchy">Test Certificate Hierarchy: CI, EUM, DP, DS, and eUICC</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp26/38-sgp26-hierarchy">Test Certificate Hierarchy: CI, EUM, DP, DS, and eUICC</a> · <a href="{{ site.baseurl }}/"> Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp26/40-sgp26-development">Using Test Certificates: Developer Setup and Integration</a> →
 

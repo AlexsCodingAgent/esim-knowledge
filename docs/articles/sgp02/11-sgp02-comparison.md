@@ -7,7 +7,7 @@ title: "SGP.02 vs SGP.22 vs SGP.32: Push, Pull, and the Evolution of eSIM"
 
 # SGP.02 vs SGP.22 vs SGP.32: Push, Pull, and the Evolution of eSIM
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.02 M2M RSP]({{ site.baseurl }}/docs/articles/sgp02/) > SGP.02 vs SGP.22 vs SGP.32: Push, Pull, and the Evolution of eSIM**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.02 M2M RSP]({{ site.baseurl }}/docs/articles/sgp02/) > SGP.02 vs SGP.22 vs SGP.32: Push, Pull, and the Evolution of eSIM**
 
 You're standing in front of a whiteboard with three boxes labeled SGP.02, SGP.22, and SGP.32. Someone (your boss, your architect, your client) wants to know which one to use. And if you get this wrong, the cost isn't a code refactor. It's 10,000 truck rolls in year five when your fleet needs to switch operators and every device needs a technician visit because you picked a pull architecture for a device that can't pull.
 
@@ -165,7 +165,7 @@ The spec's longevity isn't a sign that it's outdated. The M2M world moves slowly
 
 <div align="center">
 
-<a href="{{ site.baseurl }}/">🏠 Home</a>
+<a href="{{ site.baseurl }}/"> Home</a>
 
 ← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp02/10-sgp02-offcard-interfaces">Off-Card Interfaces: ES1–ES7 and the SOAP Binding</a>
 

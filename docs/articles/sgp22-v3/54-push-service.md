@@ -7,9 +7,9 @@ date: 2026-06-06
 
 # Push Service: How eSIMs Get Notified Without Polling
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.22 v3.x Unified RSP]({{ site.baseurl }}/docs/articles/sgp22-v3/) > Push Service: How eSIMs Get Notified Without Polling**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.22 v3.x Unified RSP]({{ site.baseurl }}/docs/articles/sgp22-v3/) > Push Service: How eSIMs Get Notified Without Polling**
 
-> **💡 Why this matters:** In SGP.22 v2.x, the only way your device knows a new eSIM profile is waiting is by **polling** the SM-DS. Your phone periodically wakes up, connects to the discovery server, and asks "anything for me?" : even when there's nothing. This drains battery, wastes data, and introduces latency (you might wait minutes between polls). The v3.x Push Service replaces this with **push notifications**: the SM-DS tells your device immediately when an Event Record is pending. It's the difference between checking your mailbox every 15 minutes and getting a notification when mail arrives.
+> **Why this matters:** In SGP.22 v2.x, the only way your device knows a new eSIM profile is waiting is by **polling** the SM-DS. Your phone periodically wakes up, connects to the discovery server, and asks "anything for me?" : even when there's nothing. This drains battery, wastes data, and introduces latency (you might wait minutes between polls). The v3.x Push Service replaces this with **push notifications**: the SM-DS tells your device immediately when an Event Record is pending. It's the difference between checking your mailbox every 15 minutes and getting a notification when mail arrives.
 
 > **Key takeaways:**
 > - Push Service replaces SM-DS polling with a push-based notification mechanism
@@ -79,9 +79,9 @@ The registration flow integrates with the Common Mutual Authentication procedure
 1. The LPAd initiates Common Mutual Authentication with the SM-DS (or SM-DP+)
 2. At step (9) of Common Mutual Authentication, the SM-XX indicates `supportedPushServices` in `lpaRspCapability`
 3. If the LPAd detects that its Push Token is invalid/expired, or it hasn't registered yet, and the SM-XX indicates Push Service support:
-   - The LPAd selects one Push Service from `supportedPushServices`
-   - It obtains a new Push Token for the selected Push Service (e.g., interacting with the push client: out of scope)
-   - It completes the Push Service Registration, forwarding the Push Token + EID
+ - The LPAd selects one Push Service from `supportedPushServices`
+ - It obtains a new Push Token for the selected Push Service (e.g., interacting with the push client: out of scope)
+ - It completes the Push Service Registration, forwarding the Push Token + EID
 4. The SM-DS stores the association: (EID, Push Token, Push Service)
 5. The LPAd enables the selected Push Service for the corresponding SM-DS
 

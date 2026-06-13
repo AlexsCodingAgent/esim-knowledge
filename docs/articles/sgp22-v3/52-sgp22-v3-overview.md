@@ -7,9 +7,9 @@ date: 2026-06-06
 
 # SGP.22 v3.x Overview: The Unified eSIM Specification
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.22 v3.x Unified RSP]({{ site.baseurl }}/docs/articles/sgp22-v3/) > SGP.22 v3.x Overview: The Unified eSIM Specification**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.22 v3.x Unified RSP]({{ site.baseurl }}/docs/articles/sgp22-v3/) > SGP.22 v3.x Overview: The Unified eSIM Specification**
 
-> **💡 Why this matters:** SGP.22 v3.x represents the biggest architectural shift in consumer eSIM since the original specification. It merges the consumer (SGP.22) and M2M (SGP.02) paradigms into a single unified specification, adds support for multiple simultaneously-active profiles, introduces push-based notifications to replace polling, and defines entirely new lifecycle operations like remote profile management, device change, and profile recovery. If you're planning an eSIM platform for the next decade, v3.x is the foundation you need to understand.
+> **Why this matters:** SGP.22 v3.x represents the biggest architectural shift in consumer eSIM since the original specification. It merges the consumer (SGP.22) and M2M (SGP.02) paradigms into a single unified specification, adds support for multiple simultaneously-active profiles, introduces push-based notifications to replace polling, and defines entirely new lifecycle operations like remote profile management, device change, and profile recovery. If you're planning an eSIM platform for the next decade, v3.x is the foundation you need to understand.
 
 > **Key takeaways:**
 > - SGP.22 v3.x is the GSMA's **unified RSP specification**, merging consumer and M2M architectures into one document
@@ -120,7 +120,7 @@ The key difference is **scope**: v2.x targets consumer devices with pull-based p
 
 <div align="center">
 
-<a href="{{ site.baseurl }}/">🏠 Home</a>
+<a href="{{ site.baseurl }}/"> Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp22-v3/53-multiple-enabled-profiles">Multiple Enabled Profiles: Running Several eSIMs at Once</a> →
 

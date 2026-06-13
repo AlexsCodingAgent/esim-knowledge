@@ -6,9 +6,9 @@ date: 2026-06-06
 
 # The IFPP Architecture: SM-DPf, FPA, and Device Manufacturer
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.41 IFPP]({{ site.baseurl }}/docs/articles/sgp41/) > The IFPP Architecture: SM-DPf, FPA, and Device Manufacturer**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.41 IFPP]({{ site.baseurl }}/docs/articles/sgp41/) > The IFPP Architecture: SM-DPf, FPA, and Device Manufacturer**
 
-> **💡 Why this matters:** SGP.41 doesn't just tweak existing eSIM components: it introduces three entirely new architectural roles and nine specialised interfaces for the factory environment. Understanding how the SM-DPf differs from a regular SM-DP+, what the FPA actually does (and doesn't do), and how the Device Manufacturer's role expands is essential for anyone designing, deploying, or certifying an IFPP solution.
+> **Why this matters:** SGP.41 doesn't just tweak existing eSIM components: it introduces three entirely new architectural roles and nine specialised interfaces for the factory environment. Understanding how the SM-DPf differs from a regular SM-DP+, what the FPA actually does (and doesn't do), and how the Device Manufacturer's role expands is essential for anyone designing, deploying, or certifying an IFPP solution.
 
 > **Key takeaways:**
 > - **SM-DPf** (Subscription Manager Data Preparation factory): A new SM-DP+ variant that pre-binds profiles before delivery: handles generation, protection, binding, storage, and delivery of BPPs
@@ -28,17 +28,17 @@ The IFPP functional architecture involves six actors connected by nine interface
 
 ```
 eSIM CA ──Esci──▶ EUM ──Eseum──▶ eUICC
-   │              │                  ▲
-   │ Esci       Esed1              ES8f
-   ▼              ▼                  │
-SM-DPf ◀──ES2f── Operator           │
-   │                                │
-   │ Esbpp                          │
-   ▼                                │
+ │ │ ▲
+ │ Esci Esed1 ES8f
+ ▼ ▼ │
+SM-DPf ◀──ES2f── Operator │
+ │ │
+ │ Esbpp │
+ ▼ │
 Device Manufacturer ──Esfac──▶ FPA ──ES10f──▶ eUICC
-   ▲                                ▲
-   │                                │
-   └───── Esed2 ───────────────────┘
+ ▲ ▲
+ │ │
+ └───── Esed2 ───────────────────┘
 ```
 
 This is Figure 1 from the specification, showing the Consumer/IoT IFPP architecture. (The M2M variant is marked FFS.)
@@ -154,7 +154,7 @@ The eUICC architecture in SGP.41 is fundamentally the same as SGP.21's: same ISD
 
 ---
 
-## 📋 Summary
+## Summary
 
 - Three new roles: SM-DPf (batch profile binding), FPA (factory conduit), and Device Manufacturer (profile handling and offline provisioning)
 - The FPA is deliberately flexible: hardware, driver, or factory-mode LPA/IPA: with its interface to the Device Manufacturer left out of scope
@@ -166,7 +166,7 @@ The eUICC architecture in SGP.41 is fundamentally the same as SGP.21's: same ISD
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp41/47-sgp41-overview">SGP.41 Overview: In-Factory Profile Provisioning</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp41/47-sgp41-overview">SGP.41 Overview: In-Factory Profile Provisioning</a> · <a href="{{ site.baseurl }}/"> Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp41/49-sgp41-flow">IFPP Flow: Manufacturing Step to Configuration Step</a> →
 

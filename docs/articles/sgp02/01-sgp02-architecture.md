@@ -6,40 +6,40 @@ date: 2026-06-07
 
 # M2M Ecosystem: EUM, SM-DP, SM-SR, and the Operator
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.02 M2M RSP]({{ site.baseurl }}/docs/articles/sgp02/) > M2M Ecosystem: EUM, SM-DP, SM-SR, and the Operator**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.02 M2M RSP]({{ site.baseurl }}/docs/articles/sgp02/) > M2M Ecosystem: EUM, SM-DP, SM-SR, and the Operator**
 
 If you're coming from consumer eSIM, your first look at the SGP.02 architecture diagram is going to feel... off. Where's the SM-DP+? Why are there two server roles where consumer eSIM has one? And who's this M2M SP character that doesn't exist in SGP.22 at all?
 
 Here's the diagram from SGP.02 §2.1. Take a minute with it, every procedure in the spec flows through these boxes and lines.
 
 ```
-       CI
-        |
-   +---------+     ES2     +----------+
-   |  SM-DP  |-------------| Operator |
-   +---------+             +----------+
-        | ES3                   | ES4
-        |                  +----+----+
-   +---------+   ES7   +---------+  | ES4A
-   |  SM-SR  |---------|  SM-SR  |  |
-   +---------+         +---------+  |
-    ES1|   |ES5              |ES4    |
-   +----+   |           +---------+  |
-   | EUM |   |           | M2M SP  |--+
-   +----+   |           +---------+
-            | ES8             | ES6
-         +----------------+  |
-         |     eUICC      |--+
-         | +------+------+|
-         | | ISD-R|ISD-P||
-         | +------+------+|
-         | |    ECASD    ||
-         | +-------------+|
-         +----------------+
-              | ESx
-         +----------+
-         |  Device  |
-         +----------+
+ CI
+ |
+ +---------+ ES2 +----------+
+ | SM-DP |-------------| Operator |
+ +---------+ +----------+
+ | ES3 | ES4
+ | +----+----+
+ +---------+ ES7 +---------+ | ES4A
+ | SM-SR |---------| SM-SR | |
+ +---------+ +---------+ |
+ ES1| |ES5 |ES4 |
+ +----+ | +---------+ |
+ | EUM | | | M2M SP |--+
+ +----+ | +---------+
+ | ES8 | ES6
+ +----------------+ |
+ | eUICC |--+
+ | +------+------+|
+ | | ISD-R|ISD-P||
+ | +------+------+|
+ | | ECASD ||
+ | +-------------+|
+ +----------------+
+ | ESx
+ +----------+
+ | Device |
+ +----------+
 ```
 
 The thing that jumps out: the SM-SR touches almost everything. EUM, SM-DP, Operator, M2M SP, other SM-SRs, and (critically) the eUICC itself. It's the hub. Every profile download, every enable/disable, every handover between SM-SR providers runs through it.
@@ -142,7 +142,7 @@ The SGP.02 ecosystem is built around the SM-SR: the hub that connects every othe
 
 <div align="center">
 
-<a href="{{ site.baseurl }}/">🏠 Home</a>
+<a href="{{ site.baseurl }}/"> Home</a>
 
 ← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp02/00-sgp02-overview">SGP.02 Overview</a> | Next: <a href="{{ site.baseurl }}/docs/articles/sgp02/02-sgp02-euicc-internals">Inside the M2M eUICC</a> →
 

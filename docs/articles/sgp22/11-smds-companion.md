@@ -6,9 +6,9 @@ date: 2026-06-07
 
 # SGP.22 v2.7: SM-DS and Companion Devices: Discovery, Cascading, and Multi-Device Provisioning
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > SM-DS and Companion Devices: Discovery, Cascading, and Multi-Device Provisioning**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > SM-DS and Companion Devices: Discovery, Cascading, and Multi-Device Provisioning**
 
-> **💡 Why this matters:** The SM-DS is the unsung hero of the eSIM ecosystem. It's the reason your carrier can push a profile to your smartwatch without you scanning a QR code, and why enterprise device fleets can be provisioned in bulk. Understanding the SM-DS: and its cascading architecture: is essential for anyone building multi-device or companion provisioning systems.
+> **Why this matters:** The SM-DS is the unsung hero of the eSIM ecosystem. It's the reason your carrier can push a profile to your smartwatch without you scanning a QR code, and why enterprise device fleets can be provisioned in bulk. Understanding the SM-DS: and its cascading architecture: is essential for anyone building multi-device or companion provisioning systems.
 
 > **Key takeaways:**
 > - The **SM-DS** (Subscription Manager: Discovery Server) is a notification bulletin board: SM-DP+ posts Events, devices poll for them
@@ -114,9 +114,9 @@ The GSMA operates a **Root SM-DS** with a well-known address. Every device can f
 
 ```
 Operator → SM-DP+ → Alternative SM-DS → Root SM-DS
-                        │                    │
-                   ES12.Register    ES15.Register
-                   EventID1         EventID2
+ │ │
+ ES12.Register ES15.Register
+ EventID1 EventID2
 ```
 
 The flow (section 3.6.1.2):
@@ -141,29 +141,29 @@ Cascading can theoretically go deeper (SM-DS → SM-DS → SM-DS), but the spec 
 ## The Full Event Lifecycle
 
 ```
-  SM-DP+                  SM-DS                   LPA/eUICC
-    │                       │                        │
-    │  ES12.RegisterEvent   │                        │
-    │──────────────────────→│                        │
-    │    (EID, EventID)     │                        │
-    │                       │   ES11.Authenticate    │
-    │                       │←───────────────────────│
-    │                       │   (mutual auth)        │
-    │                       │                        │
-    │                       │   {Address, EventID}   │
-    │                       │───────────────────────→│
-    │                       │                        │
-    │  ES9+.InitiateAuth    │                        │
-    │←───────────────────────────────────────────────│
-    │    (EventID as        │                        │
-    │     MatchingID)       │                        │
-    │                       │                        │
-    │  Profile Download     │                        │
-    │←─────────────────────────────────────────────→│
-    │                       │                        │
-    │  ES12.DeleteEvent     │                        │
-    │──────────────────────→│                        │
-    │    (EID, EventID)     │                        │
+ SM-DP+ SM-DS LPA/eUICC
+ │ │ │
+ │ ES12.RegisterEvent │ │
+ │──────────────────────→│ │
+ │ (EID, EventID) │ │
+ │ │ ES11.Authenticate │
+ │ │←───────────────────────│
+ │ │ (mutual auth) │
+ │ │ │
+ │ │ {Address, EventID} │
+ │ │───────────────────────→│
+ │ │ │
+ │ ES9+.InitiateAuth │ │
+ │←───────────────────────────────────────────────│
+ │ (EventID as │ │
+ │ MatchingID) │ │
+ │ │ │
+ │ Profile Download │ │
+ │←─────────────────────────────────────────────→│
+ │ │ │
+ │ ES12.DeleteEvent │ │
+ │──────────────────────→│ │
+ │ (EID, EventID) │ │
 ```
 
 The key insight: the SM-DS is involved in only two steps: registration and retrieval. The actual profile download is a separate flow between the LPA and the SM-DP+.
@@ -188,13 +188,13 @@ Key requirements from Annex C.1:
 The most architecturally interesting part of companion provisioning is the secure pairing between Primary and Companion devices. Annex C.2 defines a PSK-TLS based mechanism:
 
 1. The Companion Device's LPAd generates an HTTPS URL containing:
-   - The Companion Device's address (private local IP)
-   - A 128-bit random secret key (the "LPA access token")
+ - The Companion Device's address (private local IP)
+ - A 128-bit random secret key (the "LPA access token")
 2. The URL is transferred to the Primary Device via one of:
-   - NFC tap
-   - QR code display (on the Companion, scanned by the Primary)
-   - Manual entry
-   - USB/wired connection
+ - NFC tap
+ - QR code display (on the Companion, scanned by the Primary)
+ - Manual entry
+ - USB/wired connection
 3. The Primary Device's software component (typically its own LPAd) establishes a **PSK-TLS** connection (RFC 4279) to the Companion Device, using the access token as the Pre-Shared Key
 4. After TLS handshake (mutual authentication via PSK), the Primary Device sends an HTTP request to retrieve the Companion's LUI presentation
 

@@ -7,9 +7,9 @@ date: 2026-06-06
 
 # Device Change and Profile Recovery: Moving eSIMs Between Devices
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.22 v3.x Unified RSP]({{ site.baseurl }}/docs/articles/sgp22-v3/) > Device Change and Profile Recovery: Moving eSIMs Between Devices**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.22 v3.x Unified RSP]({{ site.baseurl }}/docs/articles/sgp22-v3/) > Device Change and Profile Recovery: Moving eSIMs Between Devices**
 
-> **💡 Why this matters:** In v2.x, there is no standard way to transfer an eSIM profile from one device to another. If you buy a new phone, you must either contact your operator for a new eSIM activation code or use proprietary "eSIM Quick Transfer" features that each manufacturer implements differently. Device Change in v3.x provides a standardised, GSMA-specified procedure: the end user initiates the transfer on the old device, the SM-DP+ orchestrates everything, and a new profile lands on the new device. If something goes wrong (e.g., the new device can't install the profile), Profile Recovery lets you restore the profile on the old device: so you're never left without service.
+> **Why this matters:** In v2.x, there is no standard way to transfer an eSIM profile from one device to another. If you buy a new phone, you must either contact your operator for a new eSIM activation code or use proprietary "eSIM Quick Transfer" features that each manufacturer implements differently. Device Change in v3.x provides a standardised, GSMA-specified procedure: the end user initiates the transfer on the old device, the SM-DP+ orchestrates everything, and a new profile lands on the new device. If something goes wrong (e.g., the new device can't install the profile), Profile Recovery lets you restore the profile on the old device: so you're never left without service.
 
 > **Key takeaways:**
 > - Device Change and Profile Recovery are **v3.x-only features** (`#SupportedForDcV3.X.Y#`)
@@ -49,9 +49,9 @@ This is the full, SM-DP+-mediated flow:
 5. **Common Mutual Authentication** with the SM-DP+
 6. **LPAd sends `ES9+.AuthenticateClient`** with `ctxParamsForDeviceChange` containing the ICCID and optionally the new device's EID and/or TAC
 7. **SM-DP+ optionally calls `ES2+.HandleDeviceChangeRequest`** to the Service Provider, which may provide:
-   - `newProfileIccid` : a new profile to download on the new device (if the operator issues a fresh one)
-   - `Service Provider Message` : text to display to the end user
-   - `Confirmation Code` : if the end user must enter a code
+ - `newProfileIccid` : a new profile to download on the new device (if the operator issues a fresh one)
+ - `Service Provider Message` : text to display to the end user
+ - `Confirmation Code` : if the end user must enter a code
 8. **SM-DP+ notifies the Service Provider** via `ES2+.HandleNotification` (Device Change Request)
 9. **Profile preparation**: If a new profile is needed, the Service Provider runs the Download Preparation Process: this can happen in parallel
 10. **SM-DP+ returns `smdpSigned4`** with the transaction ID and optional Service Provider Message
@@ -72,8 +72,8 @@ A simpler mode where the profile already contains a stored Activation Code:
 
 1. **LPAd retrieves** `DeviceChangeConfiguration` and finds `usingStoredAc`
 2. If `deleteOldProfile` is set:
-   - If the profile is Enabled, the LPAd disables it and sends notifications
-   - The LPAd deletes the profile from the old device
+ - If the profile is Enabled, the LPAd disables it and sends notifications
+ - The LPAd deletes the profile from the old device
 3. **LPAd provides the stored Activation Code** to the new device
 4. **New device performs standard Profile Download and Installation**
 

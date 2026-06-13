@@ -6,9 +6,9 @@ date: 2026-06-05
 
 # Key eIM Test Cases: PSMO, Notifications, and Configuration
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.33-3 eIM Testing]({{ site.baseurl }}/docs/articles/sgp33-3/) > Key eIM Test Cases: PSMO, Notifications, and Configuration**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.33-3 eIM Testing]({{ site.baseurl }}/docs/articles/sgp33-3/) > Key eIM Test Cases: PSMO, Notifications, and Configuration**
 
-> **💡 Why this matters:** The eIM's job is to remotely manage what happens on IoT devices: enabling and disabling profiles, handling configuration changes, and processing notifications about profile state: all without any End User pressing buttons. SGP.33-3's test cases verify that the eIM correctly orchestrates these operations across four different interfaces (ESep, ES9+', ES11', ESipa) and through multiple communication patterns. If the eIM gets any of these wrong, IoT devices in the field could be left with the wrong profile enabled, missed notifications, or an unmanageable eUICC.
+> **Why this matters:** The eIM's job is to remotely manage what happens on IoT devices: enabling and disabling profiles, handling configuration changes, and processing notifications about profile state: all without any End User pressing buttons. SGP.33-3's test cases verify that the eIM correctly orchestrates these operations across four different interfaces (ESep, ES9+', ES11', ESipa) and through multiple communication patterns. If the eIM gets any of these wrong, IoT devices in the field could be left with the wrong profile enabled, missed notifications, or an unmanageable eUICC.
 
 > **Key takeaways:**
 > - Profile State Management Operations (PSMO) test cases cover five eUICC Package functions: Enable, Disable, Delete, ListProfileInfo, and GetRat: all sent via the ESep logical interface
@@ -80,15 +80,15 @@ The ES9+' interface is the eIM's channel to the SM-DP+ for profile delivery. All
 
 ### HandleNotification (4.2.13)
 - **Nominal** (9 sequences): Covers all notification combinations:
-  - Successful PIR and Install Notifications to Same SM-DP+ Address
-  - Successful PIR and Enable Notifications to Same SM-DP+ Address
-  - Disable and Delete Notifications to Same SM-DP+ Address
-  - Enable and Disable Notifications with Different SM-DP+ Addresses
-  - Different SM-DP+ Addresses in PIR and Install Notifications
-  - Profile Download with PIR Failed
-  - Successful PIR and Install Notifications after Connectivity Interruption (FFS)
-  - No Acknowledge for Successful PIR results in No Further Notifications
-  - Disable and Delete Notifications using Delete Operation
+ - Successful PIR and Install Notifications to Same SM-DP+ Address
+ - Successful PIR and Enable Notifications to Same SM-DP+ Address
+ - Disable and Delete Notifications to Same SM-DP+ Address
+ - Enable and Disable Notifications with Different SM-DP+ Addresses
+ - Different SM-DP+ Addresses in PIR and Install Notifications
+ - Profile Download with PIR Failed
+ - Successful PIR and Install Notifications after Connectivity Interruption (FFS)
+ - No Acknowledge for Successful PIR results in No Further Notifications
+ - Disable and Delete Notifications using Delete Operation
 
 ### CancelSession (4.2.14)
 - **Nominal** (3 sequences): PPR1 not allowed (Operational Profile already present), Load BPP Error, Load BPP Error due to unknown TAG
@@ -155,7 +155,7 @@ Each sequence includes conditional branching on `O_S_TRID` (whether a Transactio
 
 ---
 
-## 📋 Summary
+## Summary
 
 - ESep interface tests cover 5 PSMO functions (Enable, Disable, Delete, ListProfileInfo, GetRat) and 4 eIM Configuration functions (AddEim, UpdateEim, DeleteEim, ListEim) : most test sequences remain FFS
 - ES9+' testing includes 6 interface functions with extensive nominal, retry, and error case coverage adapted from SGP.23 LPAd tests
@@ -168,7 +168,7 @@ Each sequence includes conditional branching on `O_S_TRID` (whether a Transactio
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp33-3/43-sgp33-eim-architecture">eIM Test Architecture: Simulated eIM and Reference IPA</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp33-3/43-sgp33-eim-architecture">eIM Test Architecture: Simulated eIM and Reference IPA</a> · <a href="{{ site.baseurl }}/"> Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp33-3/45-sgp33-eim-security">eIM Security Testing: DTLS, Certificates, and Signed Packages</a> →
 

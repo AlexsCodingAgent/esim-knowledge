@@ -3,7 +3,7 @@ layout: default
 title: "SGP.23-1: eUICC Test Specification"
 ---
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > SGP.23-1: eUICC Test Specification**
+**[eUICC.tech]({{ site.baseurl }}/) > SGP.23-1: eUICC Test Specification**
 
 # SGP.23-1: eUICC Test Specification
 

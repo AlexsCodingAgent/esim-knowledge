@@ -6,9 +6,9 @@ date: 2026-06-06
 
 # SGP.41 Overview: In-Factory Profile Provisioning
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.41 IFPP]({{ site.baseurl }}/docs/articles/sgp41/) > SGP.41 Overview: In-Factory Profile Provisioning**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.41 IFPP]({{ site.baseurl }}/docs/articles/sgp41/) > SGP.41 Overview: In-Factory Profile Provisioning**
 
-> **💡 Why this matters:** Traditional eSIM profile provisioning (SGP.22) requires the device to be online: connecting to an SM-DP+ server over the internet for live profile download. But factory floors are often air-gapped, production lines run at blistering speed, and manufacturers don't want to install SAS-certified HSMs just to load a profile. SGP.41 solves all three at once: pre-bound, pre-encrypted profiles that install offline in milliseconds, with no internet, no HSM, and no End User interaction required. This is the specification that makes eSIM work at manufacturing scale.
+> **Why this matters:** Traditional eSIM profile provisioning (SGP.22) requires the device to be online: connecting to an SM-DP+ server over the internet for live profile download. But factory floors are often air-gapped, production lines run at blistering speed, and manufacturers don't want to install SAS-certified HSMs just to load a profile. SGP.41 solves all three at once: pre-bound, pre-encrypted profiles that install offline in milliseconds, with no internet, no HSM, and no End User interaction required. This is the specification that makes eSIM work at manufacturing scale.
 
 > **Key takeaways:**
 > - SGP.41 defines In-Factory Profile Provisioning (IFPP): loading profiles onto eUICCs during manufacturing, before the device ever reaches an End User
@@ -93,7 +93,7 @@ SGP.41 enables use cases that SGP.22 alone cannot address:
 
 ---
 
-## 📋 Summary
+## Summary
 
 - SGP.41 defines In-Factory Profile Provisioning: loading eSIM profiles during manufacturing without internet connectivity, End User interaction, or HSMs at the factory
 - The core innovation is pre-bound BPPs created at the SM-DPf and shipped to the factory for offline, single-push installation
@@ -106,7 +106,7 @@ SGP.41 enables use cases that SGP.22 alone cannot address:
 
 <div align="center">
 
-<a href="{{ site.baseurl }}/">🏠 Home</a>
+<a href="{{ site.baseurl }}/"> Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp41/48-sgp41-architecture">The IFPP Architecture: SM-DPf, FPA, and Device Manufacturer</a> →
 

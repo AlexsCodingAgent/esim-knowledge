@@ -3,7 +3,7 @@ layout: default
 title: "SGP.33-3: eIM Test Specification"
 ---
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > SGP.33-3: eIM Test Specification**
+**[eUICC.tech]({{ site.baseurl }}/) > SGP.33-3: eIM Test Specification**
 
 # SGP.33-3: eIM Test Specification
 

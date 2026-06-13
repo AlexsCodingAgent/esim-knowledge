@@ -6,9 +6,9 @@ date: 2026-06-07
 
 # Advanced IoT Security & Lifecycle: Mutual Auth, OS Update, Emergency Profiles, and ECASD
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.32 IoT eSIM]({{ site.baseurl }}/docs/articles/sgp32/) > Advanced IoT Security & Lifecycle: Mutual Auth, OS Update, Emergency Profiles, and ECASD**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.32 IoT eSIM]({{ site.baseurl }}/docs/articles/sgp32/) > Advanced IoT Security & Lifecycle: Mutual Auth, OS Update, Emergency Profiles, and ECASD**
 
-> **💡 Why this matters:** Profile download is one thing: but what happens when an IoT device needs its eSIM operating system patched? What profile should run when a vehicle crashes and needs to dial emergency services? What cryptographic dance ensures an SM-DP+ and an eUICC actually trust each other? This article covers the security-critical lifecycle mechanisms beyond basic provisioning: the full mutual authentication handshake, eUICC OS updates, Emergency Profile preemption, the Fallback Mechanism, and the root of trust that anchors it all: ECASD.
+> **Why this matters:** Profile download is one thing: but what happens when an IoT device needs its eSIM operating system patched? What profile should run when a vehicle crashes and needs to dial emergency services? What cryptographic dance ensures an SM-DP+ and an eUICC actually trust each other? This article covers the security-critical lifecycle mechanisms beyond basic provisioning: the full mutual authentication handshake, eUICC OS updates, Emergency Profile preemption, the Fallback Mechanism, and the root of trust that anchors it all: ECASD.
 
 > **Key takeaways:**
 > - Common Mutual Authentication is a 17-step cryptographic handshake verifying both the SM-DP+/SM-DS and the eUICC using their respective certificate chains
@@ -45,16 +45,16 @@ IPA → eUICC: GetEUICCInfo → euiccInfo1
 IPA → eUICC: GetEUICCChallenge → euiccChallenge
 IPA → SM-DP+: HTTPS (server-auth TLS, CERT.DP.TLS)
 IPA → SM-DP+: InitiateAuthentication(euiccChallenge, euiccInfo1, Address)
-  [SM-DP+ generates TransactionID, serverChallenge,
-   builds serverSigned1, computes serverSignature1]
+ [SM-DP+ generates TransactionID, serverChallenge,
+ builds serverSigned1, computes serverSignature1]
 IPA ← SM-DP+: TransactionID, serverSigned1, serverSignature1, CERT.DPauth.ECDSA
 IPA → eUICC: AuthenticateServer(serverSigned1, serverSignature1, CERT.DPauth, ctxParams1)
-  [eUICC verifies CERT.DPauth chain via PK.CI.ECDSA in ECASD,
-   verifies serverSignature1, verifies euiccChallenge matches]
+ [eUICC verifies CERT.DPauth chain via PK.CI.ECDSA in ECASD,
+ verifies serverSignature1, verifies euiccChallenge matches]
 IPA ← eUICC: euiccSigned1, euiccSignature1, CERT.EUICC.ECDSA, CERT.EUM.ECDSA
 IPA → SM-DP+: AuthenticateClient(euiccSigned1, euiccSignature1, eUICC cert chain)
-  [SM-DP+ verifies eUICC cert chain, verifies euiccSignature1,
-   verifies serverChallenge matches]
+ [SM-DP+ verifies eUICC cert chain, verifies euiccSignature1,
+ verifies serverChallenge matches]
 IPA ← SM-DP+: [Profile Metadata | RPM Package | Event Records]
 ```
 
@@ -126,35 +126,35 @@ IoT devices in the field can lose connectivity for many reasons: the current ope
 
 ```
 Preconditions:
-  - An Enabled Profile exists AND fallbackAttribute is set on a Profile
-  - Emergency Profile NOT enabled (returns ecallActive if so)
-  - Fallback Profile is in Disabled state
+ - An Enabled Profile exists AND fallbackAttribute is set on a Profile
+ - Emergency Profile NOT enabled (returns ecallActive if so)
+ - Fallback Profile is in Disabled state
 
 Atomic execution (no refreshFlag):
-  Terminate proactive session → close channels → reset PIN
-  → disable current profile → enable Fallback Profile
-  → clear Rollback authorisation → return 'ok'
+ Terminate proactive session → close channels → reset PIN
+ → disable current profile → enable Fallback Profile
+ → clear Rollback authorisation → return 'ok'
 
 Atomic execution (refreshFlag set):
-  Mark current "to be disabled" + Fallback "to be enabled"
-  → return 'ok' → send REFRESH → on Terminal Response success: commit
-  → on failure: profiles unchanged
+ Mark current "to be disabled" + Fallback "to be enabled"
+ → return 'ok' → send REFRESH → on Terminal Response success: commit
+ → on failure: profiles unchanged
 
 Error codes: profileNotInDisabledState(2), catBusy(5),
-  fallbackNotAvailable(6), ecallActive(104)
+ fallbackNotAvailable(6), ecallActive(104)
 ```
 
 ### ReturnFromFallback (ES10b, Section 5.9.21)
 
 ```
 Preconditions:
-  - Currently enabled profile IS the Fallback Profile
-  - Previously enabled profile identification was recorded
-  - Previously enabled profile is still installed
+ - Currently enabled profile IS the Fallback Profile
+ - Previously enabled profile identification was recorded
+ - Previously enabled profile is still installed
 
 Execution:
-  Disable Fallback Profile → enable previously-enabled profile
-  → clear Rollback authorisation
+ Disable Fallback Profile → enable previously-enabled profile
+ → clear Rollback authorisation
 ```
 
 The eUICC records the previously-enabled profile identity at fallback time: no IPA-side bookkeeping needed for the return.
@@ -174,9 +174,9 @@ The Fallback Mechanism operates *below* the Emergency Profile in priority:
 
 ```
 Priority hierarchy (highest to lowest):
-  1. Emergency Profile (preempts everything)
-  2. Fallback Mechanism (preempts normal PSMO)
-  3. Normal PSMO (Enable/Disable/Delete)
+ 1. Emergency Profile (preempts everything)
+ 2. Fallback Mechanism (preempts normal PSMO)
+ 3. Normal PSMO (Enable/Disable/Delete)
 ```
 
 While the Emergency Profile is active, neither fallback nor normal profile operations are permitted.
@@ -213,17 +213,17 @@ In SGP.32 IoT, ECASD's role is unchanged from SGP.22: but the *frequency* and *c
 
 ```
 Layer 1: ECASD (root of trust: keys, certs, CI roots)
-   ↓
+ ↓
 Layer 2: Common Mutual Authentication (proves both identities)
-   ↓
+ ↓
 Layer 3: BPP Binding (profile encrypted to session-specific key)
-   ↓
+ ↓
 Layer 4: Profile Lifecycle (Operational / Provisioning / Test)
-   ↓
+ ↓
 Layer 5: Policy Enforcement (PPE checking PPR1/PPR2)
-   ↓
+ ↓
 Layer 6: Emergency Preemption (Emergency Profile blocks all ops)
-   ↓
+ ↓
 Layer 7: Fallback Recovery (autonomous connectivity restoration)
 ```
 
@@ -231,7 +231,7 @@ A secure IoT eSIM deployment activates all seven layers. ECASD anchors the trust
 
 ---
 
-## 📋 Summary
+## Summary
 
 - Common Mutual Authentication is a 17-step challenge-response protocol using eUICC and server certificate chains anchored to the CI Root in ECASD
 - eUICC OS updates are EUM-specific, must be secure, and require re-certification: but there's no standardised RSP function to trigger them
@@ -243,7 +243,7 @@ A secure IoT eSIM deployment activates all seven layers. ECASD anchors the trust
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp32/17-profile-lifecycle-policy">Profile Lifecycle & Policy: Types, PPE, and Enforcement in IoT eSIM</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp32/17-profile-lifecycle-policy">Profile Lifecycle & Policy: Types, PPE, and Enforcement in IoT eSIM</a> · <a href="{{ site.baseurl }}/"> Home</a>
 
 </div>
 

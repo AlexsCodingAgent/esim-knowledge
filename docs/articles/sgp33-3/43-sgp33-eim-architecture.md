@@ -6,9 +6,9 @@ date: 2026-06-05
 
 # eIM Test Architecture: Simulated eIM and Reference IPA
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.33-3 eIM Testing]({{ site.baseurl }}/docs/articles/sgp33-3/) > eIM Test Architecture: Simulated eIM and Reference IPA**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.33-3 eIM Testing]({{ site.baseurl }}/docs/articles/sgp33-3/) > eIM Test Architecture: Simulated eIM and Reference IPA**
 
-> **💡 Why this matters:** Testing the eUICC IoT Manager (eIM) is architecturally unique: it's a *server* under test, not a chip or a device. Unlike eUICC testing (where a physical card sits on a reader) or LPAd testing (where a device runs test software), the eIM is a remote network service that must be tested across four different simulated counterparts simultaneously. Understanding how SGP.33-3 constructs this test environment reveals the engineering challenge of proving that an IoT remote management server works correctly before it ever touches a real IoT device.
+> **Why this matters:** Testing the eUICC IoT Manager (eIM) is architecturally unique: it's a *server* under test, not a chip or a device. Unlike eUICC testing (where a physical card sits on a reader) or LPAd testing (where a device runs test software), the eIM is a remote network service that must be tested across four different simulated counterparts simultaneously. Understanding how SGP.33-3 constructs this test environment reveals the engineering challenge of proving that an IoT remote management server works correctly before it ever touches a real IoT device.
 
 > **Key takeaways:**
 > - The eIM is the sole Implementation Under Test (IUT): all other components (SM-DP+, SM-DS, eUICC, IPA) are simulators implemented by the test tool provider
@@ -27,15 +27,15 @@ SGP.33-3 v1.2 defines a test architecture where the eIM sits at the centre of a 
 The test environment (Section 3.2.3.1) places the eIM IUT at the centre of four simulated interfaces:
 
 ```
-                S_SM-DP+
-                   |
-                 ES9+'
-                   |
-  S_SM-DS: ES11': IUT (eIM): ESep: S_eUICC
-                   |
-                 ESipa
-                   |
-                 S_IPA
+ S_SM-DP+
+ |
+ ES9+'
+ |
+ S_SM-DS: ES11': IUT (eIM): ESep: S_eUICC
+ |
+ ESipa
+ |
+ S_IPA
 ```
 
 The test environment consists of:
@@ -57,10 +57,10 @@ SGP.33-3 defines a clear boundary for what is tested:
 
 | Interface | Between | Description | Tested |
 |-----------|---------|-------------|--------|
-| **ESep** | eIM → eUICC | Logical end-to-end interface for eUICC Packages (Profile State Management and eIM Configuration) | ✓ |
-| **ES9+'** | eIM → SM-DP+ | Secure transport for Bound Profile Package delivery, with eIM acting as LPAd | ✓ |
-| **ES11'** | eIM → SM-DS | Event Record retrieval from SM-DS, with eIM acting as LPAd | ✓ |
-| **ESipa** | eIM → IPA | Trigger profile download at IPA; secure transport for eUICC Package delivery; notification handling | ✓ |
+| **ESep** | eIM → eUICC | Logical end-to-end interface for eUICC Packages (Profile State Management and eIM Configuration) | |
+| **ES9+'** | eIM → SM-DP+ | Secure transport for Bound Profile Package delivery, with eIM acting as LPAd | |
+| **ES11'** | eIM → SM-DS | Event Record retrieval from SM-DS, with eIM acting as LPAd | |
+| **ESipa** | eIM → IPA | Trigger profile download at IPA; secure transport for eUICC Package delivery; notification handling | |
 
 ### Out of Scope (Other Components' Responsibilities)
 
@@ -143,7 +143,7 @@ The simulated eUICC (S_eUICC) must be pre-configured for eIM testing (Annex G):
 
 ---
 
-## 📋 Summary
+## Summary
 
 - The eIM is tested in isolation as the sole IUT, surrounded by five simulator types controlled by the test tool provider
 - Four interfaces are in scope (ESep, ES9+', ES11', ESipa) while eight are out of scope: focusing testing on the eIM's role as IoT remote management orchestrator
@@ -156,7 +156,7 @@ The simulated eUICC (S_eUICC) must be pre-configured for eIM testing (Annex G):
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp33-3/42-sgp33-overview">SGP.33 Overview: The IoT eSIM Test Family</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp33-3/42-sgp33-overview">SGP.33 Overview: The IoT eSIM Test Family</a> · <a href="{{ site.baseurl }}/"> Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp33-3/44-sgp33-eim-test-cases">Key eIM Test Cases: PSMO, Notifications, and Configuration</a> →
 

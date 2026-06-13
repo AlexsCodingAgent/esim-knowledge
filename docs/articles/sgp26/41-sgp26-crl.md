@@ -6,9 +6,9 @@ date: 2026-06-06
 
 # CRL and Certificate Management in the Test Ecosystem
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.26 Test Certificates]({{ site.baseurl }}/docs/articles/sgp26/) > CRL and Certificate Management in the Test Ecosystem**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.26 Test Certificates]({{ site.baseurl }}/docs/articles/sgp26/) > CRL and Certificate Management in the Test Ecosystem**
 
-> **💡 Why this matters:** In production, CRLs are the emergency brake: when a certificate is compromised, the CRL tells every eUICC and server to stop trusting it. In testing, you need to verify that this emergency brake actually works. SGP.26 provides a complete CRL infrastructure with distribution points at every CA level, plus deliberately unusual parameters (3-year CRL validity) that ensure test suites don't break from CRL expiry mid-run.
+> **Why this matters:** In production, CRLs are the emergency brake: when a certificate is compromised, the CRL tells every eUICC and server to stop trusting it. In testing, you need to verify that this emergency brake actually works. SGP.26 provides a complete CRL infrastructure with distribution points at every CA level, plus deliberately unusual parameters (3-year CRL validity) that ensure test suites don't break from CRL expiry mid-run.
 
 > **Key takeaways:**
 > - The SGP.26 CRL infrastructure covers five CA levels: CI root, CI SubCA, EUM, SM-DP+ SubCA, and SM-DS SubCA: each issues its own CRL
@@ -78,12 +78,12 @@ Every SGP.26 certificate (except the CI root in variants without CDPs) carries o
 
 ```
 [1] CRL Distribution Point
-    Distribution Point Name:
-        Full Name: URL=http://ci.test.example.com/CRL-1.crl
+ Distribution Point Name:
+ Full Name: URL=http://ci.test.example.com/CRL-1.crl
 
 [2] CRL Distribution Point
-    Distribution Point Name:
-        Full Name: URL=http://ci.test.example.com/CRL-2.crl
+ Distribution Point Name:
+ Full Name: URL=http://ci.test.example.com/CRL-2.crl
 ```
 
 The dual distribution points provide redundancy. Both point to the same CI root: the CI and CI SubCA share CDP URLs because both are signed by the CI parent, which is valid per RFC 5280.
@@ -220,7 +220,7 @@ Until then, the CRL infrastructure exists for structural validation: verifying t
 
 ---
 
-## 📋 Summary
+## Summary
 
 - The SGP.26 CRL hierarchy has up to five CRL issuers: CI root, CI SubCA, EUM, DP SubCA, and DS SubCA: each covering the certificates they directly sign
 - All CRLs currently have empty `revokedCertificates` : revocation testing is deferred ("FFS") to future SGP.26 versions
@@ -234,7 +234,7 @@ Until then, the CRL infrastructure exists for structural validation: verifying t
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp26/40-sgp26-development">Using Test Certificates: Developer Setup and Integration</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp26/40-sgp26-development">Using Test Certificates: Developer Setup and Integration</a> · <a href="{{ site.baseurl }}/"> Home</a>
 
 </div>
 

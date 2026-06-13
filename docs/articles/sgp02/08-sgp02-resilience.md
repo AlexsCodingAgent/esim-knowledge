@@ -7,7 +7,7 @@ title: "Resilience: Fall-Back Mechanism, Emergency Profiles, and Test Profiles"
 
 # Resilience: Fall-Back Mechanism, Emergency Profiles, and Test Profiles
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.02 M2M RSP]({{ site.baseurl }}/docs/articles/sgp02/) > Resilience: Fall-Back Mechanism, Emergency Profiles, and Test Profiles**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.02 M2M RSP]({{ site.baseurl }}/docs/articles/sgp02/) > Resilience: Fall-Back Mechanism, Emergency Profiles, and Test Profiles**
 
 A gas meter in a basement. An eCall module in a crashed car. A weather station on a mountain. A water quality sensor in a reservoir. None of these devices will ever see a technician. And all of them need to stay connected for a decade or more, through operator changes, network outages, and hardware degradation.
 
@@ -169,7 +169,7 @@ These three mechanisms (Fall-Back, Emergency, and Test) are what make the "embed
 
 <div align="center">
 
-<a href="{{ site.baseurl }}/">🏠 Home</a>
+<a href="{{ site.baseurl }}/"> Home</a>
 
 Previous: <a href="07-sgp02-sm-sr-change">SM-SR Change: Handover, ES7 Interface, and EIS Migration</a> →
 Next: <a href="09-sgp02-policy-notifications">Policy Rules & Notifications: POL1, POL2, and the Default Notification</a> →

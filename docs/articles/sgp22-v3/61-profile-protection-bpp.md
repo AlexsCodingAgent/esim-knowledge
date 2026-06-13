@@ -7,9 +7,9 @@ date: 2026-06-07
 
 # Profile Protection & BPP Security: How eSIM Profiles Stay Secret
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.22 v3.x Unified RSP]({{ site.baseurl }}/docs/articles/sgp22-v3/) > Profile Protection & BPP Security: How eSIM Profiles Stay Secret**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.22 v3.x Unified RSP]({{ site.baseurl }}/docs/articles/sgp22-v3/) > Profile Protection & BPP Security: How eSIM Profiles Stay Secret**
 
-> **💡 Why this matters:** An eSIM profile contains your mobile network authentication keys: the cryptographic equivalent of your house keys. If an attacker could intercept a profile during download or extract it from an SM-DP+ server, they could clone your SIM and impersonate you on the network. The SGP.22 security architecture prevents this through a layered protection chain: the raw profile is first encrypted (Protected Profile Package), then cryptographically bound to a specific eUICC (Bound Profile Package), and finally delivered over an authenticated, confidentiality-protected channel. The BPP Security Protocol (BSP) : derived from GlobalPlatform's SCP11a: is the cryptographic engine that makes this possible.
+> **Why this matters:** An eSIM profile contains your mobile network authentication keys: the cryptographic equivalent of your house keys. If an attacker could intercept a profile during download or extract it from an SM-DP+ server, they could clone your SIM and impersonate you on the network. The SGP.22 security architecture prevents this through a layered protection chain: the raw profile is first encrypted (Protected Profile Package), then cryptographically bound to a specific eUICC (Bound Profile Package), and finally delivered over an authenticated, confidentiality-protected channel. The BPP Security Protocol (BSP) : derived from GlobalPlatform's SCP11a: is the cryptographic engine that makes this possible.
 
 > **Key takeaways:**
 > - Profiles pass through four stages: **UPP → PPP → BPP → SBPP**, each adding a layer of protection
@@ -27,17 +27,17 @@ The profile's journey from Operator specification to installed eUICC configurati
 
 ```
 Operator specification
-        │
-        ▼
-Unprotected Profile Package (UPP)     ← Raw eUICC Profile Package TLVs
-        │
-        ▼  [Profile Package Protection]
-Protected Profile Package (PPP)       ← Segmented + BSP-encrypted payload
-        │
-        ▼  [Profile Package Binding]
-Bound Profile Package (BPP)           ← Prepended with key agreement + ISD-P config
-        │
-        ▼  [LPA Segmentation]
+ │
+ ▼
+Unprotected Profile Package (UPP) ← Raw eUICC Profile Package TLVs
+ │
+ ▼ [Profile Package Protection]
+Protected Profile Package (PPP) ← Segmented + BSP-encrypted payload
+ │
+ ▼ [Profile Package Binding]
+Bound Profile Package (BPP) ← Prepended with key agreement + ISD-P config
+ │
+ ▼ [LPA Segmentation]
 Segmented Bound Profile Package (SBPP) ← STORE DATA APDU script for ES10b
 ```
 
@@ -81,11 +81,11 @@ The BPP ASN.1 structure:
 
 ```
 BoundProfilePackage ::= SEQUENCE {
-    initialiseSecureChannelRequest  InitialiseSecureChannelRequest,
-    firstSequenceOf87               SEQUENCE OF OCTET STRING,  -- ConfigureISDP
-    sequenceOf88                    SEQUENCE OF OCTET STRING,  -- StoreMetadata
-    secondSequenceOf87              SEQUENCE OF OCTET STRING OPTIONAL,  -- PPKs
-    sequenceOf86                    SEQUENCE OF OCTET STRING   -- Profile Elements
+ initialiseSecureChannelRequest InitialiseSecureChannelRequest,
+ firstSequenceOf87 SEQUENCE OF OCTET STRING, -- ConfigureISDP
+ sequenceOf88 SEQUENCE OF OCTET STRING, -- StoreMetadata
+ secondSequenceOf87 SEQUENCE OF OCTET STRING OPTIONAL, -- PPKs
+ sequenceOf86 SEQUENCE OF OCTET STRING -- Profile Elements
 }
 ```
 
@@ -118,7 +118,7 @@ Session keys are derived from the shared secret using the X9.63 Key Derivation F
 
 ```
 SharedInfo = KeyType(1 byte) || KeyLength(1 byte) || HostID-LV || EID-LV
-KeyData    = KDF(shared_secret, SharedInfo)
+KeyData = KDF(shared_secret, SharedInfo)
 ```
 
 KeyData is then partitioned:

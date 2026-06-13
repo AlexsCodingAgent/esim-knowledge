@@ -6,7 +6,7 @@ date: 2026-06-07
 
 # SGP.02 v4.2: The M2M eSIM Push Architecture
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.02 M2M RSP]({{ site.baseurl }}/docs/articles/sgp02/) > SGP.02 v4.2: The M2M eSIM Push Architecture**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.02 M2M RSP]({{ site.baseurl }}/docs/articles/sgp02/) > SGP.02 v4.2: The M2M eSIM Push Architecture**
 
 Here's the problem SGP.02 was built for.
 
@@ -109,7 +109,7 @@ SGP.02 was the first eSIM standard, written for devices that can't ask for help.
 
 <div align="center">
 
-<a href="{{ site.baseurl }}/">🏠 Home</a>
+<a href="{{ site.baseurl }}/"> Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp02/01-sgp02-architecture">M2M Ecosystem: EUM, SM-DP, SM-SR, and the Operator</a> →
 

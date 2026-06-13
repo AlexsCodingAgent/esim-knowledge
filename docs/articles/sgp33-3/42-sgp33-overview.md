@@ -6,9 +6,9 @@ date: 2026-06-05
 
 # SGP.33 Overview: The IoT eSIM Test Family
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.33-3 eIM Testing]({{ site.baseurl }}/docs/articles/sgp33-3/) > SGP.33 Overview: The IoT eSIM Test Family**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.33-3 eIM Testing]({{ site.baseurl }}/docs/articles/sgp33-3/) > SGP.33 Overview: The IoT eSIM Test Family**
 
-> **💡 Why this matters:** Consumer eSIM testing (SGP.23) is well-established, but IoT devices operate under fundamentally different constraints: they may lack a user interface, have no local profile assistant, rely on remote management, and must support entirely new architectural elements like the eIM (eUICC IoT Manager). SGP.33 is the three-part test specification family built specifically for the IoT eSIM ecosystem defined by SGP.31 and SGP.32. Without it, there is no standardised path to prove that an IoT eSIM deployment actually works.
+> **Why this matters:** Consumer eSIM testing (SGP.23) is well-established, but IoT devices operate under fundamentally different constraints: they may lack a user interface, have no local profile assistant, rely on remote management, and must support entirely new architectural elements like the eIM (eUICC IoT Manager). SGP.33 is the three-part test specification family built specifically for the IoT eSIM ecosystem defined by SGP.31 and SGP.32. Without it, there is no standardised path to prove that an IoT eSIM deployment actually works.
 
 > **Key takeaways:**
 > - SGP.33 is a family of three test specifications: SGP.33-1 (IPA), SGP.33-2 (SM-DP+), and SGP.33-3 (eIM): each testing a different IoT-specific architectural component
@@ -97,7 +97,7 @@ SGP.33-3 v1.2 was published on 27 January 2025, but this is effectively the firs
 
 ---
 
-## 📋 Summary
+## Summary
 
 - SGP.33 is a three-part IoT-specific test family: SGP.33-1 (IPA), SGP.33-2 (SM-DP+), and SGP.33-3 (eIM): created as a companion to SGP.31/SGP.32 in 2023
 - SGP.33-3 targets the eUICC IoT Manager (eIM), the remote server that manages profiles and configuration on IoT devices without End User interaction
@@ -110,7 +110,7 @@ SGP.33-3 v1.2 was published on 27 January 2025, but this is effectively the firs
 
 <div align="center">
 
-<a href="{{ site.baseurl }}/">🏠 Home</a>
+<a href="{{ site.baseurl }}/"> Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp33-3/43-sgp33-eim-architecture">eIM Test Architecture: Simulated eIM and Reference IPA</a> →
 

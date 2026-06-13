@@ -6,9 +6,9 @@ date: 2026-06-07
 
 # IoT eSIM Functions Reference: ESipa, ES9+', ES11', ESep
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.32 IoT eSIM]({{ site.baseurl }}/docs/articles/sgp32/) > IoT eSIM Functions Reference: ESipa, ES9+', ES11', ESep**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.32 IoT eSIM]({{ site.baseurl }}/docs/articles/sgp32/) > IoT eSIM Functions Reference: ESipa, ES9+', ES11', ESep**
 
-> **💡 Why this matters:** This is the API-level reference for SGP.32's four IoT-specific interfaces: the catalogue you reach for when implementing an `eIM`, `IPA`, or IoT eSIM integration. Every function, its parameters, and its transport binding are listed here so you don't have to grep through 231 pages of specification.
+> **Why this matters:** This is the API-level reference for SGP.32's four IoT-specific interfaces: the catalogue you reach for when implementing an `eIM`, `IPA`, or IoT eSIM integration. Every function, its parameters, and its transport binding are listed here so you don't have to grep through 231 pages of specification.
 
 > **Key takeaways:**
 > - `ESipa` is the workhorse: `TransferEimPackage`, `ProvideEimPackageResult`, `IpaEuiccDataRequest`/`Response`, `ProfileDownloadTrigger`, `HandleNotification`, plus Indirect Download relay functions
@@ -36,21 +36,21 @@ The bidirectional package exchange. Two modes:
 
 **IPA retrieves from eIM (pull):**
 ```
-IPA → eIM:  TransferEimPackage (empty request)
-eIM → IPA:  TransferEimPackage response {
-                EuiccPackageRequest (if pending),
-                acknowledgements for previous results
-            }
+IPA → eIM: TransferEimPackage (empty request)
+eIM → IPA: TransferEimPackage response {
+ EuiccPackageRequest (if pending),
+ acknowledgements for previous results
+ }
 ```
 
 **IPA provides results to eIM (push):**
 ```
-IPA → eIM:  ProvideEimPackageResult {
-                EuiccPackageResult,
-                PendingNotificationList (optional),
-                eimTransactionId (optional)
-            }
-eIM → IPA:  Acknowledgements { sequenceNumbers }
+IPA → eIM: ProvideEimPackageResult {
+ EuiccPackageResult,
+ PendingNotificationList (optional),
+ eimTransactionId (optional)
+ }
+eIM → IPA: Acknowledgements { sequenceNumbers }
 ```
 
 ---
@@ -60,26 +60,26 @@ eIM → IPA:  Acknowledgements { sequenceNumbers }
 The heartbeat exchange : `IPA` pushes eUICC state to the `eIM`.
 
 ```
-eIM → IPA:  IpaEuiccDataRequest {
-                tagList     (what eIM wants to know),
-                eimTransactionId
-            }
+eIM → IPA: IpaEuiccDataRequest {
+ tagList (what eIM wants to know),
+ eimTransactionId
+ }
 
 IPA → eUICC: Fetches requested data (euiccInfo, notifications, etc.)
 
-IPA → eIM:  IpaEuiccDataResponse {
-                notificationsList,
-                defaultSmdpAddress,
-                euiccPackageResultList,
-                euiccInfo1,
-                euiccInfo2,
-                rootSmdsAddress,
-                associationToken,
-                eumCertificate,
-                euiccCertificate,
-                ipaCapabilities,
-                deviceInfo
-            }
+IPA → eIM: IpaEuiccDataResponse {
+ notificationsList,
+ defaultSmdpAddress,
+ euiccPackageResultList,
+ euiccInfo1,
+ euiccInfo2,
+ rootSmdsAddress,
+ associationToken,
+ eumCertificate,
+ euiccCertificate,
+ ipaCapabilities,
+ deviceInfo
+ }
 ```
 
 ---
@@ -89,18 +89,18 @@ IPA → eIM:  IpaEuiccDataResponse {
 Pushes a profile download request to the `IPA`.
 
 ```
-eIM → IPA:  ProfileDownloadTriggerRequest {
-                activationCode          (LPA:1$ format string),
-                OR smdsEventRecord,
-                eimTransactionId
-            }
+eIM → IPA: ProfileDownloadTriggerRequest {
+ activationCode (LPA:1$ format string),
+ OR smdsEventRecord,
+ eimTransactionId
+ }
 
 IPA → eUICC → SM-DP+: Profiles downloaded
 
-IPA → eIM:  ProfileDownloadTriggerResult {
-                profileInstallationResult (success),
-                OR profileDownloadError   (failure)
-            }
+IPA → eIM: ProfileDownloadTriggerResult {
+ profileInstallationResult (success),
+ OR profileDownloadError (failure)
+ }
 ```
 
 ---
@@ -110,10 +110,10 @@ IPA → eIM:  ProfileDownloadTriggerResult {
 Forwards notifications to receivers.
 
 ```
-IPA → eIM:  ESipa.HandleNotification {
-                notificationList,
-                euiccPackageResult (optional: for PSMO results too)
-            }
+IPA → eIM: ESipa.HandleNotification {
+ notificationList,
+ euiccPackageResult (optional: for PSMO results too)
+ }
 ```
 
 ---
@@ -123,16 +123,16 @@ IPA → eIM:  ESipa.HandleNotification {
 When the `eIM` proxies profile download authentication:
 
 ```
-IPA → eIM:  ESipa.InitiateAuthentication {
-                euiccChallenge, euiccInfo1, smdpAddress
-            }
+IPA → eIM: ESipa.InitiateAuthentication {
+ euiccChallenge, euiccInfo1, smdpAddress
+ }
 eIM → SM-DP+: ES9+'.InitiateAuthentication (forwarded)
 SM-DP+ → eIM → IPA: ESipa.InitiateAuthentication response
 
-IPA → eIM:  ESipa.AuthenticateClient {
-                euiccSigned1, euiccSignature1,
-                CERT.EUICC.ECDSA, CERT.EUM.ECDSA
-            }
+IPA → eIM: ESipa.AuthenticateClient {
+ euiccSigned1, euiccSignature1,
+ CERT.EUICC.ECDSA, CERT.EUM.ECDSA
+ }
 eIM → SM-DP+: ES9+'.AuthenticateClient (forwarded)
 SM-DP+ → eIM → IPA: ESipa.AuthenticateClient response
 ```
@@ -142,7 +142,7 @@ SM-DP+ → eIM → IPA: ESipa.AuthenticateClient response
 ### `GetBoundProfilePackage` (Indirect Download)
 
 ```
-IPA → eIM:  ESipa.GetBoundProfilePackage { transactionId, ... }
+IPA → eIM: ESipa.GetBoundProfilePackage { transactionId, ... }
 eIM → SM-DP+: ES9+'.GetBoundProfilePackage (fetches BPP)
 SM-DP+ → eIM → IPA: BoundProfilePackage
 IPA → eUICC: ES10b.LoadBoundProfilePackage (segments)
@@ -192,10 +192,10 @@ Not a separate wire protocol : `ESep` functions are embedded within eUICC Packag
 Signed by eIM (eimSignEpReq using SK.EIM.ECDSA)
 
 Contains:
-    psmoList:       Enable, Disable, Delete, Rollback, Set/Unset Fallback
-    ecoList:        AddEim, DeleteEim, UpdateEim, ListEim
-    euiccMemoryReset:
-    executeFallbackMechanism:
+ psmoList: Enable, Disable, Delete, Rollback, Set/Unset Fallback
+ ecoList: AddEim, DeleteEim, UpdateEim, ListEim
+ euiccMemoryReset:
+ executeFallbackMechanism:
 ```
 
 ---
@@ -206,8 +206,8 @@ Contains:
 Signed by eUICC (euiccSignEPR using SK.EUICC.ECDSA)
 
 Contains:
-    psmoResultList: Per-PSMO results (ok or error code)
-    ecoResultList:  Per-eCO results (ok, associationToken, or error)
+ psmoResultList: Per-PSMO results (ok or error code)
+ ecoResultList: Per-eCO results (ok, associationToken, or error)
 ```
 
 ---
@@ -262,7 +262,7 @@ SGP.32 extends SGP.22's ES10 functions with IoT-specific additions:
 
 ---
 
-## 📋 Summary
+## Summary
 
 - `ESipa` carries everything: eIM Packages, data requests, profile download triggers, notifications, and Indirect Download relay
 - `ES9+'` and `ES11'` mirror consumer `ES9+`/`ES11` for server-side orchestration by the `eIM`
@@ -273,7 +273,7 @@ SGP.32 extends SGP.22's ES10 functions with IoT-specific additions:
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp32/15-iot-smsds-operations">SM-DS Operations in IoT eSIM: Event Registration and Retrieval</a> · Next: <a href="{{ site.baseurl }}/docs/articles/sgp32/17-profile-lifecycle-policy">Profile Lifecycle Policy: Rules and Enforcement</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp32/15-iot-smsds-operations">SM-DS Operations in IoT eSIM: Event Registration and Retrieval</a> · Next: <a href="{{ site.baseurl }}/docs/articles/sgp32/17-profile-lifecycle-policy">Profile Lifecycle Policy: Rules and Enforcement</a> · <a href="{{ site.baseurl }}/"> Home</a>
 
 </div>
 

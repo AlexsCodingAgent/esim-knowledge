@@ -6,9 +6,9 @@ date: 2026-06-05
 
 # EID in RSP Protocols: Discovery, Matching, and Events
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.29 EID]({{ site.baseurl }}/docs/articles/sgp29/) > EID in RSP Protocols: Discovery, Matching, and Events**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.29 EID]({{ site.baseurl }}/docs/articles/sgp29/) > EID in RSP Protocols: Discovery, Matching, and Events**
 
-> **💡 Why this matters:** The EID is not a static label: it is an active operational identifier woven throughout every major RSP protocol. When a consumer scans a QR code to activate an eSIM, when an IoT device wakes up and polls for pending profiles, when an operator pushes an event notification: the EID is the key that links the request to the correct chip. Understanding where and how the EID appears in RSP protocols illuminates the end-to-end identity plumbing of the eSIM ecosystem.
+> **Why this matters:** The EID is not a static label: it is an active operational identifier woven throughout every major RSP protocol. When a consumer scans a QR code to activate an eSIM, when an IoT device wakes up and polls for pending profiles, when an operator pushes an event notification: the EID is the key that links the request to the correct chip. Understanding where and how the EID appears in RSP protocols illuminates the end-to-end identity plumbing of the eSIM ecosystem.
 
 > **Key takeaways:**
 > - The EID is used in SM-DS (Subscription Manager Discovery Service) to match pending profiles to specific eUICCs
@@ -28,22 +28,22 @@ The EID features in both the original M2M architecture (SGP.01/SGP.02) and the C
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                    Consumer RSP Architecture                     │
-│                         (SGP.21 / SGP.22)                        │
-│                                                                  │
-│  ┌─────────┐     ES11     ┌──────────┐     ES12     ┌─────────┐  │
-│  │  LPA    │◄────────────►│  SM-DS   │◄────────────►│ SM-DP+  │  │
-│  │ (in     │   EID-based  │Discovery │   Event      │ Profile │  │
-│  │  Device)│   polling    │ Service  │   Registry   │ Server  │  │
-│  └────┬────┘              └──────────┘              └────┬────┘  │
-│       │                                                  │       │
-│       │ ES10 (local)                              ES8+   │       │
-│       │ EID context                              EID in  │       │
-│       │                                           binding │       │
-│  ┌────┴────┐                                      ┌────┴────┐  │
-│  │  eUICC  │◄────────── Profile Download ────────│ SM-DP+  │  │
-│  │  (EID)  │          (EID-authenticated)         │         │  │
-│  └─────────┘                                      └─────────┘  │
+│ Consumer RSP Architecture │
+│ (SGP.21 / SGP.22) │
+│ │
+│ ┌─────────┐ ES11 ┌──────────┐ ES12 ┌─────────┐ │
+│ │ LPA │◄────────────►│ SM-DS │◄────────────►│ SM-DP+ │ │
+│ │ (in │ EID-based │Discovery │ Event │ Profile │ │
+│ │ Device)│ polling │ Service │ Registry │ Server │ │
+│ └────┬────┘ └──────────┘ └────┬────┘ │
+│ │ │ │
+│ │ ES10 (local) ES8+ │ │
+│ │ EID context EID in │ │
+│ │ binding │ │
+│ ┌────┴────┐ ┌────┴────┐ │
+│ │ eUICC │◄────────── Profile Download ────────│ SM-DP+ │ │
+│ │ (EID) │ (EID-authenticated) │ │ │
+│ └─────────┘ └─────────┘ │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
@@ -57,25 +57,25 @@ The SM-DS (Subscription Manager Discovery Service) is the central directory that
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│  SM-DP+ prepares a profile for download                          │
-│       │                                                          │
-│       ▼                                                          │
-│  SM-DP+ registers Event with SM-DS:                              │
-│    • EID = 12345000000000000000000000000133                      │
-│    • Event Type = Profile Download Available                     │
-│    • SM-DP+ Address = dp.example.com                             │
-│       │                                                          │
-│       ▼                                                          │
-│  SM-DS stores: {EID → [Pending Events]}                         │
-│       │                                                          │
-│       ▼                                                          │
-│  LPA polls SM-DS (ES11): "Any events for EID 12345...0133?"     │
-│       │                                                          │
-│       ▼                                                          │
-│  SM-DS responds: "Yes → Event from dp.example.com"              │
-│       │                                                          │
-│       ▼                                                          │
-│  LPA initiates ES8+ download from SM-DP+                        │
+│ SM-DP+ prepares a profile for download │
+│ │ │
+│ ▼ │
+│ SM-DP+ registers Event with SM-DS: │
+│ • EID = 12345000000000000000000000000133 │
+│ • Event Type = Profile Download Available │
+│ • SM-DP+ Address = dp.example.com │
+│ │ │
+│ ▼ │
+│ SM-DS stores: {EID → [Pending Events]} │
+│ │ │
+│ ▼ │
+│ LPA polls SM-DS (ES11): "Any events for EID 12345...0133?" │
+│ │ │
+│ ▼ │
+│ SM-DS responds: "Yes → Event from dp.example.com" │
+│ │ │
+│ ▼ │
+│ LPA initiates ES8+ download from SM-DP+ │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -94,22 +94,22 @@ ES11 is the interface between the LPA (Local Profile Assistant) and the SM-DS. T
 ```
 LPA → SM-DS (ES11):
 
-  GET /gsma/rsp2/es11/handle-ds-event
-  {
-    "eid": "12345000000000000000000000000133",
-    "lpaSignature": "..."
-  }
+ GET /gsma/rsp2/es11/handle-ds-event
+ {
+ "eid": "12345000000000000000000000000133",
+ "lpaSignature": "..."
+ }
 
 SM-DS → LPA (ES11 Response):
 
-  {
-    "pendingEvents": [
-      {
-        "eventId": "abc-123",
-        "rspServerAddress": "dp.example.com"
-      }
-    ]
-  }
+ {
+ "pendingEvents": [
+ {
+ "eventId": "abc-123",
+ "rspServerAddress": "dp.example.com"
+ }
+ ]
+ }
 ```
 
 The LPA periodically polls the SM-DS (or is triggered by the user opening the eSIM management UI). Each poll includes the EID, and the SM-DS responds with any pending events for that EID.
@@ -127,33 +127,33 @@ Once the LPA has been directed to the correct SM-DP+ (via SM-DS discovery or QR 
 ### eUICC Authentication Flow (Simplified)
 
 ```
-SM-DP+                                    eUICC
-  │                                         │
-  │  [Knows EID from discovery/QR]          │
-  │                                         │
-  │  ES8+.GetBoundProfilePackage ──────────▶│
-  │  (includes expected EID)                │
-  │                                         │
-  │                          ┌──────────────┴──────────────────┐
-  │                          │ eUICC verifies:                 │
-  │                          │ • "Is this profile for my EID?" │
-  │                          │ • "Is SM-DP+ certificate valid?"│
-  │                          │ • "Does the binding match?"     │
-  │                          └──────────────┬──────────────────┘
-  │                                         │
-  │  ◀─────────── eUICC responds with      │
-  │               eUICC signature + EID     │
-  │                                         │
-  │  ┌───────────┴──────────────────────────┐
-  │  │ SM-DP+ verifies:                     │
-  │  │ • "Does EID match expected?"         │
-  │  │ • "Is eUICC certificate valid?"      │
-  │  │ • "Is signature correct?"            │
-  │  └───────────┬──────────────────────────┘
-  │                                         │
-  │  Bound Profile Package ────────────────▶│
-  │  (encrypted to eUICC's public key)      │
-  │                                         │
+SM-DP+ eUICC
+ │ │
+ │ [Knows EID from discovery/QR] │
+ │ │
+ │ ES8+.GetBoundProfilePackage ──────────▶│
+ │ (includes expected EID) │
+ │ │
+ │ ┌──────────────┴──────────────────┐
+ │ │ eUICC verifies: │
+ │ │ • "Is this profile for my EID?" │
+ │ │ • "Is SM-DP+ certificate valid?"│
+ │ │ • "Does the binding match?" │
+ │ └──────────────┬──────────────────┘
+ │ │
+ │ ◀─────────── eUICC responds with │
+ │ eUICC signature + EID │
+ │ │
+ │ ┌───────────┴──────────────────────────┐
+ │ │ SM-DP+ verifies: │
+ │ │ • "Does EID match expected?" │
+ │ │ • "Is eUICC certificate valid?" │
+ │ │ • "Is signature correct?" │
+ │ └───────────┬──────────────────────────┘
+ │ │
+ │ Bound Profile Package ────────────────▶│
+ │ (encrypted to eUICC's public key) │
+ │ │
 ```
 
 The EID acts as an identity anchor throughout this exchange. The SM-DP+ binds the profile to a specific EID, and the eUICC confirms the profile was intended for it.
@@ -177,12 +177,12 @@ Beyond polling, the SM-DS also supports event-driven notifications. An SM-DP+ ca
 ```
 SM-DP+ → SM-DS (ES12):
 
-  REGISTER Event
-    Event ID:    evt-xyz-001
-    EID:         12345000000000000000000000000133
-    Event Type:  Profile Download Available
-    RSP Address: dp.example.com
-    Expiry:      2026-07-05T00:00:00Z
+ REGISTER Event
+ Event ID: evt-xyz-001
+ EID: 12345000000000000000000000000133
+ Event Type: Profile Download Available
+ RSP Address: dp.example.com
+ Expiry: 2026-07-05T00:00:00Z
 
 SM-DS stores the event and serves it on next ES11 poll for that EID.
 ```
@@ -203,7 +203,7 @@ The EID's role spans all four core RSP specifications:
 
 ---
 
-## 📋 Summary
+## Summary
 
 - The EID is the primary lookup key in the SM-DS, matching pending profiles to specific eUICC chips
 - ES11 polling uses the EID as the query parameter: no EID, no discovery
@@ -216,7 +216,7 @@ The EID's role spans all four core RSP specifications:
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp29/29-sgp29-assignment">EID Assignment: How Manufacturers Get Their Allocations</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp29/29-sgp29-assignment">EID Assignment: How Manufacturers Get Their Allocations</a> · <a href="{{ site.baseurl }}/"> Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp29/31-sgp29-security">EID Security: Privacy, Tracking, and GSMA Governance</a> →
 

@@ -6,9 +6,9 @@ date: 2026-06-06
 
 # Using Test Certificates: Developer Setup and Integration
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.26 Test Certificates]({{ site.baseurl }}/docs/articles/sgp26/) > Using Test Certificates: Developer Setup and Integration**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.26 Test Certificates]({{ site.baseurl }}/docs/articles/sgp26/) > Using Test Certificates: Developer Setup and Integration**
 
-> **💡 Why this matters:** Having a specification for test certificates is one thing: getting them onto actual test hardware is another. This article covers the practical path from downloading the SGP.26 ZIP package to having a test eUICC that trusts your test SM-DP+, including OpenSSL commands, certificate provisioning, and the common mistakes that waste days in the lab.
+> **Why this matters:** Having a specification for test certificates is one thing: getting them onto actual test hardware is another. This article covers the practical path from downloading the SGP.26 ZIP package to having a test eUICC that trusts your test SM-DP+, including OpenSSL commands, certificate provisioning, and the common mistakes that waste days in the lab.
 
 > **Key takeaways:**
 > - The SGP.26 ZIP package (`SGP.26_v3.x-YYYYMMDD_Files.ZIP`) contains all keys (PEM), certificates (DER), CRLs, and OpenSSL configuration files: it's the single source of truth for the test PKI
@@ -36,19 +36,19 @@ The test certificates are distributed as a ZIP file named `SGP.26_v3.x[.y]-YYYYM
 The package is updated at least every two years to prevent certificate expiry. The latest version should always be used. For SGP.26 v3.0.2 (January 2025), the package contains:
 
 ```
-SK_CI_SIG_NIST.pem          # CI private key (NIST P-256)
-SK_CI_SIG_BRP.pem            # CI private key (Brainpool P256r1)
-CERT_CI_SIG_NIST.der         # CI certificate (DER)
+SK_CI_SIG_NIST.pem # CI private key (NIST P-256)
+SK_CI_SIG_BRP.pem # CI private key (Brainpool P256r1)
+CERT_CI_SIG_NIST.der # CI certificate (DER)
 CERT_CI_SIG_BRP.der
-SK_EUM_SIG_NIST.pem          # EUM private key
+SK_EUM_SIG_NIST.pem # EUM private key
 CERT_EUM_SIG_NIST.der
-SK_EUICC_SIG_NIST.pem        # eUICC private key
+SK_EUICC_SIG_NIST.pem # eUICC private key
 CERT_EUICC_SIG_NIST.der
 SK_S_SM_DP1auth_SIG_NIST.pem # SM-DP+ auth private key
 CERT_S_SM_DP1auth_SIG_NIST.der
-SK_S_SM_DP1pb_SIG_NIST.pem   # SM-DP+ profile binding private key
+SK_S_SM_DP1pb_SIG_NIST.pem # SM-DP+ profile binding private key
 CERT_S_SM_DP1pb_SIG_NIST.der
-SK_S_SM_DP1_TLS_NIST.pem     # SM-DP+ TLS private key
+SK_S_SM_DP1_TLS_NIST.pem # SM-DP+ TLS private key
 CERT_S_SM_DP1_TLS_NIST.der
 # ... plus CRLs, .cnf configuration files, and BRP equivalents
 ```
@@ -83,9 +83,9 @@ CSRs use configuration files defined in Annex F of SGP.26. For the eUICC:
 
 ```bash
 openssl req -new -nodes -sha256 \
-  -config EUICC-csr.cnf \
-  -key sk_euicc_nist.pem \
-  -out euicc_nist.csr
+ -config EUICC-csr.cnf \
+ -key sk_euicc_nist.pem \
+ -out euicc_nist.csr
 ```
 
 The `EUICC-csr.cnf` file specifies the subject DN:
@@ -107,12 +107,12 @@ openssl x509 -inform der -in CERT_EUM_SIG_NIST.der -out CERT_EUM_SIG_NIST.pem
 
 # Sign the CSR
 openssl x509 -req -in euicc_nist.csr \
-  -CA CERT_EUM_SIG_NIST.pem \
-  -CAkey SK_EUM_SIG_NIST.pem \
-  -set_serial 0x020000000000000001 \
-  -days 2000000 \
-  -extfile EUICC-ext.cnf \
-  -out CERT_EUICC_SIG_NIST.pem
+ -CA CERT_EUM_SIG_NIST.pem \
+ -CAkey SK_EUM_SIG_NIST.pem \
+ -set_serial 0x020000000000000001 \
+ -days 2000000 \
+ -extfile EUICC-ext.cnf \
+ -out CERT_EUICC_SIG_NIST.pem
 
 # Convert to DER
 openssl x509 -in CERT_EUICC_SIG_NIST.pem -outform DER -out CERT_EUICC_SIG_NIST.der
@@ -132,13 +132,13 @@ The CI root is self-signed, using `openssl req -x509`:
 
 ```bash
 openssl req -config CI-csr.cnf \
-  -key SK_CI_SIG_NIST.pem \
-  -new -x509 \
-  -days 12783 \
-  -sha256 \
-  -set_serial 0x00B874F3ABFA6C44D3 \
-  -extensions extend \
-  -out CERT_CI_SIG_NIST.pem
+ -key SK_CI_SIG_NIST.pem \
+ -new -x509 \
+ -days 12783 \
+ -sha256 \
+ -set_serial 0x00B874F3ABFA6C44D3 \
+ -extensions extend \
+ -out CERT_CI_SIG_NIST.pem
 
 openssl x509 -in CERT_CI_SIG_NIST.pem -outform DER -out CERT_CI_SIG_NIST.der
 ```
@@ -180,19 +180,19 @@ A test SM-DP+ server needs three certificates per curve plus their private keys:
 Additionally:
 
 1. **Serve the CRL**: The SM-DP+ must make the relevant CRL available at the URL specified in the certificates' `crlDistributionPoints` extension. For Variant O, this is:
-   - `http://ci.test.example.com/CRL-1.crl`
-   - `http://ci.test.example.com/CRL-2.crl`
+ - `http://ci.test.example.com/CRL-1.crl`
+ - `http://ci.test.example.com/CRL-2.crl`
 
-   These are test-only URLs on `example.com`. In a local test setup, configure DNS or `/etc/hosts` to point `ci.test.example.com` to your CRL server. The CRL files are included in the SGP.26 ZIP package.
+ These are test-only URLs on `example.com`. In a local test setup, configure DNS or `/etc/hosts` to point `ci.test.example.com` to your CRL server. The CRL files are included in the SGP.26 ZIP package.
 
 2. **Configure the CI chain**: The SM-DP+ must present the full certificate chain during TLS handshakes: end-entity → SubCA (if applicable) → CI root.
 
 3. **Host the Test Profile**: Per Annex D, the test SM-DP+ must provide a URL to an application that allows testers to trigger profile downloads. This is typically a web interface where the tester submits an EID, Confirmation Code (if required), and receives a Matching ID.
 
 4. **Support at least one download mechanism**: Per SGP.22, options include:
-   - Default SM-DP+ address in the eUICC
-   - SM-DS event registration and discovery
-   - Activation Code (QR code containing SM-DP+ address and Matching ID)
+ - Default SM-DP+ address in the eUICC
+ - SM-DS event registration and discovery
+ - Activation Code (QR code containing SM-DP+ address and Matching ID)
 
 ---
 
@@ -302,7 +302,7 @@ The eUICC checks the `certificatePolicies` extension. If an SM-DP+ presents a TL
 
 ---
 
-## 📋 Summary
+## Summary
 
 - The SGP.26 ZIP package is the single source of truth: download the latest version at least every two years to avoid expiry
 - The OpenSSL toolchain generates keys with `ecparam`, CSRs with `req`, and certificates with `x509 -req` : always use `-sha256` and the correct configuration files from Annex F
@@ -316,7 +316,7 @@ The eUICC checks the `certificatePolicies` extension. If an SM-DP+ presents a TL
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp26/39-sgp26-profiles">Certificate Profiles: What Makes a Valid Test Certificate</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp26/39-sgp26-profiles">Certificate Profiles: What Makes a Valid Test Certificate</a> · <a href="{{ site.baseurl }}/"> Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp26/41-sgp26-crl">CRL and Certificate Management in the Test Ecosystem</a> →
 

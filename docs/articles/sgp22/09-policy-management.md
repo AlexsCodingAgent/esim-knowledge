@@ -6,9 +6,9 @@ date: 2026-06-07
 
 # SGP.22 v2.7: Profile Policy Management: PPRs, RAT, and Profile Policy Enabler
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > Profile Policy Management: PPRs, RAT, and Profile Policy Enabler**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > Profile Policy Management: PPRs, RAT, and Profile Policy Enabler**
 
-> **💡 Why this matters:** Profile Policy Management is the mechanism that lets enterprises lock down corporate eSIMs, prevents users from accidentally deleting their primary carrier profile, and gives operators fine-grained control over what can and can't happen to their profiles. If you've ever wondered why you can't delete a carrier profile on your phone, this is why.
+> **Why this matters:** Profile Policy Management is the mechanism that lets enterprises lock down corporate eSIMs, prevents users from accidentally deleting their primary carrier profile, and gives operators fine-grained control over what can and can't happen to their profiles. If you've ever wondered why you can't delete a carrier profile on your phone, this is why.
 
 > **Key takeaways:**
 > - Only two Profile Policy Rules exist in v2.7: **PPR1** ("Disabling not allowed") and **PPR2** ("Deletion not allowed")
@@ -120,10 +120,10 @@ The Profile Policy Enabler (section 2.9.3) is the runtime enforcement component.
 When a profile is being installed and its metadata contains PPRs, the eUICC SHALL verify each PPR against the RAT:
 
 1. For each PPR in the profile metadata:
-   - Is the PPR known? (PPR1 or PPR2: any other value is rejected)
-   - Is the PPR allowed for this Profile Owner? (check RAT for a matching PPAR)
-   - If no matching PPAR: **reject the installation**
-   - If PPAR requires End User consent: LPA must obtain consent before proceeding
+ - Is the PPR known? (PPR1 or PPR2: any other value is rejected)
+ - Is the PPR allowed for this Profile Owner? (check RAT for a matching PPAR)
+ - If no matching PPAR: **reject the installation**
+ - If PPAR requires End User consent: LPA must obtain consent before proceeding
 
 If the eUICC determines that a PPR is not allowed, it returns `pprNotAllowed(15)` in the Profile Installation Result and the installation fails.
 
@@ -153,17 +153,17 @@ During normal operation, when the LPA (or LPAe) requests a profile operation, th
 ## The PPR Lifecycle
 
 ```
-Manufacturing          Profile Install        Post-Install          Runtime
-     │                      │                      │                   │
-     ▼                      ▼                      ▼                   ▼
- RAT burned            SM-DP+ sets           ES6.UpdateMetadata   ISD-R checks
- into eUICC            PPRs in metadata      can modify PPRs      PPRs on every
- by OEM/EUM            ──────────────────    ──────────────────   ES10c operation
-                        eUICC verifies        eUICC re-verifies    ──────────────────
-                        against RAT           against RAT          Enable/Disable/
-                        ──────────────────    ──────────────────   Delete gated
-                        User consent          Update atomic        by PPR flags
-                        if required
+Manufacturing Profile Install Post-Install Runtime
+ │ │ │ │
+ ▼ ▼ ▼ ▼
+ RAT burned SM-DP+ sets ES6.UpdateMetadata ISD-R checks
+ into eUICC PPRs in metadata can modify PPRs PPRs on every
+ by OEM/EUM ────────────────── ────────────────── ES10c operation
+ eUICC verifies eUICC re-verifies ──────────────────
+ against RAT against RAT Enable/Disable/
+ ────────────────── ────────────────── Delete gated
+ User consent Update atomic by PPR flags
+ if required
 ```
 
 ---

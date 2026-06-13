@@ -6,9 +6,9 @@ date: 2026-06-07
 
 # Profile Lifecycle & Policy: Types, PPE, and Enforcement in IoT eSIM
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.32 IoT eSIM]({{ site.baseurl }}/docs/articles/sgp32/) > Profile Lifecycle & Policy: Types, PPE, and Enforcement in IoT eSIM**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.32 IoT eSIM]({{ site.baseurl }}/docs/articles/sgp32/) > Profile Lifecycle & Policy: Types, PPE, and Enforcement in IoT eSIM**
 
-> **💡 Why this matters:** Not all eSIM profiles are created equal. SGP.32 defines three distinct Profile Types: Operational, Provisioning, and Test: each with different lifecycles, visibility rules, and survival characteristics across memory resets. On top of that, every profile can carry Policy Rules that dictate whether it can be disabled or deleted, enforced by a dedicated eUICC component called the Profile Policy Enabler (PPE). Understanding this layered lifecycle-and-policy model is essential for designing IoT fleets that survive field failures, resets, and provider transitions.
+> **Why this matters:** Not all eSIM profiles are created equal. SGP.32 defines three distinct Profile Types: Operational, Provisioning, and Test: each with different lifecycles, visibility rules, and survival characteristics across memory resets. On top of that, every profile can carry Policy Rules that dictate whether it can be disabled or deleted, enforced by a dedicated eUICC component called the Profile Policy Enabler (PPE). Understanding this layered lifecycle-and-policy model is essential for designing IoT fleets that survive field failures, resets, and provider transitions.
 
 > **Key takeaways:**
 > - Three Profile Types: Operational (standard MNO profiles), Provisioning (survive resets, hidden from users), Test (lab/QA-only, weak keys)
@@ -121,12 +121,12 @@ The PPE sits alongside ISD-R, ISD-P, ECASD, and the Telecom Framework in the eUI
 
 ```
 eUICC OS
-  ├── ECASD (keys, certs)
-  ├── ISD-R (profile lifecycle manager)
-  ├── ISD-P / ISD-P (profile containers)
-  ├── Profile Policy Enabler (PPR verification + enforcement)
-  ├── Profile Package Interpreter (decodes Profile Package)
-  └── Telecom Framework (NAA algorithms)
+ ├── ECASD (keys, certs)
+ ├── ISD-R (profile lifecycle manager)
+ ├── ISD-P / ISD-P (profile containers)
+ ├── Profile Policy Enabler (PPR verification + enforcement)
+ ├── Profile Package Interpreter (decodes Profile Package)
+ └── Telecom Framework (NAA algorithms)
 ```
 
 When a PSMO arrives via eUICC Package:
@@ -141,16 +141,16 @@ When a PSMO arrives via eUICC Package:
 
 | Event | Operational | Provisioning | Test |
 |---|---|---|---|
-| Enable/Disable (PSMO) | ✅ (if PPR1 allows) | ✅ (overrides PPR1) | ✅ (overrides PPR1) |
-| Delete (PSMO) | ✅ (if PPR2 allows) | ✅ (if PPR2 allows) | ✅ |
+| Enable/Disable (PSMO) | (if PPR1 allows) | (overrides PPR1) | (overrides PPR1) |
+| Delete (PSMO) | (if PPR2 allows) | (if PPR2 allows) | |
 | Consumer Memory Reset | **Deleted** | **Survives** | **Deleted** (field-loaded only by default) |
 | SGP.32 IoT Memory Reset | Deleted if selected | Deleted if selected | Deleted if selected |
-| Visible in LUI | ✅ | ❌ | ✅ (Test Mode only) |
-| Can carry PPRs | ✅ | ✅ (but PPR1 overridden) | ❌ (SHOULD NOT) |
+| Visible in LUI | | | (Test Mode only) |
+| Can carry PPRs | | (but PPR1 overridden) | (SHOULD NOT) |
 
 ---
 
-## 📋 Summary
+## Summary
 
 - Three Profile Types serve three distinct lifecycle roles: Operational (standard), Provisioning (bootstrap, reset-surviving), and Test (lab-only with weak keys)
 - The Profile Policy Enabler gates every profile state change against PPR1 and PPR2
@@ -162,7 +162,7 @@ When a PSMO arrives via eUICC Package:
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp32/16-iot-functions-reference">IoT eSIM Functions Reference: ESipa, ES9+', ES11', ESep</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp32/16-iot-functions-reference">IoT eSIM Functions Reference: ESipa, ES9+', ES11', ESep</a> · <a href="{{ site.baseurl }}/"> Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp32/18-advanced-security-lifecycle">Advanced IoT Security & Lifecycle</a> →
 

@@ -6,7 +6,7 @@ date: 2026-06-07
 
 # Profile Download: ISD-P Creation, SCP03, and Encrypted Delivery
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.02 M2M RSP]({{ site.baseurl }}/docs/articles/sgp02/) > Profile Download: ISD-P Creation, SCP03, and Encrypted Delivery**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.02 M2M RSP]({{ site.baseurl }}/docs/articles/sgp02/) > Profile Download: ISD-P Creation, SCP03, and Encrypted Delivery**
 
 This is the procedure every other article in this series has been building toward. Profile download (SGP.02 §3.1) is where an operator's credentials actually land on a chip. The architecture, the PKI, the OTA channel, the ISD-R and ISD-P and ECASD: they all converge here. If you skipped the earlier articles, you'll want to loop back: the architecture ([roles and interfaces]({{ site.baseurl }}/docs/articles/sgp02/01-sgp02-architecture)), eUICC internals ([ISD-R, ISD-P, ECASD]({{ site.baseurl }}/docs/articles/sgp02/02-sgp02-euicc-internals)), PKI ([certificates and key establishment]({{ site.baseurl }}/docs/articles/sgp02/03-sgp02-pki)), and OTA ([ES5/ES8 tunneling]({{ site.baseurl }}/docs/articles/sgp02/04-sgp02-ota)) are all load-bearing here.
 
@@ -19,34 +19,34 @@ The download breaks into four movements: create an empty ISD-P container on the 
 Before anything can be downloaded, the chip needs somewhere to put it. ISD-P creation (SGP.02 §3.1.1) spins up an empty container.
 
 ```
-Operator          SM-DP           SM-SR          ISD-R         ISD-P
-   │                │               │              │              │
-   │─(1) download──▶│               │              │              │
-   │  Profile()     │               │              │              │
-   │                │─(2) getEIS───▶│              │              │
-   │                │   (eid)       │─(3) Retrieve │              │
-   │                │◀─(4) EIS──────│  EIS          │              │
-   │                │               │              │              │
-   │                │─(5) Check     │              │              │
-   │                │  eligibility  │              │              │
-   │                │               │              │              │
-   │                │─(6) create───▶│              │              │
-   │                │  ISDP(eid,    │─(7) Check    │              │
-   │                │   iccid, ...) │  conditions  │              │
-   │                │               │              │              │
-   │                │               │──(8) Trigger │              │
-   │                │               │  HTTPS──────▶│              │
-   │                │               │              │              │
-   │                │               │──(9) ES5.───▶│              │
-   │                │               │  CreateISDP  │──(10) New───▶│
-   │                │               │              │◀─────────────│
-   │                │               │◀─(11) POST───│              │
-   │                │               │  response    │              │
-   │                │               │              │              │
-   │                │               │─(12) Update  │              │
-   │                │               │  EIS         │              │
-   │                │◀─(13) create──│              │              │
-   │                │  ISDP resp.   │              │              │
+Operator SM-DP SM-SR ISD-R ISD-P
+ │ │ │ │ │
+ │─(1) download──▶│ │ │ │
+ │ Profile() │ │ │ │
+ │ │─(2) getEIS───▶│ │ │
+ │ │ (eid) │─(3) Retrieve │ │
+ │ │◀─(4) EIS──────│ EIS │ │
+ │ │ │ │ │
+ │ │─(5) Check │ │ │
+ │ │ eligibility │ │ │
+ │ │ │ │ │
+ │ │─(6) create───▶│ │ │
+ │ │ ISDP(eid, │─(7) Check │ │
+ │ │ iccid, ...) │ conditions │ │
+ │ │ │ │ │
+ │ │ │──(8) Trigger │ │
+ │ │ │ HTTPS──────▶│ │
+ │ │ │ │ │
+ │ │ │──(9) ES5.───▶│ │
+ │ │ │ CreateISDP │──(10) New───▶│
+ │ │ │ │◀─────────────│
+ │ │ │◀─(11) POST───│ │
+ │ │ │ response │ │
+ │ │ │ │ │
+ │ │ │─(12) Update │ │
+ │ │ │ EIS │ │
+ │ │◀─(13) create──│ │ │
+ │ │ ISDP resp. │ │ │
 ```
 
 **(1)** The Operator kicks things off with `ES2.DownloadProfile`, providing the SM-SR identification, EID, ICCID, the desired final state (Enabled or Disabled), and the profile type. They can also ask for the profile to be enabled automatically after installation.
@@ -76,59 +76,59 @@ The mechanism is Scenario#3 from GlobalPlatform Amendment E: ECKA-EG key agreeme
 ### The Protocol, Step by Step
 
 ```
-SM-DP                    SM-SR              ISD-R       ISD-P       ECASD
-  │                        │                  │           │           │
-  │─(1) sendData(eid, ────▶│                  │           │           │
-  │  ES8.EstablishISDP     │                  │           │           │
-  │  KeySet(CERT.DP))      │                  │           │           │
-  │                        │─(3) HTTP 200────▶│           │           │
-  │                        │  CERT.DP.ECDSA   │──(3a)───▶│           │
-  │                        │                  │  CERT.DP  │           │
-  │                        │                  │           │─(3b)─────│
-  │                        │                  │           │Verify it's│
-  │                        │                  │           │ SM-DP cert│
-  │                        │                  │           │           │
-  │                        │                  │           │─(4)──────▶│
-  │                        │                  │           │CERT.DP    │
-  │                        │                  │           │           │─(5) Verify
-  │                        │                  │           │           │  with PK.CI
-  │                        │                  │           │           │  Extract PK.DP
-  │                        │                  │           │           │  Generate RC
-  │                        │                  │           │◀─(6) RC───│
-  │                        │                  │◀──(7) RC──│           │
-  │                        │◀─(8) sendData───│            │           │
-  │                        │  resp: RC        │           │           │
-  │                        │                  │           │           │
-  │─(9) Generate          │                  │           │           │
-  │  (eSK.DP, ePK.DP)    │                  │           │           │
-  │  Sign(RC, ePK.DP)    │                  │           │           │
-  │  with SK.DP.ECDSA    │                  │           │           │
-  │                        │                  │           │           │
-  │─(10) sendData(eid,───▶│                  │           │           │
-  │  ES8.EstablishISDP     │                  │           │           │
-  │  KeySet(ePK.DP, sig))  │─(11) HTTP 200───▶│           │           │
-  │                        │  ePK.DP, sig     │──(12)────▶│           │
-  │                        │                  │           │           │
-  │                        │                  │           │──(13)────▶│
-  │                        │                  │           │Verify sig │
-  │                        │                  │           │with PK.DP │
-  │                        │                  │           │Compute ShS│
-  │                        │                  │           │◀─(14) ShS─│
-  │                        │                  │           │           │
-  │                        │                  │           │─(15)     │
-  │                        │                  │           │Derive     │
-  │                        │                  │           │SCP03 keys │
-  │                        │                  │           │Calc receipt│
-  │                        │                  │◀──(16)───│           │
-  │                        │                  │receipt(DR)│           │
-  │                        │◀─(18) sendData───│           │           │
-  │                        │  resp: receipt   │           │           │
-  │                        │                  │           │           │
-  │─(19) Compute ShS     │                  │           │           │
-  │  from eSK.DP and     │                  │           │           │
-  │  PK.ECASD.ECKA       │                  │           │           │
-  │  Derive SCP03 keys   │                  │           │           │
-  │  Verify receipt      │                  │           │           │
+SM-DP SM-SR ISD-R ISD-P ECASD
+ │ │ │ │ │
+ │─(1) sendData(eid, ────▶│ │ │ │
+ │ ES8.EstablishISDP │ │ │ │
+ │ KeySet(CERT.DP)) │ │ │ │
+ │ │─(3) HTTP 200────▶│ │ │
+ │ │ CERT.DP.ECDSA │──(3a)───▶│ │
+ │ │ │ CERT.DP │ │
+ │ │ │ │─(3b)─────│
+ │ │ │ │Verify it's│
+ │ │ │ │ SM-DP cert│
+ │ │ │ │ │
+ │ │ │ │─(4)──────▶│
+ │ │ │ │CERT.DP │
+ │ │ │ │ │─(5) Verify
+ │ │ │ │ │ with PK.CI
+ │ │ │ │ │ Extract PK.DP
+ │ │ │ │ │ Generate RC
+ │ │ │ │◀─(6) RC───│
+ │ │ │◀──(7) RC──│ │
+ │ │◀─(8) sendData───│ │ │
+ │ │ resp: RC │ │ │
+ │ │ │ │ │
+ │─(9) Generate │ │ │ │
+ │ (eSK.DP, ePK.DP) │ │ │ │
+ │ Sign(RC, ePK.DP) │ │ │ │
+ │ with SK.DP.ECDSA │ │ │ │
+ │ │ │ │ │
+ │─(10) sendData(eid,───▶│ │ │ │
+ │ ES8.EstablishISDP │ │ │ │
+ │ KeySet(ePK.DP, sig)) │─(11) HTTP 200───▶│ │ │
+ │ │ ePK.DP, sig │──(12)────▶│ │
+ │ │ │ │ │
+ │ │ │ │──(13)────▶│
+ │ │ │ │Verify sig │
+ │ │ │ │with PK.DP │
+ │ │ │ │Compute ShS│
+ │ │ │ │◀─(14) ShS─│
+ │ │ │ │ │
+ │ │ │ │─(15) │
+ │ │ │ │Derive │
+ │ │ │ │SCP03 keys │
+ │ │ │ │Calc receipt│
+ │ │ │◀──(16)───│ │
+ │ │ │receipt(DR)│ │
+ │ │◀─(18) sendData───│ │ │
+ │ │ resp: receipt │ │ │
+ │ │ │ │ │
+ │─(19) Compute ShS │ │ │ │
+ │ from eSK.DP and │ │ │ │
+ │ PK.ECASD.ECKA │ │ │ │
+ │ Derive SCP03 keys │ │ │ │
+ │ Verify receipt │ │ │ │
 ```
 
 **(1-3)** The SM-DP sends `CERT.DP.ECDSA` toward the eUICC via `ES3.SendData`. The SM-SR relays it through the ES5 HTTPS session.
@@ -182,7 +182,7 @@ The download runs as a repeated call loop:
 
 ```
 SM-DP ──ES3.SendData(profile data)──▶ SM-SR ──ES5 relay──▶ ISD-R ──▶ ISD-P
-  ◀──ES3.SendData response─────────  SM-SR ◀──ES5 POST──  ISD-R ◀── ISD-P
+ ◀──ES3.SendData response───────── SM-SR ◀──ES5 POST── ISD-R ◀── ISD-P
 ```
 
 Each iteration:
@@ -274,7 +274,7 @@ Every stakeholder who needs to know the profile is live gets the signal.
 
 <div align="center">
 
-<a href="{{ site.baseurl }}/">🏠 Home</a>
+<a href="{{ site.baseurl }}/"> Home</a>
 
 ← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp02/04-sgp02-ota">OTA Communication</a> | Next: <a href="{{ site.baseurl }}/docs/articles/sgp02/06-sgp02-lifecycle">Profile Lifecycle</a> →
 

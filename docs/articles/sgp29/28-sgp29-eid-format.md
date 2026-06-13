@@ -6,9 +6,9 @@ date: 2026-06-05
 
 # EID Format Decoded: The 32-Digit Structure
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.29 EID]({{ site.baseurl }}/docs/articles/sgp29/) > EID Format Decoded: The 32-Digit Structure**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.29 EID]({{ site.baseurl }}/docs/articles/sgp29/) > EID Format Decoded: The 32-Digit Structure**
 
-> **💡 Why this matters:** The EID's 32-digit structure is not arbitrary: it encodes a hierarchical delegation chain from the GSMA down to individual eUICC manufacturers, with built-in cryptographic verification. Understanding the format reveals how EID ranges are delegated through a tree of assignment authorities, how manufacturers encode their identity, and how anyone can validate an EID's authenticity using simple modular arithmetic.
+> **Why this matters:** The EID's 32-digit structure is not arbitrary: it encodes a hierarchical delegation chain from the GSMA down to individual eUICC manufacturers, with built-in cryptographic verification. Understanding the format reveals how EID ranges are delegated through a tree of assignment authorities, how manufacturers encode their identity, and how anyone can validate an EID's authenticity using simple modular arithmetic.
 
 > **Key takeaways:**
 > - The EID is exactly 32 digits, composed of EIN (N digits) + ESIN (30−N digits) + 2 check digits
@@ -26,12 +26,12 @@ The EID structure specified in SGP.29 Section 10 is a hierarchical numbering sch
 
 ```
 ┌──────────────────────────────────────────────────────────────┐
-│                     EID: 32 Digits Total                     │
+│ EID: 32 Digits Total │
 ├──────────────────────────┬───────────────────┬───────────────┤
-│       EIN (N digits)     │  ESIN (30−N digits)│ Check (2)    │
-│   EUM Identification     │  EUM-Specific      │  Mod-97      │
-│   Number                 │  Identification    │  validation  │
-│   (Variable length N)    │  (Variable length)  │              │
+│ EIN (N digits) │ ESIN (30−N digits)│ Check (2) │
+│ EUM Identification │ EUM-Specific │ Mod-97 │
+│ Number │ Identification │ validation │
+│ (Variable length N) │ (Variable length) │ │
 └──────────────────────────┴───────────────────┴───────────────┘
 ```
 
@@ -41,11 +41,11 @@ The EIN identifies the eUICC Manufacturer (EUM) and the delegation path that gra
 
 ```
 EIN = ERHI1 || ERHI2 || ERHI3 || ... || ERHIx
-  │         │         │               │
-  │         │         │               └─ Last ERHI assigned to the EUM
-  │         │         └─ Assigned by a Device Manufacturer or intermediate EAA
-  │         └─ Assigned by a National Authority or intermediate EAA  
-  └─ Assigned by the GSMA (First Level EAA)
+ │ │ │ │
+ │ │ │ └─ Last ERHI assigned to the EUM
+ │ │ └─ Assigned by a Device Manufacturer or intermediate EAA
+ │ └─ Assigned by a National Authority or intermediate EAA 
+ └─ Assigned by the GSMA (First Level EAA)
 ```
 
 **Key rules for ERHIs:**
@@ -74,20 +74,20 @@ The final 2 digits provide cryptographic-strength validation of the entire EID, 
 ### Calculation (by the EUM)
 
 ```
-Step 1:  Set the two check digits to "00"
-Step 2:  Treat the entire 32-digit string as a decimal integer
-Step 3:  Compute: remainder = 32_digit_number MOD 97
-Step 4:  Set check digits = 98 − remainder
-Step 5:  If result is a single digit, prefix with "0"
+Step 1: Set the two check digits to "00"
+Step 2: Treat the entire 32-digit string as a decimal integer
+Step 3: Compute: remainder = 32_digit_number MOD 97
+Step 4: Set check digits = 98 − remainder
+Step 5: If result is a single digit, prefix with "0"
 ```
 
 ### Verification (by any party)
 
 ```
-Step 1:  Treat the entire 32-digit EID as a decimal integer
-Step 2:  Compute: remainder = 32_digit_number MOD 97
-Step 3:  If remainder == 1 → valid EID
-         Otherwise → invalid EID
+Step 1: Treat the entire 32-digit EID as a decimal integer
+Step 2: Compute: remainder = 32_digit_number MOD 97
+Step 3: If remainder == 1 → valid EID
+ Otherwise → invalid EID
 ```
 
 ---
@@ -107,18 +107,18 @@ Let's walk through an example with a simplified EIN.
 
 ```
 32-digit integer = 12345000000000000000000000000100
-Remainder ÷ 97   = 12345000000000000000000000000100 MOD 97
-                 = 65
+Remainder ÷ 97 = 12345000000000000000000000000100 MOD 97
+ = 65
 
-Check digits     = 98 − 65 = 33
+Check digits = 98 − 65 = 33
 
-Final EID        = 12345000000000000000000000000133
+Final EID = 12345000000000000000000000000133
 ```
 
 **Verify:**
 
 ```
-12345000000000000000000000000133 MOD 97 = 1  ✓ Valid
+12345000000000000000000000000133 MOD 97 = 1 Valid
 ```
 
 ---
@@ -132,9 +132,9 @@ SGP.29 provides three concrete examples of ERHI delegation chains:
 ```
 GSMA ──ERHI1──▶ EAA (National Authority) ──ERHI2──▶ Device Manufacturer ──ERHI3──▶ EUM
 
-  [GSMA]               [National Authority]         [Device Mfr]              [EUM]
-  Assigns ERHI1         Assigns ERHI2 values        Assigns ERHI3 values      Assigns ESINs
-  to EAA                to Device Manufacturers     to EUMs                   to individual chips
+ [GSMA] [National Authority] [Device Mfr] [EUM]
+ Assigns ERHI1 Assigns ERHI2 values Assigns ERHI3 values Assigns ESINs
+ to EAA to Device Manufacturers to EUMs to individual chips
 ```
 
 ### Example 2: Two-Level Delegation
@@ -142,9 +142,9 @@ GSMA ──ERHI1──▶ EAA (National Authority) ──ERHI2──▶ Device M
 ```
 GSMA ──ERHI1──▶ Device Manufacturer ──ERHI2──▶ EUM
 
-  [GSMA]               [Device Mfr]              [EUM]
-  Assigns ERHI1         Assigns ERHI2 values      Assigns ESINs
-  to Device Mfr          to EUMs                   to individual chips
+ [GSMA] [Device Mfr] [EUM]
+ Assigns ERHI1 Assigns ERHI2 values Assigns ESINs
+ to Device Mfr to EUMs to individual chips
 ```
 
 ### Example 3: Group Delegation
@@ -152,9 +152,9 @@ GSMA ──ERHI1──▶ Device Manufacturer ──ERHI2──▶ EUM
 ```
 GSMA ──ERHI1──▶ Group of Device Mfrs ──ERHI2──▶ Single Device Mfr ──ERHI3──▶ EUM
 
-  [GSMA]          [Group]                  [Single Device Mfr]         [EUM]
-  Assigns ERHI1   Assigns ERHI2 values     Assigns ERHI3 values        Assigns ESINs
-  to Group        to individual members    to EUMs                     to individual chips
+ [GSMA] [Group] [Single Device Mfr] [EUM]
+ Assigns ERHI1 Assigns ERHI2 values Assigns ERHI3 values Assigns ESINs
+ to Group to individual members to EUMs to individual chips
 ```
 
 ---
@@ -174,7 +174,7 @@ GSMA ──ERHI1──▶ Group of Device Mfrs ──ERHI2──▶ Single Devic
 
 ---
 
-## 📋 Summary
+## Summary
 
 - The EID is a 32-digit hierarchical identifier: EIN (N digits) + ESIN (30−N) + 2 check digits
 - The EIN encodes a delegation chain of ERHIs from GSMA down to the EUM
@@ -187,7 +187,7 @@ GSMA ──ERHI1──▶ Group of Device Mfrs ──ERHI2──▶ Single Devic
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp29/27-sgp29-overview">SGP.29 Overview: The eUICC Identifier (EID)</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp29/27-sgp29-overview">SGP.29 Overview: The eUICC Identifier (EID)</a> · <a href="{{ site.baseurl }}/"> Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp29/29-sgp29-assignment">EID Assignment: How Manufacturers Get Their Allocations</a> →
 

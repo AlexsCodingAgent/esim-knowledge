@@ -6,9 +6,9 @@ date: 2026-06-05
 
 # eUICC Assurance Requirements: EAL4+ and Penetration Testing
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.25 eUICC Security]({{ site.baseurl }}/docs/articles/sgp25/) > eUICC Assurance Requirements: EAL4+ and Penetration Testing**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.25 eUICC Security]({{ site.baseurl }}/docs/articles/sgp25/) > eUICC Assurance Requirements: EAL4+ and Penetration Testing**
 
-> **💡 Why this matters:** Security Functional Requirements define *what* the eUICC must do. Assurance Requirements define *how thoroughly we verify* it actually does those things: and at what level of rigour. For an eUICC that will store operator credentials worth millions and resist attackers with physical access to the device, "we tested the happy path" is not enough. EAL4+ with AVA_VAN.5 penetration testing means evaluators actively try to break the TOE using state-of-the-art attack techniques.
+> **Why this matters:** Security Functional Requirements define *what* the eUICC must do. Assurance Requirements define *how thoroughly we verify* it actually does those things: and at what level of rigour. For an eUICC that will store operator credentials worth millions and resist attackers with physical access to the device, "we tested the happy path" is not enough. EAL4+ with AVA_VAN.5 penetration testing means evaluators actively try to break the TOE using state-of-the-art attack techniques.
 
 > **Key takeaways:**
 > - SGP.25 mandates EAL4 augmented with ALC_DVS.2 (development security) and AVA_VAN.5 (advanced penetration testing)
@@ -168,7 +168,7 @@ The assurance requirements validate the functional requirements by proving:
 
 ---
 
-## 📋 Summary
+## Summary
 
 - SGP.25 mandates EAL4 (highest practical commercial assurance) augmented with ALC_DVS.2 and AVA_VAN.5
 - Six assurance classes cover Development, Guidance, Life-Cycle, Security Target, Tests, and Vulnerability Assessment
@@ -181,7 +181,7 @@ The assurance requirements validate the functional requirements by proving:
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp25/23-sgp25-security-requirements">eUICC Security Functional Requirements</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp25/23-sgp25-security-requirements">eUICC Security Functional Requirements</a> · <a href="{{ site.baseurl }}/"> Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp25/25-sgp25-physical-security">Physical Security: Side-Channel and Fault Injection Defences</a> →
 

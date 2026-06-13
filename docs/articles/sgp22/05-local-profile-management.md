@@ -6,9 +6,9 @@ date: 2026-06-03
 
 # Managing Your eSIM: Local Profile Operations
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > Managing Your eSIM: Local Profile Operations**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > Managing Your eSIM: Local Profile Operations**
 
-> **💡 Why this matters:** This is the user-facing half of eSIM: everything you actually do on your device: switching carriers, deleting old plans, and naming profiles. The UI is simple, but the underlying protocol is precise and policy-enforced.
+> **Why this matters:** This is the user-facing half of eSIM: everything you actually do on your device: switching carriers, deleting old plans, and naming profiles. The UI is simple, but the underlying protocol is precise and policy-enforced.
 
 > **Key takeaways:**
 > - All local profile operations go through `ES10c` (LPA → eUICC) and are gated by the `ISD-R`
@@ -53,26 +53,26 @@ Switching to a different profile involves two critical actions: disabling the cu
 1. LPA → eUICC: ES10c.EnableProfile(ISD-P AID or ICCID, refreshFlag)
 
 2. ISD-R verifies:
-   - Target Profile is in Disabled state
-   - Profile Policy Rules allow enabling
-   - Error returned if either check fails
+ - Target Profile is in Disabled state
+ - Profile Policy Rules allow enabling
+ - Error returned if either check fails
 
 3. Application session termination on currently Enabled Profile:
-   - Run application session termination per ETSI TS 102 221
-   - Close all logical channels
-   - Terminate any ongoing proactive command session
+ - Run application session termination per ETSI TS 102 221
+ - Close all logical channels
+ - Terminate any ongoing proactive command session
 
 4. ISD-R enables the target Profile
 
 5. If refreshFlag is set:
-   - ISD-R sends REFRESH proactive command to baseband
-   - Baseband responds with Terminal Response or RESET
+ - ISD-R sends REFRESH proactive command to baseband
+ - Baseband responds with Terminal Response or RESET
 
 6. Device discards all state from previously Enabled Profile:
-   - Cached file content (including EF_ICCID and EF_DIR)
-   - PIN state
-   - Proactive command sessions
-   - Logical channel assignments
+ - Cached file content (including EF_ICCID and EF_DIR)
+ - PIN state
+ - Proactive command sessions
+ - Logical channel assignments
 
 7. Baseband executes network attach with the newly Enabled Profile
 ```
@@ -87,16 +87,16 @@ Removing a profile from active use without deleting it:
 
 ```
 1. Device runs application session termination on currently Enabled Profile
-   (if refreshFlag is not set)
+ (if refreshFlag is not set)
 
 2. LPA → eUICC: ES10c.DisableProfile(ISD-P AID or ICCID, refreshFlag)
 
 3. ISD-R verifies:
-   - Target Profile is in Enabled state
-   - Profile Policy Rules allow disabling (ppr1 check)
+ - Target Profile is in Enabled state
+ - Profile Policy Rules allow disabling (ppr1 check)
 
 4. If refreshFlag is set: REFRESH → Terminal Response → disable
-   If refreshFlag is not set: immediate disable
+ If refreshFlag is not set: immediate disable
 
 5. Auto re-enable logic for Test/Operational transitions
 ```
@@ -113,16 +113,16 @@ Permanently removes a Profile and its containing ISD-P:
 1. LPA → eUICC: ES10c.DeleteProfile(ISD-P AID or ICCID)
 
 2. ISD-R verifies:
-   - Profile Policy Rules allow deletion (ppr2 check)
-   - If the Profile is Enabled, ppr1 also checked (must allow disabling)
+ - Profile Policy Rules allow deletion (ppr2 check)
+ - If the Profile is Enabled, ppr1 also checked (must allow disabling)
 
 3. ISD-R deletes the ISD-P:
-   - All Profile Components destroyed (MNO-SD, NAAs, file system, applets)
-   - ISD-P removed from eUICC
+ - All Profile Components destroyed (MNO-SD, NAAs, file system, applets)
+ - ISD-P removed from eUICC
 
 4. If deleted Profile was the currently Enabled one:
-   - No profile is enabled
-   - Device signals baseband: no Enabled Profile
+ - No profile is enabled
+ - Device signals baseband: no Enabled Profile
 ```
 
 **Profile Policy Rule `ppr3`** ("Delete after disable") triggers automatic deletion when a profile is disabled: useful for one-time provisioning profiles that shouldn't persist.
@@ -137,15 +137,15 @@ Retrieving what's installed:
 1. LPA → eUICC: ES10c.GetProfilesInfo()
 
 2. eUICC returns per-profile:
-   - ICCID
-   - ISD-P AID
-   - Profile state (Enabled/Disabled)
-   - Profile nickname (if set)
-   - Profile class (Operational/Provisioning/Test)
-   - Operator name
-   - Profile name
-   - Icon (optional)
-   - Profile Policy Rules
+ - ICCID
+ - ISD-P AID
+ - Profile state (Enabled/Disabled)
+ - Profile nickname (if set)
+ - Profile class (Operational/Provisioning/Test)
+ - Operator name
+ - Profile name
+ - Icon (optional)
+ - Profile Policy Rules
 ```
 
 Provisioning Profiles and their metadata are **not visible to the End User in the LUI** : they exist only for machine-to-machine use. The LPA filters them from display.
@@ -160,9 +160,9 @@ Factory-resets the entire chip:
 1. LPA → eUICC: ES10c.eUICCMemoryReset()
 
 2. ISD-R:
-   - Deletes all Operational and Test Profiles
-   - Keeps Provisioning Profiles (by spec: "not deletable through End User action")
-   - Returns eUICC to a state equivalent to post-manufacturing
+ - Deletes all Operational and Test Profiles
+ - Keeps Provisioning Profiles (by spec: "not deletable through End User action")
+ - Returns eUICC to a state equivalent to post-manufacturing
 ```
 
 **eUICC Test Memory Reset** is a lighter variant that only deletes post-issuance Test Profiles: useful for development and testing without affecting production profiles.
@@ -221,7 +221,7 @@ For development and testing, SGP.22 defines a **Device Test Mode** : a hidden mo
 
 ---
 
-## 📋 Summary
+## Summary
 
 - All local management flows through `ES10c` to the `ISD-R`, which enforces Profile Policy Rules before any state change
 - Profiles toggle between Enabled (active, modem-visible) and Disabled (dormant, fully installed); switching triggers careful session termination and baseband signalling
@@ -233,7 +233,7 @@ For development and testing, SGP.22 defines a **Device Test Mode** : a hidden mo
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp22/04-esim-security-pki">eSIM Security: The PKI and Certificate Model</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp22/04-esim-security-pki">eSIM Security: The PKI and Certificate Model</a> · <a href="{{ site.baseurl }}/"> Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp22/06-developer-interfaces">The Developer's View: RSP Interfaces and Protocol Binding</a> →
 

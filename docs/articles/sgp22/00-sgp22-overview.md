@@ -6,11 +6,11 @@ date: 2026-06-05
 
 # eSIM Remote SIM Provisioning (RSP) : How It Works
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > eSIM Remote SIM Provisioning (RSP) : How It Works**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > eSIM Remote SIM Provisioning (RSP) : How It Works**
 
-> **📚 Prerequisites:** New to telecom or smart card technology? Read our [Prerequisites Guide]({{ site.baseurl }}/docs/prerequisites) first. The [Glossary]({{ site.baseurl }}/docs/glossary) defines all acronyms used in these articles.
+> **Prerequisites:** New to telecom or smart card technology? Read our [Prerequisites Guide]({{ site.baseurl }}/docs/prerequisites) first. The [Glossary]({{ site.baseurl }}/docs/glossary) defines all acronyms used in these articles.
 
-> **💡 Why this matters:** SGP.22 is the protocol behind every eSIM download, carrier switch, and multi-profile device on the planet. Understanding it gives you the foundation for everything from consumer eSIM UX to industrial IoT provisioning.
+> **Why this matters:** SGP.22 is the protocol behind every eSIM download, carrier switch, and multi-profile device on the planet. Understanding it gives you the foundation for everything from consumer eSIM UX to industrial IoT provisioning.
 
 > **Key takeaways:**
 > - RSP lets you securely download operator credentials over the internet into a chip manufactured months earlier by a different company
@@ -188,7 +188,7 @@ That's it. The device extracts the SM-DP+ URL and the Matching ID, then begins t
 
 ---
 
-## 📋 Summary
+## Summary
 
 - **RSP** is the technology behind eSIM: it replaces physical SIM cards with a secure over-the-internet credential delivery protocol
 - Five actors (eUICC, SM-DP+, SM-DS, LPA, Operator) interact across thirteen standardised interfaces to order, discover, deliver, and manage profiles
@@ -200,7 +200,7 @@ That's it. The device extracts the SM-DP+ URL and the Matching ID, then begins t
 
 <div align="center">
 
-<a href="{{ site.baseurl }}/">🏠 Home</a>
+<a href="{{ site.baseurl }}/"> Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp22/00b-sgp22-v2-v3-split">SGP.22 v2.x vs v3.x: The Specification Split</a> →
 

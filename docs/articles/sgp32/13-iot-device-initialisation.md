@@ -6,9 +6,9 @@ date: 2026-06-04
 
 # IoT Device Initialisation and the eUICC File Structure
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.32 IoT eSIM]({{ site.baseurl }}/docs/articles/sgp32/) > IoT Device Initialisation and the eUICC File Structure**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.32 IoT eSIM]({{ site.baseurl }}/docs/articles/sgp32/) > IoT Device Initialisation and the eUICC File Structure**
 
-> **💡 Why this matters:** Before an IoT device can receive profiles or respond to remote management commands, a precise boot sequence must execute: the eUICC initialises, the `IPA` activates, associated eIMs are discovered, and connectivity is assessed. Understanding this sequence and the eUICC file structure that underpins it is critical for anyone integrating eSIM into IoT hardware.
+> **Why this matters:** Before an IoT device can receive profiles or respond to remote management commands, a precise boot sequence must execute: the eUICC initialises, the `IPA` activates, associated eIMs are discovered, and connectivity is assessed. Understanding this sequence and the eUICC file structure that underpins it is critical for anyone integrating eSIM into IoT hardware.
 
 > **Key takeaways:**
 > - Six-stage boot sequence: power-on reset → profile discovery → ISD-R selection → `IPA` activation → eIM discovery → connectivity assessment
@@ -41,16 +41,16 @@ The device reports its capabilities to the `eIM` during initialisation via `Devi
 
 ```
 DeviceInfo ::= SEQUENCE {
-    tac                 OCTET STRING,     -- Type Allocation Code
-    deviceCapabilities  DeviceCapabilities,
-    ...
+ tac OCTET STRING, -- Type Allocation Code
+ deviceCapabilities DeviceCapabilities,
+ ...
 }
 
 DeviceCapabilities includes:
-    - ipaMode:               IPAd or IPAe
-    - supportedTransports:   HTTP, CoAP, MQTT, non-IP
-    - gsmAssociation:        Whether the IPA is part of a device management client
-    - lpaFeatures:           Which LPA features are supported
+ - ipaMode: IPAd or IPAe
+ - supportedTransports: HTTP, CoAP, MQTT, non-IP
+ - gsmAssociation: Whether the IPA is part of a device management client
+ - lpaFeatures: Which LPA features are supported
 ```
 
 The `eIM` uses this to decide its communication strategy: an `IPAe` on an NB-IoT sensor needs very different handling than an `IPAd` on a Linux gateway.
@@ -84,9 +84,9 @@ When the `IPA` is inside the eUICC (`IPAe`), selection follows a specific sequen
 2. ISD-R responds with FCI (File Control Information)
 3. Device checks ISD-R lifecycle state
 4. If IPAe is implemented:
-   a. Device triggers IPAe activation via ISD-R service
-   b. IPAe reads EimConfigurationData
-   c. IPAe initiates eIM Package Retrieval if applicable
+ a. Device triggers IPAe activation via ISD-R service
+ b. IPAe reads EimConfigurationData
+ c. IPAe initiates eIM Package Retrieval if applicable
 ```
 
 ---
@@ -109,32 +109,32 @@ The trigger mechanism is implementation-specific but the retrieval procedure is 
 
 ```
 POWER ON
-  │
-  ▼
+ │
+ ▼
 eUICC boot → ISD-R active → Profile discovery
-  │
-  ▼
+ │
+ ▼
 Device selects ISD-R → reads EF.DIR, EF.ICCID
-  │
-  ├── IPAd path:
-  │      IPA initialises → reads EimConfigurationData from eUICC
-  │      Establishes secure connection to eIM
-  │      Sends IpaEuiccDataRequest (polls for pending operations)
-  │
-  └── IPAe path:
-         Device triggers IPAe → IPAe reads EimConfigurationData
-         IPAe establishes secure connection to eIM
-         IPAe polls for pending eIM Packages
-  │
-  ▼
+ │
+ ├── IPAd path:
+ │ IPA initialises → reads EimConfigurationData from eUICC
+ │ Establishes secure connection to eIM
+ │ Sends IpaEuiccDataRequest (polls for pending operations)
+ │
+ └── IPAe path:
+ Device triggers IPAe → IPAe reads EimConfigurationData
+ IPAe establishes secure connection to eIM
+ IPAe polls for pending eIM Packages
+ │
+ ▼
 If Enabled Profile exists:
-    Baseband executes network attach
-    Device reports connectivity status to eIM
-  │
-  ▼
+ Baseband executes network attach
+ Device reports connectivity status to eIM
+ │
+ ▼
 If no Enabled Profile:
-    Device waits for eIM to push ProfileDownloadTrigger
-    OR enters Fallback Mechanism if Fallback Profile configured
+ Device waits for eIM to push ProfileDownloadTrigger
+ OR enters Fallback Mechanism if Fallback Profile configured
 ```
 
 ---
@@ -153,7 +153,7 @@ The Fallback Profile is typically a provisioning profile from the device manufac
 
 ---
 
-## 📋 Summary
+## Summary
 
 - Six-stage boot sequence ensures the eUICC, `IPA`, and associated eIMs are ready before any profile operations begin
 - `DeviceInfo` reports capabilities to the `eIM`, enabling protocol and flow adaptation per device class
@@ -164,7 +164,7 @@ The Fallback Profile is typically a provisioning profile from the device manufac
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp32/12-notifications-errors">Notifications and Error Handling in IoT eSIM</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp32/12-notifications-errors">Notifications and Error Handling in IoT eSIM</a> · <a href="{{ site.baseurl }}/"> Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp32/14-iot-profile-state-management">Profile State Management via the eIM: Remote Enable, Disable, Delete</a> →
 

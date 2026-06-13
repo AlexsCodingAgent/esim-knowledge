@@ -6,7 +6,7 @@ date: 2026-06-07
 
 # M2M Certificate Hierarchy: CI, EUM, SM-DP, SM-SR, and eUICC
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.02 M2M RSP]({{ site.baseurl }}/docs/articles/sgp02/) > M2M Certificate Hierarchy: CI, EUM, SM-DP, SM-SR, and eUICC**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.02 M2M RSP]({{ site.baseurl }}/docs/articles/sgp02/) > M2M Certificate Hierarchy: CI, EUM, SM-DP, SM-SR, and eUICC**
 
 If you've been following along from [the eUICC Internals article]({{ site.baseurl }}/docs/articles/sgp02/02-sgp02-euicc-internals), you already know the ECASD sits at the cryptographic center of the chip, holding certificates and a private key that never leaves the hardware. And [the Architecture piece]({{ site.baseurl }}/docs/articles/sgp02/01-sgp02-architecture) introduced the CI and EUM as the two entities that make the whole trust system work. Now we get into how those certificates actually chain together, because if you don't understand the trust model, nothing else in SGP.02 clicks.
 
@@ -19,21 +19,21 @@ Here's the shape of it: SGP.02 runs a three-tier PKI, with the CI root certifica
 SGP.02 §2.3 lays out the hierarchy. Here's the chain:
 
 ```
-         ┌──────────────────┐
-         │  CI Root (self)  │  ← Self-signed, pre-loaded in ECASD
-         └────────┬─────────┘
-      ┌───────────┼───────────┐
-      │           │           │
-      ▼           ▼           ▼
+ ┌──────────────────┐
+ │ CI Root (self) │ ← Self-signed, pre-loaded in ECASD
+ └────────┬─────────┘
+ ┌───────────┼───────────┐
+ │ │ │
+ ▼ ▼ ▼
  ┌─────────┐ ┌─────────┐ ┌─────────┐
- │   EUM   │ │  SM-DP  │ │  SM-SR  │  ← Signed by CI
- │  Cert   │ │  Cert   │ │  Cert   │
+ │ EUM │ │ SM-DP │ │ SM-SR │ ← Signed by CI
+ │ Cert │ │ Cert │ │ Cert │
  └────┬────┘ └─────────┘ └─────────┘
-      │
-      ▼
+ │
+ ▼
  ┌─────────┐
- │  eUICC  │                              ← Signed by EUM
- │  Cert   │
+ │ eUICC │ ← Signed by EUM
+ │ Cert │
  └─────────┘
 ```
 
@@ -75,8 +75,8 @@ Here's a detail that trips people up: the CA-ID field alone doesn't identify whi
 
 - The **SubjectKeyIdentifier** extension in parent certificates (CI and EUM, both X.509) uniquely identifies the signing key pair
 - The **AuthorityKeyIdentifier** in child certificates must match that parent's SubjectKeyIdentifier
-  - For EUM certificates (X.509): the standard Authority Key Identifier extension per RFC 5280
-  - For eUICC, SM-DP, SM-SR certificates (GP Amendment E): tag `C9` inside tag `73`
+ - For EUM certificates (X.509): the standard Authority Key Identifier extension per RFC 5280
+ - For eUICC, SM-DP, SM-SR certificates (GP Amendment E): tag `C9` inside tag `73`
 
 This matching lets the eUICC unambiguously verify that `CERT.DP.ECDSA` was signed by the specific CI key whose public key is stored in the ECASD, even if the CI operates a dozen different signing keys.
 
@@ -184,7 +184,7 @@ SGP.02 and SGP.22 share the same CI root concept and three-tier structure, but t
 
 <div align="center">
 
-<a href="{{ site.baseurl }}/">🏠 Home</a>
+<a href="{{ site.baseurl }}/"> Home</a>
 
 ← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp02/02-sgp02-euicc-internals">Inside the M2M eUICC</a> | Next: <a href="{{ site.baseurl }}/docs/articles/sgp02/04-sgp02-ota">OTA Communication</a> →
 

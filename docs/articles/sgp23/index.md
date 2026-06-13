@@ -3,7 +3,7 @@ layout: default
 title: "SGP.23: RSP Test Specification"
 ---
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > SGP.23: RSP Test Specification**
+**[eUICC.tech]({{ site.baseurl }}/) > SGP.23: RSP Test Specification**
 
 # SGP.23: RSP Test Specification
 

@@ -7,7 +7,7 @@ title: "Off-Card Interfaces: ES1–ES7 and the SOAP Binding"
 
 # Off-Card Interfaces: ES1–ES7 and the SOAP Binding
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.02 M2M RSP]({{ site.baseurl }}/docs/articles/sgp02/) > Off-Card Interfaces: ES1–ES7 and the SOAP Binding**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.02 M2M RSP]({{ site.baseurl }}/docs/articles/sgp02/) > Off-Card Interfaces: ES1–ES7 and the SOAP Binding**
 
 If you're implementing an SM-DP, integrating with an SM-SR, or debugging a profile operation that's failing somewhere in the chain, this is the article you'll keep coming back to. The off-card interfaces (ES1 through ES7) are the communication fabric that connects every server-side entity in the SGP.02 ecosystem. Together they carry somewhere north of ninety defined functions, and understanding which entity calls which function on which interface is table stakes for any serious implementation work.
 
@@ -240,7 +240,7 @@ Every on-card operation flows through ES5. Every server-side operation flows thr
 
 ---
 
-## 📋 Summary
+## Summary
 
 - Six off-card interfaces carry roughly 90+ defined functions, with the SM-SR at the centre of most of them
 - ES3 is the busiest (28 functions); it's where the SM-DP and SM-SR do the real work of Profile management
@@ -254,7 +254,7 @@ Every on-card operation flows through ES5. Every server-side operation flows thr
 
 <div align="center">
 
-<a href="{{ site.baseurl }}/">🏠 Home</a>
+<a href="{{ site.baseurl }}/"> Home</a>
 
 Previous: <a href="09-sgp02-policy-notifications">Policy Rules & Notifications: POL1, POL2, and the Default Notification</a> →
 Next: <a href="11-sgp02-comparison">SGP.02 vs SGP.22 vs SGP.32: Push, Pull, and the Evolution of eSIM</a> →

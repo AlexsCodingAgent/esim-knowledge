@@ -6,9 +6,9 @@ date: 2026-06-05
 
 # EID Security: Privacy, Tracking, and GSMA Governance
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.29 EID]({{ site.baseurl }}/docs/articles/sgp29/) > EID Security: Privacy, Tracking, and GSMA Governance**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.29 EID]({{ site.baseurl }}/docs/articles/sgp29/) > EID Security: Privacy, Tracking, and GSMA Governance**
 
-> **💡 Why this matters:** The EID is a permanent, globally unique identifier burned into every eSIM chip. If misused, it could become a surveillance mechanism: allowing third parties to track devices across networks, correlate eSIM activity with physical locations, or impersonate legitimate eUICCs. SGP.29 establishes governance and privacy controls designed to prevent these outcomes, while the GSMA's central registry and verification processes form the enforcement backbone.
+> **Why this matters:** The EID is a permanent, globally unique identifier burned into every eSIM chip. If misused, it could become a surveillance mechanism: allowing third parties to track devices across networks, correlate eSIM activity with physical locations, or impersonate legitimate eUICCs. SGP.29 establishes governance and privacy controls designed to prevent these outcomes, while the GSMA's central registry and verification processes form the enforcement backbone.
 
 > **Key takeaways:**
 > - The EID is a permanent identifier: it survives profile changes, factory resets, and device transfers: making privacy controls essential
@@ -30,23 +30,23 @@ The EID's security model isn't about encryption or access control (that's SGP.22
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                     EID Privacy Boundaries                      │
+│ EID Privacy Boundaries │
 ├─────────────────────────────────────────────────────────────────┤
-│                                                                  │
-│   EID DOES reveal:                    EID does NOT reveal:      │
-│   ┌──────────────────────┐            ┌──────────────────────┐  │
-│   │ • eUICC manufacturer │            │ • Subscriber identity │  │
-│   │ • Chip generation    │            │ • Phone number        │  │
-│   │ • Manufacturing batch│            │ • Network operator    │  │
-│   │ • ERHI delegation    │            │ • Current location    │  │
-│   │   chain              │            │ • Active profiles     │  │
-│   └──────────────────────┘            │ • Device model        │  │
-│                                       │ • End user identity   │  │
-│                                       └──────────────────────┘  │
-│                                                                  │
-│   EID.P03: "The EID is not a Primary Account Number (PAN)."     │
-│   EID.P04: "The EID is not intended to be used to charge for    │
-│             telecommunication services."                         │
+│ │
+│ EID DOES reveal: EID does NOT reveal: │
+│ ┌──────────────────────┐ ┌──────────────────────┐ │
+│ │ • eUICC manufacturer │ │ • Subscriber identity │ │
+│ │ • Chip generation │ │ • Phone number │ │
+│ │ • Manufacturing batch│ │ • Network operator │ │
+│ │ • ERHI delegation │ │ • Current location │ │
+│ │ chain │ │ • Active profiles │ │
+│ └──────────────────────┘ │ • Device model │ │
+│ │ • End user identity │ │
+│ └──────────────────────┘ │
+│ │
+│ EID.P03: "The EID is not a Primary Account Number (PAN)." │
+│ EID.P04: "The EID is not intended to be used to charge for │
+│ telecommunication services." │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
@@ -96,25 +96,25 @@ The GSMA maintains a list of all assigned ERHI1s and their status. This is the a
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│               GSMA Yearly Integrity Review Cycle                │
+│ GSMA Yearly Integrity Review Cycle │
 ├─────────────────────────────────────────────────────────────────┤
-│                                                                  │
-│   Collect:    Gather assignment data from all Subsequent        │
-│               Level EAAs (usage reports, sub-delegations)       │
-│                    │                                             │
-│                    ▼                                             │
-│   Analyse:    Compare actual usage against assigned ranges      │
-│               Identify any anomalies or policy violations       │
-│                    │                                             │
-│                    ▼                                             │
-│   Report:     Present findings to the GSMA group responsible    │
-│               for SGP.29 (eSIMG / ISAG)                         │
-│                    │                                             │
-│                    ▼                                             │
-│   Act:        Take corrective action if needed                  │
-│               (e.g., address underutilised ranges,               │
-│                investigate violations)                           │
-│                                                                  │
+│ │
+│ Collect: Gather assignment data from all Subsequent │
+│ Level EAAs (usage reports, sub-delegations) │
+│ │ │
+│ ▼ │
+│ Analyse: Compare actual usage against assigned ranges │
+│ Identify any anomalies or policy violations │
+│ │ │
+│ ▼ │
+│ Report: Present findings to the GSMA group responsible │
+│ for SGP.29 (eSIMG / ISAG) │
+│ │ │
+│ ▼ │
+│ Act: Take corrective action if needed │
+│ (e.g., address underutilised ranges, │
+│ investigate violations) │
+│ │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
@@ -125,21 +125,21 @@ The GSMA maintains a list of all assigned ERHI1s and their status. This is the a
 SGP.29 defines a complete lifecycle for EIDs and their ranges:
 
 ```
- ┌──────────┐    ┌──────────┐    ┌──────────────┐    ┌──────────┐
- │ASSIGNMENT│───▶│  ACTIVE  │───▶│ CANCELLATION │───▶│ EXPIRED  │
- │          │    │   USE    │    │   REQUEST    │    │(archived)│
- └──────────┘    └──────────┘    └──────────────┘    └──────────┘
-      │               │                │                   │
-      │               │                │                   │
-  GSMA verifies   EUM assigns     Holder submits      Never reassigned
-  ≤5 days         ESINs to        cancellation        to any other
-  authenticity    individual       form                 entity
-                  chips
-                                  │
-                                  ▼
-                           GSMA verifies
-                           ≤5 days, then
-                           cancels ERHI1
+ ┌──────────┐ ┌──────────┐ ┌──────────────┐ ┌──────────┐
+ │ASSIGNMENT│───▶│ ACTIVE │───▶│ CANCELLATION │───▶│ EXPIRED │
+ │ │ │ USE │ │ REQUEST │ │(archived)│
+ └──────────┘ └──────────┘ └──────────────┘ └──────────┘
+ │ │ │ │
+ │ │ │ │
+ GSMA verifies EUM assigns Holder submits Never reassigned
+ ≤5 days ESINs to cancellation to any other
+ authenticity individual form entity
+ chips
+ │
+ ▼
+ GSMA verifies
+ ≤5 days, then
+ cancels ERHI1
 ```
 
 ### Cancellation Safeguards
@@ -161,21 +161,21 @@ This is a critical security requirement:
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                    EID Numbering Namespace                      │
+│ EID Numbering Namespace │
 ├─────────────────────────────────────────────────────────────────┤
-│                                                                  │
-│  89XXXXXXXX...          ┌──────────────────┐                    │
-│  (ITU-T E.118 legacy)   │ Reserved for      │                   │
-│                         │ ICCID-based EIDs  │                   │
-│                         └──────────────────┘                    │
-│                                                                  │
-│  00-88XXXXXXXX...        ┌──────────────────┐                    │
-│  90-99XXXXXXXX...        │ GSMA SGP.29      │                   │
-│                         │ assigned EIDs     │                   │
-│                         └──────────────────┘                    │
-│                                                                  │
-│  Both schemes coexist. No collision is possible because         │
-│  the "89" prefix acts as an unambiguous namespace separator.     │
+│ │
+│ 89XXXXXXXX... ┌──────────────────┐ │
+│ (ITU-T E.118 legacy) │ Reserved for │ │
+│ │ ICCID-based EIDs │ │
+│ └──────────────────┘ │
+│ │
+│ 00-88XXXXXXXX... ┌──────────────────┐ │
+│ 90-99XXXXXXXX... │ GSMA SGP.29 │ │
+│ │ assigned EIDs │ │
+│ └──────────────────┘ │
+│ │
+│ Both schemes coexist. No collision is possible because │
+│ the "89" prefix acts as an unambiguous namespace separator. │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
@@ -198,7 +198,7 @@ This is significantly stronger than the Luhn MOD 10 algorithm (used for credit c
 
 ---
 
-## 📋 Summary
+## Summary
 
 - The EID is a permanent identifier: privacy controls are architectural, not optional
 - EID.P03 and EID.P04 explicitly separate the EID from subscriber identity and charging: limiting tracking and financial fraud
@@ -212,7 +212,7 @@ This is significantly stronger than the Luhn MOD 10 algorithm (used for credit c
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp29/30-sgp29-in-protocols">EID in RSP Protocols: Discovery, Matching, and Events</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp29/30-sgp29-in-protocols">EID in RSP Protocols: Discovery, Matching, and Events</a> · <a href="{{ site.baseurl }}/"> Home</a>
 
 </div>
 

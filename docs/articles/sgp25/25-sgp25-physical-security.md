@@ -6,9 +6,9 @@ date: 2026-06-05
 
 # Physical Security: Side-Channel and Fault Injection Defences
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.25 eUICC Security]({{ site.baseurl }}/docs/articles/sgp25/) > Physical Security: Side-Channel and Fault Injection Defences**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.25 eUICC Security]({{ site.baseurl }}/docs/articles/sgp25/) > Physical Security: Side-Channel and Fault Injection Defences**
 
-> **💡 Why this matters:** An eUICC doesn't just face network-based attacks: it sits inside a device that an adversary can physically hold, probe, and manipulate. Side-channel analysis can extract cryptographic keys from power consumption patterns. Fault injection can flip bits during critical operations. Physical tampering can expose internal buses and memory. SGP.25 explicitly addresses these threats, requiring the TOE and its underlying platform to resist attackers with oscilloscopes, glitching tools, and lab benches.
+> **Why this matters:** An eUICC doesn't just face network-based attacks: it sits inside a device that an adversary can physically hold, probe, and manipulate. Side-channel analysis can extract cryptographic keys from power consumption patterns. Fault injection can flip bits during critical operations. Physical tampering can expose internal buses and memory. SGP.25 explicitly addresses these threats, requiring the TOE and its underlying platform to resist attackers with oscilloscopes, glitching tools, and lab benches.
 
 > **Key takeaways:**
 > - T.PHYSICAL-ATTACK is a "second-level" threat covering environmental stress, electrical probing, side channels, fault injection, and physical tampering
@@ -102,25 +102,25 @@ OE.IC.SUPPORT specifies four essential capabilities:
 
 ```
 (1) Non-bypassability and non-alterability of TSF:
-    The IC must not allow TSF functions to be bypassed or altered, and
-    must not allow access to low-level functions beyond those exposed
-    through the API.
-    → Includes protection of private data and code against disclosure
-      or modification at the hardware level.
+ The IC must not allow TSF functions to be bypassed or altered, and
+ must not allow access to low-level functions beyond those exposed
+ through the API.
+ → Includes protection of private data and code against disclosure
+ or modification at the hardware level.
 
 (2) Secure low-level cryptographic processing:
-    The IC must provide secure cryptographic primitives to the Profile
-    Rules Enforcer, Profile Package Interpreter, and Telecom Framework.
+ The IC must provide secure cryptographic primitives to the Profile
+ Rules Enforcer, Profile Package Interpreter, and Telecom Framework.
 
 (3) Structured memory with access controls:
-    Memory model must be structured and allow low-level control
-    accesses (segmentation fault detection).
-    → Transient objects must not be stored in non-volatile memory.
-    → Prevents memory-based attacks (buffer overflows, stack smashing).
+ Memory model must be structured and allow low-level control
+ accesses (segmentation fault detection).
+ → Transient objects must not be stored in non-volatile memory.
+ → Prevents memory-based attacks (buffer overflows, stack smashing).
 
 (4) Atomic memory operations:
-    The IC must provide a means to perform memory operations atomically.
-    → Critical for resisting fault injection during state transitions.
+ The IC must provide a means to perform memory operations atomically.
+ → Critical for resisting fault injection during state transitions.
 ```
 
 ### Power Loss Recovery
@@ -200,7 +200,7 @@ This means the eUICC software architecture must include self-protection mechanis
 
 ---
 
-## 📋 Summary
+## Summary
 
 - T.PHYSICAL-ATTACK covers side-channel analysis (SPA/DPA), fault injection, environmental stress, electrical probing, and physical tampering
 - FPT_EMS.1/Base requires the TOE to resist emanation-based attacks, with explicit coverage of SPA, DPA, timing attacks, and EM analysis
@@ -213,7 +213,7 @@ This means the eUICC software architecture must include self-protection mechanis
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp25/24-sgp25-assurance">eUICC Assurance Requirements: EAL4+ and Penetration Testing</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp25/24-sgp25-assurance">eUICC Assurance Requirements: EAL4+ and Penetration Testing</a> · <a href="{{ site.baseurl }}/"> Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp25/26-sgp25-certification">SGP.25 Certification: SAS-UP and the Evaluation Process</a> →
 

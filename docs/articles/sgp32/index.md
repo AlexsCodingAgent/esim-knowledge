@@ -4,7 +4,7 @@ title: "SGP.32: IoT eSIM RSP — GSMA eUICC Architecture for NB-IoT, LTE-M, and 
 description: "Complete GSMA SGP.32 IoT eSIM technical reference: eIM and IPA architecture, direct/indirect profile download, eIM Package protocol, SM-DS operations, DTLS security, and device initialisation for constrained IoT devices."
 ---
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > SGP.32: IoT eSIM RSP**
+**[eUICC.tech]({{ site.baseurl }}/) > SGP.32: IoT eSIM RSP**
 
 # SGP.32: IoT eSIM RSP
 

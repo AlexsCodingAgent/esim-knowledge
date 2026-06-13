@@ -6,9 +6,9 @@ date: 2026-06-05
 
 # IoT eSIM Certification Path: From Test Cases to Production
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.33-3 eIM Testing]({{ site.baseurl }}/docs/articles/sgp33-3/) > IoT eSIM Certification Path: From Test Cases to Production**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.33-3 eIM Testing]({{ site.baseurl }}/docs/articles/sgp33-3/) > IoT eSIM Certification Path: From Test Cases to Production**
 
-> **💡 Why this matters:** Passing SGP.33-3 test cases in a lab is one thing: getting an eIM product certified for production deployment in the IoT eSIM ecosystem is another. The certification path for IoT eSIM components is still evolving: unlike the mature consumer eSIM certification programme (with its well-established GSMA Test Events, SAS audits, and GlobalPlatform DLOAs), IoT eSIM certification is being built incrementally. Understanding the current state and future direction of IoT eSIM certification helps eIM vendors, IoT device manufacturers, and operators plan their compliance strategies.
+> **Why this matters:** Passing SGP.33-3 test cases in a lab is one thing: getting an eIM product certified for production deployment in the IoT eSIM ecosystem is another. The certification path for IoT eSIM components is still evolving: unlike the mature consumer eSIM certification programme (with its well-established GSMA Test Events, SAS audits, and GlobalPlatform DLOAs), IoT eSIM certification is being built incrementally. Understanding the current state and future direction of IoT eSIM certification helps eIM vendors, IoT device manufacturers, and operators plan their compliance strategies.
 
 > **Key takeaways:**
 > - IoT eSIM certification builds on the existing GSMA compliance framework but must address multi-vendor test ecosystems where the eIM, IPA, SM-DP+, SM-DS, and eUICC may all come from different vendors
@@ -31,31 +31,31 @@ Consumer eSIM certification tests individual components (eUICC, LPAd/Device, SM-
 IoT eSIM introduces a fundamentally more complex topology:
 
 ```
-                   Operator
-                      │
-                 ES2+ │
-                      ▼
-  ┌─────────┐    ┌─────────┐
-  │  SM-DP+ │◄──►│  SM-DS  │
-  └────┬────┘    └────┬────┘
-       │ES9+'         │ES11'
-       ▼              ▼
-  ┌─────────────────────────┐
-  │          eIM            │  ← Remote server, multi-tenant
-  └────────────┬────────────┘
-               │ESipa
-       ┌───────┴───────┐
-       ▼               ▼
-  ┌─────────┐    ┌─────────┐
-  │  IPA    │    │  IPA    │  ← Many IoT devices
-  │ (Device │    │ (Device │
-  │   1)    │    │   2)    │
-  └────┬────┘    └────┬────┘
-       │ES10b         │ES10b
-       ▼              ▼
-  ┌─────────┐    ┌─────────┐
-  │ eUICC   │    │ eUICC   │
-  └─────────┘    └─────────┘
+ Operator
+ │
+ ES2+ │
+ ▼
+ ┌─────────┐ ┌─────────┐
+ │ SM-DP+ │◄──►│ SM-DS │
+ └────┬────┘ └────┬────┘
+ │ES9+' │ES11'
+ ▼ ▼
+ ┌─────────────────────────┐
+ │ eIM │ ← Remote server, multi-tenant
+ └────────────┬────────────┘
+ │ESipa
+ ┌───────┴───────┐
+ ▼ ▼
+ ┌─────────┐ ┌─────────┐
+ │ IPA │ │ IPA │ ← Many IoT devices
+ │ (Device │ │ (Device │
+ │ 1) │ │ 2) │
+ └────┬────┘ └────┬────┘
+ │ES10b │ES10b
+ ▼ ▼
+ ┌─────────┐ ┌─────────┐
+ │ eUICC │ │ eUICC │
+ └─────────┘ └─────────┘
 ```
 
 In this topology:
@@ -103,14 +103,14 @@ The eIM vendor prepares:
 
 1. **Implementation**: An eIM conforming to SGP.31/SGP.32 requirements
 2. **Optional Features Declaration** (Table 4):
-   - Does the eIM send TransactionId with eUICC Packages? (O_S_TRID)
-   - Does the eIM support eIM Package Retrieval mode? (O_S_PKG_RETRIEVAL)
-   - Does the eIM use TLS over ESipa? (O_S_ESIPA_HTTPS)
+ - Does the eIM send TransactionId with eUICC Packages? (O_S_TRID)
+ - Does the eIM support eIM Package Retrieval mode? (O_S_PKG_RETRIEVAL)
+ - Does the eIM use TLS over ESipa? (O_S_ESIPA_HTTPS)
 3. **IUT Settings** (Annex F):
-   - `#IUT_RSP_VERSION`: SGP.22 version supported
-   - `#IUT_EIM_ADDRESS`: FQDN of the eIM
-   - `#IUT_EIM_ID`: Unique identifier (OID, FQDN, or proprietary)
-   - `#IUT_TLS_VERSION`: Highest TLS version supported (at least v1.2)
+ - `#IUT_RSP_VERSION`: SGP.22 version supported
+ - `#IUT_EIM_ADDRESS`: FQDN of the eIM
+ - `#IUT_EIM_ID`: Unique identifier (OID, FQDN, or proprietary)
+ - `#IUT_TLS_VERSION`: Highest TLS version supported (at least v1.2)
 
 #### Step 2: Test Execution
 
@@ -201,7 +201,7 @@ SGP.33-3 does not exist in isolation. It connects to:
 
 ---
 
-## 📋 Summary
+## Summary
 
 - IoT eSIM certification requires multi-vendor testing across eIM, IPA, eUICC, SM-DP+, and SM-DS: a more complex ecosystem than consumer eSIM
 - eIM/DUT combo testing bridges isolated conformance testing and real-world deployment, though end-to-end testing remains FFS in SGP.23
@@ -215,7 +215,7 @@ SGP.33-3 does not exist in isolation. It connects to:
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp33-3/45-sgp33-eim-security">eIM Security Testing: DTLS, Certificates, and Signed Packages</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp33-3/45-sgp33-eim-security">eIM Security Testing: DTLS, Certificates, and Signed Packages</a> · <a href="{{ site.baseurl }}/"> Home</a>
 
 </div>
 

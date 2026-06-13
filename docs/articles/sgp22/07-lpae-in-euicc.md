@@ -6,9 +6,9 @@ date: 2026-06-07
 
 # SGP.22 v2.7: LPAe: The In-eUICC Local Profile Assistant
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > LPAe: The In-eUICC Local Profile Assistant**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > LPAe: The In-eUICC Local Profile Assistant**
 
-> **💡 Why this matters:** The LPAe changes everything about device design for eSIM. When the profile management logic lives inside the eUICC itself rather than on the host OS, companion devices like smartwatches can operate independently without needing a fully-fledged LPA application on the host. Understanding LPAe is essential for anyone building IoT, wearable, or headless eSIM devices.
+> **Why this matters:** The LPAe changes everything about device design for eSIM. When the profile management logic lives inside the eUICC itself rather than on the host OS, companion devices like smartwatches can operate independently without needing a fully-fledged LPA application on the host. Understanding LPAe is essential for anyone building IoT, wearable, or headless eSIM devices.
 
 > **Key takeaways:**
 > - The LPA can live in the Device (**LPAd**) or in the eUICC (**LPAe**); both architectures are valid and can coexist
@@ -114,13 +114,13 @@ When a device powers on, it must determine which LPA mode to use. This happens d
 ```
 1. Device reads the eUICC's ATR (Answer To Reset)
 2. Device sends Terminal Capability command (section 3.4.2)
-   - Reports LUId, LPDd, LDSd support via tag '83' bits
-   - Reports LUIe/SCWS support
+ - Reports LUId, LPDd, LDSd support via tag '83' bits
+ - Reports LUIe/SCWS support
 3. Device SELECTs the ISD-R application
 4. ISD-R determines which LPA mode to activate based on:
-   - Device capabilities (from Terminal Capability)
-   - eUICC LPAe capabilities
-   - Device/eUICC arbitration policy
+ - Device capabilities (from Terminal Capability)
+ - eUICC LPAe capabilities
+ - Device/eUICC arbitration policy
 ```
 
 The Terminal Capability command is critical (section 3.4.2, Table 7). It uses bit flags in the TLV object under tag '83':

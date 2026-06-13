@@ -6,9 +6,9 @@ date: 2026-06-05
 
 # eUICC Test Architecture: Readers, Scripts, and GSMA Tools
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.23-1 eUICC Testing]({{ site.baseurl }}/docs/articles/sgp23-1/) > eUICC Test Architecture: Readers, Scripts, and GSMA Tools**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.23-1 eUICC Testing]({{ site.baseurl }}/docs/articles/sgp23-1/) > eUICC Test Architecture: Readers, Scripts, and GSMA Tools**
 
-> **💡 Why this matters:** Testing an eUICC isn't like testing a web API: you can't just send HTTP requests and check JSON responses. The test architecture must handle physical chip interfaces (ISO 7816-4 contacts, USB CCID), APDU-level command chaining, logical channel management, and a parallel test PKI that keeps certification testing isolated from production infrastructure. Understanding this architecture reveals what test tool vendors must build and what eUICC manufacturers must provide.
+> **Why this matters:** Testing an eUICC isn't like testing a web API: you can't just send HTTP requests and check JSON responses. The test architecture must handle physical chip interfaces (ISO 7816-4 contacts, USB CCID), APDU-level command chaining, logical channel management, and a parallel test PKI that keeps certification testing isolated from production infrastructure. Understanding this architecture reveals what test tool vendors must build and what eUICC manufacturers must provide.
 
 > **Key takeaways:**
 > - eUICCs are tested via their contact interface using ISO/IEC 7816-4 APDUs, with all ES10 commands wrapped in STORE DATA sent to the ISD-R
@@ -29,11 +29,11 @@ Every SGP.23-1 test case executes within a carefully specified test environment.
 The standard test environment for eUICCs in removable form factors (Java Card, one of the form factors specified in ETSI TS 102 221):
 
 ```
-S_Device, S_LPAd                      PC/SC reader or         eUICC
-(S_MNO, S_SM-DP+, S_SM-DS)  ──────►  custom hardware  ──────► (IUT)
-        ↑                               (ISO 7816-4)             ↑
-        │                                                         │
-        └── ES6, ES8+, ES10x tunnelled through APDUs ────────────┘
+S_Device, S_LPAd PC/SC reader or eUICC
+(S_MNO, S_SM-DP+, S_SM-DS) ──────► custom hardware ──────► (IUT)
+ ↑ (ISO 7816-4) ↑
+ │ │
+ └── ES6, ES8+, ES10x tunnelled through APDUs ────────────┘
 ```
 
 Key requirements:
@@ -47,10 +47,10 @@ Key requirements:
 For eUICCs embedded in System-on-Chip designs where no physical UICC terminal exists:
 
 ```
-S_Device, S_LPAd           PC/SC USB          Integrated eUICC         Integrated
-                             CCID              Test Interface            eUICC
-S_MNO, S_SM-DP+, S_SM-DS ──►      ──────────► (e.g. USB/Bluetooth) ───► (IUT)
-                                                Card Reader Mode
+S_Device, S_LPAd PC/SC USB Integrated eUICC Integrated
+ CCID Test Interface eUICC
+S_MNO, S_SM-DP+, S_SM-DS ──► ──────────► (e.g. USB/Bluetooth) ───► (IUT)
+ Card Reader Mode
 ```
 
 Key requirements (Annex J):
@@ -120,7 +120,7 @@ Test profiles (Annex E) use known ICCIDs (`89019990001234567893`), known USIM AI
 
 ---
 
-## 📋 Summary
+## Summary
 
 - Two test environments: TE_eUICC (removable, ISO 7816-4 via PC/SC reader) and TE_Integrated eUICC (SoC-embedded, USB CCID in card reader mode)
 - Five simulators (S_Device, S_LPAd, S_SM-DP+, S_SM-DS, S_MNO) implemented by test tool vendors
@@ -133,7 +133,7 @@ Test profiles (Annex E) use known ICCIDs (`89019990001234567893`), known USIM AI
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp23-1/32-sgp23-1-overview">SGP.23-1 Overview: Testing the eUICC Itself</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp23-1/32-sgp23-1-overview">SGP.23-1 Overview: Testing the eUICC Itself</a> · <a href="{{ site.baseurl }}/"> Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp23-1/34-sgp23-1-test-cases">Key eUICC Test Cases: ISD-R, ECASD, and Profile Lifecycle</a> →
 

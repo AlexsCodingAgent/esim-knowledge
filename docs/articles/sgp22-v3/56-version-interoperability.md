@@ -7,9 +7,9 @@ date: 2026-06-06
 
 # Version Interoperability: How v2.x and v3.x Coexist
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.22 v3.x Unified RSP]({{ site.baseurl }}/docs/articles/sgp22-v3/) > Version Interoperability: How v2.x and v3.x Coexist**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.22 v3.x Unified RSP]({{ site.baseurl }}/docs/articles/sgp22-v3/) > Version Interoperability: How v2.x and v3.x Coexist**
 
-> **💡 Why this matters:** The eSIM ecosystem won't flip from v2.x to v3.x overnight. Billions of deployed v2.x eUICCs, thousands of v2.x SM-DP+ servers, and countless v2.x LPA implementations will remain in the field for years. A v3.x device must be able to talk to a v2.x SM-DP+ and SM-DS. A v3.x SM-DP+ must serve both v2.x and v3.x eUICCs. Version interoperability is not an optional feature: it's the foundation that allows the whole ecosystem to evolve without breaking. SGP.22 v3.x bakes this in from day one with explicit version discovery, capability negotiation, and backward-compatible protocol design.
+> **Why this matters:** The eSIM ecosystem won't flip from v2.x to v3.x overnight. Billions of deployed v2.x eUICCs, thousands of v2.x SM-DP+ servers, and countless v2.x LPA implementations will remain in the field for years. A v3.x device must be able to talk to a v2.x SM-DP+ and SM-DS. A v3.x SM-DP+ must serve both v2.x and v3.x eUICCs. Version interoperability is not an optional feature: it's the foundation that allows the whole ecosystem to evolve without breaking. SGP.22 v3.x bakes this in from day one with explicit version discovery, capability negotiation, and backward-compatible protocol design.
 
 > **Key takeaways:**
 > - Version interoperability uses **RSP capability** fields exchanged during Common Mutual Authentication (for device↔server) and **X-Admin-Protocol** HTTP header (for server↔server)
@@ -52,10 +52,10 @@ This is the most common backward-compatibility scenario: a new v3.x device conne
 2. The SM-DP+ (v2.x) responds but does **not** include `rspCapability` in its response: because v2.x servers don't know about this field
 3. The LPA interprets the **absence** of `rspCapability` as meaning "this is a pre-v3 server"
 4. The LPA:
-   - Does NOT attempt Push Service registration
-   - Does NOT include v3.x-only data elements (tagged `#SupportedFromV3.X.Y#`)
-   - Does NOT attempt RPM, Device Change, or any v3.x feature
-   - Falls back to v2.x-compatible profile download and event retrieval
+ - Does NOT attempt Push Service registration
+ - Does NOT include v3.x-only data elements (tagged `#SupportedFromV3.X.Y#`)
+ - Does NOT attempt RPM, Device Change, or any v3.x feature
+ - Falls back to v2.x-compatible profile download and event retrieval
 5. The LPA still provides `lpaRspCapability` in its requests (the server ignores unknown fields per HTTP/JSON conventions)
 
 The result: the v3.x device operates exactly like a v2.x device when talking to a v2.x server.
@@ -68,10 +68,10 @@ The reverse scenario: a v3.x SM-DP+ must serve a v2.x eUICC:
 
 1. During Common Mutual Authentication, the eUICC (via the LPA) does not provide `EuiccRspCapability` : v2.x eUICCs don't know about this field
 2. The SM-DP+ interprets this as "v2.x eUICC" and:
-   - Selects a v2.x-compatible profile package version (e.g., 2.1 or 2.7)
-   - Does NOT include RPM Commands in the bound profile package
-   - Does NOT attempt Device Change or Profile Recovery operations
-   - Does NOT advertise Push Service support (the eUICC can't use it)
+ - Selects a v2.x-compatible profile package version (e.g., 2.1 or 2.7)
+ - Does NOT include RPM Commands in the bound profile package
+ - Does NOT attempt Device Change or Profile Recovery operations
+ - Does NOT advertise Push Service support (the eUICC can't use it)
 3. The SM-DP+ includes `rspCapability=v3.1` in its response, but the v2.x LPA ignores the unknown field
 
 The result: the v3.x SM-DP+ degrades gracefully to v2.x behavior.

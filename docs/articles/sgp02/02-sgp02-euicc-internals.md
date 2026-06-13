@@ -6,7 +6,7 @@ date: 2026-06-07
 
 # Inside the M2M eUICC: ISD-R, ISD-P, ECASD, and EID
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.02 M2M RSP]({{ site.baseurl }}/docs/articles/sgp02/) > Inside the M2M eUICC: ISD-R, ISD-P, ECASD, and EID**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.02 M2M RSP]({{ site.baseurl }}/docs/articles/sgp02/) > Inside the M2M eUICC: ISD-R, ISD-P, ECASD, and EID**
 
 Imagine you're two competing mobile operators. Your profiles are both sitting on the same physical chip inside a smart meter in rural Germany. How do you know (really know, in the cryptographic sense) that the other guy can't see your keys? Your IMSI? Your OTA channel?
 
@@ -16,27 +16,27 @@ This is what the eUICC's security domain architecture does. It's built on Global
 
 ```
 ┌─────────────────────────────────────┐
-│               eUICC                  │
-│  ┌──────────┐  ┌──────────────────┐ │
-│  │  ECASD   │  │      ISD-R       │ │
-│  │ (CI rep) │◄─┤  (SM-SR rep)     │ │
-│  │          │  │                  │ │
-│  │ PK.CI    │  │ Platform Mgmt    │ │
-│  │ SK.ECASD │  │ SCP80/SCP81 keys │ │
-│  │ CERT     │  │ POL2 storage     │ │
-│  │ EID      │  └──────┬───────────┘ │
-│  └──────────┘         │              │
-│                ┌──────┴──────┐       │
-│                │  Associate  │       │
-│       ┌────────┴──┐  ┌──────┴────┐  │
-│       │  ISD-P 1  │  │  ISD-P n  │  │
-│       │ (SM-DP)   │  │ (SM-DP)   │  │
-│       │           │  │           │  │
-│       │ Profile 1 │  │ Profile n │  │
-│       │ MNO-SD    │  │ MNO-SD    │  │
-│       │ NAA, FS   │  │ NAA, FS   │  │
-│       │ Applets   │  │ Applets   │  │
-│       └───────────┘  └───────────┘  │
+│ eUICC │
+│ ┌──────────┐ ┌──────────────────┐ │
+│ │ ECASD │ │ ISD-R │ │
+│ │ (CI rep) │◄─┤ (SM-SR rep) │ │
+│ │ │ │ │ │
+│ │ PK.CI │ │ Platform Mgmt │ │
+│ │ SK.ECASD │ │ SCP80/SCP81 keys │ │
+│ │ CERT │ │ POL2 storage │ │
+│ │ EID │ └──────┬───────────┘ │
+│ └──────────┘ │ │
+│ ┌──────┴──────┐ │
+│ │ Associate │ │
+│ ┌────────┴──┐ ┌──────┴────┐ │
+│ │ ISD-P 1 │ │ ISD-P n │ │
+│ │ (SM-DP) │ │ (SM-DP) │ │
+│ │ │ │ │ │
+│ │ Profile 1 │ │ Profile n │ │
+│ │ MNO-SD │ │ MNO-SD │ │
+│ │ NAA, FS │ │ NAA, FS │ │
+│ │ Applets │ │ Applets │ │
+│ └───────────┘ └───────────┘ │
 └─────────────────────────────────────┘
 ```
 
@@ -84,26 +84,26 @@ An ISD-P (Issuer Security Domain, Profile) holds exactly one Profile. A chip can
 An ISD-P follows a strict lifecycle (SGP.02 §2.2.1.3, Figure 3):
 
 ```
-  [Created via ES5.CreateISDP]
-            │
-            ▼
-       SELECTABLE ◄── exists but empty
-            │
-            │ Key Establishment (§3.1.2)
-            ▼
-      PERSONALIZED ◄── SCP03 keys loaded, ready for profile
-            │
-            │ Profile Download (§3.1.3)
-            ▼
-        DISABLED ◄──────────┐
-            │                │
-            │ Enable (§3.2)  │ Disable (§3.4)
-            ▼                │ or Fall-Back
-        ENABLED ────────────┘
-            │
-            │ Delete
-            ▼
-        [Deleted, ISD-P removed from eUICC]
+ [Created via ES5.CreateISDP]
+ │
+ ▼
+ SELECTABLE ◄── exists but empty
+ │
+ │ Key Establishment (§3.1.2)
+ ▼
+ PERSONALIZED ◄── SCP03 keys loaded, ready for profile
+ │
+ │ Profile Download (§3.1.3)
+ ▼
+ DISABLED ◄──────────┐
+ │ │
+ │ Enable (§3.2) │ Disable (§3.4)
+ ▼ │ or Fall-Back
+ ENABLED ────────────┘
+ │
+ │ Delete
+ ▼
+ [Deleted, ISD-P removed from eUICC]
 ```
 
 A few things about this lifecycle that matter:
@@ -181,7 +181,7 @@ Three Security Domains. One immutable identity in the ECASD. One platform manage
 
 <div align="center">
 
-<a href="{{ site.baseurl }}/">🏠 Home</a>
+<a href="{{ site.baseurl }}/"> Home</a>
 
 ← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp02/01-sgp02-architecture">M2M Ecosystem</a> | Next: <a href="{{ site.baseurl }}/docs/articles/sgp02/03-sgp02-pki">M2M Certificate Hierarchy</a> →
 

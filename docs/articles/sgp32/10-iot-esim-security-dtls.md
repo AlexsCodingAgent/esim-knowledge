@@ -6,9 +6,9 @@ date: 2026-06-01
 
 # IoT eSIM Security: eIM Certificates, DTLS, and Device Trust
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.32 IoT eSIM]({{ site.baseurl }}/docs/articles/sgp32/) > IoT eSIM Security: eIM Certificates, DTLS, and Device Trust**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.32 IoT eSIM]({{ site.baseurl }}/docs/articles/sgp32/) > IoT eSIM Security: eIM Certificates, DTLS, and Device Trust**
 
-> **💡 Why this matters:** IoT devices live in hostile environments: remote locations, no physical security, constrained CPUs that can't run full PKI stacks. The IoT eSIM security model extends the consumer PKI with a new `eIM` certificate class, adapts transport security from TLS to DTLS for UDP-based LPWA networks, and introduces three trust models for devices ranging from Linux gateways to bare-metal RTOS sensors.
+> **Why this matters:** IoT devices live in hostile environments: remote locations, no physical security, constrained CPUs that can't run full PKI stacks. The IoT eSIM security model extends the consumer PKI with a new `eIM` certificate class, adapts transport security from TLS to DTLS for UDP-based LPWA networks, and introduces three trust models for devices ranging from Linux gateways to bare-metal RTOS sensors.
 
 > **Key takeaways:**
 > - New certificate class: `CERT.EIM.ECDSA` (signing) and `CERT.EIM.TLS` (transport): separate keys, separate purposes
@@ -28,16 +28,16 @@ The IoT eSIM security model extends the consumer PKI with a new certificate clas
 SGP.32 adds one new certificate type to the SGP.22 trust chain:
 
 ```
-                    GSMA Certificate Issuer (CI)
-                    │
-    ┌───────────────┼───────────────┬──────────────────┐
-    │               │               │                  │
-    ▼               ▼               ▼                  ▼
-EUM Cert       DP/DS Certs      eIM Signing        eIM TLS/DTLS
-(CERT.EUM)   (CERT.DPauth,   Certificate         Certificate
-              CERT.DSauth)   (CERT.EIM.ECDSA)   (CERT.EIM.TLS)
-    │
-    ▼
+ GSMA Certificate Issuer (CI)
+ │
+ ┌───────────────┼───────────────┬──────────────────┐
+ │ │ │ │
+ ▼ ▼ ▼ ▼
+EUM Cert DP/DS Certs eIM Signing eIM TLS/DTLS
+(CERT.EUM) (CERT.DPauth, Certificate Certificate
+ CERT.DSauth) (CERT.EIM.ECDSA) (CERT.EIM.TLS)
+ │
+ ▼
 eUICC Cert
 (CERT.EUICC)
 ```
@@ -116,8 +116,8 @@ Consumer RSP uses TLS over TCP exclusively. IoT adds DTLS over UDP: critical for
 SGP.32 mandates specific cipher suites:
 
 ```
-TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256     (RFC 5289)
-TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384     (RFC 5289)
+TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 (RFC 5289)
+TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 (RFC 5289)
 ```
 
 Brainpool curves (RFC 7027) are supported as alternatives to NIST P-256 for jurisdictions requiring non-NIST cryptography.
@@ -178,7 +178,7 @@ The fallback mechanism is triggered by the eUICC autonomously: no eIM involvemen
 
 ---
 
-## 📋 Summary
+## Summary
 
 - IoT extends consumer PKI with `CERT.EIM.ECDSA` (signing) and `CERT.EIM.TLS` (transport), each with distinct key usage
 - Three trust models (full PKI, certificate pinning, raw public key) accommodate devices from Linux gateways to RTOS sensors
@@ -189,7 +189,7 @@ The fallback mechanism is triggered by the eUICC autonomously: no eIM involvemen
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp32/09-iot-profile-download-packages">IoT Profile Download: Direct, Indirect, and eIM Package Handling</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp32/09-iot-profile-download-packages">IoT Profile Download: Direct, Indirect, and eIM Package Handling</a> · <a href="{{ site.baseurl }}/"> Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp32/11-eim-configuration">eIM Configuration: Associating Remote Managers with Your eUICC</a> →
 

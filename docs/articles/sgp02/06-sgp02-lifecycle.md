@@ -7,7 +7,7 @@ title: "Profile Lifecycle: Enable, Disable, Delete, and Fall-Back"
 
 # Profile Lifecycle: Enable, Disable, Delete, and Fall-Back
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.02 M2M RSP]({{ site.baseurl }}/docs/articles/sgp02/) > Profile Lifecycle: Enable, Disable, Delete, and Fall-Back**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.02 M2M RSP]({{ site.baseurl }}/docs/articles/sgp02/) > Profile Lifecycle: Enable, Disable, Delete, and Fall-Back**
 
 You've downloaded a Profile onto an eUICC inside a sealed water meter. It's sitting there, disabled, waiting. Now the real work begins: this Profile will be enabled, disabled, maybe deleted, and possibly resurrected through Fall-Back, all over the course of a deployment that might outlast the careers of the engineers who provisioned it.
 
@@ -141,7 +141,7 @@ The three-path architecture is what makes SGP.02 flexible enough for diverse M2M
 
 <div align="center">
 
-<a href="{{ site.baseurl }}/">🏠 Home</a>
+<a href="{{ site.baseurl }}/"> Home</a>
 
 Previous: <a href="05-sgp02-download">Profile Download: ISD-P Creation, SCP03, and Encrypted Delivery</a> →
 Next: <a href="07-sgp02-sm-sr-change">SM-SR Change: Handover, ES7 Interface, and EIS Migration</a> →

@@ -6,9 +6,9 @@ date: 2026-06-05
 
 # The GSMA eSIM Test Infrastructure
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.23 Test Specifications]({{ site.baseurl }}/docs/articles/sgp23/) > The GSMA eSIM Test Infrastructure**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.23 Test Specifications]({{ site.baseurl }}/docs/articles/sgp23/) > The GSMA eSIM Test Infrastructure**
 
-> **💡 Why this matters:** You can't test an eSIM ecosystem with production SIMs and live servers: you need a parallel universe of test certificates, test keys, test profiles, and simulated servers. SGP.23's Annexes (A through K) define this entire parallel infrastructure, enabling deterministic, repeatable conformance testing without touching a live operator network.
+> **Why this matters:** You can't test an eSIM ecosystem with production SIMs and live servers: you need a parallel universe of test certificates, test keys, test profiles, and simulated servers. SGP.23's Annexes (A through K) define this entire parallel infrastructure, enabling deterministic, repeatable conformance testing without touching a live operator network.
 
 > **Key takeaways:**
 > - Test certificates and test keys (defined in Annex A.2) create a parallel PKI isolated from production GSMA certificates
@@ -119,7 +119,7 @@ IUT settings (Annex F) cover product-specific information that test tool provide
 
 ---
 
-## 📋 Summary
+## Summary
 
 - A parallel PKI of test certificates and test keys isolates conformance testing from production GSMA infrastructure
 - Six standardised test profiles with known ICCIDs and metadata enable repeatable scenarios
@@ -132,7 +132,7 @@ IUT settings (Annex F) cover product-specific information that test tool provide
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp23/17-sgp23-overview">SGP.23 Overview: How eSIM Interoperability Is Tested</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp23/17-sgp23-overview">SGP.23 Overview: How eSIM Interoperability Is Tested</a> · <a href="{{ site.baseurl }}/"> Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp23/19-sgp23-lpa-testing">Testing the LPA: LDS, LPD, and LUI Conformance</a> →
 

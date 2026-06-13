@@ -6,9 +6,9 @@ date: 2026-06-05
 
 # eUICC Security Testing: Certificates, Keys, and Channels
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.23-1 eUICC Testing]({{ site.baseurl }}/docs/articles/sgp23-1/) > eUICC Security Testing: Certificates, Keys, and Channels**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.23-1 eUICC Testing]({{ site.baseurl }}/docs/articles/sgp23-1/) > eUICC Security Testing: Certificates, Keys, and Channels**
 
-> **💡 Why this matters:** The eSIM security model is built on a chain of trust extending from the GSMA Certificate Issuer (CI) down through the eUICC manufacturer (EUM), the SM-DP+, and finally the eUICC itself. If any link in this chain fails: a certificate doesn't validate, a key operation produces wrong results, or a secure channel is established with weak parameters: the entire profile delivery system is compromised. SGP.23-1 devotes significant testing to every cryptographic operation the eUICC must perform.
+> **Why this matters:** The eSIM security model is built on a chain of trust extending from the GSMA Certificate Issuer (CI) down through the eUICC manufacturer (EUM), the SM-DP+, and finally the eUICC itself. If any link in this chain fails: a certificate doesn't validate, a key operation produces wrong results, or a secure channel is established with weak parameters: the entire profile delivery system is compromised. SGP.23-1 devotes significant testing to every cryptographic operation the eUICC must perform.
 
 > **Key takeaways:**
 > - Certificate validation tests verify the eUICC can validate chains from CERT.DPauth.ECDSA → CI → root, and correctly reject expired, mis-signed, or wrong-issuer certificates
@@ -171,7 +171,7 @@ For Integrated eUICCs using USB CCID (Annex J), the test interface specification
 
 ---
 
-## 📋 Summary
+## Summary
 
 - A complete parallel test PKI (Annex A.2) isolates conformance testing from production GSMA certificates and keys
 - Certificate validation tests verify the eUICC correctly traverses the CI → EUM → SM-DP+ chain and rejects invalid, expired, or mismatched certificates
@@ -185,7 +185,7 @@ For Integrated eUICCs using USB CCID (Annex J), the test interface specification
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp23-1/34-sgp23-1-test-cases">Key eUICC Test Cases: ISD-R, ECASD, and Profile Lifecycle</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp23-1/34-sgp23-1-test-cases">Key eUICC Test Cases: ISD-R, ECASD, and Profile Lifecycle</a> · <a href="{{ site.baseurl }}/"> Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp23-1/36-sgp23-1-certification">eUICC Certification: From SGP.23-1 Tests to SAS-UP Approval</a> →
 

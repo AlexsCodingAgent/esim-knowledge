@@ -6,9 +6,9 @@ date: 2026-06-05
 
 # Testing the SM-DP+ and SM-DS
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.23 Test Specifications]({{ site.baseurl }}/docs/articles/sgp23/) > Testing the SM-DP+ and SM-DS**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.23 Test Specifications]({{ site.baseurl }}/docs/articles/sgp23/) > Testing the SM-DP+ and SM-DS**
 
-> **💡 Why this matters:** The SM-DP+ is the profile factory and the SM-DS is the notification backbone. Together they form the server-side of every eSIM deployment. SGP.23 tests these components across six interfaces (ES2+, ES8+, ES9+, ES12, ES11, TLS) with strict requirements for cryptographic correctness, error handling, and inter-component coordination.
+> **Why this matters:** The SM-DP+ is the profile factory and the SM-DS is the notification backbone. Together they form the server-side of every eSIM deployment. SGP.23 tests these components across six interfaces (ES2+, ES8+, ES9+, ES12, ES11, TLS) with strict requirements for cryptographic correctness, error handling, and inter-component coordination.
 
 > **Key takeaways:**
 > - SM-DP+ is tested across three interfaces: ES2+ (Operator-facing, 6 functions), ES8+ (eUICC-facing, 5 functions), and ES9+ (LPA-facing, 5 functions)
@@ -191,7 +191,7 @@ Test cases verify: supported cipher suites, certificate chain validation, OID ma
 
 ---
 
-## 📋 Summary
+## Summary
 
 - SM-DP+ testing spans ES2+ (6 functions, profile ordering), ES8+ (5 functions, eUICC secure channel), and ES9+ (5 functions, LPA-facing download orchestration)
 - SM-DS testing spans ES12 (event registration/deletion), ES11 (event retrieval), and ES15 (cascading), with separate environments for Root SM-DS and Alternative SM-DS
@@ -203,7 +203,7 @@ Test cases verify: supported cipher suites, certificate chain validation, OID ma
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp23/19-sgp23-lpa-testing">Testing the LPA: LDS, LPD, and LUI Conformance</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp23/19-sgp23-lpa-testing">Testing the LPA: LDS, LPD, and LUI Conformance</a> · <a href="{{ site.baseurl }}/"> Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp23/21-sgp23-certification">SGP.23 Certification: From Test Cases to DLOA</a> →
 

@@ -6,9 +6,9 @@ date: 2026-05-29
 
 # IoT Profile Download: Direct, Indirect, and eIM Package Handling
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.32 IoT eSIM]({{ site.baseurl }}/docs/articles/sgp32/) > IoT Profile Download: Direct, Indirect, and eIM Package Handling**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.32 IoT eSIM]({{ site.baseurl }}/docs/articles/sgp32/) > IoT Profile Download: Direct, Indirect, and eIM Package Handling**
 
-> **💡 Why this matters:** Profile delivery in IoT doesn't look anything like scanning a QR code on a phone. SGP.32 defines two parallel download paths: Direct (IPA-to-SM-DP+) and Indirect (eIM-mediated), plus a cryptographically signed eIM Package protocol that replaces every consumer interaction with a single binary blob. Choosing the right path for your device's connectivity model is central to any IoT eSIM deployment.
+> **Why this matters:** Profile delivery in IoT doesn't look anything like scanning a QR code on a phone. SGP.32 defines two parallel download paths: Direct (IPA-to-SM-DP+) and Indirect (eIM-mediated), plus a cryptographically signed eIM Package protocol that replaces every consumer interaction with a single binary blob. Choosing the right path for your device's connectivity model is central to any IoT eSIM deployment.
 
 > **Key takeaways:**
 > - Direct download: `IPA` talks to SM-DP+ directly, triggered by Activation Code or SM-DS Event
@@ -69,15 +69,15 @@ This is the most significant IoT innovation. An **eIM Package** is a cryptograph
 
 ```
 EuiccPackageRequest ::= [80] SEQUENCE {
-    euiccPackageRequestData    CHOICE {
-        psmoList              SEQUENCE OF Psmo,      -- Profile State Management
-        ecoList               SEQUENCE OF Eco,       -- eIM Configuration
-        euiccMemoryReset      ...,
-        executeFallbackMechanism ...
-    },
-    eimSignEpReq              OCTET STRING,           -- eIM's ECDSA signature
-    eimCertificate            Certificate OPTIONAL,   -- eIM's signing certificate
-    eimTransactionId          TransactionId OPTIONAL  -- Correlates request to result
+ euiccPackageRequestData CHOICE {
+ psmoList SEQUENCE OF Psmo, -- Profile State Management
+ ecoList SEQUENCE OF Eco, -- eIM Configuration
+ euiccMemoryReset ...,
+ executeFallbackMechanism ...
+ },
+ eimSignEpReq OCTET STRING, -- eIM's ECDSA signature
+ eimCertificate Certificate OPTIONAL, -- eIM's signing certificate
+ eimTransactionId TransactionId OPTIONAL -- Correlates request to result
 }
 ```
 
@@ -87,12 +87,12 @@ EuiccPackageRequest ::= [80] SEQUENCE {
 
 ```
 Psmo ::= CHOICE {
-    enableProfile             EnableProfileRequest,
-    disableProfile            DisableProfileRequest,
-    deleteProfile             DeleteProfileRequest,
-    rollbackProfile           RollbackProfileRequest,
-    setFallbackAttribute      SetFallbackAttributeRequest,
-    unsetFallbackAttribute    UnsetFallbackAttributeRequest
+ enableProfile EnableProfileRequest,
+ disableProfile DisableProfileRequest,
+ deleteProfile DeleteProfileRequest,
+ rollbackProfile RollbackProfileRequest,
+ setFallbackAttribute SetFallbackAttributeRequest,
+ unsetFallbackAttribute UnsetFallbackAttributeRequest
 }
 ```
 
@@ -104,10 +104,10 @@ Each PSMO targets a profile by ICCID or ISD-P AID. The eUICC verifies the `eIM`'
 
 ```
 Eco ::= CHOICE {
-    addEim       [8]  EimConfigurationData,   -- Associate a new eIM
-    deleteEim    [9]  SEQUENCE {eimId},
-    updateEim    [10] EimConfigurationData,   -- Update eIM credentials
-    listEim      [11] SEQUENCE {}             -- List associated eIMs
+ addEim [8] EimConfigurationData, -- Associate a new eIM
+ deleteEim [9] SEQUENCE {eimId},
+ updateEim [10] EimConfigurationData, -- Update eIM credentials
+ listEim [11] SEQUENCE {} -- List associated eIMs
 }
 ```
 
@@ -129,11 +129,11 @@ After executing the package, the eUICC generates a signed result:
 
 ```
 EuiccPackageResult ::= CHOICE {
-    euiccPackageResultDataSigned    SEQUENCE {
-        psmoResultList              SEQUENCE OF PsmoResult,
-        ecoResultList               SEQUENCE OF EcoResult
-    },
-    euiccPackageErrorSigned         EuiccPackageError
+ euiccPackageResultDataSigned SEQUENCE {
+ psmoResultList SEQUENCE OF PsmoResult,
+ ecoResultList SEQUENCE OF EcoResult
+ },
+ euiccPackageErrorSigned EuiccPackageError
 }
 ```
 
@@ -180,7 +180,7 @@ This lets the `eIM` adapt its behaviour to the specific `IPA` implementation: a 
 
 ---
 
-## 📋 Summary
+## Summary
 
 - Direct download keeps the `IPA` in the loop with SM-DP+; Indirect download delegates all SM-DP+ interaction to the `eIM`
 - eIM Packages replace every consumer user interaction (enable, disable, delete) with a single cryptographically signed binary blob
@@ -191,7 +191,7 @@ This lets the `eIM` adapt its behaviour to the specific `IPA` implementation: a 
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp32/08-iot-architecture-im-ipa">The eSIM IoT Architecture: eIM, IPA, and the New Interfaces</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp32/08-iot-architecture-im-ipa">The eSIM IoT Architecture: eIM, IPA, and the New Interfaces</a> · <a href="{{ site.baseurl }}/"> Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp32/10-iot-esim-security-dtls">IoT eSIM Security: eIM Certificates, DTLS, and Device Trust</a> →
 

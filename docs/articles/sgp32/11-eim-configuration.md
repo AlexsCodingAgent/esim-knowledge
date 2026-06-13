@@ -6,9 +6,9 @@ date: 2026-06-02
 
 # eIM Configuration: Associating Remote Managers with Your eUICC
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.32 IoT eSIM]({{ site.baseurl }}/docs/articles/sgp32/) > eIM Configuration: Associating Remote Managers with Your eUICC**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.32 IoT eSIM]({{ site.baseurl }}/docs/articles/sgp32/) > eIM Configuration: Associating Remote Managers with Your eUICC**
 
-> **💡 Why this matters:** In consumer eSIM, there's no persistent "who manages me" relationship stored on the chip: the LPA trusts the SM-DP+ based on the GSMA CI chain, but that trust is ephemeral. IoT needs something stronger: an `eIM` that can send signed commands to a device in a remote wind farm, with the eUICC verifying them locally using a stored public key: no network call required. That's what eIM Configuration Operations (`eCOs`) deliver.
+> **Why this matters:** In consumer eSIM, there's no persistent "who manages me" relationship stored on the chip: the LPA trusts the SM-DP+ based on the GSMA CI chain, but that trust is ephemeral. IoT needs something stronger: an `eIM` that can send signed commands to a device in a remote wind farm, with the eUICC verifying them locally using a stored public key: no network call required. That's what eIM Configuration Operations (`eCOs`) deliver.
 
 > **Key takeaways:**
 > - `EimConfigurationData` is stored on the eUICC and contains the `eIM`'s public key, counter value, protocol config, and TLS trust anchor
@@ -36,23 +36,23 @@ Each associated eIM stores the following on the eUICC (ASN.1 definition):
 
 ```
 EimConfigurationData ::= SEQUENCE {
-    eimId                 [0] UTF8String,         -- Unique eIM identifier
-    eimFqdn               [1] UTF8String OPTIONAL, -- FQDN of eIM (or intermediate server)
-    eimIdType             [2] EimIdType OPTIONAL,  -- OID, FQDN, or proprietary
-    counterValue          [3] INTEGER OPTIONAL,     -- Anti-replay counter
-    associationToken      [4] INTEGER OPTIONAL,     -- Anti-replay across re-association
-    eimPublicKeyData      [5] CHOICE {              -- For verifying eUICC Package signatures
-        eimPublicKey        SubjectPublicKeyInfo,    -- Raw ECDSA public key
-        eimCertificate      Certificate              -- Full X.509 certificate
-    } OPTIONAL,
-    trustedPublicKeyDataTls [6] CHOICE {             -- For TLS/DTLS transport
-        trustedEimPkTls     SubjectPublicKeyInfo,    -- Raw public key (pinning)
-        trustedCertificateTls  Certificate           -- CA or leaf certificate
-    } OPTIONAL,
-    eimSupportedProtocol  [7] EimSupportedProtocol OPTIONAL,
-    euiccCiPKId           [8] SubjectKeyIdentifier OPTIONAL,
-    indirectProfileDownload [9] NULL OPTIONAL,
-    eSipaProprietaryProtocolInformation [10] VendorSpecificExtension OPTIONAL
+ eimId [0] UTF8String, -- Unique eIM identifier
+ eimFqdn [1] UTF8String OPTIONAL, -- FQDN of eIM (or intermediate server)
+ eimIdType [2] EimIdType OPTIONAL, -- OID, FQDN, or proprietary
+ counterValue [3] INTEGER OPTIONAL, -- Anti-replay counter
+ associationToken [4] INTEGER OPTIONAL, -- Anti-replay across re-association
+ eimPublicKeyData [5] CHOICE { -- For verifying eUICC Package signatures
+ eimPublicKey SubjectPublicKeyInfo, -- Raw ECDSA public key
+ eimCertificate Certificate -- Full X.509 certificate
+ } OPTIONAL,
+ trustedPublicKeyDataTls [6] CHOICE { -- For TLS/DTLS transport
+ trustedEimPkTls SubjectPublicKeyInfo, -- Raw public key (pinning)
+ trustedCertificateTls Certificate -- CA or leaf certificate
+ } OPTIONAL,
+ eimSupportedProtocol [7] EimSupportedProtocol OPTIONAL,
+ euiccCiPKId [8] SubjectKeyIdentifier OPTIONAL,
+ indirectProfileDownload [9] NULL OPTIONAL,
+ eSipaProprietaryProtocolInformation [10] VendorSpecificExtension OPTIONAL
 }
 ```
 
@@ -77,24 +77,24 @@ EimConfigurationData ::= SEQUENCE {
 eCO payload: addEim containing EimConfigurationData
 
 Required fields:
-    eimId, counterValue, eimPublicKeyData
+ eimId, counterValue, eimPublicKeyData
 
 Optional but strongly recommended:
-    trustedPublicKeyDataTls (if IPAe with HTTPS/CoAPS)
-    eimSupportedProtocol
-    euiccCiPKId
+ trustedPublicKeyDataTls (if IPAe with HTTPS/CoAPS)
+ eimSupportedProtocol
+ euiccCiPKId
 
 If associationToken is set to -1 in the request:
-    → eUICC generates a new associationToken using its global counter
+ → eUICC generates a new associationToken using its global counter
 
 If associationToken is absent:
-    → no associationToken is configured for this eIM
+ → no associationToken is configured for this eIM
 
 Error conditions:
-    insufficientMemory       : eUICC has no space for another eIM
-    associatedEimAlreadyExists: eIM with this ID already present
-    ciPKUnknown              : euiccCiPKId references unknown CI key
-    invalidAssociationToken  : token mismatch on re-add
+ insufficientMemory : eUICC has no space for another eIM
+ associatedEimAlreadyExists: eIM with this ID already present
+ ciPKUnknown : euiccCiPKId references unknown CI key
+ invalidAssociationToken : token mismatch on re-add
 ```
 
 On success, the eUICC returns either `ok(0)` or the generated `associationToken`.
@@ -107,15 +107,15 @@ On success, the eUICC returns either `ok(0)` or the generated `associationToken`
 eCO payload: updateEim containing EimConfigurationData
 
 Used to:
-    - Rotate eIM signing keys (new eimPublicKeyData)
-    - Change TLS trust anchors (new trustedPublicKeyDataTls)
-    - Update protocol support (new eimSupportedProtocol)
-    - Reset counterValue after rollover
+ - Rotate eIM signing keys (new eimPublicKeyData)
+ - Change TLS trust anchors (new trustedPublicKeyDataTls)
+ - Update protocol support (new eimSupportedProtocol)
+ - Reset counterValue after rollover
 
 Error conditions:
-    eimNotFound              : eIM ID not on the eUICC
-    ciPKUnknown              : new euiccCiPKId invalid
-    counterValueOutOfRange   : counter exceeds eUICC max
+ eimNotFound : eIM ID not on the eUICC
+ ciPKUnknown : new euiccCiPKId invalid
+ counterValueOutOfRange : counter exceeds eUICC max
 ```
 
 ---
@@ -128,7 +128,7 @@ eCO payload: deleteEim { eimId }
 Effect: All EimConfigurationData for this eIM is removed
 
 Special case: If this was the last associated eIM, the eUICC returns
-    lastEimDeleted(2) : meaning no eIM Configuration Data remains
+ lastEimDeleted(2) : meaning no eIM Configuration Data remains
 
 Error: eimNotFound(1) if the eIM ID doesn't exist
 ```
@@ -161,13 +161,13 @@ The primary path. An already-associated `eIM` sends an `addEim` eCO in a signed 
 
 ```
 IPA → eUICC: ES10b.AddInitialEimConfiguration
-    (Unsigned eCO: for the very first eIM, before any eIM is associated)
+ (Unsigned eCO: for the very first eIM, before any eIM is associated)
 
 IPA → eUICC: ES10b.GetEimConfigurationData
-    (Read back stored configuration)
+ (Read back stored configuration)
 
 IPA → eUICC: ES10b.DeleteAllEimConfigurationData
-    (Factory reset of eIM data: requires Device Test Mode or similar authorization)
+ (Factory reset of eIM data: requires Device Test Mode or similar authorization)
 ```
 
 The `AddInitialEimConfiguration` is unsigned because at bootstrap time, no eIM is yet trusted to sign it. This is typically done during device manufacturing or initial provisioning by a trusted local operator.
@@ -197,7 +197,7 @@ When the `IPA` runs inside the eUICC (`IPAe`), the `trustedPublicKeyDataTls` fie
 
 ---
 
-## 📋 Summary
+## Summary
 
 - eIM Configuration Data stored on the eUICC provides persistent cryptographic trust between device and remote manager
 - Four eCOs (`addEim`, `updateEim`, `deleteEim`, `listEim`) manage the full lifecycle, all carried in signed eUICC Packages
@@ -208,7 +208,7 @@ When the `IPA` runs inside the eUICC (`IPAe`), the `trustedPublicKeyDataTls` fie
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp32/10-iot-esim-security-dtls">IoT eSIM Security: eIM Certificates, DTLS, and Device Trust</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp32/10-iot-esim-security-dtls">IoT eSIM Security: eIM Certificates, DTLS, and Device Trust</a> · <a href="{{ site.baseurl }}/"> Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp32/12-notifications-errors">Notifications and Error Handling in IoT eSIM</a> →
 

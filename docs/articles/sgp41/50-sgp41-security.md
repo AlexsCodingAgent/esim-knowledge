@@ -6,9 +6,9 @@ date: 2026-06-06
 
 # IFPP Security: Factory Trust Models and Certificate Chains
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.41 IFPP]({{ site.baseurl }}/docs/articles/sgp41/) > IFPP Security: Factory Trust Models and Certificate Chains**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.41 IFPP]({{ site.baseurl }}/docs/articles/sgp41/) > IFPP Security: Factory Trust Models and Certificate Chains**
 
-> **💡 Why this matters:** Factory floors are untrusted environments. The Device Manufacturer and FPA handle profile packages but must never see them in plaintext. One-time keys, forward secrecy, and pre-encryption create a security model where the factory is a courier, not a custodian: the profile's confidentiality and integrity are preserved end-to-end from the SAS-certified SM-DPf to the eUICC, regardless of what happens on the production line.
+> **Why this matters:** Factory floors are untrusted environments. The Device Manufacturer and FPA handle profile packages but must never see them in plaintext. One-time keys, forward secrecy, and pre-encryption create a security model where the factory is a courier, not a custodian: the profile's confidentiality and integrity are preserved end-to-end from the SAS-certified SM-DPf to the eUICC, regardless of what happens on the production line.
 
 > **Key takeaways:**
 > - SGP.41 implements **defence in depth** for the factory: the Device Manufacturer never has access to clear-text private/secret keys used for binding (GENS10), and clear-text profiles only exist inside the eUICC (GENS09)
@@ -28,19 +28,19 @@ SGP.41's security model starts from a blunt premise: **the factory is not truste
 ### End-to-End Protection Chain
 
 ```
-SM-DPf HSM                     Factory (untrusted)                eUICC
-─────────                      ──────────────────                ─────
-[Profile]                       [BPP in transit]                 [Profile]
-   │                                 │                              ▲
-   ├─ encrypt to eUICC's            ├─ push through FPA            │
-   │  one-time public key           │  (cannot decrypt)            │
-   │                                 │                              │
-   ├─ sign with SM-DPf              ├─ store temporarily           ├─ decrypt with
-   │  private key                   │  (cannot decrypt)            │  one-time private key
-   │                                 │                              │
-   └─ include SM-DPf cert           └─ load onto eUICC             ├─ verify SM-DPf sig
-      chain                                                         │
-                                                                    └─ verify cert chain
+SM-DPf HSM Factory (untrusted) eUICC
+───────── ────────────────── ─────
+[Profile] [BPP in transit] [Profile]
+ │ │ ▲
+ ├─ encrypt to eUICC's ├─ push through FPA │
+ │ one-time public key │ (cannot decrypt) │
+ │ │ │
+ ├─ sign with SM-DPf ├─ store temporarily ├─ decrypt with
+ │ private key │ (cannot decrypt) │ one-time private key
+ │ │ │
+ └─ include SM-DPf cert └─ load onto eUICC ├─ verify SM-DPf sig
+ chain │
+ └─ verify cert chain
 ```
 
 The profile exists in plaintext at exactly two points: inside the SM-DPf's SAS-certified HSM during generation and binding, and inside the eUICC after decryption and installation. At every point in between: in transit over Esbpp, in storage at the Device Manufacturer, during Esfac transfer, during ES10f forwarding: it is a cryptographically bound and encrypted BPP that no factory entity can read.
@@ -176,7 +176,7 @@ SGP.41 Annex B identifies four categories of threats:
 
 ---
 
-## 📋 Summary
+## Summary
 
 - Security is built on the premise that the factory is untrusted: clear-text profiles exist only in the SM-DPf HSM and inside the eUICC
 - One-time keys provide anti-cloning, offline binding capability, and forward secrecy: each key binds exactly one profile to exactly one eUICC
@@ -189,7 +189,7 @@ SGP.41 Annex B identifies four categories of threats:
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp41/49-sgp41-flow">IFPP Flow: Manufacturing Step to Configuration Step</a> · <a href="{{ site.baseurl }}/">🏠 Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp41/49-sgp41-flow">IFPP Flow: Manufacturing Step to Configuration Step</a> · <a href="{{ site.baseurl }}/"> Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp41/51-sgp41-practice">IFPP in Practice: PC OEMs, Automotive, and IoT Manufacturing</a> →
 

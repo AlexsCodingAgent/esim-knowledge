@@ -7,9 +7,9 @@ date: 2026-06-07
 
 # Profile Download & Installation in SGP.22 v3.x
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > [SGP.22 v3.x Unified RSP]({{ site.baseurl }}/docs/articles/sgp22-v3/) > Profile Download & Installation in SGP.22 v3.x**
+**[eUICC.tech]({{ site.baseurl }}/) > [SGP.22 v3.x Unified RSP]({{ site.baseurl }}/docs/articles/sgp22-v3/) > Profile Download & Installation in SGP.22 v3.x**
 
-> **💡 Why this matters:** Profile download is the single most important operation in the entire eSIM ecosystem: it's the moment a subscriber's mobile identity materialises on the eUICC. Every other v3.x feature: Multiple Enabled Profiles, Remote Profile Management, Device Change, enterprise controls: assumes the download and installation procedure already exists and works reliably. Understanding this flow is foundational to understanding everything else in SGP.22. The v3.x download procedure is largely evolved from v2.x, but adds critical new checks: enterprise profile validation, RPM package chaining, MEP-aware PPR enforcement, and manufacturer-authorised certificate verification.
+> **Why this matters:** Profile download is the single most important operation in the entire eSIM ecosystem: it's the moment a subscriber's mobile identity materialises on the eUICC. Every other v3.x feature: Multiple Enabled Profiles, Remote Profile Management, Device Change, enterprise controls: assumes the download and installation procedure already exists and works reliably. Understanding this flow is foundational to understanding everything else in SGP.22. The v3.x download procedure is largely evolved from v2.x, but adds critical new checks: enterprise profile validation, RPM package chaining, MEP-aware PPR enforcement, and manufacturer-authorised certificate verification.
 
 > **Key takeaways:**
 > - Profile download has four sub-processes: **Contract Subscription → Download Preparation → Contract Finalisation → Subscription Activation** (all Operator/SM-DP+ side)
@@ -84,11 +84,11 @@ Before proceeding, the LPA checks if the profile can be installed. This is where
 
 - **PPR check against RAT**: The LPA retrieves the Rules Authorisation Table (`ES10b.GetRAT`) and verifies that all PPRs in the Profile Metadata are allowed for this Profile Owner.
 - **Enterprise Profile checks**: If the Profile Metadata contains an Enterprise Configuration, the LPA validates:
-  - No conflict with an existing PPR1 profile (`enterpriseProfileNotAllowed`)
-  - Device is Enterprise Capable if Enterprise Rules are present (`enterpriseRulesNotAllowed`)
-  - Enterprise OID matches any already-installed Enterprise Profile (`enterpriseOidMismatch`)
-  - Reference Enterprise Rule validity (`enterpriseRulesError`)
-  - If Reference Enterprise Rule requires Enterprise-only profiles, the new profile must be Enterprise (`enterpriseProfilesOnly`)
+ - No conflict with an existing PPR1 profile (`enterpriseProfileNotAllowed`)
+ - Device is Enterprise Capable if Enterprise Rules are present (`enterpriseRulesNotAllowed`)
+ - Enterprise OID matches any already-installed Enterprise Profile (`enterpriseOidMismatch`)
+ - Reference Enterprise Rule validity (`enterpriseRulesError`)
+ - If Reference Enterprise Rule requires Enterprise-only profiles, the new profile must be Enterprise (`enterpriseProfilesOnly`)
 - **MEP-aware PPR1 check**: On an eUICC supporting MEP, PPR1 profiles are not rejected: the restriction only applies to single-enabled-profile (SEP) eUICCs.
 
 If any of these checks fail, the LPA cancels the session with the appropriate reason code.
