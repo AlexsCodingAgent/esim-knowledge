@@ -283,7 +283,7 @@ Every function call includes a `functionCallIdentifier` : a unique ID that enabl
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp22/05-local-profile-management">Managing Your eSIM: Local Profile Operations</a> · Next: <a href="{{ site.baseurl }}/docs/articles/sgp22/07-lpae-in-euicc">LPAe: The In-eUICC Local Profile Assistant</a> · <a href="{{ site.baseurl }}/"> Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp22/05-local-profile-management">Managing Your eSIM: Local Profile Operations</a> · Next: <a href="{{ site.baseurl }}/docs/articles/sgp22/07-lpae-in-euicc">LPAe: The In-eUICC Local Profile Assistant</a> · <a href="{{ site.baseurl }}/">Home</a>
 
 </div>
 

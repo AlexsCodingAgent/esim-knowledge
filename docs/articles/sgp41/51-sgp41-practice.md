@@ -184,7 +184,7 @@ For NB-IoT sensors, smart meters, asset trackers, and industrial IoT devices:
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp41/50-sgp41-security">IFPP Security: Factory Trust Models and Certificate Chains</a> · <a href="{{ site.baseurl }}/"> Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp41/50-sgp41-security">IFPP Security: Factory Trust Models and Certificate Chains</a> · <a href="{{ site.baseurl }}/">Home</a>
 
 </div>
 

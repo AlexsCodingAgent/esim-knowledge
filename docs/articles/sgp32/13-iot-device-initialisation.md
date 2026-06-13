@@ -164,7 +164,7 @@ The Fallback Profile is typically a provisioning profile from the device manufac
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp32/12-notifications-errors">Notifications and Error Handling in IoT eSIM</a> · <a href="{{ site.baseurl }}/"> Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp32/12-notifications-errors">Notifications and Error Handling in IoT eSIM</a> · <a href="{{ site.baseurl }}/">Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp32/14-iot-profile-state-management">Profile State Management via the eIM: Remote Enable, Disable, Delete</a> →
 

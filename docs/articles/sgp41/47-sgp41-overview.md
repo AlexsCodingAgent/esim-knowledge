@@ -106,7 +106,7 @@ SGP.41 enables use cases that SGP.22 alone cannot address:
 
 <div align="center">
 
-<a href="{{ site.baseurl }}/"> Home</a>
+<a href="{{ site.baseurl }}/">Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp41/48-sgp41-architecture">The IFPP Architecture: SM-DPf, FPA, and Device Manufacturer</a> →
 

@@ -273,7 +273,7 @@ SGP.32 extends SGP.22's ES10 functions with IoT-specific additions:
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp32/15-iot-smsds-operations">SM-DS Operations in IoT eSIM: Event Registration and Retrieval</a> · Next: <a href="{{ site.baseurl }}/docs/articles/sgp32/17-profile-lifecycle-policy">Profile Lifecycle Policy: Rules and Enforcement</a> · <a href="{{ site.baseurl }}/"> Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp32/15-iot-smsds-operations">SM-DS Operations in IoT eSIM: Event Registration and Retrieval</a> · Next: <a href="{{ site.baseurl }}/docs/articles/sgp32/17-profile-lifecycle-policy">Profile Lifecycle Policy: Rules and Enforcement</a> · <a href="{{ site.baseurl }}/">Home</a>
 
 </div>
 

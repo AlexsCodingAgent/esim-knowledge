@@ -191,7 +191,7 @@ SGP.23-1's document history (Annex L) shows a steady stream of CRs (Change Reque
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp23-1/35-sgp23-1-security">eUICC Security Testing: Certificates, Keys, and Channels</a> · <a href="{{ site.baseurl }}/"> Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp23-1/35-sgp23-1-security">eUICC Security Testing: Certificates, Keys, and Channels</a> · <a href="{{ site.baseurl }}/">Home</a>
 
 </div>
 

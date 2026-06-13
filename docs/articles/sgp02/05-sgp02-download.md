@@ -274,7 +274,7 @@ Every stakeholder who needs to know the profile is live gets the signal.
 
 <div align="center">
 
-<a href="{{ site.baseurl }}/"> Home</a>
+<a href="{{ site.baseurl }}/">Home</a>
 
 ← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp02/04-sgp02-ota">OTA Communication</a> | Next: <a href="{{ site.baseurl }}/docs/articles/sgp02/06-sgp02-lifecycle">Profile Lifecycle</a> →
 

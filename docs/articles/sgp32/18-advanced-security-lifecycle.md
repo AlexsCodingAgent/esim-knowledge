@@ -243,7 +243,7 @@ A secure IoT eSIM deployment activates all seven layers. ECASD anchors the trust
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp32/17-profile-lifecycle-policy">Profile Lifecycle & Policy: Types, PPE, and Enforcement in IoT eSIM</a> · <a href="{{ site.baseurl }}/"> Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp32/17-profile-lifecycle-policy">Profile Lifecycle & Policy: Types, PPE, and Enforcement in IoT eSIM</a> · <a href="{{ site.baseurl }}/">Home</a>
 
 </div>
 

@@ -240,7 +240,7 @@ These invalid certificates are generated from the same templates as valid certif
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp26/38-sgp26-hierarchy">Test Certificate Hierarchy: CI, EUM, DP, DS, and eUICC</a> · <a href="{{ site.baseurl }}/"> Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp26/38-sgp26-hierarchy">Test Certificate Hierarchy: CI, EUM, DP, DS, and eUICC</a> · <a href="{{ site.baseurl }}/">Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp26/40-sgp26-development">Using Test Certificates: Developer Setup and Integration</a> →
 

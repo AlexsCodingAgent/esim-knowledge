@@ -208,7 +208,7 @@ When the `IPA` runs inside the eUICC (`IPAe`), the `trustedPublicKeyDataTls` fie
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp32/10-iot-esim-security-dtls">IoT eSIM Security: eIM Certificates, DTLS, and Device Trust</a> · <a href="{{ site.baseurl }}/"> Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp32/10-iot-esim-security-dtls">IoT eSIM Security: eIM Certificates, DTLS, and Device Trust</a> · <a href="{{ site.baseurl }}/">Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp32/12-notifications-errors">Notifications and Error Handling in IoT eSIM</a> →
 

@@ -125,7 +125,7 @@ What PLMA explicitly cannot do: hand over POL2 management. That stays with the O
 
 <div align="center">
 
-<a href="{{ site.baseurl }}/"> Home</a>
+<a href="{{ site.baseurl }}/">Home</a>
 
 Previous: <a href="08-sgp02-resilience">Resilience: Fall-Back Mechanism, Emergency Profiles, and Test Profiles</a> →
 Next: <a href="10-sgp02-offcard-interfaces">Off-Card Interfaces: ES1–ES7 and the SOAP Binding</a> →

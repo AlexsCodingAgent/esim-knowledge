@@ -113,7 +113,7 @@ SGP.23-1 sits in a broader certification ecosystem:
 
 <div align="center">
 
-<a href="{{ site.baseurl }}/"> Home</a>
+<a href="{{ site.baseurl }}/">Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp23-1/33-sgp23-1-architecture">eUICC Test Architecture: Readers, Scripts, and GSMA Tools</a> →
 

@@ -203,7 +203,7 @@ Test cases verify: supported cipher suites, certificate chain validation, OID ma
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp23/19-sgp23-lpa-testing">Testing the LPA: LDS, LPD, and LUI Conformance</a> · <a href="{{ site.baseurl }}/"> Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp23/19-sgp23-lpa-testing">Testing the LPA: LDS, LPD, and LUI Conformance</a> · <a href="{{ site.baseurl }}/">Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp23/21-sgp23-certification">SGP.23 Certification: From Test Cases to DLOA</a> →
 

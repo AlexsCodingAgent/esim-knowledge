@@ -113,7 +113,7 @@ A device that supports a non-removable eUICC without an LPAe must provide an LPA
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp22/00b-sgp22-v2-v3-split">SGP.22 v2.x vs v3.x: The Specification Split</a> · <a href="{{ site.baseurl }}/"> Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp22/00b-sgp22-v2-v3-split">SGP.22 v2.x vs v3.x: The Specification Split</a> · <a href="{{ site.baseurl }}/">Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp22/02-inside-the-euicc">Inside the eUICC: The Secure Element That Powers Your eSIM</a> →
 

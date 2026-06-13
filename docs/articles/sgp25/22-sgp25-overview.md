@@ -144,7 +144,7 @@ SGP.25 structures threats in two tiers:
 
 <div align="center">
 
-<a href="{{ site.baseurl }}/"> Home</a>
+<a href="{{ site.baseurl }}/">Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp25/23-sgp25-security-requirements">eUICC Security Functional Requirements</a> →
 

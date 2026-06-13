@@ -191,7 +191,7 @@ This lets the `eIM` adapt its behaviour to the specific `IPA` implementation: a 
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp32/08-iot-architecture-im-ipa">The eSIM IoT Architecture: eIM, IPA, and the New Interfaces</a> · <a href="{{ site.baseurl }}/"> Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp32/08-iot-architecture-im-ipa">The eSIM IoT Architecture: eIM, IPA, and the New Interfaces</a> · <a href="{{ site.baseurl }}/">Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp32/10-iot-esim-security-dtls">IoT eSIM Security: eIM Certificates, DTLS, and Device Trust</a> →
 

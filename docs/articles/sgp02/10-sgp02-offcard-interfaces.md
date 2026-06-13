@@ -254,7 +254,7 @@ Every on-card operation flows through ES5. Every server-side operation flows thr
 
 <div align="center">
 
-<a href="{{ site.baseurl }}/"> Home</a>
+<a href="{{ site.baseurl }}/">Home</a>
 
 Previous: <a href="09-sgp02-policy-notifications">Policy Rules & Notifications: POL1, POL2, and the Default Notification</a> →
 Next: <a href="11-sgp02-comparison">SGP.02 vs SGP.22 vs SGP.32: Push, Pull, and the Evolution of eSIM</a> →

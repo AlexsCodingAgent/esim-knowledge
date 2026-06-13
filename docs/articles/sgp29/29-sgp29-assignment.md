@@ -344,7 +344,7 @@ Any Level X EIN Assignment Authority (where X ≥ 2) : e.g., a National Authorit
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp29/28-sgp29-eid-format">EID Format Decoded: The 32-Digit Structure</a> · <a href="{{ site.baseurl }}/"> Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp29/28-sgp29-eid-format">EID Format Decoded: The 32-Digit Structure</a> · <a href="{{ site.baseurl }}/">Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp29/30-sgp29-in-protocols">EID in RSP Protocols: Discovery, Matching, and Events</a> →
 

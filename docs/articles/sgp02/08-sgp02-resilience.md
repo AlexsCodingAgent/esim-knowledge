@@ -169,7 +169,7 @@ These three mechanisms (Fall-Back, Emergency, and Test) are what make the "embed
 
 <div align="center">
 
-<a href="{{ site.baseurl }}/"> Home</a>
+<a href="{{ site.baseurl }}/">Home</a>
 
 Previous: <a href="07-sgp02-sm-sr-change">SM-SR Change: Handover, ES7 Interface, and EIS Migration</a> →
 Next: <a href="09-sgp02-policy-notifications">Policy Rules & Notifications: POL1, POL2, and the Default Notification</a> →

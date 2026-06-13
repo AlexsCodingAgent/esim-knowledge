@@ -186,7 +186,7 @@ This consolidates what would be three separate exchanges into one wake cycle: cr
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp32/14-iot-profile-state-management">Profile State Management via the eIM: Remote Enable, Disable, Delete</a> · <a href="{{ site.baseurl }}/"> Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp32/14-iot-profile-state-management">Profile State Management via the eIM: Remote Enable, Disable, Delete</a> · <a href="{{ site.baseurl }}/">Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp32/16-iot-functions-reference">IoT eSIM Functions Reference: ESipa, ES9+', ES11', ESep</a> →
 

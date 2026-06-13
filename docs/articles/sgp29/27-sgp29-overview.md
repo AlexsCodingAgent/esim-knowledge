@@ -120,7 +120,7 @@ However, it is important to note: **EIDs assigned under the ITU-T E.118 based sc
 
 <div align="center">
 
-<a href="{{ site.baseurl }}/"> Home</a>
+<a href="{{ site.baseurl }}/">Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp29/28-sgp29-eid-format">EID Format Decoded: The 32-Digit Structure</a> →
 

@@ -213,7 +213,7 @@ This means the eUICC software architecture must include self-protection mechanis
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp25/24-sgp25-assurance">eUICC Assurance Requirements: EAL4+ and Penetration Testing</a> · <a href="{{ site.baseurl }}/"> Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp25/24-sgp25-assurance">eUICC Assurance Requirements: EAL4+ and Penetration Testing</a> · <a href="{{ site.baseurl }}/">Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp25/26-sgp25-certification">SGP.25 Certification: SAS-UP and the Evaluation Process</a> →
 

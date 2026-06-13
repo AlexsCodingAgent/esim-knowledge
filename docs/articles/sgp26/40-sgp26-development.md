@@ -316,7 +316,7 @@ The eUICC checks the `certificatePolicies` extension. If an SM-DP+ presents a TL
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp26/39-sgp26-profiles">Certificate Profiles: What Makes a Valid Test Certificate</a> · <a href="{{ site.baseurl }}/"> Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp26/39-sgp26-profiles">Certificate Profiles: What Makes a Valid Test Certificate</a> · <a href="{{ site.baseurl }}/">Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp26/41-sgp26-crl">CRL and Certificate Management in the Test Ecosystem</a> →
 

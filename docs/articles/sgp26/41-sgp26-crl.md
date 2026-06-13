@@ -234,7 +234,7 @@ Until then, the CRL infrastructure exists for structural validation: verifying t
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp26/40-sgp26-development">Using Test Certificates: Developer Setup and Integration</a> · <a href="{{ site.baseurl }}/"> Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp26/40-sgp26-development">Using Test Certificates: Developer Setup and Integration</a> · <a href="{{ site.baseurl }}/">Home</a>
 
 </div>
 

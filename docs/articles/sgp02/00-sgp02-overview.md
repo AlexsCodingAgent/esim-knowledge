@@ -109,7 +109,7 @@ SGP.02 was the first eSIM standard, written for devices that can't ask for help.
 
 <div align="center">
 
-<a href="{{ site.baseurl }}/"> Home</a>
+<a href="{{ site.baseurl }}/">Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp02/01-sgp02-architecture">M2M Ecosystem: EUM, SM-DP, SM-SR, and the Operator</a> →
 

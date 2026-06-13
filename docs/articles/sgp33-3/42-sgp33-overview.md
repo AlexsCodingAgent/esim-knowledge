@@ -110,7 +110,7 @@ SGP.33-3 v1.2 was published on 27 January 2025, but this is effectively the firs
 
 <div align="center">
 
-<a href="{{ site.baseurl }}/"> Home</a>
+<a href="{{ site.baseurl }}/">Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp33-3/43-sgp33-eim-architecture">eIM Test Architecture: Simulated eIM and Reference IPA</a> →
 

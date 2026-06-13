@@ -176,7 +176,7 @@ Individual operations within a package can fail independently:
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp32/11-eim-configuration">eIM Configuration: Associating Remote Managers with Your eUICC</a> · <a href="{{ site.baseurl }}/"> Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp32/11-eim-configuration">eIM Configuration: Associating Remote Managers with Your eUICC</a> · <a href="{{ site.baseurl }}/">Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp32/13-iot-device-initialisation">IoT Device Initialisation and the eUICC File Structure</a> →
 

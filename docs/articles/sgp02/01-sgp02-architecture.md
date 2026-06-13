@@ -142,7 +142,7 @@ The SGP.02 ecosystem is built around the SM-SR: the hub that connects every othe
 
 <div align="center">
 
-<a href="{{ site.baseurl }}/"> Home</a>
+<a href="{{ site.baseurl }}/">Home</a>
 
 ← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp02/00-sgp02-overview">SGP.02 Overview</a> | Next: <a href="{{ site.baseurl }}/docs/articles/sgp02/02-sgp02-euicc-internals">Inside the M2M eUICC</a> →
 

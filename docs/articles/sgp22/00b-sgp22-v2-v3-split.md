@@ -138,7 +138,7 @@ The fundamental difference is scope:
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp22/00-sgp22-overview">eSIM Remote SIM Provisioning (RSP) : How It Works</a> · <a href="{{ site.baseurl }}/"> Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp22/00-sgp22-overview">eSIM Remote SIM Provisioning (RSP) : How It Works</a> · <a href="{{ site.baseurl }}/">Home</a>
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp22/01-rsp-architecture">The eSIM RSP Architecture: Players and Interfaces</a> →
 
