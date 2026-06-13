@@ -99,7 +99,7 @@ Beyond the push model, a few architectural choices set SGP.02 apart:
 
 **The M2M Service Provider.** SGP.02 introduces the M2M SP (a fleet manager who doesn't own connectivity. Think of an automotive OEM managing telematics units across countries, contracting with local operators for each region. The M2M SP gets authorized (via PLMA) Profile Lifecycle Management Authorization) to perform lifecycle operations on profiles the operator owns.
 
-**Fall-Back.** Unique to SGP.02, one profile can be flagged with the Fall-Back Attribute. If the currently active profile loses connectivity, the eUICC automatically fails over to the fall-back. The device can always be reached for management, even when its primary operator's network is down.
+**Fall-Back.** One profile carries the Fall-Back Attribute. If the currently active profile loses connectivity, the eUICC autonomously fails over to the fall-back — no server, no OTA command, no human approval needed. The device can always be reached for management, even when its primary operator's network is down. SGP.32 adapted this concept for IoT with additional trigger paths (IPA-initiated and EIM-initiated), but SGP.02's implementation is purely eUICC-autonomous.
 
 ---
 

@@ -46,7 +46,7 @@ The SM-SR sits at the center of the architecture. It holds the Platform Manageme
 
 The split SM-DP/SM-SR architecture isn't an accident. It means an operator can buy profile generation from one vendor and secure routing from another, and can switch SM-SR providers without rebuilding profiles (the SM-SR Change procedure: 32 steps, four entities, one atomic commit point at step 23). That procedure alone is a 15-year insurance policy against vendor lock-in.
 
-SGP.02 also has things the other specs simply don't: the Fall-Back Mechanism (one profile flagged to take over automatically when connectivity drops), the Emergency Profile (eCall compliance without a commercial subscription), and the M2M SP role (fleet managers who don't own connectivity but need to manage it).
+SGP.02 also has things no other eSIM spec replicates in quite the same way: the Fall-Back Mechanism (fully eUICC-autonomous, no server trigger path — SGP.32's version adds IPA and EIM-initiated variants), the Emergency Profile for eCall compliance, and the M2M SP role (fleet managers who don't own connectivity but need to manage it).
 
 **The reason to still pick SGP.02 for new deployments in 2026:** your devices are truly unreachable. Not "occasionally offline"; actually unreachable. Sealed. No IP stack. Deep sleep for months. The kind of device where the server has to reach down and flip a switch whether the device is awake or not.
 
