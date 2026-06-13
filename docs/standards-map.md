@@ -229,25 +229,25 @@ title: "GSMA eSIM Standards Map: eUICC.tech"
 
 ## Coverage Status
 
-| Spec | Title | Version | Pages | Covered? | Articles Planned |
-|------|-------|---------|-------|----------|------------------|
-| SGP.01 | Architecture Overview | : | : | ❌ | 0 (foundational: referenced) |
-| SGP.02 | M2M RSP Architecture | : | : | ❌ | 0 (mentioned in IoT article) |
-| SGP.21 | RSP Architecture | : | : | ❌ | 0 (content absorbed into SGP.22) |
-| **SGP.22** | **RSP Technical Spec** | **v2.7** | **~300** | **✅ 8 articles** | **Update to v2.7 + v2/v3 split** |
-| **SGP.22 v3.2** | **Unified RSP Tech Spec** | **v3.2** | **TBD** | **❌** | **0 (parallel track: v2.x/v3.x article covers it)** |
-| **SGP.23** | **RSP Test Spec** | **v1.16** | **913** | **❌ NEW** | **5 articles** |
-| **SGP.23-1** | **eUICC Test Spec** | **v3.1.3** | **797** | **❌ NEW** | **5 articles** |
-| SGP.24 | Compliance Process | : | : | ❌ | 0 (referenced) |
-| **SGP.25** | **eUICC Protection Profile** | **v2.1** | **172** | **❌ NEW** | **5 articles** |
-| **SGP.26** | **Test Certificates** | **v3.0.2** | **66** | **❌ NEW** | **5 articles** |
-| **SGP.29** | **EID Standard** | **v1.1** | **13** | **❌ NEW** | **5 articles** |
-| **SGP.31** | **IoT Architecture** | **v1.3** | **62** | **✅** | **(part of SGP.32 series)** |
-| **SGP.32** | **IoT Technical Spec** | **v1.3** | **231** | **✅ 10 articles** | **Update to v1.3** |
-| **SGP.33-3** | **eIM Test Spec** | **v1.2** | **74** | **❌ NEW** | **5 articles** |
-| **SGP.41** | **IFPP Architecture** | **v1.0** | **~26** | **❌ NEW** | **5 articles** |
+| Spec | Title | Version | Articles | Status |
+|---|---|---|---|---|
+| SGP.01 | Architecture Overview | — | 0 | Foundational reference |
+| SGP.02 | M2M RSP Architecture | v4.2 | 13 | Covered |
+| SGP.21 | RSP Architecture | — | 0 | Absorbed into SGP.22 |
+| SGP.22 | RSP Technical Spec | v2.2.2 | 13 | Covered · needs v2.7 update |
+| SGP.22 v3.x | Unified RSP Tech Spec | v3.0 | 12 | Covered |
+| SGP.23 | RSP Test Spec | v1.16 | 5 | Covered |
+| SGP.23-1 | eUICC Test Spec | v3.1.3 | 5 | Covered |
+| SGP.24 | Compliance Process | — | 0 | Referenced |
+| SGP.25 | eUICC Protection Profile | v2.1 | 5 | Covered |
+| SGP.26 | Test Certificates | v3.0.2 | 5 | Covered |
+| SGP.29 | EID Definition | v1.1 | 5 | Covered |
+| SGP.31 | IoT Architecture | v1.3 | — | Part of SGP.32 series |
+| SGP.32 | IoT Technical Spec | v1.3 | 12 | Covered |
+| SGP.33-3 | eIM Test Spec | v1.2 | 5 | Covered |
+| SGP.41 | IFPP Architecture | v1.0 | 5 | Covered |
 
-**Total: 18 existing articles + 35 new = 53 articles across 9 specs**
+**Total: 85 articles across 11 specifications**
 
 ---
 
