@@ -47,7 +47,7 @@
     document.documentElement.setAttribute('data-theme', theme);
     var btn = document.getElementById('theme-toggle');
     if (btn) {
-      btn.textContent = theme === 'light' ? '🌙' : '☀️';
+      btn.textContent = theme === 'light' ? 'Dark' : 'Light';
       btn.setAttribute('aria-label', theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode');
       if (theme === 'light') {
         btn.style.background = 'rgba(0,0,0,0.06)';
