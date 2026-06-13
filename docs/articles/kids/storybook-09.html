@@ -8,7 +8,7 @@
   *{margin:0;padding:0;box-sizing:border-box}
   body{font-family:'Georgia',serif;background:#0a1628;color:#c8d6e5;overflow-x:hidden}
   .book{max-width:800px;margin:0 auto;min-height:100vh}
-  .page{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;position:relative;page-break-after:always;scroll-snap-align:start}
+  .page{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;page-break-after:always;scroll-snap-align:start}
   .page-cover{background:linear-gradient(135deg,#0d1b2a 0%,#0a1628 50%,#0d1b2a 100%)}
   h1{font-size:2.8rem;color:#e8eef5;text-align:center;margin-bottom:.5rem}
   h2{font-size:1.6rem;color:#85c1e9;text-align:center;font-weight:400;margin-bottom:1.5rem}
@@ -18,7 +18,7 @@
   .story-text strong{color:#e8eef5}
   .illustration{margin:1.5rem 0}
   .illustration svg{max-width:100%;height:auto}
-  .page-num{color:#5a6d80;font-size:.85rem}
+  .page-num{color:#5a6d80;font-size:.85rem;align-self:flex-end;margin-top:auto;padding-right:1rem;padding-bottom:0.5rem}
   .nav{position:fixed;bottom:1rem;right:1rem;z-index:100}
   .nav a{display:inline-block;padding:.5rem 1rem;background:rgba(93,173,226,.15);color:#5dade2;text-decoration:none;border-radius:6px;margin-left:.5rem;font-size:.9rem}
   .nav a:hover{background:rgba(93,173,226,.3)}
@@ -46,7 +46,7 @@
 <div class="book">
 
 <!-- PAGE 1: COVER -->
-<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 1 of 14</div>
+<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 1 of 14</div>
   <div class="illustration floating">
     <svg viewBox="0 0 400 300" width="350">
       <defs><radialGradient id="glow"><stop offset="0%" stop-color="#5dade2" stop-opacity="0.3"/><stop offset="100%" stop-color="#0a1628" stop-opacity="0"/></radialGradient></defs>
@@ -71,10 +71,10 @@
   <h1>📦 Permission Slips</h1>
   <h2>How Robot SIM Cards Get Their Profiles</h2>
   <p class="story-text" style="color:#5a6d80">A story of field trips, delivery trucks, and wax seals</p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 2 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 2 of 14</div>
 
 <!-- PAGE 2: DIRECT DOWNLOAD -->
-<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 3 of 14</div>
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 3 of 14</div>
   <div class="illustration slide-in">
     <svg viewBox="0 0 400 220" width="350">
       <!-- Device -->
@@ -104,10 +104,10 @@
   </div>
   <h3>🏃 Direct Download: The Device Gets It</h3>
   <p class="story-text">In <strong>Direct Download</strong>, the device translator (IPA) talks straight to the profile factory. The remote control centre just says "go get it!" and sends a secret activation code through the air. <em>No QR codes, no cameras, no humans!</em></p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 4 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 4 of 14</div>
 
 <!-- PAGE 3: INDIRECT DOWNLOAD -->
-<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 5 of 14</div>
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 5 of 14</div>
   <div class="illustration slide-in">
     <svg viewBox="0 0 400 220" width="350">
       <!-- Factory -->
@@ -139,10 +139,10 @@
   </div>
   <h3>🚚 Indirect Download: The eIM Delivers</h3>
   <p class="story-text">Sometimes the device can't reach the profile factory: maybe it's on a slow network. The <strong>eIM handles everything</strong>: fetches the profile, securely packages it, and delivers it. The device never talks to the factory at all: like having a friend pick up your parcel!</p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 6 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 6 of 14</div>
 
 <!-- PAGE 4: SIGNED PACKAGE -->
-<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 7 of 14</div>
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 7 of 14</div>
   <div class="illustration slide-in">
     <svg viewBox="0 0 400 220" width="350">
       <!-- Envelope being opened -->
@@ -172,10 +172,10 @@
   </div>
   <h3>✉️ The Signed Command Package</h3>
   <p class="story-text">Instead of sending commands one at a time, the eIM bundles everything into a <strong>signed digital envelope</strong>: an <strong>eIM Package</strong>. It has a digital signature (like a wax seal), an anti-replay counter, and a list of actions. The chip checks the signature, verifies the counter, and executes every command inside.</p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 8 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 8 of 14</div>
 
 <!-- PAGE 5: REPLAY PROTECTION -->
-<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 9 of 14</div>
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 9 of 14</div>
   <div class="illustration slide-in">
     <svg viewBox="0 0 400 200" width="350">
       <!-- Counter mechanism -->
@@ -210,10 +210,10 @@
   </div>
   <h3>🛡️ No Cheating Allowed!</h3>
   <p class="story-text">Every package has a <strong>counter value</strong> that only goes up. The chip remembers the highest number it's seen. If a bad actor tries to replay an old package with a lower number, the chip says <strong>"Nope, I've already seen this!"</strong> and rejects it. The counter can go up to <em>8,388,607</em>: enough for daily use over 28 years!</p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 10 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 10 of 14</div>
 
 <!-- PAGE 6: FUN FACT -->
-<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 11 of 14</div>
+<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 11 of 14</div>
   <div class="illustration floating">
     <svg viewBox="0 0 400 260" width="350">
       <circle cx="200" cy="60" r="35" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2"/>
@@ -227,10 +227,10 @@
     </svg>
   </div>
 <p class="story-text">The anti-replay counter can go all the way up to <strong>8,388,607</strong>: that's enough for 800 operations <em>every single day</em> for 28 years without running out. When it gets close to the limit, the manager is re-added with a fresh counter!</p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 12 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 12 of 14</div>
 
 <!-- PAGE 7: BACK COVER -->
-<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 13 of 14</div>
+<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 13 of 14</div>
   <h2>📚 Ready for the Next Story?</h2>
   <p class="story-text" style="margin-bottom:1.5rem">Learn the secret handshakes that keep robot communications safe!</p>
   <p style="text-align:center;margin-bottom:1rem">
@@ -239,7 +239,7 @@
   <p style="text-align:center">
     <a href="index.html" style="display:inline-block;padding:.8rem 2rem;background:rgba(93,173,226,0.15);color:#5dade2;text-decoration:none;border-radius:8px;font-size:1.1rem">📚 Back to All Stories</a>
   </p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 14 of 14</div>📖 Back Cover
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 14 of 14</div>📖 Back Cover
 </div>
 
 </div>

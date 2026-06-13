@@ -8,7 +8,7 @@
   *{margin:0;padding:0;box-sizing:border-box}
   body{font-family:'Georgia',serif;background:#0a1628;color:#c8d6e5;overflow-x:hidden}
   .book{max-width:800px;margin:0 auto;min-height:100vh}
-  .page{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;position:relative;page-break-after:always;scroll-snap-align:start}
+  .page{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;page-break-after:always;scroll-snap-align:start}
   .page-cover{background:linear-gradient(135deg,#0d1b2a 0%,#0a1628 50%,#0d1b2a 100%)}
   h1{font-size:2.8rem;color:#e8eef5;text-align:center;margin-bottom:.5rem}
   h2{font-size:1.6rem;color:#85c1e9;text-align:center;font-weight:400;margin-bottom:1.5rem}
@@ -18,7 +18,7 @@
   .story-text strong{color:#e8eef5}
   .illustration{margin:1.5rem 0}
   .illustration svg{max-width:100%;height:auto}
-  .page-num{color:#5a6d80;font-size:.85rem}
+  .page-num{color:#5a6d80;font-size:.85rem;align-self:flex-end;margin-top:auto;padding-right:1rem;padding-bottom:0.5rem}
   .nav{position:fixed;bottom:1rem;right:1rem;z-index:100}
   .nav a{display:inline-block;padding:.5rem 1rem;background:rgba(93,173,226,.15);color:#5dade2;text-decoration:none;border-radius:6px;margin-left:.5rem;font-size:.9rem}
   .nav a:hover{background:rgba(93,173,226,.3)}
@@ -46,7 +46,7 @@
 <div class="book">
 
 <!-- PAGE 1: COVER -->
-<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 1 of 14</div>
+<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 1 of 14</div>
   <div class="illustration floating">
     <svg viewBox="0 0 400 300" width="350">
       <defs><radialGradient id="g1"><stop offset="0%" stop-color="#5dade2" stop-opacity="0.3"/><stop offset="100%" stop-color="#0a1628" stop-opacity="0"/></radialGradient></defs>
@@ -74,10 +74,10 @@
   <h1>🔒 Factory Secrets</h1>
   <h2>How Keys Stay Safe on the Assembly Line</h2>
   <p class="story-text" style="color:#5a6d80">The factory is a courier, not a custodian: it moves locked boxes but never sees inside</p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 2 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 2 of 14</div>
 
 <!-- PAGE 2: THE GOLDEN RULE -->
-<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 3 of 14</div>
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 3 of 14</div>
   <div class="illustration slide-in">
     <svg viewBox="0 0 400 240" width="350">
       <!-- Factory building with question marks -->
@@ -109,10 +109,10 @@
   </div>
   <h3>👀 The Golden Rule: Factory = Untrusted</h3>
   <p class="story-text">SGP.41 starts from one blunt principle: factory floors are <strong>not secure enough</strong> to hold secrets. Assembly line workers, production computers, even the Robot: none should see a real key. Two rules enforce this: plain keys exist <em>only inside the chip</em>, and the factory never gets the secret keys.</p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 4 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 4 of 14</div>
 
 <!-- PAGE 3: WHERE KEY LIVES -->
-<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 5 of 14</div>
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 5 of 14</div>
   <div class="illustration slide-in">
     <svg viewBox="0 0 400 240" width="350">
       <!-- Key Maker's Vault -->
@@ -165,10 +165,10 @@
   </div>
   <h3>🗺️ Where the Key Actually Lives</h3>
   <p class="story-text">The key exists in <strong>plain form at exactly two places</strong>: inside the Key Maker's SAS-certified vault, and inside the eSIM chip after installation. At every point in between: in transit, in storage, on the assembly line: it's a <em>locked, scrambled, unreadable package</em>.</p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 6 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 6 of 14</div>
 
 <!-- PAGE 4: ONE-TIME KEYS -->
-<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 7 of 14</div>
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 7 of 14</div>
   <div class="illustration slide-in">
     <svg viewBox="0 0 400 240" width="350">
       <!-- One-time key lifecycle -->
@@ -214,10 +214,10 @@
   </div>
   <h3>🔑 One-Time Keys: The Secret Weapon</h3>
   <p class="story-text">The foundation of IFPP security is <strong>one-time keys</strong>: disposable, single-use padlocks. Born in a SAS-UP certified environment, used for exactly one profile, then destroyed forever. The private part never leaves the chip. Stealing one locked package reveals <em>nothing</em> about any other!</p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 8 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 8 of 14</div>
 
 <!-- PAGE 5: WHAT FACTORY DOESN'T NEED -->
-<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 9 of 14</div>
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 9 of 14</div>
   <div class="illustration slide-in">
     <svg viewBox="0 0 400 230" width="350">
       <!-- SAS and HSM -->
@@ -244,10 +244,10 @@
   </div>
   <h3>🚫 What the Factory Does NOT Need</h3>
   <p class="story-text">This is the best part for manufacturers: they <strong>don't need SAS accreditation</strong> and they <strong>don't need an HSM</strong> (Hardware Security Module). All security work happens at the Key Maker. A high-volume IoT factory making cheap sensors just passes through encrypted packages: no expensive certification required!</p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 10 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 10 of 14</div>
 
 <!-- PAGE 6: FORWARD SECRECY + LOCKS -->
-<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 11 of 14</div>
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 11 of 14</div>
   <div class="illustration slide-in">
     <svg viewBox="0 0 400 240" width="350">
       <!-- Forward secrecy -->
@@ -278,10 +278,10 @@
   </div>
   <h3>⏪ Forward Secrecy &amp; Locking the Door</h3>
   <p class="story-text"><strong>Perfect Forward Secrecy</strong> means even if someone steals the Key Maker's master key in the future, old packages from the past stay safe. Plus, the factory-only interfaces on the chip <em>lock forever</em> after production: no "factory back door" for attackers!</p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 12 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 12 of 14</div>
 
 <!-- PAGE 7: DID YOU KNOW -->
-<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 13 of 14</div>
+<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 13 of 14</div>
   <div class="illustration floating">
     <svg viewBox="0 0 400 240" width="350">
       <!-- Lock and key puzzle -->
@@ -318,7 +318,7 @@
   <p style="text-align:center">
     <a href="index.html" style="color:#5a6d80;text-decoration:none;font-size:.9rem">📖 Back to All Stories</a>
   </p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 14 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 14 of 14</div>
 
 </div>
 

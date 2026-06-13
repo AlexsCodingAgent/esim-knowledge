@@ -8,7 +8,7 @@
   *{margin:0;padding:0;box-sizing:border-box}
   body{font-family:'Georgia',serif;background:#0a1628;color:#c8d6e5;overflow-x:hidden}
   .book{max-width:800px;margin:0 auto;min-height:100vh}
-  .page{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;position:relative;page-break-after:always;scroll-snap-align:start}
+  .page{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;page-break-after:always;scroll-snap-align:start}
   .page-cover{background:linear-gradient(135deg,#0d1b2a 0%,#0a1628 50%,#0d1b2a 100%)}
   h1{font-size:2.8rem;color:#e8eef5;text-align:center;margin-bottom:.5rem}
   h2{font-size:1.6rem;color:#85c1e9;text-align:center;font-weight:400;margin-bottom:1.5rem}
@@ -18,7 +18,7 @@
   .story-text strong{color:#e8eef5}
   .illustration{margin:1.5rem 0}
   .illustration svg{max-width:100%;height:auto}
-  .page-num{color:#5a6d80;font-size:.85rem}
+  .page-num{color:#5a6d80;font-size:.85rem;align-self:flex-end;margin-top:auto;padding-right:1rem;padding-bottom:0.5rem}
   .nav{position:fixed;bottom:1rem;right:1rem;z-index:100}
   .nav a{display:inline-block;padding:.5rem 1rem;background:rgba(93,173,226,.15);color:#5dade2;text-decoration:none;border-radius:6px;margin-left:.5rem;font-size:.9rem}
   .nav a:hover{background:rgba(93,173,226,.3)}
@@ -46,7 +46,7 @@
 <div class="book">
 
 <!-- PAGE 1: COVER -->
-<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 1 of 14</div>
+<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 1 of 14</div>
   <div class="illustration floating">
     <svg viewBox="0 0 400 300" width="350">
       <defs><radialGradient id="glow"><stop offset="0%" stop-color="#5dade2" stop-opacity="0.3"/><stop offset="100%" stop-color="#0a1628" stop-opacity="0"/></radialGradient></defs>
@@ -79,10 +79,10 @@
   <h1>📇 The Trusted Friends List</h1>
   <h2>Adding Remote Managers to Your Chip's Contacts</h2>
   <p class="story-text" style="color:#5a6d80">A story of secret clubhouses, contact cards, and the chicken-and-egg problem</p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 2 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 2 of 14</div>
 
 <!-- PAGE 2: CONTACT LIST -->
-<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 3 of 14</div>
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 3 of 14</div>
   <div class="illustration slide-in">
     <svg viewBox="0 0 400 220" width="350">
       <!-- Chip with contact list -->
@@ -101,10 +101,10 @@
   </div>
   <h3>🤝 Why Do We Need a Contact List?</h3>
   <p class="story-text">Phones don't remember who managed them. But IoT devices are deployed on remote mountains and ocean turbines: they need to know <strong>instantly</strong> if a command is from a trusted source. So they store a <strong>contact list right on the chip</strong>: only trusted managers can give orders!</p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 4 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 4 of 14</div>
 
 <!-- PAGE 3: CONTACT CARD -->
-<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 5 of 14</div>
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 5 of 14</div>
   <div class="illustration slide-in">
     <svg viewBox="0 0 400 220" width="350">
       <!-- Contact card -->
@@ -126,10 +126,10 @@
   </div>
   <h3>📋 What's on the Contact Card?</h3>
   <p class="story-text">Each trusted manager gets a <strong>digital contact card</strong> stored right on the chip. It includes their <strong>name</strong>, <strong>public key</strong> (for signature verification), a <strong>counter</strong> (against replay attacks), their <strong>language</strong> (HTTPS, CoAPS, etc.), and a <strong>trust anchor</strong> for encrypting the connection.</p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 6 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 6 of 14</div>
 
 <!-- PAGE 4: FOUR OPERATIONS -->
-<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 7 of 14</div>
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 7 of 14</div>
   <div class="illustration slide-in">
     <svg viewBox="0 0 400 220" width="350">
       <!-- Add -->
@@ -165,10 +165,10 @@
   </div>
   <h3>✏️ Four Ways to Manage the List</h3>
   <p class="story-text">Four operations: <strong>addEim</strong> (add a new friend), <strong>updateEim</strong> (change their details), <strong>deleteEim</strong> (remove a friend), and <strong>listEim</strong> (who's on my list?). The very first manager solves a chicken-and-egg problem: it's added at the factory with a special bootstrap command!</p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 8 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 8 of 14</div>
 
 <!-- PAGE 5: TICKET COUNTER -->
-<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 9 of 14</div>
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 9 of 14</div>
   <div class="illustration slide-in">
     <svg viewBox="0 0 400 200" width="350">
       <!-- Counter machine -->
@@ -193,10 +193,10 @@
   </div>
   <h3>🧮 The Ticket Counter</h3>
   <p class="story-text">Every command includes a ticket number that only goes up. The chip remembers the last number seen. Old numbers get rejected: <strong>"sorry, already saw that one!"</strong> When the counter nears its max of 8,388,607, the manager is removed and re-added with a fresh counter. Simple and bulletproof!</p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 10 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 10 of 14</div>
 
 <!-- PAGE 6: FUN FACT -->
-<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 11 of 14</div>
+<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 11 of 14</div>
   <div class="illustration floating">
     <svg viewBox="0 0 400 260" width="350">
       <circle cx="200" cy="60" r="35" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2"/>
@@ -216,10 +216,10 @@
     </svg>
   </div>
 <p class="story-text">A single eSIM chip can trust <strong>multiple</strong> managers at once: so the company that made the device <em>and</em> the customer who bought it can both manage it, each with their own trusted spot on the contact list!</p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 12 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 12 of 14</div>
 
 <!-- PAGE 7: BACK COVER -->
-<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 13 of 14</div>
+<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 13 of 14</div>
   <h2>📚 Ready for the Next Story?</h2>
   <p class="story-text" style="margin-bottom:1.5rem">Discover how devices send report cards and undo mistakes!</p>
   <p style="text-align:center;margin-bottom:1rem">
@@ -228,7 +228,7 @@
   <p style="text-align:center">
     <a href="index.html" style="display:inline-block;padding:.8rem 2rem;background:rgba(93,173,226,0.15);color:#5dade2;text-decoration:none;border-radius:8px;font-size:1.1rem">📚 Back to All Stories</a>
   </p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 14 of 14</div>📖 Back Cover
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 14 of 14</div>📖 Back Cover
 </div>
 
 </div>

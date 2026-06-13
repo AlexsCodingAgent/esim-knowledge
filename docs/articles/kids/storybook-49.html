@@ -8,7 +8,7 @@
   *{margin:0;padding:0;box-sizing:border-box}
   body{font-family:'Georgia',serif;background:#0a1628;color:#c8d6e5;overflow-x:hidden}
   .book{max-width:800px;margin:0 auto;min-height:100vh}
-  .page{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;position:relative;page-break-after:always;scroll-snap-align:start}
+  .page{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;page-break-after:always;scroll-snap-align:start}
   .page-cover{background:linear-gradient(135deg,#0d1b2a 0%,#0a1628 50%,#0d1b2a 100%)}
   h1{font-size:2.8rem;color:#e8eef5;text-align:center;margin-bottom:.5rem}
   h2{font-size:1.6rem;color:#85c1e9;text-align:center;font-weight:400;margin-bottom:1.5rem}
@@ -18,7 +18,7 @@
   .story-text strong{color:#e8eef5}
   .illustration{margin:1.5rem 0}
   .illustration svg{max-width:100%;height:auto}
-  .page-num{color:#5a6d80;font-size:.85rem}
+  .page-num{color:#5a6d80;font-size:.85rem;align-self:flex-end;margin-top:auto;padding-right:1rem;padding-bottom:0.5rem}
   .nav{position:fixed;bottom:1rem;right:1rem;z-index:100}
   .nav a{display:inline-block;padding:.5rem 1rem;background:rgba(93,173,226,.15);color:#5dade2;text-decoration:none;border-radius:6px;margin-left:.5rem;font-size:.9rem}
   .nav a:hover{background:rgba(93,173,226,.3)}
@@ -46,7 +46,7 @@
 <div class="book">
 
 <!-- PAGE 1: COVER -->
-<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 1 of 14</div>
+<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 1 of 14</div>
   <div class="illustration floating">
     <svg viewBox="0 0 400 300" width="350">
       <defs><radialGradient id="g1"><stop offset="0%" stop-color="#5dade2" stop-opacity="0.3"/><stop offset="100%" stop-color="#0a1628" stop-opacity="0"/></radialGradient></defs>
@@ -91,10 +91,10 @@
   <h1>🏭➡️👖 From Factory Floor to Your Pocket</h1>
   <h2>The 16-Step Journey of a Factory Key</h2>
   <p class="story-text" style="color:#5a6d80">Follow a key from order to installation: across oceans and assembly lines</p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 2 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 2 of 14</div>
 
 <!-- PAGE 2: THE TWO-STEP DANCE -->
-<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 3 of 14</div>
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 3 of 14</div>
   <div class="illustration slide-in">
     <svg viewBox="0 0 400 240" width="350">
       <!-- Manufacturing Step -->
@@ -144,10 +144,10 @@
   </div>
   <h3>🪄 The Two-Phase Magic</h3>
   <p class="story-text">IFPP splits the journey into two phases. <strong>Manufacturing Step</strong>: build generic hardware in bulk, put it in stock. <strong>Configuration Step</strong>: pull a device from stock, load the country-specific key, and ship. One production line serves the entire world!</p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 4 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 4 of 14</div>
 
 <!-- PAGE 3: PHASES 1-2: ORDER & CHIPS -->
-<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 5 of 14</div>
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 5 of 14</div>
   <div class="illustration slide-in">
     <svg viewBox="0 0 400 230" width="350">
       <!-- Phase 1: Order -->
@@ -185,10 +185,10 @@
   </div>
   <h3>📋 Phases 1–2: Ordering Keys &amp; Shipping Chips</h3>
   <p class="story-text">First, a carrier places a <strong>bulk order</strong> for keys. The Chip Maker ships eSIM chips with one-time keys to the factory. Then the chip's public data: certificates and public keys: goes to the Key Maker, like sending a locksmith a <em>photo of your keyhole</em>!</p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 6 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 6 of 14</div>
 
 <!-- PAGE 4: PHASE 3: MAKING THE KEYS -->
-<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 7 of 14</div>
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 7 of 14</div>
   <div class="illustration slide-in">
     <svg viewBox="0 0 400 240" width="350">
       <!-- Vault -->
@@ -233,10 +233,10 @@
   </div>
   <h3>🔐 Phase 3: Making the Keys</h3>
   <p class="story-text">Inside the Key Maker's vault, each profile is encrypted so <em>only one specific chip</em> can unlock it. This uses <strong>Perfect Forward Secrecy</strong>: even if someone steals the master key later, old packages stay safe. The locked packages arrive at the factory and can sit in storage for months!</p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 8 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 8 of 14</div>
 
 <!-- PAGE 5: PHASE 4: LOADING ON THE LINE -->
-<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 9 of 14</div>
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 9 of 14</div>
   <div class="illustration slide-in">
     <svg viewBox="0 0 400 250" width="350">
       <!-- Assembly line -->
@@ -285,10 +285,10 @@
   </div>
   <h3>🏭 Phase 4: Loading on the Assembly Line</h3>
   <p class="story-text">This is where it all comes together: <strong>no internet needed!</strong> The Boss hands a locked package to the Robot, which pushes it into the chip. Inside, it's unlocked, verified, and installed. The one-time key is consumed: <em>destroyed forever</em>. The chip signs a receipt and reports success!</p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 10 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 10 of 14</div>
 
 <!-- PAGE 6: PHASE 5 & FLEXIBILITY -->
-<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 11 of 14</div>
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 11 of 14</div>
   <div class="illustration slide-in">
     <svg viewBox="0 0 400 280" width="350">
       <!-- Phase 5 -->
@@ -322,10 +322,10 @@
   </div>
   <h3>📊 Reporting Back &amp; Yoga Flexibility</h3>
   <p class="story-text">After loading, the Boss collects all the receipts and sends a <strong>Profile Loading Report</strong> to the Key Maker. The flow is flexible like a yoga master: steps can be reordered, multiple keys per chip, multiple carriers. Best part: Steps 8–12 happen in <em>milliseconds</em>: a single push!</p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 12 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 12 of 14</div>
 
 <!-- PAGE 7: DID YOU KNOW -->
-<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 13 of 14</div>
+<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 13 of 14</div>
   <div class="illustration floating">
     <svg viewBox="0 0 400 240" width="350">
       <!-- Speed gauge -->
@@ -360,7 +360,7 @@
   <p style="text-align:center">
     <a href="index.html" style="color:#5a6d80;text-decoration:none;font-size:.9rem">📖 Back to All Stories</a>
   </p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 14 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 14 of 14</div>
 
 </div>
 

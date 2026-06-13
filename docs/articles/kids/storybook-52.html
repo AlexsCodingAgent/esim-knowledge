@@ -8,7 +8,7 @@
   *{margin:0;padding:0;box-sizing:border-box}
   body{font-family:'Georgia',serif;background:#0a1628;color:#c8d6e5;overflow-x:hidden}
   .book{max-width:800px;margin:0 auto;min-height:100vh}
-  .page{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;position:relative;page-break-after:always;scroll-snap-align:start}
+  .page{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;page-break-after:always;scroll-snap-align:start}
   .page-cover{background:linear-gradient(135deg,#0d1b2a 0%,#0a1628 50%,#0d1b2a 100%)}
   h1{font-size:2.8rem;color:#e8eef5;text-align:center;margin-bottom:.5rem}
   h2{font-size:1.6rem;color:#85c1e9;text-align:center;font-weight:400;margin-bottom:1.5rem}
@@ -18,7 +18,7 @@
   .story-text strong{color:#e8eef5}
   .illustration{margin:1.5rem 0}
   .illustration svg{max-width:100%;height:auto}
-  .page-num{color:#5a6d80;font-size:.85rem}
+  .page-num{color:#5a6d80;font-size:.85rem;align-self:flex-end;margin-top:auto;padding-right:1rem;padding-bottom:0.5rem}
   .nav{position:fixed;bottom:1rem;right:1rem;z-index:100}
   .nav a{display:inline-block;padding:.5rem 1rem;background:rgba(93,173,226,.15);color:#5dade2;text-decoration:none;border-radius:6px;margin-left:.5rem;font-size:.9rem}
   .nav a:hover{background:rgba(93,173,226,.3)}
@@ -46,7 +46,7 @@
 <div class="book">
 
 <!-- PAGE 1: COVER -->
-<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 1 of 14</div>
+<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 1 of 14</div>
   <div class="illustration floating">
     <svg viewBox="0 0 400 300" width="350">
       <defs><radialGradient id="glow"><stop offset="0%" stop-color="#5dade2" stop-opacity="0.3"/><stop offset="100%" stop-color="#0a1628" stop-opacity="0"/></radialGradient></defs>
@@ -82,10 +82,10 @@
   <h1>🤝 The Big Team-Up</h1>
   <h2>When Two eSIM Worlds Became One</h2>
   <p class="story-text" style="color:#5a6d80">A story of how consumer phones and IoT robots joined forces under one mighty spec</p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 2 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 2 of 14</div>
 
 <!-- PAGE 2: TWO SEPARATE WORLDS -->
-<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 3 of 14</div>
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 3 of 14</div>
   <div class="illustration slide-in">
     <svg viewBox="0 0 400 230" width="350">
       <!-- Left: Consumer world -->
@@ -119,10 +119,10 @@
   </div>
   <h3>🌍 Two Separate Worlds</h3>
   <p class="story-text">For years, the eSIM ecosystem was split in two: <strong>SGP.22</strong> for consumer phones (where you scan QR codes) and <strong>SGP.02</strong> for IoT machines (cars, sensors, factory robots). Same chip: <em>two completely different rulebooks</em>. Companies had to build everything twice!</p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 4 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 4 of 14</div>
 
 <!-- PAGE 3: WHY MERGE -->
-<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 5 of 14</div>
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 5 of 14</div>
   <div class="illustration slide-in">
     <svg viewBox="0 0 400 240" width="350">
       <!-- Problem icons -->
@@ -159,10 +159,10 @@
   </div>
   <h3>🤔 Why Merge Two Worlds?</h3>
   <p class="story-text">Having two separate specs meant <strong>double the work</strong> for everyone: chip makers, carriers, phone manufacturers. Worse, each spec missed features the other had. The GSMA decided: <em>what if we combined the best of both worlds into one unified rulebook?</em></p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 6 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 6 of 14</div>
 
 <!-- PAGE 4: ONE SPEC TO RULE THEM ALL -->
-<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 7 of 14</div>
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 7 of 14</div>
   <div class="illustration slide-in">
     <svg viewBox="0 0 400 240" width="350">
       <!-- Central unified circle -->
@@ -197,10 +197,10 @@
   </div>
   <h3>👑 One Spec to Rule Them All</h3>
   <p class="story-text">SGP.22 v3.x is the <strong>grand unification</strong>! Whether you're a smartphone, a smartwatch, a car, or a factory sensor: you now <em>all follow the same rulebook</em>. The best features from both worlds are merged: push notifications from IoT, multiple profiles from consumer, and brand-new capabilities neither had before.</p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 8 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 8 of 14</div>
 
 <!-- PAGE 5: WHAT'S NEW -->
-<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 9 of 14</div>
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 9 of 14</div>
   <div class="illustration slide-in">
     <svg viewBox="0 0 400 250" width="350">
       <text x="200" y="18" fill="#fbbf24" font-size="12" text-anchor="middle" font-weight="bold">✨ What's New in v3.x? ✨</text>
@@ -251,10 +251,10 @@
   </div>
   <h3>✨ What's New Under the Sun</h3>
   <p class="story-text">v3.x introduces <strong>six big innovations</strong>: Multiple Enabled Profiles (MEP) so you can be on two networks at once, Push Service for instant notifications, Feature Support handshakes, Device Change to move keys between phones, Chip Updates to keep your vault modern, and Interoperability rules so old and new can coexist peacefully.</p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 10 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 10 of 14</div>
 
 <!-- PAGE 6: TIMELINE -->
-<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 11 of 14</div>
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 11 of 14</div>
   <div class="illustration slide-in">
     <svg viewBox="0 0 400 230" width="350">
       <!-- Timeline -->
@@ -297,10 +297,10 @@
   </div>
   <h3>📅 The Timeline of Team-Up</h3>
   <p class="story-text">For nearly a decade, two parallel eSIM worlds existed side by side. In 2024, the GSMA decided: <strong>let's bring them together</strong>. SGP.22 v3.x absorbs the best of SGP.02 and adds brand-new features, creating a <em>single, future-proof standard</em> that works for phones, cars, watches, sensors: and whatever comes next!</p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 12 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 12 of 14</div>
 
 <!-- PAGE 7: DID YOU KNOW + NAV -->
-<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 13 of 14</div>
+<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 13 of 14</div>
   <div class="illustration floating">
     <svg viewBox="0 0 400 240" width="350">
       <!-- Unified ecosystem -->
@@ -342,7 +342,7 @@
   <p style="text-align:center">
     <a href="index.html" style="color:#5a6d80;text-decoration:none;font-size:.9rem">📖 Back to All Stories</a>
   </p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 14 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 14 of 14</div>
 
 </div>
 

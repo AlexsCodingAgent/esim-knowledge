@@ -8,7 +8,7 @@
   *{margin:0;padding:0;box-sizing:border-box}
   body{font-family:'Georgia',serif;background:#0a1628;color:#c8d6e5;overflow-x:hidden}
   .book{max-width:800px;margin:0 auto;min-height:100vh}
-  .page{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;position:relative;page-break-after:always;scroll-snap-align:start}
+  .page{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;page-break-after:always;scroll-snap-align:start}
   .page-cover{background:linear-gradient(135deg,#0d1b2a 0%,#0a1628 50%,#0d1b2a 100%)}
   h1{font-size:2.8rem;color:#e8eef5;text-align:center;margin-bottom:.5rem}
   h2{font-size:1.6rem;color:#85c1e9;text-align:center;font-weight:400;margin-bottom:1.5rem}
@@ -18,7 +18,7 @@
   .story-text strong{color:#e8eef5}
   .illustration{margin:1.5rem 0}
   .illustration svg{max-width:100%;height:auto}
-  .page-num{color:#5a6d80;font-size:.85rem}
+  .page-num{color:#5a6d80;font-size:.85rem;align-self:flex-end;margin-top:auto;padding-right:1rem;padding-bottom:0.5rem}
   .nav{position:fixed;bottom:1rem;right:1rem;z-index:100}
   .nav a{display:inline-block;padding:.5rem 1rem;background:rgba(93,173,226,.15);color:#5dade2;text-decoration:none;border-radius:6px;margin-left:.5rem;font-size:.9rem}
   .nav a:hover{background:rgba(93,173,226,.3)}
@@ -46,7 +46,7 @@
 <div class="book">
 
 <!-- PAGE 1: COVER -->
-<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 1 of 14</div>
+<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 1 of 14</div>
   <div class="illustration floating">
     <svg viewBox="0 0 400 300" width="350">
       <defs><radialGradient id="glow"><stop offset="0%" stop-color="#5dade2" stop-opacity="0.3"/><stop offset="100%" stop-color="#0a1628" stop-opacity="0"/></radialGradient></defs>
@@ -80,10 +80,10 @@
   <h1>🤝 The Secret Handshake</h1>
   <h2>How eSIM Devices Agree on What They Can Do Together</h2>
   <p class="story-text" style="color:#5a6d80">A story of feature menus, compatibility checks, and why asking first makes everything work better</p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 2 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 2 of 14</div>
 
 <!-- PAGE 2: BEFORE WE WORK TOGETHER -->
-<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 3 of 14</div>
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 3 of 14</div>
   <div class="illustration slide-in">
     <svg viewBox="0 0 400 230" width="350">
       <!-- Left: Server with features -->
@@ -120,10 +120,10 @@
   </div>
   <h3>🤔 Before We Work Together</h3>
   <p class="story-text">Not all eSIM devices are created equal. A server might be running <strong>v3.2 with all the latest features</strong>, while your phone's chip only supports <strong>v3.0 basics</strong>. If the server tries to use a feature the chip doesn't understand, things break! They need a way to <em>check compatibility first</em>.</p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 4 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 4 of 14</div>
 
 <!-- PAGE 3: CAN YOU DO THIS? -->
-<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 5 of 14</div>
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 5 of 14</div>
   <div class="illustration slide-in">
     <svg viewBox="0 0 400 230" width="350">
       <!-- Server asking -->
@@ -164,10 +164,10 @@
   </div>
   <h3>❓ "Can You Do This?" "Yes!"</h3>
   <p class="story-text">Before any work begins, the server and the chip perform a <strong>feature check</strong>. The server asks: "Can you do MEP? Push Service? Device Change?" The chip answers honestly with what it supports. Based on the answers, they agree on a <em>common set of features</em>: only using what both sides understand.</p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 6 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 6 of 14</div>
 
 <!-- PAGE 4: THE TAG MENU -->
-<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 7 of 14</div>
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 7 of 14</div>
   <div class="illustration slide-in">
     <svg viewBox="0 0 400 250" width="350">
       <text x="200" y="18" fill="#fbbf24" font-size="12" text-anchor="middle" font-weight="bold">🏷️ The Feature Tag Menu</text>
@@ -217,10 +217,10 @@
   </div>
   <h3>🏷️ The Feature Tag Menu</h3>
   <p class="story-text">Every v3.x chip comes with a <strong>menu of feature tags</strong>: like a restaurant menu listing what dishes are available. Tags include: <em>MEP</em> (multiple profiles), <em>PushService</em> (doorbell), <em>DeviceChange</em> (key moving), <em>PCM</em> (chip updates), and more. The server reads this menu before placing any "order"!</p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 8 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 8 of 14</div>
 
 <!-- PAGE 5: ASKING FIRST AVOIDS PROBLEMS -->
-<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 9 of 14</div>
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 9 of 14</div>
   <div class="illustration slide-in">
     <svg viewBox="0 0 400 230" width="350">
       <!-- Without feature check: chaos -->
@@ -255,10 +255,10 @@
   </div>
   <h3>🛡️ Asking First Avoids Problems</h3>
   <p class="story-text">Without feature negotiation, the server might ask the chip to do something it <strong>doesn't understand</strong>: causing errors, crashes, or broken sessions. With the secret handshake, they agree on <em>exactly what's supported</em> before any real work starts. Even if a chip is older, it can still work: just with fewer features. This is called <strong>graceful degradation</strong>!</p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 10 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 10 of 14</div>
 
 <!-- PAGE 6: THE HANDSHAKE -->
-<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 11 of 14</div>
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 11 of 14</div>
   <div class="illustration slide-in">
     <svg viewBox="0 0 400 240" width="350">
       <!-- Step 1: Connect -->
@@ -307,10 +307,10 @@
   </div>
   <h3>🤝 The Handshake, Step by Step</h3>
   <p class="story-text">1. <strong>Connect</strong>: Encrypted link established. 2. <strong>Ask</strong>: Server queries the chip's feature menu. 3. <strong>Answer</strong>: Chip sends back its tags: honestly! 4. <strong>Agree</strong>: Both sides lock in the <em>common subset</em> of features. Now the real work begins, using only commands the chip understands. No surprises, no crashes!</p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 12 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 12 of 14</div>
 
 <!-- PAGE 7: DID YOU KNOW + NAV -->
-<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 13 of 14</div>
+<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 13 of 14</div>
   <div class="illustration floating">
     <svg viewBox="0 0 400 240" width="350">
       <!-- Old and new devices connected -->
@@ -343,7 +343,7 @@
   <p style="text-align:center">
     <a href="index.html" style="color:#5a6d80;text-decoration:none;font-size:.9rem">📖 Back to All Stories</a>
   </p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 14 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 14 of 14</div>
 
 </div>
 

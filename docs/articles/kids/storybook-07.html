@@ -8,7 +8,7 @@
   *{margin:0;padding:0;box-sizing:border-box}
   body{font-family:'Georgia',serif;background:#0a1628;color:#c8d6e5;overflow-x:hidden}
   .book{max-width:800px;margin:0 auto;min-height:100vh}
-  .page{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;position:relative;page-break-after:always;scroll-snap-align:start}
+  .page{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;page-break-after:always;scroll-snap-align:start}
   .page-cover{background:linear-gradient(135deg,#0d1b2a 0%,#0a1628 50%,#0d1b2a 100%)}
   h1{font-size:2.8rem;color:#e8eef5;text-align:center;margin-bottom:.5rem}
   h2{font-size:1.6rem;color:#85c1e9;text-align:center;font-weight:400;margin-bottom:1.5rem}
@@ -18,7 +18,7 @@
   .story-text strong{color:#e8eef5}
   .illustration{margin:1.5rem 0}
   .illustration svg{max-width:100%;height:auto}
-  .page-num{color:#5a6d80;font-size:.85rem}
+  .page-num{color:#5a6d80;font-size:.85rem;align-self:flex-end;margin-top:auto;padding-right:1rem;padding-bottom:0.5rem}
   .nav{position:fixed;bottom:1rem;right:1rem;z-index:100}
   .nav a{display:inline-block;padding:.5rem 1rem;background:rgba(93,173,226,.15);color:#5dade2;text-decoration:none;border-radius:6px;margin-left:.5rem;font-size:.9rem}
   .nav a:hover{background:rgba(93,173,226,.3)}
@@ -46,7 +46,7 @@
 <div class="book">
 
 <!-- PAGE 1: COVER -->
-<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 1 of 16</div>
+<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 1 of 16</div>
   <div class="illustration floating">
     <svg viewBox="0 0 400 300" width="350">
       <defs><radialGradient id="glow"><stop offset="0%" stop-color="#5dade2" stop-opacity="0.3"/><stop offset="100%" stop-color="#0a1628" stop-opacity="0"/></radialGradient></defs>
@@ -83,10 +83,10 @@
   <h1>🤖 Tiny Robots Need Special eSIMs</h1>
   <h2>Why IoT Devices Got Their Own Architecture</h2>
   <p class="story-text" style="color:#5a6d80">A story of weather sensors, sleepy devices, and fleet-sized thinking</p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 2 of 16</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 2 of 16</div>
 
 <!-- PAGE 2: PHONE VS ROBOT -->
-<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 3 of 16</div>
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 3 of 16</div>
   <div class="illustration slide-in">
     <svg viewBox="0 0 400 220" width="350">
       <!-- Phone -->
@@ -115,10 +115,10 @@
   </div>
   <h3>📱 The Phone Way vs 🤖 The Robot Way</h3>
   <p class="story-text">Phones have screens to tap, SMS messages, and always-on internet. But tiny IoT robots have <strong>none of that</strong>: they're sealed in boxes, sleep for days, and there are <em>thousands</em> of them. So engineers built a brand new system called <strong>SGP.31 and SGP.32</strong>.</p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 4 of 16</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 4 of 16</div>
 
 <!-- PAGE 3: REMOTE CONTROL CENTRE -->
-<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 5 of 16</div>
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 5 of 16</div>
   <div class="illustration slide-in">
     <svg viewBox="0 0 400 220" width="350">
       <!-- Control centre -->
@@ -149,10 +149,10 @@
   </div>
   <h3>🎮 The Remote Control Centre (eIM)</h3>
   <p class="story-text">Instead of tapping a phone screen, a <strong>Remote Control Centre</strong> (called the eIM) manages everything from the cloud. One person can control <em>thousands</em> of devices from a single dashboard: sending commands, switching profiles, and checking status.</p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 6 of 16</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 6 of 16</div>
 
 <!-- PAGE 4: THE IPA HELPER -->
-<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 7 of 16</div>
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 7 of 16</div>
   <div class="illustration slide-in">
     <svg viewBox="0 0 400 220" width="350">
       <!-- Robot with IPA inside -->
@@ -183,10 +183,10 @@
   </div>
   <h3>🤖 The On-Device Translator (IPA)</h3>
   <p class="story-text">Each device has a little helper called the <strong>IPA</strong> (IoT Profile Assistant). It's like a translator: it takes commands from the remote control centre and passes them to the eSIM chip. The IPA doesn't make decisions: it just delivers messages, like a faithful messenger.</p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 8 of 16</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 8 of 16</div>
 
 <!-- PAGE 5: SAFETY NETS -->
-<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 9 of 16</div>
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 9 of 16</div>
   <div class="illustration slide-in">
     <svg viewBox="0 0 400 220" width="350">
       <!-- Parachute -->
@@ -213,10 +213,10 @@
   </div>
   <h3>🪂 Safety Nets and Undo Buttons</h3>
   <p class="story-text">What if a profile switch goes wrong and the robot loses connection? The chip has a <strong>fallback profile</strong>: an automatic parachute. And if a download breaks, it can <strong>roll back</strong> like pressing "undo." Plus, the system is careful not to wear out the chip's memory: some devices need to run for <em>10+ years</em> on one battery!</p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 10 of 16</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 10 of 16</div>
 
 <!-- PAGE 6: COMPARISON -->
-<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 11 of 16</div>
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 11 of 16</div>
   <div class="illustration slide-in">
     <svg viewBox="0 0 400 220" width="350">
       <!-- Phone side -->
@@ -243,10 +243,10 @@
   </div>
   <h3>🚀 What Makes This Different?</h3>
   <p class="story-text">Everything is <strong>remote</strong>, <strong>automatic</strong>, and built for <strong>fleets of thousands</strong>. No tapping screens, no QR codes, no naming profiles: just signed commands from the cloud and devices that take care of themselves.</p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 12 of 16</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 12 of 16</div>
 
 <!-- PAGE 7: FUN FACT -->
-<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 13 of 16</div>
+<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 13 of 16</div>
   <div class="illustration floating">
     <svg viewBox="0 0 400 260" width="350">
       <circle cx="200" cy="60" r="35" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2"/>
@@ -265,10 +265,10 @@
     </svg>
   </div>
 <p class="story-text">Some IoT devices are designed to run for <strong>10+ years</strong> on a single battery: so the eSIM system has to be careful not to wear out the chip's memory with too many writes. Every operation is precious!</p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 14 of 16</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 14 of 16</div>
 
 <!-- PAGE 8: BACK COVER -->
-<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 15 of 16</div>
+<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 15 of 16</div>
   <h2>📚 Ready for the Next Story?</h2>
   <p class="story-text" style="margin-bottom:1.5rem">Learn how the Remote Control Centre and Translators work together!</p>
   <p style="text-align:center;margin-bottom:1rem">
@@ -277,7 +277,7 @@
   <p style="text-align:center">
     <a href="index.html" style="display:inline-block;padding:.8rem 2rem;background:rgba(93,173,226,0.15);color:#5dade2;text-decoration:none;border-radius:8px;font-size:1.1rem">📚 Back to All Stories</a>
   </p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 16 of 16</div>📖 Back Cover
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 16 of 16</div>📖 Back Cover
 </div>
 
 </div>

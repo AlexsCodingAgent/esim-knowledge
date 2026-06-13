@@ -8,7 +8,7 @@
   *{margin:0;padding:0;box-sizing:border-box}
   body{font-family:'Georgia',serif;background:#0a1628;color:#c8d6e5;overflow-x:hidden}
   .book{max-width:800px;margin:0 auto;min-height:100vh}
-  .page{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;position:relative;page-break-after:always;scroll-snap-align:start}
+  .page{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;page-break-after:always;scroll-snap-align:start}
   .page-cover{background:linear-gradient(135deg,#0d1b2a 0%,#0a1628 50%,#0d1b2a 100%)}
   h1{font-size:2.8rem;color:#e8eef5;text-align:center;margin-bottom:.5rem}
   h2{font-size:1.6rem;color:#85c1e9;text-align:center;font-weight:400;margin-bottom:1.5rem}
@@ -18,7 +18,7 @@
   .story-text strong{color:#e8eef5}
   .illustration{margin:1.5rem 0}
   .illustration svg{max-width:100%;height:auto}
-  .page-num{color:#5a6d80;font-size:.85rem}
+  .page-num{color:#5a6d80;font-size:.85rem;align-self:flex-end;margin-top:auto;padding-right:1rem;padding-bottom:0.5rem}
   .nav{position:fixed;bottom:1rem;right:1rem;z-index:100}
   .nav a{display:inline-block;padding:.5rem 1rem;background:rgba(93,173,226,.15);color:#5dade2;text-decoration:none;border-radius:6px;margin-left:.5rem;font-size:.9rem}
   .nav a:hover{background:rgba(93,173,226,.3)}
@@ -46,7 +46,7 @@
 <div class="book">
 
 <!-- PAGE 1: COVER -->
-<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 1 of 14</div>
+<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 1 of 14</div>
   <div class="illustration floating">
     <svg viewBox="0 0 400 300" width="350">
       <defs><radialGradient id="glow"><stop offset="0%" stop-color="#5dade2" stop-opacity="0.3"/><stop offset="100%" stop-color="#0a1628" stop-opacity="0"/></radialGradient></defs>
@@ -72,10 +72,10 @@
   <h1>👥 Wearing Two Invisible Cloaks</h1>
   <h2>How One Phone Can Be on Two Networks at Once</h2>
   <p class="story-text" style="color:#5a6d80">A story of multiple profiles, magic pockets, and the art of being in two places at the same time</p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 2 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 2 of 14</div>
 
 <!-- PAGE 2: ONE CLOAK AT A TIME -->
-<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 3 of 14</div>
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 3 of 14</div>
   <div class="illustration slide-in">
     <svg viewBox="0 0 400 230" width="350">
       <!-- Old way: single profile -->
@@ -112,10 +112,10 @@
   </div>
   <h3>🧥 One Cloak at a Time</h3>
   <p class="story-text">Before MEP, your phone's eSIM could only <strong>wear one profile at a time</strong>. Like a magic cloak: you could switch between them, but only one was active. Want to use your travel profile? You had to <em>take off</em> your home profile first. Switching meant a brief moment of being disconnected!</p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 4 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 4 of 14</div>
 
 <!-- PAGE 3: PORTS LIKE POCKETS -->
-<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 5 of 14</div>
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 5 of 14</div>
   <div class="illustration slide-in">
     <svg viewBox="0 0 400 240" width="350">
       <!-- Phone with multiple ports -->
@@ -152,10 +152,10 @@
   </div>
   <h3>👜 "Ports": Like Many Pockets</h3>
   <p class="story-text">The eSIM chip has special slots called <strong>"ports"</strong>: think of them as pockets on a magic coat. Each port can hold <em>one active profile</em>. Old chips had just one pocket. But v3.x chips come with multiple ports! Now you can keep your home profile in one pocket and your travel profile in another: <strong>both awake and ready!</strong></p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 6 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 6 of 14</div>
 
 <!-- PAGE 4: TWO CLOAKS, ONE PHONE -->
-<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 7 of 14</div>
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 7 of 14</div>
   <div class="illustration slide-in">
     <svg viewBox="0 0 400 230" width="350">
       <!-- Phone center -->
@@ -192,10 +192,10 @@
   </div>
   <h3>👥 Two Cloaks, One Phone</h3>
   <p class="story-text">With MEP, your phone connects to <strong>two mobile networks simultaneously</strong>. Your home profile handles calls and texts while your travel profile gives you cheap local data. Both profiles sit side by side on the screen, both showing signal bars. <em>No more switching back and forth: you're always connected!</em></p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 8 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 8 of 14</div>
 
 <!-- PAGE 5: HOW THE PHONE CHOOSES -->
-<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 9 of 14</div>
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 9 of 14</div>
   <div class="illustration slide-in">
     <svg viewBox="0 0 400 240" width="350">
       <!-- Decision tree -->
@@ -231,10 +231,10 @@
   </div>
   <h3>🧭 How the Phone Chooses</h3>
   <p class="story-text">With two active profiles, how does the phone know which one to use? Through <strong>policy rules</strong> and <strong>priority order</strong>! You (or your carrier) set the rules: "use Home for calls, Travel for data." The phone's operating system follows these rules automatically, picking the <em>best connection for each task</em>.</p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 10 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 10 of 14</div>
 
 <!-- PAGE 6: TRAVELER'S DREAM -->
-<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 11 of 14</div>
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 11 of 14</div>
   <div class="illustration slide-in">
     <svg viewBox="0 0 400 230" width="350">
       <!-- Globe with travel routes -->
@@ -265,10 +265,10 @@
   </div>
   <h3>✈️ A Traveler's Dream</h3>
   <p class="story-text">Before MEP, traveling meant either expensive roaming or switching your only active profile: losing your home number. Now? Keep your <strong>home profile alive for calls and texts</strong> while your <strong>travel profile handles cheap local data</strong>. Your family can still reach you on your regular number while you enjoy local internet prices. <em>Best of both worlds!</em></p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 12 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 12 of 14</div>
 
 <!-- PAGE 7: DID YOU KNOW + NAV -->
-<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 13 of 14</div>
+<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 13 of 14</div>
   <div class="illustration floating">
     <svg viewBox="0 0 400 240" width="350">
       <!-- Phone with three cloaks -->
@@ -297,7 +297,7 @@
   <p style="text-align:center">
     <a href="index.html" style="color:#5a6d80;text-decoration:none;font-size:.9rem">📖 Back to All Stories</a>
   </p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 14 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 14 of 14</div>
 
 </div>
 

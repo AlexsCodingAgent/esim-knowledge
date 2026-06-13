@@ -8,7 +8,7 @@
   *{margin:0;padding:0;box-sizing:border-box}
   body{font-family:'Georgia',serif;background:#0a1628;color:#c8d6e5;overflow-x:hidden}
   .book{max-width:800px;margin:0 auto;min-height:100vh}
-  .page{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;position:relative;page-break-after:always;scroll-snap-align:start}
+  .page{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;page-break-after:always;scroll-snap-align:start}
   .page-cover{background:linear-gradient(135deg,#0d1b2a 0%,#0a1628 50%,#0d1b2a 100%)}
   h1{font-size:2.8rem;color:#e8eef5;text-align:center;margin-bottom:.5rem}
   h2{font-size:1.6rem;color:#85c1e9;text-align:center;font-weight:400;margin-bottom:1.5rem}
@@ -18,7 +18,7 @@
   .story-text strong{color:#e8eef5}
   .illustration{margin:1.5rem 0}
   .illustration svg{max-width:100%;height:auto}
-  .page-num{color:#5a6d80;font-size:.85rem}
+  .page-num{color:#5a6d80;font-size:.85rem;align-self:flex-end;margin-top:auto;padding-right:1rem;padding-bottom:0.5rem}
   .nav{position:fixed;bottom:1rem;right:1rem;z-index:100}
   .nav a{display:inline-block;padding:.5rem 1rem;background:rgba(93,173,226,.15);color:#5dade2;text-decoration:none;border-radius:6px;margin-left:.5rem;font-size:.9rem}
   .nav a:hover{background:rgba(93,173,226,.3)}
@@ -46,7 +46,7 @@
 <div class="book">
 
 <!-- PAGE 1: COVER -->
-<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 1 of 14</div>
+<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 1 of 14</div>
   <div class="illustration floating">
     <svg viewBox="0 0 400 300" width="350">
       <defs><radialGradient id="glow"><stop offset="0%" stop-color="#5dade2" stop-opacity="0.3"/><stop offset="100%" stop-color="#0a1628" stop-opacity="0"/></radialGradient></defs>
@@ -79,10 +79,10 @@
   <h1>🌅 The Morning Routine</h1>
   <h2>How IoT Devices Wake Up Every Time</h2>
   <p class="story-text" style="color:#5a6d80">A story of stretching, checking files, and getting ready for the day</p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 2 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 2 of 14</div>
 
 <!-- PAGE 2: SIX STEPS -->
-<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 3 of 14</div>
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 3 of 14</div>
   <div class="illustration slide-in">
     <svg viewBox="0 0 400 220" width="350">
       <!-- Step numbers -->
@@ -120,10 +120,10 @@
   </div>
   <h3>⏰ The Six-Step Wake-Up</h3>
   <p class="story-text">Every time an IoT device powers on, it follows a morning routine: <strong>boot up</strong> the tiny OS, <strong>discover profiles</strong>, <strong>select the manager</strong>, <strong>activate the translator</strong>, <strong>check the contact list</strong>, and <strong>connect to the network</strong>. Six steps: all happening in milliseconds!</p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 4 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 4 of 14</div>
 
 <!-- PAGE 3: FILING CABINET -->
-<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 5 of 14</div>
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 5 of 14</div>
   <div class="illustration slide-in">
     <svg viewBox="0 0 400 220" width="350">
       <!-- Filing cabinet -->
@@ -149,10 +149,10 @@
   </div>
   <h3>🗂️ The Chip's Filing Cabinet</h3>
   <p class="story-text">The eSIM chip has a tiny filing cabinet of important files: the <strong>directory of apps</strong>, the <strong>chip's serial number</strong>, its <strong>unique 32-digit EID</strong>, and: new for IoT: the <strong>contact list</strong> (EIMCFG) and <strong>pending notifications</strong> (NOTIF). Everything the chip needs to know, neatly organized!</p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 6 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 6 of 14</div>
 
 <!-- PAGE 4: PARACHUTE CHECK -->
-<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 7 of 14</div>
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 7 of 14</div>
   <div class="illustration slide-in">
     <svg viewBox="0 0 400 200" width="350">
       <!-- Parachute check -->
@@ -174,10 +174,10 @@
   </div>
   <h3>🪂 The Parachute Check</h3>
   <p class="story-text">During boot, the chip asks: <strong>"Do I have a Fallback Profile?"</strong> If no normal profile works, the chip automatically switches to this emergency backup: usually a basic one from the manufacturer with just enough connectivity to call for help. Like checking your parachute before jumping!</p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 8 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 8 of 14</div>
 
 <!-- PAGE 5: DEVICE INFO -->
-<div class="page" style="padding-top:3.5rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 9 of 14</div>
+<div class="page" style="padding-top:3.5rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 9 of 14</div>
   <div class="illustration slide-in">
     <svg viewBox="0 0 400 200" width="350">
       <!-- DeviceInfo card -->
@@ -196,10 +196,10 @@
   </div>
   <h3>🏷️ Telling the Control Centre Who You Are</h3>
   <p class="story-text">Once connected, the device sends a <strong>DeviceInfo card</strong> to the control centre: "Here's my model, I'm an IPAe, I speak HTTPS and CoAP, and here's what I can do!" The control centre uses this to customize its communication: gentle, lightweight messages for tiny sensors, richer commands for powerful gateways.</p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 10 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 10 of 14</div>
 
 <!-- PAGE 6: FUN FACT -->
-<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 11 of 14</div>
+<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 11 of 14</div>
   <div class="illustration floating">
     <svg viewBox="0 0 400 260" width="350">
       <circle cx="200" cy="60" r="35" fill="#1b3a5c" stroke="#fbbf24" stroke-width="2"/>
@@ -230,10 +230,10 @@
     </svg>
   </div>
 <p class="story-text">The eSIM chip's unique ID (the <strong>EID</strong>) is <strong>32 digits</strong> long. That's enough numbers to give a unique identifier to every single grain of sand on planet Earth… many times over!</p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 12 of 14</div>
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 12 of 14</div>
 
 <!-- PAGE 7: BACK COVER -->
-<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 13 of 14</div>
+<div class="page page-cover" style="padding-top:4rem"><div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 13 of 14</div>
   <h2>📚 Ready for the Next Story?</h2>
   <p class="story-text" style="margin-bottom:1.5rem">Learn the magic of controlling SIM profiles from across the world!</p>
   <p style="text-align:center;margin-bottom:1rem">
@@ -242,7 +242,7 @@
   <p style="text-align:center">
     <a href="index.html" style="display:inline-block;padding:.8rem 2rem;background:rgba(93,173,226,0.15);color:#5dade2;text-decoration:none;border-radius:8px;font-size:1.1rem">📚 Back to All Stories</a>
   </p>
-  <div class="page-num" style="position:absolute;bottom:0.5rem;right:1rem;color:#5a6d80;font-size:0.8rem">Page 14 of 14</div>📖 Back Cover
+  <div class="page-num" style="color:#5a6d80;font-size:0.8rem">Page 14 of 14</div>📖 Back Cover
 </div>
 
 </div>
