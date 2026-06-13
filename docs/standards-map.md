@@ -57,188 +57,171 @@ title: "GSMA eSIM Standards Map: eUICC.tech"
 ## Specification Dependency Map
 
 <div class="spec-diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 555" style="width:100%;max-width:960px;height:auto">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 590" style="width:100%;max-width:960px;height:auto">
   <defs>
-    <marker id="a-g" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#34d399"/>
-    </marker>
-    <marker id="a-b" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#5dade2"/>
-    </marker>
-    <marker id="a-a" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#fbbf24"/>
-    </marker>
-    <marker id="a-x" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
-    </marker>
-    <linearGradient id="sg" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#1b3a5c" stop-opacity="0.15"/>
-      <stop offset="50%" stop-color="#1b3a5c" stop-opacity="0.4"/>
-      <stop offset="100%" stop-color="#1b3a5c" stop-opacity="0.15"/>
-    </linearGradient>
+    <marker id="ag" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#34d399"/></marker>
+    <marker id="ab" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#5dade2"/></marker>
+    <marker id="aa" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#fbbf24"/></marker>
+    <marker id="ax" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/></marker>
+    <linearGradient id="sg" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#1b3a5c" stop-opacity="0.12"/><stop offset="50%" stop-color="#1b3a5c" stop-opacity="0.4"/><stop offset="100%" stop-color="#1b3a5c" stop-opacity="0.12"/></linearGradient>
   </defs>
 
-  <rect width="960" height="555" fill="#0a1628" rx="8"/>
+  <rect width="960" height="590" fill="#0a1628" rx="8"/>
 
-  <!-- ═══ ROW 0: SGP.01 ROOT ═══ -->
-  <rect x="330" y="16" width="300" height="48" rx="8" fill="rgba(167,139,250,0.1)" stroke="#a78bfa" stroke-width="1.8"/>
-  <text x="480" y="37" fill="#a78bfa" font-family="system-ui,sans-serif" font-size="12.5" font-weight="700" text-anchor="middle">SGP.01</text>
-  <text x="480" y="53" fill="#c8d6e5" font-family="system-ui,sans-serif" font-size="9" text-anchor="middle">eSIM Architecture Overview · 2007</text>
+  <!-- ═══════════════════ SGP.01 — ROOT ═══════════════════ -->
+  <rect x="350" y="14" width="260" height="48" rx="8" fill="rgba(167,139,250,0.1)" stroke="#a78bfa" stroke-width="1.8"/>
+  <text x="480" y="35" fill="#a78bfa" font-family="system-ui,sans-serif" font-size="12" font-weight="700" text-anchor="middle">SGP.01</text>
+  <text x="480" y="51" fill="#c8d6e5" font-family="system-ui,sans-serif" font-size="8.5" text-anchor="middle">eSIM Architecture Overview · 2007</text>
 
-  <!-- Tree: SGP.01 → 3 branches -->
-  <line x1="480" y1="64" x2="480" y2="78" stroke="#64748b" stroke-width="1.2"/>
-  <line x1="168" y1="78" x2="792" y2="78" stroke="#64748b" stroke-width="1.2"/>
-  <line x1="168" y1="78" x2="168" y2="93" stroke="#64748b" stroke-width="1.2" marker-end="url(#a-x)"/>
-  <line x1="480" y1="78" x2="480" y2="93" stroke="#64748b" stroke-width="1.2" marker-end="url(#a-x)"/>
-  <line x1="792" y1="78" x2="792" y2="93" stroke="#64748b" stroke-width="1.2" marker-end="url(#a-x)"/>
+  <!-- SGP.01 → Level 1 -->
+  <line x1="415" y1="62" x2="125" y2="90" stroke="#64748b" stroke-width="1.2" marker-end="url(#ax)"/>
+  <line x1="480" y1="62" x2="390" y2="90" stroke="#64748b" stroke-width="1.2" marker-end="url(#ax)"/>
+  <line x1="545" y1="62" x2="685" y2="90" stroke="#64748b" stroke-width="1.2" marker-end="url(#ax)"/>
 
-  <!-- ═══ COLUMNS ═══
-       M2M (amber):     col x=26,  w=284, ctr=168, box x=38
-       Consumer (green): col x=338, w=284, ctr=480, box x=350
-       IoT (blue):      col x=650, w=284, ctr=792, box x=662
-       Box width: 260  -->
-
-  <!-- Category labels above columns -->
-  <text x="168" y="93" fill="#fbbf24" font-family="system-ui,sans-serif" font-size="7.5" font-weight="600" text-anchor="middle" opacity="0.7">M2M RSP — Push</text>
-  <text x="480" y="93" fill="#34d399" font-family="system-ui,sans-serif" font-size="7.5" font-weight="600" text-anchor="middle" opacity="0.7">Consumer RSP — Pull</text>
-  <text x="792" y="93" fill="#5dade2" font-family="system-ui,sans-serif" font-size="7.5" font-weight="600" text-anchor="middle" opacity="0.7">IoT RSP — Proxy</text>
-
-  <!-- ═══ ROW 1: COLUMN HEADERS ═══ -->
+  <!-- ═══════════════════ LEVEL 1: Architecture specs ═══════════════════ -->
   <!-- M2M -->
-  <rect x="38" y="98" width="260" height="46" rx="7" fill="rgba(251,191,36,0.08)" stroke="#fbbf24" stroke-width="1.5"/>
-  <text x="168" y="119" fill="#fbbf24" font-family="system-ui,sans-serif" font-size="11.5" font-weight="700" text-anchor="middle">SGP.02</text>
-  <text x="168" y="135" fill="#7a8ba0" font-family="system-ui,sans-serif" font-size="8" text-anchor="middle">M2M RSP Architecture · Push model · 2010</text>
+  <rect x="35" y="92" width="180" height="46" rx="7" fill="rgba(251,191,36,0.08)" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="125" y="112" fill="#fbbf24" font-family="system-ui,sans-serif" font-size="11" font-weight="700" text-anchor="middle">SGP.02</text>
+  <text x="125" y="127" fill="#7a8ba0" font-family="system-ui,sans-serif" font-size="7.5" text-anchor="middle">M2M RSP Architecture · 2010</text>
+  <text x="125" y="137" fill="#5a6d80" font-family="system-ui,sans-serif" font-size="6.5" text-anchor="middle">Push model</text>
 
   <!-- Consumer -->
-  <rect x="350" y="98" width="260" height="46" rx="7" fill="rgba(52,211,153,0.08)" stroke="#34d399" stroke-width="1.5"/>
-  <text x="480" y="119" fill="#34d399" font-family="system-ui,sans-serif" font-size="11.5" font-weight="700" text-anchor="middle">SGP.21</text>
-  <text x="480" y="135" fill="#7a8ba0" font-family="system-ui,sans-serif" font-size="8" text-anchor="middle">RSP Architecture · 2014</text>
+  <rect x="280" y="92" width="220" height="46" rx="7" fill="rgba(52,211,153,0.08)" stroke="#34d399" stroke-width="1.5"/>
+  <text x="390" y="112" fill="#34d399" font-family="system-ui,sans-serif" font-size="11" font-weight="700" text-anchor="middle">SGP.21</text>
+  <text x="390" y="127" fill="#7a8ba0" font-family="system-ui,sans-serif" font-size="7.5" text-anchor="middle">RSP Architecture · 2014</text>
+  <text x="390" y="137" fill="#5a6d80" font-family="system-ui,sans-serif" font-size="6.5" text-anchor="middle">Consumer RSP foundation</text>
 
   <!-- IoT -->
-  <rect x="662" y="98" width="260" height="46" rx="7" fill="rgba(93,173,226,0.1)" stroke="#5dade2" stroke-width="1.5"/>
-  <text x="792" y="119" fill="#5dade2" font-family="system-ui,sans-serif" font-size="11.5" font-weight="700" text-anchor="middle">SGP.27 / SGP.28</text>
-  <text x="792" y="135" fill="#7a8ba0" font-family="system-ui,sans-serif" font-size="8" text-anchor="middle">IoT Feasibility &amp; Requirements · 2019–20</text>
+  <rect x="585" y="92" width="200" height="46" rx="7" fill="rgba(93,173,226,0.1)" stroke="#5dade2" stroke-width="1.5"/>
+  <text x="685" y="112" fill="#5dade2" font-family="system-ui,sans-serif" font-size="11" font-weight="700" text-anchor="middle">SGP.27</text>
+  <text x="685" y="127" fill="#7a8ba0" font-family="system-ui,sans-serif" font-size="7.5" text-anchor="middle">IoT eSIM Feasibility Study · 2019</text>
+  <text x="685" y="137" fill="#5a6d80" font-family="system-ui,sans-serif" font-size="6.5" text-anchor="middle">Defines IoT needs</text>
 
-  <!-- M2M internal arrows (dashed — one spec, internal detail) -->
-  <line x1="168" y1="144" x2="168" y2="157" stroke="#fbbf24" stroke-width="0.8" stroke-dasharray="3,3" marker-end="url(#a-a)"/>
+  <!-- ═══════════════════ LEVEL 2: Technical specs / details ═══════════════════ -->
 
-  <!-- Consumer arrows -->
-  <line x1="480" y1="144" x2="480" y2="157" stroke="#34d399" stroke-width="1" marker-end="url(#a-g)"/>
+  <!-- M2M detail (dashed — internal, not separate spec) -->
+  <line x1="125" y1="138" x2="125" y2="160" stroke="#fbbf24" stroke-width="0.8" stroke-dasharray="3,3" marker-end="url(#aa)"/>
+  <rect x="35" y="163" width="180" height="72" rx="6" fill="rgba(251,191,36,0.03)" stroke="#fbbf24" stroke-width="1" stroke-dasharray="3,3"/>
+  <text x="125" y="184" fill="#fbbf24" font-family="system-ui,sans-serif" font-size="9" font-weight="600" text-anchor="middle">ES1–ES8 Interface Family</text>
+  <text x="125" y="200" fill="#5a6d80" font-family="system-ui,sans-serif" font-size="7" text-anchor="middle">Push provisioning</text>
+  <text x="125" y="214" fill="#5a6d80" font-family="system-ui,sans-serif" font-size="7" text-anchor="middle">Network-driven · no LPA</text>
+  <text x="125" y="228" fill="#3a4d62" font-family="system-ui,sans-serif" font-size="6.5" text-anchor="middle">Superseded by SGP.22 v3.2</text>
 
-  <!-- IoT arrows -->
-  <line x1="792" y1="144" x2="792" y2="157" stroke="#5dade2" stroke-width="1" marker-end="url(#a-b)"/>
+  <!-- Consumer: SGP.21 → SGP.22 -->
+  <line x1="390" y1="138" x2="390" y2="161" stroke="#34d399" stroke-width="1" marker-end="url(#ag)"/>
+  <rect x="250" y="163" width="280" height="50" rx="7" fill="rgba(52,211,153,0.1)" stroke="#34d399" stroke-width="1.5"/>
+  <text x="390" y="185" fill="#34d399" font-family="system-ui,sans-serif" font-size="11.5" font-weight="700" text-anchor="middle">SGP.22</text>
+  <text x="390" y="201" fill="#c8d6e5" font-family="system-ui,sans-serif" font-size="8" text-anchor="middle">RSP Technical Specification · 2015</text>
 
-  <!-- ═══ ROW 2 ═══ -->
-  <!-- M2M: internal detail (dashed, lighter) -->
-  <rect x="38" y="160" width="260" height="46" rx="6" fill="rgba(251,191,36,0.03)" stroke="#fbbf24" stroke-width="1" stroke-dasharray="3,3"/>
-  <text x="168" y="179" fill="#fbbf24" font-family="system-ui,sans-serif" font-size="10" font-weight="600" text-anchor="middle">Push-based provisioning</text>
-  <text x="168" y="195" fill="#5a6d80" font-family="system-ui,sans-serif" font-size="7.5" text-anchor="middle">Network-driven · no LPA · ES1–ES5</text>
+  <!-- IoT: SGP.27 → SGP.28 -->
+  <line x1="685" y1="138" x2="685" y2="161" stroke="#5dade2" stroke-width="1" marker-end="url(#ab)"/>
+  <rect x="585" y="163" width="200" height="46" rx="7" fill="rgba(93,173,226,0.08)" stroke="#5dade2" stroke-width="1.2"/>
+  <text x="685" y="183" fill="#5dade2" font-family="system-ui,sans-serif" font-size="11" font-weight="600" text-anchor="middle">SGP.28</text>
+  <text x="685" y="198" fill="#7a8ba0" font-family="system-ui,sans-serif" font-size="7.5" text-anchor="middle">IoT eSIM Requirements · 2020</text>
 
-  <!-- Consumer -->
-  <rect x="350" y="160" width="260" height="46" rx="6" fill="rgba(52,211,153,0.06)" stroke="#34d399" stroke-width="1.2"/>
-  <text x="480" y="179" fill="#34d399" font-family="system-ui,sans-serif" font-size="11" font-weight="600" text-anchor="middle">SGP.22 v2.7</text>
-  <text x="480" y="196" fill="#7a8ba0" font-family="system-ui,sans-serif" font-size="8" text-anchor="middle">RSP Technical Specification · 2015</text>
+  <!-- ═══════════════════ LEVEL 3: Version split + IoT Arch ═══════════════════ -->
 
-  <!-- IoT -->
-  <rect x="662" y="160" width="260" height="46" rx="6" fill="rgba(93,173,226,0.08)" stroke="#5dade2" stroke-width="1.2"/>
-  <text x="792" y="179" fill="#5dade2" font-family="system-ui,sans-serif" font-size="11" font-weight="600" text-anchor="middle">SGP.31 v1.3</text>
-  <text x="792" y="196" fill="#7a8ba0" font-family="system-ui,sans-serif" font-size="8" text-anchor="middle">IoT Architecture &amp; Requirements · 2022</text>
+  <!-- SGP.22 → version split -->
+  <line x1="320" y1="213" x2="320" y2="233" stroke="#34d399" stroke-width="0.8" marker-end="url(#ag)"/>
+  <line x1="460" y1="213" x2="460" y2="233" stroke="#34d399" stroke-width="0.8" marker-end="url(#ag)"/>
 
-  <!-- Arrows row 2→3 -->
-  <line x1="168" y1="206" x2="168" y2="219" stroke="#fbbf24" stroke-width="0.8" stroke-dasharray="3,3" marker-end="url(#a-a)"/>
-  <line x1="480" y1="206" x2="480" y2="219" stroke="#34d399" stroke-width="1" marker-end="url(#a-g)"/>
-  <line x1="792" y1="206" x2="792" y2="219" stroke="#5dade2" stroke-width="1" marker-end="url(#a-b)"/>
+  <!-- v2.7 (Consumer track) -->
+  <rect x="255" y="235" width="130" height="42" rx="6" fill="rgba(52,211,153,0.06)" stroke="#34d399" stroke-width="1.2"/>
+  <text x="320" y="255" fill="#34d399" font-family="system-ui,sans-serif" font-size="10.5" font-weight="600" text-anchor="middle">SGP.22 v2.7</text>
+  <text x="320" y="269" fill="#5a6d80" font-family="system-ui,sans-serif" font-size="7" text-anchor="middle">Consumer track</text>
 
-  <!-- ═══ ROW 3 ═══ -->
-  <!-- M2M -->
-  <rect x="38" y="222" width="260" height="46" rx="6" fill="rgba(251,191,36,0.03)" stroke="#fbbf24" stroke-width="1" stroke-dasharray="3,3"/>
-  <text x="168" y="241" fill="#fbbf24" font-family="system-ui,sans-serif" font-size="10" font-weight="600" text-anchor="middle">ES1–ES8 interface family</text>
-  <text x="168" y="257" fill="#5a6d80" font-family="system-ui,sans-serif" font-size="7.5" text-anchor="middle">ES1 (EUM) · ES2/ES3 (DP) · ES4–ES8 (SR+eUICC)</text>
+  <!-- v3.2 (Unified track) -->
+  <rect x="395" y="235" width="130" height="42" rx="6" fill="rgba(52,211,153,0.06)" stroke="#34d399" stroke-width="1.2"/>
+  <text x="460" y="255" fill="#34d399" font-family="system-ui,sans-serif" font-size="10.5" font-weight="600" text-anchor="middle">SGP.22 v3.2</text>
+  <text x="460" y="269" fill="#5a6d80" font-family="system-ui,sans-serif" font-size="7" text-anchor="middle">Unified M2M+Consumer</text>
 
-  <!-- Consumer -->
-  <rect x="350" y="222" width="260" height="46" rx="6" fill="rgba(52,211,153,0.06)" stroke="#34d399" stroke-width="1.2"/>
-  <text x="480" y="241" fill="#34d399" font-family="system-ui,sans-serif" font-size="11" font-weight="600" text-anchor="middle">SGP.23 v1.16</text>
-  <text x="480" y="258" fill="#7a8ba0" font-family="system-ui,sans-serif" font-size="8" text-anchor="middle">RSP Test Specification · 2016</text>
+  <!-- Cross-reference: v3.2 → SGP.02 (dashed, curved) -->
+  <path d="M 395 256 L 280 256 Q 240 256 240 200 L 240 163" fill="none" stroke="#34d399" stroke-width="0.8" stroke-dasharray="4,3" marker-end="url(#ag)"/>
 
-  <!-- IoT -->
-  <rect x="662" y="222" width="260" height="46" rx="6" fill="rgba(93,173,226,0.08)" stroke="#5dade2" stroke-width="1.2"/>
-  <text x="792" y="241" fill="#5dade2" font-family="system-ui,sans-serif" font-size="11" font-weight="600" text-anchor="middle">SGP.32 v1.3</text>
-  <text x="792" y="258" fill="#7a8ba0" font-family="system-ui,sans-serif" font-size="8" text-anchor="middle">IoT Technical Specification · 2022</text>
+  <!-- IoT: SGP.28 → SGP.31 -->
+  <line x1="685" y1="209" x2="685" y2="233" stroke="#5dade2" stroke-width="1" marker-end="url(#ab)"/>
+  <rect x="585" y="235" width="200" height="46" rx="7" fill="rgba(93,173,226,0.08)" stroke="#5dade2" stroke-width="1.2"/>
+  <text x="685" y="255" fill="#5dade2" font-family="system-ui,sans-serif" font-size="11" font-weight="600" text-anchor="middle">SGP.31 v1.3</text>
+  <text x="685" y="270" fill="#7a8ba0" font-family="system-ui,sans-serif" font-size="7.5" text-anchor="middle">IoT Architecture &amp; Requirements · 2022</text>
 
-  <!-- Arrows row 3→4 -->
-  <line x1="168" y1="268" x2="168" y2="281" stroke="#fbbf24" stroke-width="0.8" stroke-dasharray="3,3" marker-end="url(#a-a)"/>
-  <line x1="480" y1="268" x2="480" y2="281" stroke="#34d399" stroke-width="1" marker-end="url(#a-g)"/>
-  <line x1="792" y1="268" x2="792" y2="281" stroke="#5dade2" stroke-width="1" marker-end="url(#a-b)"/>
+  <!-- ═══════════════════ LEVEL 4: Test specs ═══════════════════ -->
 
-  <!-- ═══ ROW 4 ═══ -->
-  <!-- M2M -->
-  <rect x="38" y="284" width="260" height="46" rx="6" fill="rgba(251,191,36,0.03)" stroke="#fbbf24" stroke-width="1" stroke-dasharray="3,3"/>
-  <text x="168" y="303" fill="#fbbf24" font-family="system-ui,sans-serif" font-size="10" font-weight="600" text-anchor="middle">Legacy status</text>
-  <text x="168" y="319" fill="#5a6d80" font-family="system-ui,sans-serif" font-size="7.5" text-anchor="middle">SGP.02 stable · M2M+Consumer unified in SGP.22 v3.2</text>
+  <!-- Consumer: v2.7 → SGP.23 -->
+  <line x1="320" y1="277" x2="320" y2="300" stroke="#34d399" stroke-width="1" marker-end="url(#ag)"/>
+  <rect x="240" y="302" width="160" height="46" rx="6" fill="rgba(52,211,153,0.06)" stroke="#34d399" stroke-width="1.2"/>
+  <text x="320" y="322" fill="#34d399" font-family="system-ui,sans-serif" font-size="10.5" font-weight="600" text-anchor="middle">SGP.23 v1.16</text>
+  <text x="320" y="338" fill="#7a8ba0" font-family="system-ui,sans-serif" font-size="7.5" text-anchor="middle">RSP Test Specification · 2016</text>
 
-  <!-- Consumer -->
-  <rect x="350" y="284" width="260" height="46" rx="6" fill="rgba(52,211,153,0.06)" stroke="#34d399" stroke-width="1.2"/>
-  <text x="480" y="303" fill="#34d399" font-family="system-ui,sans-serif" font-size="11" font-weight="600" text-anchor="middle">SGP.23-1 v3.1.3</text>
-  <text x="480" y="320" fill="#7a8ba0" font-family="system-ui,sans-serif" font-size="8" text-anchor="middle">eUICC Test Specification · 2023</text>
+  <!-- IoT: SGP.31 → SGP.32 -->
+  <line x1="685" y1="281" x2="685" y2="300" stroke="#5dade2" stroke-width="1" marker-end="url(#ab)"/>
+  <rect x="585" y="302" width="200" height="46" rx="6" fill="rgba(93,173,226,0.08)" stroke="#5dade2" stroke-width="1.2"/>
+  <text x="685" y="322" fill="#5dade2" font-family="system-ui,sans-serif" font-size="11" font-weight="600" text-anchor="middle">SGP.32 v1.3</text>
+  <text x="685" y="338" fill="#7a8ba0" font-family="system-ui,sans-serif" font-size="7.5" text-anchor="middle">IoT Technical Specification · 2022</text>
 
-  <!-- IoT -->
-  <rect x="662" y="284" width="260" height="46" rx="6" fill="rgba(93,173,226,0.08)" stroke="#5dade2" stroke-width="1.2"/>
-  <text x="792" y="302" fill="#5dade2" font-family="system-ui,sans-serif" font-size="10.5" font-weight="600" text-anchor="middle">SGP.33 Family</text>
-  <text x="792" y="318" fill="#7a8ba0" font-family="system-ui,sans-serif" font-size="8" text-anchor="middle">33-1 (IPA) · 33-2 (SM-DP+) · 33-3 (eIM) · 2023</text>
+  <!-- ═══════════════════ LEVEL 5: Deep test specs ═══════════════════ -->
 
-  <!-- Interface labels -->
-  <text x="168" y="350" fill="#3a4d62" font-family="system-ui,sans-serif" font-size="7" text-anchor="middle">ES1 · ES2 · ES3 · ES4 · ES5 · ES8</text>
-  <text x="480" y="350" fill="#3a4d62" font-family="system-ui,sans-serif" font-size="7" text-anchor="middle">ES2+ · ES8+ · ES9+ · ES10a/b/c · ES11</text>
-  <text x="792" y="350" fill="#3a4d62" font-family="system-ui,sans-serif" font-size="7" text-anchor="middle">ESipa · ESeim · ESim</text>
+  <!-- Consumer: SGP.23 → SGP.23-1 -->
+  <line x1="320" y1="348" x2="320" y2="370" stroke="#34d399" stroke-width="1" marker-end="url(#ag)"/>
+  <rect x="240" y="372" width="160" height="46" rx="6" fill="rgba(52,211,153,0.06)" stroke="#34d399" stroke-width="1.2"/>
+  <text x="320" y="392" fill="#34d399" font-family="system-ui,sans-serif" font-size="10.5" font-weight="600" text-anchor="middle">SGP.23-1 v3.1.3</text>
+  <text x="320" y="408" fill="#7a8ba0" font-family="system-ui,sans-serif" font-size="7.5" text-anchor="middle">eUICC Test Specification · 2023</text>
 
-  <!-- ═══ SHARED SPECS ═══ -->
-  <rect x="25" y="372" width="910" height="22" rx="4" fill="url(#sg)"/>
-  <text x="480" y="387" fill="#64748b" font-family="system-ui,sans-serif" font-size="9" font-weight="600" text-anchor="middle" letter-spacing="1.5">SHARED ACROSS ALL SPECIFICATIONS</text>
+  <!-- IoT: SGP.32 → SGP.33 family -->
+  <line x1="685" y1="348" x2="685" y2="370" stroke="#5dade2" stroke-width="1" marker-end="url(#ab)"/>
+  <rect x="545" y="372" width="280" height="50" rx="7" fill="rgba(93,173,226,0.1)" stroke="#5dade2" stroke-width="1.5"/>
+  <text x="685" y="393" fill="#5dade2" font-family="system-ui,sans-serif" font-size="11" font-weight="700" text-anchor="middle">SGP.33 Family</text>
+  <text x="685" y="409" fill="#7a8ba0" font-family="system-ui,sans-serif" font-size="7.5" text-anchor="middle">SGP.33-1 (IPA) · SGP.33-2 (SM-DP+) · SGP.33-3 (eIM) · 2023</text>
 
-  <!-- 5 × 170w + 4 × 12g = 898, start=31 -->
-  <rect x="31" y="404" width="170" height="44" rx="5" fill="rgba(148,163,184,0.05)" stroke="#64748b" stroke-width="1"/>
-  <text x="116" y="425" fill="#94a3b8" font-family="system-ui,sans-serif" font-size="10.5" font-weight="700" text-anchor="middle">SGP.24</text>
-  <text x="116" y="439" fill="#64748b" font-family="system-ui,sans-serif" font-size="7.5" text-anchor="middle">Compliance Process</text>
+  <!-- ═══════════════════ SHARED SPECIFICATIONS ═══════════════════ -->
+  <rect x="25" y="448" width="910" height="22" rx="4" fill="url(#sg)"/>
+  <text x="480" y="463" fill="#64748b" font-family="system-ui,sans-serif" font-size="9" font-weight="600" text-anchor="middle" letter-spacing="1.5">SHARED ACROSS ALL SPECIFICATIONS</text>
 
-  <rect x="213" y="404" width="170" height="44" rx="5" fill="rgba(251,113,133,0.06)" stroke="#fb7185" stroke-width="1"/>
-  <text x="298" y="425" fill="#fb7185" font-family="system-ui,sans-serif" font-size="10.5" font-weight="700" text-anchor="middle">SGP.25 v2.1</text>
-  <text x="298" y="439" fill="#fb7185" font-family="system-ui,sans-serif" font-size="7.5" text-anchor="middle">Security Protection Profile</text>
+  <rect x="31" y="480" width="170" height="44" rx="5" fill="rgba(148,163,184,0.05)" stroke="#64748b" stroke-width="1"/>
+  <text x="116" y="501" fill="#94a3b8" font-family="system-ui,sans-serif" font-size="10.5" font-weight="700" text-anchor="middle">SGP.24</text>
+  <text x="116" y="515" fill="#64748b" font-family="system-ui,sans-serif" font-size="7" text-anchor="middle">Compliance Process</text>
 
-  <rect x="395" y="404" width="170" height="44" rx="5" fill="rgba(148,163,184,0.05)" stroke="#64748b" stroke-width="1"/>
-  <text x="480" y="425" fill="#94a3b8" font-family="system-ui,sans-serif" font-size="10.5" font-weight="700" text-anchor="middle">SGP.26 v3.0.2</text>
-  <text x="480" y="439" fill="#64748b" font-family="system-ui,sans-serif" font-size="7.5" text-anchor="middle">Test Certificates</text>
+  <rect x="213" y="480" width="170" height="44" rx="5" fill="rgba(251,113,133,0.06)" stroke="#fb7185" stroke-width="1"/>
+  <text x="298" y="501" fill="#fb7185" font-family="system-ui,sans-serif" font-size="10.5" font-weight="700" text-anchor="middle">SGP.25 v2.1</text>
+  <text x="298" y="515" fill="#fb7185" font-family="system-ui,sans-serif" font-size="7" text-anchor="middle">Security Protection Profile</text>
 
-  <rect x="577" y="404" width="170" height="44" rx="5" fill="rgba(148,163,184,0.05)" stroke="#64748b" stroke-width="1"/>
-  <text x="662" y="425" fill="#94a3b8" font-family="system-ui,sans-serif" font-size="10.5" font-weight="700" text-anchor="middle">SGP.29 v1.1</text>
-  <text x="662" y="439" fill="#64748b" font-family="system-ui,sans-serif" font-size="7.5" text-anchor="middle">EID Definition &amp; Assignment</text>
+  <rect x="395" y="480" width="170" height="44" rx="5" fill="rgba(148,163,184,0.05)" stroke="#64748b" stroke-width="1"/>
+  <text x="480" y="501" fill="#94a3b8" font-family="system-ui,sans-serif" font-size="10.5" font-weight="700" text-anchor="middle">SGP.26 v3.0.2</text>
+  <text x="480" y="515" fill="#64748b" font-family="system-ui,sans-serif" font-size="7" text-anchor="middle">Test Certificates</text>
 
-  <rect x="759" y="404" width="170" height="44" rx="5" fill="rgba(167,139,250,0.07)" stroke="#a78bfa" stroke-width="1"/>
-  <text x="844" y="425" fill="#a78bfa" font-family="system-ui,sans-serif" font-size="10.5" font-weight="700" text-anchor="middle">SGP.41 v1.0</text>
-  <text x="844" y="439" fill="#a78bfa" font-family="system-ui,sans-serif" font-size="7.5" text-anchor="middle">IFPP Factory Provisioning</text>
+  <rect x="577" y="480" width="170" height="44" rx="5" fill="rgba(148,163,184,0.05)" stroke="#64748b" stroke-width="1"/>
+  <text x="662" y="501" fill="#94a3b8" font-family="system-ui,sans-serif" font-size="10.5" font-weight="700" text-anchor="middle">SGP.29 v1.1</text>
+  <text x="662" y="515" fill="#64748b" font-family="system-ui,sans-serif" font-size="7" text-anchor="middle">EID Definition &amp; Assignment</text>
 
-  <!-- ═══ LEGEND ═══ -->
-  <line x1="31" y1="468" x2="929" y2="468" stroke="#1b3a5c" stroke-width="1"/>
+  <rect x="759" y="480" width="170" height="44" rx="5" fill="rgba(167,139,250,0.07)" stroke="#a78bfa" stroke-width="1"/>
+  <text x="844" y="501" fill="#a78bfa" font-family="system-ui,sans-serif" font-size="10.5" font-weight="700" text-anchor="middle">SGP.41 v1.0</text>
+  <text x="844" y="515" fill="#a78bfa" font-family="system-ui,sans-serif" font-size="7" text-anchor="middle">IFPP Factory Provisioning</text>
 
-  <rect x="36" y="480" width="11" height="11" rx="2" fill="rgba(167,139,250,0.25)" stroke="#a78bfa" stroke-width="1"/>
-  <text x="52" y="490" fill="#64748b" font-family="system-ui,sans-serif" font-size="8">Foundational</text>
+  <!-- ═══════════════════ LEGEND ═══════════════════ -->
+  <line x1="31" y1="546" x2="929" y2="546" stroke="#1b3a5c" stroke-width="1"/>
 
-  <rect x="175" y="480" width="11" height="11" rx="2" fill="rgba(52,211,153,0.18)" stroke="#34d399" stroke-width="1"/>
-  <text x="191" y="490" fill="#64748b" font-family="system-ui,sans-serif" font-size="8">Consumer RSP (SGP.21–23-1)</text>
+  <rect x="36" y="558" width="11" height="11" rx="2" fill="rgba(167,139,250,0.25)" stroke="#a78bfa" stroke-width="1"/>
+  <text x="52" y="567" fill="#64748b" font-family="system-ui,sans-serif" font-size="7.5">Foundational</text>
 
-  <rect x="345" y="480" width="11" height="11" rx="2" fill="rgba(93,173,226,0.18)" stroke="#5dade2" stroke-width="1"/>
-  <text x="361" y="490" fill="#64748b" font-family="system-ui,sans-serif" font-size="8">IoT RSP (SGP.27–33)</text>
+  <rect x="155" y="558" width="11" height="11" rx="2" fill="rgba(52,211,153,0.18)" stroke="#34d399" stroke-width="1"/>
+  <text x="171" y="567" fill="#64748b" font-family="system-ui,sans-serif" font-size="7.5">Consumer RSP</text>
 
-  <rect x="485" y="480" width="11" height="11" rx="2" fill="rgba(251,191,36,0.18)" stroke="#fbbf24" stroke-width="1"/>
-  <text x="501" y="490" fill="#64748b" font-family="system-ui,sans-serif" font-size="8">M2M Legacy</text>
+  <rect x="290" y="558" width="11" height="11" rx="2" fill="rgba(93,173,226,0.18)" stroke="#5dade2" stroke-width="1"/>
+  <text x="306" y="567" fill="#64748b" font-family="system-ui,sans-serif" font-size="7.5">IoT RSP</text>
 
-  <rect x="590" y="480" width="11" height="11" rx="2" fill="rgba(251,113,133,0.15)" stroke="#fb7185" stroke-width="1"/>
-  <text x="606" y="490" fill="#64748b" font-family="system-ui,sans-serif" font-size="8">Security</text>
+  <rect x="390" y="558" width="11" height="11" rx="2" fill="rgba(251,191,36,0.18)" stroke="#fbbf24" stroke-width="1"/>
+  <text x="406" y="567" fill="#64748b" font-family="system-ui,sans-serif" font-size="7.5">M2M Legacy</text>
 
-  <rect x="675" y="480" width="11" height="11" rx="2" fill="rgba(148,163,184,0.12)" stroke="#64748b" stroke-width="1"/>
-  <text x="691" y="490" fill="#64748b" font-family="system-ui,sans-serif" font-size="8">Shared / Supporting</text>
+  <rect x="505" y="558" width="11" height="11" rx="2" fill="rgba(251,113,133,0.15)" stroke="#fb7185" stroke-width="1"/>
+  <text x="521" y="567" fill="#64748b" font-family="system-ui,sans-serif" font-size="7.5">Security</text>
 
-  <rect x="820" y="480" width="11" height="11" rx="2" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="2,2"/>
-  <text x="836" y="490" fill="#64748b" font-family="system-ui,sans-serif" font-size="8">Dashed = internal</text>
+  <rect x="565" y="558" width="11" height="11" rx="2" fill="rgba(148,163,184,0.12)" stroke="#64748b" stroke-width="1"/>
+  <text x="581" y="567" fill="#64748b" font-family="system-ui,sans-serif" font-size="7.5">Shared / Supporting</text>
+
+  <rect x="700" y="558" width="11" height="11" rx="2" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="2,2"/>
+  <text x="716" y="567" fill="#64748b" font-family="system-ui,sans-serif" font-size="7.5">Dashed = internal detail</text>
+
+  <rect x="830" y="558" width="11" height="11" rx="2" fill="none" stroke="#34d399" stroke-width="0.9" stroke-dasharray="4,3"/>
+  <text x="846" y="567" fill="#64748b" font-family="system-ui,sans-serif" font-size="7.5">Dash-dot x-ref</text>
 </svg>
 </div>
 
