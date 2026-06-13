@@ -112,9 +112,8 @@ def wrap_page_html(content, page_num, total_pages):
 <body>
 <div class="page-wrapper">
 {content}
-<div class="page-num" style="margin-top:1.5rem">Page {page_num} of {total_pages}</div>
 <div style="margin-top:.5rem;font-size:11px;color:#4a5d6e;font-family:system-ui,sans-serif">
-  📖 euicc.tech
+  euicc.tech
 </div>
 </div>
 </body>
@@ -210,7 +209,7 @@ def convert_storybook(name, title, filepath):
     post_text = (
         f"🔐 {short_title}\n\n"
         f"Illustrated breakdown of eSIM technology — no jargon, clear visuals.\n\n"
-        f"👉 Full story: euicc.tech/articles/kids/{name}.html\n\n"
+        f"👉 Full story: euicc.tech/docs/articles/kids/{name}.html\n\n"
         f"#eSIM #IoT #Telecom #TechExplained"
     )
     (OUTPUT_DIR / f"{name}.post.txt").write_text(post_text)
