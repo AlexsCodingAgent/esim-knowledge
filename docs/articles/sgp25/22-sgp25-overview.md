@@ -1,6 +1,6 @@
 ---
 title: "SGP.25 Overview: The eUICC Common Criteria Protection Profile"
-3|description: "Introduces the SGP.25 Common Criteria Protection Profile at EAL4+ for eUICC software : a modular Base-PP with optional LPAe, IPAe, and Dual modules, mandated for any eUICC carrying production profiles."
+description: "Introduces the SGP.25 Common Criteria Protection Profile at EAL4+ for eUICC software : a modular Base-PP with optional LPAe, IPAe, and Dual modules, mandated for any eUICC carrying production profiles."
 date: 2026-06-05
 ---
 

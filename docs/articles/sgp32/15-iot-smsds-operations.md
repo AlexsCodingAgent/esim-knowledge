@@ -1,6 +1,6 @@
 ---
 title: "SM-DS Operations in IoT eSIM: Event Registration and Retrieval"
-3|description: "Describes SM-DS operations in IoT : Event Record registration and two retrieval paths (IPA polling for connected devices, eIM polling for constrained devices) plus cascading for regional deployments."
+description: "Describes SM-DS operations in IoT : Event Record registration and two retrieval paths (IPA polling for connected devices, eIM polling for constrained devices) plus cascading for regional deployments."
 date: 2026-06-06
 ---
 

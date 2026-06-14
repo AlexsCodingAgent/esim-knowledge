@@ -1,6 +1,6 @@
 ---
 title: "Testing the LPA: LDS, LPD, and LUI Conformance"
-3|description: "Walks through SGP.23's LPA conformance testing : ES10a discovery, ES10b profile download pipeline (12 functions), ES10c local management (8 functions), and LPAd interface verification across two testing chapters."
+description: "Walks through SGP.23's LPA conformance testing : ES10a discovery, ES10b profile download pipeline (12 functions), ES10c local management (8 functions), and LPAd interface verification across two testing chapters."
 date: 2026-06-05
 ---
 

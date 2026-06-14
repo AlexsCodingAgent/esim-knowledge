@@ -1,6 +1,6 @@
 ---
 title: "eUICC Assurance Requirements: EAL4+ and Penetration Testing"
-3|description: "Explains the SGP.25 EAL4+ assurance package : six evaluated assurance classes, AVA_VAN.5 advanced penetration testing with elevated attack potential, and why EAL4 is the highest practical level for commercial secure elements."
+description: "Explains the SGP.25 EAL4+ assurance package : six evaluated assurance classes, AVA_VAN.5 advanced penetration testing with elevated attack potential, and why EAL4 is the highest practical level for commercial secure elements."
 date: 2026-06-05
 ---
 

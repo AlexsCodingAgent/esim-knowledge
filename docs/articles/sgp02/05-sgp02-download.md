@@ -1,6 +1,6 @@
 ---
 title: "Profile Download: ISD-P Creation, SCP03, and Encrypted Delivery"
-3|description: "Breaks down the SGP.02 profile download procedure : ISD-P container creation, Scenario#3 mutual authentication with ECKA-EG, encrypted profile streaming through SCP03t tunnels, and post-download cleanup."
+description: "Breaks down the SGP.02 profile download procedure : ISD-P container creation, Scenario#3 mutual authentication with ECKA-EG, encrypted profile streaming through SCP03t tunnels, and post-download cleanup."
 date: 2026-06-07
 ---
 

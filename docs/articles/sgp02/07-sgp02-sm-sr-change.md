@@ -1,5 +1,5 @@
 ---
-2|description: "Explains the SGP.02 SM-SR Change protocol : a 32-step cryptographic handover that migrates an eUICC's platform management keys and EIS from one SM-SR to another over the ES7 interface, preventing vendor lock-in."
+description: "Explains the SGP.02 SM-SR Change protocol : a 32-step cryptographic handover that migrates an eUICC's platform management keys and EIS from one SM-SR to another over the ES7 interface, preventing vendor lock-in."
 date: 2026-06-07
 layout: default
 title: "SM-SR Change: Handover, ES7 Interface, and EIS Migration"

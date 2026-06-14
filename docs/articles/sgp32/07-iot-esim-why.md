@@ -1,6 +1,6 @@
 ---
 title: "eSIM for IoT: Why It Needed Its Own Architecture"
-3|description: "Explains why consumer eSIM assumptions fail in IoT : no SMS, no GUI, constrained devices : and how SGP.31's 30+ Basic Principles shaped the eIM and IPA architecture."
+description: "Explains why consumer eSIM assumptions fail in IoT : no SMS, no GUI, constrained devices : and how SGP.31's 30+ Basic Principles shaped the eIM and IPA architecture."
 date: 2026-05-22
 ---
 

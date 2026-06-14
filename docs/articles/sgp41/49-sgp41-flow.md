@@ -1,6 +1,6 @@
 ---
 title: "IFPP Flow: Manufacturing Step to Configuration Step"
-3|description: "Walks through SGP.41's 16-step IFPP flow from profile preparation through offline factory loading to post-production reporting : spanning the two-phase Manufacturing and Configuration Step split."
+description: "Walks through SGP.41's 16-step IFPP flow from profile preparation through offline factory loading to post-production reporting : spanning the two-phase Manufacturing and Configuration Step split."
 date: 2026-06-06
 ---
 

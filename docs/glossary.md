@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "eSIM RSP Glossary: All Acronyms and Terms"
+description: "Every acronym and technical term used across the eSIM knowledge base, defined in one or two sentences. Use this as a quick reference while reading the articles."
 ---
 
 # 📖 eSIM RSP Glossary

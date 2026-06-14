@@ -1,6 +1,6 @@
 ---
 title: "eIM Configuration: Associating Remote Managers with Your eUICC"
-3|description: "Details eIM Configuration Operations (eCOs) — addEim, updateEim, deleteEim, listEim — that associate remote managers with an eUICC, plus two bootstrap paths for establishing initial trust."
+description: "Details eIM Configuration Operations (eCOs) — addEim, updateEim, deleteEim, listEim — that associate remote managers with an eUICC, plus two bootstrap paths for establishing initial trust."
 date: 2026-06-02
 ---
 

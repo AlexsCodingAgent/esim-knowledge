@@ -1,6 +1,6 @@
 ---
 title: "M2M Certificate Hierarchy: CI, EUM, SM-DP, SM-SR, and eUICC"
-3|description: "Details the SGP.02 three-tier PKI : from the GSMA CI root certificate through EUM, SM-DP, and SM-SR intermediate certificates to eUICC certificates, covering X.509, GlobalPlatform Amendment E, and CRLs."
+description: "Details the SGP.02 three-tier PKI : from the GSMA CI root certificate through EUM, SM-DP, and SM-SR intermediate certificates to eUICC certificates, covering X.509, GlobalPlatform Amendment E, and CRLs."
 date: 2026-06-07
 ---
 

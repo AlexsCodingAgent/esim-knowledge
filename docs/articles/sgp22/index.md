@@ -1,6 +1,8 @@
 ---
 layout: default
 title: "SGP.22: Consumer eSIM RSP"
+description: "*Phones, tablets, wearables, laptops: the eSIM you use every day.*"
+date: 2026-06-13
 ---
 **[eUICC.tech]({{ site.baseurl }}/) > SGP.22 Consumer RSP**
 

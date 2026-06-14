@@ -1,6 +1,6 @@
 ---
 title: "SGP.33 Overview: The IoT eSIM Test Family"
-3|description: "Explains the three-part SGP.33 IoT eSIM test specification family : covering IPA, SM-DP+, and eIM testing : built for IoT devices that lack user interfaces and rely on remote management via the eUICC IoT Manager."
+description: "Explains the three-part SGP.33 IoT eSIM test specification family : covering IPA, SM-DP+, and eIM testing : built for IoT devices that lack user interfaces and rely on remote management via the eUICC IoT Manager."
 date: 2026-06-05
 ---
 

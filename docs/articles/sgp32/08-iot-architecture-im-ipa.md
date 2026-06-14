@@ -1,6 +1,6 @@
 ---
 title: "The eSIM IoT Architecture: eIM, IPA, and the New Interfaces"
-3|description: "Covers the SGP.32 IoT eSIM architecture : the eIM remote manager, IPA device proxy, and four new interfaces (ESipa, ES9+', ES11', ESep) that replace consumer RSP patterns."
+description: "Covers the SGP.32 IoT eSIM architecture : the eIM remote manager, IPA device proxy, and four new interfaces (ESipa, ES9+', ES11', ESep) that replace consumer RSP patterns."
 date: 2026-05-26
 ---
 

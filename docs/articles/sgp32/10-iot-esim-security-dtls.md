@@ -1,6 +1,6 @@
 ---
 title: "IoT eSIM Security: eIM Certificates, DTLS, and Device Trust"
-3|description: "Explains the IoT eSIM security model : the eIM certificate class, three device trust models (full PKI to raw public key), and DTLS transport for constrained UDP-based LPWA networks."
+description: "Explains the IoT eSIM security model : the eIM certificate class, three device trust models (full PKI to raw public key), and DTLS transport for constrained UDP-based LPWA networks."
 date: 2026-06-01
 ---
 

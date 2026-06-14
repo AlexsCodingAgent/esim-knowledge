@@ -1,6 +1,6 @@
 ---
 title: "IoT Profile Download: Direct, Indirect, and eIM Package Handling"
-3|description: "Walks through SGP.32's two profile download paths : Direct via IPA-to-SM-DP+ and Indirect via eIM mediation : plus the signed eIM Package protocol carrying PSMOs and eCOs."
+description: "Walks through SGP.32's two profile download paths : Direct via IPA-to-SM-DP+ and Indirect via eIM mediation : plus the signed eIM Package protocol carrying PSMOs and eCOs."
 date: 2026-05-29
 ---
 

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "Prerequisites: What You Should Know Before Reading"
+description: "This knowledge base dives deep into the GSMA eSIM Remote SIM Provisioning (RSP) ecosystem. The articles assume a working familiarity with a few foundational…"
 ---
 
 # 📚 Prerequisites: What You Should Know Before Reading

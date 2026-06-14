@@ -1,6 +1,6 @@
 ---
 title: "Advanced IoT Security & Lifecycle: Mutual Auth, OS Update, Emergency Profiles, and ECASD"
-3|description: "Covers advanced IoT eSIM security : the 17-step Common Mutual Authentication handshake, eUICC OS updates, Emergency Profile preemption, the Fallback Mechanism, and ECASD as the root of trust."
+description: "Covers advanced IoT eSIM security : the 17-step Common Mutual Authentication handshake, eUICC OS updates, Emergency Profile preemption, the Fallback Mechanism, and ECASD as the root of trust."
 date: 2026-06-07
 ---
 

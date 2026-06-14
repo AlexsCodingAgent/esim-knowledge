@@ -1,6 +1,8 @@
 ---
 layout: default
 title: "SGP.26: RSP Test Certificates"
+description: "*The PKI for eSIM development and testing.*"
+date: 2026-06-13
 ---
 
 **[eUICC.tech]({{ site.baseurl }}/) > SGP.26: RSP Test Certificates**

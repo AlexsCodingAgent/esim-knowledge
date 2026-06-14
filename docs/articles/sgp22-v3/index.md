@@ -1,6 +1,8 @@
 ---
 layout: default
 title: "SGP.22 v3.x: Unified RSP Specification"
+description: "*The unified eSIM specification track: merging consumer and IoT capabilities. 12 articles.*"
+date: 2026-06-13
 ---
 
 **[eUICC.tech]({{ site.baseurl }}/) > SGP.22 v3.x Unified RSP**

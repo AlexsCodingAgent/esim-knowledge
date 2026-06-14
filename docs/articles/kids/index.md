@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "eSIM Explained: Illustrated Edition"
+date: 2026-06-06
 ---
 
 # 📖 eSIM Explained: Illustrated Edition

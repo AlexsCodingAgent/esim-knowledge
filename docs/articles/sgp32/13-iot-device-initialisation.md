@@ -1,6 +1,6 @@
 ---
 title: "IoT Device Initialisation and the eUICC File Structure"
-3|description: "Walks through the six-stage IoT device boot sequence : power-on reset to connectivity assessment : covering DeviceInfo, new eUICC files (EF.EIMCFG, EF.NOTIF), and IPAe wake-up triggers."
+description: "Walks through the six-stage IoT device boot sequence : power-on reset to connectivity assessment : covering DeviceInfo, new eUICC files (EF.EIMCFG, EF.NOTIF), and IPAe wake-up triggers."
 date: 2026-06-04
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "IoT eSIM Certification Path: From Test Cases to Production"
-3|description: "Traces the IoT eSIM certification path from SGP.33-3 conformance testing to production deployment : covering multi-vendor test ecosystems, SAS-SM accreditation for eIM platforms, and current FFS limitations."
+description: "Traces the IoT eSIM certification path from SGP.33-3 conformance testing to production deployment : covering multi-vendor test ecosystems, SAS-SM accreditation for eIM platforms, and current FFS limitations."
 date: 2026-06-05
 ---
 

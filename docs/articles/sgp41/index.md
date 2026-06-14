@@ -1,6 +1,8 @@
 ---
 layout: default
 title: "SGP.41: In-Factory Profile Provisioning"
+description: "*Pre-loading eSIM profiles during device manufacturing.*"
+date: 2026-06-13
 ---
 
 **[eUICC.tech]({{ site.baseurl }}/) > SGP.41: In-Factory Profile Provisioning**

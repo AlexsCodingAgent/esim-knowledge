@@ -1,6 +1,6 @@
 ---
 title: "Profile Lifecycle & Policy: Types, PPE, and Enforcement in IoT eSIM"
-3|description: "Examines the three Profile Types : Operational, Provisioning, Test : and how the Profile Policy Enabler enforces PPR1/PPR2 rules against the Rules Authorisation Table to prevent carrier lock-in."
+description: "Examines the three Profile Types : Operational, Provisioning, Test : and how the Profile Policy Enabler enforces PPR1/PPR2 rules against the Rules Authorisation Table to prevent carrier lock-in."
 date: 2026-06-07
 ---
 

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "GSMA eSIM Standards Map: eUICC.tech"
+description: "*The complete GSMA SGP specification landscape: what each spec does, how they relate, and when they were published.*"
 ---
 
 # 🗺️ GSMA eSIM Standards Map

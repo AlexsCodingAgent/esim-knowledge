@@ -1,6 +1,6 @@
 ---
 title: "SGP.02 v4.2: The M2M eSIM Push Architecture"
-3|description: "Covers the GSMA SGP.02 M2M RSP architecture : the push model for headless unattended devices, the SM-DP, SM-SR, and Operator roles, and the ES1–ES8 interface framework that connects them."
+description: "Covers the GSMA SGP.02 M2M RSP architecture : the push model for headless unattended devices, the SM-DP, SM-SR, and Operator roles, and the ES1–ES8 interface framework that connects them."
 date: 2026-06-07
 ---
 
