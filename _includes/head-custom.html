@@ -149,7 +149,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Report a mistake link
     var mistake = document.createElement('span');
     mistake.className = 'credits';
-    var pageTitle = (document.querySelector('h1') || {}).textContent || document.title || 'this page';
+    var pageTitle = document.querySelector('h1[id]');
+    if (!pageTitle) pageTitle = document.querySelector('h1');
+    pageTitle = (pageTitle || {}).textContent || document.title || 'this page';
     pageTitle = pageTitle.replace(/\s*\|.*$/, '').trim();
     var pageUrl = window.location.href;
     var mailto = 'mailto:code@tuddenham.info'
