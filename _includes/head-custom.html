@@ -152,10 +152,10 @@ document.addEventListener('DOMContentLoaded', function() {
     var pageTitle = (document.querySelector('h1') || {}).textContent || document.title || 'this page';
     pageTitle = pageTitle.replace(/\s*\|.*$/, '').trim();
     var pageUrl = window.location.href;
-    var issueUrl = 'https://github.com/AlexsCodingAgent/esim-knowledge/issues/new'
-      + '?title=' + encodeURIComponent('Correction: ' + pageTitle)
-      + '&body=' + encodeURIComponent('Page: ' + pageUrl + '\n\n**What needs fixing:**\n\n');
-    mistake.innerHTML = ' &middot; <a href="' + issueUrl + '">Report a mistake</a>';
+    var mailto = 'mailto:code@tuddenham.info'
+      + '?subject=' + encodeURIComponent('Correction: ' + pageTitle)
+      + '&body=' + encodeURIComponent('Page: ' + pageUrl + '\n\nWhat needs fixing:\n\n');
+    mistake.innerHTML = ' &middot; <a href="' + mailto + '">Report a mistake</a>';
     credits[1].parentNode.appendChild(mistake);
   }
 
