@@ -149,7 +149,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Report a mistake link
     var mistake = document.createElement('span');
     mistake.className = 'credits';
-    var pageTitle = document.title || (document.querySelector('h1') || {}).textContent || 'this page';
+    var pageTitle = (document.querySelector('h1') || {}).textContent || document.title || 'this page';
+    pageTitle = pageTitle.replace(/\s*\|.*$/, '').trim();
     var pageUrl = window.location.href;
     var issueUrl = 'https://github.com/AlexsCodingAgent/esim-knowledge/issues/new'
       + '?title=' + encodeURIComponent('Correction: ' + pageTitle)
