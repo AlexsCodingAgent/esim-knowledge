@@ -146,6 +146,16 @@ document.addEventListener('DOMContentLoaded', function() {
   if (credits.length >= 2) {
     credits[0].innerHTML = 'Created by <a href="https://tuddenham.info">Alex Tuddenham</a>';
     credits[1].innerHTML = 'Theme by <a href="https://twitter.com/mattgraham">mattgraham</a>';
+    // Report a mistake link
+    var mistake = document.createElement('span');
+    mistake.className = 'credits';
+    var pageTitle = document.title || (document.querySelector('h1') || {}).textContent || 'this page';
+    var pageUrl = window.location.href;
+    var issueUrl = 'https://github.com/AlexsCodingAgent/esim-knowledge/issues/new'
+      + '?title=' + encodeURIComponent('Correction: ' + pageTitle)
+      + '&body=' + encodeURIComponent('Page: ' + pageUrl + '\n\n**What needs fixing:**\n\n');
+    mistake.innerHTML = ' &middot; <a href="' + issueUrl + '">Report a mistake</a>';
+    credits[1].parentNode.appendChild(mistake);
   }
 
   // Build JSON-LD BreadcrumbList from URL path
