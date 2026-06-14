@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function() {
     credits[1].innerHTML = 'Theme by <a href="https://twitter.com/mattgraham">mattgraham</a>';
     // Report a mistake link
     var mistake = document.createElement('span');
-    mistake.className = 'credits';
+    mistake.className = 'credits left';
     var pageTitle = document.querySelector('h1[id]');
     if (!pageTitle) pageTitle = document.querySelector('h1');
     pageTitle = (pageTitle || {}).textContent || document.title || 'this page';
