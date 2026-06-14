@@ -78,7 +78,7 @@
   <h1>📇 The Trusted Friends List</h1>
   <h2>Adding Remote Managers to Your Chip's Contacts</h2>
   <p class="story-text" style="color:#5a6d80">A story of secret clubhouses, contact cards, and the chicken-and-egg problem</p>
-  
+</div>
 
 <!-- PAGE 2: CONTACT LIST -->
 <div class="page" style="padding-top:3.5rem">
@@ -100,7 +100,7 @@
   </div>
   <h3>🤝 Why Do We Need a Contact List?</h3>
   <p class="story-text">Phones don't remember who managed them. But IoT devices are deployed on remote mountains and ocean turbines: they need to know <strong>instantly</strong> if a command is from a trusted source. So they store a <strong>contact list right on the chip</strong>: only trusted managers can give orders!</p>
-  
+</div>
 
 <!-- PAGE 3: CONTACT CARD -->
 <div class="page" style="padding-top:3.5rem">
@@ -125,7 +125,7 @@
   </div>
   <h3>📋 What's on the Contact Card?</h3>
   <p class="story-text">Each trusted manager gets a <strong>digital contact card</strong> stored right on the chip. It includes their <strong>name</strong>, <strong>public key</strong> (for signature verification), a <strong>counter</strong> (against replay attacks), their <strong>language</strong> (HTTPS, CoAPS, etc.), and a <strong>trust anchor</strong> for encrypting the connection.</p>
-  
+</div>
 
 <!-- PAGE 4: FOUR OPERATIONS -->
 <div class="page" style="padding-top:3.5rem">
@@ -164,7 +164,7 @@
   </div>
   <h3>✏️ Four Ways to Manage the List</h3>
   <p class="story-text">Four operations: <strong>addEim</strong> (add a new friend), <strong>updateEim</strong> (change their details), <strong>deleteEim</strong> (remove a friend), and <strong>listEim</strong> (who's on my list?). The very first manager solves a chicken-and-egg problem: it's added at the factory with a special bootstrap command!</p>
-  
+</div>
 
 <!-- PAGE 5: TICKET COUNTER -->
 <div class="page" style="padding-top:3.5rem">
@@ -192,7 +192,7 @@
   </div>
   <h3>🧮 The Ticket Counter</h3>
   <p class="story-text">Every command includes a ticket number that only goes up. The chip remembers the last number seen. Old numbers get rejected: <strong>"sorry, already saw that one!"</strong> When the counter nears its max of 8,388,607, the manager is removed and re-added with a fresh counter. Simple and bulletproof!</p>
-  
+</div>
 
 <!-- PAGE 6: FUN FACT -->
 <div class="page page-cover" style="padding-top:4rem">
@@ -215,7 +215,7 @@
     </svg>
   </div>
 <p class="story-text">A single eSIM chip can trust <strong>multiple</strong> managers at once: so the company that made the device <em>and</em> the customer who bought it can both manage it, each with their own trusted spot on the contact list!</p>
-  
+</div>
 
 <!-- PAGE 7: BACK COVER -->
 <div class="page page-cover" style="padding-top:4rem">
@@ -236,6 +236,6 @@
   <a href="#" onclick="window.scrollBy({top:-window.innerHeight,behavior:'smooth'});return false">⬆</a>
   <a href="#" onclick="window.scrollBy({top:window.innerHeight,behavior:'smooth'});return false">⬇</a>
 </div>
-
+</div>
 </body>
 </html>

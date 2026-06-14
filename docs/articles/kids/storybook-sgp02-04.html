@@ -80,7 +80,7 @@
   <h1>📻 Secret Robot Messages</h1>
   <h2>How the Commander Talks Over the Air</h2>
   <p class="story-text" style="color:#5a6d80">A story of SMS pagers, secure phone calls, express couriers, and the DNS phonebook that finds the Commander</p>
-  
+</div>
 
 <!-- PAGE 2: THREE WAYS TO TALK -->
 <div class="page" style="padding-top:3.5rem">
@@ -124,6 +124,7 @@
   <p class="story-text">The Commander has <strong>three radio channels</strong> to reach every robot. Short commands go by <strong>SMS</strong> (like a pager). Big deliveries use <strong>HTTPS with PSK-TLS</strong> (like a secure phone call). Slow networks use <strong>CAT_TP</strong> (like an express courier over rough roads). Always encrypted, always secure!</p>
   <div class="page-num"></div>
 </div>
+</div>
 
 <!-- PAGE 3: SMS: THE PAGER MESSAGE -->
 <div class="page" style="padding-top:3.5rem">
@@ -154,6 +155,7 @@
   <h3>📱 SMS: The Pager Message</h3>
   <p class="story-text">For short commands, the Commander uses <strong>SMS</strong>: like sending a text message. Each message is protected with <strong>SCP80 encryption</strong> (AES scrambling), carries a <strong>digital signature</strong> proving it really came from the Commander, and the robot sends back a <strong>"Proof of Receipt"</strong>: like a read receipt!</p>
   <div class="page-num"></div>
+</div>
 </div>
 
 <!-- PAGE 4: PSK-TLS & CAT_TP -->
@@ -189,6 +191,7 @@
   <h3>🌐 PSK-TLS: The Secure Phone Call & 🔗 CAT_TP: The Express Courier</h3>
   <p class="story-text">For big deliveries, the Commander starts with an SMS "wake-up call" and the robot opens a <strong>secure PSK-TLS tunnel</strong>. Both already share a secret password (SCP81 keys), so no certificates needed! For slow 2G networks, <strong>CAT_TP</strong> acts like a lightweight courier: same security, less overhead.</p>
   <div class="page-num"></div>
+</div>
 </div>
 
 <!-- PAGE 5: THE SECRET TUNNEL TRICK -->
@@ -237,6 +240,7 @@
   <h3>🚇 The Secret Tunnel Trick (ES8)</h3>
   <p class="story-text">When the Key Factory delivers keys, it wraps them in a <strong>secret SCP03 box</strong>. The Commander carries the box to the robot but <strong>cannot open it</strong>! Inside the robot, the Commander's Office (ISD-R) passes the box to the right Profile Room (ISD-P). Only ISD-P has the key. A secret message inside another secret message!</p>
   <div class="page-num"></div>
+</div>
 </div>
 
 <!-- PAGE 6: DNS PHONEBOOK -->
@@ -290,6 +294,6 @@
   <a href="#" onclick="window.scrollBy({top:-window.innerHeight,behavior:'smooth'});return false">⬆</a>
   <a href="#" onclick="window.scrollBy({top:window.innerHeight,behavior:'smooth'});return false">⬇</a>
 </div>
-
+</div>
 </body>
 </html>
