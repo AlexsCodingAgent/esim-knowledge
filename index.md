@@ -1,6 +1,6 @@
 ---
 layout: default
-title: eUICC.tech: eSIM Remote SIM Provisioning Knowledge Base
+title: eUICC.tech
 description: "Comprehensive technical knowledge base covering 12 GSMA eSIM RSP specifications — SGP.02, SGP.22, SGP.32 and more. 84+ articles on eSIM architecture, profile download, IoT provisioning, and conformance testing."
 ---
 
