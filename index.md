@@ -10,6 +10,8 @@ description: "Comprehensive technical knowledge base covering 12 GSMA eSIM RSP s
 
 <h3>Deep Dives Into GSMA eSIM Remote SIM Provisioning</h3>
 
+<p style="margin-top:-4px;font-size:0.9rem;"><a href="/simple" style="color:#94a3b8;text-decoration:none;border-bottom:1px dotted #94a3b8;">Prefer a simpler page? →</a></p>
+
 *84 articles · 12 specifications · 83 illustrated guides · Built from primary source GSMA specs*
 
 </div>
