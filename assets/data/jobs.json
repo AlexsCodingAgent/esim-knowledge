@@ -25813,5 +25813,35 @@
     "source": "workday",
     "date": "",
     "new": true
+  },
+  {
+    "company": "KORE Wireless",
+    "title": "Customer Advocate",
+    "country": "AU",
+    "city": "AU",
+    "department": "",
+    "teaser": "",
+    "url": "https://workforcenow.adp.com/mascsr/default/mdf/recruitment/recruitment.html?cid=301679e9-5498-4a13-888f-043bd2691443&ccId=19000101_000001&type=JS&lang=en_US",
+    "schedule": "Full Time",
+    "employment": "Permanent",
+    "seniority": "Experienced",
+    "source": "adp",
+    "date": "",
+    "new": true
+  },
+  {
+    "company": "KORE Wireless",
+    "title": "Supervisor, Customer Support",
+    "country": "US",
+    "city": "MT",
+    "department": "",
+    "teaser": "",
+    "url": "https://workforcenow.adp.com/mascsr/default/mdf/recruitment/recruitment.html?cid=301679e9-5498-4a13-888f-043bd2691443&ccId=19000101_000001&type=JS&lang=en_US",
+    "schedule": "Full Time",
+    "employment": "Permanent",
+    "seniority": "Experienced",
+    "source": "adp",
+    "date": "",
+    "new": true
   }
 ]
