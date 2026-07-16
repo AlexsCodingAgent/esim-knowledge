@@ -33,7 +33,7 @@ except ImportError:
     print("Install playwright: pip install playwright && playwright install chromium")
     sys.exit(1)
 
-STORYBOOKS_DIR = Path("/home/alex/Repos/esim-knowledge/docs/articles/kids")
+STORYBOOKS_DIR = Path("/home/agent/repos/esim-knowledge/docs/articles/kids")
 OUTPUT_DIR = Path("/tmp/linkedin-carousels")
 SLIDE = 1080
 RENDER_W = 800
