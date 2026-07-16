@@ -3,6 +3,9 @@ layout: default
 title: "SGP.33-3: eIM Test Specification"
 description: "*Testing the eSIM IoT Manager for SGP.32 deployments.*"
 date: 2026-06-13
+redirect_from:
+  - /sgp33-3
+  - /sgp33-3/
 ---
 
 **[eUICC.tech]({{ site.baseurl }}/) > SGP.33-3: eIM Test Specification**

@@ -3,6 +3,9 @@ layout: default
 title: "SGP.23: RSP Test Specification"
 description: "*How eSIM interoperability is tested and certified.*"
 date: 2026-06-13
+redirect_from:
+  - /sgp23
+  - /sgp23/
 ---
 
 **[eUICC.tech]({{ site.baseurl }}/) > SGP.23: RSP Test Specification**

@@ -3,6 +3,9 @@ layout: default
 title: "SGP.29: EID Definition and Assignment"
 description: "*The 32-digit eUICC Identifier: format, assignment, and governance.*"
 date: 2026-06-13
+redirect_from:
+  - /sgp29
+  - /sgp29/
 ---
 
 **[eUICC.tech]({{ site.baseurl }}/) > SGP.29: EID Definition and Assignment**

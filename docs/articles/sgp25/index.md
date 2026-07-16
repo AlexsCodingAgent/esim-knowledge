@@ -3,6 +3,9 @@ layout: default
 title: "SGP.25: eUICC Protection Profile"
 description: "*Common Criteria security certification for eUICC hardware.*"
 date: 2026-06-13
+redirect_from:
+  - /sgp25
+  - /sgp25/
 ---
 
 **[eUICC.tech]({{ site.baseurl }}/) > SGP.25: eUICC Protection Profile**

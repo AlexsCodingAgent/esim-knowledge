@@ -3,6 +3,9 @@ layout: default
 title: "SGP.23-1: eUICC Test Specification"
 description: "*Testing the eUICC itself: ISD-R, ECASD, and profile lifecycle conformance.*"
 date: 2026-06-13
+redirect_from:
+  - /sgp23-1
+  - /sgp23-1/
 ---
 
 **[eUICC.tech]({{ site.baseurl }}/) > SGP.23-1: eUICC Test Specification**

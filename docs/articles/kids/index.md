@@ -2,6 +2,9 @@
 layout: default
 title: "eSIM Explained: Illustrated Edition"
 date: 2026-06-06
+redirect_from:
+  - /kids
+  - /kids/
 ---
 
 # 📖 eSIM Explained: Illustrated Edition

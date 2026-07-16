@@ -3,6 +3,9 @@ layout: default
 title: "Specification Index: eUICC.tech"
 description: "All 72 articles across 11 GSMA eSIM specifications."
 date: 2026-06-06
+redirect_from:
+  - /articles
+  - /articles/
 ---
 
 **🏠 [eUICC.tech]({{ site.baseurl }}/) > Specification Index**
