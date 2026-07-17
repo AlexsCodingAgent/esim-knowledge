@@ -164,6 +164,11 @@
   color: #718096;
 }
 
+/* ── Homepage path cards (dark gradient cards need light headings) ── */
+[data-theme="light"] .home-card h2 {
+  color: #e8eef5 !important;
+}
+
 /* ── Desktop-only / Mobile-only helpers ── */
 @media (min-width: 769px) {
   [data-theme="light"] .mobile-only { display: none; }
