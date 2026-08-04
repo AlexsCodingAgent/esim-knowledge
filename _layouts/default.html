@@ -41,7 +41,7 @@
             {% if page.url contains '/kids/' or page.url == '/kids/' %}{% assign is_kids = true %}{% endif %}
             <h1><a href="{% if is_kids %}/docs/articles/kids/{% else %}/docs/articles/{% endif %}" style="color:inherit;text-decoration:none;">{{ site.title | default: site.github.repository_name }}</a></h1>
           {% endif %}
-          <p>{% if site.home_page == "simple" %}Comprehensive technical knowledge base covering 12 GSMA eSIM specifications. 84+ articles on Remote SIM Provisioning — SGP.02, SGP.22, SGP.32, SGP.41, SGP.29, SGP.23, SGP.25, SGP.26 and more.{% else %}{{ site.tagline | default: site.description | default: site.github.project_tagline }}{% endif %}</p>
+          <p>{% if site.home_page == "simple" %}Covers 12 GSMA eSIM specs — SGP.02, SGP.22, SGP.32, SGP.41, SGP.29, SGP.23, SGP.25, SGP.26 and more. 84+ guides from primary source standards.{% else %}{{ site.tagline | default: site.description | default: site.github.project_tagline }}{% endif %}</p>
           <hr>
           <span class="credits left">Project maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></span>
           <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/mattgraham">mattgraham</a></span>
