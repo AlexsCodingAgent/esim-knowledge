@@ -184,8 +184,6 @@ Every article links to specific sections of the corresponding GSMA specification
 <h3>Deep Dives Into GSMA eSIM Remote SIM Provisioning</h3>
 </div>
 
-<p align="center" style="max-width:600px;margin:0 auto 1.5rem;color:#8b949e;font-size:.95rem;line-height:1.6;">Covers 12+ GSMA eSIM standards — SGP.02, SGP.22, SGP.22 v3, SGP.23, SGP.23-1, SGP.25, SGP.26, SGP.29, SGP.31, SGP.32, SGP.33-3, and SGP.41. 84+ technical articles on Remote SIM Provisioning, built from primary source specifications.</p>
-
 <div class="home-cards">
 {% if site.storybooks_page %}
   <a href="docs/articles/kids/" class="home-card card-illustrated">
