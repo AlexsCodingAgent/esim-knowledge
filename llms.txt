@@ -125,5 +125,5 @@
 {% endif %}
 
 ## Optional
-- [eUICC.tech Home](https://euicc.tech/): Main landing page{% if site.storybooks_page %} — two-path split: Technical Edition / Illustrated Edition{% endif %}
+- [eUICC.tech Home](https://euicc.tech/): Main landing page{% if site.storybooks_page and site.home_page == "full" %} — two-path split: Technical Edition / Illustrated Edition{% endif %}
 - [GitHub](https://github.com/AlexsCode/esim-knowledge): Source repository

@@ -14,6 +14,7 @@ plugins:
 jobs_page: false
 storybooks_page: true
 technical_page: true
+home_page: simple
 
 defaults:
   - scope:
