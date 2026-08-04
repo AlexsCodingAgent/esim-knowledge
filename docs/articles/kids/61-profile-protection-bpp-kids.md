@@ -3,6 +3,8 @@ description: "The four protective layers that wrap an eSIM profile: unprotected 
 title: "The Unbreakable Envelope"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > The Unbreakable Envelope ✉️🔒**
+
 
 # The Unbreakable Envelope ✉️🔒
 

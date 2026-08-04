@@ -3,6 +3,8 @@ description: "The discovery server message board where IoT profiles wait for sle
 title: "SM-DS Operations in IoT eSIM: Event Registration and Retrieval"
 date: 2026-06-06
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > 📮 The Message Board Where Profiles Wait**
+
 
 # 📮 The Message Board Where Profiles Wait
 

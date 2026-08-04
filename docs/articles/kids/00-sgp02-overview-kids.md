@@ -2,6 +2,8 @@
 title: "The Robot Fleet Commander: How M2M eSIM Works"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > The Robot Fleet Commander: How M2M eSIM Works 🤖**
+
 
 # The Robot Fleet Commander: How M2M eSIM Works 🤖
 

@@ -2,6 +2,8 @@
 title: "The Double-Lock Rulebook and Report Cards"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > The Double-Lock Rulebook and Report Cards 📋**
+
 
 # The Double-Lock Rulebook and Report Cards 📋
 

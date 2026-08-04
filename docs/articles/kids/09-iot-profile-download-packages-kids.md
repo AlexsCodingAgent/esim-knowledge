@@ -3,6 +3,8 @@ description: "The two ways IoT devices get their mobile profiles: fetching direc
 title: "IoT Profile Download: Direct, Indirect, and eIM Package Handling"
 date: 2026-05-29
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > 📦 How Robot SIM Cards Get Their Permission Slips**
+
 
 # 📦 How Robot SIM Cards Get Their Permission Slips
 

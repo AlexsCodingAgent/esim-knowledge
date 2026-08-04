@@ -2,6 +2,8 @@
 title: "Turning Missions On and Off: The Robot's Remote Control"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > Turning Missions On and Off: The Robot's Remote Control**
+
 
 # Turning Missions On and Off: The Robot's Remote Control
 

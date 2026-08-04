@@ -3,6 +3,8 @@ description: "The 16-step IFPP journey from carrier order to factory installatio
 title: "From Factory Floor to Your Pocket"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > From Factory Floor to Your Pocket 🏭➡️👖**
+
 
 # From Factory Floor to Your Pocket 🏭➡️👖
 

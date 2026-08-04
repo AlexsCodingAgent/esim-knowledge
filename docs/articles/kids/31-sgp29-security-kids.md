@@ -3,6 +3,8 @@ description: "What the EID does and doesn't reveal: it identifies hardware, not 
 title: "Privacy and Secrets: Keeping Your Chip Name Safe"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > Privacy and Secrets: Keeping Your Chip Name Safe 🕵️🔐**
+
 
 # Privacy and Secrets: Keeping Your Chip Name Safe 🕵️🔐
 

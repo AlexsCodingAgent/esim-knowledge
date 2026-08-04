@@ -3,6 +3,8 @@ description: "What's printed on every SGP.26 test badge: the fields, policy OIDs
 title: "What Makes a Valid Practice Badge?"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > What Makes a Valid Practice Badge? 🔍**
+
 
 # What Makes a Valid Practice Badge? 🔍
 

@@ -2,6 +2,8 @@
 title: "How the Commander Talks to Robots: Secret Messages"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > How the Commander Talks to Robots: Secret Messages**
+
 
 # How the Commander Talks to Robots: Secret Messages
 

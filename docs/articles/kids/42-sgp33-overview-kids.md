@@ -3,6 +3,8 @@ description: "An introduction to SGP.33, the IoT eSIM testing family: three coor
 title: "Testing Mission Control: The IoT Test Family"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > Testing Mission Control: The IoT Test Family 🦾**
+
 
 # Testing Mission Control: The IoT Test Family 🦾
 

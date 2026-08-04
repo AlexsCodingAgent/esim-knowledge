@@ -3,6 +3,8 @@ description: "How eSIM's public key infrastructure creates a chain of trust: wit
 title: "The Invisible Bodyguards: How eSIM Keeps Secrets Safe"
 date: 2026-06-01
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > The Invisible Bodyguards: How eSIM Keeps Secrets Safe 🛡️**
+
 
 # The Invisible Bodyguards: How eSIM Keeps Secrets Safe 🛡️
 

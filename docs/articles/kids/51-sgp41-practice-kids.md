@@ -3,6 +3,8 @@ description: "Real-world SGP.41 use cases: laptops that connect instantly out of
 title: "Who Uses Factory Keys? Cars, Laptops, and Smart Gadgets"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > Who Uses Factory Keys? Cars, Laptops, and Smart Gadgets 🚗💻📱**
+
 
 # Who Uses Factory Keys? Cars, Laptops, and Smart Gadgets 🚗💻📱
 

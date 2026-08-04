@@ -3,6 +3,8 @@ description: "The complete v3.x profile download journey: from carrier order and
 title: "The Great Key Delivery"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > The Great Key Delivery 📦✈️**
+
 
 # The Great Key Delivery 📦✈️
 

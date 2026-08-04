@@ -3,6 +3,8 @@ description: "Putting the Key Maker and Post Office servers through quality cont
 title: "Testing the Key Maker and Post Office"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > Testing the Key Maker and Post Office 🏭📬**
+
 
 # Testing the Key Maker and Post Office 🏭📬
 

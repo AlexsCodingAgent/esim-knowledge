@@ -3,6 +3,8 @@ description: "A friendly introduction to how your phone's built-in eSIM chip dow
 title: "How Your Phone Gets Its Magic Internet Key"
 date: 2026-05-22
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > How Your Phone Gets Its Magic Internet Key 🗝️**
+
 
 # How Your Phone Gets Its Magic Internet Key 🗝️
 

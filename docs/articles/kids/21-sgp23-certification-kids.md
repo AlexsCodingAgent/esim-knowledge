@@ -3,6 +3,8 @@ description: "The five-stage journey to earning eSIM certification: from prepari
 title: "Getting the Gold Star: The GSMA Stamp of Approval"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > Getting the Gold Star: The GSMA Stamp of Approval ⭐🏆**
+
 
 # Getting the Gold Star: The GSMA Stamp of Approval ⭐🏆
 

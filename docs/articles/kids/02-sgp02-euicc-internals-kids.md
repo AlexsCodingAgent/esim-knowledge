@@ -2,6 +2,8 @@
 title: "Inside the Robot's Vault Chip"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > Inside the Robot's Vault Chip 🏦**
+
 
 # Inside the Robot's Vault Chip 🏦
 

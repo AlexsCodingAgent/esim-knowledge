@@ -3,6 +3,8 @@ description: "Where the EID appears across eSIM protocols: from discovery servic
 title: "Show Your ID! How Chips Prove Who They Are"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > Show Your ID! How Chips Prove Who They Are 🪪📡**
+
 
 # Show Your ID! How Chips Prove Who They Are 🪪📡
 

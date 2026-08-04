@@ -3,6 +3,8 @@ description: "A reference guide to the four IoT eSIM interfaces: the main highwa
 title: "IoT eSIM Functions Reference: ESipa, ES9+', ES11', ESep"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > 🦸 The Superpower Menu for IoT eSIM**
+
 
 # 🦸 The Superpower Menu for IoT eSIM
 

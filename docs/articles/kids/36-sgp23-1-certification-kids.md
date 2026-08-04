@@ -3,6 +3,8 @@ description: "How eUICC chips pass their final factory inspection: the SAS-UP se
 title: "The Ultimate Safety Inspection: SAS-UP"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > The Ultimate Safety Inspection: SAS-UP 🏭✅**
+
 
 # The Ultimate Safety Inspection: SAS-UP 🏭✅
 

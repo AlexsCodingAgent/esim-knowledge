@@ -3,6 +3,8 @@ description: "How SGP.22 v3.x devices talk to older v2.x servers: the simple 'mi
 title: "Version Interop: When Old and New Magic Work Together"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > When Old and New Magic Work Together 🧙‍♂️🧙‍♀️**
+
 
 # When Old and New Magic Work Together 🧙‍♂️🧙‍♀️
 

@@ -3,6 +3,8 @@ description: "How eUICC chips prove they are secure at EAL4+: the highest practi
 title: "Proving It's Safe: EAL4+ and the Penetration Test"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > Proving It's Safe: EAL4+ and the Penetration Test 🕵️**
+
 
 # Proving It's Safe: EAL4+ and the Penetration Test 🕵️
 

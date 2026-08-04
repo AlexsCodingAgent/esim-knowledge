@@ -3,6 +3,8 @@ description: "The physical attacks that eUICC chips must resist: side-channel an
 title: "Shields Up! Stopping Drills, Spies, and Hackers"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > Shields Up! Stopping Drills, Spies, and Hackers 🛡️**
+
 
 # Shields Up! Stopping Drills, Spies, and Hackers 🛡️
 

@@ -2,6 +2,8 @@
 title: "Three Worlds of eSIM: Factories, Phones, and Farm Fields"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > Three Worlds of eSIM: Factories, Phones, and Farm Fields 📱🤖🔮**
+
 
 # Three Worlds of eSIM: Factories, Phones, and Farm Fields 📱🤖🔮
 

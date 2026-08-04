@@ -3,6 +3,8 @@ description: "A tour inside the eUICC security chip: from the factory-sealed per
 title: "Inside the Magic Chip: Your Phone's Digital Vault"
 date: 2026-05-27
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > Inside the Magic Chip: Your Phone's Digital Vault 🏦**
+
 
 # Inside the Magic Chip: Your Phone's Digital Vault 🏦
 

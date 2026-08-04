@@ -3,6 +3,8 @@ description: "How SGP.33-3 builds a complete simulated IoT world: five pretend c
 title: "Practice Drills: Fake Mission Control and Test Robots"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > Practice Drills: Fake Mission Control and Test Robots 🎭**
+
 
 # Practice Drills: Fake Mission Control and Test Robots 🎭
 

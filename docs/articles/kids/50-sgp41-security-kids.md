@@ -3,6 +3,8 @@ description: "How SGP.41 treats the factory floor as an untrusted courier: plain
 title: "Factory Secrets: How Keys Stay Safe on the Assembly Line"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > Factory Secrets: How Keys Stay Safe on the Assembly Line 🔒🏭**
+
 
 # Factory Secrets: How Keys Stay Safe on the Assembly Line 🔒🏭
 

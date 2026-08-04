@@ -3,6 +3,8 @@ description: "Why IoT eIM certification matters in a multi-vendor world: how pas
 title: "From Practice Drills to Real Missions: Getting Certified"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > From Practice Drills to Real Missions: Getting Certified 🏆**
+
 
 # From Practice Drills to Real Missions: Getting Certified 🏆
 

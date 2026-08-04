@@ -3,6 +3,8 @@ description: "How SGP.41 brings eSIM profiles straight to the factory floor: pre
 title: "Magic Keys Built Right In at the Factory"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > Magic Keys Built Right In at the Factory 🏭✨**
+
 
 # Magic Keys Built Right In at the Factory 🏭✨
 

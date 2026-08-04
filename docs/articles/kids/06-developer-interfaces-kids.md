@@ -3,6 +3,8 @@ description: "The four communication languages that eSIM helpers speak: from the
 title: "The Secret Languages of eSIM: How the Helpers Talk"
 date: 2026-06-05
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > The Secret Languages of eSIM: How the Helpers Talk 🗣️**
+
 
 # The Secret Languages of eSIM: How the Helpers Talk 🗣️
 

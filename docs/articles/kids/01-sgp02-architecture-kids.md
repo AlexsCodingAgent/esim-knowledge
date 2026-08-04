@@ -2,6 +2,8 @@
 title: "The M2M Dream Team: Six Special Helpers"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > The M2M Dream Team: Six Special Helpers 🦸**
+
 
 # The M2M Dream Team: Six Special Helpers 🦸
 

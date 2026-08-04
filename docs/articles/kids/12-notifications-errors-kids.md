@@ -3,6 +3,8 @@ description: "The notification system that lets IoT eSIM chips send report cards
 title: "Notifications and Error Handling in IoT eSIM"
 date: 2026-06-03
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > 📢 Report Cards and Oops Messages**
+
 
 # 📢 Report Cards and Oops Messages
 

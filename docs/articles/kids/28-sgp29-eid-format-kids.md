@@ -3,6 +3,8 @@ description: "Decoding the three-part EID structure: the manufacturer's delegati
 title: "Cracking the Code: What Those 32 Digits Mean"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > Cracking the Code: What Those 32 Digits Mean 🔍🔢**
+
 
 # Cracking the Code: What Those 32 Digits Mean 🔍🔢
 

@@ -3,6 +3,8 @@ description: "How the Push Service stops phones from endlessly checking the Post
 title: "Push Service: The Magic Doorbell"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > The Magic Doorbell: No More Checking the Mailbox 🔔**
+
 
 # The Magic Doorbell: No More Checking the Mailbox 🔔
 

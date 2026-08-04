@@ -3,6 +3,8 @@ description: "The physical test setup for eUICC chips: card readers, USB probes,
 title: "The Chip Test Lab: Readers, Probes, and Poking Tools"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > The Chip Test Lab: Readers, Probes, and Poking Tools 🔬🔌**
+
 
 # The Chip Test Lab: Readers, Probes, and Poking Tools 🔬🔌
 

@@ -3,6 +3,8 @@ description: "How the phone's profile assistant gets tested across three jobs: d
 title: "Testing the Phone's Assistant"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > Testing the Phone's Assistant 📱🦸**
+
 
 # Testing the Phone's Assistant 📱🦸
 

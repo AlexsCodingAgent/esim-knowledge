@@ -3,6 +3,8 @@ description: "How eSIM components get crash-tested before going on sale: with in
 title: "Crash-Testing eSIMs Before They Go on Sale"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > Crash-Testing eSIMs Before They Go on Sale 🏭🔬**
+
 
 # Crash-Testing eSIMs Before They Go on Sale 🏭🔬
 

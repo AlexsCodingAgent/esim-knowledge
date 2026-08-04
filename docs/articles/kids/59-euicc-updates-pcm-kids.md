@@ -3,6 +3,8 @@ description: "Teaching an eSIM vault new tricks without replacing the chip: over
 title: "Teaching the Vault New Tricks"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > Teaching the Vault New Tricks 🧠✨**
+
 
 # Teaching the Vault New Tricks 🧠✨
 

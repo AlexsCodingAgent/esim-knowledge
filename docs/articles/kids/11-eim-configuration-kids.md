@@ -3,6 +3,8 @@ description: "How IoT eSIM chips keep a trusted contact list of remote managers:
 title: "eIM Configuration: Associating Remote Managers with Your eUICC"
 date: 2026-06-02
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > 📇 Adding Trusted Friends to Your Chip's Contact List**
+
 
 # 📇 Adding Trusted Friends to Your Chip's Contact List
 

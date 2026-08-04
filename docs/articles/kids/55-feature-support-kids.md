@@ -3,6 +3,8 @@ description: "The capability handshake that happens before any eSIM magic: how p
 title: "Feature Support: The Handshake Before the Magic Trick"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > The Handshake Before the Magic Trick 🤝**
+
 
 # The Handshake Before the Magic Trick 🤝
 

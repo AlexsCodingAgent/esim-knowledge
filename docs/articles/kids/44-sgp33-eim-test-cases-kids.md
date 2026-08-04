@@ -3,6 +3,8 @@ description: "A tour through SGP.33-3's actual test cases: sending profile order
 title: "What They Test: Sending Orders, Getting Reports, Setting Up"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > What They Test: Sending Orders, Getting Reports, Setting Up 📋**
+
 
 # What They Test: Sending Orders, Getting Reports, Setting Up 📋
 

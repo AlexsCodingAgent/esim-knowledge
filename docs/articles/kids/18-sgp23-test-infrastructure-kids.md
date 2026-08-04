@@ -3,6 +3,8 @@ description: "Inside the eSIM testing lab: nine different simulators pretend to 
 title: "The Testing Lab: Crash-Test Dummies and Safety Inspectors"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > The Testing Lab: Crash-Test Dummies and Safety Inspectors 🏗️🧪**
+
 
 # The Testing Lab: Crash-Test Dummies and Safety Inspectors 🏗️🧪
 

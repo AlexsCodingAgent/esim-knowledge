@@ -3,6 +3,8 @@ description: "The vault's built-in rulebook: sticky-note policies on individual 
 title: "The Vault's Rulebook"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > The Vault's Rulebook 📋🔒**
+
 
 # The Vault's Rulebook 📋🔒
 

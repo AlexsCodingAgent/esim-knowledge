@@ -2,6 +2,8 @@
 title: "Emergency Plans: Built-In Backup for the Unreachable"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > Emergency Plans: Built-In Backup for the Unreachable 🆘**
+
 
 # Emergency Plans: Built-In Backup for the Unreachable 🆘
 

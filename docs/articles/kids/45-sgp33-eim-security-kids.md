@@ -3,6 +3,8 @@ description: "The three security layers protecting IoT eSIM commands: encrypted 
 title: "Secret Codes and Signed Orders: Security Testing"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > Secret Codes and Signed Orders: Security Testing 🔐**
+
 
 # Secret Codes and Signed Orders: Security Testing 🔐
 

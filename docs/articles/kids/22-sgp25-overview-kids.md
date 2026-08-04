@@ -3,6 +3,8 @@ description: "SGP.25 is the security rulebook every eUICC chip must meet: a Comm
 title: "The Vault's Security Rulebook: How Tough Is Tough Enough?"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > The Vault's Security Rulebook: How Tough Is Tough Enough? 📜**
+
 
 # The Vault's Security Rulebook: How Tough Is Tough Enough? 📜
 

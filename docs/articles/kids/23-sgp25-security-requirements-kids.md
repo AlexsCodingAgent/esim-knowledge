@@ -3,6 +3,8 @@ description: "The detailed security checklist for eUICC chips: four security pol
 title: "The Security Checklist: Steel Doors, Alarms, and Guards"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > The Security Checklist: Steel Doors, Alarms, and Guards 📋**
+
 
 # The Security Checklist: Steel Doors, Alarms, and Guards 📋
 

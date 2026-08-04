@@ -3,6 +3,8 @@ description: "How IoT eSIM devices prove identity and stay secure: from digital 
 title: "IoT eSIM Security: eIM Certificates, DTLS, and Device Trust"
 date: 2026-06-01
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > 🔐 Secret Codes and Digital Bodyguards**
+
 
 # 🔐 Secret Codes and Digital Bodyguards
 

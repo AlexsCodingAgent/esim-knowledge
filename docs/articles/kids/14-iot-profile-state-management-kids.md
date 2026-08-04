@@ -3,6 +3,8 @@ description: "How a remote control centre can enable, disable, delete, and roll 
 title: "Profile State Management via the eIM: Remote Enable, Disable, Delete"
 date: 2026-06-05
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > 🎮 Remote Control for Your SIM Profiles**
+
 
 # 🎮 Remote Control for Your SIM Profiles
 

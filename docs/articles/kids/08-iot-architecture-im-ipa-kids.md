@@ -3,6 +3,8 @@ description: "How the IoT eSIM system connects a cloud-based remote control cent
 title: "The eSIM IoT Architecture: eIM, IPA, and the New Interfaces"
 date: 2026-05-26
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > 🏰 The Control Centre and the Translator**
+
 
 # 🏰 The Control Centre and the Translator
 

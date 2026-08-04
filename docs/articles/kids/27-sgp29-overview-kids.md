@@ -3,6 +3,8 @@ description: "The EID is every eSIM chip's 32-digit fingerprint: a globally uniq
 title: "The 32-Digit Fingerprint: Every Chip's Secret Name"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > The 32-Digit Fingerprint: Every Chip's Secret Name 🔢🆔**
+
 
 # The 32-Digit Fingerprint: Every Chip's Secret Name 🔢🆔
 

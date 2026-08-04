@@ -3,6 +3,8 @@ description: "How Multiple Enabled Profiles (MEP) lets your phone use two mobile
 title: "MEP: Wearing Two Invisible Cloaks at Once"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > Wearing Two Invisible Cloaks at Once 👥**
+
 
 # Wearing Two Invisible Cloaks at Once 👥
 

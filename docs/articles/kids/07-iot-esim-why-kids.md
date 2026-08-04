@@ -3,6 +3,8 @@ description: "Why tiny IoT devices like sensors and trackers needed their own eS
 title: "eSIM for IoT: Why It Needed Its Own Architecture"
 date: 2026-05-22
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > 🤖 Why Little Robots Need Their Own eSIM**
+
 
 # 🤖 Why Little Robots Need Their Own eSIM
 

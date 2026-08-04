@@ -3,6 +3,8 @@ description: "How SGP.22 v3.x merged phone and machine eSIM rulebooks into one: 
 title: "SGP.22 v3.x: The Big Team-Up"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > The Big Team-Up: When Phone Magic and Robot Magic Became One 🦸**
+
 
 # The Big Team-Up: When Phone Magic and Robot Magic Became One 🦸
 

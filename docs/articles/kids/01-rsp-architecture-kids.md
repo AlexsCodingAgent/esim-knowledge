@@ -3,6 +3,8 @@ description: "Meet the five key players behind every eSIM download: the secure c
 title: "The eSIM Dream Team: Meet the Helpers"
 date: 2026-05-24
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > The eSIM Dream Team: Meet the Helpers 🦸‍♀️🦸‍♂️**
+
 
 # The eSIM Dream Team: Meet the Helpers 🦸‍♀️🦸‍♂️
 

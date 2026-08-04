@@ -3,6 +3,8 @@ description: "Why eSIM testing needs practice ID badges instead of real ones: SG
 title: "Practice ID Badges: The Test Certificate System"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > Practice ID Badges: The Test Certificate System 🎭**
+
 
 # Practice ID Badges: The Test Certificate System 🎭
 

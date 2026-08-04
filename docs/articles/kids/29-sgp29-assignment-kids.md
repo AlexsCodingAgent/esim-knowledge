@@ -3,6 +3,8 @@ description: "How chip makers, device manufacturers, and national authorities ap
 title: "The Librarian: Who Hands Out Chip Names"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > The Librarian: Who Hands Out Chip Names 📚🏷️**
+
 
 # The Librarian: Who Hands Out Chip Names 📚🏷️
 

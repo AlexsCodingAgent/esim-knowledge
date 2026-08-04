@@ -2,6 +2,8 @@
 title: "Six Phone Lines: How the Chip Helpers Talk to Each Other"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > Six Phone Lines: How the Chip Helpers Talk to Each Other 🗣️**
+
 
 # Six Phone Lines: How the Chip Helpers Talk to Each Other 🗣️
 

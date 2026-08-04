@@ -3,6 +3,8 @@ description: "The SAS-UP security audit that inspects eUICC chip factories: veri
 title: "Passing the Ultimate Security Audit: SAS-UP"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > Passing the Ultimate Security Audit: SAS-UP 🏅**
+
 
 # Passing the Ultimate Security Audit: SAS-UP 🏅
 

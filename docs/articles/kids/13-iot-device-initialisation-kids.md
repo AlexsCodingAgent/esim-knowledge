@@ -3,6 +3,8 @@ description: "What happens inside an IoT eSIM device when it powers on: from pro
 title: "IoT Device Initialisation and the eUICC File Structure"
 date: 2026-06-04
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > 🌅 The Morning Routine of an IoT Device**
+
 
 # 🌅 The Morning Routine of an IoT Device
 

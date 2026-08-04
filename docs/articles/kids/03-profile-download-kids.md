@@ -3,6 +3,8 @@ description: "Follow the three-stage spy mission of downloading an eSIM profile:
 title: "Mission: Download a Digital Key"
 date: 2026-05-29
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > Mission: Download a Digital Key 🕵️**
+
 
 # Mission: Download a Digital Key 🕵️
 

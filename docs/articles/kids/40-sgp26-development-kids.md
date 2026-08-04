@@ -3,6 +3,8 @@ description: "How to set up an SGP.26 testing lab from scratch: loading test cer
 title: "Setting Up Your Testing Lab with Practice Badges"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > Setting Up Your Testing Lab with Practice Badges 🧪**
+
 
 # Setting Up Your Testing Lab with Practice Badges 🧪
 

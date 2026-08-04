@@ -3,6 +3,8 @@ description: "The family tree of SGP.26 test certificates explained: how trust f
 title: "The Family Tree: Grandpa, Parents, and Children Badges"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > The Family Tree: Grandpa, Parents, and Children Badges 🌳**
+
 
 # The Family Tree: Grandpa, Parents, and Children Badges 🌳
 

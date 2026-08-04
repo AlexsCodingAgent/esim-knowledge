@@ -3,6 +3,8 @@ description: "Moving eSIM profiles to a new phone without calling your carrier: 
 title: "Moving Your Secret Keys to a New Vault"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > Moving Your Secret Keys to a New Vault 🏠➡️🏠**
+
 
 # Moving Your Secret Keys to a New Vault 🏠➡️🏠
 

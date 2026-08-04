@@ -3,6 +3,8 @@ description: "What you can do with your phone's eSIM settings: enable and disabl
 title: "Your eSIM Remote Control: Switching, Naming, and Tidying Up"
 date: 2026-06-03
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > Your eSIM Remote Control: Switching, Naming, and Tidying Up 🎮**
+
 
 # Your eSIM Remote Control: Switching, Naming, and Tidying Up 🎮
 

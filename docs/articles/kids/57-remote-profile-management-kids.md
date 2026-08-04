@@ -3,6 +3,8 @@ description: "How Remote Profile Management gives carriers a remote control for 
 title: "RPM: The Remote Control for Your Secret Keys"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > The Remote Control for Your Secret Keys 🎮**
+
 
 # The Remote Control for Your Secret Keys 🎮
 

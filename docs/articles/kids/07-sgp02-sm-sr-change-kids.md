@@ -2,6 +2,8 @@
 title: "Handing Over the Fleet: Changing Commanders"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > Handing Over the Fleet: Changing Commanders**
+
 
 # Handing Over the Fleet: Changing Commanders
 

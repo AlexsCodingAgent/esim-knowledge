@@ -3,6 +3,8 @@ description: "What SGP.23-1 actually verifies: the vault manager's first handsha
 title: "What They Test: Room Manager, Key Storage, and Key Lifecycle"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > What They Test: Room Manager, Key Storage, and Key Lifecycle 🗂️🔑**
+
 
 # What They Test: Room Manager, Key Storage, and Key Lifecycle 🗂️🔑
 

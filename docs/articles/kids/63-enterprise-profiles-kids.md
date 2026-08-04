@@ -3,6 +3,8 @@ description: "How enterprise eSIM profiles work like a company keycard inside yo
 title: "Your Work Keycard"
 date: 2026-06-07
 ---
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Illustrated Edition]({{ site.baseurl }}/docs/articles/kids/) > Your Work Keycard 🏢🪪**
+
 
 # Your Work Keycard 🏢🪪
 
