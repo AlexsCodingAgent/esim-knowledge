@@ -11,6 +11,7 @@ plugins:
   - jekyll-redirect-from
 
 # Feature flags
+simple_mode: true
 jobs_page: false
 storybooks_page: true
 technical_page: true
