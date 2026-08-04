@@ -3,6 +3,8 @@ layout: default
 title: "eSIM RSP Knowledge Base: AI-Optimized Index"
 ---
 
+{% if site.technical_page %}
+
 <div align="center">
 
 # 🔐 eUICC.tech
@@ -169,4 +171,11 @@ title: "eSIM RSP Knowledge Base: AI-Optimized Index"
 
 ---
 
-*[📖 Illustrated Edition](/docs/articles/kids/) · [📋 Full Technical Index](/docs/articles/) · [📖 Glossary](/docs/glossary) · [🗺️ Standards Map](/docs/standards-map)*
+*[📋 Full Technical Index](/docs/articles/) · [📖 Glossary](/docs/glossary) · [🗺️ Standards Map](/docs/standards-map){% if site.storybooks_page %} · [📖 Illustrated Edition](/docs/articles/kids/){% endif %}*
+{% else %}
+<div align="center" style="max-width:960px;margin:3rem auto;">
+  <h1 style="color:#c8d6e5;">🔐 AI-Optimized Index</h1>
+  <p style="color:#8b949e;">The technical articles index is currently unavailable.</p>
+  <p style="margin-top:1rem;"><a href="/" style="color:#5dade2;">← Back to eUICC.tech</a></p>
+</div>
+{% endif %}

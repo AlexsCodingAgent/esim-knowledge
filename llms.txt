@@ -1,10 +1,14 @@
+---
+---
+
 # eUICC.tech — GSMA eSIM RSP Knowledge Base
 > 84+ technical articles across 12 GSMA eSIM specifications. Remote SIM Provisioning: consumer, M2M, IoT, and in-factory profile provisioning.
 
 ## Core Reference
-- [Standards Map](https://euicc.tech/docs/standards-map): Complete GSMA SGP specification landscape — timeline, relationships, and what each spec does
-- [eSIM Ecosystem Careers](https://euicc.tech/careers/): Filterable job board of 400+ technical roles across G+D, Thales, Idemia, 1NCE, KORE, Soracom, and more
+{% if site.technical_page %}- [Standards Map](https://euicc.tech/docs/standards-map): Complete GSMA SGP specification landscape — timeline, relationships, and what each spec does{% endif %}
+{% if site.jobs_page %}- [eSIM Ecosystem Careers](https://euicc.tech/careers/): Filterable job board of 400+ technical roles across G+D, Thales, Idemia, 1NCE, KORE, Soracom, and more{% endif %}
 
+{% if site.technical_page %}
 ## Specifications — Technical Articles
 
 ### SGP.02 — M2M RSP Architecture
@@ -112,11 +116,14 @@
 - [Flow](https://euicc.tech/docs/articles/sgp41/49-sgp41-flow): End-to-end factory provisioning flow
 - [Security](https://euicc.tech/docs/articles/sgp41/50-sgp41-security): Factory security requirements
 - [Practice](https://euicc.tech/docs/articles/sgp41/51-sgp41-practice): Implementation guidance
+{% endif %}
 
+{% if site.storybooks_page %}
 ## Illustrated Storybooks
 - [Storybooks Hub](https://euicc.tech/docs/articles/kids/storybooks): 17 illustrated eSIM storybooks — dark navy theme, scroll-through book format
 - [Index](https://euicc.tech/docs/articles/kids/): Complete storybook listing with covers
+{% endif %}
 
 ## Optional
-- [eUICC.tech Home](https://euicc.tech/): Main landing page — two-path split: Technical Edition / Illustrated Edition
+- [eUICC.tech Home](https://euicc.tech/): Main landing page{% if site.storybooks_page %} — two-path split: Technical Edition / Illustrated Edition{% endif %}
 - [GitHub](https://github.com/AlexsCode/esim-knowledge): Source repository

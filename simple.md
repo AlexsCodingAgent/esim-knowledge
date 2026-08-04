@@ -55,6 +55,7 @@ description: "Two paths into the eSIM RSP knowledge base: illustrated stories fo
 
 <div class="simple-hero">
 
+{% if site.storybooks_page %}
   <a href="docs/articles/kids/" class="simple-card card-illustrated">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
       <g transform="translate(50,48)">
@@ -72,7 +73,9 @@ description: "Two paths into the eSIM RSP knowledge base: illustrated stories fo
     <h2>Illustrated, Simple</h2>
     <p>Stories, analogies, and emojis. The intuition before the technical detail.</p>
   </a>
+{% endif %}
 
+{% if site.technical_page %}
   <a href="docs/articles/" class="simple-card card-technical">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
       <rect x="30" y="30" width="40" height="40" rx="6" fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="2"/>
@@ -90,6 +93,7 @@ description: "Two paths into the eSIM RSP knowledge base: illustrated stories fo
     <h2>Detailed and Technical</h2>
     <p>Spec-driven. Precise. For engineers and implementers.</p>
   </a>
+{% endif %}
 
 </div>
 

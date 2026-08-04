@@ -7,6 +7,8 @@ redirect_from:
   - /kids/
 ---
 
+{% if site.storybooks_page %}
+
 # 📖 eSIM Explained: Illustrated Edition
 
 *The same eSIM concepts, told through stories, analogies, and hand-drawn illustrations. Perfect for visual learners, younger readers, or anyone who wants the intuition before the technical detail.*
@@ -255,4 +257,11 @@ redirect_from:
 
 ---
 
-*Part of [eUICC.tech]({{ site.baseurl }}/) : [Switch to Technical Edition →]({{ site.baseurl }}/)*
+*Part of [eUICC.tech]({{ site.baseurl }}/){% if site.technical_page %} : [Switch to Technical Edition →]({{ site.baseurl }}){% endif %}/*
+{% else %}
+<div align="center" style="max-width:960px;margin:3rem auto;">
+  <h1 style="color:#c8d6e5;">📖 eSIM Explained: Illustrated Edition</h1>
+  <p style="color:#8b949e;">The illustrated edition is currently unavailable.</p>
+  <p style="margin-top:1rem;"><a href="/" style="color:#5dade2;">← Back to eUICC.tech</a>{% if site.technical_page %} · <a href="/docs/articles/" style="color:#5dade2;">Technical Articles →</a>{% endif %}</p>
+</div>
+{% endif %}

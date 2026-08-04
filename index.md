@@ -10,7 +10,7 @@ description: "Comprehensive technical knowledge base covering 12 GSMA eSIM RSP s
 
 <h3>Deep Dives Into GSMA eSIM Remote SIM Provisioning</h3>
 
-*84 articles · 12 specifications · 83 illustrated guides · Built from primary source GSMA specs*
+*{% if site.technical_page %}84 articles · 12 specifications{% endif %}{% if site.storybooks_page %}{% if site.technical_page %} · {% endif %}83 illustrated guides{% endif %}{% if site.technical_page or site.storybooks_page %} · {% endif %}Built from primary source GSMA specs*
 
 </div>
 
@@ -73,6 +73,7 @@ Every article links to specific sections of the corresponding GSMA specification
 
 <div class="home-cards">
 
+{% if site.storybooks_page %}
   <a href="docs/articles/kids/" class="home-card card-illustrated">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
       <g transform="translate(50,48)">
@@ -90,7 +91,9 @@ Every article links to specific sections of the corresponding GSMA specification
     <h2>Illustrated, Simple</h2>
     <p>Stories, analogies, and emojis. The intuition before the technical detail.</p>
   </a>
+{% endif %}
 
+{% if site.technical_page %}
   <a href="docs/articles/" class="home-card card-technical">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
       <rect x="30" y="30" width="40" height="40" rx="6" fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="2"/>
@@ -108,11 +111,13 @@ Every article links to specific sections of the corresponding GSMA specification
     <h2>Detailed and Technical</h2>
     <p>Spec-driven. Precise. For engineers and implementers.</p>
   </a>
+{% endif %}
 
 </div>
 
 ---
 
+{% if site.technical_page %}
 ## What's Inside
 
 - **[SGP.22 v2.7](docs/articles/sgp22/)** : Consumer eSIM RSP: 12 articles
@@ -134,16 +139,17 @@ Every article links to specific sections of the corresponding GSMA specification
 - **[SGP.25](docs/articles/sgp25/)** : eUICC Protection Profile: 5 articles
 
 - **[SGP.26](docs/articles/sgp26/)** : RSP Test Certificates: 5 articles
+{% endif %}
 
 ---
 
 ## Quick Start
 
-**New to eSIM?** Start with the [Guided Path](docs/articles/sgp22/00-sgp22-overview) : 7 articles that take you from zero to understanding the full RSP architecture.
+{% if site.technical_page %}**New to eSIM?** Start with the [Guided Path](docs/articles/sgp22/00-sgp22-overview) : 7 articles that take you from zero to understanding the full RSP architecture.{% endif %}
 
-**Prefer stories?** Jump to the [Illustrated Edition](docs/articles/kids/) : every concept explained through analogies, emojis, and illustrations.
+{% if site.storybooks_page %}**Prefer stories?** Jump to the [Illustrated Edition](docs/articles/kids/) : every concept explained through analogies, emojis, and illustrations.{% endif %}
 
-**Need a specific spec?** Browse the [full article index](docs/articles/) or search by topic.
+{% if site.technical_page %}**Need a specific spec?** Browse the [full article index](docs/articles/) or search by topic.{% endif %}
 
 **Quick lookup?** Try the [Glossary](docs/glossary) for 60+ terms defined.
 
@@ -153,6 +159,6 @@ Every article links to specific sections of the corresponding GSMA specification
 
 *Sources: GSMA SGP.02 v4.2 · SGP.22 v2.7 · SGP.22 v3.1 · SGP.23 v1.16 · SGP.23-1 v3.1.3 · SGP.25 v2.1 · SGP.26 v3.0.2 · SGP.29 v1.1 · SGP.31 v1.3 · SGP.32 v1.3 · SGP.33-3 v1.2 · SGP.41 v1.0*
 
-<a href="/docs/glossary">Glossary</a> · <a href="/docs/prerequisites">Prerequisites</a> · <a href="/docs/standards-map">Standards Map</a> · <a href="/ai">AI Index</a> · <a href="/careers">Jobs</a>
+<a href="/docs/glossary">Glossary</a> · <a href="/docs/prerequisites">Prerequisites</a>{% if site.technical_page %} · <a href="/docs/standards-map">Standards Map</a> · <a href="/ai">AI Index</a>{% endif %}{% if site.jobs_page %} · <a href="/careers">Jobs</a>{% endif %}
 
 </div>

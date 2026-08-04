@@ -10,6 +10,11 @@ plugins:
   - jekyll-seo-tag
   - jekyll-redirect-from
 
+# Feature flags
+jobs_page: false
+storybooks_page: true
+technical_page: true
+
 defaults:
   - scope:
       path: ""

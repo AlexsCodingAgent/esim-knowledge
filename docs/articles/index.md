@@ -8,6 +8,8 @@ redirect_from:
   - /articles/
 ---
 
+{% if site.technical_page %}
+
 **🏠 [eUICC.tech]({{ site.baseurl }}/) > Specification Index**
 
 # 📋 Specification Index
@@ -122,4 +124,11 @@ All 72 articles across 11 GSMA eSIM specifications.
 
 ---
 
-*Part of [eUICC.tech]({{ site.baseurl }}/)*
+*Part of [eUICC.tech]({{ site.baseurl }})/*
+{% else %}
+<div align="center" style="max-width:960px;margin:3rem auto;">
+  <h1 style="color:#c8d6e5;">📋 Specification Index</h1>
+  <p style="color:#8b949e;">The technical articles section is currently unavailable.</p>
+  <p style="margin-top:1rem;"><a href="/" style="color:#5dade2;">← Back to eUICC.tech</a></p>
+</div>
+{% endif %}

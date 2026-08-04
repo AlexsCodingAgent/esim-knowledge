@@ -5,6 +5,8 @@ description: Browse software engineering and technical roles across the eSIM eco
 permalink: /careers/
 ---
 
+{% if site.jobs_page %}
+
 <style>
 /* Careers page — dark theme, consistent with Midnight */
 .careers-wrap {
@@ -273,3 +275,10 @@ function esc(s) {
 
 document.addEventListener('DOMContentLoaded', init);
 </script>
+{% else %}
+<div class="careers-wrap" style="max-width:960px;margin:3rem auto;text-align:center;">
+  <h1 style="color:#c8d6e5;">eSIM Ecosystem Jobs</h1>
+  <p style="color:#8b949e;">The jobs board is currently unavailable.</p>
+  <p style="color:#8b949e;margin-top:1rem;"><a href="/" style="color:#5dade2;">← Back to eUICC.tech</a></p>
+</div>
+{% endif %}
