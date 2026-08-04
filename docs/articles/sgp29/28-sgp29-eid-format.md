@@ -187,7 +187,7 @@ GSMA ──ERHI1──▶ Group of Device Mfrs ──ERHI2──▶ Single Devic
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp29/27-sgp29-overview">SGP.29 Overview: The eUICC Identifier (EID)</a> · <a href="{{ site.baseurl }}/">Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp29/27-sgp29-overview">SGP.29 Overview: The eUICC Identifier (EID)</a> · {% if site.home_link %}<a href="{{ site.baseurl }}/">Home</a>{% else %}<a href="{{ site.baseurl }}/docs/articles/">Specs</a>{% endif %}
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp29/29-sgp29-assignment">EID Assignment: How Manufacturers Get Their Allocations</a> →
 

@@ -315,6 +315,6 @@ description: "*The complete GSMA SGP specification landscape: what each spec doe
 
 *Last updated: 2026-06-06 · Sources: GSMA SGP specifications v2.7, v3.2, v1.3, v1.16, v3.1.3, v2.1, v3.1.2, v1.1, v1.2, v1.0*
 
-[🏠 eUICC.tech Home]({{ site.baseurl }}/)
+{% if site.home_link %}[🏠 eUICC.tech Home]({{ site.baseurl }}/){% endif %}
 
 </div>

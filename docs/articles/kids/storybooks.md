@@ -42,6 +42,6 @@ title: "Illustrated Storybooks: eUICC.tech"
 
 *Read in order or jump to any story: each one stands alone!*
 
-<a href="index.html">📚 Back to Kids Articles</a> · <a href="{{ site.baseurl }}/">🏠 eUICC.tech Home</a>
+<a href="index.html">📚 Back to Kids Articles</a>{% if site.home_link %} · <a href="{{ site.baseurl }}/">🏠 eUICC.tech Home</a>{% endif %}
 
 </div>

@@ -261,7 +261,7 @@ redirect_from:
 
 ---
 
-*Part of [eUICC.tech]({{ site.baseurl }}/){% if site.technical_page and site.crosslinks %} : [Switch to Technical Edition →]({{ site.baseurl }}){% endif %}/*
+*Part of eUICC.tech{% if site.home_link %} · [Home]({{ site.baseurl }}/){% endif %}{% if site.technical_page and site.crosslinks %} · [Technical Edition →]({{ site.baseurl }}/){% endif %}*
 {% else %}
 <div align="center" style="max-width:960px;margin:3rem auto;">
   <h1 style="color:#c8d6e5;">📖 eSIM Explained: Illustrated Edition</h1>

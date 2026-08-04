@@ -172,7 +172,7 @@ In an industry where 15-year device lifecycles are routine and vendor relationsh
 
 <div align="center">
 
-<a href="{{ site.baseurl }}/">Home</a>
+{% if site.home_link %}<a href="{{ site.baseurl }}/">Home</a>{% else %}<a href="{{ site.baseurl }}/docs/articles/">Specs</a>{% endif %}
 
 Previous: <a href="06-sgp02-lifecycle">Profile Lifecycle: Enable, Disable, Delete, and Fall-Back</a> →
 Next: <a href="08-sgp02-resilience">Resilience: Fall-Back Mechanism, Emergency Profiles, and Test Profiles</a> →

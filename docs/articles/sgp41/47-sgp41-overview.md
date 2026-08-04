@@ -106,7 +106,7 @@ SGP.41 enables use cases that SGP.22 alone cannot address:
 
 <div align="center">
 
-<a href="{{ site.baseurl }}/">Home</a>
+{% if site.home_link %}<a href="{{ site.baseurl }}/">Home</a>{% else %}<a href="{{ site.baseurl }}/docs/articles/">Specs</a>{% endif %}
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp41/48-sgp41-architecture">The IFPP Architecture: SM-DPf, FPA, and Device Manufacturer</a> →
 

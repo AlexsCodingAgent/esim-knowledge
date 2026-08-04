@@ -165,7 +165,7 @@ The spec's longevity isn't a sign that it's outdated. The M2M world moves slowly
 
 <div align="center">
 
-<a href="{{ site.baseurl }}/">Home</a>
+{% if site.home_link %}<a href="{{ site.baseurl }}/">Home</a>{% else %}<a href="{{ site.baseurl }}/docs/articles/">Specs</a>{% endif %}
 
 ← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp02/10-sgp02-offcard-interfaces">Off-Card Interfaces: ES1–ES7 and the SOAP Binding</a>
 

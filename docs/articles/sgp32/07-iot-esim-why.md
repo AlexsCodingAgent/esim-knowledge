@@ -113,7 +113,7 @@ Together they form the complete IoT eSIM specification stack, sitting alongside 
 
 <div align="center">
 
-<a href="{{ site.baseurl }}/">Home</a>
+{% if site.home_link %}<a href="{{ site.baseurl }}/">Home</a>{% else %}<a href="{{ site.baseurl }}/docs/articles/">Specs</a>{% endif %}
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp32/08-iot-architecture-im-ipa">The eSIM IoT Architecture: eIM, IPA, and the New Interfaces</a> →
 

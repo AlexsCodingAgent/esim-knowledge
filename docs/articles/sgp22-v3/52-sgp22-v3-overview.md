@@ -120,7 +120,7 @@ The key difference is **scope**: v2.x targets consumer devices with pull-based p
 
 <div align="center">
 
-<a href="{{ site.baseurl }}/">Home</a>
+{% if site.home_link %}<a href="{{ site.baseurl }}/">Home</a>{% else %}<a href="{{ site.baseurl }}/docs/articles/">Specs</a>{% endif %}
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp22-v3/53-multiple-enabled-profiles">Multiple Enabled Profiles: Running Several eSIMs at Once</a> →
 

@@ -176,7 +176,7 @@ Two more interfaces round out the picture:
 
 <div align="center">
 
-<a href="{{ site.baseurl }}/">Home</a>
+{% if site.home_link %}<a href="{{ site.baseurl }}/">Home</a>{% else %}<a href="{{ site.baseurl }}/docs/articles/">Specs</a>{% endif %}
 
 ← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp02/03-sgp02-pki">M2M Certificate Hierarchy</a> | Next: <a href="{{ site.baseurl }}/docs/articles/sgp02/05-sgp02-download">Profile Download</a> →
 

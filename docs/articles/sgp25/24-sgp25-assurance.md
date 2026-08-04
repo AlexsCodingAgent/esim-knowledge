@@ -181,7 +181,7 @@ The assurance requirements validate the functional requirements by proving:
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp25/23-sgp25-security-requirements">eUICC Security Functional Requirements</a> · <a href="{{ site.baseurl }}/">Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp25/23-sgp25-security-requirements">eUICC Security Functional Requirements</a> · {% if site.home_link %}<a href="{{ site.baseurl }}/">Home</a>{% else %}<a href="{{ site.baseurl }}/docs/articles/">Specs</a>{% endif %}
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp25/25-sgp25-physical-security">Physical Security: Side-Channel and Fault Injection Defences</a> →
 

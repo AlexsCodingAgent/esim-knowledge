@@ -110,7 +110,7 @@ The DLOA serves as a portable certificate of compliance: a product that holds a 
 
 <div align="center">
 
-<a href="{{ site.baseurl }}/">Home</a>
+{% if site.home_link %}<a href="{{ site.baseurl }}/">Home</a>{% else %}<a href="{{ site.baseurl }}/docs/articles/">Specs</a>{% endif %}
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp23/18-sgp23-test-infrastructure">The GSMA eSIM Test Infrastructure</a> →
 

@@ -118,7 +118,7 @@ The invalid test cases are particularly valuable. SGP.26 provides certificates w
 
 <div align="center">
 
-<a href="{{ site.baseurl }}/">Home</a>
+{% if site.home_link %}<a href="{{ site.baseurl }}/">Home</a>{% else %}<a href="{{ site.baseurl }}/docs/articles/">Specs</a>{% endif %}
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp26/38-sgp26-hierarchy">Test Certificate Hierarchy: CI, EUM, DP, DS, and eUICC</a> →
 

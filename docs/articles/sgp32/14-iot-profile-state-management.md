@@ -248,7 +248,7 @@ The `eIM` can pre-configure whether downloaded profiles should be immediately en
 
 <div align="center">
 
-← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp32/13-iot-device-initialisation">IoT Device Initialisation and the eUICC File Structure</a> · <a href="{{ site.baseurl }}/">Home</a>
+← Previous: <a href="{{ site.baseurl }}/docs/articles/sgp32/13-iot-device-initialisation">IoT Device Initialisation and the eUICC File Structure</a> · {% if site.home_link %}<a href="{{ site.baseurl }}/">Home</a>{% else %}<a href="{{ site.baseurl }}/docs/articles/">Specs</a>{% endif %}
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp32/15-iot-smsds-operations">SM-DS Operations in IoT eSIM: Event Registration and Retrieval</a> →
 
