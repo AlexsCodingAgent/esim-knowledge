@@ -7,7 +7,7 @@ date: 2026-06-07
 
 # Enterprise Profiles in SGP.22 v3.x: Corporate Control of eSIMs
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.22 v3.x Unified RSP]({{ site.baseurl }}/docs/articles/sgp22-v3/) > Enterprise Profiles in SGP.22 v3.x: Corporate Control of eSIMs**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.22 v3.x Unified RSP]({{ site.baseurl }}/docs/articles/sgp22-v3/) > Enterprise Profiles in SGP.22 v3.x: Corporate Control of eSIMs**
 
 > **Why this matters:** Bring-your-own-device (BYOD) programs create a fundamental tension: the employee owns the phone, but the enterprise owns the data and the mobile subscription. In SGP.22 v2.x, there's no way to express this distinction: all profiles are treated equally, and the end user can disable or delete any profile at will. Enterprise Profiles, introduced in v3.0, solve this by creating a new profile class with enforceable restrictions that survive end-user actions. An enterprise can mandate that its corporate profile cannot be disabled or deleted, that only enterprise profiles can be installed on the device, or that the enterprise profile must be the priority profile. The eUICC enforces these rules in hardware, not just in software: making enterprise profiles the foundation for corporate-managed eSIM fleets.
 

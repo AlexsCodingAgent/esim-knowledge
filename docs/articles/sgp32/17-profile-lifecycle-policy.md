@@ -6,7 +6,7 @@ date: 2026-06-07
 
 # Profile Lifecycle & Policy: Types, PPE, and Enforcement in IoT eSIM
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.32 IoT eSIM]({{ site.baseurl }}/docs/articles/sgp32/) > Profile Lifecycle & Policy: Types, PPE, and Enforcement in IoT eSIM**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.32 IoT eSIM]({{ site.baseurl }}/docs/articles/sgp32/) > Profile Lifecycle & Policy: Types, PPE, and Enforcement in IoT eSIM**
 
 > **Why this matters:** Not all eSIM profiles are created equal. SGP.32 defines three distinct Profile Types: Operational, Provisioning, and Test: each with different lifecycles, visibility rules, and survival characteristics across memory resets. On top of that, every profile can carry Policy Rules that dictate whether it can be disabled or deleted, enforced by a dedicated eUICC component called the Profile Policy Enabler (PPE). Understanding this layered lifecycle-and-policy model is essential for designing IoT fleets that survive field failures, resets, and provider transitions.
 

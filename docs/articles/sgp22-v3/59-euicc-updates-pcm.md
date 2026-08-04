@@ -7,7 +7,7 @@ date: 2026-06-06
 
 # eUICC Updates and Profile Content Management: Lifecycle Beyond Download
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.22 v3.x Unified RSP]({{ site.baseurl }}/docs/articles/sgp22-v3/) > eUICC Updates and Profile Content Management**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.22 v3.x Unified RSP]({{ site.baseurl }}/docs/articles/sgp22-v3/) > eUICC Updates and Profile Content Management**
 
 > **Why this matters:** Downloading a profile is just the beginning. Over a device's 10+ year lifetime, the eUICC OS needs security patches, profiles need content updates, and operators need to manage metadata remotely: all without physical access to the chip. SGP.22 v3.x introduces three mechanisms that transform the eUICC from a static container into a living, updatable platform.
 

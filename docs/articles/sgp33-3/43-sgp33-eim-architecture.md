@@ -6,7 +6,7 @@ date: 2026-06-05
 
 # eIM Test Architecture: Simulated eIM and Reference IPA
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.33-3 eIM Testing]({{ site.baseurl }}/docs/articles/sgp33-3/) > eIM Test Architecture: Simulated eIM and Reference IPA**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.33-3 eIM Testing]({{ site.baseurl }}/docs/articles/sgp33-3/) > eIM Test Architecture: Simulated eIM and Reference IPA**
 
 > **Why this matters:** Testing the eUICC IoT Manager (eIM) is architecturally unique: it's a *server* under test, not a chip or a device. Unlike eUICC testing (where a physical card sits on a reader) or LPAd testing (where a device runs test software), the eIM is a remote network service that must be tested across four different simulated counterparts simultaneously. Understanding how SGP.33-3 constructs this test environment reveals the engineering challenge of proving that an IoT remote management server works correctly before it ever touches a real IoT device.
 

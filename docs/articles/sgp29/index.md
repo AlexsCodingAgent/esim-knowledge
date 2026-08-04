@@ -8,7 +8,7 @@ redirect_from:
   - /sgp29/
 ---
 
-**[eUICC.tech]({{ site.baseurl }}/) > SGP.29: EID Definition and Assignment**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}SGP.29: EID Definition and Assignment**
 
 # SGP.29: EID Definition and Assignment
 

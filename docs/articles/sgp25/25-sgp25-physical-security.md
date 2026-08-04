@@ -6,7 +6,7 @@ date: 2026-06-05
 
 # Physical Security: Side-Channel and Fault Injection Defences
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.25 eUICC Security]({{ site.baseurl }}/docs/articles/sgp25/) > Physical Security: Side-Channel and Fault Injection Defences**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.25 eUICC Security]({{ site.baseurl }}/docs/articles/sgp25/) > Physical Security: Side-Channel and Fault Injection Defences**
 
 > **Why this matters:** An eUICC doesn't just face network-based attacks: it sits inside a device that an adversary can physically hold, probe, and manipulate. Side-channel analysis can extract cryptographic keys from power consumption patterns. Fault injection can flip bits during critical operations. Physical tampering can expose internal buses and memory. SGP.25 explicitly addresses these threats, requiring the TOE and its underlying platform to resist attackers with oscilloscopes, glitching tools, and lab benches.
 

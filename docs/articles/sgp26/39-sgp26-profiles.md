@@ -6,7 +6,7 @@ date: 2026-06-06
 
 # Certificate Profiles: What Makes a Valid Test Certificate
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.26 Test Certificates]({{ site.baseurl }}/docs/articles/sgp26/) > Certificate Profiles: What Makes a Valid Test Certificate**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.26 Test Certificates]({{ site.baseurl }}/docs/articles/sgp26/) > Certificate Profiles: What Makes a Valid Test Certificate**
 
 > **Why this matters:** An eUICC doesn't just verify a signature: it validates the entire certificate profile: key usage, extended key usage, certificate policies, basic constraints, subject key identifier chaining, and CRL distribution points. One wrong extension and the eUICC must reject the certificate. SGP.26 defines the exact extension profile for each certificate type so that testers know precisely what "valid" means: and what deliberate violations trigger which error codes.
 

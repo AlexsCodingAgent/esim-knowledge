@@ -11,7 +11,7 @@ redirect_from:
 {% if site.technical_page %}
 {% if site.article_index == "minimal" %}
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > Specification Index**
+**{% if site.home_link %}🏠 [eUICC.tech]({{ site.baseurl }}/) > {% endif %}Specification Index**
 
 # 📋 Specification Index
 
@@ -90,7 +90,7 @@ redirect_from:
 
 {% else %}
 
-**🏠 [eUICC.tech]({{ site.baseurl }}/) > Specification Index**
+**{% if site.home_link %}🏠 [eUICC.tech]({{ site.baseurl }}/) > {% endif %}Specification Index**
 
 # 📋 Specification Index
 

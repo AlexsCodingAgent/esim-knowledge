@@ -7,7 +7,7 @@ date: 2026-06-07
 
 # Profile Protection & BPP Security: How eSIM Profiles Stay Secret
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.22 v3.x Unified RSP]({{ site.baseurl }}/docs/articles/sgp22-v3/) > Profile Protection & BPP Security: How eSIM Profiles Stay Secret**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.22 v3.x Unified RSP]({{ site.baseurl }}/docs/articles/sgp22-v3/) > Profile Protection & BPP Security: How eSIM Profiles Stay Secret**
 
 > **Why this matters:** An eSIM profile contains your mobile network authentication keys: the cryptographic equivalent of your house keys. If an attacker could intercept a profile during download or extract it from an SM-DP+ server, they could clone your SIM and impersonate you on the network. The SGP.22 security architecture prevents this through a layered protection chain: the raw profile is first encrypted (Protected Profile Package), then cryptographically bound to a specific eUICC (Bound Profile Package), and finally delivered over an authenticated, confidentiality-protected channel. The BPP Security Protocol (BSP) : derived from GlobalPlatform's SCP11a: is the cryptographic engine that makes this possible.
 

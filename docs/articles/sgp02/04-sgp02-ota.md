@@ -6,7 +6,7 @@ date: 2026-06-07
 
 # OTA Communication: SMS, PSK-TLS, CAT_TP, and DNS
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.02 M2M RSP]({{ site.baseurl }}/docs/articles/sgp02/) > OTA Communication: SMS, PSK-TLS, CAT_TP, and DNS**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.02 M2M RSP]({{ site.baseurl }}/docs/articles/sgp02/) > OTA Communication: SMS, PSK-TLS, CAT_TP, and DNS**
 
 The SM-SR has one job nobody else gets to do: talk directly to the eUICC over the air. SGP.02 §2.4 puts it bluntly: "the OTA communication is exclusively handled by the SM-SR." If you're coming from [the Architecture article]({{ site.baseurl }}/docs/articles/sgp02/01-sgp02-architecture), you already know the ES5 interface is where the push model gets physical. And if you've read [the eUICC Internals piece]({{ site.baseurl }}/docs/articles/sgp02/02-sgp02-euicc-internals), you know the ISD-R is the on-chip endpoint that receives these commands.
 

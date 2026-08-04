@@ -6,7 +6,7 @@ date: 2026-06-01
 
 # IoT eSIM Security: eIM Certificates, DTLS, and Device Trust
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.32 IoT eSIM]({{ site.baseurl }}/docs/articles/sgp32/) > IoT eSIM Security: eIM Certificates, DTLS, and Device Trust**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.32 IoT eSIM]({{ site.baseurl }}/docs/articles/sgp32/) > IoT eSIM Security: eIM Certificates, DTLS, and Device Trust**
 
 > **Why this matters:** IoT devices live in hostile environments: remote locations, no physical security, constrained CPUs that can't run full PKI stacks. The IoT eSIM security model extends the consumer PKI with a new `eIM` certificate class, adapts transport security from TLS to DTLS for UDP-based LPWA networks, and introduces three trust models for devices ranging from Linux gateways to bare-metal RTOS sensors.
 

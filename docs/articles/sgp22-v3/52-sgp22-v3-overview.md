@@ -7,7 +7,7 @@ date: 2026-06-06
 
 # SGP.22 v3.x Overview: The Unified eSIM Specification
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.22 v3.x Unified RSP]({{ site.baseurl }}/docs/articles/sgp22-v3/) > SGP.22 v3.x Overview: The Unified eSIM Specification**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.22 v3.x Unified RSP]({{ site.baseurl }}/docs/articles/sgp22-v3/) > SGP.22 v3.x Overview: The Unified eSIM Specification**
 
 > **Why this matters:** SGP.22 v3.x represents the biggest architectural shift in consumer eSIM since the original specification. It merges the consumer (SGP.22) and M2M (SGP.02) paradigms into a single unified specification, adds support for multiple simultaneously-active profiles, introduces push-based notifications to replace polling, and defines entirely new lifecycle operations like remote profile management, device change, and profile recovery. If you're planning an eSIM platform for the next decade, v3.x is the foundation you need to understand.
 

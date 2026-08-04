@@ -6,7 +6,7 @@ date: 2026-05-24
 
 # The eSIM RSP Architecture: Players and Interfaces
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > The eSIM RSP Architecture: Players and Interfaces**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > The eSIM RSP Architecture: Players and Interfaces**
 
 > **Why this matters:** Every eSIM interaction: scanning a QR code, switching carriers, provisioning a factory-fresh IoT device: flows through this architecture. Knowing the five players and thirteen interfaces is the map you need before diving into any protocol detail.
 

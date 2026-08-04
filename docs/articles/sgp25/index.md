@@ -8,7 +8,7 @@ redirect_from:
   - /sgp25/
 ---
 
-**[eUICC.tech]({{ site.baseurl }}/) > SGP.25: eUICC Protection Profile**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}SGP.25: eUICC Protection Profile**
 
 # SGP.25: eUICC Protection Profile
 

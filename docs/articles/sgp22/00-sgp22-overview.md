@@ -6,7 +6,7 @@ date: 2026-06-05
 
 # eSIM Remote SIM Provisioning (RSP) : How It Works
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > eSIM Remote SIM Provisioning (RSP) : How It Works**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > eSIM Remote SIM Provisioning (RSP) : How It Works**
 
 > **Prerequisites:** New to telecom or smart card technology? Read our [Prerequisites Guide]({{ site.baseurl }}/docs/prerequisites) first. The [Glossary]({{ site.baseurl }}/docs/glossary) defines all acronyms used in these articles.
 

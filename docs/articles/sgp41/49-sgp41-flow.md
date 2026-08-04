@@ -6,7 +6,7 @@ date: 2026-06-06
 
 # IFPP Flow: Manufacturing Step to Configuration Step
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.41 IFPP]({{ site.baseurl }}/docs/articles/sgp41/) > IFPP Flow: Manufacturing Step to Configuration Step**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.41 IFPP]({{ site.baseurl }}/docs/articles/sgp41/) > IFPP Flow: Manufacturing Step to Configuration Step**
 
 > **Why this matters:** The IFPP flow is SGP.41's beating heart: 16 steps spanning profile preparation, eUICC key delivery, BPP creation, factory-floor loading, and post-production reporting. Understanding this flow reveals why IFPP works where SGP.22 fails: the heavy cryptographic lifting (binding, encryption) happens *before* the profile reaches the production line, and the factory itself does nothing more complex than pushing pre-packaged data. The two-phase split between the Manufacturing Step and the Configuration Step is what enables the flexible inventory management and region-specific provisioning that consumer RSP cannot offer.
 

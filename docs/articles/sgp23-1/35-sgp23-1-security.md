@@ -6,7 +6,7 @@ date: 2026-06-05
 
 # eUICC Security Testing: Certificates, Keys, and Channels
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.23-1 eUICC Testing]({{ site.baseurl }}/docs/articles/sgp23-1/) > eUICC Security Testing: Certificates, Keys, and Channels**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.23-1 eUICC Testing]({{ site.baseurl }}/docs/articles/sgp23-1/) > eUICC Security Testing: Certificates, Keys, and Channels**
 
 > **Why this matters:** The eSIM security model is built on a chain of trust extending from the GSMA Certificate Issuer (CI) down through the eUICC manufacturer (EUM), the SM-DP+, and finally the eUICC itself. If any link in this chain fails: a certificate doesn't validate, a key operation produces wrong results, or a secure channel is established with weak parameters: the entire profile delivery system is compromised. SGP.23-1 devotes significant testing to every cryptographic operation the eUICC must perform.
 

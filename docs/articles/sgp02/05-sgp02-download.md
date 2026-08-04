@@ -6,7 +6,7 @@ date: 2026-06-07
 
 # Profile Download: ISD-P Creation, SCP03, and Encrypted Delivery
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.02 M2M RSP]({{ site.baseurl }}/docs/articles/sgp02/) > Profile Download: ISD-P Creation, SCP03, and Encrypted Delivery**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.02 M2M RSP]({{ site.baseurl }}/docs/articles/sgp02/) > Profile Download: ISD-P Creation, SCP03, and Encrypted Delivery**
 
 This is the procedure every other article in this series has been building toward. Profile download (SGP.02 §3.1) is where an operator's credentials actually land on a chip. The architecture, the PKI, the OTA channel, the ISD-R and ISD-P and ECASD: they all converge here. If you skipped the earlier articles, you'll want to loop back: the architecture ([roles and interfaces]({{ site.baseurl }}/docs/articles/sgp02/01-sgp02-architecture)), eUICC internals ([ISD-R, ISD-P, ECASD]({{ site.baseurl }}/docs/articles/sgp02/02-sgp02-euicc-internals)), PKI ([certificates and key establishment]({{ site.baseurl }}/docs/articles/sgp02/03-sgp02-pki)), and OTA ([ES5/ES8 tunneling]({{ site.baseurl }}/docs/articles/sgp02/04-sgp02-ota)) are all load-bearing here.
 

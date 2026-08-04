@@ -6,7 +6,7 @@ date: 2026-06-05
 
 # The Developer's View: RSP Interfaces and Protocol Binding
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > The Developer's View: RSP Interfaces and Protocol Binding**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > The Developer's View: RSP Interfaces and Protocol Binding**
 
 > **Why this matters:** If you're building an LPA, an SM-DP+, or integrating eSIM into a device, this is your reference. Every function signature, HTTP endpoint, ASN.1 structure, and protocol binding rule is standardised: you just need to know where to look.
 

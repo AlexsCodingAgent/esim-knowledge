@@ -6,7 +6,7 @@ date: 2026-06-06
 
 # The IFPP Architecture: SM-DPf, FPA, and Device Manufacturer
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.41 IFPP]({{ site.baseurl }}/docs/articles/sgp41/) > The IFPP Architecture: SM-DPf, FPA, and Device Manufacturer**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.41 IFPP]({{ site.baseurl }}/docs/articles/sgp41/) > The IFPP Architecture: SM-DPf, FPA, and Device Manufacturer**
 
 > **Why this matters:** SGP.41 doesn't just tweak existing eSIM components: it introduces three entirely new architectural roles and nine specialised interfaces for the factory environment. Understanding how the SM-DPf differs from a regular SM-DP+, what the FPA actually does (and doesn't do), and how the Device Manufacturer's role expands is essential for anyone designing, deploying, or certifying an IFPP solution.
 

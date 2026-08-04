@@ -6,7 +6,7 @@ date: 2026-06-07
 
 # SGP.22 v2.7: SM-DS and Companion Devices: Discovery, Cascading, and Multi-Device Provisioning
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > SM-DS and Companion Devices: Discovery, Cascading, and Multi-Device Provisioning**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > SM-DS and Companion Devices: Discovery, Cascading, and Multi-Device Provisioning**
 
 > **Why this matters:** The SM-DS is the unsung hero of the eSIM ecosystem. It's the reason your carrier can push a profile to your smartwatch without you scanning a QR code, and why enterprise device fleets can be provisioned in bulk. Understanding the SM-DS: and its cascading architecture: is essential for anyone building multi-device or companion provisioning systems.
 

@@ -6,7 +6,7 @@ date: 2026-06-07
 
 # M2M Certificate Hierarchy: CI, EUM, SM-DP, SM-SR, and eUICC
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.02 M2M RSP]({{ site.baseurl }}/docs/articles/sgp02/) > M2M Certificate Hierarchy: CI, EUM, SM-DP, SM-SR, and eUICC**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.02 M2M RSP]({{ site.baseurl }}/docs/articles/sgp02/) > M2M Certificate Hierarchy: CI, EUM, SM-DP, SM-SR, and eUICC**
 
 If you've been following along from [the eUICC Internals article]({{ site.baseurl }}/docs/articles/sgp02/02-sgp02-euicc-internals), you already know the ECASD sits at the cryptographic center of the chip, holding certificates and a private key that never leaves the hardware. And [the Architecture piece]({{ site.baseurl }}/docs/articles/sgp02/01-sgp02-architecture) introduced the CI and EUM as the two entities that make the whole trust system work. Now we get into how those certificates actually chain together, because if you don't understand the trust model, nothing else in SGP.02 clicks.
 

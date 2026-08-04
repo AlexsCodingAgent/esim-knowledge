@@ -7,7 +7,7 @@ date: 2026-06-06
 
 # Version Interoperability: How v2.x and v3.x Coexist
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.22 v3.x Unified RSP]({{ site.baseurl }}/docs/articles/sgp22-v3/) > Version Interoperability: How v2.x and v3.x Coexist**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.22 v3.x Unified RSP]({{ site.baseurl }}/docs/articles/sgp22-v3/) > Version Interoperability: How v2.x and v3.x Coexist**
 
 > **Why this matters:** The eSIM ecosystem won't flip from v2.x to v3.x overnight. Billions of deployed v2.x eUICCs, thousands of v2.x SM-DP+ servers, and countless v2.x LPA implementations will remain in the field for years. A v3.x device must be able to talk to a v2.x SM-DP+ and SM-DS. A v3.x SM-DP+ must serve both v2.x and v3.x eUICCs. Version interoperability is not an optional feature: it's the foundation that allows the whole ecosystem to evolve without breaking. SGP.22 v3.x bakes this in from day one with explicit version discovery, capability negotiation, and backward-compatible protocol design.
 

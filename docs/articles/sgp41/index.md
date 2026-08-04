@@ -8,7 +8,7 @@ redirect_from:
   - /sgp41/
 ---
 
-**[eUICC.tech]({{ site.baseurl }}/) > SGP.41: In-Factory Profile Provisioning**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}SGP.41: In-Factory Profile Provisioning**
 
 # SGP.41: In-Factory Profile Provisioning
 

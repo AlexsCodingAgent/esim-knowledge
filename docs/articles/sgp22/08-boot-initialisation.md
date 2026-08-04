@@ -6,7 +6,7 @@ date: 2026-06-07
 
 # SGP.22 v2.7: Device and eUICC Boot: First Power-On to Profile Discovery
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > Device and eUICC Boot: First Power-On to Profile Discovery**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > Device and eUICC Boot: First Power-On to Profile Discovery**
 
 > **Why this matters:** The boot sequence of an eSIM device is the foundation that everything else builds on. A mistake here means the device can't find profiles, can't connect, and can't be provisioned: turning a "smart" device into a brick. Understanding the initialisation flow is essential for debugging provisioning failures and designing robust device firmware.
 

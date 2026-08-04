@@ -7,7 +7,7 @@ date: 2026-06-07
 
 # Profile Download & Installation in SGP.22 v3.x
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.22 v3.x Unified RSP]({{ site.baseurl }}/docs/articles/sgp22-v3/) > Profile Download & Installation in SGP.22 v3.x**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.22 v3.x Unified RSP]({{ site.baseurl }}/docs/articles/sgp22-v3/) > Profile Download & Installation in SGP.22 v3.x**
 
 > **Why this matters:** Profile download is the single most important operation in the entire eSIM ecosystem: it's the moment a subscriber's mobile identity materialises on the eUICC. Every other v3.x feature: Multiple Enabled Profiles, Remote Profile Management, Device Change, enterprise controls: assumes the download and installation procedure already exists and works reliably. Understanding this flow is foundational to understanding everything else in SGP.22. The v3.x download procedure is largely evolved from v2.x, but adds critical new checks: enterprise profile validation, RPM package chaining, MEP-aware PPR enforcement, and manufacturer-authorised certificate verification.
 

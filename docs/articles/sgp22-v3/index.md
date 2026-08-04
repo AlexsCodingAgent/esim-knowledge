@@ -8,7 +8,7 @@ redirect_from:
   - /sgp22-v3/
 ---
 
-**[eUICC.tech]({{ site.baseurl }}/) > SGP.22 v3.x Unified RSP**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}SGP.22 v3.x Unified RSP**
 
 # SGP.22 v3.x: Unified RSP Specification
 

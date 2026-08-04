@@ -8,7 +8,7 @@ redirect_from:
   - /sgp26/
 ---
 
-**[eUICC.tech]({{ site.baseurl }}/) > SGP.26: RSP Test Certificates**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}SGP.26: RSP Test Certificates**
 
 # SGP.26: RSP Test Certificates
 

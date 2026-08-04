@@ -6,7 +6,7 @@ date: 2026-06-07
 
 # SGP.22 v2.7: LPAe: The In-eUICC Local Profile Assistant
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > LPAe: The In-eUICC Local Profile Assistant**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > LPAe: The In-eUICC Local Profile Assistant**
 
 > **Why this matters:** The LPAe changes everything about device design for eSIM. When the profile management logic lives inside the eUICC itself rather than on the host OS, companion devices like smartwatches can operate independently without needing a fully-fledged LPA application on the host. Understanding LPAe is essential for anyone building IoT, wearable, or headless eSIM devices.
 

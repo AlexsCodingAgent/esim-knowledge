@@ -6,7 +6,7 @@ date: 2026-06-07
 
 # M2M Ecosystem: EUM, SM-DP, SM-SR, and the Operator
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.02 M2M RSP]({{ site.baseurl }}/docs/articles/sgp02/) > M2M Ecosystem: EUM, SM-DP, SM-SR, and the Operator**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.02 M2M RSP]({{ site.baseurl }}/docs/articles/sgp02/) > M2M Ecosystem: EUM, SM-DP, SM-SR, and the Operator**
 
 If you're coming from consumer eSIM, your first look at the SGP.02 architecture diagram is going to feel... off. Where's the SM-DP+? Why are there two server roles where consumer eSIM has one? And who's this M2M SP character that doesn't exist in SGP.22 at all?
 

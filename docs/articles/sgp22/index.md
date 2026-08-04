@@ -7,7 +7,7 @@ redirect_from:
   - /sgp22
   - /sgp22/
 ---
-**[eUICC.tech]({{ site.baseurl }}/) > SGP.22 Consumer RSP**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}SGP.22 Consumer RSP**
 
 # SGP.22: Consumer eSIM RSP
 

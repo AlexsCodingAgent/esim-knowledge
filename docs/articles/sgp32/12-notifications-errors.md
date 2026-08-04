@@ -6,7 +6,7 @@ date: 2026-06-03
 
 # Notifications and Error Handling in IoT eSIM
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.32 IoT eSIM]({{ site.baseurl }}/docs/articles/sgp32/) > Notifications and Error Handling in IoT eSIM**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.32 IoT eSIM]({{ site.baseurl }}/docs/articles/sgp32/) > Notifications and Error Handling in IoT eSIM**
 
 > **Why this matters:** When a profile changes state on an IoT device deployed in a remote location: enabled, disabled, deleted, or failed: someone needs to know. SGP.32 defines a structured notification system and three-level error architecture purpose-built for the asynchronous, occasionally-connected world of IoT. Understanding this system is essential for anyone building an `eIM` or integrating with one.
 

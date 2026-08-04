@@ -6,7 +6,7 @@ date: 2026-06-05
 
 # The GSMA eSIM Test Infrastructure
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.23 Test Specifications]({{ site.baseurl }}/docs/articles/sgp23/) > The GSMA eSIM Test Infrastructure**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.23 Test Specifications]({{ site.baseurl }}/docs/articles/sgp23/) > The GSMA eSIM Test Infrastructure**
 
 > **Why this matters:** You can't test an eSIM ecosystem with production SIMs and live servers: you need a parallel universe of test certificates, test keys, test profiles, and simulated servers. SGP.23's Annexes (A through K) define this entire parallel infrastructure, enabling deterministic, repeatable conformance testing without touching a live operator network.
 

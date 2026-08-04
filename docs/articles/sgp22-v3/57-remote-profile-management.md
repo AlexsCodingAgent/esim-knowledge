@@ -7,7 +7,7 @@ date: 2026-06-06
 
 # Remote Profile Management: RPM Initiation, Download, and Execution
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.22 v3.x Unified RSP]({{ site.baseurl }}/docs/articles/sgp22-v3/) > Remote Profile Management: RPM Initiation, Download, and Execution**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.22 v3.x Unified RSP]({{ site.baseurl }}/docs/articles/sgp22-v3/) > Remote Profile Management: RPM Initiation, Download, and Execution**
 
 > **Why this matters:** In SGP.22 v2.x, profile lifecycle management (enable, disable, delete, update metadata) is entirely local: the end user must manually trigger every operation through the device UI. There's no way for an operator to remotely manage a profile they own. Remote Profile Management (RPM) changes this: an operator can issue lifecycle commands through the SM-DP+, which packages them into an RPM Package, delivers them to the eUICC, and reports the results back. This enables fleet management, operator-initiated profile switches, remote metadata updates, and contact with the Profile Content Management Platform: all without touching the device.
 

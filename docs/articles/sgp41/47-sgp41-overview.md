@@ -6,7 +6,7 @@ date: 2026-06-06
 
 # SGP.41 Overview: In-Factory Profile Provisioning
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.41 IFPP]({{ site.baseurl }}/docs/articles/sgp41/) > SGP.41 Overview: In-Factory Profile Provisioning**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.41 IFPP]({{ site.baseurl }}/docs/articles/sgp41/) > SGP.41 Overview: In-Factory Profile Provisioning**
 
 > **Why this matters:** Traditional eSIM profile provisioning (SGP.22) requires the device to be online: connecting to an SM-DP+ server over the internet for live profile download. But factory floors are often air-gapped, production lines run at blistering speed, and manufacturers don't want to install SAS-certified HSMs just to load a profile. SGP.41 solves all three at once: pre-bound, pre-encrypted profiles that install offline in milliseconds, with no internet, no HSM, and no End User interaction required. This is the specification that makes eSIM work at manufacturing scale.
 

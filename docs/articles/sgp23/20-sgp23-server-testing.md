@@ -6,7 +6,7 @@ date: 2026-06-05
 
 # Testing the SM-DP+ and SM-DS
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.23 Test Specifications]({{ site.baseurl }}/docs/articles/sgp23/) > Testing the SM-DP+ and SM-DS**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.23 Test Specifications]({{ site.baseurl }}/docs/articles/sgp23/) > Testing the SM-DP+ and SM-DS**
 
 > **Why this matters:** The SM-DP+ is the profile factory and the SM-DS is the notification backbone. Together they form the server-side of every eSIM deployment. SGP.23 tests these components across six interfaces (ES2+, ES8+, ES9+, ES12, ES11, TLS) with strict requirements for cryptographic correctness, error handling, and inter-component coordination.
 

@@ -6,7 +6,7 @@ date: 2026-06-05
 
 # IoT eSIM Certification Path: From Test Cases to Production
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.33-3 eIM Testing]({{ site.baseurl }}/docs/articles/sgp33-3/) > IoT eSIM Certification Path: From Test Cases to Production**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.33-3 eIM Testing]({{ site.baseurl }}/docs/articles/sgp33-3/) > IoT eSIM Certification Path: From Test Cases to Production**
 
 > **Why this matters:** Passing SGP.33-3 test cases in a lab is one thing: getting an eIM product certified for production deployment in the IoT eSIM ecosystem is another. The certification path for IoT eSIM components is still evolving: unlike the mature consumer eSIM certification programme (with its well-established GSMA Test Events, SAS audits, and GlobalPlatform DLOAs), IoT eSIM certification is being built incrementally. Understanding the current state and future direction of IoT eSIM certification helps eIM vendors, IoT device manufacturers, and operators plan their compliance strategies.
 

@@ -6,7 +6,7 @@ date: 2026-06-05
 
 # eUICC Security Functional Requirements
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.25 eUICC Security]({{ site.baseurl }}/docs/articles/sgp25/) > eUICC Security Functional Requirements**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.25 eUICC Security]({{ site.baseurl }}/docs/articles/sgp25/) > eUICC Security Functional Requirements**
 
 > **Why this matters:** The heart of any Protection Profile is its Security Functional Requirements (SFRs). These are the precise, testable statements that define what the eUICC must *do* to be considered secure: from authenticating remote actors and isolating Profiles to protecting cryptographic keys and enforcing policy rules. Understanding the SFRs reveals exactly what security properties a certified eUICC guarantees.
 

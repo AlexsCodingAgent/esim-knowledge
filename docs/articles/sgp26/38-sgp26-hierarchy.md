@@ -6,7 +6,7 @@ date: 2026-06-06
 
 # Test Certificate Hierarchy: CI, EUM, DP, DS, and eUICC
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.26 Test Certificates]({{ site.baseurl }}/docs/articles/sgp26/) > Test Certificate Hierarchy: CI, EUM, DP, DS, and eUICC**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.26 Test Certificates]({{ site.baseurl }}/docs/articles/sgp26/) > Test Certificate Hierarchy: CI, EUM, DP, DS, and eUICC**
 
 > **Why this matters:** Certificate validation in eSIM is not just about checking a signature: it's about walking a chain of trust from a known root through potentially multiple intermediate CAs, verifying path length constraints, name constraints, and role-specific policy OIDs at every step. SGP.26 gives you the complete chain for every RSP entity, so you can trace exactly how trust flows from the GSMA Test CI down to an individual eUICC or SM-DP+ TLS endpoint.
 

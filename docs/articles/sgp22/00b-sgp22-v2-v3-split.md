@@ -6,7 +6,7 @@ date: 2026-06-06
 
 # SGP.22 v2.x vs v3.x: The Specification Split Explained
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > SGP.22 v2.x vs v3.x: The Specification Split Explained**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > SGP.22 v2.x vs v3.x: The Specification Split Explained**
 
 > **Why this matters:** If you're working with eSIM today, you need to know which version of SGP.22 your components target: v2.x or v3.x. The GSMA has bifurcated the consumer RSP specification into two parallel tracks with different architectures, capabilities, and roadmaps. Understanding the split is essential for platform planning, eUICC procurement, and long-term interoperability.
 

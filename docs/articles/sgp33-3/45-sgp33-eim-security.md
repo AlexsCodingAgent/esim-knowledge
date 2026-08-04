@@ -6,7 +6,7 @@ date: 2026-06-05
 
 # eIM Security Testing: DTLS, Certificates, and Signed Packages
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.33-3 eIM Testing]({{ site.baseurl }}/docs/articles/sgp33-3/) > eIM Security Testing: DTLS, Certificates, and Signed Packages**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.33-3 eIM Testing]({{ site.baseurl }}/docs/articles/sgp33-3/) > eIM Security Testing: DTLS, Certificates, and Signed Packages**
 
 > **Why this matters:** The eUICC IoT Manager (eIM) remotely controls profile state and configuration on IoT devices: often devices deployed in the field for years without physical access. A compromised eIM could enable rogue profiles, disable critical connectivity, or hijack device management. SGP.33-3's security test cases verify the cryptographic foundations that make remote IoT management trustworthy: TLS channel establishment, certificate chain validation, signed package integrity, anti-replay protection, and server authentication. These tests ensure that only authorised eIMs can issue commands, and that those commands cannot be replayed, modified, or forged in transit.
 

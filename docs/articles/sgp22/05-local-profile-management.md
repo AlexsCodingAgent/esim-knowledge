@@ -6,7 +6,7 @@ date: 2026-06-03
 
 # Managing Your eSIM: Local Profile Operations
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > Managing Your eSIM: Local Profile Operations**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > Managing Your eSIM: Local Profile Operations**
 
 > **Why this matters:** This is the user-facing half of eSIM: everything you actually do on your device: switching carriers, deleting old plans, and naming profiles. The UI is simple, but the underlying protocol is precise and policy-enforced.
 

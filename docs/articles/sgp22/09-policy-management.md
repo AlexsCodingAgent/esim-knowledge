@@ -6,7 +6,7 @@ date: 2026-06-07
 
 # SGP.22 v2.7: Profile Policy Management: PPRs, RAT, and Profile Policy Enabler
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > Profile Policy Management: PPRs, RAT, and Profile Policy Enabler**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > Profile Policy Management: PPRs, RAT, and Profile Policy Enabler**
 
 > **Why this matters:** Profile Policy Management is the mechanism that lets enterprises lock down corporate eSIMs, prevents users from accidentally deleting their primary carrier profile, and gives operators fine-grained control over what can and can't happen to their profiles. If you've ever wondered why you can't delete a carrier profile on your phone, this is why.
 

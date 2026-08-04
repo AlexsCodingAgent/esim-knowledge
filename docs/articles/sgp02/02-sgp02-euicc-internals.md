@@ -6,7 +6,7 @@ date: 2026-06-07
 
 # Inside the M2M eUICC: ISD-R, ISD-P, ECASD, and EID
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.02 M2M RSP]({{ site.baseurl }}/docs/articles/sgp02/) > Inside the M2M eUICC: ISD-R, ISD-P, ECASD, and EID**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.02 M2M RSP]({{ site.baseurl }}/docs/articles/sgp02/) > Inside the M2M eUICC: ISD-R, ISD-P, ECASD, and EID**
 
 Imagine you're two competing mobile operators. Your profiles are both sitting on the same physical chip inside a smart meter in rural Germany. How do you know (really know, in the cryptographic sense) that the other guy can't see your keys? Your IMSI? Your OTA channel?
 

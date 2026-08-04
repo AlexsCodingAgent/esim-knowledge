@@ -6,7 +6,7 @@ date: 2026-06-06
 
 # IFPP Security: Factory Trust Models and Certificate Chains
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.41 IFPP]({{ site.baseurl }}/docs/articles/sgp41/) > IFPP Security: Factory Trust Models and Certificate Chains**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.41 IFPP]({{ site.baseurl }}/docs/articles/sgp41/) > IFPP Security: Factory Trust Models and Certificate Chains**
 
 > **Why this matters:** Factory floors are untrusted environments. The Device Manufacturer and FPA handle profile packages but must never see them in plaintext. One-time keys, forward secrecy, and pre-encryption create a security model where the factory is a courier, not a custodian: the profile's confidentiality and integrity are preserved end-to-end from the SAS-certified SM-DPf to the eUICC, regardless of what happens on the production line.
 

@@ -7,7 +7,7 @@ title: "Off-Card Interfaces: ES1–ES7 and the SOAP Binding"
 
 # Off-Card Interfaces: ES1–ES7 and the SOAP Binding
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.02 M2M RSP]({{ site.baseurl }}/docs/articles/sgp02/) > Off-Card Interfaces: ES1–ES7 and the SOAP Binding**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.02 M2M RSP]({{ site.baseurl }}/docs/articles/sgp02/) > Off-Card Interfaces: ES1–ES7 and the SOAP Binding**
 
 If you're implementing an SM-DP, integrating with an SM-SR, or debugging a profile operation that's failing somewhere in the chain, this is the article you'll keep coming back to. The off-card interfaces (ES1 through ES7) are the communication fabric that connects every server-side entity in the SGP.02 ecosystem. Together they carry somewhere north of ninety defined functions, and understanding which entity calls which function on which interface is table stakes for any serious implementation work.
 

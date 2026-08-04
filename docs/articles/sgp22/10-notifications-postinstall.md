@@ -6,7 +6,7 @@ date: 2026-06-07
 
 # SGP.22 v2.7: Notifications and Post-Install: Keeping Operators in the Loop
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > Notifications and Post-Install: Keeping Operators in the Loop**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > Notifications and Post-Install: Keeping Operators in the Loop**
 
 > **Why this matters:** Profile installation is just the beginning. Operators need to know what happened: did it succeed? Was the profile enabled? Was it later deleted? The notification framework is the eUICC's reporting system, and it's what makes eSIM a manageable ecosystem rather than a one-shot download. For companion devices and profile transfers, Activation Code Retrieval closes the loop.
 

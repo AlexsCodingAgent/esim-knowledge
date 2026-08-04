@@ -6,7 +6,7 @@ date: 2026-06-07
 
 # Advanced IoT Security & Lifecycle: Mutual Auth, OS Update, Emergency Profiles, and ECASD
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.32 IoT eSIM]({{ site.baseurl }}/docs/articles/sgp32/) > Advanced IoT Security & Lifecycle: Mutual Auth, OS Update, Emergency Profiles, and ECASD**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.32 IoT eSIM]({{ site.baseurl }}/docs/articles/sgp32/) > Advanced IoT Security & Lifecycle: Mutual Auth, OS Update, Emergency Profiles, and ECASD**
 
 > **Why this matters:** Profile download is one thing: but what happens when an IoT device needs its eSIM operating system patched? What profile should run when a vehicle crashes and needs to dial emergency services? What cryptographic dance ensures an SM-DP+ and an eUICC actually trust each other? This article covers the security-critical lifecycle mechanisms beyond basic provisioning: the full mutual authentication handshake, eUICC OS updates, Emergency Profile preemption, the Fallback Mechanism, and the root of trust that anchors it all: ECASD.
 

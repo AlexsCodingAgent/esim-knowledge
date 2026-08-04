@@ -6,7 +6,7 @@ date: 2026-06-06
 
 # Using Test Certificates: Developer Setup and Integration
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.26 Test Certificates]({{ site.baseurl }}/docs/articles/sgp26/) > Using Test Certificates: Developer Setup and Integration**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.26 Test Certificates]({{ site.baseurl }}/docs/articles/sgp26/) > Using Test Certificates: Developer Setup and Integration**
 
 > **Why this matters:** Having a specification for test certificates is one thing: getting them onto actual test hardware is another. This article covers the practical path from downloading the SGP.26 ZIP package to having a test eUICC that trusts your test SM-DP+, including OpenSSL commands, certificate provisioning, and the common mistakes that waste days in the lab.
 

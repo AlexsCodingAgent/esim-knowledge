@@ -7,7 +7,7 @@ date: 2026-06-06
 
 # Device Change and Profile Recovery: Moving eSIMs Between Devices
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.22 v3.x Unified RSP]({{ site.baseurl }}/docs/articles/sgp22-v3/) > Device Change and Profile Recovery: Moving eSIMs Between Devices**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.22 v3.x Unified RSP]({{ site.baseurl }}/docs/articles/sgp22-v3/) > Device Change and Profile Recovery: Moving eSIMs Between Devices**
 
 > **Why this matters:** In v2.x, there is no standard way to transfer an eSIM profile from one device to another. If you buy a new phone, you must either contact your operator for a new eSIM activation code or use proprietary "eSIM Quick Transfer" features that each manufacturer implements differently. Device Change in v3.x provides a standardised, GSMA-specified procedure: the end user initiates the transfer on the old device, the SM-DP+ orchestrates everything, and a new profile lands on the new device. If something goes wrong (e.g., the new device can't install the profile), Profile Recovery lets you restore the profile on the old device: so you're never left without service.
 

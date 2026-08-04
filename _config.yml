@@ -17,6 +17,7 @@ technical_page: true
 home_page: simple
 article_index: minimal
 crosslinks: false
+home_link: false
 
 defaults:
   - scope:

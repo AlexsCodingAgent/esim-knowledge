@@ -6,7 +6,7 @@ date: 2026-06-05
 
 # Testing the LPA: LDS, LPD, and LUI Conformance
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.23 Test Specifications]({{ site.baseurl }}/docs/articles/sgp23/) > Testing the LPA: LDS, LPD, and LUI Conformance**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.23 Test Specifications]({{ site.baseurl }}/docs/articles/sgp23/) > Testing the LPA: LDS, LPD, and LUI Conformance**
 
 > **Why this matters:** The LPA is the bridge between the user and the eUICC: and between the device and the SM-DP+/SM-DS. Get the LPA wrong, and profile downloads fail, discovery breaks, or users can't switch carriers. SGP.23 dedicates two complete testing chapters (eUICC ES10x and LPAd interfaces) to ensuring this bridge works correctly in every scenario.
 

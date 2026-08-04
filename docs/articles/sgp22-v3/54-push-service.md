@@ -7,7 +7,7 @@ date: 2026-06-06
 
 # Push Service: How eSIMs Get Notified Without Polling
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.22 v3.x Unified RSP]({{ site.baseurl }}/docs/articles/sgp22-v3/) > Push Service: How eSIMs Get Notified Without Polling**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.22 v3.x Unified RSP]({{ site.baseurl }}/docs/articles/sgp22-v3/) > Push Service: How eSIMs Get Notified Without Polling**
 
 > **Why this matters:** In SGP.22 v2.x, the only way your device knows a new eSIM profile is waiting is by **polling** the SM-DS. Your phone periodically wakes up, connects to the discovery server, and asks "anything for me?" : even when there's nothing. This drains battery, wastes data, and introduces latency (you might wait minutes between polls). The v3.x Push Service replaces this with **push notifications**: the SM-DS tells your device immediately when an Event Record is pending. It's the difference between checking your mailbox every 15 minutes and getting a notification when mail arrives.
 

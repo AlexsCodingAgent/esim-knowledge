@@ -7,7 +7,7 @@ title: "SM-SR Change: Handover, ES7 Interface, and EIS Migration"
 
 # SM-SR Change: Handover, ES7 Interface, and EIS Migration
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.02 M2M RSP]({{ site.baseurl }}/docs/articles/sgp02/) > SM-SR Change: Handover, ES7 Interface, and EIS Migration**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.02 M2M RSP]({{ site.baseurl }}/docs/articles/sgp02/) > SM-SR Change: Handover, ES7 Interface, and EIS Migration**
 
 Picture an eUICC shipped in 2024, soldered into a smart meter, deployed in a suburban utility closet. The manufacturer chose SM-SR1 because they had a good deal at the time. Five years later, the utility company switches mobile operators. The new MNO works exclusively with SM-SR2. Now what?
 

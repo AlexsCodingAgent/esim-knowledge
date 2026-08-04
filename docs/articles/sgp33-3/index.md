@@ -8,7 +8,7 @@ redirect_from:
   - /sgp33-3/
 ---
 
-**[eUICC.tech]({{ site.baseurl }}/) > SGP.33-3: eIM Test Specification**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}SGP.33-3: eIM Test Specification**
 
 # SGP.33-3: eIM Test Specification
 

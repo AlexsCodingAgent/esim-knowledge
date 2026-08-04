@@ -6,7 +6,7 @@ date: 2026-06-04
 
 # IoT Device Initialisation and the eUICC File Structure
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.32 IoT eSIM]({{ site.baseurl }}/docs/articles/sgp32/) > IoT Device Initialisation and the eUICC File Structure**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.32 IoT eSIM]({{ site.baseurl }}/docs/articles/sgp32/) > IoT Device Initialisation and the eUICC File Structure**
 
 > **Why this matters:** Before an IoT device can receive profiles or respond to remote management commands, a precise boot sequence must execute: the eUICC initialises, the `IPA` activates, associated eIMs are discovered, and connectivity is assessed. Understanding this sequence and the eUICC file structure that underpins it is critical for anyone integrating eSIM into IoT hardware.
 

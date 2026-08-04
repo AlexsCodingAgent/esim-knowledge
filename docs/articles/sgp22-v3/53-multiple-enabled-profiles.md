@@ -7,7 +7,7 @@ date: 2026-06-06
 
 # Multiple Enabled Profiles: Running Several eSIMs at Once
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.22 v3.x Unified RSP]({{ site.baseurl }}/docs/articles/sgp22-v3/) > Multiple Enabled Profiles: Running Several eSIMs at Once**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.22 v3.x Unified RSP]({{ site.baseurl }}/docs/articles/sgp22-v3/) > Multiple Enabled Profiles: Running Several eSIMs at Once**
 
 > **Why this matters:** In SGP.22 v2.x, only one profile can be **Enabled** at a time. If you have a personal profile and a work profile, you must disable one to use the other. If your device has dual SIM hardware, only one eSIM can be active. Multiple Enabled Profiles (MEP) changes everything: it allows multiple profiles to be Enabled simultaneously, each bound to a separate eSIM Port, enabling true multi-SIM eSIM devices just like physical dual-SIM phones. This is the single most impactful consumer-facing feature in v3.x.
 

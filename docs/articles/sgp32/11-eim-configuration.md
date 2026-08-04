@@ -6,7 +6,7 @@ date: 2026-06-02
 
 # eIM Configuration: Associating Remote Managers with Your eUICC
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.32 IoT eSIM]({{ site.baseurl }}/docs/articles/sgp32/) > eIM Configuration: Associating Remote Managers with Your eUICC**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.32 IoT eSIM]({{ site.baseurl }}/docs/articles/sgp32/) > eIM Configuration: Associating Remote Managers with Your eUICC**
 
 > **Why this matters:** In consumer eSIM, there's no persistent "who manages me" relationship stored on the chip: the LPA trusts the SM-DP+ based on the GSMA CI chain, but that trust is ephemeral. IoT needs something stronger: an `eIM` that can send signed commands to a device in a remote wind farm, with the eUICC verifying them locally using a stored public key: no network call required. That's what eIM Configuration Operations (`eCOs`) deliver.
 

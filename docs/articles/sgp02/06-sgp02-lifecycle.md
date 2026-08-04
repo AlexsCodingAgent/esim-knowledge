@@ -7,7 +7,7 @@ title: "Profile Lifecycle: Enable, Disable, Delete, and Fall-Back"
 
 # Profile Lifecycle: Enable, Disable, Delete, and Fall-Back
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.02 M2M RSP]({{ site.baseurl }}/docs/articles/sgp02/) > Profile Lifecycle: Enable, Disable, Delete, and Fall-Back**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.02 M2M RSP]({{ site.baseurl }}/docs/articles/sgp02/) > Profile Lifecycle: Enable, Disable, Delete, and Fall-Back**
 
 You've downloaded a Profile onto an eUICC inside a sealed water meter. It's sitting there, disabled, waiting. Now the real work begins: this Profile will be enabled, disabled, maybe deleted, and possibly resurrected through Fall-Back, all over the course of a deployment that might outlast the careers of the engineers who provisioned it.
 

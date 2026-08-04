@@ -6,7 +6,7 @@ date: 2026-06-05
 
 # SGP.23 Overview: How eSIM Interoperability Is Tested
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.23 Test Specifications]({{ site.baseurl }}/docs/articles/sgp23/) > SGP.23 Overview: How eSIM Interoperability Is Tested**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.23 Test Specifications]({{ site.baseurl }}/docs/articles/sgp23/) > SGP.23 Overview: How eSIM Interoperability Is Tested**
 
 > **Why this matters:** SGP.22 defines *what* an eSIM system must do. SGP.23 defines *how to prove it works* : the 913-page test specification that every eUICC, SM-DP+, SM-DS, and LPA implementation must pass before deployment. Understanding SGP.23 reveals the compliance regime that makes multi-vendor eSIM interoperability possible.
 

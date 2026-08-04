@@ -6,7 +6,7 @@ date: 2026-06-05
 
 # SGP.23-1 Overview: Testing the eUICC Itself
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.23-1 eUICC Testing]({{ site.baseurl }}/docs/articles/sgp23-1/) > SGP.23-1 Overview: Testing the eUICC Itself**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.23-1 eUICC Testing]({{ site.baseurl }}/docs/articles/sgp23-1/) > SGP.23-1 Overview: Testing the eUICC Itself**
 
 > **Why this matters:** SGP.23 tests the entire eSIM ecosystem as an integrated system: but before any of that integration testing can happen, the eUICC chip itself must be proven compliant. SGP.23-1 is the 797-page test bible dedicated exclusively to the eUICC: the embedded chip at the heart of every eSIM device. If your eUICC can't pass these tests, nothing downstream works.
 

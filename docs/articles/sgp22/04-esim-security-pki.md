@@ -6,7 +6,7 @@ date: 2026-06-01
 
 # eSIM Security: The PKI and Certificate Model
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > eSIM Security: The PKI and Certificate Model**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.22 Consumer RSP]({{ site.baseurl }}/docs/articles/sgp22/) > eSIM Security: The PKI and Certificate Model**
 
 > **Why this matters:** The eSIM security model is what makes it possible to deliver operator credentials over the public internet: through an untrusted device: without anyone in the middle being able to steal or tamper with them. Every eSIM download depends on this PKI.
 

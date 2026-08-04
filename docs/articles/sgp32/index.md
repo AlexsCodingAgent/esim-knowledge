@@ -8,7 +8,7 @@ redirect_from:
   - /sgp32/
 ---
 
-**[eUICC.tech]({{ site.baseurl }}/) > SGP.32: IoT eSIM RSP**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}SGP.32: IoT eSIM RSP**
 
 # SGP.32: IoT eSIM RSP
 

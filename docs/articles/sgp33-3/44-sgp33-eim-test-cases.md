@@ -6,7 +6,7 @@ date: 2026-06-05
 
 # Key eIM Test Cases: PSMO, Notifications, and Configuration
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.33-3 eIM Testing]({{ site.baseurl }}/docs/articles/sgp33-3/) > Key eIM Test Cases: PSMO, Notifications, and Configuration**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.33-3 eIM Testing]({{ site.baseurl }}/docs/articles/sgp33-3/) > Key eIM Test Cases: PSMO, Notifications, and Configuration**
 
 > **Why this matters:** The eIM's job is to remotely manage what happens on IoT devices: enabling and disabling profiles, handling configuration changes, and processing notifications about profile state: all without any End User pressing buttons. SGP.33-3's test cases verify that the eIM correctly orchestrates these operations across four different interfaces (ESep, ES9+', ES11', ESipa) and through multiple communication patterns. If the eIM gets any of these wrong, IoT devices in the field could be left with the wrong profile enabled, missed notifications, or an unmanageable eUICC.
 

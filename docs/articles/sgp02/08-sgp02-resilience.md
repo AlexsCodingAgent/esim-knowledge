@@ -7,7 +7,7 @@ title: "Resilience: Fall-Back Mechanism, Emergency Profiles, and Test Profiles"
 
 # Resilience: Fall-Back Mechanism, Emergency Profiles, and Test Profiles
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.02 M2M RSP]({{ site.baseurl }}/docs/articles/sgp02/) > Resilience: Fall-Back Mechanism, Emergency Profiles, and Test Profiles**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.02 M2M RSP]({{ site.baseurl }}/docs/articles/sgp02/) > Resilience: Fall-Back Mechanism, Emergency Profiles, and Test Profiles**
 
 A gas meter in a basement. An eCall module in a crashed car. A weather station on a mountain. A water quality sensor in a reservoir. None of these devices will ever see a technician. And all of them need to stay connected for a decade or more, through operator changes, network outages, and hardware degradation.
 

@@ -6,7 +6,7 @@ date: 2026-05-29
 
 # IoT Profile Download: Direct, Indirect, and eIM Package Handling
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.32 IoT eSIM]({{ site.baseurl }}/docs/articles/sgp32/) > IoT Profile Download: Direct, Indirect, and eIM Package Handling**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.32 IoT eSIM]({{ site.baseurl }}/docs/articles/sgp32/) > IoT Profile Download: Direct, Indirect, and eIM Package Handling**
 
 > **Why this matters:** Profile delivery in IoT doesn't look anything like scanning a QR code on a phone. SGP.32 defines two parallel download paths: Direct (IPA-to-SM-DP+) and Indirect (eIM-mediated), plus a cryptographically signed eIM Package protocol that replaces every consumer interaction with a single binary blob. Choosing the right path for your device's connectivity model is central to any IoT eSIM deployment.
 

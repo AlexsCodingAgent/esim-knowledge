@@ -6,7 +6,7 @@ date: 2026-06-05
 
 # eUICC Certification: From SGP.23-1 Tests to SAS-UP Approval
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.23-1 eUICC Testing]({{ site.baseurl }}/docs/articles/sgp23-1/) > eUICC Certification: From SGP.23-1 Tests to SAS-UP Approval**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.23-1 eUICC Testing]({{ site.baseurl }}/docs/articles/sgp23-1/) > eUICC Certification: From SGP.23-1 Tests to SAS-UP Approval**
 
 > **Why this matters:** Passing SGP.23-1's 797 pages of test cases isn't just an engineering milestone: it's a regulatory and commercial gateway. An eUICC that can't produce a valid DLOA (Digital Letter of Approval) backed by SAS-UP accreditation cannot be deployed in production devices. Understanding the certification workflow: from declaring optional features through test execution to final approval: reveals what separates a prototype eUICC from a production-ready one.
 

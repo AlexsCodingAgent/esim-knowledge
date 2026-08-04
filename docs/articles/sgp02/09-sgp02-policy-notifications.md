@@ -7,7 +7,7 @@ title: "Policy Rules & Notifications: POL1, POL2, and the Default Notification"
 
 # Policy Rules & Notifications: POL1, POL2, and the Default Notification
 
-**[eUICC.tech]({{ site.baseurl }}/) > [SGP.02 M2M RSP]({{ site.baseurl }}/docs/articles/sgp02/) > Policy Rules & Notifications: POL1, POL2, and the Default Notification**
+**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[SGP.02 M2M RSP]({{ site.baseurl }}/docs/articles/sgp02/) > Policy Rules & Notifications: POL1, POL2, and the Default Notification**
 
 You've seen the machinery by now. The eUICC can download Profiles, the SM-SR can push enable/disable commands, the SM-DP can relay operations, and the M2M SP can drive the whole lifecycle on behalf of an Operator. But here's the question that should be nagging at you: *who decides what's actually allowed?*
 
