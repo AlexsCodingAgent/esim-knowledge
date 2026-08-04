@@ -19,10 +19,6 @@ redirect_from:
 *The top knowledgebase for visual learners before trying to read the SGP standards.*
 {% endif %}
 
-{% if site.home_page == "simple" %}
-<p style="max-width:640px;margin:.5rem auto 0;color:#8b949e;font-size:.9rem;line-height:1.5;text-align:center;">Comprehensive technical knowledge base covering 12 GSMA eSIM specifications. 84+ articles on Remote SIM Provisioning — SGP.02, SGP.22, SGP.32, SGP.41, SGP.29, SGP.23, SGP.25, SGP.26 and more.</p>
-{% endif %}
-
 ---
 
 ## 📚 Storybook Collection
