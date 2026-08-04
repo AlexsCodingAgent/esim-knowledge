@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,7 +46,7 @@
   <span style="color:#5a6d80">📖 eUICC.tech</span>
   <span>
     <a href="index.html" style="color:#5dade2;text-decoration:none;margin-right:1rem">← All Stories</a>
-    <a href="./" style="color:#85c1e9;text-decoration:none">🏠 Home</a>
+    {% if site.home_link %}<a href="/" style="color:#85c1e9;text-decoration:none">🏠 Home</a>{% else %}<a href="./" style="color:#85c1e9;text-decoration:none">🏠 Kids</a>{% endif %}
   </span>
 </div>
 
