@@ -12,7 +12,7 @@ description: "Comprehensive technical knowledge base covering 12 GSMA eSIM RSP s
 
 <h3>Deep Dives Into GSMA eSIM Remote SIM Provisioning</h3>
 
-*{% if site.technical_page %}84 articles · 12 specifications{% endif %}{% if site.storybooks_page %}{% if site.technical_page %} · {% endif %}83 illustrated guides{% endif %}{% if site.technical_page or site.storybooks_page %} · {% endif %}Built from primary source GSMA specs*
+*{% if site.technical_page %}84 articles · 12 specifications{% endif %}{% if site.storybooks_page and site.crosslinks %}{% if site.technical_page %} · {% endif %}83 illustrated guides{% endif %}{% if site.technical_page or site.storybooks_page %} · {% endif %}Built from primary source GSMA specs*
 
 </div>
 
@@ -149,7 +149,7 @@ Every article links to specific sections of the corresponding GSMA specification
 
 {% if site.technical_page %}**New to eSIM?** Start with the [Guided Path](docs/articles/sgp22/00-sgp22-overview) : 7 articles that take you from zero to understanding the full RSP architecture.{% endif %}
 
-{% if site.storybooks_page %}**Prefer stories?** Jump to the [Illustrated Edition](docs/articles/kids/) : every concept explained through analogies, emojis, and illustrations.{% endif %}
+{% if site.storybooks_page and site.crosslinks %}**Prefer stories?** Jump to the [Illustrated Edition](docs/articles/kids/) : every concept explained through analogies, emojis, and illustrations.{% endif %}
 
 {% if site.technical_page %}**Need a specific spec?** Browse the [full article index](docs/articles/) or search by topic.{% endif %}
 

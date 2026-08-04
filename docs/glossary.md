@@ -120,4 +120,4 @@ Every acronym and technical term used across the eSIM knowledge base, defined in
 
 *This glossary covers terms from GSMA SGP.22, SGP.31, SGP.32, SGP.41, SGP.25, SGP.26, SGP.29, SGP.23, SGP.23-1, and SGP.33-3.*
 
-*Looking for the [🏠 Home]({{ site.baseurl }}/)  ·  [📚 Prerequisites]({{ site.baseurl }}/docs/prerequisites){% if site.storybooks_page %}  ·  [🧒 Kid-Friendly Versions]({{ site.baseurl }}/docs/articles/kids/){% endif %}*
+*Looking for the [🏠 Home]({{ site.baseurl }}/)  ·  [📚 Prerequisites]({{ site.baseurl }}/docs/prerequisites){% if site.storybooks_page and site.crosslinks %}  ·  [🧒 Kid-Friendly Versions]({{ site.baseurl }}/docs/articles/kids/){% endif %}*

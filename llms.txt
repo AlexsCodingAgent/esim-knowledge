@@ -118,12 +118,12 @@
 - [Practice](https://euicc.tech/docs/articles/sgp41/51-sgp41-practice): Implementation guidance
 {% endif %}
 
-{% if site.storybooks_page %}
+{% if site.storybooks_page and site.crosslinks %}
 ## Illustrated Storybooks
 - [Storybooks Hub](https://euicc.tech/docs/articles/kids/storybooks): 17 illustrated eSIM storybooks — dark navy theme, scroll-through book format
 - [Index](https://euicc.tech/docs/articles/kids/): Complete storybook listing with covers
 {% endif %}
 
 ## Optional
-- [eUICC.tech Home](https://euicc.tech/): Main landing page{% if site.storybooks_page and site.home_page == "full" %} — two-path split: Technical Edition / Illustrated Edition{% endif %}
+- [eUICC.tech Home](https://euicc.tech/): Main landing page{% if site.storybooks_page and site.crosslinks and site.home_page == "full" %} — two-path split: Technical Edition / Illustrated Edition{% endif %}
 - [GitHub](https://github.com/AlexsCode/esim-knowledge): Source repository

@@ -16,6 +16,7 @@ storybooks_page: true
 technical_page: true
 home_page: simple
 article_index: minimal
+crosslinks: false
 
 defaults:
   - scope:
