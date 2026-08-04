@@ -11,9 +11,13 @@ redirect_from:
 
 # 📖 eSIM Explained: Illustrated Edition
 
+{% if site.crosslinks %}
 *The same eSIM concepts, told through stories, analogies, and hand-drawn illustrations. Perfect for visual learners, younger readers, or anyone who wants the intuition before the technical detail.*
 
 📖 Reading: **Illustrated**{% if site.technical_page and site.crosslinks %} · [Switch to Technical →]({{ site.baseurl }}/){% endif %}
+{% else %}
+*The top knowledgebase for visual learners before trying to read the SGP standards.*
+{% endif %}
 
 ---
 
