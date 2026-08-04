@@ -220,7 +220,6 @@ Every article links to specific sections of the corresponding GSMA specification
       <line x1="50" y1="70" x2="50" y2="78" stroke="#22d3ee" stroke-width="1.2"/>
     </svg>
     <h2>Technical Specifications</h2>
-    <p>Spec-driven reference. GSMA SGP.02, SGP.22, SGP.32 and more.</p>
   </a>
 {% endif %}
 </div>
