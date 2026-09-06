@@ -260,6 +260,8 @@ SGP.32 extends SGP.22's ES10 functions with IoT-specific additions:
 | `ESep` | Tunnelled through `ESipa` | ASN.1 within eUICC Package | eIM ECDSA signature + eUICC ECDSA signature |
 | `ES10x` (IoT ext) | ISO 7816 APDUs | ASN.1 TLV | SCP03t (for BPP) / eIM signature (for Packages) |
 
+If the ASN.1 and APDU layer underneath these interfaces is new to you, the [Foundations explainer on ASN.1 tags, TLV, and APDUs]({{ site.baseurl }}/docs/articles/foundations/64-asn1-tags-tlv-apdu-at-commands) walks through the encoding and how those bytes reach the eUICC through the modem.
+
 ---
 
 ## Summary
