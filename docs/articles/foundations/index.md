@@ -5,7 +5,7 @@ description: "Cross-cutting eSIM fundamentals: ASN.1 encoding, smart-card APDUs,
 date: 2026-09-06
 ---
 
-**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}Foundations**
+**Foundations**
 
 # Foundations
 

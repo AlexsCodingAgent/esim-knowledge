@@ -4,7 +4,7 @@ description: "How eSIM data is encoded: ASN.1 tags and Tag-Length-Value, plus ho
 date: 2026-09-06
 ---
 
-**{% if site.home_link %}[eUICC.tech]({{ site.baseurl }}/) > {% endif %}[Foundations]({{ site.baseurl }}/docs/articles/foundations/) > ASN.1 Tags, TLV, and APDUs**
+**[Foundations]({{ site.baseurl }}/docs/articles/foundations/) > ASN.1 Tags, TLV, and APDUs**
 
 # ASN.1 Tags, TLV, and APDUs: How eSIM Data Is Encoded and Delivered
 
@@ -288,7 +288,7 @@ That signed package is opaque to every device that relays it. On the network sid
 
 <div align="center">
 
-← [Foundations]({{ site.baseurl }}/docs/articles/foundations/) · {% if site.home_link %}<a href="{{ site.baseurl }}/">Home</a>{% else %}<a href="{{ site.baseurl }}/docs/articles/">Specs</a>{% endif %}
+← [Foundations]({{ site.baseurl }}/docs/articles/foundations/)
 
 Next: <a href="{{ site.baseurl }}/docs/articles/sgp32/16-iot-functions-reference">IoT eSIM Functions Reference: ESipa, ES9+', ES11', ESep</a> →
 
