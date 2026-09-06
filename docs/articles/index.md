@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Specification Index: eUICC.tech"
-description: "All 72 articles across 11 GSMA eSIM specifications."
+description: "Technical articles across 11 GSMA eSIM specifications, plus cross-cutting Foundations on encoding and transport."
 date: 2026-06-06
 redirect_from:
   - /articles
@@ -14,6 +14,18 @@ redirect_from:
 **{% if site.home_link %}🏠 [eUICC.tech]({{ site.baseurl }}/) > {% endif %}Specification Index**
 
 # 📋 Specification Index
+
+---
+
+## 🧱 Foundations: Encoding and Transport
+
+*How eSIM data is encoded and moved to the chip.*
+
+| # | Article |
+|---|---------|
+| 64 | [ASN.1 Tags, TLV, and APDUs](foundations/64-asn1-tags-tlv-apdu-at-commands) |
+
+[🧱 Foundations section →](foundations/)
 
 ---
 
@@ -94,7 +106,19 @@ redirect_from:
 
 # 📋 Specification Index
 
-All 72 articles across 11 GSMA eSIM specifications.
+All 72 articles across 11 GSMA eSIM specifications, plus a cross-cutting Foundations section.
+
+---
+
+## 🧱 Foundations: Encoding and Transport
+
+*How eSIM data is encoded and moved to the chip. One article and growing.*
+
+| # | Article |
+|---|---------|
+| 64 | [ASN.1 Tags, TLV, and APDUs: How eSIM Data Is Encoded and Delivered](foundations/64-asn1-tags-tlv-apdu-at-commands) |
+
+[🧱 Foundations section →](foundations/)
 
 ---
 
