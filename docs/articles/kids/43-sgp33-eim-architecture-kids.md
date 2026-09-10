@@ -85,7 +85,7 @@ Not everything gets tested by SGP.33-3. Here's the breakdown:
 - What the robot's translator does locally (ES10a, ES10b)
 - How the post office registers events (ES12)
 
-This keeps testing focused. SGP.33-1 tests the IPA side. SGP.33-2 tests the SM-DP+ side. SGP.33-3 tests the eIM side.
+This keeps testing focused. SGP.33-1 tests the eUICC (the brain chip). SGP.33-2 tests the IPA (the on-board helper). SGP.33-3 tests the eIM side.
 
 ---
 

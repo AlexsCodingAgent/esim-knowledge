@@ -22,8 +22,8 @@ SGP.33 is actually three test specifications working together:
 
 | Test Spec | Nickname | What It Tests |
 |-----------|----------|---------------|
-| **SGP.33-1** | Robot Trainer | Tests the on-board helper inside each robot (the IPA) |
-| **SGP.33-2** | Key Maker Tester | Tests the server that builds digital keys (SM-DP+) |
+| **SGP.33-1** | Robot Brain Tester | Tests the robot's built-in brain chip (the eUICC) — including its tiny on-board helper (the IPAe) | 
+| **SGP.33-2** | Helper Tester | Tests the robot's on-board helper (the IPA) that fetches profiles | 
 | **SGP.33-3** | Mission Control Tester | Tests the remote command centre itself (the eIM) |
 
 Each one focuses on a different piece of the puzzle. Together, they make sure the whole IoT eSIM system works before any real robot goes live.

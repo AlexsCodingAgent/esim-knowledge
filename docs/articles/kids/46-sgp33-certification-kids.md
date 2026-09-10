@@ -144,7 +144,7 @@ The certification path is still being paved: but the foundation (ES9+' and ES11'
 
 ---
 
-SGP.33-3 connects to at least five other GSMA documents: SGP.33-1 (IPA testing), SGP.33-2 (SM-DP+ testing), SGP.23 (consumer testing), SGP.26 (test certificates), and the GlobalPlatform DLOA framework. No specification is an island!
+SGP.33-3 connects to at least five other GSMA documents: SGP.33-1 (eUICC testing), SGP.33-2 (IPA testing), SGP.23 (consumer testing), SGP.26 (test certificates), and the GlobalPlatform DLOA framework. No specification is an island!
 
 ---
 

@@ -171,7 +171,7 @@ description: "*The complete GSMA SGP specification landscape: what each spec doe
   <line x1="685" y1="391" x2="685" y2="414" stroke="#5dade2" stroke-width="1" marker-end="url(#ab)"/>
   <rect x="530" y="416" width="310" height="58" rx="7" fill="rgba(93,173,226,0.1)" stroke="#5dade2" stroke-width="1.5"/>
   <text x="685" y="439" fill="#5dade2" font-family="system-ui,sans-serif" font-size="12" font-weight="700" text-anchor="middle">SGP.33 Family</text>
-  <text x="685" y="459" fill="#7a8ba0" font-family="system-ui,sans-serif" font-size="8" text-anchor="middle">SGP.33-1 (IPA) · SGP.33-2 (SM-DP+) · SGP.33-3 (eIM) · 2023</text>
+  <text x="685" y="459" fill="#7a8ba0" font-family="system-ui,sans-serif" font-size="8" text-anchor="middle">SGP.33-1 (eUICC) · SGP.33-2 (IPA) · SGP.33-3 (eIM) · 2023</text>
 
   <!-- ═══════════════════ SHARED SPECIFICATIONS ═══════════════════ -->
   <rect x="25" y="500" width="910" height="22" rx="4" fill="url(#sg)"/>
@@ -296,7 +296,7 @@ description: "*The complete GSMA SGP specification landscape: what each spec doe
 5. **EID Security and Privacy** : Tracking risks, EID rotation, GSMA privacy controls.
 
 ### SGP.33-3 v1.2: eIM Test Specification (NEW)
-1. **SGP.33 Overview: The IoT Test Family** : SGP.33-1 (IPA), SGP.33-2 (SM-DP+), SGP.33-3 (eIM). Test coverage for IoT.
+1. **SGP.33 Overview: The IoT Test Family** : SGP.33-1 (eUICC), SGP.33-2 (IPA), SGP.33-3 (eIM). Test coverage for IoT.
 2. **eIM Test Architecture** : Simulated eIM, reference IPA implementation, test harness setup.
 3. **Key eIM Test Cases** : Profile state management (PSMO), notifications, eIM configuration, IPA-eIM communication.
 4. **eIM Security Testing** : DTLS validation, certificate checking, signed package verification, replay protection.

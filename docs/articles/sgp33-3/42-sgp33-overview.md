@@ -11,7 +11,7 @@ date: 2026-06-05
 > **Why this matters:** Consumer eSIM testing (SGP.23) is well-established, but IoT devices operate under fundamentally different constraints: they may lack a user interface, have no local profile assistant, rely on remote management, and must support entirely new architectural elements like the eIM (eUICC IoT Manager). SGP.33 is the three-part test specification family built specifically for the IoT eSIM ecosystem defined by SGP.31 and SGP.32. Without it, there is no standardised path to prove that an IoT eSIM deployment actually works.
 
 > **Key takeaways:**
-> - SGP.33 is a family of three test specifications: SGP.33-1 (IPA), SGP.33-2 (SM-DP+), and SGP.33-3 (eIM): each testing a different IoT-specific architectural component
+> - SGP.33 is a family of three test specifications: SGP.33-1 (eUICC), SGP.33-2 (IPA), and SGP.33-3 (eIM): each testing a different IoT-specific architectural component
 > - IoT devices differ from consumer devices: no End User, remote profile management via the eIM, and new interfaces (ESep, ESipa, ES9+', ES11') that don't exist in consumer eSIM
 > - SGP.33-3 targets the eUICC IoT Manager (eIM): the remote server that manages profiles and eIM configuration on IoT devices without any device-side user interaction
 > - The test family references SGP.22 (consumer RSP Technical Specification) and SGP.32 (IoT eSIM Technical Specification) as its normative baseline
@@ -24,13 +24,13 @@ The GSMA's SGP.33 document family was created in 2023 as a companion to the IoT 
 
 ## The Three-Part Test Architecture
 
-### SGP.33-1: IPA Test Specification
+### SGP.33-1: eUICC Test Specification
 
-Tests the IoT Profile Assistant (IPA): the IoT equivalent of the consumer LPA, but designed for devices that may lack a user interface. The IPA handles profile discovery, download initiation, and local profile management on the IoT device side. Tests cover ES10a (profile discovery), ES10b (profile download), ES9+ (SM-DP+ communication), and ES11 (SM-DS discovery).
+Tests the eUICC in the IoT context: the embedded chip at the heart of every IoT eSIM device. As the IoT counterpart of SGP.23-1, it covers the same core interfaces (ES6 operator OTA management, ES8+ profile download from the SM-DP+, ES10a/b local commands) plus the IoT-specific additions: the ESep interface for eIM-originated eUICC Packages, eIM configuration commands (AddInitialEim, GetEimConfigurationData), and the IPAe (eUICC-resident IPA) test environment. The eUICC is the sole Implementation Under Test; everything else is simulated.
 
-### SGP.33-2: SM-DP+ Test Specification
+### SGP.33-2: IPA Test Specification
 
-Tests the SM-DP+ in the IoT context, where the SM-DP+ communicates not only with the IPA (via ES9+) but also directly with the eIM (via ES9+'). This introduces new test scenarios where profile delivery is coordinated through the remote eIM rather than a local LPA.
+Tests the IoT Profile Assistant (IPA): the IoT equivalent of the consumer LPA, but designed for devices that may lack a user interface. The IPA handles profile discovery, download initiation, and local profile management on the IoT device side. Tests cover the ES10a/ES10b commands the IPA issues to the eUICC (including LoadEUICCPackage, AddInitialEim, and automatic profile enabling), plus its communication with the SM-DP+ (ES9+). The eUICC-resident variant of the IPA (IPAe) is tested as part of SGP.33-1 rather than here.
 
 ### SGP.33-3: eIM Test Specification (This Document)
 
@@ -99,7 +99,7 @@ SGP.33-3 v1.2 was published on 27 January 2025, but this is effectively the firs
 
 ## Summary
 
-- SGP.33 is a three-part IoT-specific test family: SGP.33-1 (IPA), SGP.33-2 (SM-DP+), and SGP.33-3 (eIM): created as a companion to SGP.31/SGP.32 in 2023
+- SGP.33 is a three-part IoT-specific test family: SGP.33-1 (eUICC), SGP.33-2 (IPA), and SGP.33-3 (eIM): created as a companion to SGP.31/SGP.32 in 2023
 - SGP.33-3 targets the eUICC IoT Manager (eIM), the remote server that manages profiles and configuration on IoT devices without End User interaction
 - IoT eSIM introduces new interfaces (ESep, ESipa, ES9+', ES11') and architectural concepts (eIM Configuration, eIM Package Retrieval) not present in consumer eSIM
 - The test environment isolates the eIM using five simulator types (S_SM-DP+, S_SM-DS, S_eUICC, S_IPA, and TLS simulators)

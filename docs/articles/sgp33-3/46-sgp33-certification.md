@@ -194,8 +194,8 @@ For eIM vendors seeking certification today, the pragmatic path is:
 SGP.33-3 does not exist in isolation. It connects to:
 
 - **SGP.23** (RSP Test Specification): Provides the LPAd test cases that SGP.33-3 adapts for eIM testing. SGP.33-3 explicitly references SGP.23 section numbers for reused test sequences.
-- **SGP.33-1** (IPA Test Specification): Tests the device-side IPA that the eIM communicates with via ESipa. Coordinated certification of IPA and eIM ensures end-to-end ESipa interoperability.
-- **SGP.33-2** (SM-DP+ Test Specification): Tests the SM-DP+ that the eIM communicates with via ES9+'. Coordinated certification ensures profile delivery works end-to-end.
+- **SGP.33-1** (eUICC Test Specification): Tests the IoT eUICC, including the IPAe (eUICC-resident IPA) via ES10a/b and eIM-originated eUICC Packages via ESep. It is the direct IoT counterpart of SGP.23-1.
+- **SGP.33-2** (IPA Test Specification): Tests the device-side IPA that the eIM communicates with via ESipa. Coordinated certification of IPA and eIM ensures end-to-end ESipa interoperability.
 - **SGP.26** (RSP Test Certificates): Provides the test certificate infrastructure used throughout SGP.33-3 testing.
 - **GlobalPlatform DLOA**: The Digital Letter of Approval framework applies to IoT components as it does to consumer eSIM components.
 
