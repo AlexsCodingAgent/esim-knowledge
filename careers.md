@@ -146,7 +146,7 @@ permalink: /careers/
 
 <div class="careers-header">
   <h1>eSIM Ecosystem Jobs</h1>
-  <p>Software engineering and technical roles across the eSIM industry — last updated 07 September 2026.</p>
+  <p>Software engineering and technical roles across the eSIM industry — last updated 10 September 2026.</p>
 </div>
 
 <div class="careers-filters">
