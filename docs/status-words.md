@@ -15,6 +15,10 @@ with the meaning each one carries in this ecosystem.
 **Sources:** GlobalPlatform Card Specification v2.4 (section 11), GSMA SGP.22
 v2.2.2 / v2.7 / v3.1, GSMA SGP.32 v1.3, ISO/IEC 7816-4.
 
+> **Machine-readable version:** [Status Words, Condensed]({{ site.baseurl }}/ai/status-words)
+> — the same data as a single table (one row per status word), for programmatic
+> or LLM extraction.
+
 ---
 
 ## How to read a status word
