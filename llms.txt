@@ -5,7 +5,9 @@
 > 84+ technical articles across 12 GSMA eSIM specifications. Remote SIM Provisioning: consumer, M2M, IoT, and in-factory profile provisioning.
 
 ## Core Reference
-{% if site.technical_page %}- [Standards Map](https://euicc.tech/docs/standards-map): Complete GSMA SGP specification landscape — timeline, relationships, and what each spec does{% endif %}
+{% if site.technical_page %}- [Standards Map](https://euicc.tech/docs/standards-map): Complete GSMA SGP specification landscape — timeline, relationships, and what each spec does
+- [Status Word Reference (SW1 SW2)](https://euicc.tech/docs/status-words): Every ISO 7816-4, GlobalPlatform and GSMA SGP.22/SGP.32 status word an eUICC returns, with the eUICC-specific meaning of 6A82 (Profile not found), 6985 (Conditions of use not satisfied), 6A80/6A81 (SGP.22 v3.1) and 6A89 (SGP.32 Fallback attribute set). Use when debugging ES10/ES9+ APDU failures.
+- [Glossary](https://euicc.tech/docs/glossary): Every acronym and term used across the knowledge base{% endif %}
 {% if site.jobs_page %}- [eSIM Ecosystem Careers](https://euicc.tech/careers/): Filterable job board of 400+ technical roles across G+D, Thales, Idemia, 1NCE, KORE, Soracom, and more{% endif %}
 
 {% if site.technical_page %}

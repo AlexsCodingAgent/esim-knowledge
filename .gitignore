@@ -1,1 +1,3 @@
 assets/data/jobs.db
+vendor/
+.bundle/

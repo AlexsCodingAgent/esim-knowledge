@@ -161,7 +161,7 @@ Every article links to specific sections of the corresponding GSMA specification
 
 *Sources: GSMA SGP.02 v4.2 · SGP.22 v2.7 · SGP.22 v3.1 · SGP.23 v1.16 · SGP.23-1 v3.1.3 · SGP.25 v2.1 · SGP.26 v3.0.2 · SGP.29 v1.1 · SGP.31 v1.3 · SGP.32 v1.3 · SGP.33-3 v1.2 · SGP.41 v1.0*
 
-<a href="/docs/glossary">Glossary</a> · <a href="/docs/prerequisites">Prerequisites</a>{% if site.technical_page %} · <a href="/docs/standards-map">Standards Map</a> · <a href="/ai">AI Index</a>{% endif %}{% if site.jobs_page %} · <a href="/careers">Jobs</a>{% endif %}
+<a href="/docs/glossary">Glossary</a> · <a href="/docs/status-words">Status Words</a> · <a href="/docs/prerequisites">Prerequisites</a>{% if site.technical_page %} · <a href="/docs/standards-map">Standards Map</a> · <a href="/ai">AI Index</a>{% endif %}{% if site.jobs_page %} · <a href="/careers">Jobs</a>{% endif %}
 
 </div>
 {% else %}
@@ -225,7 +225,7 @@ Every article links to specific sections of the corresponding GSMA specification
 </div>
 
 <div align="center" style="margin-top:2rem;">
-<a href="/docs/glossary">Glossary</a> · <a href="/docs/prerequisites">Prerequisites</a>
+<a href="/docs/glossary">Glossary</a> · <a href="/docs/status-words">Status Words</a> · <a href="/docs/prerequisites">Prerequisites</a>
 </div>
 
 {% endif %}
