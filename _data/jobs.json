@@ -86653,5 +86653,50 @@
     "source": "successfactors",
     "date": "",
     "new": true
+  },
+  {
+    "company": "KORE Wireless",
+    "title": "Manager, Software Engineering",
+    "country": "US",
+    "city": "DE",
+    "department": "",
+    "teaser": "",
+    "url": "https://workforcenow.adp.com/mascsr/default/mdf/recruitment/recruitment.html?cid=301679e9-5498-4a13-888f-043bd2691443&ccId=19000101_000001&type=JS&lang=en_US&jobId=602950",
+    "schedule": "Full Time",
+    "employment": "",
+    "seniority": "",
+    "source": "adp",
+    "date": "",
+    "new": true
+  },
+  {
+    "company": "KORE Wireless",
+    "title": "Sales Operations Analyst",
+    "country": "US",
+    "city": "CA",
+    "department": "",
+    "teaser": "",
+    "url": "https://workforcenow.adp.com/mascsr/default/mdf/recruitment/recruitment.html?cid=301679e9-5498-4a13-888f-043bd2691443&ccId=19000101_000001&type=JS&lang=en_US&jobId=600504",
+    "schedule": "Full Time",
+    "employment": "",
+    "seniority": "",
+    "source": "adp",
+    "date": "",
+    "new": true
+  },
+  {
+    "company": "KORE Wireless",
+    "title": "Process Engineer",
+    "country": "US",
+    "city": "Westbury",
+    "department": "",
+    "teaser": "",
+    "url": "https://workforcenow.adp.com/mascsr/default/mdf/recruitment/recruitment.html?cid=301679e9-5498-4a13-888f-043bd2691443&ccId=19000101_000001&type=JS&lang=en_US&jobId=599479",
+    "schedule": "Full Time",
+    "employment": "",
+    "seniority": "",
+    "source": "adp",
+    "date": "",
+    "new": true
   }
 ]
