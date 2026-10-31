@@ -1038,6 +1038,9 @@ def render_simple(rows, per):
 layout: default
 title: "Tag Finder: Quick eUICC TLV Tag Lookup"
 description: "Type a tag value and see what it means. Every meaning of a TLV tag across eSIM RSP, ETSI TS 101 220, GlobalPlatform, 3GPP USAT and SIM file IDs, with the document it came from. Accepts BF36, bf 36, [54] and names."
+redirect_from:
+  - /tags
+  - /tags/
 ---
 
 # Tag Finder
