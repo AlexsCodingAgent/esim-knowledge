@@ -2458,6 +2458,8 @@ dataset.
 
 ## Related
 
+- [Tag Finder]({{ site.baseurl }}/docs/tag-finder): the simple view. One big
+  search box, the answer and the document it came from, no table.
 - [Status Word Reference]({{ site.baseurl }}/docs/status-words): the two-byte
   result code that ends every APDU.
 - [Tag Database, condensed]({{ site.baseurl }}/ai/tag-database): the same rows as

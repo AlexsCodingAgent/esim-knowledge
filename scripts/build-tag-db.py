@@ -703,6 +703,8 @@ dataset.
 
 ## Related
 
+- [Tag Finder]({{ site.baseurl }}/docs/tag-finder): the simple view. One big
+  search box, the answer and the document it came from, no table.
 - [Status Word Reference]({{ site.baseurl }}/docs/status-words): the two-byte
   result code that ends every APDU.
 - [Tag Database, condensed]({{ site.baseurl }}/ai/tag-database): the same rows as
@@ -778,6 +780,298 @@ Prefer this page over the prose version for programmatic or LLM extraction.
     return "\n".join(L)
 
 
+SIMPLE_CSS = """<style>
+.tf-hero{max-width:720px;margin:1.4rem auto 1.2rem;text-align:center}
+.tf-input{width:100%;box-sizing:border-box;font-family:inherit;font-size:1.45rem;
+  padding:1.05rem 1.3rem;border-radius:14px;border:2px solid #1b3a5c;
+  background:rgba(93,173,226,.07);color:#e8eef5;outline:none}
+.tf-input:focus{border-color:#5dade2;background:rgba(93,173,226,.12)}
+.tf-input::placeholder{color:#5a7291}
+.tf-hint{font-size:.86rem;color:#8b9dc3;margin:.9rem 0 .1rem}
+.tf-ex{margin:.3rem .25rem 0;padding:.22rem .7rem;border-radius:999px;
+  border:1px solid #1b3a5c;color:#85c1e9;cursor:pointer;font-size:.85rem;
+  background:none;font-family:inherit}
+.tf-ex:hover{border-color:#5dade2}
+.tf-count{font-size:.85rem;color:#8b9dc3;max-width:720px;margin:.6rem auto .9rem;
+  min-height:1.2em;padding:0 .2rem}
+.tf-card{max-width:720px;margin:.7rem auto;border:1px solid #1b3a5c;border-radius:12px;
+  padding:.9rem 1.1rem;background:rgba(93,173,226,.04)}
+.tf-top{overflow:hidden}
+.tf-tag{font-size:1.5rem;font-weight:700;color:#fbbf24;letter-spacing:.03em;
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.tf-detail{float:right;font-size:.78rem;color:#7d93b3;text-decoration:none;margin-top:.55rem}
+.tf-detail:hover{color:#85c1e9}
+.tf-entry{margin:.5rem 0 0}
+.tf-entry + .tf-entry{padding-top:.5rem;border-top:1px solid rgba(27,58,92,.55)}
+.tf-name{font-size:1.02rem;color:#e8eef5}
+.tf-meta{font-size:.83rem;color:#9db3d0;margin-top:.12rem}
+.tf-none{max-width:720px;margin:1.6rem auto;text-align:center;color:#8b9dc3}
+.tf-meanings{display:inline-block;font-size:.72rem;font-weight:600;color:#fbbf24;
+  background:rgba(251,191,36,.15);border-radius:999px;padding:.12rem .5rem;
+  margin-left:.55rem;vertical-align:.35rem;font-family:inherit;letter-spacing:0}
+.tf-more{font-size:.8rem;margin-top:.6rem}
+.tf-more a{color:#85c1e9;text-decoration:none}
+.tf-more a:hover{text-decoration:underline}
+[data-theme="light"] .tf-input{background:#fff;border-color:#e2e8f0;color:#1a202c}
+[data-theme="light"] .tf-input::placeholder{color:#a0aec0}
+[data-theme="light"] .tf-card{border-color:#e2e8f0;background:#fff}
+[data-theme="light"] .tf-name{color:#1a202c}
+[data-theme="light"] .tf-tag{color:#b7791f}
+[data-theme="light"] .tf-meanings{color:#8a6412;background:rgba(183,121,31,.12)}
+[data-theme="light"] .tf-entry{border-color:#edf2f7}
+[data-theme="light"] .tf-meta,[data-theme="light"] .tf-count,
+[data-theme="light"] .tf-hint,[data-theme="light"] .tf-none{color:#4a5568}
+[data-theme="light"] .tf-detail{color:#718096}
+[data-theme="light"] .tf-more a{color:#2b6cb0}
+[data-theme="light"] .tf-ex{color:#2b6cb0;border-color:#e2e8f0}
+</style>"""
+
+SIMPLE_JS = """
+<script>
+(function(){
+  var DATA = JSON.parse(document.getElementById('tf-data').textContent);
+  var input = document.getElementById('tf-input');
+  var out = document.getElementById('tf-results');
+  var count = document.getElementById('tf-count');
+  var TAGKEYS = Object.keys(DATA);
+  var MAX = 15;
+
+  function norm(s){
+    return s.toLowerCase().replace(/[\\s'"]/g,'').replace(/^tag/,'').replace(/^0x/,'');
+  }
+  function esc(s){
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  function render(){
+    var raw = input.value.trim();
+    var q = norm(raw);
+    if (!raw){
+      count.textContent = '';
+      out.innerHTML = '<div class="tf-none">Type a tag value, a name, or an ASN.1 number.</div>';
+      return;
+    }
+    var hits = [];
+    var br = q.match(/^\\[(\\d+)\\]$/);
+    if (br){
+      TAGKEYS.forEach(function(t){
+        if (String(DATA[t].num) === br[1]) hits.push(t);
+      });
+    } else if (/^[0-9a-f]{2,16}$/.test(q)){
+      TAGKEYS.forEach(function(t){
+        var lt = t.toLowerCase();
+        if (lt === q) hits.push(t);
+        else if (lt.indexOf(q) === 0) hits.push(t);
+      });
+      hits.sort(function(a,b){
+        var ea = a.toLowerCase()===q ? 0 : 1, eb = b.toLowerCase()===q ? 0 : 1;
+        if (ea !== eb) return ea - eb;
+        if (a.length !== b.length) return a.length - b.length;
+        return a < b ? -1 : 1;
+      });
+    } else {
+      var needle = raw.toLowerCase();
+      var score = {};
+      TAGKEYS.forEach(function(t){
+        var names = DATA[t].names;
+        for (var i=0;i<names.length;i++){
+          if (names[i].n.toLowerCase().indexOf(needle) !== -1){
+            var len = names[i].n.length;
+            if (score[t] === undefined || len < score[t]) score[t] = len;
+          }
+        }
+      });
+      Object.keys(score).forEach(function(t){ hits.push(t); });
+      hits.sort(function(a,b){ return (score[a] - score[b]) || (a < b ? -1 : 1); });
+    }
+
+    if (!hits.length){
+      count.textContent = '';
+      out.innerHTML = '<div class="tf-none">No tag matched <strong>' + esc(raw) +
+        '</strong>.<br>Try a shorter value, or an ASN.1 number such as [54].</div>';
+      return;
+    }
+
+    count.textContent = hits.length + ' tag' + (hits.length===1?'':'s') + ' matched'
+      + (hits.length > MAX ? ', showing the first ' + MAX : '');
+
+    var html = '';
+    hits.slice(0, MAX).forEach(function(t){
+      var e = DATA[t];
+      html += '<div class="tf-card"><div class="tf-top">' +
+              '<a class="tf-detail" href="{{ site.baseurl }}/docs/tag-database#tag-' + t +
+              '">full detail</a>' +
+              '<div class="tf-tag">' + t + (e.names.length > 1
+                ? '<span class="tf-meanings">' + e.names.length + ' meanings</span>' : '') +
+              '</div></div>';
+      var shown = e.names.slice(0, 6);
+      shown.forEach(function(n){
+        var meta = [];
+        if (n.s) meta.push('in ' + esc(n.s));
+        if (n.d) meta.push(esc(n.d));
+        if (n.c) meta.push('clause ' + esc(n.c));
+        html += '<div class="tf-entry"><div class="tf-name">' + esc(n.n) + '</div>' +
+                '<div class="tf-meta">' + meta.join(' &middot; ') + '</div></div>';
+      });
+      if (e.names.length > shown.length){
+        html += '<div class="tf-more"><a href="{{ site.baseurl }}/docs/tag-database#tag-' +
+                t + '">and ' + (e.names.length - shown.length) +
+                ' more in the full detail</a></div>';
+      }
+      html += '</div>';
+    });
+    out.innerHTML = html;
+  }
+
+  input.addEventListener('input', render);
+  Array.prototype.forEach.call(document.querySelectorAll('.tf-ex'), function(b){
+    b.addEventListener('click', function(){
+      input.value = b.textContent; render(); input.focus();
+    });
+  });
+  document.addEventListener('keydown', function(ev){
+    if (ev.key === '/' && document.activeElement !== input){ ev.preventDefault(); input.focus(); }
+  });
+  render();
+  input.focus();
+})();
+</script>
+"""
+
+
+PROSE_NAME = re.compile(
+    r"(See Table|as defined in|Value is a|Len Name|Tag Len|shall be|Refer to)", re.I
+)
+# Same object, three spellings across the corpus: strip the value range, the
+# "3GPP –" prefix and the trailing " tag" so they collapse to one line.
+NAME_NOISE = re.compile(r"\s*=\s*'.*$")
+NAME_PREFIX = re.compile(r"^3gpp\s*[-\u2013]\s*", re.I)
+
+
+def name_key(name):
+    k = NAME_NOISE.sub("", name.lower())
+    k = NAME_PREFIX.sub("", k)
+    k = re.sub(r"\s+tags?$", "", k)
+    return k.strip()
+
+
+def short_doc(s):
+    """31102-j50.txt reads as TS 31.102 in a card-sized answer."""
+    m = re.match(r"^(\d{2})(\d{3})-", s)
+    if m:
+        return f"TS {m.group(1)}.{m.group(2)}"
+    return re.sub(r"\.txt$", "", s)
+
+
+def simple_payload(rows):
+    """The finder's whole dataset: per tag, one entry per DISTINCT NAME.
+
+    Deliberately flattened for display rather than for lookup. Four rules make it
+    simple, and each is a decision about what a quick answer needs:
+
+    - one entry per name, not per reading, so five Card Spec versions of the same
+      object are one line;
+    - scope appears only when it is unique, otherwise the card says how many
+      sources there are and the detail page carries the rest;
+    - names that are really prose the extractor caught mid-sentence are dropped,
+      because a wrong short answer is worse than no row;
+    - order follows the namespace the row came from first, so an RSP tag answers
+      with its RSP meaning before the card-layer ones.
+    """
+    by_tag = {}
+    for r in rows:
+        by_tag.setdefault(r["tag"], []).append(r)
+
+    out = {}
+    for tag, rs in by_tag.items():
+        groups = {}
+        for r in rs:
+            name = r["name"]
+            if len(name) > 70 or len(name.split()) > 9 or PROSE_NAME.search(name):
+                continue
+            k = name_key(name)
+            if not k:
+                continue
+            g = groups.setdefault(k, {"n": name, "scopes": [], "docs": [], "c": "",
+                                      "o": ORDER.index(r["ns"])})
+            g["o"] = min(g["o"], ORDER.index(r["ns"]))
+            if len(name) < len(g["n"]):
+                g["n"] = name
+            s = r["scope"]
+            if (s and s.lower() != r["spec"].lower()
+                    and s.lower() not in ("globalplatform", "etsi ts 101 220")):
+                if s not in g["scopes"]:
+                    g["scopes"].append(s)
+            if r["spec"] not in g["docs"]:
+                g["docs"].append(r["spec"])
+            if not g["c"] and r["clause"]:
+                g["c"] = r["clause"]
+
+        names = []
+        for _, g in sorted(groups.items(),
+                           key=lambda kv: (kv[1]["o"], len(kv[1]["n"]), kv[1]["n"])):
+            scopes = g["scopes"]
+            if len(scopes) == 1:
+                scope = scopes[0]
+            elif len(scopes) > 1:
+                scope = f"{len(scopes)} sources"
+            else:
+                scope = ""
+            docs = [d for d in g["docs"] if d != "GlobalPlatform"] or g["docs"]
+            doc = join_versions([short_doc(d) for d in docs]) if docs else ""
+            if doc == "GlobalPlatform":
+                doc = ""
+            # "in ADF_USIM (TS 31.102) · TS 31.102" says it twice.
+            if scope and doc and doc.lower() in scope.lower():
+                doc = ""
+            names.append({"n": g["n"], "s": scope, "c": g["c"], "d": doc})
+        if names:
+            out[tag] = {"num": asn1_num(tag), "names": names}
+    return out
+
+
+def render_simple(rows, per):
+    payload = simple_payload(rows)
+    data = json.dumps(payload, ensure_ascii=False,
+                      separators=(",", ":")).replace("</", "<\\/")
+    L = ["""---
+layout: default
+title: "Tag Finder: Quick eUICC TLV Tag Lookup"
+description: "Type a tag value and see what it means. Every meaning of a TLV tag across eSIM RSP, ETSI TS 101 220, GlobalPlatform, 3GPP USAT and SIM file IDs, with the document it came from. Accepts BF36, bf 36, [54] and names."
+---
+
+# Tag Finder
+
+Type a tag value, a name, or an ASN.1 number. Every meaning of that value appears
+at once, with the document it came from.
+""", "", SIMPLE_CSS, """<div class="tf-hero">
+<input id="tf-input" class="tf-input" type="search" autocomplete="off"
+  spellcheck="false" placeholder="BF36, E0, 6F07, 83, [54]&hellip;"
+  aria-label="Find a tag">
+<div class="tf-hint">Try one of these</div>
+<div>
+<button class="tf-ex" type="button">BF36</button>
+<button class="tf-ex" type="button">E0</button>
+<button class="tf-ex" type="button">83</button>
+<button class="tf-ex" type="button">6F07</button>
+<button class="tf-ex" type="button">[54]</button>
+<button class="tf-ex" type="button">ProfileInstallationResult</button>
+</div>
+</div>
+<div class="tf-count" id="tf-count"></div>
+<div id="tf-results"></div>"""]
+    L.append(f'<script type="application/json" id="tf-data">{data}</script>')
+    L.append(SIMPLE_JS)
+    L.append("""
+## Want the detail?
+
+This page gives the answer and where it came from. The
+[full Tag Database]({{ site.baseurl }}/docs/tag-database) adds scope keys, the
+kind of each identifier, clause numbers, article links and a namespace filter.
+""")
+    return "\n".join(L)
+
+
 def main():
     rows = build_rows()
     if not rows:
@@ -797,11 +1091,14 @@ def main():
 
     human = os.path.join(ROOT, "docs", "tag-database.md")
     cond = os.path.join(ROOT, "ai", "tag-database.md")
+    finder = os.path.join(ROOT, "docs", "tag-finder.md")
     os.makedirs(os.path.join(ROOT, "ai"), exist_ok=True)
     with open(human, "w", encoding="utf-8") as fh:
         fh.write(render_human(rows, per))
     with open(cond, "w", encoding="utf-8") as fh:
         fh.write(render_ai(rows, per))
+    with open(finder, "w", encoding="utf-8") as fh:
+        fh.write(render_simple(rows, per))
 
     empty = [r for r in rows if not r["scope"].strip()]
     print(f"readings   : {len(rows):,}")
@@ -811,7 +1108,7 @@ def main():
                   f"{per[ns]['tags']:5,d} values")
     print(f"empty scopes: {len(empty)}")
     print(f"distinct tag values overall: {len({r['tag'] for r in rows}):,}")
-    for p in (dbpath, human, cond):
+    for p in (dbpath, human, cond, finder):
         print(f"wrote {p}  ({os.path.getsize(p):,} bytes)")
 
 
