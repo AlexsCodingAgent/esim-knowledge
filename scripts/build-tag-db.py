@@ -195,6 +195,45 @@ def asn1_num(tag):
     return first & 0x1F
 
 
+# Which article section explains a given document, where one exists. A row whose
+# document has a section gets a link, so "what is this tag" leads somewhere that
+# explains what it does rather than stopping at the name.
+ARTICLE_SECTIONS = [
+    ("SGP.22 v3", "sgp22-v3"),
+    ("SGP.23-1", "sgp23-1"),
+    ("SGP.33-3", "sgp33-3"),
+    ("SGP.22", "sgp22"),
+    ("SGP.23", "sgp23"),
+    ("SGP.32", "sgp32"),
+    ("SGP.41", "sgp41"),
+    ("SGP.02", "sgp02"),
+    ("SGP.29", "sgp29"),
+    ("SGP.26", "sgp26"),
+    ("SGP.25", "sgp25"),
+]
+
+
+def article_url(spec):
+    for prefix, slug in ARTICLE_SECTIONS:
+        if spec.startswith(prefix):
+            return f"{{{{ site.baseurl }}}}/docs/articles/{slug}/"
+    return None
+
+
+def kind_label(r):
+    """What kind of identifier this row is, in that namespace's own terms."""
+    ns, k = r["ns"], r["kind"]
+    if ns == "ef":
+        return "file ID"
+    if ns == "alloc":
+        return k                       # COMPACT-TLV / BER-TLV / COMPREHENSION-TLV
+    if ns == "gp":
+        return "DGI" if k == "DGI" else "BER tag"
+    if ns == "usat":
+        return "COMPREHENSION-TLV" if "COMPREHENSION" in k else "BER tag"
+    return "BER tag"
+
+
 def name_ok(name):
     if not name or len(name.strip()) < 3:
         return False
@@ -257,9 +296,14 @@ def build_rows():
     gp = load("gp_tags.json")
     if gp:
         for r in gp["rows"]:
+            # GlobalPlatform uses one hex space for X.690 BER tags and for Data
+            # Grouping Identifiers. Only the table caption says which a 2-byte
+            # value is, so "DGI" is claimed only when the caption claims it.
+            is_dgi = (len(r["tag"]) == 4
+                      and "DGI" in (r.get("caption") or "").upper())
             rows.append({
                 "ns": "gp", "tag": r["tag"], "name": r["name"],
-                "scope": r["doc"], "kind": "BER",
+                "scope": r["doc"], "kind": "DGI" if is_dgi else "BER",
                 "spec": "GlobalPlatform", "clause": r.get("clause") or "",
                 "line": r.get("line"), "extra": r.get("length") or "",
             })
@@ -288,11 +332,13 @@ def build_rows():
                 "line": r.get("line"), "extra": "",
             })
 
-    # Strip column bleed from every name before it is published.
+    # Strip column bleed from every name before it is published, and settle the
+    # kind of identifier each row is.
     for r in rows:
         cleaned = tidy(r["name"])
         if cleaned:
             r["name"] = cleaned
+        r["kind"] = kind_label(r)
 
     # Every row must carry a scope, because the page's whole premise is that the
     # scope is what disambiguates the value.
@@ -359,6 +405,7 @@ table.db .badge{display:inline-block;margin-left:.4rem;padding:.05rem .4rem;
 table.db .perm{margin-left:.45rem;color:#4a6f96;text-decoration:none;font-weight:400}
 table.db .perm:hover{color:#85c1e9}
 table.db .ns{color:#8b9dc3;white-space:nowrap;font-size:.78rem}
+table.db .kind{color:#9db3d0;white-space:nowrap;font-size:.76rem}
 .db-empty{display:none;padding:1.6rem 1rem;text-align:center;color:#8b9dc3}
 .db-empty button{font:inherit;font-size:.85rem;margin-top:.6rem;padding:.35rem .9rem;
   border-radius:999px;border:1px solid #1b3a5c;background:transparent;color:#85c1e9;cursor:pointer}
@@ -547,7 +594,7 @@ GlobalPlatform document, or the application DF for a file ID.
     L.append("</div>")
     L.append('<div class="db-bleed"><div class="db-wrap">')
     L.append('<table class="db" id="db-table">')
-    L.append("<thead><tr><th>Tag</th><th>Scope</th><th>Name</th>"
+    L.append("<thead><tr><th>Tag</th><th>Scope</th><th>Name</th><th>Kind</th>"
              "<th>Namespace</th><th>Document</th><th>Clause</th></tr></thead>")
 
     for tag, grp in groupby(rows, key=lambda r: r["tag"]):
@@ -567,6 +614,9 @@ GlobalPlatform document, or the application DF for a file ID.
                 r["name"], r["scope"], r["kind"], r["spec"], r["clause"],
                 NS_META[r["ns"]]["label"],
             ])).replace("|", "/").lower()
+            url = article_url(r["spec"])
+            doccell = (f'<a href="{url}">{cell(r["spec"], 60)}</a>'
+                       if url else cell(r["spec"], 60))
             tagcell = (f'<td class="tagcell" rowspan="{len(g)}">'
                        f'<code>{cell(tag, 12)}</code>'
                        + (f'<span class="badge">{len(g)} readings</span>'
@@ -580,8 +630,9 @@ GlobalPlatform document, or the application DF for a file ID.
                 f'{tagcell}'
                 f'<td>{cell(r["scope"], 90)}</td>'
                 f'<td>{cell(r["name"])}</td>'
+                f'<td class="kind">{r["kind"]}</td>'
                 f'<td class="ns">{NS_META[r["ns"]]["label"]}</td>'
-                f'<td>{cell(r["spec"], 60)}</td>'
+                f'<td>{doccell}</td>'
                 f'<td class="ns">{cell(r["clause"], 30)}</td></tr>'
             )
         L.append("</tbody>")
@@ -700,11 +751,12 @@ Prefer this page over the prose version for programmatic or LLM extraction.
             L.append(f"| {m['label']} | `{m['key']}` | {per[ns]['rows']:,} | "
                      f"{per[ns]['tags']:,} |")
     L.append("")
-    L.append("| Tag | Name | Scope | Namespace | Key | Document | Clause |")
-    L.append("|---|---|---|---|---|---|---|")
+    L.append("| Tag | Name | Kind | Scope | Namespace | Key | Document | Clause |")
+    L.append("|---|---|---|---|---|---|---|---|")
     for r in rows:
         L.append(f"| `{cell(r['tag'], 12)}` | {cell(r['name'])} | "
-                 f"{cell(r['scope'], 90)} | {NS_META[r['ns']]['label']} | "
+                 f"{r['kind']} | {cell(r['scope'], 90)} | "
+                 f"{NS_META[r['ns']]['label']} | "
                  f"`{NS_META[r['ns']]['key']}` | {cell(r['spec'], 60)} | "
                  f"{cell(r['clause'], 30)} |")
     L.append(f"""

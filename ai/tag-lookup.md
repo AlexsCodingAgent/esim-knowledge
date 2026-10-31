@@ -201,6 +201,7 @@ extraction.
 | `BF20` | ServicesList |  | 8.2.1 | TCA Pkg v3.4.1 |
 | `BF20` | UICCCapability |  | 8.1.2 | TCA Interop v3.4 |
 | `BF20` | Table B-1: Contents of |  |  | GPC_SPE_093-Amendment-F-SCP11 |
+| `BF20` | UICCCapability |  |  | TCA-PEDefinitions-v3.2 |
 | `BF20` | UICCCapability |  |  | TCA-eUICC-Profile-Package-v3.4.1 |
 | `BF21` | PrepareDownloadRequest |  | 5.7.5 | SGP.22 v3.1 |
 | `BF21` | PrepareDownloadRequest |  | 5.7.5 | SGP.22 v2.7 |
@@ -396,8 +397,8 @@ Alternate spellings and query forms that should resolve to a row above:
 ## Stats
 
 - distinct named tags: 128
-- tag occurrences in corpus: 2170
-- source documents: 35
+- tag occurrences in corpus: 2171
+- source documents: 36
 
 Rows are included only where the source document names the tag. Hex values that
 appear solely as prose mentions (GlobalPlatform X.509 certificate field tags such

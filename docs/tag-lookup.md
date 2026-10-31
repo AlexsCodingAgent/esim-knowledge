@@ -15,8 +15,13 @@ so every entry carries the **structure** it belongs to, the **clause** that
 defines it, and the **spec version** it came from. Where versions disagree, both
 rows appear and the difference is visible.
 
+This page covers the eSIM RSP namespace only, with worked examples. For
+GlobalPlatform, the ETSI TS 101 220 allocator, 3GPP USAT and SIM file IDs, use
+[the Tag Database]({{ site.baseurl }}/docs/tag-database), which holds every
+namespace in one grouped, searchable table and is the primary tag surface.
 
-**Corpus:** 128 named tags, 2,170 tag occurrences across 35 spec documents.
+
+**Corpus:** 128 named tags, 2,171 tag occurrences across 36 spec documents.
 
 
 Rows are included when the source document actually names the tag, either as an
@@ -245,6 +250,7 @@ table.tl .clause{color:#8b9dc3;white-space:nowrap;font-size:.8rem}
 <tr data-s="bf20 serviceslist serviceslist `serviceslist` 8.2.1 tca pkg v3.4.1"><td class="tagcell"><code>BF20</code></td><td>`ServicesList`</td><td></td><td class="clause">8.2.1</td><td>TCA Pkg v3.4.1</td></tr>
 <tr data-s="bf20 uicccapability uicccapability `uicccapability` 8.1.2 tca interop v3.4"><td class="tagcell"><code>BF20</code></td><td>`UICCCapability`</td><td></td><td class="clause">8.1.2</td><td>TCA Interop v3.4</td></tr>
 <tr data-s="bf20 table b-1: contents of `table b-1: contents of` gpc_spe_093-amendment-f-scp11"><td class="tagcell"><code>BF20</code></td><td>`Table B-1: Contents of`</td><td></td><td class="clause"></td><td>GPC_SPE_093-Amendment-F-SCP11</td></tr>
+<tr data-s="bf20 uicccapability uicccapability `uicccapability` tca-pedefinitions-v3.2"><td class="tagcell"><code>BF20</code></td><td>`UICCCapability`</td><td></td><td class="clause"></td><td>TCA-PEDefinitions-v3.2</td></tr>
 <tr data-s="bf20 uicccapability uicccapability `uicccapability` tca-euicc-profile-package-v3.4.1"><td class="tagcell"><code>BF20</code></td><td>`UICCCapability`</td><td></td><td class="clause"></td><td>TCA-eUICC-Profile-Package-v3.4.1</td></tr>
 <tr data-s="bf21 preparedownloadrequest preparedownloadrequest `preparedownloadrequest` 5.7.5 sgp.22 v3.1"><td class="tagcell"><code>BF21</code></td><td>`PrepareDownloadRequest`</td><td></td><td class="clause">5.7.5</td><td>SGP.22 v3.1</td></tr>
 <tr data-s="bf21 preparedownloadrequest preparedownloadrequest `preparedownloadrequest` 5.7.5 sgp.22 v2.7"><td class="tagcell"><code>BF21</code></td><td>`PrepareDownloadRequest`</td><td></td><td class="clause">5.7.5</td><td>SGP.22 v2.7</td></tr>
@@ -463,27 +469,28 @@ Which documents, and how many distinct tags each contributes:
 | TCA Pkg v3.4.1 | 1 |
 | TCA Interop v3.4 | 2 |
 | GPC_SPE_121-Amendment-I-Secure-Element-Mgmt-Service-v1.2 | 4 |
-| GPC_UICC_Configuration-v1.0.1 | 5 |
 | 31102-j50 | 33 |
+| GPC_UICC_Configuration-v1.0.1 | 5 |
 | GPC_SPE_093-Amendment-F-SCP11 | 6 |
-| 31111-j40 | 2 |
-| ETSI-TS-102-222-v17.0.0 | 13 |
-| GPC_SPE_025-Amendment-C-Contactless-Services | 9 |
 | ETSI-TS-102-221-v18.4.0 | 15 |
+| ETSI-TS-102-222-v17.0.0 | 13 |
 | ETSI-TS-131-103-v14.1.1 | 2 |
+| 31111-j40 | 2 |
+| GPC_SPE_025-Amendment-C-Contactless-Services | 9 |
 | 31103-e11 | 2 |
-| GPC_SE_Configuration-v2.0 | 8 |
-| GPC_SPE_034-Card-Spec-v2.3.0 | 8 |
-| GPC_SPE_034-Card-Spec-v2.3.1 | 8 |
-| GPC_UICC_Configuration-v2.0 | 6 |
 | GPC_SPE_034-Card-Spec-v2.4 | 13 |
+| GPC_SPE_034-Card-Spec-v2.3.0 | 8 |
+| GPC_SE_Configuration-v2.0 | 8 |
+| GPC_UICC_Configuration-v2.0 | 6 |
+| GPC_SPE_034-Card-Spec-v2.3.1 | 8 |
 | GPC_SPE_034-Card-Spec-v2.2.1 | 3 |
-| ETSI-TS-102-226-v19.0.0 | 1 |
 | GPC_SPE_034-Card-Spec-v2.2.0 | 2 |
+| ETSI-TS-102-226-v19.0.0 | 1 |
 | TCA-eUICC-Profile-Package-v3.4.1 | 1 |
+| TCA-PEDefinitions-v3.2 | 1 |
 | GPC_SPE_120-Amendment-H-Executable-Load-File-Upgrade-v1.1 | 4 |
-| 23003-k00 | 1 |
 | GPD_SPE_013-Secure-Element-Access-Control | 1 |
+| 23003-k00 | 1 |
 | GPC_SPE_011-Amendment-B-Remote-App-Mgmt-HTTP | 1 |
 | SGP.23-v1.16 | 1 |
 | GPC_SPE_182-Amendment-K-SCP04-v1.0.2 | 1 |
@@ -536,6 +543,9 @@ the Spec column before acting on a tag.
 
 ## Related
 
+- [eUICC Tag Database]({{ site.baseurl }}/docs/tag-database): every tag namespace
+  in one searchable table, grouped by tag value, including GlobalPlatform, the
+  ETSI allocator, USAT and SIM file IDs.
 - [Status Word Reference]({{ site.baseurl }}/docs/status-words): the two-byte
   result code that ends every APDU.
 - [Tag Lookup, condensed]({{ site.baseurl }}/ai/tag-lookup): the same data as a

@@ -154,7 +154,13 @@ so every entry carries the **structure** it belongs to, the **clause** that
 defines it, and the **spec version** it came from. Where versions disagree, both
 rows appear and the difference is visible.
 
+This page covers the eSIM RSP namespace only, with worked examples. For
+GlobalPlatform, the ETSI TS 101 220 allocator, 3GPP USAT and SIM file IDs, use
+[the Tag Database]({{ site.baseurl }}/docs/tag-database), which holds every
+namespace in one grouped, searchable table and is the primary tag surface.
+
 """)
+
 
     lines.append(f"**Corpus:** {n_named} named tags, {total_occ:,} tag occurrences "
                  f"across {n_files} spec documents.\n")
@@ -308,6 +314,9 @@ the Spec column before acting on a tag.
 
 ## Related
 
+- [eUICC Tag Database]({{ site.baseurl }}/docs/tag-database): every tag namespace
+  in one searchable table, grouped by tag value, including GlobalPlatform, the
+  ETSI allocator, USAT and SIM file IDs.
 - [Status Word Reference]({{ site.baseurl }}/docs/status-words): the two-byte
   result code that ends every APDU.
 - [Tag Lookup, condensed]({{ site.baseurl }}/ai/tag-lookup): the same data as a

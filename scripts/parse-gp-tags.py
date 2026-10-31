@@ -49,6 +49,12 @@ PRESENCE = re.compile(
     r"\s*(Mandatory|Optional|Conditional|DEPRECATED|RESERVED)\s*$", re.I
 )
 CLAUSE = re.compile(r"^\s*(\d+(?:\.\d+){1,4})\s+([A-Z].{3,90})$")
+# A table caption names what the rows below describe. GlobalPlatform uses the
+# same hex space for BER tags and for Data Grouping Identifiers, and only the
+# caption says which one a 2-byte value is: "DGI for Key Information Data"
+# versus "List of Applications ('2F00')". Losing this makes 00B9 and 2F00 look
+# like the same kind of thing.
+CAPTION = re.compile(r"^\s*Table \d+-\d+\s*:\s*(.+?)\s*$")
 # a row whose length cell is exactly 0 enumerates a *value*, it does not define
 ENUM_ROW = re.compile(r"^\s*'[0-9A-Fa-f]{2}'\s+0\s{2,}")
 NOISE = re.compile(r"^(ETSI|GlobalPlatform|Release |\f|NOTE|Table |Figure |\s*$)")
@@ -72,7 +78,12 @@ def parse_file(path):
     out = []
     clause = None
     clause_title = None
+    caption = ""
     for i, line in enumerate(lines):
+        cm = CAPTION.match(line.strip())
+        if cm:
+            caption = cm.group(1)
+            continue
         m = CLAUSE.match(line)
         if m:
             clause, clause_title = m.group(1), m.group(2).strip()
@@ -106,7 +117,8 @@ def parse_file(path):
             out.append({
                 "doc": doc, "tag": tag, "name": name[:160],
                 "length": length, "clause": clause,
-                "clauseTitle": clause_title, "line": i + 1, "via": "table",
+                "clauseTitle": clause_title, "caption": caption,
+                "line": i + 1, "via": "table",
             })
             continue
 
@@ -118,7 +130,8 @@ def parse_file(path):
             out.append({
                 "doc": doc, "tag": tag, "name": name[:160],
                 "length": "", "clause": clause,
-                "clauseTitle": clause_title, "line": i + 1, "via": "prose",
+                "clauseTitle": clause_title, "caption": caption,
+                "line": i + 1, "via": "prose",
             })
 
         for im in INTRODUCED.finditer(line):
@@ -129,7 +142,8 @@ def parse_file(path):
             out.append({
                 "doc": doc, "tag": tag, "name": name[:160],
                 "length": "", "clause": clause,
-                "clauseTitle": clause_title, "line": i + 1,
+                "clauseTitle": clause_title, "caption": caption,
+                "line": i + 1,
                 "via": "introduced-by",
             })
     return out
