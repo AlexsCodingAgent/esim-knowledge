@@ -36,7 +36,7 @@ description: "*The complete GSMA SGP specification landscape: what each spec doe
   │
 2023 ─ SGP.22    v2.5: LPAd/LPAe refinements
   │    SGP.23-1  RSP Test Specification for the eUICC v3.1
-  │    SGP.33    IoT Test Spec family (33-1 LPA, 33-2 SM-DP+, 33-3 eIM)
+  │    SGP.33    IoT Test Spec family (33-1 eUICC, 33-2 IPA, 33-3 eIM)
   │
 2024 ─ SGP.25    v2.0: Protection Profile for Consumer + IoT unified
   │    SGP.29    v1.1: EID refinements
@@ -245,10 +245,16 @@ description: "*The complete GSMA SGP specification landscape: what each spec doe
 | SGP.29 | EID Definition | v1.1 | 5 | Covered |
 | SGP.31 | IoT Architecture | v1.3 | — | Part of SGP.32 series |
 | SGP.32 | IoT Technical Spec | v1.3 | 12 | Covered |
+| SGP.33-1 | IoT eUICC Test Spec | v1.2 | 0 | **Gap** — no section yet |
+| SGP.33-2 | IoT IPA Test Spec | v1.2 | 0 | **Gap** — no section yet |
 | SGP.33-3 | eIM Test Spec | v1.2 | 5 | Covered |
 | SGP.41 | IFPP Architecture | v1.0 | 5 | Covered |
+| — | Foundations (ASN.1, TLV, APDU, AT) | — | 1 | Cross-spec explainer |
 
-**Total: 85 articles across 11 specifications**
+**Total: 85 numbered articles across the covered specifications** (plus 78
+kids-track articles under `docs/articles/kids/`, and the per-section `index.md`
+files). The two open gaps are the SGP.33-1 and SGP.33-2 sections — the eUICC and
+IPA IoT test specs, neither of which has an article section yet.
 
 ---
 
