@@ -100,6 +100,47 @@ def tidy(name):
     return re.sub(r"\s+", " ", n).strip(" -:;,")
 
 
+def join_versions(vs):
+    """Fold a version list into one cell: SGP.22 v2.2.2, v2.7, v3.1."""
+    vs = sorted(set(vs))
+    if len(vs) == 1:
+        return vs[0]
+    pre = os.path.commonprefix(vs)
+    if " " in pre:
+        pre = pre[: pre.rfind(" ") + 1]
+    else:
+        pre = ""
+    if pre and all(v.startswith(pre) for v in vs):
+        return pre + ", ".join(v[len(pre):] for v in vs)
+    return ", ".join(vs)
+
+
+def collapse_versions(rows):
+    """Fold rows that differ only by spec version into one row.
+
+    BF36 is identical in SGP.22 v2.2.2, v2.7 and v3.1. Three rows imply a
+    difference that is not there, and inflate the reading count. The versions are
+    kept, in one cell, so nothing is lost.
+    """
+    folded = {}
+    order = []
+    for r in rows:
+        k = (r["ns"], r["tag"], r["name"].lower(), r["scope"].lower(),
+             r["clause"] or "")
+        if k not in folded:
+            folded[k] = dict(r, versions=[r["spec"]])
+            order.append(k)
+        elif r["spec"] not in folded[k]["versions"]:
+            folded[k]["versions"].append(r["spec"])
+
+    out = []
+    for k in order:
+        r = folded[k]
+        r["spec"] = join_versions(r["versions"])
+        out.append(r)
+    return out
+
+
 def load(name, default=None):
     path = os.path.join(TMP, name)
     if not os.path.exists(path):
@@ -259,9 +300,11 @@ def build_rows():
         if not r["scope"].strip():
             r["scope"] = r["spec"]
 
-    # Group by tag value only, not by (namespace, tag). The page promises that
-    # every reading of one value appears together, and the same value is often
-    # defined in several namespaces: 83 lives in rsp, alloc, gp and usat at once.
+    # Fold rows that differ only by spec version, then group by tag value only,
+    # not by (namespace, tag). The page promises that every reading of one value
+    # appears together, and the same value is often defined in several
+    # namespaces: 83 lives in rsp, alloc, gp and usat at once.
+    rows = collapse_versions(rows)
     rows.sort(key=lambda r: (r["tag"], ORDER.index(r["ns"]), r["spec"]))
     return rows
 
@@ -291,6 +334,12 @@ CSS = """<style>
 [data-theme="light"] .db-chip[aria-pressed="true"]{background:rgba(49,130,206,.12);
   border-color:#2b6cb0;color:#1a202c}
 .db-count{font-size:.85rem;color:#8b9dc3;margin-bottom:.8rem}
+.db-toolbar{position:sticky;top:0;z-index:20;padding:.7rem 0 .4rem;
+  background:#0a1628;border-bottom:1px solid #1b3a5c;margin-bottom:.7rem}
+[data-theme="light"] .db-toolbar{background:#ffffff;border-color:#e2e8f0}
+.db-toolbar .db-search{margin-top:0}
+.db-bleed{position:relative;left:50%;transform:translateX(-50%);width:min(96vw,1400px)}
+table.db td:nth-child(2){min-width:9rem}
 .db-wrap{max-height:70vh;overflow:auto;border:1px solid #1b3a5c;border-radius:8px}
 table.db{border-collapse:collapse;width:100%;font-size:.84rem;margin:0}
 table.db th{position:sticky;top:0;background:#0d1d30;text-align:left;padding:.55rem .7rem;
@@ -476,29 +525,12 @@ things in different scopes, so rows are grouped by value and each reading carrie
 the scope it was defined in: the ASN.1 module, the containing template, the
 GlobalPlatform document, or the application DF for a file ID.
 """)
-    L.append(f"**Corpus:** {total:,} readings across {len(per)} namespaces. "
-             f"Rows are extracted from the specification text and carry the "
-             f"document and line they came from.\n")
-    L.append("""## The six namespaces
-
-Do not add these numbers together. They are different key spaces and a single
-total would be a category error.
-""")
-    L.append("| Namespace | Key | Readings | Distinct values |")
-    L.append("|---|---|---|---|")
-    for ns in ORDER:
-        if ns not in per:
-            continue
-        m = NS_META[ns]
-        L.append(f"| {m['label']} | `{m['key']}` | {per[ns]['rows']:,} | "
-                 f"{per[ns]['tags']:,} |")
-    L.append("")
-    for ns in ORDER:
-        if ns in per:
-            L.append(f"- **{NS_META[ns]['label']}** ({NS_META[ns]['key']}): "
-                     f"{NS_META[ns]['blurb']}")
-    L.append("")
+    L.append(f"**Corpus:** {total:,} readings across {len(per)} namespaces, "
+             f"grouped by tag value and folded across spec versions. Every row is "
+             f"extracted from the specification text and names the document it "
+             f"came from.\n")
     L.append(CSS)
+    L.append('<div class="db-toolbar">')
     L.append("""
 <input type="search" id="db-search" class="db-search"
   placeholder="Search a tag, a name, or an ASN.1 number: BF36, bf 36, [54], E0, 6F07&hellip;"
@@ -512,9 +544,10 @@ total would be a category error.
                      f'({per[ns]["rows"]:,})</button>')
     L.append("</div>")
     L.append('<div class="db-count" id="db-count"></div>')
-    L.append('<div class="db-wrap">')
+    L.append("</div>")
+    L.append('<div class="db-bleed"><div class="db-wrap">')
     L.append('<table class="db" id="db-table">')
-    L.append("<thead><tr><th>Tag</th><th>Name</th><th>Scope</th>"
+    L.append("<thead><tr><th>Tag</th><th>Scope</th><th>Name</th>"
              "<th>Namespace</th><th>Document</th><th>Clause</th></tr></thead>")
 
     for tag, grp in groupby(rows, key=lambda r: r["tag"]):
@@ -545,8 +578,8 @@ total would be a category error.
             L.append(
                 f'<tr data-ns="{r["ns"]}" data-q="{cell(rowq, 300)}">'
                 f'{tagcell}'
-                f'<td>{cell(r["name"])}</td>'
                 f'<td>{cell(r["scope"], 90)}</td>'
+                f'<td>{cell(r["name"])}</td>'
                 f'<td class="ns">{NS_META[r["ns"]]["label"]}</td>'
                 f'<td>{cell(r["spec"], 60)}</td>'
                 f'<td class="ns">{cell(r["clause"], 30)}</td></tr>'
@@ -561,7 +594,26 @@ total would be a category error.
              '<br><button id="db-reset" type="button">Clear search and filters</button>'
              '</div>')
     L.append("</div>")
+    L.append("</div>")
     L.append(JS % {"total": total})
+    L.append("""
+## The six namespaces
+
+Do not add these numbers together. They are different key spaces and a single
+total would be a category error.
+""")
+    L.append("| Namespace | Key | Readings | Distinct values |")
+    L.append("|---|---|---|---|")
+    for ns in ORDER:
+        if ns in per:
+            m = NS_META[ns]
+            L.append(f"| {m['label']} | `{m['key']}` | {per[ns]['rows']:,} | "
+                     f"{per[ns]['tags']:,} |")
+    L.append("")
+    for ns in ORDER:
+        if ns in per:
+            L.append(f"- **{NS_META[ns]['label']}** ({NS_META[ns]['key']}): "
+                     f"{NS_META[ns]['blurb']}")
     L.append("""
 ## How to read a tag
 

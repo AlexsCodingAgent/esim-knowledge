@@ -20,7 +20,7 @@ Prefer this page over the prose version for programmatic or LLM extraction.
 
 | Namespace | Key | Readings | Distinct values |
 |---|---|---|---|
-| eSIM RSP ASN.1 | `(module, tag)` | 314 | 111 |
+| eSIM RSP ASN.1 | `(module, tag)` | 288 | 111 |
 | ETSI TS 101 220 allocator | `(type, context, tag)` | 230 | 171 |
 | GlobalPlatform BER-TLV | `(document, tag)` | 537 | 148 |
 | 3GPP / ETSI card-layer | `(document, clause, tag)` | 33 | 27 |
@@ -627,9 +627,7 @@ Prefer this page over the prose version for programmatic or LLM extraction.
 | `83` | Key Version Number | GPC_SPE_182-Amendment-K-SCP04-v1.0.2 | GlobalPlatform BER-TLV | `(document, tag)` | GlobalPlatform | 7.1 |
 | `83` | Key Version Number = '01' – '7F' | GPC_UICC_Configuration-v1.0.1 | GlobalPlatform BER-TLV | `(document, tag)` | GlobalPlatform | 10.1.3 |
 | `83` | Gateway | 31102-j50 | 3GPP / ETSI card-layer | `(document, clause, tag)` | 31102-j50 | 4.2.69 |
-| `84` | hostId | ControlRefTemplate | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v2.2.2 | 5.5.1 |
-| `84` | hostId | ControlRefTemplate | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v2.7 | 5.5.1 |
-| `84` | hostId | ControlRefTemplate | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v3.1 | 5.5.1 |
+| `84` | hostId | ControlRefTemplate | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v2.2.2, v2.7, v3.1 | 5.5.1 |
 | `84` | associationToken | IpaEuiccData | eSIM RSP ASN.1 | `(module, tag)` | SGP.32 v1.2 | 6.4.1.8 |
 | `84` | associationToken | IpaEuiccData | eSIM RSP ASN.1 | `(module, tag)` | SGP.32 v1.3 | 2.11.2.2 |
 | `84` | DF Name (AID) | FCP template ('62') | ETSI TS 101 220 allocator | `(type, context, tag)` | ETSI TS 101 220 | 7.2 |
@@ -724,9 +722,7 @@ Prefer this page over the prose version for programmatic or LLM extraction.
 | `8F` | CSAMAC TLV | Manage Secure Channel command | ETSI TS 101 220 allocator | `(type, context, tag)` | ETSI TS 101 220 | 7.2 |
 | `8F` | AID prefix bytes used to control which Executable Load O File may be upgraded. Only ELF AID values matching these prefi… | GPC_SPE_093-Amendment-F-SCP11 | GlobalPlatform BER-TLV | `(document, tag)` | GlobalPlatform | 8.2.3 |
 | `8F` | Key type according to | GPC_SPE_121-Amendment-I-Secure-Element-Mgmt-Service-v1.2 | GlobalPlatform BER-TLV | `(document, tag)` | GlobalPlatform | 4.5.2 |
-| `90` | profileNickname | ProfileInfoListResponse | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v2.2.2 | 5.7.15 |
-| `90` | profileNickname | ProfileInfoListResponse | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v2.7 | 5.7.15 |
-| `90` | profileNickname | ProfileInfoListResponse | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v3.1 | 5.7.15 |
+| `90` | profileNickname | ProfileInfoListResponse | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v2.2.2, v2.7, v3.1 | 5.7.15 |
 | `90` | profileNickname | IpaCapabilities | eSIM RSP ASN.1 | `(module, tag)` | SGP.32 v1.2 | 3.5.2.3 |
 | `90` | profileNickname | IpaCapabilities | eSIM RSP ASN.1 | `(module, tag)` | SGP.32 v1.3 | 4.4 |
 | `90` | Security Condition - ALWAYS | Security attribute template ('AB') | ETSI TS 101 220 allocator | `(type, context, tag)` | ETSI TS 101 220 | 7.2 |
@@ -737,24 +733,18 @@ Prefer this page over the prose version for programmatic or LLM extraction.
 | `90` | ELF Upgrade Session Status (see Table 4-8) | GPC_SPE_120-Amendment-H-Executable-Load-File-Upgrade-v1.1 | GlobalPlatform BER-TLV | `(document, tag)` | GlobalPlatform | 4.1.3.1 |
 | `90` | '01': CERT.CASD.AUT | GPC_SPE_121-Amendment-I-Secure-Element-Mgmt-Service-v1.2 | GlobalPlatform BER-TLV | `(document, tag)` | GlobalPlatform | 7.15.2 |
 | `90` | Scenario Identifier '04' (refer to Table 9-2) | GPC_UICC_Configuration-v1.0.1 | GlobalPlatform BER-TLV | `(document, tag)` | GlobalPlatform | 10.3.1 |
-| `91` | serviceProviderName | UpdateMetadataRequest | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v2.2.2 | 5.4.1 |
-| `91` | serviceProviderName | UpdateMetadataRequest | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v2.7 | 5.4.1 |
-| `91` | serviceProviderName | UpdateMetadataRequest | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v3.1 | 5.4.1 |
+| `91` | serviceProviderName | UpdateMetadataRequest | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v2.2.2, v2.7, v3.1 | 5.4.1 |
 | `91` | serviceProviderName | IpaCapabilities | eSIM RSP ASN.1 | `(module, tag)` | SGP.32 v1.2 | 3.5.2.3 |
 | `91` | serviceProviderName | IpaCapabilities | eSIM RSP ASN.1 | `(module, tag)` | SGP.32 v1.3 | 4.4 |
 | `91` | Initial value of sequence counter | GPC_SPE_007-Amendment-A-Confidential-Card-Content-Mgmt | GlobalPlatform BER-TLV | `(document, tag)` | GlobalPlatform | 3.5.1 |
 | `91` | ELF AID prefix bytes used to control which Application may C be loaded. Only ELF matching these prefix bytes (i.e. part… | GPC_SPE_093-Amendment-F-SCP11 | GlobalPlatform BER-TLV | `(document, tag)` | GlobalPlatform | 8.2.3 |
 | `91` | Unpredictable value for use in secure messaging Should be set to an unpredictable value that satisfies the | GPC_SPE_178-Amendment-L-SCP10 | GlobalPlatform BER-TLV | `(document, tag)` | GlobalPlatform | 4.1.2 |
-| `92` | profileName | UpdateMetadataRequest | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v2.2.2 | 5.4.1 |
-| `92` | profileName | UpdateMetadataRequest | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v2.7 | 5.4.1 |
-| `92` | profileName | UpdateMetadataRequest | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v3.1 | 5.4.1 |
+| `92` | profileName | UpdateMetadataRequest | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v2.2.2, v2.7, v3.1 | 5.4.1 |
 | `92` | profileName | IpaCapabilities | eSIM RSP ASN.1 | `(module, tag)` | SGP.32 v1.2 | 3.5.2.3 |
 | `92` | profileName | IpaCapabilities | eSIM RSP ASN.1 | `(module, tag)` | SGP.32 v1.3 | 4.4 |
 | `92` | Allowlist counter (2-byte positive integer up to 32767) C | GPC_SPE_093-Amendment-F-SCP11 | GlobalPlatform BER-TLV | `(document, tag)` | GlobalPlatform | 7.9 |
 | `92` | Privacy timer | 31102-j50 | 3GPP / ETSI card-layer | `(document, clause, tag)` | 31102-j50 | 4.4.13.5 |
-| `93` | iconType | UpdateMetadataRequest | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v2.2.2 | 5.4.1 |
-| `93` | iconType | UpdateMetadataRequest | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v2.7 | 5.4.1 |
-| `93` | iconType | UpdateMetadataRequest | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v3.1 | 5.4.1 |
+| `93` | iconType | UpdateMetadataRequest | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v2.2.2, v2.7, v3.1 | 5.4.1 |
 | `93` | iconType | IpaCapabilities | eSIM RSP ASN.1 | `(module, tag)` | SGP.32 v1.2 | 3.5.2.3 |
 | `93` | iconType | IpaCapabilities | eSIM RSP ASN.1 | `(module, tag)` | SGP.32 v1.3 | 4.4 |
 | `93` | Certificate Serial Number | GPC_SPE_007-Amendment-A-Confidential-Card-Content-Mgmt | GlobalPlatform BER-TLV | `(document, tag)` | GlobalPlatform | 3.3.2 |
@@ -770,9 +760,7 @@ Prefer this page over the prose version for programmatic or LLM extraction.
 | `93` | Certificate Serial Number | GPC_UICC_Configuration-v1.0.1 | GlobalPlatform BER-TLV | `(document, tag)` | GlobalPlatform | 9.2.1 |
 | `93` | G PKMF address information | 31102-j50 | 3GPP / ETSI card-layer | `(document, clause, tag)` | 31102-j50 | 4.4.13.5 |
 | `94` | Collection period | 31102-j50 | 3GPP / ETSI card-layer | `(document, clause, tag)` | 31102-j50 | 4.4.13.7 |
-| `95` | profileClass | StoreMetadataRequest | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v2.2.2 | 5.5.3 |
-| `95` | profileClass | StoreMetadataRequest | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v2.7 | 5.5.3 |
-| `95` | profileClass | StoreMetadataRequest | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v3.1 | 5.5.3 |
+| `95` | profileClass | StoreMetadataRequest | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v2.2.2, v2.7, v3.1 | 5.5.3 |
 | `95` | profileClass | IpaCapabilities | eSIM RSP ASN.1 | `(module, tag)` | SGP.32 v1.2 | 3.5.2.3 |
 | `95` | profileClass | IpaCapabilities | eSIM RSP ASN.1 | `(module, tag)` | SGP.32 v1.3 | 4.4 |
 | `95` | Usage Qualifier | Control reference template ('A4') | ETSI TS 101 220 allocator | `(type, context, tag)` | ETSI TS 101 220 | 7.2 |
@@ -803,8 +791,7 @@ Prefer this page over the prose version for programmatic or LLM extraction.
 | `98` | Key Purpose Details, see section 11.1.13 | GPC_SPE_034-Card-Spec-v2.4 | GlobalPlatform BER-TLV | `(document, tag)` | GlobalPlatform | 11.11.4.2 |
 | `98` | Key Purpose Details, i.e. Protocol Configuration Identifier(s) | GPC_SPE_182-Amendment-K-SCP04-v1.0.2 | GlobalPlatform BER-TLV | `(document, tag)` | GlobalPlatform | 7.4 |
 | `98` | HPLMN 5G DDNMF address information | 31102-j50 | 3GPP / ETSI card-layer | `(document, clause, tag)` | 31102-j50 | 4.4.13.3 |
-| `99` | profilePolicyRules | UpdateMetadataRequest | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v2.2.2 | 5.4.1 |
-| `99` | profilePolicyRules | UpdateMetadataRequest | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v2.7 | 5.4.1 |
+| `99` | profilePolicyRules | UpdateMetadataRequest | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v2.2.2, v2.7 | 5.4.1 |
 | `99` | forbiddenProfilePolicyRules | EUICCInfo2 | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v3.1 | 4.2 |
 | `99` | profilePolicyRules | IpaCapabilities | eSIM RSP ASN.1 | `(module, tag)` | SGP.32 v1.2 | 3.5.2.3 |
 | `99` | profilePolicyRules | IpaCapabilities | eSIM RSP ASN.1 | `(module, tag)` | SGP.32 v1.3 | 4.4 |
@@ -831,9 +818,7 @@ Prefer this page over the prose version for programmatic or LLM extraction.
 | `9F2A` | UpdateMetadataResponse | SGP.22 v3.1 | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v3.1 | 5.4.1 |
 | `9F67` | fallbackAllowed | IpaCapabilities | eSIM RSP ASN.1 | `(module, tag)` | SGP.32 v1.2 | 3.5.2.3 |
 | `9F67` | fallbackAllowed | IpaCapabilities | eSIM RSP ASN.1 | `(module, tag)` | SGP.32 v1.3 | 4.4 |
-| `9F70` | profileState | ProfileInfoListResponse | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v2.2.2 | 5.7.15 |
-| `9F70` | profileState | ProfileInfoListResponse | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v2.7 | 5.7.15 |
-| `9F70` | profileState | ProfileInfoListResponse | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v3.1 | 5.7.15 |
+| `9F70` | profileState | ProfileInfoListResponse | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v2.2.2, v2.7, v3.1 | 5.7.15 |
 | `9F70` | profileState | IpaCapabilities | eSIM RSP ASN.1 | `(module, tag)` | SGP.32 v1.2 | 3.5.2.3 |
 | `9F70` | profileState | IpaCapabilities | eSIM RSP ASN.1 | `(module, tag)` | SGP.32 v1.3 | 4.4 |
 | `9F70` | Application Lifecycle State (always available) | GPC_SPE_025-Amendment-C-Contactless-Services | GlobalPlatform BER-TLV | `(document, tag)` | GlobalPlatform | 3.11.3.3.1 |
@@ -911,16 +896,12 @@ Prefer this page over the prose version for programmatic or LLM extraction.
 | `B6` | Control Reference Template for Digital Signature (Token) | GPC_SPE_034-Card-Spec-v2.3.0 | GlobalPlatform BER-TLV | `(document, tag)` | GlobalPlatform | 11.5.2.3.7 |
 | `B6` | Control Reference Template for Digital Signature (Token) | GPC_SPE_034-Card-Spec-v2.3.1 | GlobalPlatform BER-TLV | `(document, tag)` | GlobalPlatform | 11.5.2.3.7 |
 | `B6` | Control Reference Template | GPC_SPE_034-Card-Spec-v2.4 | GlobalPlatform BER-TLV | `(document, tag)` | GlobalPlatform | 11.2.2.3.1 |
-| `B7` | profileOwner | StoreMetadataRequest | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v2.2.2 | 5.5.3 |
-| `B7` | profileOwner | StoreMetadataRequest | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v2.7 | 5.5.3 |
-| `B7` | profileOwner | StoreMetadataRequest | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v3.1 | 5.5.3 |
+| `B7` | profileOwner | StoreMetadataRequest | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v2.2.2, v2.7, v3.1 | 5.5.3 |
 | `B7` | profileOwner | IpaCapabilities | eSIM RSP ASN.1 | `(module, tag)` | SGP.32 v1.2 | 3.5.2.3 |
 | `B7` | profileOwner | IpaCapabilities | eSIM RSP ASN.1 | `(module, tag)` | SGP.32 v1.3 | 4.4 |
 | `B7` | Key Attributes (common to all key components) | GPC_SPE_034-Card-Spec-v2.4 | GlobalPlatform BER-TLV | `(document, tag)` | GlobalPlatform | 11.11.4.2 |
 | `B7` | Key Attributes | GPC_SPE_182-Amendment-K-SCP04-v1.0.2 | GlobalPlatform BER-TLV | `(document, tag)` | GlobalPlatform | 7.1 |
-| `B8` | dpProprietaryData | ConfigureISDPRequest | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v2.2.2 | 5.5.2 |
-| `B8` | dpProprietaryData | ConfigureISDPRequest | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v2.7 | 5.5.2 |
-| `B8` | dpProprietaryData | ConfigureISDPRequest | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v3.1 | 5.5.2 |
+| `B8` | dpProprietaryData | ConfigureISDPRequest | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v2.2.2, v2.7, v3.1 | 5.5.2 |
 | `B8` | dpProprietaryData | IpaCapabilities | eSIM RSP ASN.1 | `(module, tag)` | SGP.32 v1.2 | 3.5.2.3 |
 | `B8` | dpProprietaryData | IpaCapabilities | eSIM RSP ASN.1 | `(module, tag)` | SGP.32 v1.3 | 4.4 |
 | `B8` | CRT tag (CT) | GPC_SPE_007-Amendment-A-Confidential-Card-Content-Mgmt | GlobalPlatform BER-TLV | `(document, tag)` | GlobalPlatform | 3.4.2 |
@@ -955,9 +936,7 @@ Prefer this page over the prose version for programmatic or LLM extraction.
 | `BF22` | EUICCInfo2 | SGP.22 v3.1 | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v3.1 | 4.2 |
 | `BF22` | euiccInfo2 | IpaEuiccData | eSIM RSP ASN.1 | `(module, tag)` | SGP.32 v1.2 | 6.4.1.8 |
 | `BF22` | euiccInfo2 | IpaEuiccData | eSIM RSP ASN.1 | `(module, tag)` | SGP.32 v1.3 | 2.11.2.2 |
-| `BF23` | initialiseSecureChannelRequest | BoundProfilePackage | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v2.2.2 | 2.5.4 |
-| `BF23` | initialiseSecureChannelRequest | BoundProfilePackage | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v2.7 | 2.5.4 |
-| `BF23` | initialiseSecureChannelRequest | BoundProfilePackage | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v3.1 | 2.5.4 |
+| `BF23` | initialiseSecureChannelRequest | BoundProfilePackage | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v2.2.2, v2.7, v3.1 | 2.5.4 |
 | `BF23` | StoreMetadataRequest | SGP.32 v1.3 | eSIM RSP ASN.1 | `(module, tag)` | SGP.32 v1.3 | 5.5 |
 | `BF24` | ConfigureISDPRequest | SGP.22 v2.2.2 | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v2.2.2 | 5.5.2 |
 | `BF24` | ConfigureISDPRequest | SGP.22 v2.7 | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v2.7 | 5.5.2 |
@@ -1027,18 +1006,15 @@ Prefer this page over the prose version for programmatic or LLM extraction.
 | `BF38` | AuthenticateServerResponse | SGP.32 v1.2 | eSIM RSP ASN.1 | `(module, tag)` | SGP.32 v1.2 | 3.11 |
 | `BF38` | AuthenticateServerResponse | SGP.32 v1.3 | eSIM RSP ASN.1 | `(module, tag)` | SGP.32 v1.3 | 5.14.3 |
 | `BF39` | initiateAuthenticationRequest | ProfilePolicyAuthorisationRule | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v2.2.2 | 6.6.1 |
-| `BF39` | initiateAuthenticationRequest | RemoteProfileProvisioningRequest | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v2.7 | 6.6.1 |
-| `BF39` | initiateAuthenticationRequest | RemoteProfileProvisioningRequest | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v3.1 | 6.6.1 |
+| `BF39` | initiateAuthenticationRequest | RemoteProfileProvisioningRequest | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v2.7, v3.1 | 6.6.1 |
 | `BF39` | EsipaMessageFromIpaToEim | SGP.32 v1.2 | eSIM RSP ASN.1 | `(module, tag)` | SGP.32 v1.2 | 2.1 |
 | `BF39` | EsipaMessageFromIpaToEim | SGP.32 v1.3 | eSIM RSP ASN.1 | `(module, tag)` | SGP.32 v1.3 | 6.3.1 |
 | `BF3A` | getBoundProfilePackageRequest | ProfilePolicyAuthorisationRule | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v2.2.2 | 6.6.1 |
-| `BF3A` | getBoundProfilePackageRequest | RemoteProfileProvisioningRequest | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v2.7 | 6.6.1 |
-| `BF3A` | getBoundProfilePackageRequest | RemoteProfileProvisioningRequest | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v3.1 | 6.6.1 |
+| `BF3A` | getBoundProfilePackageRequest | RemoteProfileProvisioningRequest | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v2.7, v3.1 | 6.6.1 |
 | `BF3A` | EsipaMessageFromIpaToEim | SGP.32 v1.2 | eSIM RSP ASN.1 | `(module, tag)` | SGP.32 v1.2 | 2.1 |
 | `BF3A` | EsipaMessageFromIpaToEim | SGP.32 v1.3 | eSIM RSP ASN.1 | `(module, tag)` | SGP.32 v1.3 | 6.3.1 |
 | `BF3B` | authenticateClientRequest | ProfilePolicyAuthorisationRule | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v2.2.2 | 6.6.1 |
-| `BF3B` | authenticateClientRequest | RemoteProfileProvisioningRequest | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v2.7 | 6.6.1 |
-| `BF3B` | authenticateClientRequest | RemoteProfileProvisioningRequest | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v3.1 | 6.6.1 |
+| `BF3B` | authenticateClientRequest | RemoteProfileProvisioningRequest | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v2.7, v3.1 | 6.6.1 |
 | `BF3B` | AuthenticateClientRequest | SGP.32 v1.2 | eSIM RSP ASN.1 | `(module, tag)` | SGP.32 v1.2 | 4.10 |
 | `BF3B` | AuthenticateClientRequest | SGP.32 v1.3 | eSIM RSP ASN.1 | `(module, tag)` | SGP.32 v1.3 | 5.6.1 |
 | `BF3C` | EuiccConfiguredAddressesRequest | SGP.22 v2.2.2 | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v2.2.2 | 5.7.3 |
@@ -1055,9 +1031,7 @@ Prefer this page over the prose version for programmatic or LLM extraction.
 | `BF3F` | SetDefaultDpAddressRequest | SGP.22 v2.2.2 | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v2.2.2 | 5.7.4 |
 | `BF3F` | SetDefaultDpAddressRequest | SGP.22 v2.7 | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v2.7 | 5.7.4 |
 | `BF3F` | SetDefaultDpAddressRequest | SGP.22 v3.1 | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v3.1 | 5.7.4 |
-| `BF40` | authenticateClientResponseEs11 | RemoteProfileProvisioningResponse | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v2.2.2 | 6.6.1 |
-| `BF40` | authenticateClientResponseEs11 | RemoteProfileProvisioningResponse | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v2.7 | 6.6.1 |
-| `BF40` | authenticateClientResponseEs11 | RemoteProfileProvisioningResponse | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v3.1 | 6.6.1 |
+| `BF40` | authenticateClientResponseEs11 | RemoteProfileProvisioningResponse | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v2.2.2, v2.7, v3.1 | 6.6.1 |
 | `BF41` | CancelSessionRequest | SGP.22 v2.2.2 | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v2.2.2 | 5.7.14 |
 | `BF41` | CancelSessionRequest | SGP.22 v2.7 | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v2.7 | 5.7.14 |
 | `BF41` | CancelSessionRequest | SGP.22 v3.1 | eSIM RSP ASN.1 | `(module, tag)` | SGP.22 v3.1 | 5.7.14 |
@@ -1335,5 +1309,5 @@ Prefer this page over the prose version for programmatic or LLM extraction.
 
 ## Stats
 
-- total readings: 1,293
+- total readings: 1,267
 - namespaces: 6
