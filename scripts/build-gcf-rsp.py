@@ -342,32 +342,103 @@ def search_attrs(*values):
     return esc(" ".join(str(v) for v in values if v).lower())
 
 
-def module_row(p):
+LINKS_PATH = os.path.join(ROOT, "data", "gcf-rsp-module-links.json")
+
+
+def load_links():
+    """Hand-curated vendor pages and documents, keyed "manufacturer|model".
+
+    These are researched, not harvested: GCF publishes no document links, and
+    guessing a datasheet URL produces a 404 on a public page. Only URLs that
+    scripts/check-gcf-rsp-links.py has fetched successfully belong here.
+    """
+    if not os.path.exists(LINKS_PATH):
+        return {"modules": {}}
+    with open(LINKS_PATH, encoding="utf-8") as f:
+        return json.load(f)
+
+
+def group_modules(products, links):
+    """One row per module: a module re-certified three times is one module."""
+    groups = {}
+    for p in products.values():
+        if not p.get("embedded_module"):
+            continue
+        key = f"{p['manufacturer']}|{p['model']}"
+        g = groups.get(key)
+        if g is None:
+            g = groups[key] = {"manufacturer": p["manufacturer"], "model": p["model"],
+                               "marketing": p.get("marketing", ""), "records": [],
+                               "rsp": {"sgp02_m2m": False, "sgp22_consumer": False,
+                                       "sgp32_iot": False},
+                               "euicc": {"removable": False, "non_removable": False},
+                               "bands": {}, "release": "", "vendor_url": ""}
+        g["records"].append(p)
+        # Union the flags: a later certification that adds SGP.22 must not be
+        # hidden behind the earlier row that lacked it.
+        for k in ("sgp02_m2m", "sgp22_consumer", "sgp32_iot"):
+            g["rsp"][k] = g["rsp"][k] or p.get("rsp", {}).get(k, False)
+        for k in ("removable", "non_removable"):
+            g["euicc"][k] = g["euicc"][k] or p.get("euicc", {}).get(k, False)
+        if len(p.get("bands", {})) > len(g["bands"]):
+            g["bands"] = p.get("bands", {})
+        g["release"] = g["release"] or p.get("release", "")
+        g["vendor_url"] = g["vendor_url"] or p.get("vendor_url", "")
+
+    for key, g in groups.items():
+        g["records"].sort(key=lambda p: p["certified"], reverse=True)
+        g["dates"] = [r["certified"] for r in g["records"]]
+        g["latest"] = g["dates"][0] if g["dates"] else ""
+        g["refs"] = [r["ref"] for r in g["records"]]
+        curated = links.get("modules", {}).get(key, {})
+        g["links"] = curated
+        g["vendor_url"] = curated.get("vendor_page") or g["vendor_url"]
+    return sorted(groups.values(), key=lambda g: g["latest"], reverse=True)
+
+
+def doc_cell(url, note, label="PDF"):
+    if not url:
+        return f'<td class="gcf-c gcf-na" title="{esc(note or "not published")}">—</td>'
+    return (f'<td class="gcf-c"><a href="{esc(url)}" rel="nofollow noopener" '
+            f'title="{esc(note)}">{label}</a></td>')
+
+
+def module_row(g):
     flags = []
-    rsp = p.get("rsp", {})
-    e = p.get("euicc", {})
-    if rsp.get("sgp22_consumer"):
+    if g["rsp"].get("sgp22_consumer"):
         flags.append("rsp-sgp22")
-    if rsp.get("sgp02_m2m"):
+    if g["rsp"].get("sgp02_m2m"):
         flags.append("rsp-sgp02")
-    if rsp.get("sgp32_iot"):
+    if g["rsp"].get("sgp32_iot"):
         flags.append("rsp-sgp32")
-    if e.get("non_removable"):
+    if g["euicc"].get("non_removable"):
         flags.append("euicc-soldered")
-    if e.get("removable"):
+    if g["euicc"].get("removable"):
         flags.append("euicc-removable")
-    link = (f'<a href="{esc(p["vendor_url"])}" rel="nofollow noopener">{esc(p["model"])}</a>'
-            if p.get("vendor_url") else f'<b>{esc(p["model"])}</b>')
+
+    model = f"<b>{esc(g['model'])}</b>"
+    if g["vendor_url"]:
+        model = (f'<a href="{esc(g["vendor_url"])}" rel="nofollow noopener" '
+                 f'title="{esc(g["links"].get("vendor_note", "vendor product page"))}">{esc(g["model"])}</a>')
+
+    dates = g["dates"]
+    shown = dates[0] if len(dates) == 1 else f"{dates[0]} <span class=\"gcf-multi\">+{len(dates) - 1}</span>"
+    tip = " · ".join(dates)
+    refs = ", ".join(f'<a href="{HOST}/pub_product/{esc(r)}.html" rel="noopener">{esc(r)}</a>'
+                     for r in g["refs"])
+    links = g["links"]
     return (f'<tr class="gcf-row" data-flags="{" ".join(flags)}" '
-            f'data-search="{search_attrs(p["manufacturer"], p["model"], p["marketing"], rsp_label(p))}">'
-            f'<td>{esc(p["manufacturer"])}</td>'
-            f'<td>{link}</td>'
-            f'<td class="gcf-c">{esc(rsp_label(p))}</td>'
-            f'<td class="gcf-c">{esc(euicc_label(p))}</td>'
-            f'<td class="gcf-c">{esc(band_summary(p))}</td>'
-            f'<td class="gcf-c">{esc(p.get("release") or "—")}</td>'
-            f'<td class="gcf-c">{esc(p["certified"])}</td>'
-            f'<td class="gcf-c"><a href="{esc(p["gcf_url"])}" rel="noopener">{esc(p["ref"])}</a></td>'
+            f'data-search="{search_attrs(g["manufacturer"], g["model"], g["marketing"], rsp_label(g))}">'
+            f'<td>{esc(g["manufacturer"])}</td>'
+            f'<td>{model}</td>'
+            f'<td class="gcf-c">{esc(rsp_label(g))}</td>'
+            f'<td class="gcf-c">{esc(euicc_label(g))}</td>'
+            f'<td class="gcf-c">{esc(band_summary(g))}</td>'
+            f'<td class="gcf-c">{esc(g.get("release") or "—")}</td>'
+            f'<td class="gcf-c"><span title="{esc(tip)}">{shown}</span></td>'
+            f'{doc_cell(links.get("datasheet"), links.get("datasheet_note", ""))}'
+            f'{doc_cell(links.get("at_commands"), links.get("at_note", ""))}'
+            f'<td class="gcf-c gcf-refs">{refs}</td>'
             f"</tr>")
 
 
@@ -411,13 +482,15 @@ STYLE = """
 /* The theme's content column is ~650px, which squeezes an 8-column table into
    unreadable wrapping. Break the register out of the column, and give the table
    a floor width so narrow viewports scroll instead of squashing the cells. */
-.gcf-src,.gcf-controls,.gcf-count,.gcf-wrap{position:relative;left:50%;
+.gcf-src,.gcf-controls,.gcf-count,.gcf-wrap,.gcf-legend{position:relative;left:50%;
   transform:translateX(-50%);width:min(1100px,94vw);max-width:none;box-sizing:border-box}
 table.gcf{width:100%;border-collapse:collapse;font-size:.86rem;margin:0;min-width:820px}
+table.gcf.gcf-mod{min-width:1000px}
 table.gcf th{position:sticky;top:0;background:#0d1b2a;text-align:left;padding:.55rem .6rem;
   border-bottom:1px solid #1b3a5c;color:#c8d6e5;font-weight:600;white-space:nowrap}
 table.gcf td{padding:.45rem .6rem;border-bottom:1px solid rgba(27,58,92,.55);vertical-align:top}
 table.gcf td.gcf-c{white-space:nowrap;color:#a9bed6}
+table.gcf td.gcf-refs{white-space:normal;min-width:120px}
 table.gcf tr:hover td{background:rgba(93,173,226,.06)}
 [data-theme="light"] table.gcf th{background:#eef2f7;color:#2d3748}
 [data-theme="light"] table.gcf td{border-bottom:1px solid #e2e8f0;color:#2d3748}
@@ -426,6 +499,13 @@ table.gcf tr:hover td{background:rgba(93,173,226,.06)}
 [data-theme="light"] .gcf-chip.on{background:#e3f0fa;border-color:#5dade2;color:#12405f}
 [data-theme="light"] .gcf-count{color:#5b6b7f}
 .gcf-none{padding:1rem .6rem;color:#8b9dc3}
+.gcf-multi{font-size:.72rem;color:#85c1e9;border:1px solid #1b3a5c;border-radius:6px;
+  padding:0 .28rem;margin-left:.2rem;white-space:nowrap}
+.gcf-na{color:#5a7291}
+.gcf-legend{max-width:1100px;margin:-.3rem auto 1.1rem;font-size:.84rem;color:#8b9dc3;line-height:1.5}
+[data-theme="light"] .gcf-multi{color:#1b5e8c;border-color:#c3d3e2}
+[data-theme="light"] .gcf-na{color:#8b9aa8}
+[data-theme="light"] .gcf-legend{color:#5b6b7f}
 details.gcf-more{max-width:1100px;margin:0 auto 1.6rem}
 details.gcf-more>summary{cursor:pointer;color:#85c1e9;padding:.5rem 0}
 </style>
@@ -473,15 +553,18 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
 def render_docs(products, compliance, fetched):
-    mods = sorted([p for p in products.values() if p.get("embedded_module")],
-                  key=lambda p: (-len(p.get("bands", {})), p["manufacturer"], p["model"]))
-    mods.sort(key=lambda p: p["certified"], reverse=True)
+    links = load_links()
+    mods = group_modules(products, links)
+    mods_records = sum(len(g["records"]) for g in mods)
+    docs_datasheet = sum(1 for g in mods if g["links"].get("datasheet"))
+    docs_at = sum(1 for g in mods if g["links"].get("at_commands"))
+    docs_vendor = sum(1 for g in mods if g["vendor_url"])
     certs = sorted(products.values(), key=lambda p: p["certified"], reverse=True)
     decls = sorted(compliance, key=lambda c: c["certified"], reverse=True)
 
-    sgp22 = sum(1 for p in mods if p["rsp"]["sgp22_consumer"])
-    sgp02 = sum(1 for p in mods if p["rsp"]["sgp02_m2m"])
-    soldered = sum(1 for p in mods if p["euicc"]["non_removable"])
+    sgp22 = sum(1 for g in mods if g["rsp"]["sgp22_consumer"])
+    sgp02 = sum(1 for g in mods if g["rsp"]["sgp02_m2m"])
+    soldered = sum(1 for g in mods if g["euicc"]["non_removable"])
 
     out = []
     out.append("""---
@@ -522,7 +605,8 @@ Generated by `scripts/build-gcf-rsp.py` into `data/gcf-rsp.json`; do not edit th
 ## Certified embedded modules ({len(mods)})
 
 A module appears here when GCF has certified it with an embedded eUICC — the
-filter GCF labels "embeded module only" (their spelling). {sgp22} declare consumer
+filter GCF labels "embeded module only" (their spelling). {len(mods)} distinct
+modules across {mods_records} certification records; {sgp22} declare consumer
 RSP (SGP.22), {sgp02} declare M2M RSP (SGP.02), and {soldered} declare a
 non-removable eUICC. The two are independent: a soldered eUICC can still be
 SGP.22 consumer-provisioned, which is what an MFF2 design needs.
@@ -537,21 +621,30 @@ SGP.22 consumer-provisioned, which is what an MFF2 design needs.
 <p class="gcf-count" data-gcf-count="mods">Showing <b>{len(mods)}</b> of {len(mods)} modules.</p>
 
 <div class="gcf-wrap" data-scope="mods">
-<table class="gcf">
+<table class="gcf gcf-mod">
 <thead><tr><th>Manufacturer</th><th>Module</th><th>RSP</th><th>eUICC</th>
-<th>Bands</th><th>3GPP</th><th>Certified</th><th>GCF ref</th></tr></thead>
+<th>Bands</th><th>3GPP</th><th>Certified</th><th>Datasheet</th><th>AT cmds</th><th>GCF ref</th></tr></thead>
 <tbody>
 """)
-    out.extend(module_row(p) for p in mods)
-    out.append("""</tbody></table></div>
+    out.extend(module_row(g) for g in mods)
+    out.append(f"""</tbody></table></div>
+
+<p class="gcf-legend">Module names link to the vendor's product page where one exists
+({docs_vendor} of {len(mods)}). <b>PDF</b> links point at the document wherever it
+is public — the manufacturer's own copy where one is published, otherwise a
+distributor or FCC mirror, and the tooltip names which. A dash means nothing
+public was found; hover it for the reason. {docs_datasheet} of {len(mods)} modules
+have a public datasheet, {docs_at} have a public AT command manual. Every link was
+fetched and, for PDFs, its first page read to confirm it covers that module, on {fetched}.</p>
 
 **Reading the columns.** *RSP* is the remote provisioning flavour the
 manufacturer declared in the certification declaration: `SGP.22` is consumer RSP
 (SM-DP+ / LPA), `SGP.02` is M2M RSP. A module declaring only SGP.02 cannot be
-provisioned by a consumer SM-DP+. *eUICC* is the mounting: `soldered` is a
+consumer-provisioned by an SM-DP+. *eUICC* is the mounting: `soldered` is a
 non-removable eUICC (MFF2 or integrated), `removable` is a pluggable eUICC, `both`
 means both options are declared. *Bands* counts the radio bands declared, not the
-module's full capability. Dates are the certification date GCF records.
+module's full capability. *Certified* is GCF's certification date; a `+N` suffix
+means the module was re-certified N further times — the tooltip lists every date.
 
 A module with no bands at all is usually an eUICC chip certified as a component
 rather than a modem — SIMCom's E7088 and E7080 are in this list on those terms.
@@ -629,26 +722,33 @@ the script.*
 
 
 def render_ai(products, compliance, fetched):
-    mods = sorted([p for p in products.values() if p.get("embedded_module")],
-                  key=lambda p: p["certified"], reverse=True)
+    links = load_links()
+    mods = group_modules(products, links)
     certs = sorted(products.values(), key=lambda p: p["certified"], reverse=True)
     decls = sorted(compliance, key=lambda c: c["certified"], reverse=True)
 
     out = [f"""---
 layout: default
 title: "GCF RSP Register, Condensed (machine-readable)"
-description: "One row per GCF eSIM (RSP) certification: manufacturer, model, certification date, declared RSP flavour (SGP.22 consumer / SGP.02 M2M), eUICC mounting, bands and GCF reference. Includes every RSP compliance declaration. For programmatic or LLM extraction."
+description: "One row per GCF eSIM (RSP) certified module: manufacturer, model, certification date, declared RSP flavour (SGP.22 consumer / SGP.02 M2M), eUICC mounting, bands, vendor page, datasheet and AT command manual URLs, and GCF reference. Plus every RSP certification and compliance declaration. For programmatic or LLM extraction."
 ---
 
 # GCF RSP Register, Condensed
 
-One row per record. Snapshot harvested {fetched}. Unofficial mirror of GCF's public
+Snapshot harvested {fetched}. Unofficial mirror of GCF's public
 registers: [{HOST}/gcf-certified-products/rsp-certifications.html]({HOST}/gcf-certified-products/rsp-certifications.html).
 GCF is the authority. Full page with search and filters: [GCF-certified eSIM modules]({{{{ site.baseurl }}}}/docs/gcf-rsp-modules)
 
-Columns: **Manufacturer**, **Model**, **Certified** (ISO date), **RSP** (declared
-flavours), **eUICC** (soldered / removable / both), **Bands** (declared band count
-by family), **Release** (3GPP release declared), **GCF ref**.
+Columns: **Manufacturer**, **Model**, **Certified** (ISO date of the latest
+certification), **N** (how many certification records exist for that module),
+**RSP** (declared flavours), **eUICC** (soldered / removable / both), **Bands**
+(declared band count by family), **Release** (3GPP release declared), **Vendor**
+(product page), **Datasheet**, **AT** (AT command manual), **GCF ref**.
+
+`-` in the Vendor, Datasheet or AT column means no public URL was found for that
+module; the full page carries the reason on hover. Empty is a finding, not a gap
+in the data: several modules here are ODM or automotive parts whose documents are
+NDA-only.
 
 ## Certified embedded modules ({len(mods)})
 
@@ -657,13 +757,16 @@ A module is listed here when GCF certified it with an embedded eUICC. `RSP` and
 design, not a contradiction. A row with no bands is usually an eUICC chip
 certified as a component rather than a modem.
 
-| Manufacturer | Model | Certified | RSP | eUICC | Bands | Release | GCF ref |
-|---|---|---|---|---|---|---|---|
+| Manufacturer | Model | Certified | N | RSP | eUICC | Bands | Release | Vendor | Datasheet | AT | GCF ref |
+|---|---|---|---|---|---|---|---|---|---|---|---|
 """]
-    for p in mods:
-        out.append(f"| {p['manufacturer']} | {p['model']} | {p['certified']} | {rsp_label(p)} | "
-                   f"{euicc_label(p)} | {band_summary(p).replace('·', '/')} | "
-                   f"{p.get('release') or '-'} | {p['ref']} |\n")
+    for g in mods:
+        lk = g["links"]
+        out.append(f"| {g['manufacturer']} | {g['model']} | {g['latest']} | {len(g['records'])} | "
+                   f"{rsp_label(g)} | {euicc_label(g)} | {band_summary(g).replace('·', '/')} | "
+                   f"{g.get('release') or '-'} | {lk.get('vendor_page') or g.get('vendor_url') or '-'} | "
+                   f"{lk.get('datasheet') or '-'} | {lk.get('at_commands') or '-'} | "
+                   f"{', '.join(g['refs'])} |\n")
 
     out.append(f"""
 ## All RSP product certifications ({len(products)})

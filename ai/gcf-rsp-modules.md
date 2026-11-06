@@ -1,68 +1,71 @@
 ---
 layout: default
 title: "GCF RSP Register, Condensed (machine-readable)"
-description: "One row per GCF eSIM (RSP) certification: manufacturer, model, certification date, declared RSP flavour (SGP.22 consumer / SGP.02 M2M), eUICC mounting, bands and GCF reference. Includes every RSP compliance declaration. For programmatic or LLM extraction."
+description: "One row per GCF eSIM (RSP) certified module: manufacturer, model, certification date, declared RSP flavour (SGP.22 consumer / SGP.02 M2M), eUICC mounting, bands, vendor page, datasheet and AT command manual URLs, and GCF reference. Plus every RSP certification and compliance declaration. For programmatic or LLM extraction."
 ---
 
 # GCF RSP Register, Condensed
 
-One row per record. Snapshot harvested 2026-11-06. Unofficial mirror of GCF's public
+Snapshot harvested 2026-11-06. Unofficial mirror of GCF's public
 registers: [https://www.globalcertificationforum.org/gcf-certified-products/rsp-certifications.html](https://www.globalcertificationforum.org/gcf-certified-products/rsp-certifications.html).
 GCF is the authority. Full page with search and filters: [GCF-certified eSIM modules]({{ site.baseurl }}/docs/gcf-rsp-modules)
 
-Columns: **Manufacturer**, **Model**, **Certified** (ISO date), **RSP** (declared
-flavours), **eUICC** (soldered / removable / both), **Bands** (declared band count
-by family), **Release** (3GPP release declared), **GCF ref**.
+Columns: **Manufacturer**, **Model**, **Certified** (ISO date of the latest
+certification), **N** (how many certification records exist for that module),
+**RSP** (declared flavours), **eUICC** (soldered / removable / both), **Bands**
+(declared band count by family), **Release** (3GPP release declared), **Vendor**
+(product page), **Datasheet**, **AT** (AT command manual), **GCF ref**.
 
-## Certified embedded modules (38)
+`-` in the Vendor, Datasheet or AT column means no public URL was found for that
+module; the full page carries the reason on hover. Empty is a finding, not a gap
+in the data: several modules here are ODM or automotive parts whose documents are
+NDA-only.
+
+## Certified embedded modules (34)
 
 A module is listed here when GCF certified it with an embedded eUICC. `RSP` and
 `eUICC` are independent axes: consumer RSP on a soldered eUICC is a normal MFF2
 design, not a contradiction. A row with no bands is usually an eUICC chip
 certified as a component rather than a modem.
 
-| Manufacturer | Model | Certified | RSP | eUICC | Bands | Release | GCF ref |
-|---|---|---|---|---|---|---|---|
-| Kontron Europe GmbH | AV62RCL-W | 2026-08-10 | SGP.02 | removable | LTE 15 / WCDMA 3 / GSM 4 | Rel-12 | 13910 |
-| Kontron Europe GmbH | AV62MB-W | 2026-08-10 | SGP.02 | removable | LTE 20 / WCDMA 4 / GSM 4 | Rel-12 | 13909 |
-| Kontron Europe GmbH | AV62MB-E | 2026-08-07 | SGP.02 | removable | LTE 12 / WCDMA 3 / GSM 2 | Rel-12 | 13908 |
-| SIMCom Wireless Solutions Limited | SIM7600G | 2026-07-30 | SGP.02 | removable | LTE 9 / WCDMA 2 / GSM 2 | Rel-10 | 13886 |
-| Rolling Wireless S.a.r.l. | RN941R | 2026-07-28 | SGP.02 | both | LTE 27 / WCDMA 4 / GSM 4 | Rel-10 | 13691 |
-| Rolling Wireless S.a.r.l. | RN947R | 2026-07-28 | SGP.02 | both | LTE 27 / WCDMA 4 / GSM 4 | Rel-10 | 13875 |
-| Rolling Wireless S.a.r.l. | RN941W | 2026-07-28 | SGP.02 | both | LTE 27 / WCDMA 4 / GSM 4 | Rel-10 | 13692 |
-| SIMCom Wireless Solutions Limited | SIM7600G-H | 2026-07-06 | SGP.02 | removable | LTE 9 / WCDMA 2 / GSM 2 | Rel-10 | 13870 |
-| Sierra Wireless, ULC | EM7590 | 2026-05-01 | SGP.22 | both | LTE 25 / WCDMA 6 | - | 13701 |
-| Sierra Wireless, ULC | EM7595 | 2026-05-01 | SGP.22 | both | LTE 25 / WCDMA 6 | - | 13702 |
-| Iridium Satellite LLC | 9604 | 2026-04-29 | SGP.02 | removable | — | Not Supported | 13698 |
-| LG Innotek Co., Ltd. | LTD-AN2000 | 2026-04-24 | SGP.22 + SGP.02 | both | LTE 14 / WCDMA 2 | - | 13473 |
-| Compal Electronics, Inc. | RMM-G4 | 2026-01-20 | SGP.22 | soldered | LTE 28 / WCDMA 4 | - | 13314 |
-| SIMCom Wireless Solutions Limited | E7088 | 2025-10-25 | SGP.02 | removable | — | Rel-14 | 13407 |
-| SIMCom Wireless Solutions Limited | E7080 | 2025-10-20 | SGP.02 | removable | — | Rel-14 | 13341 |
-| LG Electronics Inc | TM13LNEUJL0 | 2025-10-06 | SGP.02 | soldered | LTE 10 / WCDMA 3 / GSM 3 | Rel-8 | 13282 |
-| Rolling Wireless S.a.r.l. | RN934R | 2025-07-25 | SGP.02 | both | LTE 6 / WCDMA 2 / GSM 2 | Rel-10 | 13123 |
-| Rolling Wireless S.a.r.l. | RN937N | 2025-07-25 | SGP.02 | both | LTE 8 / WCDMA 3 | Rel-10 | 13124 |
-| Rolling Wireless S.a.r.l. | RN934V | 2025-07-25 | SGP.02 | both | LTE 10 / WCDMA 2 / GSM 2 | Rel-10 | 13125 |
-| Rolling Wireless S.a.r.l. | RN932V | 2025-07-25 | SGP.02 | both | LTE 14 | Rel-10 | 13126 |
-| Rolling Wireless S.a.r.l. | RN934N | 2025-07-23 | SGP.02 | both | LTE 6 / WCDMA 2 / GSM 2 | Rel-10 | 13122 |
-| Sierra Wireless, ULC | EM7590 | 2025-04-18 | SGP.22 | both | LTE 25 / WCDMA 6 | - | 12901 |
-| Sierra Wireless, ULC | EM7595 | 2025-04-18 | SGP.22 | both | LTE 25 / WCDMA 6 | - | 12902 |
-| LG Innotek Co., Ltd. | LTD-OA1000 | 2025-02-14 | SGP.02 | removable | LTE 8 / WCDMA 3 / GSM 3 | Rel-12 | 12732 |
-| LG Innotek Co., Ltd. | LTD-VL4000 | 2025-02-07 | SGP.02 | removable | LTE 5 | Rel-12 | 12728 |
-| LG Innotek Co., Ltd. | LTD-FA1000 | 2025-01-22 | SGP.02 | removable | LTE 9 / WCDMA 2 / GSM 2 | Rel-12 | 12683 |
-| Askey Computer Corporation | NMQ2210 | 2025-01-16 | SGP.02 | soldered | LTE 10 | - | 12685 |
-| LG Innotek Co., Ltd. | LTD-GN3000 | 2024-11-11 | SGP.02 | removable | LTE 21 / WCDMA 3 / GSM 4 | Rel-14 | 12597 |
-| LG Innotek Co., Ltd. | LTD-GN2000 | 2024-11-08 | SGP.02 | removable | LTE 11 / WCDMA 3 / GSM 2 | Rel-14 | 12581 |
-| Compal Electronics, Inc. | RMM-G1 | 2024-07-29 | SGP.22 | soldered | LTE 28 / WCDMA 5 | - | 12423 |
-| Trasna Solutions FZ-LLC | LEXI-R520 | 2024-07-18 | SGP.02 | removable | — | - | 12278 |
-| Compal Electronics, Inc. | EXM-G1A | 2024-04-18 | SGP.22 | soldered | WCDMA 6 | - | 12171 |
-| Rolling Wireless S.a.r.l. | RN934A | 2024-04-10 | SGP.02 | both | WCDMA 2 / GSM 2 | Rel-16 | 11679 |
-| Trasna Solutions FZ-LLC | SARA-R520 | 2024-03-05 | SGP.02 | removable | — | - | 11885 |
-| Trasna Solutions FZ-LLC | SARA-R520M10X | 2024-03-05 | SGP.02 | removable | — | - | 11883 |
-| Trasna Solutions FZ-LLC | SARA-R520M10 | 2024-03-05 | SGP.02 | removable | — | - | 11884 |
-| Sierra Wireless, ULC | EM7590 | 2024-02-15 | SGP.22 | both | WCDMA 6 | - | 12021 |
-| Sierra Wireless, ULC | EM7595 | 2024-02-15 | SGP.22 | both | WCDMA 6 | - | 12022 |
+| Manufacturer | Model | Certified | N | RSP | eUICC | Bands | Release | Vendor | Datasheet | AT | GCF ref |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Kontron Europe GmbH | AV62RCL-W | 2026-08-10 | 1 | SGP.02 | removable | LTE 15 / WCDMA 3 / GSM 4 | Rel-12 | - | - | - | 13910 |
+| Kontron Europe GmbH | AV62MB-W | 2026-08-10 | 1 | SGP.02 | removable | LTE 20 / WCDMA 4 / GSM 4 | Rel-12 | - | - | - | 13909 |
+| Kontron Europe GmbH | AV62MB-E | 2026-08-07 | 1 | SGP.02 | removable | LTE 12 / WCDMA 3 / GSM 2 | Rel-12 | - | - | - | 13908 |
+| SIMCom Wireless Solutions Limited | SIM7600G | 2026-07-30 | 1 | SGP.02 | removable | LTE 9 / WCDMA 2 / GSM 2 | Rel-10 | https://www.simcom.com/product/SIM7600G.html | https://www.tme.com/Document/29390ba2a617ac7afa0f581de3b295ee/SIM7600G.pdf | https://files.waveshare.com/upload/a/af/SIM7500_SIM7600_Series_AT_Command_Manual_V3.00.pdf | 13886 |
+| Rolling Wireless S.a.r.l. | RN941W | 2026-07-28 | 1 | SGP.02 | both | LTE 27 / WCDMA 4 / GSM 4 | Rel-10 | https://www.rollingwireless.com/en/solutions/5g-solutions/rn93xx-rn94xx | - | - | 13692 |
+| Rolling Wireless S.a.r.l. | RN941R | 2026-07-28 | 1 | SGP.02 | both | LTE 27 / WCDMA 4 / GSM 4 | Rel-10 | https://www.rollingwireless.com/en/solutions/5g-solutions/rn93xx-rn94xx | - | - | 13691 |
+| Rolling Wireless S.a.r.l. | RN947R | 2026-07-28 | 1 | SGP.02 | both | LTE 27 / WCDMA 4 / GSM 4 | Rel-10 | https://www.rollingwireless.com/en/solutions/5g-solutions/rn93xx-rn94xx | - | - | 13875 |
+| SIMCom Wireless Solutions Limited | SIM7600G-H | 2026-07-06 | 1 | SGP.02 | removable | LTE 9 / WCDMA 2 / GSM 2 | Rel-10 | https://www.simcom.com/product/SIM7600G-H.html | https://files.waveshare.com/upload/a/a0/SIM7600G-H_SPEC_EN_20190731.pdf | https://files.waveshare.com/upload/a/af/SIM7500_SIM7600_Series_AT_Command_Manual_V3.00.pdf | 13870 |
+| Sierra Wireless, ULC | EM7590 | 2026-05-01 | 3 | SGP.22 | both | LTE 25 / WCDMA 6 | - | https://www.sierrawireless.com/iot-modules/4g-modules/em7590/ | https://static.onlogic.com/resources/manuals/41114425%20EM759X%20Product%20Technical%20Specification%20r9.pdf | https://www.bipom.com/documents/sierra/41111748%20AirPrime%20EM75XX%20AT%20Command%20Reference%20r2.pdf | 13701, 12901, 12021 |
+| Sierra Wireless, ULC | EM7595 | 2026-05-01 | 3 | SGP.22 | both | LTE 25 / WCDMA 6 | - | https://www.sierrawireless.com/iot-modules/4g-modules/em7595/ | https://static.onlogic.com/resources/manuals/41114425%20EM759X%20Product%20Technical%20Specification%20r9.pdf | https://www.bipom.com/documents/sierra/41111748%20AirPrime%20EM75XX%20AT%20Command%20Reference%20r2.pdf | 13702, 12902, 12022 |
+| Iridium Satellite LLC | 9604 | 2026-04-29 | 1 | SGP.02 | removable | — | Not Supported | https://www.iridium.com/9604 | https://www.groundcontrol.com/wp-content/uploads/2026/07/Iridium-9604-Data-Sheet.pdf | - | 13698 |
+| LG Innotek Co., Ltd. | LTD-AN2000 | 2026-04-24 | 1 | SGP.22 + SGP.02 | both | LTE 14 / WCDMA 2 | - | - | - | - | 13473 |
+| Compal Electronics, Inc. | RMM-G4 | 2026-01-20 | 1 | SGP.22 | soldered | LTE 28 / WCDMA 4 | - | https://www.compal.com/5g/ | - | - | 13314 |
+| SIMCom Wireless Solutions Limited | E7088 | 2025-10-25 | 1 | SGP.02 | removable | — | Rel-14 | - | - | - | 13407 |
+| SIMCom Wireless Solutions Limited | E7080 | 2025-10-20 | 1 | SGP.02 | removable | — | Rel-14 | https://www.simcom.com/product/E7080.html | - | - | 13341 |
+| LG Electronics Inc | TM13LNEUJL0 | 2025-10-06 | 1 | SGP.02 | soldered | LTE 10 / WCDMA 3 / GSM 3 | Rel-8 | - | - | - | 13282 |
+| Rolling Wireless S.a.r.l. | RN934R | 2025-07-25 | 1 | SGP.02 | both | LTE 6 / WCDMA 2 / GSM 2 | Rel-10 | https://www.rollingwireless.com/en/solutions/5g-solutions/rn93xx-rn94xx | - | - | 13123 |
+| Rolling Wireless S.a.r.l. | RN937N | 2025-07-25 | 1 | SGP.02 | both | LTE 8 / WCDMA 3 | Rel-10 | https://www.rollingwireless.com/en/solutions/5g-solutions/rn93xx-rn94xx | - | - | 13124 |
+| Rolling Wireless S.a.r.l. | RN934V | 2025-07-25 | 1 | SGP.02 | both | LTE 10 / WCDMA 2 / GSM 2 | Rel-10 | https://www.rollingwireless.com/en/solutions/5g-solutions/rn93xx-rn94xx | - | - | 13125 |
+| Rolling Wireless S.a.r.l. | RN932V | 2025-07-25 | 1 | SGP.02 | both | LTE 14 | Rel-10 | https://www.rollingwireless.com/en/solutions/5g-solutions/rn93xx-rn94xx | - | - | 13126 |
+| Rolling Wireless S.a.r.l. | RN934N | 2025-07-23 | 1 | SGP.02 | both | LTE 6 / WCDMA 2 / GSM 2 | Rel-10 | https://www.rollingwireless.com/en/solutions/5g-solutions/rn93xx-rn94xx | - | - | 13122 |
+| LG Innotek Co., Ltd. | LTD-OA1000 | 2025-02-14 | 1 | SGP.02 | removable | LTE 8 / WCDMA 3 / GSM 3 | Rel-12 | - | - | - | 12732 |
+| LG Innotek Co., Ltd. | LTD-VL4000 | 2025-02-07 | 1 | SGP.02 | removable | LTE 5 | Rel-12 | - | - | - | 12728 |
+| LG Innotek Co., Ltd. | LTD-FA1000 | 2025-01-22 | 1 | SGP.02 | removable | LTE 9 / WCDMA 2 / GSM 2 | Rel-12 | - | - | - | 12683 |
+| Askey Computer Corporation | NMQ2210 | 2025-01-16 | 1 | SGP.02 | soldered | LTE 10 | - | - | - | - | 12685 |
+| LG Innotek Co., Ltd. | LTD-GN3000 | 2024-11-11 | 1 | SGP.02 | removable | LTE 21 / WCDMA 3 / GSM 4 | Rel-14 | - | - | - | 12597 |
+| LG Innotek Co., Ltd. | LTD-GN2000 | 2024-11-08 | 1 | SGP.02 | removable | LTE 11 / WCDMA 3 / GSM 2 | Rel-14 | - | - | - | 12581 |
+| Compal Electronics, Inc. | RMM-G1 | 2024-07-29 | 1 | SGP.22 | soldered | LTE 28 / WCDMA 5 | - | https://www.compal.com/5g/ | https://fccid.io/GKRRMMG1/User-Manual/RMM-G1-User-Manual-20240712-7473455.pdf | - | 12423 |
+| Trasna Solutions FZ-LLC | LEXI-R520 | 2024-07-18 | 1 | SGP.02 | removable | — | - | https://trasna.io/product/lexi-r520-cellular-iot-module | https://cdn.prod.website-files.com/66db0a16ec359c496fe320da/684c3eaf14d43bd68cc5b8dd_LEXI-R520%20data%20sheet.pdf | https://download.mikroe.com/documents/datasheets/SARA-R5-LEXI-R5_AT_Commands.pdf | 12278 |
+| Compal Electronics, Inc. | EXM-G1A | 2024-04-18 | 1 | SGP.22 | soldered | WCDMA 6 | - | https://www.compal.com/5g/ | - | - | 12171 |
+| Rolling Wireless S.a.r.l. | RN934A | 2024-04-10 | 1 | SGP.02 | both | WCDMA 2 / GSM 2 | Rel-16 | https://www.rollingwireless.com/en/solutions/5g-solutions/rn93xx-rn94xx | - | - | 11679 |
+| Trasna Solutions FZ-LLC | SARA-R520M10 | 2024-03-05 | 1 | SGP.02 | removable | — | - | https://trasna.io/product/sara-r52-cellular-iot-module | https://cdn.prod.website-files.com/66db0a16ec359c496fe320da/684c3ec9df6101c95f51cd4b_SARA-R52%20data%20sheet.pdf | https://download.mikroe.com/documents/datasheets/SARA-R5-LEXI-R5_AT_Commands.pdf | 11884 |
+| Trasna Solutions FZ-LLC | SARA-R520 | 2024-03-05 | 1 | SGP.02 | removable | — | - | https://trasna.io/product/sara-r52-cellular-iot-module | https://cdn.prod.website-files.com/66db0a16ec359c496fe320da/684c3ec9df6101c95f51cd4b_SARA-R52%20data%20sheet.pdf | https://download.mikroe.com/documents/datasheets/SARA-R5-LEXI-R5_AT_Commands.pdf | 11885 |
+| Trasna Solutions FZ-LLC | SARA-R520M10X | 2024-03-05 | 1 | SGP.02 | removable | — | - | https://trasna.io/product/sara-r52-cellular-iot-module | https://cdn.prod.website-files.com/66db0a16ec359c496fe320da/684c3ec9df6101c95f51cd4b_SARA-R52%20data%20sheet.pdf | https://download.mikroe.com/documents/datasheets/SARA-R5-LEXI-R5_AT_Commands.pdf | 11883 |
 
-## All RSP product certifications (604)
+## All RSP product certifications (606)
 
 Every product in GCF's eSIM (RSP) certification register.
 
@@ -81,14 +84,14 @@ Every product in GCF's eSIM (RSP) certification register.
 | Huawei Technologies Co., Ltd. | LEB-AL00 | HUAWEI WATCH 6 | 2026-09-09 | SGP.22 | soldered | 14032 |
 | Motorola Mobility LLC | XT2651V | XT2651V | 2026-09-04 | SGP.22 | soldered | 14026 |
 | WNC Corporation | TELE2 | TELE2 | 2026-09-04 | SGP.02 | soldered | 14020 |
+| vivo Mobile Communication Co., Ltd. | V2622 | X500 Pro | 2026-09-02 | SGP.22 | soldered | 14003 |
 | vivo Mobile Communication Co., Ltd. | V2559 | X Fold6 | 2026-09-02 | SGP.22 | soldered | 14001 |
 | vivo Mobile Communication Co., Ltd. | V2621 | X500 Pro | 2026-09-02 | SGP.22 | soldered | 14002 |
-| vivo Mobile Communication Co., Ltd. | V2622 | X500 Pro | 2026-09-02 | SGP.22 | soldered | 14003 |
 | Honor Device Co Ltd | BSN-NX1M | HONOR Magic9 Lite+ | 2026-08-28 | SGP.22 | soldered | 13995 |
 | LG Electronics Inc | TFVWAIBG1F8 | TFVWAIBG1F8 | 2026-08-24 | SGP.02 | soldered | 13986 |
 | LG Electronics Inc | TFVWAIBG1FP | TFVWAIBG1FP | 2026-08-24 | SGP.02 | soldered | 13987 |
-| vivo Mobile Communication Co., Ltd. | V2637 | V70 Lite 5G | 2026-08-21 | SGP.22 | soldered | 13975 |
 | vivo Mobile Communication Co., Ltd. | V2615 | V70 Lite 5G | 2026-08-21 | SGP.22 | soldered | 13976 |
+| vivo Mobile Communication Co., Ltd. | V2637 | V70 Lite 5G | 2026-08-21 | SGP.22 | soldered | 13975 |
 | vivo Mobile Communication Co., Ltd. | V2610 | X500 Pro Max | 2026-08-20 | SGP.22 | soldered | 13970 |
 | Plaud Inc. | PB0100 | Plaud One | 2026-08-19 | SGP.22 | not declared | 13966 |
 | Kontron Europe GmbH | AV62RCL-W | Kontron AV62RCL-W | 2026-08-10 | SGP.02 | removable | 13910 |
@@ -97,30 +100,30 @@ Every product in GCF's eSIM (RSP) certification register.
 | LG Electronics Inc | TFVWAIBG1F9 | TFVWAIBG1F9 | 2026-08-07 | SGP.02 | soldered | 13920 |
 | Kontron Europe GmbH | AV62MB-E | Kontron AV62MB-E | 2026-08-07 | SGP.02 | removable | 13908 |
 | LG Electronics Inc | TFVWAIBG1FO | TFVWAIBG1FO | 2026-08-06 | SGP.02 | soldered | 13913 |
+| Motorola Mobility LLC | XT2625-14(Type Name MC467) | XT2625-14 | 2026-08-04 | SGP.22 | soldered | 13903 |
+| Motorola Mobility LLC | XT2625-13 | XT2625-13 | 2026-08-04 | SGP.22 | soldered | 13899 |
 | Datalogic S.r.l. | CMFSNRTYPE051AC65X22GN2ANWRD | FALCON X65 | 2026-08-04 | SGP.22 | soldered | 13897 |
 | Datalogic S.r.l. | CMFSNRTYPE051AC65AW2GS2ANWRD | FALCON X65 | 2026-08-04 | SGP.22 | soldered | 13894 |
 | Datalogic S.r.l. | CMFSNRTYPE051AC65AW2GN2ANWRD | FALCON X65 | 2026-08-04 | SGP.22 | soldered | 13896 |
 | Datalogic S.r.l. | CMFSNR | FALCON X65 | 2026-08-04 | SGP.22 | soldered | 13898 |
 | Motorola Mobility LLC | XT2659V | XT2659V | 2026-08-04 | SGP.22 | soldered | 13904 |
 | Datalogic S.r.l. | CMFSNRTYPE051AC65X22GF2ANWRD | FALCON X65 | 2026-08-04 | SGP.22 | soldered | 13895 |
-| Motorola Mobility LLC | XT2625-14(Type Name MC467) | XT2625-14 | 2026-08-04 | SGP.22 | soldered | 13903 |
-| Motorola Mobility LLC | XT2625-13 | XT2625-13 | 2026-08-04 | SGP.22 | soldered | 13899 |
-| Motorola Mobility LLC | XT2647-4 (Type Name AC46A) | XT2647-4 | 2026-08-03 | SGP.22 | soldered | 13863 |
 | Motorola Mobility LLC | XT2647-1 | XT2647-1 | 2026-08-03 | SGP.22 | soldered | 13890 |
 | Motorola Mobility LLC | XT2647V | XT2647V | 2026-08-03 | SGP.22 | soldered | 13892 |
+| Motorola Mobility LLC | XT2647-4 (Type Name AC46A) | XT2647-4 | 2026-08-03 | SGP.22 | soldered | 13863 |
+| TCL Communication Ltd | T952K | T952K | 2026-07-30 | SGP.22 | soldered | 13885 |
 | SIMCom Wireless Solutions Limited | SIM7600G | SIM7600G | 2026-07-30 | SGP.02 | removable | 13886 |
 | TCL Communication Ltd | T852K | T852K | 2026-07-30 | SGP.22 | soldered | 13872 |
-| TCL Communication Ltd | T952K | T952K | 2026-07-30 | SGP.22 | soldered | 13885 |
+| Rolling Wireless S.a.r.l. | RN941W | RN941W | 2026-07-28 | SGP.02 | both | 13692 |
 | Rolling Wireless S.a.r.l. | RN941R | RN941R | 2026-07-28 | SGP.02 | both | 13691 |
 | Rolling Wireless S.a.r.l. | RN947R | RN947R | 2026-07-28 | SGP.02 | both | 13875 |
-| Rolling Wireless S.a.r.l. | RN941W | RN941W | 2026-07-28 | SGP.02 | both | 13692 |
 | TCL Communication Ltd | T853K | T853K | 2026-07-24 | SGP.22 | soldered | 13840 |
 | TCL Communication Ltd | MT48EX | MT48EX | 2026-07-21 | SGP.22 | soldered | 13871 |
 | Datalogic S.r.l. | CMFQNR | SKORPIO X45 | 2026-07-17 | SGP.22 | soldered | 13788 |
-| Samsung Electronics Co Ltd | SM-X846E | SM-X846E | 2026-07-15 | SGP.22 | soldered | 13860 |
 | Samsung Electronics Co Ltd | SM-X846B | SM-X846B | 2026-07-15 | SGP.22 | soldered | 13859 |
 | Samsung Electronics Co Ltd | SM-X946B | SM-X946B | 2026-07-15 | SGP.22 | soldered | 13858 |
 | Datalogic S.r.l. | CMFSNRTYPE051AC65X22GF2ANWLC | FALCON X65 | 2026-07-15 | SGP.22 | soldered | 13805 |
+| Samsung Electronics Co Ltd | SM-X846E | SM-X846E | 2026-07-15 | SGP.22 | soldered | 13860 |
 | Samsung Electronics Co Ltd | SM-S741B/DS, SM-S741B | SM-S741B/DS, SM-S741B | 2026-07-14 | SGP.22 | soldered | 13854 |
 | Xiaomi Communications | 2609FRA74T | REDMI Note 17 Pro Max 5G | 2026-07-06 | SGP.22 | soldered | 13836 |
 | SIMCom Wireless Solutions Limited | SIM7600G-H | SIM7600G-H | 2026-07-06 | SGP.02 | removable | 13870 |
@@ -129,78 +132,78 @@ Every product in GCF's eSIM (RSP) certification register.
 | Realme Chongqing Mobile Telecommunications Corporation Ltd. | RMX5171 | realme 16 5G | 2026-07-01 | SGP.22 | soldered | 13817 |
 | Xiaomi Communications | 2607DRA18T | REDMI Note 17 Pro 5G | 2026-06-26 | SGP.22 | soldered | 13810 |
 | Microsoft Corporation | 2150 | Surface 2-in-1 | 2026-06-25 | SGP.22 | soldered | 13802 |
-| Google LLC | GBC0H | GBC0H | 2026-06-23 | SGP.22 | both | 13790 |
-| Google LLC | GPQQ7 | GPQQ7 | 2026-06-23 | SGP.22 | both | 13794 |
 | Google LLC | GM45K | GM45K | 2026-06-23 | SGP.22 | both | 13797 |
 | Google LLC | G4HCD | G4HCD | 2026-06-23 | SGP.22 | both | 13796 |
 | Google LLC | G7SWN | G7SWN | 2026-06-23 | SGP.22 | both | 13792 |
 | Google LLC | GZDQ6 | GZDQ6 | 2026-06-23 | SGP.22 | both | 13799 |
 | Google LLC | GUJ0N | GUJ0N | 2026-06-23 | SGP.22 | both | 13798 |
-| Google LLC | G25QD | G25QD | 2026-06-19 | SGP.22 | soldered | 13780 |
+| Google LLC | GBC0H | GBC0H | 2026-06-23 | SGP.22 | both | 13790 |
+| Google LLC | GPQQ7 | GPQQ7 | 2026-06-23 | SGP.22 | both | 13794 |
 | Google LLC | G0F3Y | G0F3Y | 2026-06-19 | SGP.22 | soldered | 13782 |
+| Google LLC | G25QD | G25QD | 2026-06-19 | SGP.22 | soldered | 13780 |
 | Xiaomi Communications | 2607DRA18G | REDMI Note 17 Pro 5G | 2026-06-17 | SGP.22 | soldered | 13785 |
+| Samsung Electronics Co Ltd | SM-L345F | SM-L345F | 2026-06-05 | SGP.22 | soldered | 13770 |
 | Samsung Electronics Co Ltd | SM-L715F | SM-L715F | 2026-06-05 | SGP.22 | soldered | 13768 |
 | Samsung Electronics Co Ltd | SM-L355F | SM-L355F | 2026-06-05 | SGP.22 | soldered | 13769 |
-| Samsung Electronics Co Ltd | SM-L345F | SM-L345F | 2026-06-05 | SGP.22 | soldered | 13770 |
+| Samsung Electronics Co Ltd | SM-F971B | SM-F971B | 2026-05-28 | SGP.22 | soldered | 13747 |
 | Samsung Electronics Co Ltd | SM-F976B | SM-F976B | 2026-05-28 | SGP.22 | soldered | 13746 |
 | Samsung Electronics Co Ltd | SM-F776B | SM-F776B | 2026-05-28 | SGP.22 | soldered | 13749 |
-| Samsung Electronics Co Ltd | SM-F971B | SM-F971B | 2026-05-28 | SGP.22 | soldered | 13747 |
 | Zebra Technologies Corporation | TCW01G | TC201, HC201, HC501 | 2026-05-08 | SGP.22 | both | 13706 |
 | Sierra Wireless, ULC | EM7590 | Sierra Wireless EM7590 | 2026-05-01 | SGP.22 | both | 13701 |
 | Sierra Wireless, ULC | EM7595 | Sierra Wireless EM7595 | 2026-05-01 | SGP.22 | both | 13702 |
 | Iridium Satellite LLC | 9604 | Iridium 9604 | 2026-04-29 | SGP.02 | removable | 13698 |
-| Motorola Mobility LLC | XT2609V | XT2609V | 2026-04-24 | SGP.22 | soldered | 13690 |
 | Motorola Mobility LLC | XT2609-1 | XT2609-1 | 2026-04-24 | SGP.22 | soldered | 13689 |
 | LG Innotek Co., Ltd. | LTD-AN2000 | LTD-AN2000 | 2026-04-24 | SGP.22 + SGP.02 | both | 13473 |
+| Motorola Mobility LLC | XT2609V | XT2609V | 2026-04-24 | SGP.22 | soldered | 13690 |
 | Zebra Technologies Corporation | TC101B | TC101 | 2026-04-22 | SGP.22 | removable | 13686 |
-| Motorola Mobility LLC | XT2659-3 (type Name MC468) | XT2659-3 | 2026-04-16 | SGP.22 | soldered | 13677 |
 | Motorola Mobility LLC | XT2659-1 | XT2659-1 | 2026-04-16 | SGP.22 | soldered | 13674 |
 | Motorola Mobility LLC | XT2651-2 | XT2651-2 | 2026-04-16 | SGP.22 | soldered | 13678 |
+| Motorola Mobility LLC | XT2659-3 (type Name MC468) | XT2659-3 | 2026-04-16 | SGP.22 | soldered | 13677 |
 | Lenovo Mobile Communication Technology Co Ltd | TB353ZU | ThinkTab X11 Gen 1 | 2026-04-07 | SGP.22 | soldered | 13658 |
 | Motorola Mobility LLC | XT2625-3, XT2625-3 [DS] (Type Name MC467) | XT2625-3 | 2026-04-01 | SGP.22 | soldered | 13650 |
-| vivo Mobile Communication Co., Ltd. | V2562 | X300 Ultra | 2026-04-01 | SGP.22 | soldered | 13644 |
 | vivo Mobile Communication Co., Ltd. | V2540 | V70 | 2026-04-01 | SGP.22 | soldered | 13649 |
+| vivo Mobile Communication Co., Ltd. | V2538 | V70 | 2026-04-01 | SGP.22 | soldered | 13648 |
 | HMD Global Oy | TA-1722 | HMD Terra M | 2026-03-31 | SGP.22 | soldered | 13640 |
 | HMD Global Oy | TA-1719 | HMD Terra M | 2026-03-31 | SGP.22 | soldered | 13639 |
 | Motorola Mobility LLC | XT2625-4, XT2625-4 [DS] (Type Name MC466) | XT2625-4 | 2026-03-25 | SGP.22 | soldered | 13638 |
 | Motorola Mobility LLC | XT2625-1 | XT2625-1 | 2026-03-25 | SGP.22 | soldered | 13636 |
 | i.safe MOBILE GmbH | M945A01 | IS945.x | 2026-03-23 | SGP.22 | soldered | 13628 |
-| Motorola Mobility LLC | XT2651-1 (Type Name MC458) | XT2651-1 | 2026-03-20 | SGP.22 | soldered | 13626 |
 | Motorola Mobility LLC | XT2607-1 (Type Name MC465) | XT2607-1 | 2026-03-20 | SGP.22 | soldered | 13625 |
+| Motorola Mobility LLC | XT2651-1 (Type Name MC458) | XT2651-1 | 2026-03-20 | SGP.22 | soldered | 13626 |
 | LG Electronics Inc | TFVWAIBE1FA | TFVWAIBE1FA | 2026-03-19 | SGP.02 | soldered | 13592 |
 | LG Electronics Inc | TFVWAIBG1FE | TFVWAIBG1FE | 2026-03-18 | SGP.02 | soldered | 13572 |
 | Motorola Mobility LLC | XT2621-5 | XT2621-5 | 2026-03-16 | SGP.22 | soldered | 13621 |
 | Motorola Mobility LLC | XT2621-6 (Type Name MC462) | XT2621-6 | 2026-03-16 | SGP.22 | soldered | 13620 |
 | Sony Corporation | PM-1520-BV | XQ-GE54 | 2026-03-16 | SGP.22 | soldered | 13617 |
 | Ubiquiti Inc. | U5G | UniFi 5G Backup | 2026-03-13 | SGP.22 | soldered | 13576 |
-| Motorola Mobility LLC | XT2657-3 | XT2657-3 | 2026-03-12 | SGP.22 | soldered | 13585 |
-| Motorola Mobility LLC | XT2657V | XT2657V | 2026-03-12 | SGP.22 | soldered | 13613 |
 | Honor Device Co Ltd | PNM-N49 | HONOR Magic V6 | 2026-03-12 | SGP.22 | soldered | 13606 |
 | Xiaomi Communications | 2602EPTC0G | Xiaomi 17T Pro | 2026-03-12 | SGP.22 | soldered | 13611 |
+| Motorola Mobility LLC | XT2657-3 | XT2657-3 | 2026-03-12 | SGP.22 | soldered | 13585 |
+| Motorola Mobility LLC | XT2657V | XT2657V | 2026-03-12 | SGP.22 | soldered | 13613 |
 | Motorola Mobility LLC | XT2655-1 (Type Name MC45E) | XT2655-1 | 2026-03-11 | SGP.22 | soldered | 13610 |
 | Motorola Mobility LLC | XT2655-2 | XT2655-2 | 2026-03-11 | SGP.22 | soldered | 13588 |
 | Xiaomi Communications | 2602DPT53G | Xiaomi 17T | 2026-03-11 | SGP.22 | soldered | 13605 |
 | Nothing Technology Ltd | A069P | NOTHING Phone (4a) Pro | 2026-03-06 | SGP.22 | soldered | 13569 |
-| vivo Mobile Communication Co., Ltd. | V2537 | X300 FE | 2026-03-03 | SGP.22 | soldered | 13598 |
 | vivo Mobile Communication Co., Ltd. | V2542 | X300 FE | 2026-03-03 | SGP.22 | soldered | 13599 |
+| vivo Mobile Communication Co., Ltd. | V2537 | X300 FE | 2026-03-03 | SGP.22 | soldered | 13598 |
 | LG Electronics Inc | TFVWAIBG1FF | TFVWAIBG1FF | 2026-02-28 | SGP.02 | soldered | 13539 |
-| Honor Device Co Ltd | VKJ-NX9 | HONOR 600 | 2026-02-27 | SGP.22 | soldered | 13591 |
 | Honor Device Co Ltd | VKP-NX9 | HONOR 600 Pro | 2026-02-27 | SGP.22 | soldered | 13590 |
+| Honor Device Co Ltd | VKJ-NX9 | HONOR 600 | 2026-02-27 | SGP.22 | soldered | 13591 |
 | Motorola Mobility LLC | XT2657-1 (Type name MC641) | XT2657-1 | 2026-02-23 | SGP.22 | soldered | 13587 |
 | Honeywell International Inc | CT70-X1 | CT70-X1, CT70 | 2026-02-12 | SGP.22 | soldered | 13553 |
 | Zebra Technologies Corporation | TCX01G | TC501, TC701 | 2026-02-01 | SGP.22 | both | 13557 |
-| TCL Communication Ltd | T523V | T523V | 2026-01-30 | SGP.22 | soldered | 13554 |
 | TCL Communication Ltd | T523SP | T523SP | 2026-01-30 | SGP.22 | soldered | 13555 |
-| Motorola Mobility LLC | XT2619V | XT2619V | 2026-01-28 | SGP.22 | soldered | 13550 |
+| TCL Communication Ltd | T523V | T523V | 2026-01-30 | SGP.22 | soldered | 13554 |
 | Motorola Mobility LLC | XT2619-1 | XT2619-1 | 2026-01-28 | SGP.22 | soldered | 13549 |
+| Motorola Mobility LLC | XT2619V | XT2619V | 2026-01-28 | SGP.22 | soldered | 13550 |
 | Compal Electronics, Inc. | RMM-G4 | RMM-G4 | 2026-01-20 | SGP.22 | soldered | 13314 |
 | Power Idea Technology (Shenzhen) Co., Ltd. | PTHA02G | RG940 | 2026-01-19 | SGP.22 | soldered | 13536 |
 | Samsung Electronics Co Ltd | SM-A576B/DS, SM-A576B | SM-A576B/DS, SM-A576B | 2026-01-15 | SGP.22 | soldered | 13529 |
+| Motorola Mobility LLC | XT2605-2 (Type Name MC464) | XT2605-2 | 2026-01-13 | SGP.22 | soldered | 13527 |
 | Honor Device Co Ltd | LNA-NX1 | HONOR 600 Lite | 2026-01-13 | SGP.22 | soldered | 13518 |
 | Motorola Mobility LLC | XT2605-3 | XT2605-3 | 2026-01-13 | SGP.22 | soldered | 13524 |
 | Motorola Mobility LLC | XT2605-1 (Type Name MC463) | XT2605-1 | 2026-01-13 | SGP.22 | soldered | 13525 |
 | Motorola Mobility LLC | XT2605-5 | XT2605-5 | 2026-01-13 | SGP.22 | soldered | 13526 |
-| Motorola Mobility LLC | XT2605-2 (Type Name MC464) | XT2605-2 | 2026-01-13 | SGP.22 | soldered | 13527 |
 | Samsung Electronics Co Ltd | SM-A376B/DS, SM-A376B | SM-A376B/DS, SM-A376B | 2026-01-12 | SGP.22 | soldered | 13519 |
 | vivo Mobile Communication Co., Ltd. | V2533 | Y31e 5G | 2026-01-08 | SGP.22 | soldered | 13517 |
 | TCL Communication Ltd | T807M | T807M | 2026-01-06 | SGP.22 | soldered | 13509 |
@@ -208,10 +211,10 @@ Every product in GCF's eSIM (RSP) certification register.
 | vivo Mobile Communication Co., Ltd. | V2550 | V70 FE | 2026-01-04 | SGP.22 | soldered | 13503 |
 | Samsung Electronics Co Ltd | SM-S947B/DS, SM-S947B | SM-S947B/DS, SM-S947B | 2025-12-29 | SGP.22 | soldered | 13493 |
 | Samsung Electronics Co Ltd | SM-S942B/DS, SM-S942B | SM-S942B/DS, SM-S942B | 2025-12-29 | SGP.22 | soldered | 13494 |
-| Motorola Mobility LLC | XT2621-1 | XT2621-1 | 2025-12-19 | SGP.22 | soldered | 13488 |
 | Motorola Mobility LLC | XT2621-3 | XT2621-3 | 2025-12-19 | SGP.22 | soldered | 13487 |
 | Motorola Mobility LLC | XT2621-4 (Type Name MC457) | XT2621-4 | 2025-12-19 | SGP.22 | soldered | 13465 |
 | Motorola Mobility LLC | XT2621-2 (Type Name MC456) | XT2621-2 | 2025-12-19 | SGP.22 | soldered | 13486 |
+| Motorola Mobility LLC | XT2621-1 | XT2621-1 | 2025-12-19 | SGP.22 | soldered | 13488 |
 | Motorola Mobility LLC | XT2603-2 (Type Name MC452) | XT2603-2 | 2025-12-17 | SGP.22 | soldered | 13464 |
 | Zebra Technologies Corporation | ET401EB | ET401 | 2025-12-10 | SGP.22 | both | 13453 |
 | Zebra Technologies Corporation | ET401EA | ET401 | 2025-12-10 | SGP.22 | both | 13452 |
@@ -221,22 +224,22 @@ Every product in GCF's eSIM (RSP) certification register.
 | HAND HELD PRODUCTS, INC. | CT70-X1 | CT70-X1, CT70 | 2025-11-28 | SGP.22 | soldered | 13417 |
 | Askey Computer Corporation | RC40 | RC40 | 2025-11-28 | SGP.22 | soldered | 13413 |
 | Xiaomi Communications | 2512BPNDAG | Xiaomi 17 Ultra | 2025-11-25 | SGP.22 | soldered | 13425 |
-| Motorola Mobility LLC | XT2537-5 (Type name MC454) | XT2537-5 | 2025-11-14 | SGP.22 | soldered | 13395 |
 | Motorola Mobility LLC | XT2537-2 (Type name MC453) | XT2537-2 | 2025-11-14 | SGP.22 | soldered | 13396 |
+| Motorola Mobility LLC | XT2537-5 (Type name MC454) | XT2537-5 | 2025-11-14 | SGP.22 | soldered | 13395 |
 | TCL Communication Ltd | T513G | T513G | 2025-11-13 | SGP.22 | soldered | 13402 |
 | TCL Communication Ltd | T807D | T807D | 2025-11-12 | SGP.22 | soldered | 13400 |
 | Huawei Technologies Co., Ltd. | E5786-336 | Speedport-Ersatz-WLAN(SEW)Box | 2025-11-06 | SGP.22 | soldered | 13380 |
-| Motorola Mobility LLC | XT2617V | XT2617V | 2025-10-31 | SGP.22 | soldered | 13377 |
 | Brain Technologies, Inc | BGX5 | Natural AI Phone | 2025-10-31 | SGP.22 | soldered | 13372 |
 | Motorola Mobility LLC | XT2617-1 | XT2617-1 | 2025-10-31 | SGP.22 | soldered | 13376 |
+| Motorola Mobility LLC | XT2617V | XT2617V | 2025-10-31 | SGP.22 | soldered | 13377 |
 | vivo Mobile Communication Co., Ltd. | V2521 | Y31 5G | 2025-10-30 | SGP.22 | soldered | 13375 |
 | Google LLC | GE1GQ | GE1GQ | 2025-10-27 | SGP.22 | both | 13352 |
 | Google LLC | G4H7L | G4H7L | 2025-10-27 | SGP.22 | both | 13353 |
 | SIMCom Wireless Solutions Limited | E7088 | E7088 | 2025-10-25 | SGP.02 | removable | 13407 |
 | SIMCom Wireless Solutions Limited | E7080 | E7080 | 2025-10-20 | SGP.02 | removable | 13341 |
-| Motorola Mobility LLC | XT2601-2 (Type name MC44F) | XT2601-2 | 2025-10-13 | SGP.22 | soldered | 13319 |
-| Motorola Mobility LLC | XT2601-3 | XT2601-3 | 2025-10-13 | SGP.22 | soldered | 13323 |
 | Xiaomi Communications | 25113PN0EG | Xiaomi 17 | 2025-10-13 | SGP.22 | soldered | 13325 |
+| Motorola Mobility LLC | XT2601-3 | XT2601-3 | 2025-10-13 | SGP.22 | soldered | 13323 |
+| Motorola Mobility LLC | XT2601-2 (Type name MC44F) | XT2601-2 | 2025-10-13 | SGP.22 | soldered | 13319 |
 | LG Electronics Inc | TLJLNIBN5E6 | TLJLNIBN5E6 | 2025-10-08 | SGP.02 | soldered | 13312 |
 | LG Electronics Inc | TM13LNEUJL0 | TM13LNEUJL0 | 2025-10-06 | SGP.02 | soldered | 13282 |
 | Samsung Electronics Co Ltd | NP755XRA, NP759XRA | NP755XRA, NP759XRA | 2025-10-01 | SGP.22 | soldered | 13296 |
@@ -272,24 +275,24 @@ Every product in GCF's eSIM (RSP) certification register.
 | Xiaomi Communications | 25069PTEBG | Xiaomi 15T | 2025-07-04 | SGP.22 | soldered | 13060 |
 | Xiaomi Communications | 2506BPN68G | Xiaomi 15T Pro | 2025-07-04 | SGP.22 | soldered | 13056 |
 | TCL Communication Ltd | T951K | T951K | 2025-07-03 | SGP.22 | soldered | 13076 |
-| Nothing Technology Ltd | A024 | Nothong Phone (3) | 2025-07-02 | SGP.22 | soldered | 13054 |
 | TCL Communication Ltd | 8189S | 8189S | 2025-07-02 | SGP.22 | soldered | 13075 |
+| Nothing Technology Ltd | A024 | Nothong Phone (3) | 2025-07-02 | SGP.22 | soldered | 13054 |
+| Luxshare Precision Limited | T Phone 3 Pro | T Phone 3 Pro | 2025-06-30 | SGP.22 | soldered | 13041 |
 | Realme Chongqing Mobile Telecommunications Corporation Ltd. | RMX5061 | realme GT 7 | 2025-06-30 | SGP.22 | soldered | 13059 |
 | Luxshare Precision Limited | T Phone 3 | T Phone 3 | 2025-06-30 | SGP.22 | soldered | 13039 |
-| Luxshare Precision Limited | T Phone 3 Pro | T Phone 3 Pro | 2025-06-30 | SGP.22 | soldered | 13041 |
 | Sony Corporation | PM-1514-BV | XQ-FE54 | 2025-06-25 | SGP.22 | soldered | 13057 |
 | Google LLC | G1KAW | G1KAW | 2025-06-23 | SGP.22 | soldered | 13045 |
 | Zebra Technologies Corporation | FR55E0 | FR55 | 2025-06-16 | SGP.22 | both | 12958 |
 | Pepperl+Fuchs SE | Smart-Ex 203 | Smart-Ex 203 | 2025-06-10 | SGP.22 | soldered | 13021 |
 | Samsung Electronics Co Ltd | SM-F766B | SM-F766B | 2025-06-04 | SGP.22 | soldered | 13001 |
 | Google LLC | GUL82 | GUL82 | 2025-06-02 | SGP.22 | both | 12971 |
+| Google LLC | G45RY | G45RY | 2025-06-02 | SGP.22 | both | 12973 |
 | Google LLC | GLBW0 | GLBW0 | 2025-06-02 | SGP.22 | both | 12983 |
 | Google LLC | G4QUR | G4QUR | 2025-06-02 | SGP.22 | both | 12977 |
 | Google LLC | GK2MP | GK2MP | 2025-06-02 | SGP.22 | both | 12985 |
 | Google LLC | GEHN3 | GEHN3 | 2025-06-02 | SGP.22 | both | 12978 |
-| Google LLC | G45RY | G45RY | 2025-06-02 | SGP.22 | both | 12973 |
-| Samsung Electronics Co Ltd | SM-F761B | SM-F761B | 2025-05-30 | SGP.22 | soldered | 12992 |
 | Honor Device Co Ltd | MBH-N49 | HONOR Magic V5 | 2025-05-30 | SGP.22 | soldered | 12963 |
+| Samsung Electronics Co Ltd | SM-F761B | SM-F761B | 2025-05-30 | SGP.22 | soldered | 12992 |
 | Samsung Electronics Co Ltd | SM-F966B/DS, SM-F966B | SM-F966B/DS, SM-F966B | 2025-05-29 | SGP.22 | soldered | 12989 |
 | Samsung Electronics Co Ltd | SM-L505F | SM-L505F | 2025-05-28 | SGP.22 | soldered | 12986 |
 | Samsung Electronics Co Ltd | SM-L335F | SM-L335F | 2025-05-28 | SGP.22 | soldered | 12982 |
@@ -298,9 +301,9 @@ Every product in GCF's eSIM (RSP) certification register.
 | Samsung Electronics Co Ltd | SM-L325F | SM-L325F | 2025-05-22 | SGP.22 | soldered | 12961 |
 | vivo Mobile Communication Co., Ltd. | V2503 | X200 FE | 2025-05-21 | SGP.22 | soldered | 12959 |
 | Motorola Mobility LLC | XT2527-7 (Type Name MC445) | XT2527-7 | 2025-05-09 | SGP.22 | soldered | 12932 |
-| Motorola Mobility LLC | XT2527-2 (Type Name MC445) | XT2527-2 | 2025-05-09 | SGP.22 | soldered | 12930 |
 | Motorola Mobility LLC | XT2527-1 | XT2527-1 | 2025-05-09 | SGP.22 | soldered | 12920 |
 | Motorola Mobility LLC | XT2527-6 | XT2527-6 | 2025-05-09 | SGP.22 | soldered | 12931 |
+| Motorola Mobility LLC | XT2527-2 (Type Name MC445) | XT2527-2 | 2025-05-09 | SGP.22 | soldered | 12930 |
 | Orbic Electronics Manufacturing LLC | R667L5P | Orbic Trophy Plus | 2025-04-30 | SGP.22 | soldered | 12916 |
 | Sierra Wireless, ULC | EM7590 | Sierra Wireless EM7590 | 2025-04-18 | SGP.22 | both | 12901 |
 | Sierra Wireless, ULC | EM7595 | Sierra Wireless EM7595 | 2025-04-18 | SGP.22 | both | 12902 |
@@ -311,34 +314,33 @@ Every product in GCF's eSIM (RSP) certification register.
 | Motorola Mobility LLC | XT2529-1 | XT2529-1 | 2025-04-15 | SGP.22 | soldered | 12868 |
 | Motorola Mobility LLC | XT2519V | XT2519V | 2025-04-10 | SGP.22 | soldered | 12867 |
 | Motorola Mobility LLC | XT2519-1 | XT2519-1 | 2025-04-10 | SGP.22 | soldered | 12824 |
-| Harman International Industries Inc | TCAM3 (Type Name L271) | TCAM3 | 2025-04-09 | SGP.02 | soldered | 12851 |
 | Harman International Industries Inc | TCAM3 (Type Name L265) | TCAM3 | 2025-04-09 | SGP.02 | soldered | 12852 |
-| HMD Global Oy | TA-1672 | TA-1672 | 2025-04-07 | SGP.22 | soldered | 12858 |
+| Harman International Industries Inc | TCAM3 (Type Name L271) | TCAM3 | 2025-04-09 | SGP.02 | soldered | 12851 |
 | Samsung Electronics Co Ltd | SM-G766B | SM-G766B | 2025-04-07 | SGP.22 | soldered | 12863 |
 | Samsung Electronics Co Ltd | SM-X356B | SM-X356B | 2025-04-07 | SGP.22 | soldered | 12862 |
 | HMD Global Oy | TA-1677 | TA-1677 | 2025-04-07 | SGP.22 | soldered | 12859 |
+| HMD Global Oy | TA-1672 | TA-1672 | 2025-04-07 | SGP.22 | soldered | 12858 |
 | TCL Communication Ltd | T513SP | T513SP | 2025-04-03 | SGP.22 | soldered | 12873 |
 | TCL Communication Ltd | T513V | T513V | 2025-04-03 | SGP.22 | soldered | 12874 |
 | TCL Communication Ltd | T Tablet 2 | T Tablet 2 | 2025-04-01 | SGP.22 | removable | 12849 |
-| Motorola Mobility LLC | XT2553V | XT2553V | 2025-03-31 | SGP.22 | soldered | 12828 |
 | Motorola Mobility LLC | XT2553-3, XT2553-3 [eDS] | XT2553-3 | 2025-03-31 | SGP.22 | soldered | 12823 |
+| Motorola Mobility LLC | XT2553V | XT2553V | 2025-03-31 | SGP.22 | soldered | 12828 |
 | Sony Corporation | PM-1500-BV | XQ-FS54 | 2025-03-28 | SGP.22 | soldered | 12846 |
+| Honor Device Co Ltd | DNY-NX9 | HONOR 400 | 2025-03-27 | SGP.22 | soldered | 12843 |
 | Airgain Inc | AirgainConnect Fleet | AirgainConnect Fleet | 2025-03-27 | SGP.22 | soldered | 12845 |
 | Honor Device Co Ltd | DNP-NX9 | HONOR 400 Pro | 2025-03-27 | SGP.22 | soldered | 12844 |
-| Honor Device Co Ltd | DNY-NX9 | HONOR 400 | 2025-03-27 | SGP.22 | soldered | 12843 |
 | Datalogic S.r.l. | AELNRNA | MEMOR 17 | 2025-03-23 | SGP.22 | soldered | 12749 |
 | Motorola Mobility LLC | XT2507-1 (Type name MC441) | XT2507-1 | 2025-03-21 | SGP.22 | soldered | 12827 |
 | Motorola Mobility LLC | XT2553-1, XT2553-1 [eDS] (Type Name MC42B) | XT2553-1 | 2025-03-10 | SGP.22 | soldered | 12801 |
+| TCL Communication Ltd | T521K | T521K | 2025-02-28 | SGP.22 | soldered | 12785 |
+| TCL Communication Ltd | T521H | T521H | 2025-02-28 | SGP.22 | soldered | 12784 |
 | Samsung Electronics Co Ltd | SM-X626B | SM-X626B | 2025-02-28 | SGP.22 | soldered | 12780 |
 | Samsung Electronics Co Ltd | SM-X526B | SM-X526B | 2025-02-28 | SGP.22 | soldered | 12781 |
 | Honor Device Co Ltd | ABR-NX1 | HONOR 400 Lite | 2025-02-28 | SGP.22 | soldered | 12778 |
 | Samsung Electronics Co Ltd | SM-X526E | SM-X526E | 2025-02-28 | SGP.22 | soldered | 12821 |
-| TCL Communication Ltd | T521K | T521K | 2025-02-28 | SGP.22 | soldered | 12785 |
-| TCL Communication Ltd | T521H | T521H | 2025-02-28 | SGP.22 | soldered | 12784 |
-| Motorola Mobility LLC | XT2505-3, XT2505-3 [eDS] | XT2505-3 | 2025-02-24 | SGP.22 | soldered | 12764 |
-| Motorola Mobility LLC | XT2503-1, XT2503-1 [eDS] | XT2503-1 | 2025-02-24 | SGP.22 | soldered | 12759 |
-| Motorola Mobility LLC | XT2505-1, XT2505-1 [eDS] (Type Name MC443) | XT2505-1 | 2025-02-24 | SGP.22 | soldered | 12765 |
 | Motorola Mobility LLC | XT2503-4, XT2503-4 [eDS] (Type Name MC444) | XT2503-4 | 2025-02-24 | SGP.22 | soldered | 12763 |
+| Motorola Mobility LLC | XT2505-3, XT2505-3 [eDS] | XT2505-3 | 2025-02-24 | SGP.22 | soldered | 12764 |
+| Motorola Mobility LLC | XT2505-1, XT2505-1 [eDS] (Type Name MC443) | XT2505-1 | 2025-02-24 | SGP.22 | soldered | 12765 |
 | Motorola Mobility LLC | XT2517V | XT2517V | 2025-02-19 | SGP.22 | soldered | 12752 |
 | Motorola Mobility LLC | XT2517-1, XT2517-1 [eDS] | XT2517-1 | 2025-02-19 | SGP.22 | soldered | 12751 |
 | LG Innotek Co., Ltd. | LTD-OA1000 | LTD-OA1000 | 2025-02-14 | SGP.02 | removable | 12732 |
@@ -363,8 +365,8 @@ Every product in GCF's eSIM (RSP) certification register.
 | Motorola Mobility LLC | XT2433-4 (Type Name MC432) | XT2433-4 | 2025-01-15 | SGP.22 | soldered | 12682 |
 | Honeywell International Inc | CK67X1N | CK67X1N | 2025-01-01 | SGP.22 | soldered | 11956 |
 | Xiaomi Communications | 25010PN30G | Xiaomi 15 Ultra | 2024-12-30 | SGP.22 | soldered | 12650 |
-| TCL Communication Ltd | T704SP | T704SP | 2024-12-25 | SGP.22 + SGP.02 | soldered | 12662 |
 | TCL Communication Ltd | T704V | T704V | 2024-12-25 | SGP.22 + SGP.02 | soldered | 12661 |
+| TCL Communication Ltd | T704SP | T704SP | 2024-12-25 | SGP.22 + SGP.02 | soldered | 12662 |
 | Guangdong OPPO Mobile Telecommunications Corp Ltd | CPH2697 | CPH2697 | 2024-12-13 | SGP.22 | not declared | 12649 |
 | Honeywell International Inc | CT37X1N | CT37X1N, CT37 | 2024-12-13 | SGP.22 | soldered | 12279 |
 | Guangdong OPPO Mobile Telecommunications Corp Ltd | CPH2689 | CPH2689 | 2024-12-13 | SGP.22 | not declared | 12648 |
@@ -375,13 +377,13 @@ Every product in GCF's eSIM (RSP) certification register.
 | Samsung Electronics Co Ltd | SM-S931B/DS, SM-S931B | SM-S931B/DS, SM-S931B | 2024-11-28 | SGP.22 | soldered | 12631 |
 | Samsung Electronics Co Ltd | SM-S936B/DS, SM-S936B | SM-S936B/DS, SM-S936B | 2024-11-28 | SGP.22 | soldered | 12630 |
 | Samsung Electronics Co Ltd | SM-S938B/DS, SM-S938B | SM-S938B/DS, SM-S938B | 2024-11-28 | SGP.22 | soldered | 12629 |
-| Motorola Mobility LLC | XT2515V | XT2515V | 2024-11-25 | SGP.22 | soldered | 12620 |
 | Motorola Mobility LLC | XT2515-1 | XT2515-1 | 2024-11-25 | SGP.22 | soldered | 12619 |
+| Motorola Mobility LLC | XT2515V | XT2515V | 2024-11-25 | SGP.22 | soldered | 12620 |
 | FCNT LLC | F-53E | F-53E | 2024-11-22 | SGP.22 | soldered | 12621 |
 | Motorola Mobility LLC | XT2513-1 | XT2513-1 | 2024-11-15 | SGP.22 | soldered | 12610 |
 | Motorola Mobility LLC | XT2513V | XT2513V | 2024-11-15 | SGP.22 | soldered | 12611 |
-| LG Innotek Co., Ltd. | LTD-GN3000 | LTD-GN3000 | 2024-11-11 | SGP.02 | removable | 12597 |
 | Honor Device Co Ltd | BRP-NX1M | HONOR Magic7 Lite | 2024-11-11 | SGP.22 | soldered | 12593 |
+| LG Innotek Co., Ltd. | LTD-GN3000 | LTD-GN3000 | 2024-11-11 | SGP.02 | removable | 12597 |
 | i.safe MOBILE GmbH | M940A01 | IS940.1, IS940.M1, IS940.2, IS940.RG | 2024-11-08 | SGP.22 | soldered | 12576 |
 | i.safe MOBILE GmbH | M440A01 | IS440.1, IS440.M1, IS440.2, IS440.RG | 2024-11-08 | SGP.22 | soldered | 12584 |
 | LG Innotek Co., Ltd. | LTD-GN2000 | LTD-GN2000 | 2024-11-08 | SGP.02 | removable | 12581 |
@@ -391,8 +393,8 @@ Every product in GCF's eSIM (RSP) certification register.
 | Zebra Technologies Corporation | EM45B2 | EM45 | 2024-10-16 | SGP.22 | both | 12543 |
 | Zebra Technologies Corporation | ET65WW | ET65 | 2024-10-08 | SGP.22 | both | 12529 |
 | Xiaomi Communications | 24115RA8EG | Redmi Note 14 Pro+ 5G | 2024-09-30 | SGP.22 | soldered | 12525 |
-| Crosscall SAS | Stellar-M6E | Stellar-M6E | 2024-09-15 | SGP.22 | soldered | 12502 |
 | Crosscall SAS | Stellar-M6 | Stellar-M6 | 2024-09-15 | SGP.22 | soldered | 12496 |
+| Crosscall SAS | Stellar-M6E | Stellar-M6E | 2024-09-15 | SGP.22 | soldered | 12502 |
 | Motorola Mobility LLC | XT2437-1 | XT2437-1 | 2024-09-13 | SGP.22 | soldered | 12505 |
 | Motorola Mobility LLC | XT2437-3, XT2437-3 [eDS] (Type Name MC434) | XT2437-3 | 2024-09-13 | SGP.22 | soldered | 12504 |
 | Motorola Mobility LLC | XT2437-2, XT2437-2 [eDS] | XT2437-2 | 2024-09-13 | SGP.22 | soldered | 12503 |
@@ -403,33 +405,34 @@ Every product in GCF's eSIM (RSP) certification register.
 | Motorola Mobility LLC | XT2433-2, XT2433-2 [eDS] | XT2433-2 | 2024-08-26 | SGP.22 | soldered | 12462 |
 | Motorola Mobility LLC | XT2433-5 (Type Name MC432) | XT2433-5 | 2024-08-26 | SGP.22 | soldered | 12463 |
 | Motorola Mobility LLC | XT2433-1 | XT2433-1 | 2024-08-26 | SGP.22 | soldered | 12464 |
+| Samsung Electronics Co Ltd | SM-S721B/DS | SM-S721B/DS | 2024-08-21 | SGP.22 | soldered | 12460 |
 | Samsung Electronics Co Ltd | SM-X826B | SM-X826B | 2024-08-21 | SGP.22 | soldered | 12458 |
 | Samsung Electronics Co Ltd | SM-X926B | SM-X926B | 2024-08-21 | SGP.22 | soldered | 12459 |
-| Samsung Electronics Co Ltd | SM-S721B/DS | SM-S721B/DS | 2024-08-21 | SGP.22 | soldered | 12460 |
 | Sonim Technologies Inc | X800(S6002) | XP Pro | 2024-08-12 | SGP.22 | soldered | 12435 |
 | Zebra Technologies Corporation | TC58CE | TC58e | 2024-08-12 | SGP.22 | both | 12446 |
 | BARTEC GmbH | SC9EX1, SP9EX1, SC9EX2, SP9EX2 | BARTEC SC9EXx Smartscanner, BARTEC SP9EXx Smartphone | 2024-08-12 | SGP.22 | soldered | 12431 |
 | Motorola Mobility LLC | XT2409-6 (Type Name MC431) | XT2409-6 | 2024-08-09 | SGP.22 | soldered | 12440 |
 | Motorola Mobility LLC | XT2435-2, XT2435-2 [eDS] (Type Name MC436) | XT2435-2 | 2024-08-09 | SGP.22 | soldered | 12442 |
 | Motorola Mobility LLC | XT2435-1, XT2435-1 [eDS] | XT2435-1 | 2024-08-09 | SGP.22 | soldered | 12441 |
-| FCNT LLC | A401FC | A401FC | 2024-08-05 | SGP.22 | soldered | 12428 |
 | FCNT LLC | A402FC | A402FC | 2024-08-05 | SGP.22 | soldered | 12427 |
+| FCNT LLC | A401FC | A401FC | 2024-08-05 | SGP.22 | soldered | 12428 |
 | Elo Touch Solutions Inc | EMC-M100C | Elo Pay M100 | 2024-07-31 | SGP.22 | soldered | 12222 |
 | Elo Touch Solutions Inc | EMC-M100C | Elo Pay M100 | 2024-07-31 | SGP.22 | soldered | 12223 |
 | Compal Electronics, Inc. | RMM-G1 | RMM-G1 | 2024-07-29 | SGP.22 | soldered | 12423 |
 | Motorola Mobility LLC | XT2409-2, XT2409-2 [eDS] | XT2409-2 | 2024-07-19 | SGP.22 | soldered | 12394 |
 | Motorola Mobility LLC | XT2409-1, XT2409-1 [eDS] (Type Name MC431) | XT2409-1 | 2024-07-19 | SGP.22 | soldered | 12372 |
 | Trasna Solutions FZ-LLC | LEXI-R520 | LEXI-R520 | 2024-07-18 | SGP.02 | removable | 12278 |
-| Datalogic S.r.l. | SGVNRNATYPEA51AC65A | MEMOR 35 | 2024-07-16 | SGP.22 | soldered | 12325 |
 | Datalogic S.r.l. | SGVNRNATYPEA51AC65X | MEMOR 35X | 2024-07-16 | SGP.22 | soldered | 12062 |
+| Datalogic S.r.l. | SGVNRNATYPEA51AC65A | MEMOR 35 | 2024-07-16 | SGP.22 | soldered | 12325 |
 | ZTE Corporation | Z2357N | ZTE Blade A75 5G | 2024-07-09 | SGP.02 | not declared | 12368 |
 | Google LLC | GRY0E | GRY0E | 2024-07-03 | SGP.22 | soldered | 12359 |
 | Google LLC | GBDU9 | GBDU9 | 2024-07-03 | SGP.22 | soldered | 12358 |
 | Xiaomi Communications | A402XM | Xiaomi 14T Pro | 2024-07-02 | SGP.22 | soldered | 12357 |
-| Datalogic S.r.l. | SGVNR | MEMOR 35 | 2024-06-28 | SGP.22 | soldered | 12316 |
+| Datalogic S.r.l. | SGVNRTYPEE51AC65X | MEMOR 35X | 2024-06-28 | SGP.22 | soldered | 12324 |
 | Huawei Technologies Co., Ltd. | HBN-LX9 | HUAWEI Pura 70 Pro | 2024-06-28 | SGP.22 | soldered | 12344 |
 | Motorola Mobility LLC | XT2407-1, XT2407-1 [eDS] (Type name MC430) | XT2407-1 | 2024-06-28 | SGP.22 | soldered | 12350 |
-| Motorola Mobility LLC | XT2407-2, XT2407-2 [eDS] | XT2407-2 | 2024-06-28 | SGP.22 | soldered | 12349 |
+| Datalogic S.r.l. | SGVNR | MEMOR 35 | 2024-06-28 | SGP.22 | soldered | 12316 |
+| Google LLC | GGX8B | GGX8B | 2024-06-24 | SGP.22 | both | 12290 |
 | Google LLC | GEC77 | GEC77 | 2024-06-24 | SGP.22 | both | 12299 |
 | Google LLC | GR83Y | GR83Y | 2024-06-24 | SGP.22 | both | 12298 |
 | Google LLC | GGH2X | GGH2X | 2024-06-24 | SGP.22 | both | 12301 |
@@ -439,32 +442,31 @@ Every product in GCF's eSIM (RSP) certification register.
 | Google LLC | G2YBB | G2YBB | 2024-06-24 | SGP.22 | both | 12294 |
 | TCL Communication Ltd | T702D | T702D | 2024-06-24 | SGP.22 + SGP.02 | both | 12337 |
 | Google LLC | GZC4K | GZC4K | 2024-06-24 | SGP.22 | both | 12293 |
-| Google LLC | GGX8B | GGX8B | 2024-06-24 | SGP.22 | both | 12290 |
 | Xiaomi Communications | 2407FPN8EG | Xiaomi 14T Pro | 2024-06-21 | SGP.22 | soldered | 12326 |
 | Honor Device Co Ltd | FCP-N49 | HONOR Magic V3 | 2024-06-21 | SGP.22 | soldered | 12321 |
 | HMD Global Oy | TA-1600 | TA-1600 | 2024-06-07 | SGP.22 | soldered | 12300 |
 | HMD Global Oy | TA-1688 | TA-1688 | 2024-06-07 | SGP.22 | soldered | 12302 |
 | Elo Touch Solutions Inc | EMC-M51C | M51 Mobile Computer | 2024-06-07 | SGP.22 | soldered | 12249 |
 | Motorola Mobility LLC | XT2453-1, XT2453-1 [eDS] (Type Name MC42B) | XT2453-1 | 2024-06-03 | SGP.22 | soldered | 12286 |
-| Samsung Electronics Co Ltd | SM-F741B | SM-F741B | 2024-05-30 | SGP.22 | soldered | 12276 |
 | Samsung Electronics Co Ltd | SM-F956B/DS, SM-F956B | SM-F956B/DS, SM-F956B | 2024-05-30 | SGP.22 | soldered | 12277 |
+| Samsung Electronics Co Ltd | SM-F741B | SM-F741B | 2024-05-30 | SGP.22 | soldered | 12276 |
 | Samsung Electronics Co Ltd | SM-L305F | SM-L305F | 2024-05-29 | SGP.22 | soldered | 12272 |
 | Samsung Electronics Co Ltd | SM-L705F | SM-L705F | 2024-05-29 | SGP.22 | soldered | 12274 |
 | Samsung Electronics Co Ltd | SM-L315F | SM-L315F | 2024-05-29 | SGP.22 | soldered | 12273 |
-| Motorola Mobility LLC | XT2427-2, XT2427-2 [eDS] , XT2427-2 [DS] (Type Name MC426) | XT2427-2 | 2024-05-27 | SGP.22 | soldered | 12264 |
 | Motorola Mobility LLC | XT2427-1, XT2427-1 [eDS] | XT2427-1 | 2024-05-27 | SGP.22 | soldered | 12263 |
-| Honor Device Co Ltd | ELP-NX9 | HONOR 200 Pro | 2024-05-24 | SGP.22 | soldered | 12259 |
+| Motorola Mobility LLC | XT2427-2, XT2427-2 [eDS] , XT2427-2 [DS] (Type Name MC426) | XT2427-2 | 2024-05-27 | SGP.22 | soldered | 12264 |
 | Honor Device Co Ltd | ELI-NX9 | HONOR 200 | 2024-05-24 | SGP.22 | soldered | 12260 |
-| Motorola Mobility LLC | XT2453V | XT2453V | 2024-05-23 | SGP.22 | soldered | 12261 |
+| Honor Device Co Ltd | ELP-NX9 | HONOR 200 Pro | 2024-05-24 | SGP.22 | soldered | 12259 |
 | Motorola Mobility LLC | XT2453-3, XT2453-3 [eDS] | XT2453-3 | 2024-05-23 | SGP.22 | soldered | 12254 |
+| Motorola Mobility LLC | XT2453V | XT2453V | 2024-05-23 | SGP.22 | soldered | 12261 |
 | vivo Mobile Communication Co., Ltd. | V2348 | V40 | 2024-05-22 | SGP.22 | soldered | 12256 |
 | Motorola Mobility LLC | XT2451-3, XT2451-3 [eDS] (Type Name MC42E) | XT2451-3 | 2024-05-17 | SGP.22 | soldered | 12240 |
 | FCNT LLC | F-51E | F-51E | 2024-05-17 | SGP.22 | soldered | 12258 |
 | FCNT LLC | F-52E | F-52E | 2024-05-17 | SGP.22 | soldered | 12253 |
 | FCNT LLC | FCG02 | FCG02 | 2024-05-17 | SGP.22 | soldered | 12257 |
+| Zebra Technologies Corporation | TC58AE | TC58e | 2024-05-14 | SGP.22 | both | 12241 |
 | Motorola Mobility LLC | XT2451-1, XT2451-1 [eDS] | XT2451-1 | 2024-05-14 | SGP.22 | soldered | 12226 |
 | Zebra Technologies Corporation | TC58BE | TC58e | 2024-05-14 | SGP.22 | both | 12244 |
-| Zebra Technologies Corporation | TC58AE | TC58e | 2024-05-14 | SGP.22 | both | 12241 |
 | ZTE Corporation | NX724J | nubia Flip 5G | 2024-05-07 | SGP.02 | not declared | 12224 |
 | Microsoft Corporation | 2078 | Surface Model 2078 | 2024-05-02 | SGP.22 | soldered | 12212 |
 | Microsoft Corporation | 2077 | Surface Model 2077 | 2024-04-29 | SGP.22 | soldered | 12204 |
@@ -486,24 +488,23 @@ Every product in GCF's eSIM (RSP) certification register.
 | TCL Communication Ltd | T614WS | T614WS | 2024-03-22 | SGP.22 + SGP.02 | removable | 12092 |
 | Motorola Mobility LLC | XT2419-1, XT2419-1 [eDS] | XT2419-1 | 2024-03-22 | SGP.22 | soldered | 12093 |
 | Zebra Technologies Corporation | MC945B | MC9450, MC94 | 2024-03-21 | SGP.22 | both | 12088 |
-| Zebra Technologies Corporation | MC945A | MC9450, MC94 | 2024-03-21 | SGP.22 | both | 12087 |
 | Orbic Electronics Manufacturing LLC | R667L5U | Orbic Trophy 5G UW | 2024-03-19 | SGP.22 | soldered | 12017 |
 | Huawei Technologies Co., Ltd. | MDS-AL00 | HUAWEI WATCH 4 Pro, HUAWEI WATCH 4 Pro Space Edition | 2024-03-19 | SGP.22 | soldered | 12072 |
 | Sony Corporation | PM-1484-BV | XQ-ES54 | 2024-03-13 | SGP.22 | soldered | 12065 |
+| Trasna Solutions FZ-LLC | SARA-R520M10 | SARA-R520M10 | 2024-03-05 | SGP.02 | removable | 11884 |
 | Trasna Solutions FZ-LLC | SARA-R520 | SARA-R520 | 2024-03-05 | SGP.02 | removable | 11885 |
 | Trasna Solutions FZ-LLC | SARA-R520M10X | SARA-R520M10X | 2024-03-05 | SGP.02 | removable | 11883 |
-| Trasna Solutions FZ-LLC | SARA-R520M10 | SARA-R520M10 | 2024-03-05 | SGP.02 | removable | 11884 |
 | TCL Communication Ltd | T613K | T613K | 2024-02-29 | SGP.22 + SGP.02 | soldered | 12044 |
 | Honeywell International Inc | UK7M0000675 | Merlin NBIoT | 2024-02-24 | SGP.02 | soldered | 12032 |
 | Motorola Mobility LLC | XT2403-2, XT2403-2 [eDS] (Type Name MC421) | XT2403-2 | 2024-02-22 | SGP.22 | soldered | 12030 |
 | Sierra Wireless, ULC | EM7590 | Sierra Wireless EM7590 | 2024-02-15 | SGP.22 | both | 12021 |
 | Sierra Wireless, ULC | EM7595 | Sierra Wireless EM7595 | 2024-02-15 | SGP.22 | both | 12022 |
 | vivo Mobile Communication Co., Ltd. | V2337 | V40 SE 5G | 2024-01-30 | SGP.22 | soldered | 12013 |
-| Samsung Electronics Co Ltd | SM-A556E/DS, SM-A556E | SM-A556E/DS, SM-A556E | 2024-01-29 | SGP.22 | soldered | 12008 |
 | Samsung Electronics Co Ltd | SM-A356B/DS | SM-A356B/DS | 2024-01-29 | SGP.22 | soldered | 12006 |
+| Samsung Electronics Co Ltd | SM-A556E/DS, SM-A556E | SM-A556E/DS, SM-A556E | 2024-01-29 | SGP.22 | soldered | 12008 |
+| Google LLC | GKV4X | GKV4X | 2024-01-25 | SGP.22 | not declared | 11977 |
 | Google LLC | G8HHN | G8HHN | 2024-01-25 | SGP.22 | not declared | 11981 |
 | Google LLC | G6GPR | G6GPR | 2024-01-25 | SGP.22 | not declared | 11980 |
-| Google LLC | GKV4X | GKV4X | 2024-01-25 | SGP.22 | not declared | 11977 |
 | Samsung Electronics Co Ltd | SM-A556B/DS | SM-A556B/DS | 2024-01-24 | SGP.22 | soldered | 11994 |
 | Motorola Mobility LLC | XT2417-1, XT2417-1 [eDS] | XT2417-1 | 2024-01-22 | SGP.22 | soldered | 11987 |
 | Motorola Mobility LLC | XT2417D | XT2417D | 2024-01-22 | SGP.22 | soldered | 11988 |
@@ -512,10 +513,10 @@ Every product in GCF's eSIM (RSP) certification register.
 | TCL Communication Ltd | T614D | T614D | 2024-01-16 | SGP.22 + SGP.02 | removable | 11983 |
 | Honor Device Co Ltd | BVL-N49 | HONOR Magic6 Pro | 2024-01-09 | SGP.22 | soldered | 11967 |
 | Xiaomi Communications | A401XM | Redmi 12 5G | 2024-01-08 | SGP.22 | soldered | 11966 |
-| Motorola Mobility LLC | XT2415V | XT2415V | 2023-12-21 | SGP.22 | soldered | 11942 |
 | Motorola Mobility LLC | XT2415-1, XT2415-1 [eDS] | XT2415-1 | 2023-12-21 | SGP.22 | soldered | 11941 |
-| Motorola Mobility LLC | XT2363-2, XT2363-2 [eDS] | XT2363-2 | 2023-12-14 | SGP.22 | soldered | 11925 |
+| Motorola Mobility LLC | XT2415V | XT2415V | 2023-12-21 | SGP.22 | soldered | 11942 |
 | Motorola Mobility LLC | XT2363-1, XT2363-1 [eDS] | XT2363-1 | 2023-12-14 | SGP.22 | soldered | 11926 |
+| Motorola Mobility LLC | XT2363-2, XT2363-2 [eDS] | XT2363-2 | 2023-12-14 | SGP.22 | soldered | 11925 |
 | Honor Device Co Ltd | VER-N49 | HONOR Magic V2 | 2023-12-13 | SGP.22 | soldered | 11921 |
 | Motorola Mobility LLC | XT2363-3 (Type Name MC413) | XT2363-3 | 2023-12-11 | SGP.22 | soldered | 11916 |
 | Samsung Electronics Co Ltd | SM-X306B | SM-X306B | 2023-12-08 | SGP.22 | soldered | 11914 |
@@ -525,22 +526,25 @@ Every product in GCF's eSIM (RSP) certification register.
 | Samsung Electronics Co Ltd | SM-S926B/DS, SM-S926B | SM-S926B/DS, SM-S926B | 2023-11-22 | SGP.22 | soldered | 11887 |
 | Samsung Electronics Co Ltd | SM-S928B/DS, SM-S928B | SM-S928B/DS, SM-S928B | 2023-11-22 | SGP.22 | soldered | 11892 |
 | Motorola Mobility LLC | XT2309-4 | XT2309-4 | 2023-11-12 | SGP.22 | soldered | 11908 |
-| Zebra Technologies Corporation | ET65AW | ET65 | 2023-10-25 | SGP.22 | both | 11840 |
 | Xiaomi Communications | 23127PN0CG | Xiaomi 14 | 2023-10-25 | SGP.22 | soldered | 11842 |
+| Zebra Technologies Corporation | ET65AW | ET65 | 2023-10-25 | SGP.22 | both | 11840 |
 | Xiaomi Communications | 23090RA98G | Redmi Note 13 Pro+ 5G | 2023-10-10 | SGP.22 | soldered | 11813 |
 | Xiaomi Communications | 2312DRA50G | Redmi Note 13 Pro 5G | 2023-10-08 | SGP.22 | soldered | 11810 |
 | Crosscall SAS | Stellar-X5 | Stellar-X5 | 2023-08-28 | SGP.22 | soldered | 11686 |
-| Ascom (Sweden) AB | SH4-AACB | Myco 4 Cellular | 2023-08-24 | SGP.22 | soldered | 11758 |
 | Ascom (Sweden) AB | SH4-AACC | Myco 4 Cellular | 2023-08-24 | SGP.22 | soldered | 11757 |
+| Ascom (Sweden) AB | SH4-AACB | Myco 4 Cellular | 2023-08-24 | SGP.22 | soldered | 11758 |
 | Fairphone B.V. | FP5 | Fairphone 5 5G | 2023-08-15 | SGP.22 | soldered | 11677 |
 | Google LLC | GKWS6 | GKWS6 | 2023-08-14 | SGP.22 | not declared | 11705 |
 | Google LLC | GZPF0 | GZPF0 | 2023-08-14 | SGP.22 | not declared | 11707 |
 | Google LLC | GPJ41 | GPJ41 | 2023-08-14 | SGP.22 | not declared | 11706 |
+| Google LLC | G9BQD | G9BQD | 2023-08-14 | SGP.22 | not declared | 11772 |
+| Google LLC | GC3VE | GC3VE | 2023-08-14 | SGP.22 | not declared | 11709 |
+| Google LLC | G1MNW | G1MNW | 2023-08-14 | SGP.22 | not declared | 11708 |
 | Samsung Electronics Co Ltd | SM-S711B/DS | SM-S711B/DS | 2023-08-11 | SGP.22 | soldered | 11741 |
 | ZTE Corporation | ZTE 7160N | ZTE Blade A73 5G | 2023-08-10 | SGP.02 | not declared | 11736 |
-| Motorola Mobility LLC | XT2343-2 (Type Name MC410) | XT2343-2 | 2023-08-07 | SGP.22 | soldered | 11724 |
 | Motorola Mobility LLC | XT2343-6 | XT2343-6 | 2023-08-07 | SGP.22 | soldered | 11725 |
 | Motorola Mobility LLC | XT2343-1, XT2343-1 [DS], XT2343-1 [eDS] | XT2343-1 | 2023-08-07 | SGP.22 | soldered | 11723 |
+| Motorola Mobility LLC | XT2343-2 (Type Name MC410) | XT2343-2 | 2023-08-07 | SGP.22 | soldered | 11724 |
 | Motorola Mobility LLC | XT2347-1, XT2347-1 [eDS] | XT2347-1 | 2023-08-04 | SGP.22 | soldered | 11720 |
 | Motorola Mobility LLC | XT2307-1, XT2307-1 [eDS] (Type Name MC40B) | XT2307-1 | 2023-08-03 | SGP.22 | soldered | 11716 |
 | Xiaomi Communications | A301XM | Xiaomi 13T Pro | 2023-08-01 | SGP.22 | soldered | 11714 |
@@ -556,12 +560,12 @@ Every product in GCF's eSIM (RSP) certification register.
 | vivo Mobile Communication Co., Ltd. | V2250 | V29 | 2023-06-19 | SGP.22 | soldered | 11643 |
 | Samsung Electronics Co Ltd | SM-F946B/DS, SM-F946B | SM-F946B/DS, SM-F946B | 2023-06-16 | SGP.22 | soldered | 11639 |
 | Samsung Electronics Co Ltd | SM-F731B | SM-F731B | 2023-06-16 | SGP.22 | soldered | 11638 |
-| Samsung Electronics Co Ltd | SM-R955F | SM-R955F | 2023-06-13 | SGP.22 | soldered | 11615 |
 | Samsung Electronics Co Ltd | SM-R965F | SM-R965F | 2023-06-13 | SGP.22 | soldered | 11614 |
 | Samsung Electronics Co Ltd | SM-R945F | SM-R945F | 2023-06-13 | SGP.22 | soldered | 11616 |
 | Samsung Electronics Co Ltd | SM-R935F | SM-R935F | 2023-06-13 | SGP.22 | soldered | 11617 |
-| Samsung Electronics Co Ltd | SM-X916B | SM-X916B | 2023-06-09 | SGP.22 | not declared | 11609 |
+| Samsung Electronics Co Ltd | SM-R955F | SM-R955F | 2023-06-13 | SGP.22 | soldered | 11615 |
 | Samsung Electronics Co Ltd | SM-X716B | SM-X716B | 2023-06-09 | SGP.22 | not declared | 11611 |
+| Samsung Electronics Co Ltd | SM-X916B | SM-X916B | 2023-06-09 | SGP.22 | not declared | 11609 |
 | i.safe MOBILE GmbH | M540A01 | IS540 | 2023-06-08 | SGP.22 | soldered | 11597 |
 | Power Idea Technology (Shenzhen) Co., Ltd. | PSH02G | RG540 | 2023-06-08 | SGP.22 | soldered | 11691 |
 | Motorola Mobility LLC | XT2323-1 (Type Name MC40A) | XT2323-1 | 2023-06-07 | SGP.22 | soldered | 11596 |
@@ -569,8 +573,8 @@ Every product in GCF's eSIM (RSP) certification register.
 | Zebra Technologies Corporation | WCMTJ | TC27,HC25,HC55 | 2023-05-29 | SGP.22 | both | 11584 |
 | Foxconn International Holdings | RTBM-SHRWGEN / RTBM-EARWGEN | Stellantis vehicle | 2023-05-29 | SGP.02 | soldered | 11585 |
 | Zebra Technologies Corporation | WCMTA | TC27, HC25, HC55 | 2023-05-29 | SGP.22 | both | 11582 |
-| Huawei Technologies Co., Ltd. | ARC-AL00 | HUAWEI WATCH 4 | 2023-05-27 | SGP.22 | soldered | 11406 |
 | Huawei Technologies Co., Ltd. | MDS-AL00 | HUAWEI WATCH 4 PRO | 2023-05-27 | SGP.22 | soldered | 11405 |
+| Huawei Technologies Co., Ltd. | ARC-AL00 | HUAWEI WATCH 4 | 2023-05-27 | SGP.22 | soldered | 11406 |
 | Xiaomi Communications | M2233W1 | Xiaomi Watch 2 Pro | 2023-05-22 | SGP.22 | soldered | 11564 |
 | Zebra Technologies Corporation | WCMTB | TC27,HC25,HC55 | 2023-04-28 | SGP.22 | both | 11486 |
 | Sony Corporation | PM-1431-BV | XQ-DQ54 | 2023-04-27 | SGP.22 | soldered | 11482 |
@@ -585,20 +589,20 @@ Every product in GCF's eSIM (RSP) certification register.
 | Motorola Mobility LLC | XT2315-1, XT2315-1 [eDS] | XT2315-1 | 2023-03-16 | SGP.22 | soldered | 11362 |
 | Motorola Mobility LLC | XT2321-3 | XT2321-3 | 2023-03-10 | SGP.22 | soldered | 11348 |
 | Xplora Technologies AS | X6E | X6Play eSIM | 2023-02-25 | SGP.22 | soldered | 11338 |
-| LG Electronics Inc | TLVUM3IU-E | TLVUM3IU-E | 2023-02-22 | SGP.02 | soldered | 11329 |
 | LG Electronics Inc | TLVUW3IU-E | TLVUW3IU-E | 2023-02-22 | SGP.02 | soldered | 11328 |
 | LG Electronics Inc | TLVUE4IU-E | TLVUE4IU-E | 2023-02-22 | SGP.02 | soldered | 11327 |
+| LG Electronics Inc | TLVUM3IU-E | TLVUM3IU-E | 2023-02-22 | SGP.02 | soldered | 11329 |
 | Samsung Electronics Co Ltd | SM-A546E/DS, SM-A546E | SM-A546E/DS, SM-A546E | 2023-02-13 | SGP.22 | soldered | 11317 |
 | Samsung Electronics Co Ltd | SM-A546B/DS | SM-A546B/DS | 2023-02-09 | SGP.22 | soldered | 11313 |
 | Motorola Mobility LLC | XT2301-1 | XT2301-1 | 2023-02-07 | SGP.22 | soldered | 11318 |
-| Honor Device Co Ltd | FRI-NX9 | HONOR Magic Vs | 2023-02-03 | SGP.22 | soldered | 11287 |
 | Harman International Industries Inc | TCAM2 | TCAM2 | 2023-02-03 | SGP.02 | soldered | 11272 |
 | Honor Device Co Ltd | PGT-N19 | HONOR Magic5 Pro | 2023-02-03 | SGP.22 | soldered | 11288 |
+| Honor Device Co Ltd | FRI-NX9 | HONOR Magic Vs | 2023-02-03 | SGP.22 | soldered | 11287 |
 | Honeywell International Inc | CT47X1N | CT47X1N, CT47 | 2023-01-20 | SGP.22 | soldered | 11086 |
 | Motorola Mobility LLC | XT2301-4, XT2301-4 [DS] (Type Name MC3F6) | XT2301-4 | 2023-01-20 | SGP.22 | soldered | 11267 |
-| Google LLC | GHL1X | GHL1X | 2023-01-18 | SGP.22 | soldered | 11208 |
 | Google LLC | GWKK3 | GWKK3 | 2023-01-18 | SGP.22 | soldered | 11207 |
 | Google LLC | G0DZQ | G0DZQ | 2023-01-18 | SGP.22 | soldered | 11209 |
+| Google LLC | GHL1X | GHL1X | 2023-01-18 | SGP.22 | soldered | 11208 |
 | Motorola Solutions Inc | MSLB-MKZ900ti | MOTOTRBO ION | 2023-01-11 | SGP.22 + SGP.02 | soldered | 11101 |
 | Motorola Mobility LLC | XT2309-2, XT2309-2 [DS], XT2309-2 [eDS] (Type Name MC3FF) | XT2309-2 | 2023-01-03 | SGP.22 | soldered | 11210 |
 | Guangdong OPPO Mobile Telecommunications Corp Ltd | CPH2437 | OPPO Find N2 Flip | 2022-12-30 | SGP.22 | not declared | 11211 |
@@ -617,10 +621,10 @@ Every product in GCF's eSIM (RSP) certification register.
 | Zebra Technologies Corporation | TC78B1 | TC78 | 2022-11-15 | SGP.22 | both | 11106 |
 | FCNT LLC | F-51C | F-51C | 2022-11-14 | SGP.22 | soldered | 11050 |
 | Fairphone B.V. | FP4 | Fairphone 4 5G | 2022-11-11 | SGP.22 | soldered | 11093 |
-| Pegatron Corporation | 84945296C | Telematics & Network Gateway (TANG)-JP | 2022-11-01 | SGP.02 | soldered | 11055 |
 | Pegatron Corporation | 84911790C | Customer Facing Wi-Fi Module (CFWM)-JP | 2022-11-01 | SGP.02 | soldered | 11062 |
 | Pegatron Corporation | 84945296C | Telematics & Network Gateway (TANG)-Dubai | 2022-11-01 | SGP.02 | soldered | 11061 |
 | Pegatron Corporation | 84911790C | Customer Facing Wi-Fi Module (CFWM)-Dubai | 2022-11-01 | SGP.02 | soldered | 11063 |
+| Pegatron Corporation | 84945296C | Telematics & Network Gateway (TANG)-JP | 2022-11-01 | SGP.02 | soldered | 11055 |
 | Xiaomi Communications | 2210129SG | Xiaomi 13 Lite | 2022-10-31 | SGP.22 | soldered | 11057 |
 | Leoworx Ortungssysteme GmbH | Asset | Tracar Asset | 2022-10-28 | SGP.02 | soldered | 11060 |
 | Xiaomi Communications | A201XM | Xiaomi 12T Pro | 2022-10-25 | SGP.22 | soldered | 11025 |
@@ -635,15 +639,16 @@ Every product in GCF's eSIM (RSP) certification register.
 | HMD Global Oy | TA-1479 | Nokia G60 5G | 2022-08-11 | SGP.22 | soldered | 10888 |
 | Xiaomi Communications | 22081212UG | Xiaomi 12T Pro | 2022-08-03 | SGP.22 | soldered | 10867 |
 | Sony Corporation | PM-1410-BV | XQ-CQ54 | 2022-07-29 | SGP.22 | soldered | 10838 |
+| Google LLC | GP4BC | GP4BC | 2022-07-21 | SGP.22 | soldered | 10855 |
 | Google LLC | GE2AE | GE2AE | 2022-07-21 | SGP.22 | soldered | 10854 |
 | Google LLC | GVU6C | GVU6C | 2022-07-21 | SGP.22 | soldered | 10857 |
 | Google LLC | GQML3 | GQML3 | 2022-07-21 | SGP.22 | soldered | 10856 |
-| Google LLC | GP4BC | GP4BC | 2022-07-21 | SGP.22 | soldered | 10855 |
 | Zebra Technologies Corporation | TC58B1 | TC58 | 2022-07-08 | SGP.22 | both | 10779 |
 | Samsung Electronics Co Ltd | SM-F936B/DS, SM-F936B | SM-F936B/DS, SM-F936B | 2022-07-06 | SGP.22 | soldered | 10777 |
 | Samsung Electronics Co Ltd | SM-F721B | SM-F721B | 2022-07-06 | SGP.22 | soldered | 10778 |
 | Samsung Electronics Co Ltd | SM-R905F | SM-R905F | 2022-06-24 | SGP.22 | soldered | 10740 |
 | Samsung Electronics Co Ltd | SM-R915F | SM-R915F | 2022-06-24 | SGP.22 | soldered | 10741 |
+| Samsung Electronics Co Ltd | SM-R925F | SM-R925F | 2022-06-24 | SGP.22 | soldered | 10742 |
 | Google LLC | GWT9R | GWT9R | 2022-06-01 | SGP.22 | soldered | 10275 |
 | Google LLC | GBZ4S | GBZ4S | 2022-06-01 | SGP.22 | soldered | 10278 |
 | Harman International Industries Inc | WAVE-11-HAF-R2 | WAVE-11-HAF-R2 | 2022-05-24 | SGP.22 | soldered | 10673 |
@@ -665,9 +670,9 @@ Every product in GCF's eSIM (RSP) certification register.
 | Samsung Electronics Co Ltd | SM-S908B/DS | SM-S908B/DS | 2021-12-31 | SGP.22 | soldered | 10331 |
 | Samsung Electronics Co Ltd | SM-S906B/DS | SM-S906B/DS | 2021-12-31 | SGP.22 | soldered | 10330 |
 | Samsung Electronics Co Ltd | SM-S901B/DS | SM-S901B/DS | 2021-12-31 | SGP.22 | soldered | 10329 |
+| Samsung Electronics Co Ltd | SM-S901E/DS, SM-S901E | SM-S901E/DS, SM-S901E | 2021-12-22 | SGP.22 | soldered | 10317 |
 | Samsung Electronics Co Ltd | SM-S908E/DS, SM-S908E | SM-S908E/DS, SM-S908E | 2021-12-22 | SGP.22 | soldered | 10315 |
 | Samsung Electronics Co Ltd | SM-S906E/DS, SM-S906E | SM-S906E/DS, SM-S906E | 2021-12-22 | SGP.22 | soldered | 10316 |
-| Samsung Electronics Co Ltd | SM-S901E/DS, SM-S901E | SM-S901E/DS, SM-S901E | 2021-12-22 | SGP.22 | soldered | 10317 |
 | Microsoft Corporation | 2022_3 | Microsoft Surface Go 3 | 2021-11-19 | SGP.22 | both | 10281 |
 | Microsoft Corporation | 2022_2 | Microsoft Surface Go 3 | 2021-11-19 | SGP.22 | both | 10280 |
 | Microsoft Corporation | 2022 | Microsoft Surface Go 3 | 2021-11-18 | SGP.22 | both | 10279 |

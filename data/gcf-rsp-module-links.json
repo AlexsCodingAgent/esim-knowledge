@@ -1,0 +1,209 @@
+{
+ "curated": "2026-11-06",
+ "note": "Hand-researched links for the GCF RSP certified-module register. Every URL was fetched and, for documents, its first page read to confirm it covers the named module. Keys are 'manufacturer|model' exactly as GCF records them. Empty fields are findings: no public document was found. Verify with scripts/check-gcf-rsp-links.py.",
+ "modules": {
+  "SIMCom Wireless Solutions Limited|SIM7600G": {
+   "vendor_page": "https://www.simcom.com/product/SIM7600G.html",
+   "datasheet": "https://www.tme.com/Document/29390ba2a617ac7afa0f581de3b295ee/SIM7600G.pdf",
+   "datasheet_note": "simcom SIM7600G Product Description (Cat 1, 10Mbps); copy hosted by TME",
+   "at_commands": "https://files.waveshare.com/upload/a/af/SIM7500_SIM7600_Series_AT_Command_Manual_V3.00.pdf",
+   "at_note": "SIMCom SIM7500/SIM7600 Series AT Command Manual v3.00 (512pp), mirrored by Waveshare"
+  },
+  "SIMCom Wireless Solutions Limited|SIM7600G-H": {
+   "vendor_page": "https://www.simcom.com/product/SIM7600G-H.html",
+   "datasheet": "https://files.waveshare.com/upload/a/a0/SIM7600G-H_SPEC_EN_20190731.pdf",
+   "datasheet_note": "SIMCom SIM7600G-H Product Description (Cat 4, 150Mbps), mirrored by Waveshare",
+   "at_commands": "https://files.waveshare.com/upload/a/af/SIM7500_SIM7600_Series_AT_Command_Manual_V3.00.pdf",
+   "at_note": "SIMCom SIM7500/SIM7600 Series AT Command Manual v3.00, shared with the SIM7600G"
+  },
+  "SIMCom Wireless Solutions Limited|E7080": {
+   "vendor_page": "https://www.simcom.com/product/E7080.html",
+   "vendor_note": "SIMCom product page; its documents sit behind SIMCom's download portal",
+   "datasheet_note": "no public datasheet found (checked 2026-11-06) — eUICC chip, documents via SIMCom portal",
+   "at_note": "not applicable to a bare eUICC chip; no public document found"
+  },
+  "SIMCom Wireless Solutions Limited|E7088": {
+   "vendor_note": "no product page at simcom.com/product/E7088.html (404)",
+   "datasheet_note": "no public datasheet found (checked 2026-11-06)",
+   "at_note": "not applicable to a bare eUICC chip; no public document found"
+  },
+  "Sierra Wireless, ULC|EM7590": {
+   "vendor_page": "https://www.sierrawireless.com/iot-modules/4g-modules/em7590/",
+   "datasheet": "https://static.onlogic.com/resources/manuals/41114425%20EM759X%20Product%20Technical%20Specification%20r9.pdf",
+   "datasheet_note": "Sierra Wireless 41114425 rev 9, EM759X Series Product Technical Specification (marked proprietary); public copy hosted by OnLogic",
+   "at_commands": "https://www.bipom.com/documents/sierra/41111748%20AirPrime%20EM75XX%20AT%20Command%20Reference%20r2.pdf",
+   "at_note": "Sierra Wireless 41111748 rev 2, AirPrime EM75xx AT Command Reference; public copy hosted by Bipom"
+  },
+  "Sierra Wireless, ULC|EM7595": {
+   "vendor_page": "https://www.sierrawireless.com/iot-modules/4g-modules/em7595/",
+   "datasheet": "https://static.onlogic.com/resources/manuals/41114425%20EM759X%20Product%20Technical%20Specification%20r9.pdf",
+   "datasheet_note": "Sierra Wireless 41114425 rev 9 covers the EM759X series (EM7590/EM7595); public copy hosted by OnLogic",
+   "at_commands": "https://www.bipom.com/documents/sierra/41111748%20AirPrime%20EM75XX%20AT%20Command%20Reference%20r2.pdf",
+   "at_note": "Sierra Wireless 41111748 rev 2, AirPrime EM75xx AT Command Reference; public copy hosted by Bipom"
+  },
+  "Trasna Solutions FZ-LLC|LEXI-R520": {
+   "vendor_page": "https://trasna.io/product/lexi-r520-cellular-iot-module",
+   "datasheet": "https://cdn.prod.website-files.com/66db0a16ec359c496fe320da/684c3eaf14d43bd68cc5b8dd_LEXI-R520%20data%20sheet.pdf",
+   "datasheet_note": "LEXI-R520 LTE-M/NB-IoT data sheet R05 — Public, hosted by Trasna",
+   "at_commands": "https://download.mikroe.com/documents/datasheets/SARA-R5-LEXI-R5_AT_Commands.pdf",
+   "at_note": "u-blox UBX-19047455 R19, SARA-R5/LEXI-R5 AT commands manual, mirrored by Mikroe",
+   "vendor_note": "Trasna acquired the u-blox cellular IoT module line; LEXI-R520 is the ex-u-blox LEXI-R5 family"
+  },
+  "Trasna Solutions FZ-LLC|SARA-R520": {
+   "vendor_page": "https://trasna.io/product/sara-r52-cellular-iot-module",
+   "datasheet": "https://cdn.prod.website-files.com/66db0a16ec359c496fe320da/684c3ec9df6101c95f51cd4b_SARA-R52%20data%20sheet.pdf",
+   "datasheet_note": "SARA-R52 series data sheet R06 — Public, hosted by Trasna",
+   "at_commands": "https://download.mikroe.com/documents/datasheets/SARA-R5-LEXI-R5_AT_Commands.pdf",
+   "at_note": "u-blox UBX-19047455 R19, SARA-R5/LEXI-R5 AT commands manual, mirrored by Mikroe"
+  },
+  "Trasna Solutions FZ-LLC|SARA-R520M10": {
+   "vendor_page": "https://trasna.io/product/sara-r52-cellular-iot-module",
+   "datasheet": "https://cdn.prod.website-files.com/66db0a16ec359c496fe320da/684c3ec9df6101c95f51cd4b_SARA-R52%20data%20sheet.pdf",
+   "datasheet_note": "SARA-R52 series data sheet R06 (covers the M10 variant), hosted by Trasna",
+   "at_commands": "https://download.mikroe.com/documents/datasheets/SARA-R5-LEXI-R5_AT_Commands.pdf",
+   "at_note": "u-blox UBX-19047455 R19, SARA-R5/LEXI-R5 AT commands manual, mirrored by Mikroe"
+  },
+  "Trasna Solutions FZ-LLC|SARA-R520M10X": {
+   "vendor_page": "https://trasna.io/product/sara-r52-cellular-iot-module",
+   "datasheet": "https://cdn.prod.website-files.com/66db0a16ec359c496fe320da/684c3ec9df6101c95f51cd4b_SARA-R52%20data%20sheet.pdf",
+   "datasheet_note": "SARA-R52 series data sheet R06 (covers the M10X variant), hosted by Trasna",
+   "at_commands": "https://download.mikroe.com/documents/datasheets/SARA-R5-LEXI-R5_AT_Commands.pdf",
+   "at_note": "u-blox UBX-19047455 R19, SARA-R5/LEXI-R5 AT commands manual, mirrored by Mikroe"
+  },
+  "Iridium Satellite LLC|9604": {
+   "vendor_page": "https://www.iridium.com/9604",
+   "vendor_note": "Iridium product page for the 9604 hybrid LTE-M + SBD + GNSS module",
+   "datasheet": "https://www.groundcontrol.com/wp-content/uploads/2026/07/Iridium-9604-Data-Sheet.pdf",
+   "datasheet_note": "Iridium 9604 Preliminary Fact Sheet (2pp), hosted by Ground Control",
+   "at_note": "no public 9604 AT command reference found (checked 2026-11-06); the ISU AT references circulating online cover the older 9522/9602"
+  },
+  "Rolling Wireless S.a.r.l.|RN932V": {
+   "vendor_page": "https://www.rollingwireless.com/en/solutions/5g-solutions/rn93xx-rn94xx",
+   "vendor_note": "Rolling Wireless RN93xx/RN94xx family page",
+   "datasheet_note": "no public datasheet found (checked 2026-11-06) — automotive module, documents via vendor",
+   "at_note": "no public AT command manual found"
+  },
+  "Rolling Wireless S.a.r.l.|RN934A": {
+   "vendor_page": "https://www.rollingwireless.com/en/solutions/5g-solutions/rn93xx-rn94xx",
+   "vendor_note": "Rolling Wireless RN93xx/RN94xx family page",
+   "datasheet_note": "no public datasheet found (checked 2026-11-06)",
+   "at_note": "no public AT command manual found"
+  },
+  "Rolling Wireless S.a.r.l.|RN934N": {
+   "vendor_page": "https://www.rollingwireless.com/en/solutions/5g-solutions/rn93xx-rn94xx",
+   "vendor_note": "Rolling Wireless RN93xx/RN94xx family page",
+   "datasheet_note": "no public datasheet found (checked 2026-11-06)",
+   "at_note": "no public AT command manual found"
+  },
+  "Rolling Wireless S.a.r.l.|RN934R": {
+   "vendor_page": "https://www.rollingwireless.com/en/solutions/5g-solutions/rn93xx-rn94xx",
+   "vendor_note": "Rolling Wireless RN93xx/RN94xx family page",
+   "datasheet_note": "no public datasheet found (checked 2026-11-06)",
+   "at_note": "no public AT command manual found"
+  },
+  "Rolling Wireless S.a.r.l.|RN934V": {
+   "vendor_page": "https://www.rollingwireless.com/en/solutions/5g-solutions/rn93xx-rn94xx",
+   "vendor_note": "Rolling Wireless RN93xx/RN94xx family page",
+   "datasheet_note": "no public datasheet found (checked 2026-11-06)",
+   "at_note": "no public AT command manual found"
+  },
+  "Rolling Wireless S.a.r.l.|RN937N": {
+   "vendor_page": "https://www.rollingwireless.com/en/solutions/5g-solutions/rn93xx-rn94xx",
+   "vendor_note": "Rolling Wireless RN93xx/RN94xx family page",
+   "datasheet_note": "no public datasheet found (checked 2026-11-06)",
+   "at_note": "no public AT command manual found"
+  },
+  "Rolling Wireless S.a.r.l.|RN941R": {
+   "vendor_page": "https://www.rollingwireless.com/en/solutions/5g-solutions/rn93xx-rn94xx",
+   "vendor_note": "Rolling Wireless RN93xx/RN94xx family page",
+   "datasheet_note": "no public datasheet found (checked 2026-11-06)",
+   "at_note": "no public AT command manual found"
+  },
+  "Rolling Wireless S.a.r.l.|RN941W": {
+   "vendor_page": "https://www.rollingwireless.com/en/solutions/5g-solutions/rn93xx-rn94xx",
+   "vendor_note": "Rolling Wireless RN93xx/RN94xx family page",
+   "datasheet_note": "no public datasheet found (checked 2026-11-06)",
+   "at_note": "no public AT command manual found"
+  },
+  "Rolling Wireless S.a.r.l.|RN947R": {
+   "vendor_page": "https://www.rollingwireless.com/en/solutions/5g-solutions/rn93xx-rn94xx",
+   "vendor_note": "Rolling Wireless RN93xx/RN94xx family page",
+   "datasheet_note": "no public datasheet found (checked 2026-11-06)",
+   "at_note": "no public AT command manual found"
+  },
+  "Compal Electronics, Inc.|EXM-G1A": {
+   "vendor_page": "https://www.compal.com/5g/",
+   "vendor_note": "Compal 5G module range page — EXM/RMM families",
+   "datasheet_note": "no public datasheet found (checked 2026-11-06) — ODM module, documents under NDA",
+   "at_note": "no public AT command manual found"
+  },
+  "Compal Electronics, Inc.|RMM-G1": {
+   "vendor_page": "https://www.compal.com/5g/",
+   "vendor_note": "Compal 5G module range page — EXM/RMM families",
+   "datasheet": "https://fccid.io/GKRRMMG1/User-Manual/RMM-G1-User-Manual-20240712-7473455.pdf",
+   "datasheet_note": "Compal RMM-G1 user manual, from the FCC filing (GKRRMMG1) — the only public document for this module",
+   "at_note": "no public AT command manual found"
+  },
+  "Compal Electronics, Inc.|RMM-G4": {
+   "vendor_page": "https://www.compal.com/5g/",
+   "vendor_note": "Compal 5G module range page — EXM/RMM families",
+   "datasheet_note": "no public datasheet found (checked 2026-11-06); an FCC filing (GKRRMMG4) exists but its user manual is not publicly downloadable",
+   "at_note": "no public AT command manual found"
+  },
+  "Askey Computer Corporation|NMQ2210": {
+   "vendor_note": "no public product page found for this ODM module (checked 2026-11-06)",
+   "datasheet_note": "no public datasheet found (checked 2026-11-06)",
+   "at_note": "no public AT command manual found"
+  },
+  "Kontron Europe GmbH|AV62MB-E": {
+   "vendor_note": "no public product page found on kontron.com (checked 2026-11-06)",
+   "datasheet_note": "no public datasheet found (checked 2026-11-06)",
+   "at_note": "no public AT command manual found"
+  },
+  "Kontron Europe GmbH|AV62MB-W": {
+   "vendor_note": "no public product page found on kontron.com (checked 2026-11-06)",
+   "datasheet_note": "no public datasheet found (checked 2026-11-06)",
+   "at_note": "no public AT command manual found"
+  },
+  "Kontron Europe GmbH|AV62RCL-W": {
+   "vendor_note": "no public product page found on kontron.com (checked 2026-11-06)",
+   "datasheet_note": "no public datasheet found (checked 2026-11-06)",
+   "at_note": "no public AT command manual found"
+  },
+  "LG Innotek Co., Ltd.|LTD-AN2000": {
+   "vendor_note": "no public product page found on lginnotek.com (checked 2026-11-06)",
+   "datasheet_note": "no public datasheet found (checked 2026-11-06) — automotive/telematics module",
+   "at_note": "no public AT command manual found"
+  },
+  "LG Innotek Co., Ltd.|LTD-FA1000": {
+   "vendor_note": "no public product page found on lginnotek.com (checked 2026-11-06)",
+   "datasheet_note": "no public datasheet found (checked 2026-11-06)",
+   "at_note": "no public AT command manual found"
+  },
+  "LG Innotek Co., Ltd.|LTD-GN2000": {
+   "vendor_note": "no public product page found on lginnotek.com (checked 2026-11-06)",
+   "datasheet_note": "no public datasheet found (checked 2026-11-06)",
+   "at_note": "no public AT command manual found"
+  },
+  "LG Innotek Co., Ltd.|LTD-GN3000": {
+   "vendor_note": "no public product page found on lginnotek.com (checked 2026-11-06)",
+   "datasheet_note": "no public datasheet found (checked 2026-11-06)",
+   "at_note": "no public AT command manual found"
+  },
+  "LG Innotek Co., Ltd.|LTD-OA1000": {
+   "vendor_note": "no public product page found on lginnotek.com (checked 2026-11-06)",
+   "datasheet_note": "no public datasheet found (checked 2026-11-06)",
+   "at_note": "no public AT command manual found"
+  },
+  "LG Innotek Co., Ltd.|LTD-VL4000": {
+   "vendor_note": "no public product page found on lginnotek.com (checked 2026-11-06)",
+   "datasheet_note": "no public datasheet found (checked 2026-11-06); an FCC filing (yzpvl4000) exists but its manual is not publicly downloadable",
+   "at_note": "no public AT command manual found"
+  },
+  "LG Electronics Inc|TM13LNEUJL0": {
+   "vendor_note": "no public product page found (checked 2026-11-06) — automotive telematics part",
+   "datasheet_note": "no public datasheet found (checked 2026-11-06)",
+   "at_note": "no public AT command manual found"
+  }
+ }
+}
