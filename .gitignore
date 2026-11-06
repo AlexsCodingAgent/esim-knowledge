@@ -1,3 +1,6 @@
 assets/data/jobs.db
 vendor/
 .bundle/
+.cache/
+_site/
+__pycache__/
