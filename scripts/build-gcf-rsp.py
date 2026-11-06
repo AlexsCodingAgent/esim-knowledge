@@ -424,8 +424,13 @@ def module_row(g):
     dates = g["dates"]
     shown = dates[0] if len(dates) == 1 else f"{dates[0]} <span class=\"gcf-multi\">+{len(dates) - 1}</span>"
     tip = " · ".join(dates)
-    refs = ", ".join(f'<a href="{HOST}/pub_product/{esc(r)}.html" rel="noopener">{esc(r)}</a>'
-                     for r in g["refs"])
+    # Latest ref linked; re-certifications as a +N badge with every ref in the
+    # tooltip, so the column stays one line wide instead of wrapping.
+    refs = (f'<a href="{HOST}/pub_product/{esc(g["refs"][0])}.html" rel="noopener">'
+            f'{esc(g["refs"][0])}</a>')
+    if len(g["refs"]) > 1:
+        refs += (f' <span class="gcf-multi" title="all GCF refs: {esc(", ".join(g["refs"]))}">'
+                 f'+{len(g["refs"]) - 1}</span>')
     links = g["links"]
     return (f'<tr class="gcf-row" data-flags="{" ".join(flags)}" '
             f'data-search="{search_attrs(g["manufacturer"], g["model"], g["marketing"], rsp_label(g))}">'
