@@ -12839,6 +12839,65 @@
    "vendor_url": ""
   },
   {
+   "ref": "12087",
+   "manufacturer": "Zebra Technologies Corporation",
+   "model": "MC945A",
+   "marketing": "MC9450, MC94",
+   "certified": "2024-03-21",
+   "embedded_module": false,
+   "gcf_url": "https://www.globalcertificationforum.org/pub_product/12087.html",
+   "rsp": {
+    "sgp02_m2m": false,
+    "sgp22_consumer": true,
+    "sgp32_iot": false,
+    "labels": [
+     "Supports Removable UICC",
+     "Supports RSP (Remote SIM Provisioning) for Consumer Device (GSMA SGP.22 V2)",
+     "Supports Removable eUICC",
+     "Supports Non-Removable eUICC"
+    ]
+   },
+   "euicc": {
+    "uicc_removable": true,
+    "uicc_non_removable": false,
+    "removable": true,
+    "non_removable": true
+   },
+   "bands": {
+    "3G WCDMA": [
+     "WCDMA II",
+     "WCDMA V"
+    ],
+    "APPLICATIONS": [
+     "Support OMA MMS 1.0, 1.1, 1.2 or 1.3"
+    ]
+   },
+   "caps": {
+    "Supports HSDPA": "Category 24",
+    "Supports Enhanced Uplink (EUL)": "Category 6",
+    "LTE Band 2: Category": "12",
+    "LTE Band 4: Category": "12",
+    "LTE Band 5: Category": "12",
+    "LTE Band 7: Category": "12",
+    "LTE Band 8: Category": "12",
+    "LTE Band 12: Category": "12",
+    "LTE Band 13: Category": "12",
+    "LTE Band 14: Category": "12",
+    "LTE Band 17: Category": "12",
+    "LTE Band 25: Category": "12",
+    "LTE Band 26: Category": "12",
+    "LTE Band 30: Category": "12",
+    "LTE Band 66: Category": "12",
+    "LTE Band 38: Category": "12",
+    "LTE Band 41: Category": "12",
+    "LTE Band 48: Category": "12"
+   },
+   "release": "",
+   "application": "",
+   "market": "",
+   "vendor_url": ""
+  },
+  {
    "ref": "12088",
    "manufacturer": "Zebra Technologies Corporation",
    "model": "MC945B",
@@ -17306,74 +17365,6 @@
    "vendor_url": ""
   },
   {
-   "ref": "12336",
-   "manufacturer": "TCL Communication Ltd",
-   "model": "T803D",
-   "marketing": "T803D",
-   "certified": "2024-06-24",
-   "embedded_module": false,
-   "gcf_url": "https://www.globalcertificationforum.org/pub_product/12336.html",
-   "rsp": {
-    "sgp02_m2m": true,
-    "sgp22_consumer": true,
-    "sgp32_iot": false,
-    "labels": [
-     "Supports Removable UICC",
-     "Supports Non-Removable UICC",
-     "Supports RSP (Remote SIM Provisioning) for Consumer Device (GSMA SGP.22 V2)",
-     "Supports RSP (Remote SIM Provisioning) for M2M Device (GSMA SGP.02)",
-     "Supports Removable eUICC",
-     "Supports Non-Removable eUICC"
-    ]
-   },
-   "euicc": {
-    "uicc_removable": true,
-    "uicc_non_removable": true,
-    "removable": true,
-    "non_removable": true
-   },
-   "bands": {
-    "2G GSM": [
-     "GSM 900",
-     "GSM 1800"
-    ],
-    "3G WCDMA": [
-     "WCDMA I",
-     "WCDMA VIII"
-    ],
-    "4G LTE FDD": [
-     "LTE Band 1",
-     "LTE Band 2",
-     "LTE Band 3",
-     "LTE Band 4",
-     "LTE Band 5",
-     "LTE Band 7",
-     "LTE Band 8",
-     "LTE Band 20",
-     "LTE Band 28"
-    ],
-    "4G LTE TDD": [
-     "LTE Band 38",
-     "LTE Band 40",
-     "LTE Band 41",
-     "LTE Band 42"
-    ],
-    "APPLICATIONS": [
-     "Support OMA MMS 1.0, 1.1, 1.2 or 1.3"
-    ]
-   },
-   "caps": {
-    "Supports EDGE": "Class 1",
-    "Supports HSDPA": "Category 24",
-    "Supports Enhanced Uplink (EUL)": "Category 7",
-    "Audio 3GPP release implemented": "Rel-16"
-   },
-   "release": "Rel-16",
-   "application": "",
-   "market": "",
-   "vendor_url": ""
-  },
-  {
    "ref": "12337",
    "manufacturer": "TCL Communication Ltd",
    "model": "T702D",
@@ -17516,6 +17507,80 @@
     "Audio 3GPP release implemented": "Rel-11"
    },
    "release": "Rel-11",
+   "application": "",
+   "market": "",
+   "vendor_url": ""
+  },
+  {
+   "ref": "12349",
+   "manufacturer": "Motorola Mobility LLC",
+   "model": "XT2407-2, XT2407-2 [eDS]",
+   "marketing": "XT2407-2",
+   "certified": "2024-06-28",
+   "embedded_module": false,
+   "gcf_url": "https://www.globalcertificationforum.org/pub_product/12349.html",
+   "rsp": {
+    "sgp02_m2m": false,
+    "sgp22_consumer": true,
+    "sgp32_iot": false,
+    "labels": [
+     "Supports Removable UICC",
+     "Supports RSP (Remote SIM Provisioning) for Consumer Device (GSMA SGP.22 V2)",
+     "Supports Non-Removable eUICC"
+    ]
+   },
+   "euicc": {
+    "uicc_removable": true,
+    "uicc_non_removable": false,
+    "removable": false,
+    "non_removable": true
+   },
+   "bands": {
+    "2G GSM": [
+     "GSM 850",
+     "GSM 900",
+     "GSM 1800",
+     "GSM 1900"
+    ],
+    "3G WCDMA": [
+     "WCDMA I",
+     "WCDMA II",
+     "WCDMA V",
+     "WCDMA VIII"
+    ],
+    "4G LTE FDD": [
+     "LTE Band 1",
+     "LTE Band 2",
+     "LTE Band 3",
+     "LTE Band 4",
+     "LTE Band 5",
+     "LTE Band 7",
+     "LTE Band 8",
+     "LTE Band 12",
+     "LTE Band 13",
+     "LTE Band 17",
+     "LTE Band 25",
+     "LTE Band 26",
+     "LTE Band 28",
+     "LTE Band 66"
+    ],
+    "4G LTE TDD": [
+     "LTE Band 38",
+     "LTE Band 40",
+     "LTE Band 41",
+     "LTE Band 42"
+    ],
+    "APPLICATIONS": [
+     "Support OMA MMS 1.0, 1.1, 1.2 or 1.3"
+    ]
+   },
+   "caps": {
+    "Supports EDGE": "Class 12",
+    "Supports HSDPA": "Category 24",
+    "Supports Enhanced Uplink (EUL)": "Category 7",
+    "Audio 3GPP release implemented": "Rel-13"
+   },
+   "release": "Rel-13",
    "application": "",
    "market": "",
    "vendor_url": ""
@@ -23315,6 +23380,79 @@
     "Supports EDGE": "Class 12",
     "Supports HSDPA": "Category 24",
     "Supports Enhanced Uplink (EUL)": "Category 6",
+    "Audio 3GPP release implemented": "Rel-13"
+   },
+   "release": "Rel-13",
+   "application": "",
+   "market": "",
+   "vendor_url": ""
+  },
+  {
+   "ref": "12759",
+   "manufacturer": "Motorola Mobility LLC",
+   "model": "XT2503-1, XT2503-1 [eDS]",
+   "marketing": "XT2503-1",
+   "certified": "2025-02-24",
+   "embedded_module": false,
+   "gcf_url": "https://www.globalcertificationforum.org/pub_product/12759.html",
+   "rsp": {
+    "sgp02_m2m": false,
+    "sgp22_consumer": true,
+    "sgp32_iot": false,
+    "labels": [
+     "Supports Removable UICC",
+     "Supports RSP (Remote SIM Provisioning) for Consumer Device (GSMA SGP.22 V2)",
+     "Supports Non-Removable eUICC"
+    ]
+   },
+   "euicc": {
+    "uicc_removable": true,
+    "uicc_non_removable": false,
+    "removable": false,
+    "non_removable": true
+   },
+   "bands": {
+    "2G GSM": [
+     "GSM 850",
+     "GSM 900",
+     "GSM 1800",
+     "GSM 1900"
+    ],
+    "3G WCDMA": [
+     "WCDMA I",
+     "WCDMA II",
+     "WCDMA V",
+     "WCDMA VIII"
+    ],
+    "4G LTE FDD": [
+     "LTE Band 1",
+     "LTE Band 2",
+     "LTE Band 3",
+     "LTE Band 4",
+     "LTE Band 5",
+     "LTE Band 7",
+     "LTE Band 8",
+     "LTE Band 12",
+     "LTE Band 13",
+     "LTE Band 17",
+     "LTE Band 26",
+     "LTE Band 28",
+     "LTE Band 66"
+    ],
+    "4G LTE TDD": [
+     "LTE Band 38",
+     "LTE Band 40",
+     "LTE Band 41",
+     "LTE Band 42"
+    ],
+    "APPLICATIONS": [
+     "Support OMA MMS 1.0, 1.1, 1.2 or 1.3"
+    ]
+   },
+   "caps": {
+    "Supports EDGE": "Class 12",
+    "Supports HSDPA": "Category 24",
+    "Supports Enhanced Uplink (EUL)": "Category 7",
     "Audio 3GPP release implemented": "Rel-13"
    },
    "release": "Rel-13",
@@ -33348,75 +33486,6 @@
    "vendor_url": ""
   },
   {
-   "ref": "13518",
-   "manufacturer": "Honor Device Co Ltd",
-   "model": "LNA-NX1",
-   "marketing": "HONOR 600 Lite",
-   "certified": "2026-01-13",
-   "embedded_module": false,
-   "gcf_url": "https://www.globalcertificationforum.org/pub_product/13518.html",
-   "rsp": {
-    "sgp02_m2m": false,
-    "sgp22_consumer": true,
-    "sgp32_iot": false,
-    "labels": [
-     "Supports Removable UICC",
-     "Supports RSP (Remote SIM Provisioning) for Consumer Device (GSMA SGP.22 V2)",
-     "Supports Non-Removable eUICC"
-    ]
-   },
-   "euicc": {
-    "uicc_removable": true,
-    "uicc_non_removable": false,
-    "removable": false,
-    "non_removable": true
-   },
-   "bands": {
-    "2G GSM": [
-     "GSM 850",
-     "GSM 900",
-     "GSM 1800",
-     "GSM 1900"
-    ],
-    "3G WCDMA": [
-     "WCDMA I",
-     "WCDMA II",
-     "WCDMA V",
-     "WCDMA VIII"
-    ],
-    "4G LTE FDD": [
-     "LTE Band 1",
-     "LTE Band 2",
-     "LTE Band 3",
-     "LTE Band 4",
-     "LTE Band 5",
-     "LTE Band 7",
-     "LTE Band 8",
-     "LTE Band 20",
-     "LTE Band 28",
-     "LTE Band 32"
-    ],
-    "4G LTE TDD": [
-     "LTE Band 38",
-     "LTE Band 40",
-     "LTE Band 41"
-    ],
-    "APPLICATIONS": [
-     "Support OMA MMS 1.0, 1.1, 1.2 or 1.3"
-    ]
-   },
-   "caps": {
-    "Supports EDGE": "Class 12",
-    "Supports HSDPA": "Category 24",
-    "Supports Enhanced Uplink (EUL)": "Category 7",
-    "Audio 3GPP release implemented": "Rel-12"
-   },
-   "release": "Rel-12",
-   "application": "",
-   "market": "",
-   "vendor_url": ""
-  },
-  {
    "ref": "13519",
    "manufacturer": "Samsung Electronics Co Ltd",
    "model": "SM-A376B/DS, SM-A376B",
@@ -36375,6 +36444,88 @@
     "Audio 3GPP release implemented": "Rel-10"
    },
    "release": "Rel-10",
+   "application": "",
+   "market": "",
+   "vendor_url": ""
+  },
+  {
+   "ref": "13644",
+   "manufacturer": "vivo Mobile Communication Co., Ltd.",
+   "model": "V2562",
+   "marketing": "X300 Ultra",
+   "certified": "2026-04-01",
+   "embedded_module": false,
+   "gcf_url": "https://www.globalcertificationforum.org/pub_product/13644.html",
+   "rsp": {
+    "sgp02_m2m": false,
+    "sgp22_consumer": true,
+    "sgp32_iot": false,
+    "labels": [
+     "Supports Removable UICC",
+     "Supports RSP (Remote SIM Provisioning) for Consumer Device (GSMA SGP.22 V2)",
+     "Supports Non-Removable eUICC"
+    ]
+   },
+   "euicc": {
+    "uicc_removable": true,
+    "uicc_non_removable": false,
+    "removable": false,
+    "non_removable": true
+   },
+   "bands": {
+    "2G GSM": [
+     "GSM 850",
+     "GSM 900",
+     "GSM 1800",
+     "GSM 1900"
+    ],
+    "3G WCDMA": [
+     "WCDMA I",
+     "WCDMA II",
+     "WCDMA V",
+     "WCDMA VI",
+     "WCDMA VIII"
+    ],
+    "4G LTE FDD": [
+     "LTE Band 1",
+     "LTE Band 2",
+     "LTE Band 3",
+     "LTE Band 4",
+     "LTE Band 5",
+     "LTE Band 7",
+     "LTE Band 8",
+     "LTE Band 12",
+     "LTE Band 13",
+     "LTE Band 17",
+     "LTE Band 18",
+     "LTE Band 19",
+     "LTE Band 20",
+     "LTE Band 26",
+     "LTE Band 28",
+     "LTE Band 32",
+     "LTE Band 66"
+    ],
+    "4G LTE TDD": [
+     "LTE Band 34",
+     "LTE Band 38",
+     "LTE Band 39",
+     "LTE Band 40",
+     "LTE Band 41",
+     "LTE Band 42",
+     "LTE Band 43",
+     "LTE Band 48"
+    ],
+    "APPLICATIONS": [
+     "Support OMA MMS 1.0, 1.1, 1.2 or 1.3"
+    ]
+   },
+   "caps": {
+    "Supports EDGE": "Class 33",
+    "Supports HSDPA": "Category 24",
+    "Supports Enhanced Uplink (EUL)": "Category 6",
+    "Audio 3GPP release implemented": "Rel-11"
+   },
+   "release": "Rel-11",
    "application": "",
    "market": "",
    "vendor_url": ""
@@ -39672,86 +39823,6 @@
    "vendor_url": ""
   },
   {
-   "ref": "13859",
-   "manufacturer": "Samsung Electronics Co Ltd",
-   "model": "SM-X846B",
-   "marketing": "SM-X846B",
-   "certified": "2026-07-15",
-   "embedded_module": false,
-   "gcf_url": "https://www.globalcertificationforum.org/pub_product/13859.html",
-   "rsp": {
-    "sgp02_m2m": false,
-    "sgp22_consumer": true,
-    "sgp32_iot": false,
-    "labels": [
-     "Supports Removable UICC",
-     "Supports RSP (Remote SIM Provisioning) for Consumer Device (GSMA SGP.22 V2)",
-     "Supports Non-Removable eUICC"
-    ]
-   },
-   "euicc": {
-    "uicc_removable": true,
-    "uicc_non_removable": false,
-    "removable": false,
-    "non_removable": true
-   },
-   "bands": {
-    "2G GSM": [
-     "GSM 850",
-     "GSM 900",
-     "GSM 1800",
-     "GSM 1900"
-    ],
-    "3G WCDMA": [
-     "WCDMA I",
-     "WCDMA II",
-     "WCDMA V",
-     "WCDMA VIII"
-    ],
-    "4G LTE FDD": [
-     "LTE Band 1",
-     "LTE Band 2",
-     "LTE Band 3",
-     "LTE Band 4",
-     "LTE Band 5",
-     "LTE Band 7",
-     "LTE Band 8",
-     "LTE Band 12",
-     "LTE Band 13",
-     "LTE Band 17",
-     "LTE Band 18",
-     "LTE Band 19",
-     "LTE Band 20",
-     "LTE Band 25",
-     "LTE Band 26",
-     "LTE Band 28",
-     "LTE Band 28A - Category",
-     "LTE Band 28B",
-     "LTE Band 32",
-     "LTE Band 66"
-    ],
-    "4G LTE TDD": [
-     "LTE Band 38",
-     "LTE Band 39",
-     "LTE Band 40",
-     "LTE Band 41"
-    ],
-    "APPLICATIONS": [
-     "Support OMA MMS 1.0, 1.1, 1.2 or 1.3"
-    ]
-   },
-   "caps": {
-    "Supports EDGE": "Class 12",
-    "Supports HSDPA": "Category 24",
-    "Supports Enhanced Uplink (EUL)": "Category 6",
-    "Audio 3GPP release implemented": "Rel-12"
-   },
-   "release": "Rel-12",
-   "application": "",
-   "market": "",
-   "vendor_url": ""
-  },
-  {
    "ref": "13860",
    "manufacturer": "Samsung Electronics Co Ltd",
    "model": "SM-X846E",
@@ -42182,75 +42253,6 @@
     "Audio 3GPP release implemented": "Rel-17"
    },
    "release": "Rel-17",
-   "application": "",
-   "market": "",
-   "vendor_url": ""
-  },
-  {
-   "ref": "14032",
-   "manufacturer": "Huawei Technologies Co., Ltd.",
-   "model": "LEB-AL00",
-   "marketing": "HUAWEI WATCH 6",
-   "certified": "2026-09-09",
-   "embedded_module": false,
-   "gcf_url": "https://www.globalcertificationforum.org/pub_product/14032.html",
-   "rsp": {
-    "sgp02_m2m": false,
-    "sgp22_consumer": true,
-    "sgp32_iot": false,
-    "labels": [
-     "Supports RSP (Remote SIM Provisioning) for Consumer Device (GSMA SGP.22 V2)",
-     "Supports Non-Removable eUICC"
-    ]
-   },
-   "euicc": {
-    "uicc_removable": false,
-    "uicc_non_removable": false,
-    "removable": false,
-    "non_removable": true
-   },
-   "bands": {
-    "3G WCDMA": [
-     "WCDMA I",
-     "WCDMA II",
-     "WCDMA V",
-     "WCDMA VI",
-     "WCDMA VIII"
-    ],
-    "4G LTE FDD": [
-     "LTE Band 1",
-     "LTE Band 2",
-     "LTE Band 3",
-     "LTE Band 4",
-     "LTE Band 5",
-     "LTE Band 7",
-     "LTE Band 8",
-     "LTE Band 18",
-     "LTE Band 19",
-     "LTE Band 20",
-     "LTE Band 26",
-     "LTE Band 28",
-     "LTE Band 28A - Category",
-     "LTE Band 28B",
-     "LTE Band 66"
-    ],
-    "4G LTE TDD": [
-     "LTE Band 34",
-     "LTE Band 38",
-     "LTE Band 39",
-     "LTE Band 40",
-     "LTE Band 41"
-    ],
-    "APPLICATIONS": [
-     "Supports eSE-NFC"
-    ]
-   },
-   "caps": {
-    "Supports HSDPA": "Category 10",
-    "Supports Enhanced Uplink (EUL)": "Category 5",
-    "Audio 3GPP release implemented": "Rel-13"
-   },
-   "release": "Rel-13",
    "application": "",
    "market": "",
    "vendor_url": ""
