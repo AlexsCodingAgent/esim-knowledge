@@ -1,5 +1,7 @@
 assets/data/jobs.db
 vendor/
+# self-hosted browser libraries for /tools/lpa-qr/ (not bundler output)
+!assets/js/vendor/
 .bundle/
 .cache/
 _site/
