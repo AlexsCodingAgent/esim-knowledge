@@ -6,6 +6,8 @@ description: "Given the SM-DP+ address in an eSIM activation code, who operates 
 
 # Who runs an SM-DP+ address
 
+Just want the table? [SM-DP+ domains by provider]({{ site.baseurl }}/docs/smdp-plus-owners-simple) lists every domain and the provider behind it, and nothing else.
+
 An activation code names a server. That name is usually enough to say who operates it.
 
 ```
