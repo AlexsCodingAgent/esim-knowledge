@@ -1,295 +1,171 @@
 /*!
- * lpa-qr-ui.js — wires the SGP.22 activation-code tool to the page.
+ * lpa-qr-ui.js — the whole tool: one input, one QR, one field table.
  *
- * Zero network: this file contains no fetch/XHR/WebSocket/sendBeacon and never
- * loads a remote resource. Everything (QR encode, QR decode) happens in-page.
+ * Zero network: no fetch/XHR/WebSocket/sendBeacon, no remote resources.
+ * Encode and decode both happen in this tab.
  */
 (function () {
   'use strict';
   var Q = window.LpaQr;
   if (!Q) return;
 
-  function $(id) { return document.getElementById(id); }
+  var $ = function (id) { return document.getElementById(id); };
   function esc(s) {
     return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
       return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c];
     });
   }
 
-  var last = { value: '', qr: null, svg: '' };
+  var last = { value: '', svg: '', qr: null };
 
-  /* ── messages ───────────────────────────────────────────────────────── */
-  function renderMsgs(el, res) {
-    if (!el) return;
+  /* ── the one input drives everything ────────────────────────────────── */
+  function update(str) {
+    var p = Q.parse(str);
+    last.value = p.value || '';
+    last.svg = '';
+    last.qr = null;
+
+    var qrBox = $('qr');
+    if (p.ok) {
+      try {
+        last.qr = Q.encodeMatrix(p.value, 'M');
+        last.svg = Q.toSVG(last.qr, { scale: 7, quiet: 4 });
+        qrBox.innerHTML = last.svg;
+      } catch (e) {
+        qrBox.innerHTML = '<div class="none">' + esc(e.message) + '</div>';
+      }
+    } else {
+      qrBox.innerHTML = '<div class="none">' + (str.trim() ? 'Not a valid code' : 'QR appears here') + '</div>';
+    }
+
+    renderFields(p, str.trim() !== '');
+    renderMsgs(p, str.trim() !== '');
+    var meta = $('meta');
+    if (meta) {
+      meta.textContent = p.ok
+        ? 'Version ' + ((last.qr.getModuleCount() - 17) / 4) + ' · ' + p.value.length +
+          ' characters · ' + p.qrMode.toLowerCase() + ' mode · EC M'
+        : '';
+    }
+    var dl = $('dl');
+    if (dl) dl.disabled = !p.ok;
+  }
+
+  /* ── field table: mandatory rows always, optional rows only when set ── */
+  var ROWS = [
+    ['acFormat', 'AC_Format', true],
+    ['address', 'SM-DP+ address', true],
+    ['matchingId', 'MatchingID', true],
+    ['oid', 'SM-DP+ OID', false],
+    ['confirmationFlag', 'Confirmation code', false],
+    ['ciPublicKey', 'CI public key', false],
+    ['deleteNotification', 'Delete notification', false]
+  ];
+
+  function renderFields(p, touched) {
+    var t = $('fields');
+    if (!touched) { t.innerHTML = ''; t.hidden = true; return; }
     var html = '';
-    (res.errors || []).forEach(function (e) {
-      html += '<div class="lpa-msg err"><b>' + esc(e.code) + '</b> ' + esc(e.message) + '</div>';
+    ROWS.forEach(function (r) {
+      var v = p[r[0]];
+      if (!r[2] && (v === '' || v == null)) return;
+      if (r[0] === 'confirmationFlag' && v === '1') v = 'required';
+      html += '<tr><th>' + esc(r[1]) + '</th><td>' +
+        (v === '' || v == null ? '<span class="none">— empty —</span>' : '<code>' + esc(v) + '</code>') +
+        '</td></tr>';
     });
-    (res.warnings || []).forEach(function (w) {
-      html += '<div class="lpa-msg warn"><b>' + esc(w.code) + '</b> ' + esc(w.message) + '</div>';
-    });
-    if (!html) html = '<div class="lpa-msg ok">No problems found — conformant Activation Code.</div>';
+    if (p.ignored && p.ignored.length) {
+      html += '<tr><th>Ignored</th><td><code>' + esc(p.ignored.join(' $ ')) + '</code></td></tr>';
+    }
+    t.innerHTML = html;
+    t.hidden = false;
+  }
+
+  function renderMsgs(p, touched) {
+    var el = $('msgs');
+    if (!touched) { el.innerHTML = ''; return; }
+    var html = '';
+    p.errors.forEach(function (e) { html += '<div class="msg err">' + esc(e.message) + '</div>'; });
+    p.warnings.forEach(function (w) { html += '<div class="msg warn">' + esc(w.message) + '</div>'; });
+    if (!html) html = '<div class="msg ok">Valid — conformant activation code.</div>';
     el.innerHTML = html;
   }
 
-  /* ── build side ─────────────────────────────────────────────────────── */
-  function fields() {
-    return {
-      address: ($('f-addr') || {}).value || '',
-      matchingId: ($('f-token') || {}).value || '',
-      oid: ($('f-oid') || {}).value || '',
-      confirmationRequired: !!($('f-conf') && $('f-conf').checked),
-      ciPublicKey: ($('f-ci') || {}).value || '',
-      deleteNotification: ($('f-del') || {}).value || ''
-    };
-  }
-
-  function rebuild() {
-    var res = Q.build(fields());
-    var ecl = ($('f-ecl') || {}).value || 'M';
-    var strEl = $('lpa-str');
-    var qrEl = $('qr-holder');
-
-    last.value = res.value;
-    last.svg = '';
-
-    if (strEl) {
-      strEl.innerHTML = highlight(res.value);
-      strEl.setAttribute('data-empty', res.value === 'LPA:1$$' ? 'true' : 'false');
-    }
-
-    if (res.ok && qrEl) {
-      try {
-        var qr = Q.encodeMatrix(res.value, ecl);
-        last.qr = qr;
-        last.svg = Q.toSVG(qr, { scale: 7, quiet: 4 });
-        qrEl.innerHTML = last.svg;
-        var meta = $('qr-meta');
-        if (meta) {
-          meta.textContent = 'Version ' + ((qr.getModuleCount() - 17) / 4) + ' · ' +
-            qr.getModuleCount() + '×' + qr.getModuleCount() + ' modules · EC ' + ecl + ' · ' +
-            res.qrMode.toLowerCase() + ' mode · ' + res.value.length + ' chars';
-        }
-      } catch (e) {
-        qrEl.innerHTML = '';
-        if ($('qr-meta')) $('qr-meta').textContent = 'QR error: ' + e.message;
-      }
-    } else if (qrEl) {
-      qrEl.innerHTML = '<div class="lpa-qr-empty">Fix the errors to generate a QR code</div>';
-      if ($('qr-meta')) $('qr-meta').textContent = '';
-    }
-
-    renderMsgs($('build-msgs'), res);
-    var dl = $('dl-wrap');
-    if (dl) dl.style.display = res.ok ? '' : 'none';
-    return res;
-  }
-
-  function highlight(value) {
-    // "$" delimiters in purple, everything else plain — makes field boundaries visible.
-    return String(value).split('$').map(function (p, i) {
-      var sep = i === 0 ? '' : '<span class="lpa-dollar">$</span>';
-      return sep + '<span class="lpa-part">' + esc(p) + '</span>';
-    }).join('');
-  }
-
-  /* ── downloads ──────────────────────────────────────────────────────── */
-  function dl(name, mime, data) {
-    var blob = new Blob([data], { type: mime });
-    var url = URL.createObjectURL(blob);
-    var a = document.createElement('a');
-    a.href = url; a.download = name;
-    document.body.appendChild(a); a.click();
-    setTimeout(function () { URL.revokeObjectURL(url); a.remove(); }, 1000);
-  }
-
-  function svgName() {
-    var addr = (fields().address || 'activation-code').replace(/[^A-Za-z0-9.-]/g, '_');
-    return 'lpa-' + addr + '.svg';
-  }
-
-  function downloadPng() {
-    if (!last.qr) return;
-    var n = last.qr.getModuleCount(), quiet = 4, scale = 10;
-    var dim = (n + quiet * 2) * scale;
-    var c = document.createElement('canvas');
-    c.width = c.height = dim;
-    var ctx = c.getContext('2d');
-    ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, dim, dim);
-    ctx.fillStyle = '#000';
-    for (var r = 0; r < n; r++) {
-      for (var col = 0; col < n; col++) {
-        if (last.qr.isDark(r, col)) {
-          ctx.fillRect((col + quiet) * scale, (r + quiet) * scale, scale, scale);
-        }
-      }
-    }
-    c.toBlob(function (b) {
-      var url = URL.createObjectURL(b);
-      var a = document.createElement('a');
-      a.href = url; a.download = svgName().replace(/\.svg$/, '.png');
-      document.body.appendChild(a); a.click();
-      setTimeout(function () { URL.revokeObjectURL(url); a.remove(); }, 1000);
-    }, 'image/png');
-  }
-
-  /* ── decode side ────────────────────────────────────────────────────── */
-  var FIELD_DOC = {
-    acFormat: ['AC_Format', 'Must be "1" — any other value is invalid (SGP.22 §4.1).'],
-    address: ['SM-DP+ Address', 'FQDN of the SM-DP+, ISO/IEC 18004 alphanumeric charset minus "$".'],
-    matchingId: ['MatchingID (AC_Token)', 'Upper-case alphanumerics and "-"; MAY be zero-length.'],
-    oid: ['SM-DP+ OID', 'Optional; the OID from CERT.DPauth.SIG.'],
-    confirmationFlag: ['Confirmation Code Required', '"1" when the SM-DP+ requires a confirmation code, otherwise absent.'],
-    ciPublicKey: ['CI Public Key indicator', 'Optional (v3.0+); selects an eSIM CA RootCA public key.'],
-    deleteNotification: ['Delete Notification', 'Optional (v3.0+); only in a Device Change flow.'],
-    ignored: ['Ignored trailing parameters', 'Beyond Table 8 — devices SHALL ignore these.']
-  };
-
-  function renderParsed(p, prefixNote) {
-    var t = $('dec-fields');
-    if (!t) return;
-    var rows = '';
-    Object.keys(FIELD_DOC).forEach(function (k) {
-      var v = p[k];
-      if (k === 'ignored') {
-        if (!v || !v.length) return;
-        v = v.join(' $ ');
-      }
-      var empty = (v === '' || v == null);
-      rows += '<tr class="' + (empty ? 'lpa-empty' : '') + '">' +
-        '<th>' + esc(FIELD_DOC[k][0]) + '</th>' +
-        '<td><code>' + (empty ? '<span class="lpa-none">— empty —</span>' : esc(v)) + '</code></td>' +
-        '<td class="lpa-doc">' + esc(FIELD_DOC[k][1]) + '</td></tr>';
-    });
-    t.innerHTML = rows;
-    t.style.display = '';
-    var extra = $('dec-extra');
-    if (extra) {
-      extra.innerHTML = 'QR mode required: <b>' + esc(p.qrMode) + '</b> · total ' +
-        esc((p.value || '').length) + ' characters' + (prefixNote ? ' · ' + esc(prefixNote) : '');
-    }
-    renderMsgs($('dec-msgs'), p);
-  }
-
+  /* ── decode an image dropped / pasted / chosen ──────────────────────── */
   function decodeImage(file) {
     var img = new Image();
     var url = URL.createObjectURL(file);
     img.onload = function () {
-      var c = $('dec-canvas');
-      var max = 1200;
-      var w = img.width, h = img.height;
+      var max = 1400, w = img.width, h = img.height;
       if (Math.max(w, h) > max) {
         var k = max / Math.max(w, h);
         w = Math.round(w * k); h = Math.round(h * k);
       }
+      var c = document.createElement('canvas');
       c.width = w; c.height = h;
       var ctx = c.getContext('2d', { willReadFrequently: true });
       ctx.drawImage(img, 0, 0, w, h);
       URL.revokeObjectURL(url);
-      var data;
-      try {
-        data = ctx.getImageData(0, 0, w, h);
-      } catch (e) {
-        $('dec-msgs').innerHTML = '<div class="lpa-msg err">Cannot read that image in this browser.</div>';
+      var hit = null;
+      try { hit = window.jsQR(ctx.getImageData(0, 0, w, h).data, w, h, { inversionAttempts: 'attemptBoth' }); }
+      catch (e) { hit = null; }
+      if (!hit) {
+        $('msgs').innerHTML = '<div class="msg err">No QR code found in that image — try a tighter crop or a sharper photo.</div>';
         return;
       }
-      var found = null;
-      try { found = window.jsQR(data.data, w, h, { inversionAttempts: 'attemptBoth' }); } catch (e) { found = null; }
-      if (!found) {
-        $('dec-fields').style.display = 'none';
-        $('dec-msgs').innerHTML = '<div class="lpa-msg err">No QR code found in that image. Try a tighter crop, more contrast, or a larger image.</div>';
-        return;
-      }
-      var p = Q.parse(found.data);
-      renderParsed(p, 'decoded from image');
+      var input = $('input');
+      input.value = hit.data;
+      update(hit.data);
     };
     img.onerror = function () {
-      $('dec-msgs').innerHTML = '<div class="lpa-msg err">That file could not be read as an image.</div>';
+      $('msgs').innerHTML = '<div class="msg err">That file is not a readable image.</div>';
     };
     img.src = url;
   }
 
-  function decodeText(str) {
-    if (!str.trim()) {
-      $('dec-fields').style.display = 'none';
-      $('dec-msgs').innerHTML = '';
-      return;
-    }
-    renderParsed(Q.parse(str), 'parsed from text');
-  }
-
   /* ── wiring ─────────────────────────────────────────────────────────── */
   function init() {
-    ['f-addr', 'f-token', 'f-oid', 'f-ci', 'f-del'].forEach(function (id) {
-      var el = $(id); if (el) el.addEventListener('input', rebuild);
-    });
-    ['f-conf', 'f-ecl'].forEach(function (id) {
-      var el = $(id); if (el) el.addEventListener('change', rebuild);
-    });
+    var input = $('input');
 
-    var copy = $('copy-btn');
-    if (copy) {
-      copy.addEventListener('click', function () {
-        var txt = last.value;
-        function done() {
-          copy.textContent = 'Copied';
-          setTimeout(function () { copy.textContent = 'Copy'; }, 1400);
-        }
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(txt).then(done, function () { fallbackCopy(txt); done(); });
-        } else { fallbackCopy(txt); done(); }
-      });
-    }
+    input.addEventListener('input', function () { update(input.value); });
 
-    var svgBtn = $('dl-svg'), pngBtn = $('dl-png');
-    if (svgBtn) svgBtn.addEventListener('click', function () { if (last.svg) dl(svgName(), 'image/svg+xml', last.svg); });
-    if (pngBtn) pngBtn.addEventListener('click', downloadPng);
-
-    // tabs
-    var tabs = document.querySelectorAll('.lpa-tab');
-    Array.prototype.forEach.call(tabs, function (t) {
-      t.addEventListener('click', function () {
-        Array.prototype.forEach.call(tabs, function (x) {
-          x.classList.toggle('active', x === t);
-          x.setAttribute('aria-selected', x === t ? 'true' : 'false');
-        });
-        var want = t.getAttribute('data-tab');
-        ['build', 'decode'].forEach(function (name) {
-          var sec = $('tab-' + name);
-          if (sec) sec.hidden = (name !== want);
-        });
-      });
+    var copy = $('copy');
+    copy.addEventListener('click', function () {
+      if (!last.value) return;
+      var done = function () {
+        copy.textContent = 'Copied';
+        setTimeout(function () { copy.textContent = 'Copy'; }, 1200);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(last.value).then(done, function () { legacyCopy(last.value); done(); });
+      } else { legacyCopy(last.value); done(); }
     });
 
-    // decode inputs
-    var file = $('qr-file');
-    if (file) {
-      file.addEventListener('change', function () { if (file.files && file.files[0]) decodeImage(file.files[0]); });
-    }
-    var paste = $('paste');
-    if (paste) {
-      paste.addEventListener('input', function () { decodeText(paste.value); });
-    }
-    var drop = $('drop');
-    if (drop) {
-      ['dragenter', 'dragover'].forEach(function (ev) {
-        drop.addEventListener(ev, function (e) { e.preventDefault(); drop.classList.add('over'); });
-      });
-      ['dragleave', 'drop'].forEach(function (ev) {
-        drop.addEventListener(ev, function (e) { e.preventDefault(); drop.classList.remove('over'); });
-      });
-      drop.addEventListener('drop', function (e) {
-        var f = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
-        if (f && /^image\//.test(f.type)) decodeImage(f);
-      });
-      // click the drop zone to open the file picker
-      drop.addEventListener('click', function () { if (file) file.click(); });
-    }
+    $('dl').addEventListener('click', function () {
+      if (!last.svg) return;
+      var blob = new Blob([last.svg], { type: 'image/svg+xml' });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = 'lpa-' + (Q.parse(input.value).address || 'code').replace(/[^A-Za-z0-9.-]/g, '_') + '.svg';
+      document.body.appendChild(a); a.click();
+      setTimeout(function () { URL.revokeObjectURL(url); a.remove(); }, 800);
+    });
 
-    // paste an image straight in (ctrl+V anywhere on the decode tab)
+    // whole page is a drop target for QR images
+    ['dragenter', 'dragover'].forEach(function (ev) {
+      document.addEventListener(ev, function (e) { e.preventDefault(); document.body.classList.add('dropping'); });
+    });
+    ['dragleave', 'drop'].forEach(function (ev) {
+      document.addEventListener(ev, function (e) { e.preventDefault(); document.body.classList.remove('dropping'); });
+    });
+    document.addEventListener('drop', function (e) {
+      var f = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
+      if (f && /^image\//.test(f.type)) decodeImage(f);
+    });
+
+    // paste: an image decodes, text just lands in the box
     document.addEventListener('paste', function (e) {
-      var sec = $('tab-decode');
-      if (!sec || sec.hidden) return;
       var items = (e.clipboardData && e.clipboardData.items) || [];
       for (var i = 0; i < items.length; i++) {
         if (items[i].type && items[i].type.indexOf('image') === 0) {
@@ -299,29 +175,18 @@
       }
     });
 
-    // pre-fill with the spec's own example so the page shows something real
-    if ($('f-addr') && !$('f-addr').value) {
-      $('f-addr').value = 'SMDP.EXAMPLE.COM';
-      $('f-token').value = '04386-AGYFT-A74Y8-3F815';
-    }
-    rebuild();
+    if (!input.value) input.value = 'LPA:1$SMDP.EXAMPLE.COM$04386-AGYFT-A74Y8-3F815';
+    update(input.value);
   }
 
-  function fallbackCopy(text) {
+  function legacyCopy(text) {
     var ta = document.createElement('textarea');
-    ta.value = text;
-    ta.setAttribute('readonly', '');
-    ta.style.position = 'fixed';
-    ta.style.top = '-1000px';
-    document.body.appendChild(ta);
-    ta.select();
+    ta.value = text; ta.style.position = 'fixed'; ta.style.top = '-1000px';
+    document.body.appendChild(ta); ta.select();
     try { document.execCommand('copy'); } catch (e) { /* ignore */ }
     ta.remove();
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
 }());
