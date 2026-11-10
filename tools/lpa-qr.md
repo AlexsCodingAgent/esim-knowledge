@@ -333,7 +333,8 @@ body.dropping .drop-veil { display: flex; }
 
 <div class="drop-veil">Drop the QR image to read it back</div>
 
-<script src="{{ '/assets/js/vendor/qrcode-generator.js' | relative_url }}"></script>
-<script src="{{ '/assets/js/vendor/jsQR.js' | relative_url }}"></script>
-<script src="{{ '/assets/js/lpa-qr.js' | relative_url }}"></script>
-<script src="{{ '/assets/js/lpa-qr-ui.js' | relative_url }}"></script>
+{% assign v = site.github.build_revision %}
+<script src="{{ '/assets/js/vendor/qrcode-generator.js?v=' | append: v | relative_url }}"></script>
+<script src="{{ '/assets/js/vendor/jsQR.js?v=' | append: v | relative_url }}"></script>
+<script src="{{ '/assets/js/lpa-qr.js?v=' | append: v | relative_url }}"></script>
+<script src="{{ '/assets/js/lpa-qr-ui.js?v=' | append: v | relative_url }}"></script>
