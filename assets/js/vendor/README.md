@@ -1,7 +1,7 @@
 # Vendored JS (self-hosted, no CDN)
 
 These files are served from euicc.tech so the `/tools/lpa-qr/` page can run with
-**zero external requests**. They are committed copies, not runtime dependencies —
+**zero external requests**. They are committed copies, not runtime dependencies.
 nothing here is fetched from a package registry or CDN when the page loads.
 
 | File | Upstream | Version | Licence |
@@ -10,7 +10,7 @@ nothing here is fetched from a package registry or CDN when the page loads.
 | `jsQR.js` | [cozmo/jsQR](https://github.com/cozmo/jsQR) (`dist/jsQR.js`) | master @ 2026-11-09 | Apache-2.0 |
 
 Both keep their upstream headers. To update, replace the file and re-run
-`node scripts/test_lpa_qr.js` — the suite includes real encode → rasterise →
+`node scripts/test_lpa_qr.js`; the suite includes real encode → rasterise →
 jsQR-decode round trips, so a broken swap fails loudly.
 
 Why vendored rather than imported:

@@ -1,5 +1,5 @@
 /*!
- * lpa-qr.js — GSMA SGP.22 Activation Code  <->  QR payload.
+ * lpa-qr.js: GSMA SGP.22 Activation Code  <->  QR payload.
  *
  * Pure client-side. This file performs NO network I/O of any kind: no fetch,
  * no XHR, no sendBeacon, no WebSocket, no dynamic script/style injection.
@@ -57,13 +57,13 @@
     if (addr !== addr.toUpperCase()) {
       push(warnings, 'ADDR_LOWER',
         'SM-DP+ Address contains lower-case letters. FQDNs are case-insensitive, but the ' +
-        'alphanumeric QR mode needs upper case — it will be encoded in byte mode as given.');
+        'alphanumeric QR mode needs upper case; it will be encoded in byte mode as given.');
     }
     if (addr.length > 253) {
       push(errors, 'ADDR_LEN', 'SM-DP+ Address is ' + addr.length + ' characters; an FQDN maxes out at 253.');
     }
     if (addr.indexOf('.') === -1) {
-      push(warnings, 'ADDR_NOT_FQDN', 'SM-DP+ Address has no dot — that is not a fully qualified domain name.');
+      push(warnings, 'ADDR_NOT_FQDN', 'SM-DP+ Address has no dot, so it is not a fully qualified domain name.');
     }
     var labels = addr.split('.');
     labels.forEach(function (l, i) {
@@ -139,7 +139,7 @@
     if (m) {
       out.hasPrefix = true;
       if (m[1] !== 'LPA') {
-        push(warnings, 'PREFIX_CASE', 'Prefix is "' + m[1] + ':" — the spec writes "LPA:"; readers are usually case-insensitive.');
+        push(warnings, 'PREFIX_CASE', 'Prefix is "' + m[1] + ':" but the spec writes "LPA:"; readers are usually case-insensitive.');
       }
       s = s.slice(m[0].length);
     } else {
@@ -156,7 +156,7 @@
     }
     if (parts.length < 3) {
       push(errors, 'STRUCTURE',
-        'Expected at least AC_Format $ SM-DP+ Address $ AC_Token — got ' + parts.length + ' field(s). ' +
+        'Expected at least AC_Format $ SM-DP+ Address $ AC_Token; got ' + parts.length + ' field(s). ' +
         'Note that the empty optional fields still need their "$" delimiters.');
     }
 
@@ -185,7 +185,7 @@
       push(warnings, 'CI_KEY', 'CI Public Key indicator "' + out.ciPublicKey + '" looks unusual (expected an opaque indicator value).');
     }
     if (out.deleteNotification !== '') {
-      push(warnings, 'DELETE_NOTIF', 'Delete Notification for Device Change present — only valid in a Device Change flow (SGP.22 §4.1.3).');
+      push(warnings, 'DELETE_NOTIF', 'Delete Notification for Device Change present; only valid in a Device Change flow (SGP.22 §4.1.3).');
     }
 
     // Delimiter hygiene: "$1" style flags live in a specific slot; catch the classic mistake
@@ -223,11 +223,11 @@
     if (conf && conf !== '1') push(errors, 'CONF_FLAG', 'Confirmation flag must be "1" or absent.');
     if (ci && del === '' && oid === '' && !conf) {
       push(warnings, 'HOLE',
-        'A CI Public Key indicator without an OID or confirmation flag leaves an empty "$$" — ' +
+        'A CI Public Key indicator without an OID or confirmation flag leaves an empty "$$", which ' +
         'that is legal but almost always a mistake; check the field order.');
     }
 
-    // Optional tail: oid, conf flag, ci key, delete notification — trimmed to the last set one.
+    // Optional tail: oid, conf flag, ci key, delete notification, trimmed to the last set one.
     var tail = [oid, conf, ci, del];
     while (tail.length && tail[tail.length - 1] === '') tail.pop();
     var ac = ['1', addr, tok].concat(tail).join('$');
@@ -256,7 +256,7 @@
     var qrFn = (typeof qrcode === 'function') ? qrcode
       : (typeof require === 'function' ? require('./vendor/qrcode-generator.js') : null);
     if (!qrFn) throw new Error('QR encoder not loaded');
-    var ecl = (ecLevel || 'M');
+    var ecl = ecLevel || pickEc(payload);
     var qr = qrFn(0, ecl);                  // 0 = pick the smallest version that fits
     qr.addData(payload, alnumModeOk(payload) ? 'Alphanumeric' : 'Byte');
     qr.make();
@@ -279,17 +279,77 @@
         }
       }
     }
+    // A bare <svg> with role="img" and no accessible name is announced as
+    // "image" by screen readers: carry the payload's address in aria-label and
+    // a <title> so the saved file is self-describing too.
+    var label = opts.label || 'QR code';
     return '<svg xmlns="http://www.w3.org/2000/svg" width="' + size + '" height="' + size +
-      '" viewBox="0 0 ' + size + ' ' + size + '" shape-rendering="crispEdges" role="img">' +
+      '" viewBox="0 0 ' + size + ' ' + size + '" shape-rendering="crispEdges" role="img"' +
+      ' aria-label="' + escapeAttr(label) + '">' +
+      '<title>' + escapeText(label) + '</title>' +
       '<rect width="' + size + '" height="' + size + '" fill="' + light + '"/>' +
       '<path fill="' + dark + '" d="' + path.join('') + '"/></svg>';
   }
+
+  function escapeText(s) {
+    return String(s).replace(/[&<>]/g, function (c) {
+      return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c];
+    });
+  }
+
+  function escapeAttr(s) {
+    return escapeText(s).replace(/"/g, '&quot;');
+  }
+
+  /* ── pixel data (browser only; needs <canvas>) ──────────────────────── */
+  // Returns a canvas at least `px` wide, snapped up to a whole number of
+  // pixels per module so no module is ever a fractional pixel: fractional
+  // edges are what make a screenshot of a QR fail to scan.
+  function toCanvas(qr, opts) {
+    opts = opts || {};
+    if (typeof document === 'undefined') throw new Error('toCanvas needs a document');
+    var quiet = opts.quiet == null ? 4 : opts.quiet;
+    var target = opts.px == null ? 1024 : opts.px;
+    var n = qr.getModuleCount();
+    var scale = Math.max(1, Math.ceil(target / (n + quiet * 2)));
+    var size = (n + quiet * 2) * scale;
+    var canvas = document.createElement('canvas');
+    canvas.width = size;
+    canvas.height = size;
+    var ctx = canvas.getContext('2d');
+    ctx.fillStyle = opts.light || '#ffffff';
+    ctx.fillRect(0, 0, size, size);
+    ctx.fillStyle = opts.dark || '#000000';
+    for (var r = 0; r < n; r++) {
+      for (var c = 0; c < n; c++) {
+        if (qr.isDark(r, c)) ctx.fillRect((c + quiet) * scale, (r + quiet) * scale, scale, scale);
+      }
+    }
+    return canvas;
+  }
+
+  /* ── error correction level ─────────────────────────────────────────── */
+  // Higher EC means more redundancy (survives glare and moire from a screen)
+  // but a larger symbol for the same payload. Short codes have headroom to
+  // spend on robustness; long ones stay at M to keep the modules big enough
+  // to resolve. Threshold picked so both stay at version 10 or below.
+  function pickEc(payload) {
+    return String(payload == null ? '' : payload).length <= 120 ? 'Q' : 'M';
+  }
+
+  function version(qr) {
+    return (qr.getModuleCount() - 17) / 4;
+  }
+
 
   return {
     parse: parse,
     build: build,
     encodeMatrix: encodeMatrix,
     toSVG: toSVG,
+    toCanvas: toCanvas,
+    pickEc: pickEc,
+    version: version,
     alnumModeOk: alnumModeOk,
     RE_ADDR: RE_ADDR,
     RE_TOKEN: RE_TOKEN,

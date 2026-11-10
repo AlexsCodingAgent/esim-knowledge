@@ -155,9 +155,11 @@ Every article links to specific sections of the corresponding GSMA specification
 
 **Quick lookup?** Try the [Glossary](docs/glossary) for 60+ terms defined.
 
-{% if site.technical_page %}**Looking up a tag?** The [Tag Finder](docs/tag-finder) takes one value — `BF36`, `E0`, `83`, `[54]` — and shows every meaning of it, with the document it came from.{% endif %}
+{% if site.technical_page %}**Looking up a tag?** The [Tag Finder](docs/tag-finder) takes one value (`BF36`, `E0`, `83`, `[54]`) and shows every meaning of it, with the document it came from.{% endif %}
 
 {% if site.technical_page %}**Choosing a module?** The [GCF RSP register](docs/gcf-rsp-modules) lists every module GCF has certified for embedded eSIM, with the facts their own list cannot filter: consumer RSP (SGP.22) or M2M RSP (SGP.02), and a soldered or removable eUICC.{% endif %}
+
+{% if site.technical_page %}**Holding an activation code?** The [LPA QR tool](tools/lpa-qr/) turns `LPA:1$…` into a scannable QR, or reads a QR image back into its fields, without leaving the browser.{% endif %}
 
 ---
 
@@ -165,7 +167,7 @@ Every article links to specific sections of the corresponding GSMA specification
 
 *Sources: GSMA SGP.02 v4.2 · SGP.22 v2.7 · SGP.22 v3.1 · SGP.23 v1.16 · SGP.23-1 v3.1.3 · SGP.25 v2.1 · SGP.26 v3.0.2 · SGP.29 v1.1 · SGP.31 v1.3 · SGP.32 v1.3 · SGP.33-3 v1.2 · SGP.41 v1.0*
 
-<a href="/docs/glossary">Glossary</a> · <a href="/docs/status-words">Status Words</a> · <a href="/docs/smdp-plus-owners-simple">SM-DP+ Domains</a> · <a href="/docs/smdp-plus-ownership">SM-DP+ Owners</a> · <a href="/docs/tag-finder">Tag Finder</a> · <a href="/docs/gcf-rsp-modules">GCF RSP Register</a> · <a href="/docs/prerequisites">Prerequisites</a>{% if site.technical_page %} · <a href="/docs/standards-map">Standards Map</a> · <a href="/ai">AI Index</a>{% endif %}{% if site.jobs_page %} · <a href="/careers">Jobs</a>{% endif %}
+<a href="/docs/glossary">Glossary</a> · <a href="/docs/status-words">Status Words</a> · <a href="/docs/smdp-plus-owners-simple">SM-DP+ Domains</a> · <a href="/docs/smdp-plus-ownership">SM-DP+ Owners</a> · <a href="/docs/tag-finder">Tag Finder</a> · <a href="/docs/gcf-rsp-modules">GCF RSP Register</a> · <a href="/tools/lpa-qr/">LPA QR</a> · <a href="/docs/prerequisites">Prerequisites</a>{% if site.technical_page %} · <a href="/docs/standards-map">Standards Map</a> · <a href="/ai">AI Index</a>{% endif %}{% if site.jobs_page %} · <a href="/careers">Jobs</a>{% endif %}
 
 </div>
 {% else %}

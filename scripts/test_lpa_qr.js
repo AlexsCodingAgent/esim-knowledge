@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Tests for assets/js/lpa-qr.js — run: node scripts/test_lpa_qr.js
+ * Tests for assets/js/lpa-qr.js. Run: node scripts/test_lpa_qr.js
  *
  * Covers: the six normative examples from SGP.22 v3.1 Table 8, build<->parse
  * round trips, conformance warnings, and a real encode -> rasterise -> jsQR
@@ -142,6 +142,39 @@ SPEC.forEach(([str], i) => {
   const dec = jsQR(buf, dim, dim);
   check('EC level ' + lvl + ' decodes', !!dec && dec.data === s, dec ? dec.data : 'no decode');
 });
+
+/* ── 5. renderer: EC choice, version maths, SVG accessibility ──────────── */
+console.log('\n5. renderer');
+
+const SHORT = 'LPA:1$SMDP.EXAMPLE.COM$04386-AGYFT-A74Y8-3F815';
+const LONG = 'LPA:1$SMDP.EXAMPLE.COM$' + 'A'.repeat(200);
+
+check('short payload picks EC Q', LpaQr.pickEc(SHORT) === 'Q', LpaQr.pickEc(SHORT));
+check('long payload picks EC M', LpaQr.pickEc(LONG) === 'M', LONG.length + ' chars -> ' + LpaQr.pickEc(LONG));
+
+const qm = LpaQr.encodeMatrix(SHORT);
+const n = qm.getModuleCount();
+const v = LpaQr.version(qm);
+check('version() matches the module count', v === (n - 17) / 4 && Number(v.toFixed(0)) === v, 'v' + v + ' n' + n);
+
+const lbl = 'QR code for SMDP.EXAMPLE.COM';
+const svg = LpaQr.toSVG(qm, { scale: 8, quiet: 4, label: lbl });
+const want = (n + 8) * 8;
+check('SVG is (modules + 2*quiet) * scale wide', svg.includes('width="' + want + '"') && svg.includes('height="' + want + '"'),
+      'want ' + want + ' got ' + (/width="(\d+)"/.exec(svg) || [])[1]);
+check('SVG carries an accessible name',
+      svg.includes('role="img"') && svg.includes('aria-label="' + lbl + '"') && svg.includes('<title>' + lbl + '</title>'));
+check('SVG escapes markup in the label',
+      LpaQr.toSVG(qm, { label: 'A & B "q"' }).includes('aria-label="A &amp; B &quot;q&quot;"'));
+
+let refused = false;
+try { LpaQr.toCanvas(qm); } catch (e) { refused = /document/.test(e.message); }
+check('toCanvas refuses without a document', refused);
+
+const dqr = LpaQr.encodeMatrix(SHORT);
+const dr = raster(dqr, 4);
+const ddec = jsQR(dr.buf, dr.dim, dr.dim);
+check('default EC round trip decodes to the same payload', !!ddec && ddec.data === SHORT, ddec ? ddec.data : 'no decode');
 
 console.log('\n' + (fail === 0 ? 'ALL PASS' : 'FAILURES') + `: ${pass} passed, ${fail} failed\n`);
 process.exit(fail === 0 ? 0 : 1);
