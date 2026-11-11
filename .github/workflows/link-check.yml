@@ -11,7 +11,10 @@ on:
 
 jobs:
   check-links:
-    runs-on: ubuntu-latest
+    # The cluster's runner, from gh-actions-iac. `runs-on` is the scale set's name and nothing else:
+# an ARC runner carries that label and no other, so asking for `self-hosted` as well queues
+# the job forever beside an idle pod.
+    runs-on: knowledge
     steps:
       - name: Check all pages
         run: |
