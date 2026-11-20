@@ -1,5 +1,6 @@
 ---
 layout: default
+published: false
 title: "GCF RSP Register, Condensed (machine-readable)"
 description: "One row per GCF eSIM (RSP) certified module: manufacturer, model, certification date, declared RSP flavour (SGP.22 consumer / SGP.02 M2M), eUICC mounting, bands, vendor page, datasheet and AT command manual URLs, and GCF reference. Plus every RSP certification and compliance declaration. For programmatic or LLM extraction."
 ---

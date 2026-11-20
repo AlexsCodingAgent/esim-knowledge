@@ -1,10 +1,8 @@
 ---
 layout: default
+published: false
 title: "GCF-certified eSIM Modules and RSP Devices: The Searchable Register"
 description: "Every cellular module GCF has certified for embedded eSIM, with the facts GCF's own list cannot filter: consumer RSP (SGP.22) vs M2M RSP (SGP.02), soldered or removable eUICC, band support and 3GPP release. Plus every RSP certification and RSP compliance declaration, searchable."
-redirect_from:
-  - /gcf-rsp
-  - /gcf-rsp/
 ---
 
 # GCF-certified eSIM modules and RSP devices
