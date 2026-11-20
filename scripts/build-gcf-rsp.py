@@ -61,6 +61,37 @@ COMP_LISTING = f"{HOST}/page-types/public_rsp_declaration_listing/ajaxLoadMoreRe
 PAGEID_CERT = "E996075A-7A84-472C-999A525CD4086B80"
 PAGEID_COMP = "4D5919AE-B813-4742-A0907B789B00A302"
 
+# GCF publishes fourteen registers; the five that matter for eSIM modules are
+# these. All four product registers answer from the same listing endpoint and
+# return the same row shape (ref, manufacturer, model, marketing, date, View),
+# so a product can sit in several of them at once — key the dataset by ref and
+# record membership rather than duplicating rows.
+REGISTERS = [
+    {"key": "rsp", "label": "eSIM (RSP)", "name": "eSIM (RSP) certifications",
+     "slug": "rsp-certifications", "page_id": PAGEID_CERT, "min": 500},
+    {"key": "module_chipset", "label": "Module & chipset",
+     "name": "module and chipset certifications",
+     "slug": "module-and-chipset-certifications",
+     "page_id": "87AB7C69-EFF6-42C8-B3E991A547815CE5", "min": 600},
+    {"key": "cellular_iot", "label": "Cellular IoT product",
+     "name": "cellular IoT product certifications",
+     "slug": "cellular-iot-product-certifications",
+     "page_id": "740BC723-B62D-40BA-8C426DE036FC61BD", "min": 180},
+    {"key": "ntn", "label": "Non-terrestrial (NTN)",
+     "name": "non-terrestrial (NTN) certifications",
+     "slug": "all-non-terrestrial-certifications",
+     "page_id": "8550D901-4A4F-498B-ACC907AE029847E4", "min": 5},
+]
+REGISTER_BY_KEY = {r["key"]: r for r in REGISTERS}
+
+# The register is maintained but deliberately NOT published: the module library is
+# private. Jekyll honours `published: false` in a production build and GitHub Pages
+# builds in production, so the generated page stays in the repo and is served
+# nowhere. Redirects are suppressed too, otherwise /gcf-rsp would still resolve.
+# Flip PUBLISH to True and restore the links in index.md and llms.txt to republish.
+PUBLISH = False
+
+
 UA = ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) "
       "Chrome/124.0 Safari/537.36")
 HEADERS = {"User-Agent": UA, "From": "code@tuddenham.info",
@@ -140,7 +171,7 @@ def parse_cert_row(cells, embedded):
     ref, mfr, model, marketing, when = cells[0], cells[1], cells[2], cells[3], cells[4]
     return {"ref": ref, "manufacturer": mfr, "model": model, "marketing": marketing,
             "certified": iso_date(when), "embedded_module": embedded,
-            "gcf_url": f"{HOST}/pub_product/{ref}.html"}
+            "registers": [], "gcf_url": f"{HOST}/pub_product/{ref}.html"}
 
 
 def parse_declaration(body):
@@ -213,25 +244,40 @@ def parse_product(ref, body):
 
 
 def harvest(enrich=True):
-    print("listing: RSP certifications")
-    cert_rows = walk_listing(CERT_LISTING, PAGEID_CERT)
-    print(f"  {len(cert_rows)} rows")
+    products, membership = {}, {}
+    for reg in REGISTERS:
+        print(f"listing: {reg['name']}")
+        rows = walk_listing(CERT_LISTING, reg["page_id"])
+        refs = set()
+        for cells in rows:
+            row = parse_cert_row(cells, False)
+            refs.add(row["ref"])
+            products.setdefault(row["ref"], row)
+        membership[reg["key"]] = refs
+        print(f"  {len(rows)} rows, {len(refs)} distinct")
+
     print("listing: RSP certifications, embedded modules only")
     mod_rows = walk_listing(CERT_LISTING, PAGEID_CERT, {"embededModuleOnly": "1"})
     print(f"  {len(mod_rows)} rows")
-    print("listing: RSP compliance declarations")
-    comp_rows = walk_listing(COMP_LISTING, PAGEID_COMP)
-    print(f"  {len(comp_rows)} rows")
-
     embedded_refs = {r[0] for r in mod_rows}
-    products = {}
-    for cells in cert_rows:
-        row = parse_cert_row(cells, cells[0] in embedded_refs)
-        products[row["ref"]] = row
     # The filtered listing can contain a ref the unfiltered walk skipped when the
     # sort order drifts mid-harvest. Keep it rather than silently dropping a module.
     for cells in mod_rows:
         products.setdefault(cells[0], parse_cert_row(cells, True))
+    for ref in embedded_refs:
+        if ref in products:
+            products[ref]["embedded_module"] = True
+    membership["rsp_embedded"] = set(embedded_refs)
+
+    # A product can hold several certifications at once (a module is routinely in
+    # both the RSP and the module-and-chipset registers). Record every register it
+    # appears in, in REGISTERS order so the badges render stably.
+    for ref, row in products.items():
+        row["registers"] = [r["key"] for r in REGISTERS if ref in membership[r["key"]]]
+
+    print("listing: RSP compliance declarations")
+    comp_rows = walk_listing(COMP_LISTING, PAGEID_COMP)
+    print(f"  {len(comp_rows)} rows")
 
     compliance, seen = [], set()
     for cells in comp_rows:
@@ -252,26 +298,31 @@ def harvest(enrich=True):
                 gcf_url = products[ref]["gcf_url"]
                 products[ref].update({k: v for k, v in facts.items() if k != "detail_parsed"})
                 products[ref]["gcf_url"] = gcf_url
-            if i % 50 == 0:
+            if i % 200 == 0:
                 print(f"  {i}/{len(todo)}")
 
-    return products, compliance
+    return products, compliance, membership
 
 
-def guard(products, compliance):
+def guard(products, compliance, membership):
     """Refuse to overwrite a good dataset with a shrunken one.
 
     The listings are one HTML template away from returning nothing, and a silent
-    empty rebuild would quietly empty the site.
+    empty rebuild would quietly empty the site. Every register is checked on its
+    own: a crawl that breaks one pageId must not be masked by the others.
     """
     problems = []
     mods = [p for p in products.values() if p.get("embedded_module")]
-    if len(products) < 400:
-        problems.append(f"only {len(products)} product certifications (expected ~600)")
+    if len(products) < 1200:
+        problems.append(f"only {len(products)} products across all registers (expected ~1370)")
     if len(mods) < 25:
-        problems.append(f"only {len(mods)} embedded modules (expected ~38)")
+        problems.append(f"only {len(mods)} embedded modules (expected ~40)")
     if len(compliance) < 300:
         problems.append(f"only {len(compliance)} compliance declarations (expected ~435)")
+    for reg in REGISTERS:
+        n = len(membership.get(reg["key"], ()))
+        if n < reg["min"]:
+            problems.append(f"register '{reg['key']}' returned only {n} products (expected >= {reg['min']})")
     bad = [p["ref"] for p in products.values() if not p.get("manufacturer") or not p.get("certified")]
     if bad:
         problems.append(f"{len(bad)} products missing manufacturer or date: {bad[:5]}")
@@ -281,6 +332,10 @@ def guard(products, compliance):
             prev_n = len(prev.get("products", []))
             if prev_n and len(products) < prev_n * 0.9:
                 problems.append(f"product count fell {prev_n} -> {len(products)}")
+            prev_regs = prev.get("counts", {}).get("registers", {})
+            for key, n in prev_regs.items():
+                if n and len(membership.get(key, ())) < n * 0.9:
+                    problems.append(f"register '{key}' fell {n} -> {len(membership.get(key, ()))}")
         except (ValueError, KeyError):
             pass
     return problems
@@ -447,12 +502,20 @@ def module_row(g):
             f"</tr>")
 
 
+def register_labels(p):
+    return [REGISTER_BY_KEY[k]["label"] for k in p.get("registers", []) if k in REGISTER_BY_KEY]
+
+
 def cert_row(p):
-    return (f'<tr class="gcf-row" data-flags="" '
-            f'data-search="{search_attrs(p["manufacturer"], p["model"], p["marketing"], rsp_label(p))}">'
+    regs = register_labels(p)
+    flags = " ".join(f"reg-{k}" for k in p.get("registers", []))
+    badges = " · ".join(regs) or "—"
+    return (f'<tr class="gcf-row" data-flags="{flags}" '
+            f'data-search="{search_attrs(p["manufacturer"], p["model"], p["marketing"], rsp_label(p), " ".join(regs))}">'
             f'<td>{esc(p["manufacturer"])}</td><td>{esc(p["model"])}</td>'
             f'<td>{esc(p["marketing"])}</td><td class="gcf-c">{esc(rsp_label(p))}</td>'
             f'<td class="gcf-c">{esc(euicc_label(p))}</td>'
+            f'<td class="gcf-c">{esc(badges)}</td>'
             f'<td class="gcf-c">{esc(p["certified"])}</td>'
             f'<td class="gcf-c"><a href="{esc(p["gcf_url"])}" rel="noopener">{esc(p["ref"])}</a></td></tr>')
 
@@ -557,7 +620,7 @@ document.addEventListener('DOMContentLoaded', function(){
 """
 
 
-def render_docs(products, compliance, fetched):
+def render_docs(products, compliance, fetched, membership):
     links = load_links()
     mods = group_modules(products, links)
     mods_records = sum(len(g["records"]) for g in mods)
@@ -566,41 +629,51 @@ def render_docs(products, compliance, fetched):
     docs_vendor = sum(1 for g in mods if g["vendor_url"])
     certs = sorted(products.values(), key=lambda p: p["certified"], reverse=True)
     decls = sorted(compliance, key=lambda c: c["certified"], reverse=True)
+    reg_counts = {r["key"]: len(membership.get(r["key"], ())) for r in REGISTERS}
 
     sgp22 = sum(1 for g in mods if g["rsp"]["sgp22_consumer"])
     sgp02 = sum(1 for g in mods if g["rsp"]["sgp02_m2m"])
     soldered = sum(1 for g in mods if g["euicc"]["non_removable"])
 
     out = []
-    out.append("""---
+    pub = "" if PUBLISH else "published: false\n"
+    redirects = ("" if not PUBLISH else
+                 "redirect_from:\n  - /gcf-rsp\n  - /gcf-rsp/\n")
+    out.append(f"""---
 layout: default
-title: "GCF-certified eSIM Modules and RSP Devices: The Searchable Register"
-description: "Every cellular module GCF has certified for embedded eSIM, with the facts GCF's own list cannot filter: consumer RSP (SGP.22) vs M2M RSP (SGP.02), soldered or removable eUICC, band support and 3GPP release. Plus every RSP certification and RSP compliance declaration, searchable."
-redirect_from:
-  - /gcf-rsp
-  - /gcf-rsp/
----
+{pub}title: "GCF-certified eSIM Modules and RSP Devices: The Searchable Register"
+description: "Every cellular module GCF has certified for embedded eSIM, with the facts GCF's own list cannot filter: consumer RSP (SGP.22) vs M2M RSP (SGP.02), soldered or removable eUICC, band support and 3GPP release. Plus five GCF registers mirrored and searchable: eSIM (RSP) certifications and compliance, module and chipset, cellular IoT product, and non-terrestrial (NTN)."
+{redirects}---
 
 # GCF-certified eSIM modules and RSP devices
 
-GCF publishes three registers of eSIM/RSP certification, ten rows at a time, and
+GCF publishes fourteen registers of certified products, ten rows at a time, and
 none of them can be filtered by the question that matters: **does this module do
 consumer RSP or only M2M RSP, and is its eUICC soldered or a removable chip?**
 Those facts are in the product declarations but not in the listing.
 
-This page is a mirror of all three registers with those facts pulled out.
+This page mirrors the five registers that bear on eSIM modules — the two RSP
+registers, plus module and chipset, cellular IoT product, and non-terrestrial
+(NTN) — with those facts pulled out and one row per product rather than one row
+per certification.
 """)
     out.append(f"""<div class="gcf-src">
 <b>Source:</b> GCF's public certification registers —
-<a href="{HOST}/gcf-certified-products/rsp-certifications.html">eSIM (RSP) Certifications</a> and
-<a href="{HOST}/gcf-certified-products/rsp-compliance.html">eSIM (RSP) Compliance</a> —
+<a href="{HOST}/gcf-certified-products/rsp-certifications.html">eSIM (RSP) Certifications</a>,
+<a href="{HOST}/gcf-certified-products/rsp-compliance.html">eSIM (RSP) Compliance</a>,
+<a href="{HOST}/gcf-certified-products/module-and-chipset-certifications.html">Module and Chipset</a>,
+<a href="{HOST}/gcf-certified-products/cellular-iot-product-certifications.html">Cellular IoT Product</a> and
+<a href="{HOST}/gcf-certified-products/all-non-terrestrial-certifications.html">Non-Terrestrial (NTN)</a> —
 including each product's own declaration page, linked from every row below.
 Harvested {fetched}. <b>This is an unofficial mirror:</b> GCF is the authority, and
 where this page differs from GCF, GCF is right. Not affiliated with or endorsed by GCF.
 </div>
 
 **Snapshot:** harvested {fetched} · **{len(mods)}** embedded modules ·
-**{len(products)}** RSP product certifications · **{len(compliance)}** RSP compliance declarations.
+**{len(products)}** distinct certified products across
+**{reg_counts['rsp']}** eSIM (RSP), **{reg_counts['module_chipset']}** module and chipset,
+**{reg_counts['cellular_iot']}** cellular IoT and **{reg_counts['ntn']}** NTN certifications ·
+**{len(compliance)}** RSP compliance declarations.
 Generated by `scripts/build-gcf-rsp.py` into `data/gcf-rsp.json`; do not edit this page by hand.
 """)
     out.append(STYLE)
@@ -648,24 +721,34 @@ manufacturer declared in the certification declaration: `SGP.22` is consumer RSP
 consumer-provisioned by an SM-DP+. *eUICC* is the mounting: `soldered` is a
 non-removable eUICC (MFF2 or integrated), `removable` is a pluggable eUICC, `both`
 means both options are declared. *Bands* counts the radio bands declared, not the
-module's full capability. *Certified* is GCF's certification date; a `+N` suffix
-means the module was re-certified N further times — the tooltip lists every date.
+module's full capability. *Registers* is every GCF register the product holds a
+certification in — `eSIM (RSP)`, `Module & chipset`, `Cellular IoT product` or
+`Non-terrestrial (NTN)` — and the chips above filter on exactly those. *Certified*
+is GCF's certification date; a `+N` suffix means the module was re-certified N
+further times — the tooltip lists every date.
 
 A module with no bands at all is usually an eUICC chip certified as a component
 rather than a modem — SIMCom's E7088 and E7080 are in this list on those terms.
 """)
 
+    chips = "".join(
+        f'  <button class="gcf-chip" data-filter="reg-{r["key"]}">{r["label"]} ({reg_counts[r["key"]]})</button>\n'
+        for r in REGISTERS)
     out.append(f"""
-## All RSP product certifications ({len(products)})
+## All certified products ({len(products)})
 
-Every product GCF has certified under the eSIM (RSP) scheme — phones, wearables,
-routers, automotive units and modules. Same columns as above.
+Every product across the four certification registers, one row per product: phones,
+wearables, routers, automotive units, modules and chipsets. **Registers** names
+every register the product holds a certification in, which is how you find, for
+example, a module certified for RSP *and* listed as a module/chipset platform.
 """)
-    out.append(f"""<p class="gcf-count" data-gcf-count="certs">Showing <b>{len(certs)}</b> of {len(certs)} records.</p>
+    out.append(f"""<div class="gcf-controls">
+{chips}</div>
+<p class="gcf-count" data-gcf-count="certs">Showing <b>{len(certs)}</b> of {len(certs)} products.</p>
 <div class="gcf-wrap" data-scope="certs">
 <table class="gcf">
 <thead><tr><th>Manufacturer</th><th>Model</th><th>Marketing name</th><th>RSP</th>
-<th>eUICC</th><th>Certified</th><th>GCF ref</th></tr></thead>
+<th>eUICC</th><th>Registers</th><th>Certified</th><th>GCF ref</th></tr></thead>
 <tbody>""")
     out.extend(cert_row(p) for p in certs)
     out.append("</tbody></table></div>")
@@ -708,8 +791,13 @@ against SGP.22 and SGP.02.
 ## Source
 
 - **Registers:** [GCF eSIM (RSP) Certifications]({HOST}/gcf-certified-products/rsp-certifications.html)
-  (filtered to embedded modules with GCF's `embededModuleOnly` flag) and
-  [GCF eSIM (RSP) Compliance]({HOST}/gcf-certified-products/rsp-compliance.html).
+  (filtered to embedded modules with GCF's `embededModuleOnly` flag),
+  [GCF eSIM (RSP) Compliance]({HOST}/gcf-certified-products/rsp-compliance.html),
+  [Module and Chipset]({HOST}/gcf-certified-products/module-and-chipset-certifications.html),
+  [Cellular IoT Product]({HOST}/gcf-certified-products/cellular-iot-product-certifications.html) and
+  [Non-Terrestrial (NTN)]({HOST}/gcf-certified-products/all-non-terrestrial-certifications.html).
+  The four product registers share one listing endpoint and row shape, so a product
+  certified in two of them is one row here with two registers named.
 - **Per-record facts:** the declaration table on each product's own GCF page
   (`{HOST}/pub_product/<ref>.html`), linked from the GCF ref column of every row.
 - **Harvested:** {fetched}. GCF publishes these lists ten rows at a time from a
@@ -726,23 +814,30 @@ the script.*
     return "".join(out)
 
 
-def render_ai(products, compliance, fetched):
+def render_ai(products, compliance, fetched, membership):
     links = load_links()
     mods = group_modules(products, links)
     certs = sorted(products.values(), key=lambda p: p["certified"], reverse=True)
     decls = sorted(compliance, key=lambda c: c["certified"], reverse=True)
+    reg_counts = {r["key"]: len(membership.get(r["key"], ())) for r in REGISTERS}
 
+    pub = "" if PUBLISH else "published: false\n"
     out = [f"""---
 layout: default
-title: "GCF RSP Register, Condensed (machine-readable)"
+{pub}title: "GCF RSP Register, Condensed (machine-readable)"
 description: "One row per GCF eSIM (RSP) certified module: manufacturer, model, certification date, declared RSP flavour (SGP.22 consumer / SGP.02 M2M), eUICC mounting, bands, vendor page, datasheet and AT command manual URLs, and GCF reference. Plus every RSP certification and compliance declaration. For programmatic or LLM extraction."
 ---
 
 # GCF RSP Register, Condensed
 
-Snapshot harvested {fetched}. Unofficial mirror of GCF's public
-registers: [{HOST}/gcf-certified-products/rsp-certifications.html]({HOST}/gcf-certified-products/rsp-certifications.html).
+Snapshot harvested {fetched}. Unofficial mirror of five GCF public
+registers, starting with
+[{HOST}/gcf-certified-products/rsp-certifications.html]({HOST}/gcf-certified-products/rsp-certifications.html).
 GCF is the authority. Full page with search and filters: [GCF-certified eSIM modules]({{{{ site.baseurl }}}}/docs/gcf-rsp-modules)
+
+Register sizes at this harvest: **{reg_counts['rsp']}** eSIM (RSP) · **{reg_counts['module_chipset']}** module and chipset ·
+**{reg_counts['cellular_iot']}** cellular IoT product · **{reg_counts['ntn']}** non-terrestrial (NTN) ·
+**{len(compliance)}** RSP compliance declarations. **{len(products)}** distinct products across the four certification registers.
 
 Columns: **Manufacturer**, **Model**, **Certified** (ISO date of the latest
 certification), **N** (how many certification records exist for that module),
@@ -774,16 +869,18 @@ certified as a component rather than a modem.
                    f"{', '.join(g['refs'])} |\n")
 
     out.append(f"""
-## All RSP product certifications ({len(products)})
+## All certified products ({len(products)})
 
-Every product in GCF's eSIM (RSP) certification register.
+Every product across the four certification registers. `Registers` lists the
+GCF registers the product holds a certification in: eSIM (RSP), Module & chipset,
+Cellular IoT product, Non-terrestrial (NTN).
 
-| Manufacturer | Model | Marketing name | Certified | RSP | eUICC | GCF ref |
-|---|---|---|---|---|---|---|
+| Manufacturer | Model | Marketing name | Certified | RSP | eUICC | Registers | GCF ref |
+|---|---|---|---|---|---|---|---|
 """)
     for p in certs:
         out.append(f"| {p['manufacturer']} | {p['model']} | {p['marketing']} | {p['certified']} | "
-                   f"{rsp_label(p)} | {euicc_label(p)} | {p['ref']} |\n")
+                   f"{rsp_label(p)} | {euicc_label(p)} | {', '.join(register_labels(p)) or '-'} | {p['ref']} |\n")
 
     out.append(f"""
 ## RSP compliance declarations ({len(compliance)})
@@ -809,8 +906,8 @@ def main():
     ap.add_argument("--no-enrich", action="store_true", help="skip product detail pages")
     args = ap.parse_args()
 
-    products, compliance = harvest(enrich=not args.no_enrich)
-    problems = guard(products, compliance)
+    products, compliance, membership = harvest(enrich=not args.no_enrich)
+    problems = guard(products, compliance, membership)
     if problems:
         print("REFUSING to write -- dataset looks wrong:", file=sys.stderr)
         for p in problems:
@@ -821,12 +918,12 @@ def main():
     fetched = date.today().isoformat()
     payload = {
         "generatedFrom": f"{HOST}/gcf-certified-products/rsp-certifications.html",
-        "source": {"certifications": f"{HOST}/gcf-certified-products/rsp-certifications.html",
-                   "compliance": f"{HOST}/gcf-certified-products/rsp-compliance.html",
+        "source": {**{r["key"]: f"{HOST}/gcf-certified-products/{r['slug']}.html" for r in REGISTERS},
                    "note": "Unofficial mirror. GCF is authoritative."},
         "fetched": fetched,
         "counts": {"products": len(products), "embedded_modules": len(mods),
-                   "compliance": len(compliance)},
+                   "compliance": len(compliance),
+                   "registers": {r["key"]: len(membership.get(r["key"], ())) for r in REGISTERS}},
         "products": sorted(products.values(), key=lambda p: p["ref"]),
         "compliance": compliance,
     }
@@ -838,10 +935,10 @@ def main():
 
     docs = os.path.join(ROOT, "docs", "gcf-rsp-modules.md")
     with open(docs, "w", encoding="utf-8") as f:
-        f.write(render_docs(products, compliance, fetched))
+        f.write(render_docs(products, compliance, fetched, membership))
     ai = os.path.join(ROOT, "ai", "gcf-rsp-modules.md")
     with open(ai, "w", encoding="utf-8") as f:
-        f.write(render_ai(products, compliance, fetched))
+        f.write(render_ai(products, compliance, fetched, membership))
     print(f"wrote {docs} and {ai}")
     return 0
 
